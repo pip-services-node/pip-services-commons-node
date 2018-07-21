@@ -2,6 +2,7 @@
 /src
 /test
 /obj/test
+/doc/api
 /data
 /Dockerfile*
 /docker-compose*
