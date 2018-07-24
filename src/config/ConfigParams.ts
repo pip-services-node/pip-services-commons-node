@@ -23,10 +23,10 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * 
  * All keys stored in the map are case-insensitive.
  * 
- * ConfigParams can be used to configure objects of classes that implement {@link IConfigurable}.
+ * ConfigParams can be used to configure objects of classes that implement [[IConfigurable]].
  * 
- * @see IConfigurable
- * @see StringValueMap
+ * @see [[IConfigurable]]
+ * @see [[StringValueMap]]
  */
 export class ConfigParams extends StringValueMap {
 
@@ -37,7 +37,7 @@ export class ConfigParams extends StringValueMap {
 	 * 
 	 * @param values 	configuration parameters to store in this object. Defaults to null.
 	 * 
-	 * @see StringValueMap#StringValueMap
+	 * @see [[StringValueMap.StringValueMap]]
 	 */
 	public constructor(values: any = null) {
 		super(values);
@@ -139,11 +139,12 @@ export class ConfigParams extends StringValueMap {
 	 * Overrides the configuration parameters stored in this object with the ones in 
 	 * 'configParams'. If a configuration is already set in this ConfigParams object, 
 	 * it will be overwritten by the value in 'configParams' with the same key.
-	 * @see #setDefaults
 	 * 
 	 * @param configParams		configuration parameters to override the 
 	 * 							parameters of this object with.
 	 * @returns					ConfigParams object with overridden parameters.
+	 * 
+	 * @see [[setDefaults]]
 	 */
 	public override(configParams: ConfigParams): ConfigParams {
 		let map = StringValueMap.fromMaps(this, configParams);
@@ -155,10 +156,11 @@ export class ConfigParams extends StringValueMap {
 	 * default configuration parameters passed in 'defaultConfigParams'. If a 
 	 * configuration is already set in this ConfigParams object, it will not be
 	 * overwritten by the default value in 'defaultConfigParams' with the same key.
-	 * @see #override
 	 * 
 	 * @param defaultConfigParams	default configuration parameters (ConfigParams object).
 	 * @returns						ConfigParams object with newly set defaults.
+	 * 
+	 * @see [[override]]
 	 */
 	public setDefaults(defaultConfigParams: ConfigParams): ConfigParams {
 		let map = StringValueMap.fromMaps(defaultConfigParams, this);
@@ -172,7 +174,7 @@ export class ConfigParams extends StringValueMap {
 	 * @param value		configuration parameters in the form of an object with properties.
 	 * @returns			generated ConfigParams.
 	 * 
-	 * @see RecursiveObjectReader#getProperties
+	 * @see [[RecursiveObjectReader.getProperties]]
 	 */
 	public static fromValue(value: any): ConfigParams {
 		let map = RecursiveObjectReader.getProperties(value);
@@ -185,7 +187,7 @@ export class ConfigParams extends StringValueMap {
 	 * @param tuples	configuration parameters in the form of an array of tuples.
 	 * @returns			generated ConfigParams.
 	 * 
-	 * @see StringValueMap#fromTuplesArray
+	 * @see [[StringValueMap.fromTuplesArray]]
 	 */
 	public static fromTuples(...tuples: any[]): ConfigParams {
 		let map = StringValueMap.fromTuplesArray(tuples);
@@ -199,7 +201,7 @@ export class ConfigParams extends StringValueMap {
 	 * 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
 	 * @returns			generated ConfigParams.
 	 * 
-	 * @see StringValueMap#fromString
+	 * @see [[StringValueMap.fromString]]
 	 */
 	public static fromString(line: string): ConfigParams {
 		let map = StringValueMap.fromString(line);
@@ -215,7 +217,7 @@ export class ConfigParams extends StringValueMap {
 	 * 					highest index override the values of other ConfigParams with the same key).
 	 * @returns			merged ConfigParams.
 	 * 
-	 * @see StringValueMap#fromMaps
+	 * @see [[StringValueMap.fromMaps]]
 	 */
 	public static mergeConfigs(...configs: ConfigParams[]): ConfigParams {
 		let map = StringValueMap.fromMaps(...configs);

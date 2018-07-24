@@ -5,14 +5,14 @@ import { SortField } from './SortField';
  * Sorting parameters contain information about how to sort the
  * data from a data source, using the fields available. 
  * 
- * @see SortField
+ * @see [[SortField]]
  */
 export class SortParams extends Array<SortField> {
 
 	/**
      * @param fields    the SortFields to use when sorting data using these SortParams.
 	 * 
-	 * @see SortField
+	 * @see [[SortField]]
      */
 	public constructor(fields: SortField[] = null) {
         super();

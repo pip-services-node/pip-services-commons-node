@@ -10,8 +10,8 @@ export class FileException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.FileError and set the status to 500.
 	 * 
-	 * @see ApplicationException#ApplicationException
-	 * @see ErrorCategory
+	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {
 		super(ErrorCategory.FileError, correlation_id, code, message);

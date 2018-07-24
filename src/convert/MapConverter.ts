@@ -33,26 +33,26 @@ export class MapConverter {
     }
 
     /**
-     * Static method for converting values to maps using {@link #toNullableMap}. 
+     * Static method for converting values to maps using [[toNullableMap]]. 
      * An empty map will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     public static toMap(value: any): any {
         return MapConverter.toNullableMap(value) || {};
     }
 
     /**
-     * Static method for converting values to maps using {@link #toNullableMap}. 
+     * Static method for converting values to maps using [[toNullableMap]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      * 
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     public static toMapWithDefault(value: any, defaultValue: any): any {
         return MapConverter.toNullableMap(value) || defaultValue;

@@ -12,8 +12,8 @@ export class BadRequestException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.BadRequest and set the status to 400.
 	 * 
-	 * @see ApplicationException#ApplicationException
-	 * @see ErrorCategory
+	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {
 		super(ErrorCategory.BadRequest, correlation_id, code, message);

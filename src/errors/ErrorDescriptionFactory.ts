@@ -5,8 +5,8 @@ import { ApplicationException } from './ApplicationException';
 /**
  * Contains the static method 'create', which converts ApplicationExceptions and specific (unknown) errors into ErrorDescriptions.
  * 
- * @see ErrorDescription
- * @see ApplicationException
+ * @see [[ErrorDescription]]
+ * @see [[ApplicationException]]
  */
 export class ErrorDescriptionFactory {
 

@@ -16,7 +16,7 @@ import { MapConverter } from './MapConverter';
  * found in typical programming language, due to the fact that they support rare conversions between various data 
  * types (such as integer to timespan, timespan to string, and so on). 
  * 
- * @see TypeCode
+ * @see [[TypeCode]]
  */
 export class TypeConverter {
 
@@ -72,7 +72,7 @@ export class TypeConverter {
 	 * @param value 	the value to convert.
 	 * @returns			'value' as an object of type T. If 'value' is null - null will be returned.
 	 * 
-	 * @see #toTypeCode
+	 * @see [[toTypeCode]]
 	 */
 	public static toNullableType<T>(type: TypeCode, value: any): T {
 		if (value == null) return null;
@@ -107,8 +107,8 @@ export class TypeConverter {
 	 * 					TypeConverter.toNullableType<T>(type, value) is null, then a default
 	 * 					value for the given type will be returned.
 	 * 
-	 * @see #toNullableType<T>
-	 * @see #toTypeCode
+	 * @see [[toNullableType]]
+	 * @see [[toTypeCode]]
 	 */
 	public static toType<T>(type: TypeCode, value: any): T {
 		// Convert to the specified type
@@ -138,8 +138,8 @@ export class TypeConverter {
 	 * @returns				'value' as an object of type T or 'defaultValue', if the result of the 
 	 * 						conversion using TypeConverter.toNullableType<T>(type, value) is null.
 	 * 
-	 * @see #toNullableType<T>
-	 * @see #toTypeCode
+	 * @see [[toNullableType]]
+	 * @see [[toTypeCode]]
 	 */
 	public static toTypeWithDefault<T>(type: TypeCode, value: any, defaultValue: T): T {
 		let result: T = TypeConverter.toNullableType<T>(type, value);

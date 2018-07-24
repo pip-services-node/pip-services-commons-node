@@ -47,7 +47,7 @@ export class TagsProcessor {
     }
 
     /**
-     * Normalizes the tags contained in the passed String using {@link org.pipservices.runtime.data.TagProcessor#normalizeTag(String)}.
+     * Normalizes the tags contained in the passed String using [[normalizeTag]].
      *
      * @param tags  the tags to normalize.
      * @return      a String array of normalized tags.
@@ -62,7 +62,7 @@ export class TagsProcessor {
     }
 
     /**
-     * Compresses the tags contained in the passed String using {@link org.pipservices.runtime.data.TagProcessor#compressTag(String)}.
+     * Compresses the tags contained in the passed String using [[compressTag]].
      *
      * @param tags  the tags to compress.
      * @return      a String array of compressed tags.

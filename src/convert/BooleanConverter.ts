@@ -37,19 +37,19 @@ export class BooleanConverter {
     }
 
     /**
-     * Static method for converting values to booleans using {@link #toBooleanWithDefault}. 
+     * Static method for converting values to booleans using [[toBooleanWithDefault]]. 
      * False will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toBooleanWithDefault
+     * @see [[toBooleanWithDefault]]
      */
     public static toBoolean(value: any): boolean {
         return BooleanConverter.toBooleanWithDefault(value, false);
     }
 
     /**
-     * Static method for converting values to booleans using {@link #toNullableBoolean}. 
+     * Static method for converting values to booleans using [[toNullableBoolean]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
@@ -57,7 +57,7 @@ export class BooleanConverter {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to false if omitted.
      * 
-     * @see #toNullableBoolean
+     * @see [[toNullableBoolean]]
      */
     public static toBooleanWithDefault(value: any, defaultValue: boolean = false): boolean {
         var result = BooleanConverter.toNullableBoolean(value);
