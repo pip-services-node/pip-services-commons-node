@@ -105,7 +105,7 @@ export class RecursiveMapConverter {
      * @param value     the map to recursively convert.
      * @returns         the converted map or null.
      * 
-     * @see valueToMap
+     * @see [[valueToMap]]
      */
     public static toNullableMap(value: any): any {
         return RecursiveMapConverter.valueToMap(value);
@@ -118,8 +118,8 @@ export class RecursiveMapConverter {
      * @param value     the map to recursively convert.
      * @returns         the converted map or an empty map, if the conversion returns null.
      * 
-     * @see toNullableMap
-     * @see valueToMap
+     * @see [[toNullableMap]]
+     * @see [[valueToMap]]
      */
     public static toMap(value: any): any {
         return RecursiveMapConverter.toNullableMap(value) || {};
@@ -133,8 +133,8 @@ export class RecursiveMapConverter {
      * @param defaultValue  the value to return if the conversion returns null.
      * @returns             the converted map or the default value, if the conversion returns null.
      * 
-     * @see toNullableMap
-     * @see valueToMap
+     * @see [[toNullableMap]]
+     * @see [[valueToMap]]
      */
     public static toMapWithDefault(value: any, defaultValue: any): any {
         return RecursiveMapConverter.toNullableMap(value) || defaultValue;
