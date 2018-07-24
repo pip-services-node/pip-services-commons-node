@@ -1,3 +1,4 @@
+/** @module convert */
 export { StringConverter } from './StringConverter';
 export { BooleanConverter } from './BooleanConverter';
 export { IntegerConverter } from './IntegerConverter';

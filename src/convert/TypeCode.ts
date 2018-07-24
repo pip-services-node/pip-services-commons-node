@@ -1,3 +1,4 @@
+/** @module convert */
 /**
  * Codes for the data types that can be
  * converted using [[TypeConverter]].

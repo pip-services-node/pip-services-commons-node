@@ -1,3 +1,4 @@
+/** @module validate */
 import { IValidationRule } from './IValidationRule';
 import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';

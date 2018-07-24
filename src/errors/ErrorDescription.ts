@@ -1,3 +1,4 @@
+/** @module errors */
 /**
  * This class allows us to represent [[ApplicationException ApplicationExceptions]] in a serializable form.
  *   

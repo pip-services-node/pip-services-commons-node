@@ -1,3 +1,4 @@
+/** @module data */
 import { IntegerConverter } from '../convert/IntegerConverter';
 import { BooleanConverter } from '../convert/BooleanConverter';
 import { AnyValueMap } from './AnyValueMap';

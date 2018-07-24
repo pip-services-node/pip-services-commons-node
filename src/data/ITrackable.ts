@@ -1,3 +1,4 @@
+/** @module data */
 import { IChangeable } from './IChangeable';
 
 /**

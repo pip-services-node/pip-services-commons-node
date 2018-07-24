@@ -1,3 +1,4 @@
+/** @module data */
 import { StringValueMap } from './StringValueMap';
 
 /**

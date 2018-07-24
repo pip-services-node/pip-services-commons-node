@@ -1,3 +1,4 @@
+/** @module random */
 export { RandomInteger } from './RandomInteger';
 export { RandomFloat } from './RandomFloat';
 export { RandomDouble } from './RandomDouble';

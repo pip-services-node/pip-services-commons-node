@@ -1,3 +1,4 @@
+/** @module config */
 export { ConfigParams } from './ConfigParams';
 export { IConfigurable } from './IConfigurable';
 export { IReconfigurable } from './IReconfigurable';

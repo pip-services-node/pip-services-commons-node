@@ -1,3 +1,4 @@
+/** @module refer */
 import { Descriptor } from './Descriptor';
 
 /**

@@ -1,3 +1,4 @@
+/** @module reflect */
 import { ConfigException } from '../errors/ConfigException';
 
 export class TypeDescriptor {

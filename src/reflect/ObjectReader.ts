@@ -1,3 +1,4 @@
+/** @module reflect */
 let _ = require('lodash');
 
 import { PropertyReflector } from './PropertyReflector';

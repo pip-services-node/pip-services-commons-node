@@ -1,3 +1,4 @@
+/** @module refer */
 import { InternalException } from '../errors/InternalException';
 
 /**

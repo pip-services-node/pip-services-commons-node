@@ -1,3 +1,4 @@
+/** @module validate */
 import { ValidationResultType } from './ValidationResultType';
 
 export class ValidationResult {

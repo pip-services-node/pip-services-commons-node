@@ -1,3 +1,4 @@
+/** @module errors */
 import { ErrorCategory } from './ErrorCategory';
 import { ErrorDescription } from './ErrorDescription';
 import { ApplicationException } from './ApplicationException';

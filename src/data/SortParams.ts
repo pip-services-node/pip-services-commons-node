@@ -1,3 +1,4 @@
+/** @module data */
 import { SortField } from './SortField';
 
 /**

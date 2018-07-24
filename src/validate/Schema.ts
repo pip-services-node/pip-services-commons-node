@@ -1,3 +1,4 @@
+/** @module validate */
 let _ = require('lodash');
 
 import { IValidationRule } from './IValidationRule';

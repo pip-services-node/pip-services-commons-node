@@ -1,3 +1,4 @@
+/** @module convert */
 import { TypeCode } from './TypeCode';
 import { TypeConverter } from './TypeConverter';
 import { MapConverter } from './MapConverter';

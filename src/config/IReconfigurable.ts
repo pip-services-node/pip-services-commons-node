@@ -1,3 +1,4 @@
+/** @module config */
 import { IConfigurable } from './IConfigurable';
 
 /**

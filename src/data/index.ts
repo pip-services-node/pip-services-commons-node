@@ -1,3 +1,4 @@
+/** @module data */
 export { AnyValue } from './AnyValue';
 export { AnyValueArray } from './AnyValueArray';
 export { AnyValueMap } from './AnyValueMap';

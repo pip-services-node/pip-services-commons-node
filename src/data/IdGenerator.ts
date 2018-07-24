@@ -1,3 +1,4 @@
+/** @module data */
 let uuid = require('uuid');
 
 // Maps for number <-> hex string conversion

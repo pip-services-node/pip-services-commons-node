@@ -1,3 +1,4 @@
+/** @module data */
 import { TypeCode } from '../convert/TypeCode';
 import { TypeConverter } from '../convert/TypeConverter';
 import { StringConverter } from '../convert/StringConverter';

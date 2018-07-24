@@ -1,3 +1,4 @@
+/** @module data */
 /**
  * Class that includes standard design patterns for data projection. Projection parameters 
  * contain information about what data to retrieve from a data source. 

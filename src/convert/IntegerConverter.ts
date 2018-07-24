@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 import { LongConverter } from './LongConverter';

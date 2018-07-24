@@ -1,3 +1,4 @@
+/** @module refer */
 import { TypeCode } from '../convert/TypeCode';
 
 /**

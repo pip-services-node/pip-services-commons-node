@@ -1,3 +1,4 @@
+/** @module validate */
 import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
 import { BadRequestException } from '../errors/BadRequestException';
