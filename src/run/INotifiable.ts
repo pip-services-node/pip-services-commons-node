@@ -4,7 +4,6 @@ import { Parameters } from './Parameters';
 /**
  * Interface for active components that can be notified (called without expecting a result).
  */
-//TODO (Deprecated?): In contrast to [[IParamNotifiable]], this interface does not require parameters
 export interface INotifiable {
 	/**
 	 * Abstract method that will contain the logic for executing a unit of work.

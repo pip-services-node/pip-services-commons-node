@@ -14,8 +14,7 @@ export class Closer {
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param component 		the component that is to be closed.
      * @param callback 			the function to call when the closing process is complete. It will 
-	 * 							be called with an error, if one is raised. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+	 * 							be called with an error, if one is raised.
 	 * 
 	 * @see [[ICloseable]]
 	 */
@@ -39,8 +38,7 @@ export class Closer {
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param components 		the list of components that are to be closed.
      * @param callback 			the function to call when the closing process is complete. It will 
-	 * 							be called with an error, if one is raised. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+	 * 							be called with an error, if one is raised.
 	 * 
 	 * @see [[closeOne]]
 	 * @see [[ICloseable]]

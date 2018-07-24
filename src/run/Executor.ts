@@ -8,11 +8,10 @@ import { Parameters } from './Parameters';
  * Helper class that can be used to trigger execution of components.
  */
 export class Executor {
-    //TODO (Depricated?): implement IExecutable and IParamExecutable interfaces and passes to IParamExecutable them set of parameters. 
     /**
 	 * Static method for triggering the execution of a component. For a component to be executed, it must 
      * implement the [[IExecutable]] interface. This method calls IExecutable's [[IExecutable.execute execute]] 
-     * method to execute the component passed.
+     * method to execute the component passed as 'component', using the [[Parameters]] passed as 'args'.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param component 		the component that is to be executed.
@@ -21,6 +20,7 @@ export class Executor {
      *                          the result of the execution or with an error, if one is raised.
 	 * 
 	 * @see [[IExecutable]]
+     * @see [[Parameters]]
 	 */
 	public static executeOne(
 		correlationId: string, component: any, args: Parameters, callback: (err: any, result: any) => void) {
@@ -34,11 +34,10 @@ export class Executor {
         } else callback(null, null);
 	}
 
-    //TODO (Depricated?): implement IExecutable and IParamExecutable interfaces and passes to IParamExecutable them set of parameters. 
     /**
 	 * Static method for triggering the execution of multiple components. For a component to be executed, 
      * it must implement the [[IExecutable]] interface. This method calls the static [[executeOne]] method 
-     * for each of the components passed.
+     * for each of the components passed, using the [[Parameters]] passed as 'args'.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param components 		the list of components that are to be executed.
@@ -48,6 +47,7 @@ export class Executor {
 	 * 
 	 * @see [[executeOne]]
 	 * @see [[IExecutable]]
+     * @see [[Parameters]]
 	 */
     public static execute(correlationId: string, components: any[], args: Parameters, callback: (err: any, results: any[]) => void) {
         let results: any[] = [];				

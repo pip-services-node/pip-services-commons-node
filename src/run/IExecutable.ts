@@ -4,7 +4,6 @@ import { Parameters } from './Parameters';
 /**
  * Interface for active components that can be called to execute work.
  */
-//TODO (Deprecated?): In contrast to [[IParamExecutable]], this interface does not require parameters.
 export interface IExecutable {
 	/**
 	 * Abstract method that will contain the logic for executing a unit of work.

@@ -19,8 +19,7 @@ export interface IOpenable extends IClosable {
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
      * @param callback 			the function to call when the opening process is complete. It will 
-	 * 							be called with an error, if one is raised. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+	 * 							be called with an error, if one is raised.
 	 */
 	open(correlationId: string, callback?: (err: any) => void): void;
 }

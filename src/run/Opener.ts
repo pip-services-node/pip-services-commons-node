@@ -50,8 +50,7 @@ export class Opener {
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param component 		the component that is to be opened.
      * @param callback 			the function to call when the opening process is complete. It will 
-	 * 							be called with an error, if one is raised. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+	 * 							be called with an error, if one is raised.
 	 * 
 	 * @see [[IOpenable]]
 	 */
@@ -75,8 +74,7 @@ export class Opener {
 	 * @param correlationId 	unique business transaction id to trace calls across components.
 	 * @param components 		the list of components that are to be opened.
      * @param callback 			the function to call when the opening process is complete. It will 
-	 * 							be called with an error, if one is raised. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+	 * 							be called with an error, if one is raised.
 	 * 
 	 * @see [[openOne]]
 	 * @see [[IOpenable]]
