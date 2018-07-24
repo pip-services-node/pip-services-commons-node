@@ -4,8 +4,8 @@ import { StringValueMap } from '../data/StringValueMap';
 import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
 
 /**
- * Map with configuration parameters that uses complex keys with dot notation and simple 
- * string values.
+ * ConfigParams represent a hierarchical map that contains configuration parameters and 
+ * uses complex keys with dot notation to store simple string values.
  * 
  * Provides hierarchical organization of various configuration parameters using sections, 
  * subsections, and keys.
