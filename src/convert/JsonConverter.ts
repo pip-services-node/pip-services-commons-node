@@ -25,29 +25,21 @@ export class JsonConverter {
 	 * Static method for converting objects in to JSON strings.
 	 * 
 	 * @param value 	the value to convert.
-	 * @returns			the string generated using JSON.stringify().
-	 * 
-	 * @see [[https://www.w3schools.com/js/js_json_stringify.asp JSON.stringify()]]
+	 * @returns			the string generated using the standard JSON stringify method.
 	 */
 	public static toJson(value: any): string {
 		if (value == null) return null;
 		return JSON.stringify(value);
 	}
 
-	public static fromToObject(value: any): any {
-		return value;
-	}
-
 	/**
 	 * Static method for converting JSON strings to nullable maps. Uses 
-	 * [[https://www.w3schools.com/js/js_json_parse.asp JSON.parse()]]
-	 * and [[MapConverter.toNullableMap]].
+	 * the standard JSON parse method and [[MapConverter.toNullableMap]].
 	 * 
 	 * @param value 	the JSON string to convert.
 	 * @returns			the map created. If 'value' is null or the conversion
 	 * 					fails - null will be returned.
 	 * 
-	 * @see [[https://www.w3schools.com/js/js_json_parse.asp JSON.parse()]]
 	 * @see [[MapConverter.toNullableMap]]
 	 */
 	public static toNullableMap(value: string): any {
