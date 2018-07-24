@@ -124,6 +124,16 @@ export class TypeConverter {
 			value = 0;
 		else if (type == TypeCode.Double)
 			value = 0;
+		else if (type == TypeCode.Boolean) // cases from here down were added by Mark Makarychev.
+			value = false;
+		else if (type == TypeCode.String)
+			value = "";
+		else if (type == TypeCode.DateTime)
+			value = new Date();
+		else if (type == TypeCode.Map)
+			value = {};
+		else if (type == TypeCode.Array)
+			value = [];
 
 		return <T>value;
 	}
@@ -134,7 +144,7 @@ export class TypeConverter {
 	 * 
 	 * @param type 			the TypeCode for the data type into which 'value' is to be converted.
 	 * @param value 		the value to convert.
-	 * @param defaultValue	the default value to return if conversion fails (returns null).
+	 * @param defaultValue	the default value to return if conversion is not possible (returns null).
 	 * @returns				'value' as an object of type T or 'defaultValue', if the result of the 
 	 * 						conversion using TypeConverter.toNullableType<T>(type, value) is null.
 	 * 
