@@ -1,3 +1,4 @@
+/** @module run */
 let _ = require('lodash');
 
 import { IClosable } from './IClosable';

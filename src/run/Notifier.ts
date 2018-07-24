@@ -1,17 +1,22 @@
+/** @module run */
 let _ = require('lodash');
 
 import { Parameters } from './Parameters';
 
 /**
- * Helper class that triggers notification for components
+ * Helper class that can be used to trigger notifications for components.
  */
 export class Notifier {
 	/**
-	 * Triggers notification for component that implement INotifiable interface. 
+	 * Static method for triggering notifications for a component. For a component to be notified, it must 
+	 * implement the [[INotifiable]] interface. This method calls INotifiable's [[INotifiable.notify notify]] 
+	 * method to notify the component passed.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
-	 * @param components 		list of components to be notified.
-	 * @param args 				set of parameters to pass to notified components.
+	 * @param component 		the component that is to be notified.
+     * @param args              the parameters (arguments) to pass to the component.
+	 * 
+	 * @see [[INotifiable]]
 	 */
 	public static notifyOne(correlationId: string, component: any, args: Parameters): void {
         if (_.isFunction(component.notify))
@@ -19,11 +24,16 @@ export class Notifier {
 	}
 
 	/**
-	 * Triggers notification for components that implement INotifiable interface. 
+	 * Static method for triggering notifications for multiple components. For a component to be notified, 
+     * it must implement the [[INotifiable]] interface. This method calls the static [[notifyOne]] method 
+     * for each of the components passed.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
-	 * @param components 		list of components to be notified.
-	 * @param args 				set of parameters to pass to notified components.
+	 * @param components 		the list of components that are to be notified.
+     * @param args              the parameters (arguments) to pass to the components.
+	 * 
+	 * @see [[notifyOne]]
+	 * @see [[INotifiable]]
 	 */
     public static notify(correlationId: string, components: any[], args: Parameters): void {
 		if (components == null) return;
