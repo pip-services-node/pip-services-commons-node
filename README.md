@@ -23,7 +23,7 @@ All functionality is decomposed into several packages:
 Quick Links:
 
 * [Downloads](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Downloads.md)
-* [API Reference](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/global.html)
+* [API Reference](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/globals.html)
 * [Building and Testing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md)
 * [Contributing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md/#contrib)
 
