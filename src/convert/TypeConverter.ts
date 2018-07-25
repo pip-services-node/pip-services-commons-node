@@ -13,9 +13,11 @@ import { ArrayConverter } from './ArrayConverter';
 import { MapConverter } from './MapConverter';
 
 /**
- * Class that contains "soft" data converters. Soft data converters differ from the data conversion algorithms 
- * found in typical programming language, due to the fact that they support rare conversions between various data 
- * types (such as integer to timespan, timespan to string, and so on). 
+ * Class that uses the converters available in this package to perform "soft" data conversions between various data types, 
+ * as well as resolve the [[TypeCode]] of an object. 
+ * 
+ * Soft data converters differ from the data conversion algorithms found in typical programming language, due to the fact 
+ * that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on). 
  * 
  * @see [[TypeCode]]
  */
