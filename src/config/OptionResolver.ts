@@ -14,7 +14,7 @@ export class OptionResolver {
      * 
      * @param config            ConfigParams, whose options are to be resolved.
      * @param configAsDefault   (optional) Defines whether 'config' should be returned if no options are found. 
-     *                          Default to false if omitted.
+     *                          Defaults to false if omitted.
      * @returns                 resolved options or 'config' (if none were found and 'configAsDefault' 
      *                          was set to true).
      */
