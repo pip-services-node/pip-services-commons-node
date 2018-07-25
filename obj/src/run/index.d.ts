@@ -1,3 +1,4 @@
+/** @module run */
 export { Parameters } from './Parameters';
 export { IParameterized } from './IParameterized';
 export { IOpenable } from './IOpenable';

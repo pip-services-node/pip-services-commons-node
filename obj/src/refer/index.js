@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module refer */
 var Descriptor_1 = require("./Descriptor");
 exports.Descriptor = Descriptor_1.Descriptor;
 var DependencyResolver_1 = require("./DependencyResolver");

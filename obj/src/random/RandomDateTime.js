@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module random */
 var RandomInteger_1 = require("./RandomInteger");
 /**
  * Provides methods that can be used for generating random Dates/DateTimes, as well as updating existing DateTimes

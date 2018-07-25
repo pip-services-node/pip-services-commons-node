@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 var TypeCode_1 = require("./TypeCode");
 var StringConverter_1 = require("./StringConverter");
@@ -11,11 +12,13 @@ var DateTimeConverter_1 = require("./DateTimeConverter");
 var ArrayConverter_1 = require("./ArrayConverter");
 var MapConverter_1 = require("./MapConverter");
 /**
- * Class that contains "soft" data converters. Soft data converters differ from the data conversion algorithms
- * found in typical programming language, due to the fact that they support rare conversions between various data
- * types (such as integer to timespan, timespan to string, and so on).
+ * Class that uses the converters available in this package to perform "soft" data conversions between various data types,
+ * as well as resolve the [[TypeCode]] of an object.
  *
- * @see TypeCode
+ * Soft data converters differ from the data conversion algorithms found in typical programming language, due to the fact
+ * that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on).
+ *
+ * @see [[TypeCode]]
  */
 var TypeConverter = /** @class */ (function () {
     function TypeConverter() {
@@ -67,7 +70,7 @@ var TypeConverter = /** @class */ (function () {
      * @param value 	the value to convert.
      * @returns			'value' as an object of type T. If 'value' is null - null will be returned.
      *
-     * @see #toTypeCode
+     * @see [[toTypeCode]]
      */
     TypeConverter.toNullableType = function (type, value) {
         if (value == null)
@@ -100,8 +103,8 @@ var TypeConverter = /** @class */ (function () {
      * 					TypeConverter.toNullableType<T>(type, value) is null, then a default
      * 					value for the given type will be returned.
      *
-     * @see #toNullableType<T>
-     * @see #toTypeCode
+     * @see [[toNullableType]]
+     * @see [[toTypeCode]]
      */
     TypeConverter.toType = function (type, value) {
         // Convert to the specified type
@@ -117,6 +120,16 @@ var TypeConverter = /** @class */ (function () {
             value = 0;
         else if (type == TypeCode_1.TypeCode.Double)
             value = 0;
+        else if (type == TypeCode_1.TypeCode.Boolean) // cases from here down were added by Mark Makarychev.
+            value = false;
+        else if (type == TypeCode_1.TypeCode.String)
+            value = "";
+        else if (type == TypeCode_1.TypeCode.DateTime)
+            value = new Date();
+        else if (type == TypeCode_1.TypeCode.Map)
+            value = {};
+        else if (type == TypeCode_1.TypeCode.Array)
+            value = [];
         return value;
     };
     /**
@@ -125,12 +138,12 @@ var TypeConverter = /** @class */ (function () {
      *
      * @param type 			the TypeCode for the data type into which 'value' is to be converted.
      * @param value 		the value to convert.
-     * @param defaultValue	the default value to return if conversion fails (returns null).
+     * @param defaultValue	the default value to return if conversion is not possible (returns null).
      * @returns				'value' as an object of type T or 'defaultValue', if the result of the
      * 						conversion using TypeConverter.toNullableType<T>(type, value) is null.
      *
-     * @see #toNullableType<T>
-     * @see #toTypeCode
+     * @see [[toNullableType]]
+     * @see [[toTypeCode]]
      */
     TypeConverter.toTypeWithDefault = function (type, value, defaultValue) {
         var result = TypeConverter.toNullableType(type, value);

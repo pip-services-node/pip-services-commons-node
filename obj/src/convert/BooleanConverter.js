@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the boolean data type.
@@ -37,18 +38,18 @@ var BooleanConverter = /** @class */ (function () {
         return null;
     };
     /**
-     * Static method for converting values to booleans using {@link #toBooleanWithDefault}.
+     * Static method for converting values to booleans using [[toBooleanWithDefault]].
      * False will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toBooleanWithDefault
+     * @see [[toBooleanWithDefault]]
      */
     BooleanConverter.toBoolean = function (value) {
         return BooleanConverter.toBooleanWithDefault(value, false);
     };
     /**
-     * Static method for converting values to booleans using {@link #toNullableBoolean}.
+     * Static method for converting values to booleans using [[toNullableBoolean]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
@@ -56,7 +57,7 @@ var BooleanConverter = /** @class */ (function () {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to false if omitted.
      *
-     * @see #toNullableBoolean
+     * @see [[toNullableBoolean]]
      */
     BooleanConverter.toBooleanWithDefault = function (value, defaultValue) {
         if (defaultValue === void 0) { defaultValue = false; }

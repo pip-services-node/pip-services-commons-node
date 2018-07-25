@@ -1,3 +1,4 @@
+/** @module refer */
 /**
  * Interface for components that require clear of references to other components
  */

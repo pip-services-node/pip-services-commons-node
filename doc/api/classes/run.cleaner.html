@@ -108,7 +108,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/run/Cleaner.ts#L48">run/Cleaner.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/Cleaner.ts#L46">run/Cleaner.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -117,6 +117,8 @@
 										the <a href="../interfaces/run.icleanable.html">ICleanable</a> interface. This method calls the static <a href="run.cleaner.html#clearone">clearOne</a> method for each of the
 									components passed.</p>
 								</div>
+								<pre><code>                        be called <span class="hljs-keyword">with</span> an <span class="hljs-keyword">error</span>, <span class="hljs-keyword">if</span> one <span class="hljs-keyword">is</span> raised.
+</code></pre>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.cleaner.html#clearone">clearOne</a></p>
@@ -143,9 +145,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the clearing process is complete. It will
-											be called with an error, if one is raised. If omitted, then the
-										function will run synchronously and throw exceptions.</p>
+										<p>the function to call when the clearing process is complete. It will</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -181,42 +181,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/run/Cleaner.ts#L22">run/Cleaner.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/Cleaner.ts#L21">run/Cleaner.ts:21</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for cleaning a component. For a component to be cleaned, it must implement
-										the <a href="../interfaces/run.icleanable.html">ICleanable</a> interface. This method calls ICleanable&#39;s <a href="../interfaces/run.icleanable.html#clear">clear</a> method
-									to clear the component passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="../interfaces/run.icleanable.html">ICleanable</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>unique business transaction id to trace calls across components.</p>
-									</div>
 								</li>
 								<li>
 									<h5>component: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the component that is to be cleaned.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the clearing process is complete. It will
-											be called with an error, if one is raised. If omitted, then the
-										function will run synchronously and throw exceptions.</p>
-									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">

@@ -19,16 +19,16 @@ export declare class BooleanConverter {
      */
     static toNullableBoolean(value: any): boolean;
     /**
-     * Static method for converting values to booleans using {@link #toBooleanWithDefault}.
+     * Static method for converting values to booleans using [[toBooleanWithDefault]].
      * False will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toBooleanWithDefault
+     * @see [[toBooleanWithDefault]]
      */
     static toBoolean(value: any): boolean;
     /**
-     * Static method for converting values to booleans using {@link #toNullableBoolean}.
+     * Static method for converting values to booleans using [[toNullableBoolean]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
@@ -36,7 +36,7 @@ export declare class BooleanConverter {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to false if omitted.
      *
-     * @see #toNullableBoolean
+     * @see [[toNullableBoolean]]
      */
     static toBooleanWithDefault(value: any, defaultValue?: boolean): boolean;
 }

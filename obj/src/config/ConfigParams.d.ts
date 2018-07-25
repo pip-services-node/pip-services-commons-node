@@ -1,7 +1,7 @@
 import { StringValueMap } from '../data/StringValueMap';
 /**
- * Map with configuration parameters that uses complex keys with dot notation and simple
- * string values.
+ * ConfigParams represent a hierarchical map that contains configuration parameters and
+ * uses complex keys with dot-notation to store simple string values.
  *
  * Provides hierarchical organization of various configuration parameters using sections,
  * subsections, and keys.
@@ -19,10 +19,10 @@ import { StringValueMap } from '../data/StringValueMap';
  *
  * All keys stored in the map are case-insensitive.
  *
- * ConfigParams can be used to configure objects of classes that implement {@link IConfigurable}.
+ * ConfigParams can be used to configure objects of classes that implement [[IConfigurable]].
  *
- * @see IConfigurable
- * @see StringValueMap
+ * @see [[IConfigurable]]
+ * @see [[StringValueMap]]
  */
 export declare class ConfigParams extends StringValueMap {
     /**
@@ -32,7 +32,7 @@ export declare class ConfigParams extends StringValueMap {
      *
      * @param values 	configuration parameters to store in this object. Defaults to null.
      *
-     * @see StringValueMap#StringValueMap
+     * @see [[StringValueMap.StringValueMap]]
      */
     constructor(values?: any);
     /**
@@ -63,11 +63,12 @@ export declare class ConfigParams extends StringValueMap {
      * Overrides the configuration parameters stored in this object with the ones in
      * 'configParams'. If a configuration is already set in this ConfigParams object,
      * it will be overwritten by the value in 'configParams' with the same key.
-     * @see #setDefaults
      *
      * @param configParams		configuration parameters to override the
      * 							parameters of this object with.
      * @returns					ConfigParams object with overridden parameters.
+     *
+     * @see [[setDefaults]]
      */
     override(configParams: ConfigParams): ConfigParams;
     /**
@@ -75,10 +76,11 @@ export declare class ConfigParams extends StringValueMap {
      * default configuration parameters passed in 'defaultConfigParams'. If a
      * configuration is already set in this ConfigParams object, it will not be
      * overwritten by the default value in 'defaultConfigParams' with the same key.
-     * @see #override
      *
-     * @param defaultConfigParams	default configuration parameters (ConfigParams object).
-     * @returns						ConfigParams object with newly set defaults.
+     * @param defaultConfigParams	the default configuration parameters to use.
+     * @returns						this ConfigParams object with the newly set defaults.
+     *
+     * @see [[override]]
      */
     setDefaults(defaultConfigParams: ConfigParams): ConfigParams;
     /**
@@ -88,16 +90,16 @@ export declare class ConfigParams extends StringValueMap {
      * @param value		configuration parameters in the form of an object with properties.
      * @returns			generated ConfigParams.
      *
-     * @see RecursiveObjectReader#getProperties
+     * @see [[RecursiveObjectReader.getProperties]]
      */
     static fromValue(value: any): ConfigParams;
     /**
-     * Static method that creates a ConfigParams object from an array of tuples.
+     * Static method that creates a ConfigParams object using the tuples passed to the method.
      *
-     * @param tuples	configuration parameters in the form of an array of tuples.
-     * @returns			generated ConfigParams.
+     * @param tuples	the tuples to convert to a ConfigParams object.
+     * @returns			the generated ConfigParams.
      *
-     * @see StringValueMap#fromTuplesArray
+     * @see [[StringValueMap.fromTuplesArray]]
      */
     static fromTuples(...tuples: any[]): ConfigParams;
     /**
@@ -107,19 +109,20 @@ export declare class ConfigParams extends StringValueMap {
      * 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
      * @returns			generated ConfigParams.
      *
-     * @see StringValueMap#fromString
+     * @see [[StringValueMap.fromString]]
      */
     static fromString(line: string): ConfigParams;
     /**
      * Static method that can merge two or more ConfigParams into one.
      *
-     * @param configs 	array of ConfigParams that are to be merged into one ConfigParams object.
-     * 					The order of elements in this array is important, as it regulates which values
-     * 					to keep in the case of identical complex keys (the ConfigParams with the
-     * 					highest index override the values of other ConfigParams with the same key).
+     * @param configs 	the ConfigParams that are to be merged into one ConfigParams object.
+     * 					The order in which the ConfigParams are passed to this method is important,
+     * 					as it regulates which values to keep in the case of identical complex keys
+     * 					(the ConfigParams passed later/last override the values of other ConfigParams
+     * 					with the same key).
      * @returns			merged ConfigParams.
      *
-     * @see StringValueMap#fromMaps
+     * @see [[StringValueMap.fromMaps]]
      */
     static mergeConfigs(...configs: ConfigParams[]): ConfigParams;
 }

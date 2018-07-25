@@ -102,30 +102,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/FloatConverter.ts#L41">convert/FloatConverter.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/FloatConverter.ts#L41">convert/FloatConverter.ts:41</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for converting values to floats using <a href="convert.doubleconverter.html#todouble">DoubleConverter.toDouble</a> (which uses
-									<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a>). 0 will be used as the default value for the conversion.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.doubleconverter.html#todouble">DoubleConverter.toDouble</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the value to convert.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -142,37 +125,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/FloatConverter.ts#L56">convert/FloatConverter.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/FloatConverter.ts#L56">convert/FloatConverter.ts:56</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for converting values to floats using <a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a>
-										(which uses <a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a>). If null is returned by the conversion,
-									then this method will return the default value passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the value to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -189,7 +151,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/FloatConverter.ts#L28">convert/FloatConverter.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/FloatConverter.ts#L28">convert/FloatConverter.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +165,9 @@
 									<li>if &#39;value&#39; is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;</li>
 									<li>if &#39;value&#39; is a boolean - true returns 1 and false returns 0;</li>
 									<li>if &#39;value&#39; is a string - parseFloat(value) will be called, and if the result is a number, then it will be returned;</li>
-									<li>otherwise - null will be returned.</li>
+									<li><p>otherwise - null will be returned.</p>
+										<pre><code>           will <span class="hljs-keyword">be </span>returned.
+</code></pre></li>
 								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -221,8 +185,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
-							will be returned.</p>
+							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null</p>
 						</li>
 					</ul>
 				</section>

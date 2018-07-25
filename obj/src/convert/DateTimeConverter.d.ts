@@ -20,16 +20,16 @@ export declare class DateTimeConverter {
      */
     static toNullableDateTime(value: any): Date;
     /**
-     * Static method for converting values to datetimes using {@link #toDateTimeWithDefault}.
+     * Static method for converting values to datetimes using [[toDateTimeWithDefault]].
      * An empty date (new Date()) will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toDateTimeWithDefault
+     * @see [[toDateTimeWithDefault]]
      */
     static toDateTime(value: any): Date;
     /**
-     * Static method for converting values to datetimes using {@link #toNullableDateTime}.
+     * Static method for converting values to datetimes using [[toNullableDateTime]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
@@ -37,7 +37,7 @@ export declare class DateTimeConverter {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to null if omitted.
      *
-     * @see #toNullableDateTime
+     * @see [[toNullableDateTime]]
      */
     static toDateTimeWithDefault(value: any, defaultValue?: Date): Date;
 }

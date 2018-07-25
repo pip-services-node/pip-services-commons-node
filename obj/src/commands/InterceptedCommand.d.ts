@@ -1,3 +1,4 @@
+/** @module commands */
 import { ICommand } from './ICommand';
 import { ICommandIntercepter } from './ICommandIntercepter';
 import { Parameters } from '../run/Parameters';

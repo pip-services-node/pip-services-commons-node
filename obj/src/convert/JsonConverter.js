@@ -25,29 +25,22 @@ var JsonConverter = /** @class */ (function () {
      * Static method for converting objects in to JSON strings.
      *
      * @param value 	the value to convert.
-     * @returns			the string generated using JSON.stringify().
-     *
-     * @see https://www.w3schools.com/js/js_json_stringify.asp
+     * @returns			the string generated using the standard JSON stringify method.
      */
     JsonConverter.toJson = function (value) {
         if (value == null)
             return null;
         return JSON.stringify(value);
     };
-    JsonConverter.fromToObject = function (value) {
-        return value;
-    };
     /**
      * Static method for converting JSON strings to nullable maps. Uses
-     * {@link https://www.w3schools.com/js/js_json_parse.asp JSON.parse()}
-     * and {@link MapConverter#toNullableMap}.
+     * the standard JSON parse method and [[MapConverter.toNullableMap]].
      *
      * @param value 	the JSON string to convert.
      * @returns			the map created. If 'value' is null or the conversion
      * 					fails - null will be returned.
      *
-     * @see https://www.w3schools.com/js/js_json_parse.asp JSON.parse()
-     * @see MapConverter#toNullableMap
+     * @see [[MapConverter.toNullableMap]]
      */
     JsonConverter.toNullableMap = function (value) {
         if (value == null)
@@ -61,26 +54,26 @@ var JsonConverter = /** @class */ (function () {
         }
     };
     /**
-     * Static method for converting JSON strings to maps using {@link #toNullableMap}.
+     * Static method for converting JSON strings to maps using [[toNullableMap]].
      * An empty map will be used as the default value for the conversion.
      *
      * @param value 	the JSON string to convert.
      *
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     JsonConverter.toMap = function (value) {
         var result = JsonConverter.toNullableMap(value);
         return result != null ? result : {};
     };
     /**
-     * Static method for converting JSON strings to maps using {@link #toNullableMap}.
+     * Static method for converting JSON strings to maps using [[toNullableMap]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
      * @param value         the JSON string to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     JsonConverter.toMapWithDefault = function (value, defaultValue) {
         var result = JsonConverter.toNullableMap(value);

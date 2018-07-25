@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module errors */
 var ErrorCategory_1 = require("./ErrorCategory");
 var ApplicationException_1 = require("./ApplicationException");
 /**
@@ -21,8 +22,8 @@ var ConfigException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Misconfiguration and set the status to 500.
      *
-     * @see ApplicationException#ApplicationException
-     * @see ErrorCategory
+     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ErrorCategory]]
      */
     function ConfigException(correlation_id, code, message) {
         if (correlation_id === void 0) { correlation_id = null; }

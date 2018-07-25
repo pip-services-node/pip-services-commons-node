@@ -15,14 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Sorting parameters contain information about how to sort the
  * data from a data source, using the fields available.
  *
- * @see SortField
+ * @see [[SortField]]
  */
 var SortParams = /** @class */ (function (_super) {
     __extends(SortParams, _super);
     /**
      * @param fields    the SortFields to use when sorting data using these SortParams.
      *
-     * @see SortField
+     * @see [[SortField]]
      */
     function SortParams(fields) {
         if (fields === void 0) { fields = null; }

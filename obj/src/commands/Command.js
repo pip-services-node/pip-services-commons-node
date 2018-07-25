@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module commands */
 var _ = require('lodash');
 var InvocationException_1 = require("../errors/InvocationException");
 var Command = /** @class */ (function () {

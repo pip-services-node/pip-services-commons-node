@@ -1,3 +1,4 @@
+/** @module validate */
 import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 export interface IValidationRule {

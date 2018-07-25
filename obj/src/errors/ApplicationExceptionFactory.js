@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module errors */
 var ErrorCategory_1 = require("./ErrorCategory");
 var UnknownException_1 = require("./UnknownException");
 var InternalException_1 = require("./InternalException");
@@ -16,8 +17,8 @@ var InvalidStateException_1 = require("./InvalidStateException");
 /**
  * Contains the static method 'create', which converts ErrorDescriptions back into ApplicationExceptions.
  *
- * @see ErrorDescription
- * @see ApplicationException
+ * @see [[ErrorDescription]]
+ * @see [[ApplicationException]]
  */
 var ApplicationExceptionFactory = /** @class */ (function () {
     function ApplicationExceptionFactory() {

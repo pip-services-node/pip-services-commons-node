@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module config */
 var ConfigParams_1 = require("./ConfigParams");
 exports.ConfigParams = ConfigParams_1.ConfigParams;
 var NameResolver_1 = require("./NameResolver");

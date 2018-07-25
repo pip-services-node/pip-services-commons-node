@@ -1,3 +1,4 @@
+/** @module refer */
 export { Descriptor } from './Descriptor';
 export { DependencyResolver } from './DependencyResolver';
 export { IReferences } from './IReferences';

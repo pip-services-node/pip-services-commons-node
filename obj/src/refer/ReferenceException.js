@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module refer */
 var InternalException_1 = require("../errors/InternalException");
 /**
  * Exception thrown when required component is not found in references

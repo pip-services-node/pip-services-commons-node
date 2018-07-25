@@ -1,5 +1,8 @@
 import { IClosable } from './IClosable';
 import { INotifiable } from './INotifiable';
+/**
+ *
+ */
 export declare class FixedRateTimer implements IClosable {
     private _task;
     private _callback;

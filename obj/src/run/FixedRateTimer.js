@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module run */
 var _ = require('lodash');
 var Parameters_1 = require("./Parameters");
+/**
+ *
+ */
 var FixedRateTimer = /** @class */ (function () {
     function FixedRateTimer(taskOrCallback, interval, delay) {
         if (taskOrCallback === void 0) { taskOrCallback = null; }

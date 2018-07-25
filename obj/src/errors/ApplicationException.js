@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module errors */
 var _ = require('lodash');
 var ErrorCategory_1 = require("./ErrorCategory");
 var StringValueMap_1 = require("../data/StringValueMap");
@@ -17,7 +18,7 @@ var StringValueMap_1 = require("../data/StringValueMap");
  * This class provides cross-language (portable) and language-independent (localizable) standardization of exceptions.
  *
  * ApplicationException contains a strict structure and methods that help structurize free-form exception messages.
- * While ApplicationExceptions themselves are not serializable, they can be converted to {@link ErrorDescription}s,
+ * While ApplicationExceptions themselves are not serializable, they can be converted to [[ErrorDescription ErrorDescriptions]],
  * which are serializable. Serialization of ErrorDescriptions is necessary for sending exceptions over the REST interface
  * back to "caller" microservices (cross-language error propagation).
  *
@@ -33,7 +34,7 @@ var StringValueMap_1 = require("../data/StringValueMap");
  * - Exceptions can be wrapped around one another (new exceptions can be wrapped around existing exceptions).
  * - PipService's microservices automatically intercept common exceptions and try to convert them to the closest available
     * type of ApplicationException.
- * - ApplicationExceptions can be converted to {@link ErrorDescription}s, which can then be sent back to 'caller'
+ * - ApplicationExceptions can be converted to [[ErrorDescription ErrorDescriptions]], which can then be sent back to 'caller'
     * microservices, even if they are written in a different language. When the microservice on the other end
     * receives the ErrorDescription, it can use it to restore the ApplicationException and propagate the exception to
     * the place from where the call was made.
@@ -44,7 +45,7 @@ var StringValueMap_1 = require("../data/StringValueMap");
  * - category = ErrorCategory.Unknown
  * - message = 'Unknown error'
  *
- * @see ErrorDescription
+ * @see [[ErrorDescription]]
  */
 var ApplicationException = /** @class */ (function (_super) {
     __extends(ApplicationException, _super);
@@ -157,7 +158,7 @@ var ApplicationException = /** @class */ (function (_super) {
      *
      * This method does the following:
      * - attempts to unwrap Seneca and restify exceptions from the parameter 'cause' using the
-     * static method {@link #unwrapError} (if they are present).
+     * static method [[unwrapError]] (if they are present).
      * - checks whether 'cause' is an ApplicationException (if it is, then no additional wrapping is done).
      * - if the 'cause' parameter contains an unknown exception, then the cause field of this
      * ApplicationException object is set to the original exception (the 'cause' parameter's 'message' field).
@@ -173,7 +174,7 @@ var ApplicationException = /** @class */ (function (_super) {
      * @returns         the 'cause' parameter as an ApplicationException (if it is one) or this ApplicationException
      *                  object with 'this.cause' set to the 'cause' parameter's 'message' field.
      *
-     * @see #unwrapError
+     * @see [[unwrapError]]
      */
     ApplicationException.prototype.wrap = function (cause) {
         cause = ApplicationException.unwrapError(cause);
@@ -183,7 +184,7 @@ var ApplicationException = /** @class */ (function (_super) {
         return this;
     };
     /**
-     * Static method that is identical to the non-static method {@link #wrap}. Wraps 'cause' around
+     * Static method that is identical to the non-static method [[wrap]]. Wraps 'cause' around
      * the ApplicationException passed as 'error', instead of itself (this).
      *
      * @param error     ApplicationException that has been chosen for wrapping.
@@ -191,7 +192,7 @@ var ApplicationException = /** @class */ (function (_super) {
      * @returns         the 'cause' parameter as an ApplicationException (if it is one) or the parameter
      *                  'error' with its 'cause' field set to the 'cause' parameter's 'message' field.
      *
-     * @see #wrap
+     * @see [[wrap]]
      */
     ApplicationException.wrapError = function (error, cause) {
         cause = ApplicationException.unwrapError(cause);

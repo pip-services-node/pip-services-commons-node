@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module validate */
 var TypeCode_1 = require("../convert/TypeCode");
 var ObjectSchema_1 = require("./ObjectSchema");
 var PagingParamsSchema = /** @class */ (function (_super) {

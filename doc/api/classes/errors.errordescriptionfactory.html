@@ -109,31 +109,22 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="errors.errordescription.html" class="tsd-signature-type">ErrorDescription</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">rDescription {</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/errors/ErrorDescriptionFactory.ts#L21">errors/ErrorDescriptionFactory.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/errors/ErrorDescriptionFactory.ts#L21">errors/ErrorDescriptionFactory.ts:21</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>a child classs of ApplicationException (in which case it is simply converted into an ErrorDescription),
-											or a specific (unknown) error, which contain error.name (set to ErrorDescription&#39;s type), error.message (error.toString(),
-											if not available), and error.stack. In the second case, the ErrorDescription&#39;s
-										status will be 500, and its code (and category) will be &#39;UNKNOWN&#39; (ErrorCategory.Unknown).</p>
-									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="errors.errordescription.html" class="tsd-signature-type">ErrorDescription</a></h4>
-							<p>An ErrorDescription, containing all available information about the error.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">rDescription {</span></h4>
 						</li>
 					</ul>
 				</section>

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module validate */
 var _ = require('lodash');
 var DoubleConverter_1 = require("../convert/DoubleConverter");
 var StringConverter_1 = require("../convert/StringConverter");

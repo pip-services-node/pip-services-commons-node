@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module refer */
 var Reference_1 = require("./Reference");
 var ReferenceException_1 = require("./ReferenceException");
 /**

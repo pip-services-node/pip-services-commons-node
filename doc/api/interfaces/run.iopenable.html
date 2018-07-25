@@ -115,7 +115,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iclosable.html">IClosable</a>.<a href="run.iclosable.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/run/IClosable.ts#L15">run/IClosable.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/IClosable.ts#L14">run/IClosable.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -123,6 +123,8 @@
 									<p>Abstract method that will contain the logic for closing a component, disconnecting it from other
 									services, and disposing resources.</p>
 								</div>
+								<pre><code>                        be called <span class="hljs-keyword">with</span> an <span class="hljs-keyword">error</span>, <span class="hljs-keyword">if</span> one <span class="hljs-keyword">is</span> raised.
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -135,9 +137,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the closing process is complete. It will
-											be called with an error, if one is raised. If omitted, then the
-										function will run synchronously and throw exceptions.</p>
+										<p>the function to call when the closing process is complete. It will</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -173,17 +173,10 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/run/IOpenable.ts#L14">run/IOpenable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/IOpenable.ts#L14">run/IOpenable.ts:14</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Abstract method that will contain the logic for checking whether or not
-									a component has been opened.</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>true if the component has been opened and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -197,7 +190,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/run/IOpenable.ts#L25">run/IOpenable.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/IOpenable.ts#L24">run/IOpenable.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,6 +198,8 @@
 									<p>Abstract method that will contain the logic for opening a component and establishing
 									connections to other services.</p>
 								</div>
+								<pre><code>                        be called <span class="hljs-keyword">with</span> an <span class="hljs-keyword">error</span>, <span class="hljs-keyword">if</span> one <span class="hljs-keyword">is</span> raised.
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -217,9 +212,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the opening process is complete. It will
-											be called with an error, if one is raised. If omitted, then the
-										function will run synchronously and throw exceptions.</p>
+										<p>the function to call when the opening process is complete. It will</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">

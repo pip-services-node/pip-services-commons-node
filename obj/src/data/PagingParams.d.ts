@@ -31,26 +31,26 @@ export declare class PagingParams {
     /**
      * Static method for converting a value into a PagingParams object. If
      * 'value' is an instance of PagingParams then it will be returned. Otherwise,
-     * {@link AnyValueMap#fromValue} will be used to create a map, which the PagingParams
-     * can be initialized with (using {@link #fromMap}).
+     * [[AnyValueMap.fromValue]] will be used to create a map, which the PagingParams
+     * can be initialized with (using [[fromMap]]).
      *
      * @param value		the value to convert into a PagingParams object.
      * @returns			the PagingParams created.
      *
-     * @see AnyValueMap#fromValue
-     * @see #fromMap
+     * @see [[AnyValueMap.fromValue]]
+     * @see [[fromMap]]
      */
     static fromValue(value: any): PagingParams;
     /**
      * Static method for converting the tuples passed as parameters into a PagingParams object.
-     * {@link AnyValueMap#fromTuplesArray} will be used to create a map, which the PagingParams
-     * can be initialized with (using {@link #fromMap}).
+     * [[AnyValueMap.fromTuplesArray]] will be used to create a map, which the PagingParams
+     * can be initialized with (using [[fromMap]]).
      *
      * @param tuples	the tuples to convert into a PagingParams object.
      * @returns			the PagingParams created.
      *
-     * @see AnyValueMap#fromTuplesArray
-     * @see #fromMap
+     * @see [[AnyValueMap.fromTuplesArray]]
+     * @see [[fromMap]]
      */
     static fromTuples(...tuples: any[]): PagingParams;
     /**

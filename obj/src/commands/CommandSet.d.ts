@@ -1,3 +1,4 @@
+/** @module commands */
 import { ICommand } from './ICommand';
 import { IEvent } from './IEvent';
 import { IEventListener } from './IEventListener';

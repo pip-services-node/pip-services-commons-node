@@ -1,3 +1,4 @@
+/** @module data */
 import { TypeCode } from '../convert/TypeCode';
 import { ICloneable } from './ICloneable';
 import { AnyValueArray } from './AnyValueArray';
@@ -6,15 +7,15 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that allows for usage of abstract, portable data types. Stores a value in its
  * 'value' field, which can be retrieved in various ways with the help of numerous converters.
  *
- * @see StringConverter
- * @see TypeConverter
- * @see BooleanConverter
- * @see IntegerConverter
- * @see LongConverter
- * @see DoubleConverter
- * @see FloatConverter
- * @see DateTimeConverter
- * @see ICloneable
+ * @see [[StringConverter]]
+ * @see [[TypeConverter]]
+ * @see [[BooleanConverter]]
+ * @see [[IntegerConverter]]
+ * @see [[LongConverter]]
+ * @see [[DoubleConverter]]
+ * @see [[FloatConverter]]
+ * @see [[DateTimeConverter]]
+ * @see [[ICloneable]]
  */
 export declare class AnyValue implements ICloneable {
     /** The value stored by this object. */
@@ -22,7 +23,7 @@ export declare class AnyValue implements ICloneable {
     /**
      * Creates a new instance and sets its 'value' field to the value passed
      * as a parameter. If 'value' is omitted, it can be set later on using
-     * {@link #setAsObject}.
+     * [[setAsObject]].
      *
      * @param value     value to store in this object's 'value' field. If this
      *                  parameter is an instance of AnyValue, its 'value' field will
@@ -32,7 +33,7 @@ export declare class AnyValue implements ICloneable {
     /**
      * @returns this object's 'value' field as a TypeCode.
      *
-     * @see TypeConverter#toTypeCode
+     * @see [[TypeConverter.toTypeCode]]
      */
     getTypeCode(): TypeCode;
     /** @returns this object's 'value' field without any conversions. */
@@ -46,13 +47,13 @@ export declare class AnyValue implements ICloneable {
     /**
      * @returns this object's 'value' field as a nullable string.
      *
-     * @see StringConverter#toNullableString
+     * @see [[StringConverter.toNullableString]]
      */
     getAsNullableString(): string;
     /**
      * @returns this object's 'value' field as a string (or null as the default).
      *
-     * @see #getAsStringWithDefault
+     * @see [[getAsStringWithDefault]]
      */
     getAsString(): string;
     /**
@@ -60,19 +61,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a string or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see StringConverter#toStringWithDefault
+     * @see [[StringConverter.toStringWithDefault]]
      */
     getAsStringWithDefault(defaultValue: string): string;
     /**
      * @returns this object's 'value' field as a nullable boolean.
      *
-     * @see BooleanConverter#toNullableBoolean
+     * @see [[BooleanConverter.toNullableBoolean]]
      */
     getAsNullableBoolean(): boolean;
     /**
      * @returns this object's 'value' field as a boolean (or false as the default).
      *
-     * @see #getAsBooleanWithDefault
+     * @see [[getAsBooleanWithDefault]]
      */
     getAsBoolean(): boolean;
     /**
@@ -80,19 +81,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a boolean or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see BooleanConverter#toBooleanWithDefault
+     * @see [[BooleanConverter.toBooleanWithDefault]]
      */
     getAsBooleanWithDefault(defaultValue: boolean): boolean;
     /**
      * @returns this object's 'value' field as a nullable integer.
      *
-     * @see IntegerConverter#toNullableInteger
+     * @see [[IntegerConverter.toNullableInteger]]
      */
     getAsNullableInteger(): number;
     /**
      * @returns this object's 'value' field as an integer (or 0 as the default).
      *
-     * @see #getAsIntegerWithDefault
+     * @see [[getAsIntegerWithDefault]]
      */
     getAsInteger(): number;
     /**
@@ -100,19 +101,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as an integer or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see IntegerConverter#toIntegerWithDefault
+     * @see [[IntegerConverter.toIntegerWithDefault]]
      */
     getAsIntegerWithDefault(defaultValue: number): number;
     /**
      * @returns this object's 'value' field as a nullable long.
      *
-     * @see LongConverter#toNullableLong
+     * @see [[LongConvertertoNullableLong]]
      */
     getAsNullableLong(): number;
     /**
      * @returns this object's 'value' field as a long (or 0 as the default).
      *
-     * @see #getAsLongWithDefault
+     * @see [[getAsLongWithDefault]]
      */
     getAsLong(): number;
     /**
@@ -120,19 +121,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a long or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see LongConverter#toLongWithDefault
+     * @see [[LongConverter.toLongWithDefault]]
      */
     getAsLongWithDefault(defaultValue: number): number;
     /**
      * @returns this object's 'value' field as a nullable float.
      *
-     * @see FloatConverter#toNullableFloat
+     * @see [[FloatConverter.toNullableFloat]]
      */
     getAsNullableFloat(): number;
     /**
      * @returns this object's 'value' field as a float (or 0 as the default).
      *
-     * @see #getAsFloatWithDefault
+     * @see [[getAsFloatWithDefault]]
      */
     getAsFloat(): number;
     /**
@@ -140,19 +141,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a float or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see FloatConverter#toFloatWithDefault
+     * @see [[FloatConverter.toFloatWithDefault]]
      */
     getAsFloatWithDefault(defaultValue: number): number;
     /**
      * @returns this object's 'value' field as a nullable double.
      *
-     * @see DoubleConverter#toNullableDouble
+     * @see [[DoubleConverter.toNullableDouble]]
      */
     getAsNullableDouble(): number;
     /**
      * @returns this object's 'value' field as a double (or 0 as the default).
      *
-     * @see #getAsDoubleWithDefault
+     * @see [[getAsDoubleWithDefault]]
      */
     getAsDouble(): number;
     /**
@@ -160,19 +161,19 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a double or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DoubleConverter#toDoubleWithDefault
+     * @see [[DoubleConverter.toDoubleWithDefault]]
      */
     getAsDoubleWithDefault(defaultValue: number): number;
     /**
      * @returns this object's 'value' field as a nullable Datetime.
      *
-     * @see DateTimeConverter#toNullableDateTime
+     * @see [[DateTimeConverter.toNullableDateTime]]
      */
     getAsNullableDateTime(): Date;
     /**
      * @returns this object's 'value' field as a Datetime (or null as the default).
      *
-     * @see #getAsDateTimeWithDefault
+     * @see [[getAsDateTimeWithDefault]]
      */
     getAsDateTime(): Date;
     /**
@@ -180,51 +181,51 @@ export declare class AnyValue implements ICloneable {
      * @returns                 this object's 'value' field as a Datetime or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DateTimeConverter#toDateTimeWithDefault
+     * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
     getAsDateTimeWithDefault(defaultValue: Date): Date;
     /**
      * Converts this object's 'value' field into a nullable object of type 'type' using
-     * {@link TypeConverter#toNullableType<T>} and returns it.
+     * [[TypeConverter.toNullableType]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
      * @returns this object's 'value' field as a nullable object of type 'type'.
      *
-     * @see TypeConverter#toNullableType<T>
+     * @see [[TypeConverter.toNullableType]]
      */
     getAsNullableType<T>(type: TypeCode): T;
     /**
      * Converts this object's 'value' field into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
      * @returns this object's 'value' field as an object of type 'type' (or null as the default).
      *
-     * @see #getAsTypeWithDefault
+     * @see [[getAsTypeWithDefault]]
      */
     getAsType<T>(type: TypeCode): T;
     /**
      * Converts this object's 'value' field into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
      * @param defaultValue      value to return, if conversion is not possible.
      * @returns                 this object's 'value' field as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *
-     * @see TypeConverter#toTypeWithDefault<T>
+     * @see [[TypeConverter.toTypeWithDefault]]
      */
     getAsTypeWithDefault<T>(type: TypeCode, defaultValue: T): T;
     /**
      * @returns this object's 'value' field as an AnyValueArray.
      *
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray.fromValue]]
      */
     getAsArray(): AnyValueArray;
     /**
      * @returns this object's 'value' field as an AnyValueMap.
      *
-     * @see AnyValueMap#fromValue
+     * @see [[AnyValueMap.fromValue]]
      */
     getAsMap(): AnyValueMap;
     /**
@@ -240,7 +241,7 @@ export declare class AnyValue implements ICloneable {
     /**
      * Checks whether or not the parameter passed as 'obj' is equal to this object's
      * 'value' field after both are converted to the type passed as 'type' using
-     * {@link TypeConverter#toType<T>}.
+     * [[TypeConverter.toType]].
      *
      * @param type  the TypeCode to use in TypeConverter.toType<T>(TypeCode, value).
      * @param obj   the object to check against this object's 'value' field after
@@ -250,15 +251,15 @@ export declare class AnyValue implements ICloneable {
      *              as objects of type 'type'. If both items (or their converted versions)
      *              are null, true will be returned.
      *
-     * @see TypeConverter#toType<T>
+     * @see [[TypeConverter.toType]]
      */
     equalsAsType<T>(type: TypeCode, obj: any): boolean;
     /** @returns a clone of this object. */
     clone(): any;
     /**
-     * @returns this object's 'value' field as a string value using {@link StringConverter#toString}.
+     * @returns this object's 'value' field as a string value using [[StringConverter.toString]].
      *
-     * @see StringConverter#toString
+     * @see [[StringConverter.toString]]
      */
     toString(): any;
     /** @returns the hash code of this object's 'value' field. 0 is returned if the 'value' field is null. */

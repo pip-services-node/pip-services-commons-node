@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module errors */
 /**
  * Defines broad categories of application errors.
  */

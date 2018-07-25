@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the double data type.
@@ -35,18 +36,18 @@ var DoubleConverter = /** @class */ (function () {
         return isNaN(result) ? null : result;
     };
     /**
-     * Static method for converting values to doubles using {@link #toDoubleWithDefault}.
+     * Static method for converting values to doubles using [[toDoubleWithDefault]].
      * 0 will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toDoubleWithDefault
+     * @see [[toDoubleWithDefault]]
      */
     DoubleConverter.toDouble = function (value) {
         return DoubleConverter.toDoubleWithDefault(value, 0);
     };
     /**
-     * Static method for converting values to doubles using {@link #toNullableDouble}.
+     * Static method for converting values to doubles using [[toNullableDouble]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
@@ -54,7 +55,7 @@ var DoubleConverter = /** @class */ (function () {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to 0 if omitted.
      *
-     * @see #toNullableDouble
+     * @see [[toNullableDouble]]
      */
     DoubleConverter.toDoubleWithDefault = function (value, defaultValue) {
         if (defaultValue === void 0) { defaultValue = 0; }

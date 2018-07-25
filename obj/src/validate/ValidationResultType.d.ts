@@ -1,3 +1,4 @@
+/** @module validate */
 export declare enum ValidationResultType {
     Information = 0,
     Warning = 1,

@@ -10,12 +10,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module config */
 var _ = require('lodash');
 var StringValueMap_1 = require("../data/StringValueMap");
 var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
 /**
- * Map with configuration parameters that uses complex keys with dot notation and simple
- * string values.
+ * ConfigParams represent a hierarchical map that contains configuration parameters and
+ * uses complex keys with dot-notation to store simple string values.
  *
  * Provides hierarchical organization of various configuration parameters using sections,
  * subsections, and keys.
@@ -33,10 +34,10 @@ var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
  *
  * All keys stored in the map are case-insensitive.
  *
- * ConfigParams can be used to configure objects of classes that implement {@link IConfigurable}.
+ * ConfigParams can be used to configure objects of classes that implement [[IConfigurable]].
  *
- * @see IConfigurable
- * @see StringValueMap
+ * @see [[IConfigurable]]
+ * @see [[StringValueMap]]
  */
 var ConfigParams = /** @class */ (function (_super) {
     __extends(ConfigParams, _super);
@@ -47,7 +48,7 @@ var ConfigParams = /** @class */ (function (_super) {
      *
      * @param values 	configuration parameters to store in this object. Defaults to null.
      *
-     * @see StringValueMap#StringValueMap
+     * @see [[StringValueMap.StringValueMap]]
      */
     function ConfigParams(values) {
         if (values === void 0) { values = null; }
@@ -135,11 +136,12 @@ var ConfigParams = /** @class */ (function (_super) {
      * Overrides the configuration parameters stored in this object with the ones in
      * 'configParams'. If a configuration is already set in this ConfigParams object,
      * it will be overwritten by the value in 'configParams' with the same key.
-     * @see #setDefaults
      *
      * @param configParams		configuration parameters to override the
      * 							parameters of this object with.
      * @returns					ConfigParams object with overridden parameters.
+     *
+     * @see [[setDefaults]]
      */
     ConfigParams.prototype.override = function (configParams) {
         var map = StringValueMap_1.StringValueMap.fromMaps(this, configParams);
@@ -150,10 +152,11 @@ var ConfigParams = /** @class */ (function (_super) {
      * default configuration parameters passed in 'defaultConfigParams'. If a
      * configuration is already set in this ConfigParams object, it will not be
      * overwritten by the default value in 'defaultConfigParams' with the same key.
-     * @see #override
      *
-     * @param defaultConfigParams	default configuration parameters (ConfigParams object).
-     * @returns						ConfigParams object with newly set defaults.
+     * @param defaultConfigParams	the default configuration parameters to use.
+     * @returns						this ConfigParams object with the newly set defaults.
+     *
+     * @see [[override]]
      */
     ConfigParams.prototype.setDefaults = function (defaultConfigParams) {
         var map = StringValueMap_1.StringValueMap.fromMaps(defaultConfigParams, this);
@@ -166,19 +169,19 @@ var ConfigParams = /** @class */ (function (_super) {
      * @param value		configuration parameters in the form of an object with properties.
      * @returns			generated ConfigParams.
      *
-     * @see RecursiveObjectReader#getProperties
+     * @see [[RecursiveObjectReader.getProperties]]
      */
     ConfigParams.fromValue = function (value) {
         var map = RecursiveObjectReader_1.RecursiveObjectReader.getProperties(value);
         return new ConfigParams(map);
     };
     /**
-     * Static method that creates a ConfigParams object from an array of tuples.
+     * Static method that creates a ConfigParams object using the tuples passed to the method.
      *
-     * @param tuples	configuration parameters in the form of an array of tuples.
-     * @returns			generated ConfigParams.
+     * @param tuples	the tuples to convert to a ConfigParams object.
+     * @returns			the generated ConfigParams.
      *
-     * @see StringValueMap#fromTuplesArray
+     * @see [[StringValueMap.fromTuplesArray]]
      */
     ConfigParams.fromTuples = function () {
         var tuples = [];
@@ -195,7 +198,7 @@ var ConfigParams = /** @class */ (function (_super) {
      * 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
      * @returns			generated ConfigParams.
      *
-     * @see StringValueMap#fromString
+     * @see [[StringValueMap.fromString]]
      */
     ConfigParams.fromString = function (line) {
         var map = StringValueMap_1.StringValueMap.fromString(line);
@@ -204,13 +207,14 @@ var ConfigParams = /** @class */ (function (_super) {
     /**
      * Static method that can merge two or more ConfigParams into one.
      *
-     * @param configs 	array of ConfigParams that are to be merged into one ConfigParams object.
-     * 					The order of elements in this array is important, as it regulates which values
-     * 					to keep in the case of identical complex keys (the ConfigParams with the
-     * 					highest index override the values of other ConfigParams with the same key).
+     * @param configs 	the ConfigParams that are to be merged into one ConfigParams object.
+     * 					The order in which the ConfigParams are passed to this method is important,
+     * 					as it regulates which values to keep in the case of identical complex keys
+     * 					(the ConfigParams passed later/last override the values of other ConfigParams
+     * 					with the same key).
      * @returns			merged ConfigParams.
      *
-     * @see StringValueMap#fromMaps
+     * @see [[StringValueMap.fromMaps]]
      */
     ConfigParams.mergeConfigs = function () {
         var configs = [];

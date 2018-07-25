@@ -10,13 +10,14 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module data */
 var StringValueMap_1 = require("./StringValueMap");
 /**
  * Class that includes standard design patterns for filtering data.
  * Filter parameters contain the rules and values by which results
  * can be filtered.
  *
- * @see StringValueMap
+ * @see [[StringValueMap]]
  */
 var FilterParams = /** @class */ (function (_super) {
     __extends(FilterParams, _super);
@@ -55,12 +56,12 @@ var FilterParams = /** @class */ (function (_super) {
     };
     /**
      * Static method for creating a new FilterParams object from a string using
-     * {@link StringValueMap.fromString}.
+     * [[StringValueMap.fromString]].
      *
      * @param line 	the string containing filter parameters.
      * @returns		the FilterParams generated.
      *
-     * @see StringValueMap.fromString
+     * @see [[StringValueMap.fromString]]
      */
     FilterParams.fromString = function (line) {
         var map = StringValueMap_1.StringValueMap.fromString(line);

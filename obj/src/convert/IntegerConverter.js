@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 var LongConverter_1 = require("./LongConverter");
 /**
@@ -24,33 +25,33 @@ var IntegerConverter = /** @class */ (function () {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      *
-     * @see LongConverter#toNullableLong
+     * @see [[LongConverter.toNullableLong]]
      */
     IntegerConverter.toNullableInteger = function (value) {
         return LongConverter_1.LongConverter.toNullableLong(value);
     };
     /**
-     * Static method for converting values to integers using {@link LongConverter#toLong} (which uses
-     * {@link LongConverter#toLongWithDefault}). 0 will be used as the default value for the conversion.
+     * Static method for converting values to integers using [[LongConverter.toLong]] (which uses
+     * [[LongConverter.toLongWithDefault]]). 0 will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see LongConverter#toLong
-     * @see LongConverter#toLongWithDefault
+     * @see [[LongConverter.toLong]]
+     * @see [[LongConverter.toLongWithDefault]]
      */
     IntegerConverter.toInteger = function (value) {
         return LongConverter_1.LongConverter.toLong(value);
     };
     /**
-     * Static method for converting values to integers using {@link LongConverter#toLongWithDefault}
-     * (which uses {@link LongConverter#toNullableLong}). If null is returned by the conversion,
+     * Static method for converting values to integers using [[LongConverter.toLongWithDefault]]
+     * (which uses [[LongConverter.toNullableLong]]). If null is returned by the conversion,
      * then this method will return the default value passed.
      *
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see LongConverter#toLongWithDefault
-     * @see LongConverter#toNullableLong
+     * @see [[LongConverter.toLongWithDefault]]
+     * @see [[LongConverter.toNullableLong]]
      */
     IntegerConverter.toIntegerWithDefault = function (value, defaultValue) {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);

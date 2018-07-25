@@ -1,3 +1,4 @@
+/** @module validate */
 export { IValidationRule } from './IValidationRule';
 export { AndRule } from './AndRule';
 export { ArraySchema } from './ArraySchema';

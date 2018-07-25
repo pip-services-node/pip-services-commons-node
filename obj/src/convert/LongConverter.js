@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the long data type.
@@ -36,25 +37,25 @@ var LongConverter = /** @class */ (function () {
         return isNaN(result) ? null : Math.ceil(result);
     };
     /**
-     * Static method for converting values to longs using {@link #toLongWithDefault}.
+     * Static method for converting values to longs using [[toLongWithDefault]].
      * 0 will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toLongWithDefault
+     * @see [[toLongWithDefault]]
      */
     LongConverter.toLong = function (value) {
         return LongConverter.toLongWithDefault(value, 0);
     };
     /**
-     * Static method for converting values to longs using {@link #toNullableLong}.
+     * Static method for converting values to longs using [[toNullableLong]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see #toNullableLong
+     * @see [[toNullableLong]]
      */
     LongConverter.toLongWithDefault = function (value, defaultValue) {
         var result = LongConverter.toNullableLong(value);

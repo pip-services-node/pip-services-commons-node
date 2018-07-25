@@ -1,3 +1,4 @@
+/** @module validate */
 import { ValidationResult } from './ValidationResult';
 import { BadRequestException } from '../errors/BadRequestException';
 export declare class ValidationException extends BadRequestException {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to maps.
@@ -34,25 +35,25 @@ var MapConverter = /** @class */ (function () {
             return _.isObject(value) ? value : null;
     };
     /**
-     * Static method for converting values to maps using {@link #toNullableMap}.
+     * Static method for converting values to maps using [[toNullableMap]].
      * An empty map will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     MapConverter.toMap = function (value) {
         return MapConverter.toNullableMap(value) || {};
     };
     /**
-     * Static method for converting values to maps using {@link #toNullableMap}.
+     * Static method for converting values to maps using [[toNullableMap]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see #toNullableMap
+     * @see [[toNullableMap]]
      */
     MapConverter.toMapWithDefault = function (value, defaultValue) {
         return MapConverter.toNullableMap(value) || defaultValue;

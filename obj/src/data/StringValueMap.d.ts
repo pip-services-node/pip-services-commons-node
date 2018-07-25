@@ -6,23 +6,23 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that allows for usage of abstract, portable string-value maps. Stores a set of values using string keys. The values that are
  * stored can be retrieved in various ways with the help of numerous converters.
  *
- * StringValueMap is crucial to the PipServices framework, as it is used to create serializable objects. {@link ConfigParams},
- * {@link ConnectionParams}, {@link FilterParams}, and many other PipServices classes extend StringValueMap.
+ * StringValueMap is crucial to the PipServices framework, as it is used to create serializable objects. [[ConfigParams]],
+ * [[ConnectionParams]], [[FilterParams]], and many other PipServices classes extend StringValueMap.
  *
- * @see StringConverter
- * @see TypeConverter
- * @see BooleanConverter
- * @see IntegerConverter
- * @see LongConverter
- * @see DoubleConverter
- * @see FloatConverter
- * @see DateTimeConverter
+ * @see [[StringConverter]]
+ * @see [[TypeConverter]]
+ * @see [[BooleanConverter]]
+ * @see [[IntegerConverter]]
+ * @see [[LongConverter]]
+ * @see [[DoubleConverter]]
+ * @see [[FloatConverter]]
+ * @see [[DateTimeConverter]]
  */
 export declare class StringValueMap {
     /**
      * Creates a new instance and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using
-     * {@link #setAsObject} or {@link #append}.
+     * [[setAsObject]] or [[append]].
      *
      * @param values    the values to store in this StringValueMap.
      */
@@ -64,21 +64,21 @@ export declare class StringValueMap {
      *                  filled anew) using 'value'. In this case 'value' will be converted to
      *                  a map using "MapConverter.toMap(value)" and set to this StringValueMap.
      *
-     * @see MapConverter#toMap
+     * @see [[MapConverter.toMap]]
      */
     setAsObject(key: any, value?: any): void;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable string.
      *
-     * @see StringConverter#toNullableString
+     * @see [[StringConverter.toNullableString]]
      */
     getAsNullableString(key: string): string;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a string (or null as the default).
      *
-     * @see #getAsStringWithDefault
+     * @see [[getAsStringWithDefault]]
      */
     getAsString(key: string): string;
     /**
@@ -87,21 +87,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a string or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see StringConverter#toStringWithDefault
+     * @see [[StringConverter.toStringWithDefault]]
      */
     getAsStringWithDefault(key: string, defaultValue: string): string;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable boolean.
      *
-     * @see BooleanConverter#toNullableBoolean
+     * @see [[BooleanConverter.toNullableBoolean]]
      */
     getAsNullableBoolean(key: string): boolean;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a boolean (or false as the default).
      *
-     * @see #getAsBooleanWithDefault
+     * @see [[getAsBooleanWithDefault]]
      */
     getAsBoolean(key: string): boolean;
     /**
@@ -110,21 +110,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a boolean or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see BooleanConverter#toBooleanWithDefault
+     * @see [[BooleanConverter.toBooleanWithDefault]]
      */
     getAsBooleanWithDefault(key: string, defaultValue: boolean): boolean;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable integer.
      *
-     * @see IntegerConverter#toNullableInteger
+     * @see [[IntegerConverter.toNullableInteger]]
      */
     getAsNullableInteger(key: string): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as an integer (or 0 as the default).
      *
-     * @see #getAsIntegerWithDefault
+     * @see [[getAsIntegerWithDefault]]
      */
     getAsInteger(key: string): number;
     /**
@@ -133,21 +133,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as an integer or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see IntegerConverter#toIntegerWithDefault
+     * @see [[IntegerConverter.toIntegerWithDefault]]
      */
     getAsIntegerWithDefault(key: string, defaultValue: number): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable long.
      *
-     * @see LongConverter#toNullableLong
+     * @see [[LongConverter.toNullableLong]]
      */
     getAsNullableLong(key: string): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a long (or 0 as the default).
      *
-     * @see #getAsLongWithDefault
+     * @see [[getAsLongWithDefault]]
      */
     getAsLong(key: string): number;
     /**
@@ -156,21 +156,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a long or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see LongConverter#toLongWithDefault
+     * @see [[LongConverter.toLongWithDefault]]
      */
     getAsLongWithDefault(key: string, defaultValue: number): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable float.
      *
-     * @see FloatConverter#toNullableFloat
+     * @see [[FloatConverter.toNullableFloat]]
      */
     getAsNullableFloat(key: string): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a float (or 0 as the default).
      *
-     * @see #getAsFloatWithDefault
+     * @see [[getAsFloatWithDefault]]
      */
     getAsFloat(key: string): number;
     /**
@@ -179,21 +179,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a float or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see FloatConverter#toFloatWithDefault
+     * @see [[FloatConverter.toFloatWithDefault]]
      */
     getAsFloatWithDefault(key: string, defaultValue: number): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable double.
      *
-     * @see DoubleConverter#toNullableDouble
+     * @see [[DoubleConverter.toNullableDouble]]
      */
     getAsNullableDouble(key: string): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a double (or 0 as the default).
      *
-     * @see #getAsDoubleWithDefault
+     * @see [[getAsDoubleWithDefault]]
      */
     getAsDouble(key: string): number;
     /**
@@ -202,21 +202,21 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a double or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DoubleConverter#toDoubleWithDefault
+     * @see [[DoubleConverter.toDoubleWithDefault]]
      */
     getAsDoubleWithDefault(key: string, defaultValue: number): number;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable Datetime.
      *
-     * @see DateTimeConverter#toNullableDateTime
+     * @see [[DateTimeConverter.toNullableDateTime]]
      */
     getAsNullableDateTime(key: string): Date;
     /**
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a Datetime (or null as the default).
      *
-     * @see #getAsDateTimeWithDefault
+     * @see [[getAsDateTimeWithDefault]]
      */
     getAsDateTime(key: string): Date;
     /**
@@ -225,49 +225,49 @@ export declare class StringValueMap {
      * @returns                 the item with the given key as a Datetime or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DateTimeConverter#toDateTimeWithDefault
+     * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
     getAsDateTimeWithDefault(key: string, defaultValue: Date): Date;
     /**
      * Converts the item with the given key into a nullable object of type 'type' using
-     * {@link TypeConverter#toNullableType<T>} and returns it.
+     * [[TypeConverter.toNullableType]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as a nullable object of type 'type'.
      *
-     * @see TypeConverter#toNullableType<T>
+     * @see [[TypeConverter.toNullableType]]
      */
     getAsNullableType<T>(type: TypeCode, key: string): T;
     /**
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an object of type 'type' (or null as the default).
      *
-     * @see #getAsTypeWithDefault
+     * @see [[getAsTypeWithDefault]]
      */
     getAsType<T>(type: TypeCode, key: string): T;
     /**
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
      * @param defaultValue      value to return, if conversion is not possible.
      * @returns                 the item with the given key as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *
-     * @see TypeConverter#toTypeWithDefault<T>
+     * @see [[TypeConverter.toTypeWithDefault]]
      */
     getAsTypeWithDefault<T>(type: TypeCode, key: string, defaultValue: T): T;
     /**
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValue object.
      *
-     * @see AnyValue
-     * @see AnyValue#AnyValue
+     * @see [[AnyValue]]
+     * @see [[AnyValue.AnyValue]]
      */
     getAsValue(key: string): AnyValue;
     /**
@@ -275,16 +275,16 @@ export declare class StringValueMap {
      * @returns         the item with the given key as a nullable AnyValueArray object (returns
      *                  null if the item with the given key is null).
      *
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     getAsNullableArray(key: string): AnyValueArray;
     /**
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueArray object.
      *
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     getAsArray(key: string): AnyValueArray;
     /**
@@ -294,8 +294,8 @@ export declare class StringValueMap {
      * @returns             the item with the given key as an AnyValueArray object or 'defaultValue',
      *                      if conversion is not possible.
      *
-     * @see AnyValueArray
-     * @see #getAsNullableArray
+     * @see [[AnyValueArray]]
+     * @see [[getAsNullableArray]]
      */
     getAsArrayWithDefault(key: string, defaultValue: AnyValueArray): AnyValueArray;
     /**
@@ -303,14 +303,14 @@ export declare class StringValueMap {
      * @returns         the item with the given key as a nullable AnyValueMap object (returns
      *                  null if the item with the given key is null).
      *
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     getAsNullableMap(key: string): AnyValueMap;
     /**
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueMap object.
      *
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     getAsMap(key: string): AnyValueMap;
     /**
@@ -320,7 +320,7 @@ export declare class StringValueMap {
      * @returns             the item with the given key as an AnyValueMap object or 'defaultValue',
      *                      if conversion is not possible.
      *
-     * @see #getAsNullableMap
+     * @see [[getAsNullableMap]]
      */
     getAsMapWithDefault(key: string, defaultValue: AnyValueMap): AnyValueMap;
     /**
@@ -337,7 +337,7 @@ export declare class StringValueMap {
      * @param value     the value to initialize the new StringValueMap with.
      * @returns         the StringValueMap that was created and initialized with 'value'.
      *
-     * @see #StringValueMap
+     * @see [[StringValueMap]]
      */
     static fromValue(value: any): StringValueMap;
     /**
@@ -346,7 +346,7 @@ export declare class StringValueMap {
      * @param tuples    the key-value tuple parameters to initialize the new StringValueMap with.
      * @returns         the StringValueMap created and filled by the tuples provided.
      *
-     * @see #fromTuplesArray
+     * @see [[fromTuplesArray]]
      */
     static fromTuples(...tuples: any[]): StringValueMap;
     /**

@@ -1,18 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module run */
 var _ = require('lodash');
 var async = require('async');
 /**
- * Helper class that cleans components
+ * Helper class that can be used to clean the data and state of components.
  */
 var Cleaner = /** @class */ (function () {
     function Cleaner() {
     }
     /**
-     * Cleans component that implement ICleanable interface
+     * Static method for cleaning a component. For a component to be cleaned, it must implement
+     * the [[ICleanable]] interface. This method calls ICleanable's [[ICleanable.clear clear]] method
+     * to clear the component passed.
+     *
      * @param correlationId 	unique business transaction id to trace calls across components.
-     * @param component 		component to be cleaned.
-     * @param callback 			function to call when cleaning is complete.
+     * @param component 		the component that is to be cleaned.
+     * @param callback 			the function to call when the clearing process is complete. It will
+     * 							be called with an error, if one is raised.
+     *
+     * @see [[ICleanable]]
      */
     Cleaner.clearOne = function (correlationId, component, callback) {
         if (_.isFunction(component.clear)) {
@@ -30,10 +37,17 @@ var Cleaner = /** @class */ (function () {
             callback(null);
     };
     /**
-     * Cleans components that implement ICleanable interface
+     * Static method for cleaning multiple components. For a component to be cleaned, it must implement
+     * the [[ICleanable]] interface. This method calls the static [[clearOne]] method for each of the
+     * components passed.
+     *
      * @param correlationId 	unique business transaction id to trace calls across components.
-     * @param components 		list of components to be cleaned
-     * @param callback 			function to call when cleaning is complete
+     * @param components 		the list of components that are to be cleaned.
+     * @param callback 			the function to call when the clearing process is complete. It will
+     * 							be called with an error, if one is raised.
+     *
+     * @see [[clearOne]]
+     * @see [[ICleanable]]
      */
     Cleaner.clear = function (correlationId, components, callback) {
         async.eachSeries(components, function (component, callback) {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module refer */
 var ConfigException_1 = require("../errors/ConfigException");
 /**
  * Component descriptor used to find a component by its descriptive elements:

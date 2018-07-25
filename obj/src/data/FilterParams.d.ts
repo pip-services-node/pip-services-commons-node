@@ -1,10 +1,11 @@
+/** @module data */
 import { StringValueMap } from './StringValueMap';
 /**
  * Class that includes standard design patterns for filtering data.
  * Filter parameters contain the rules and values by which results
  * can be filtered.
  *
- * @see StringValueMap
+ * @see [[StringValueMap]]
  */
 export declare class FilterParams extends StringValueMap {
     /**
@@ -30,12 +31,12 @@ export declare class FilterParams extends StringValueMap {
     static fromTuples(...tuples: any[]): FilterParams;
     /**
      * Static method for creating a new FilterParams object from a string using
-     * {@link StringValueMap.fromString}.
+     * [[StringValueMap.fromString]].
      *
      * @param line 	the string containing filter parameters.
      * @returns		the FilterParams generated.
      *
-     * @see StringValueMap.fromString
+     * @see [[StringValueMap.fromString]]
      */
     static fromString(line: string): FilterParams;
 }

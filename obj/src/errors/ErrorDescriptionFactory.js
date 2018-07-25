@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module errors */
 var ErrorCategory_1 = require("./ErrorCategory");
 var ErrorDescription_1 = require("./ErrorDescription");
 var ApplicationException_1 = require("./ApplicationException");
 /**
  * Contains the static method 'create', which converts ApplicationExceptions and specific (unknown) errors into ErrorDescriptions.
  *
- * @see ErrorDescription
- * @see ApplicationException
+ * @see [[ErrorDescription]]
+ * @see [[ApplicationException]]
  */
 var ErrorDescriptionFactory = /** @class */ (function () {
     function ErrorDescriptionFactory() {

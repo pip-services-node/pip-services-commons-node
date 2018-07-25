@@ -7,8 +7,8 @@ export declare class UnknownException extends ApplicationException {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Unknown and set the status to 500.
      *
-     * @see ApplicationException#ApplicationException
-     * @see ErrorCategory
+     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ErrorCategory]]
      */
     constructor(correlation_id?: string, code?: string, message?: string);
 }

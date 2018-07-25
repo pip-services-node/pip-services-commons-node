@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module data */
 var uuid = require('uuid');
 // Maps for number <-> hex string conversion
 var byteToHex = [];

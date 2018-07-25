@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the string data type.
@@ -29,25 +30,25 @@ var StringConverter = /** @class */ (function () {
         return value.toString();
     };
     /**
-     * Static method for converting values to strings using {@link #toStringWithDefault}.
+     * Static method for converting values to strings using [[toStringWithDefault]].
      * An empty string ("") will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toStringWithDefault
+     * @see [[toStringWithDefault]]
      */
     StringConverter.toString = function (value) {
         return StringConverter.toStringWithDefault(value, "");
     };
     /**
-     * Static method for converting values to strings using {@link #toNullableString}.
+     * Static method for converting values to strings using [[toNullableString]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see #toNullableString
+     * @see [[toNullableString]]
      */
     StringConverter.toStringWithDefault = function (value, defaultValue) {
         return StringConverter.toNullableString(value) || defaultValue;

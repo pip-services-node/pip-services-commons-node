@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module reflect */
 var _ = require('lodash');
 var path = require("path");
 var NotFoundException_1 = require("../errors/NotFoundException");

@@ -8,8 +8,8 @@ export declare class ConflictException extends ApplicationException {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Conflict and set the status to 409.
      *
-     * @see ApplicationException#ApplicationException
-     * @see ErrorCategory
+     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ErrorCategory]]
      */
     constructor(correlation_id?: string, code?: string, message?: string);
 }

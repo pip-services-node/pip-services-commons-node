@@ -1,10 +1,12 @@
 import { TypeCode } from './TypeCode';
 /**
- * Class that contains "soft" data converters. Soft data converters differ from the data conversion algorithms
- * found in typical programming language, due to the fact that they support rare conversions between various data
- * types (such as integer to timespan, timespan to string, and so on).
+ * Class that uses the converters available in this package to perform "soft" data conversions between various data types,
+ * as well as resolve the [[TypeCode]] of an object.
  *
- * @see TypeCode
+ * Soft data converters differ from the data conversion algorithms found in typical programming language, due to the fact
+ * that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on).
+ *
+ * @see [[TypeCode]]
  */
 export declare class TypeConverter {
     /**
@@ -21,7 +23,7 @@ export declare class TypeConverter {
      * @param value 	the value to convert.
      * @returns			'value' as an object of type T. If 'value' is null - null will be returned.
      *
-     * @see #toTypeCode
+     * @see [[toTypeCode]]
      */
     static toNullableType<T>(type: TypeCode, value: any): T;
     /**
@@ -33,8 +35,8 @@ export declare class TypeConverter {
      * 					TypeConverter.toNullableType<T>(type, value) is null, then a default
      * 					value for the given type will be returned.
      *
-     * @see #toNullableType<T>
-     * @see #toTypeCode
+     * @see [[toNullableType]]
+     * @see [[toTypeCode]]
      */
     static toType<T>(type: TypeCode, value: any): T;
     /**
@@ -43,12 +45,12 @@ export declare class TypeConverter {
      *
      * @param type 			the TypeCode for the data type into which 'value' is to be converted.
      * @param value 		the value to convert.
-     * @param defaultValue	the default value to return if conversion fails (returns null).
+     * @param defaultValue	the default value to return if conversion is not possible (returns null).
      * @returns				'value' as an object of type T or 'defaultValue', if the result of the
      * 						conversion using TypeConverter.toNullableType<T>(type, value) is null.
      *
-     * @see #toNullableType<T>
-     * @see #toTypeCode
+     * @see [[toNullableType]]
+     * @see [[toTypeCode]]
      */
     static toTypeWithDefault<T>(type: TypeCode, value: any, defaultValue: T): T;
     /**

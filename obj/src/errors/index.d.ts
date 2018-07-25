@@ -1,3 +1,4 @@
+/** @module errors */
 export { ErrorCategory } from './ErrorCategory';
 export { ErrorDescription } from './ErrorDescription';
 export { ApplicationException } from './ApplicationException';

@@ -1,3 +1,4 @@
+/** @module data */
 /**
  * Interface for versioned data objects with optimistic concurrency resolution.
  * The version can be any string, with the only requirement that newer versions

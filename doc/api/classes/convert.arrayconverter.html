@@ -110,33 +110,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/ArrayConverter.ts#L82">convert/ArrayConverter.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/ArrayConverter.ts#L82">convert/ArrayConverter.ts:82</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for converting lists to arrays using <a href="convert.arrayconverter.html#toarray">toArray</a>.</p>
-								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if the list passed as &#39;value&#39; is null - an empty array will be returned;</li>
-									<li>if the list passed as &#39;value&#39; is a string - it will be parsed as a set of
-									comma-separated values, which will be returned as an array;</li>
-									<li>otherwise - the result of toArray(value) will be returned.</li>
-								</ul>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.arrayconverter.html#toarray">toArray</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the list to convert.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -153,27 +133,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/ArrayConverter.ts#L49">convert/ArrayConverter.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/ArrayConverter.ts#L49">convert/ArrayConverter.ts:49</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for converting values to arrays using <a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a>.
-									An empty array will be used as the default value for the conversion.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the value to convert.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -190,34 +156,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/ArrayConverter.ts#L64">convert/ArrayConverter.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/ArrayConverter.ts#L64">convert/ArrayConverter.ts:64</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for converting values to arrays using <a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a>.
-										If null is returned by the conversion, then this method will return the default
-									value passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the value to convert.</p>
-									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -234,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/0ab645b/src/convert/ArrayConverter.ts#L22">convert/ArrayConverter.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/convert/ArrayConverter.ts#L22">convert/ArrayConverter.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,7 +194,9 @@
 									<li>if &#39;value&#39; is null - null will be returned;</li>
 									<li>if &#39;value&#39; is a list - it will be cast to an array and returned;</li>
 									<li>if &#39;value&#39; is an object (map) - its values will be copied to the array that will be returned;</li>
-									<li>otherwise - an array containing &#39;value&#39; will be returned.</li>
+									<li><p>otherwise - an array containing &#39;value&#39; will be returned.</p>
+										<pre><code>           will <span class="hljs-keyword">be </span>returned.
+</code></pre></li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -259,8 +209,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null - null
-							will be returned.</p>
+							<p>the result of the conversion. If &#39;value&#39; was null - null</p>
 						</li>
 					</ul>
 				</section>

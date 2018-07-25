@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module data */
 var _ = require('lodash');
 /**
  * Class that provides methods for extracting and processing search tags from objects.
@@ -45,7 +46,7 @@ var TagsProcessor = /** @class */ (function () {
             == TagsProcessor.compressTag(tag2);
     };
     /**
-     * Normalizes the tags contained in the passed String using {@link org.pipservices.runtime.data.TagProcessor#normalizeTag(String)}.
+     * Normalizes the tags contained in the passed String using [[normalizeTag]].
      *
      * @param tags  the tags to normalize.
      * @return      a String array of normalized tags.
@@ -57,7 +58,7 @@ var TagsProcessor = /** @class */ (function () {
         return tags;
     };
     /**
-     * Compresses the tags contained in the passed String using {@link org.pipservices.runtime.data.TagProcessor#compressTag(String)}.
+     * Compresses the tags contained in the passed String using [[compressTag]].
      *
      * @param tags  the tags to compress.
      * @return      a String array of compressed tags.

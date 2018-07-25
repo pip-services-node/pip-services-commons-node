@@ -30,4 +30,5 @@ Quick Links:
 ## Acknowledgements
 
 The library is created and maintained by **Sergey Seroukhov**.
+
 The documentation is written by **Mark Makarychev**.

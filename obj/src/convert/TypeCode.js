@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 /**
  * Codes for the data types that can be
- * converted using {@link TypeConverter}.
+ * converted using [[TypeConverter]].
  *
- * @see TypeConverter
+ * @see [[TypeConverter]]
  */
 var TypeCode;
 (function (TypeCode) {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the datetime data type.
@@ -34,18 +35,18 @@ var DateTimeConverter = /** @class */ (function () {
         return isNaN(result) ? null : new Date(result);
     };
     /**
-     * Static method for converting values to datetimes using {@link #toDateTimeWithDefault}.
+     * Static method for converting values to datetimes using [[toDateTimeWithDefault]].
      * An empty date (new Date()) will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toDateTimeWithDefault
+     * @see [[toDateTimeWithDefault]]
      */
     DateTimeConverter.toDateTime = function (value) {
         return DateTimeConverter.toDateTimeWithDefault(value, new Date());
     };
     /**
-     * Static method for converting values to datetimes using {@link #toNullableDateTime}.
+     * Static method for converting values to datetimes using [[toNullableDateTime]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
@@ -53,7 +54,7 @@ var DateTimeConverter = /** @class */ (function () {
      * @param defaultValue  the default value to return if the conversion returns null.
      *                      Defaults to null if omitted.
      *
-     * @see #toNullableDateTime
+     * @see [[toNullableDateTime]]
      */
     DateTimeConverter.toDateTimeWithDefault = function (value, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }

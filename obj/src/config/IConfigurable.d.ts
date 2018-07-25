@@ -1,10 +1,11 @@
+/** @module config */
 import { ConfigParams } from './ConfigParams';
 /**
- * Configurable interface that contains the {@link #configure} method. If an object
+ * Configurable interface that contains the [[configure]] method. If an object
  * needs to be configurable, it can implement this interface and parse the
  * ConfigParams that 'configure' receives as a parameter.
  *
- * @see ConfigParams
+ * @see [[ConfigParams]]
  */
 export interface IConfigurable {
     /**

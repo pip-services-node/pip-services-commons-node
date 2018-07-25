@@ -1,3 +1,4 @@
+/** @module refer */
 import { Reference } from './Reference';
 import { IReferences } from './IReferences';
 /**

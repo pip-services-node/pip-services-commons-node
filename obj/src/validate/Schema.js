@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module validate */
 var _ = require('lodash');
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");

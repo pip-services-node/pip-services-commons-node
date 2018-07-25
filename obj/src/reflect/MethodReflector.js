@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module reflect */
 var _ = require('lodash');
 var MethodReflector = /** @class */ (function () {
     function MethodReflector() {

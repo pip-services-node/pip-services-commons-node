@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module run */
 var Parameters_1 = require("./Parameters");
 exports.Parameters = Parameters_1.Parameters;
 var Opener_1 = require("./Opener");

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Descriptor_1 = require("../refer/Descriptor");
 /**
- * Contains the static method {@link #resolve}, which can be used for resolving the name
+ * Contains the static method [[resolve]], which can be used for resolving the name
  * of a ConfigParams configuration.
  */
 var NameResolver = /** @class */ (function () {
@@ -11,7 +11,7 @@ var NameResolver = /** @class */ (function () {
     /**
      * Static method for resolving the name of a ConfigParams object. The configuration's name is
      * searched for using the keys: "name", "id", or "descriptor". In the case of
-     * "descriptor", the name of the {@link Descriptor} object will be returned. If no name is found,
+     * "descriptor", the name of the [[Descriptor]] object will be returned. If no name is found,
      * 'defaultName' will be returned.
      *
      * @param config        ConfigParams, whose name is to be resolved.

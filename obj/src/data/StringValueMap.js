@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module data */
 var _ = require('lodash');
 var TypeConverter_1 = require("../convert/TypeConverter");
 var StringConverter_1 = require("../convert/StringConverter");
@@ -17,23 +18,23 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * Class that allows for usage of abstract, portable string-value maps. Stores a set of values using string keys. The values that are
  * stored can be retrieved in various ways with the help of numerous converters.
  *
- * StringValueMap is crucial to the PipServices framework, as it is used to create serializable objects. {@link ConfigParams},
- * {@link ConnectionParams}, {@link FilterParams}, and many other PipServices classes extend StringValueMap.
+ * StringValueMap is crucial to the PipServices framework, as it is used to create serializable objects. [[ConfigParams]],
+ * [[ConnectionParams]], [[FilterParams]], and many other PipServices classes extend StringValueMap.
  *
- * @see StringConverter
- * @see TypeConverter
- * @see BooleanConverter
- * @see IntegerConverter
- * @see LongConverter
- * @see DoubleConverter
- * @see FloatConverter
- * @see DateTimeConverter
+ * @see [[StringConverter]]
+ * @see [[TypeConverter]]
+ * @see [[BooleanConverter]]
+ * @see [[IntegerConverter]]
+ * @see [[LongConverter]]
+ * @see [[DoubleConverter]]
+ * @see [[FloatConverter]]
+ * @see [[DateTimeConverter]]
  */
 var StringValueMap = /** @class */ (function () {
     /**
      * Creates a new instance and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using
-     * {@link #setAsObject} or {@link #append}.
+     * [[setAsObject]] or [[append]].
      *
      * @param values    the values to store in this StringValueMap.
      */
@@ -128,7 +129,7 @@ var StringValueMap = /** @class */ (function () {
      *                  filled anew) using 'value'. In this case 'value' will be converted to
      *                  a map using "MapConverter.toMap(value)" and set to this StringValueMap.
      *
-     * @see MapConverter#toMap
+     * @see [[MapConverter.toMap]]
      */
     StringValueMap.prototype.setAsObject = function (key, value) {
         if (value === void 0) { value = undefined; }
@@ -146,7 +147,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable string.
      *
-     * @see StringConverter#toNullableString
+     * @see [[StringConverter.toNullableString]]
      */
     StringValueMap.prototype.getAsNullableString = function (key) {
         var value = this.get(key);
@@ -156,7 +157,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a string (or null as the default).
      *
-     * @see #getAsStringWithDefault
+     * @see [[getAsStringWithDefault]]
      */
     StringValueMap.prototype.getAsString = function (key) {
         return this.getAsStringWithDefault(key, null);
@@ -167,7 +168,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a string or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see StringConverter#toStringWithDefault
+     * @see [[StringConverter.toStringWithDefault]]
      */
     StringValueMap.prototype.getAsStringWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -177,7 +178,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable boolean.
      *
-     * @see BooleanConverter#toNullableBoolean
+     * @see [[BooleanConverter.toNullableBoolean]]
      */
     StringValueMap.prototype.getAsNullableBoolean = function (key) {
         var value = this.get(key);
@@ -187,7 +188,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a boolean (or false as the default).
      *
-     * @see #getAsBooleanWithDefault
+     * @see [[getAsBooleanWithDefault]]
      */
     StringValueMap.prototype.getAsBoolean = function (key) {
         return this.getAsBooleanWithDefault(key, false);
@@ -198,7 +199,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a boolean or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see BooleanConverter#toBooleanWithDefault
+     * @see [[BooleanConverter.toBooleanWithDefault]]
      */
     StringValueMap.prototype.getAsBooleanWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -208,7 +209,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable integer.
      *
-     * @see IntegerConverter#toNullableInteger
+     * @see [[IntegerConverter.toNullableInteger]]
      */
     StringValueMap.prototype.getAsNullableInteger = function (key) {
         var value = this.get(key);
@@ -218,7 +219,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as an integer (or 0 as the default).
      *
-     * @see #getAsIntegerWithDefault
+     * @see [[getAsIntegerWithDefault]]
      */
     StringValueMap.prototype.getAsInteger = function (key) {
         return this.getAsIntegerWithDefault(key, 0);
@@ -229,7 +230,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as an integer or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see IntegerConverter#toIntegerWithDefault
+     * @see [[IntegerConverter.toIntegerWithDefault]]
      */
     StringValueMap.prototype.getAsIntegerWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -239,7 +240,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable long.
      *
-     * @see LongConverter#toNullableLong
+     * @see [[LongConverter.toNullableLong]]
      */
     StringValueMap.prototype.getAsNullableLong = function (key) {
         var value = this.get(key);
@@ -249,7 +250,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a long (or 0 as the default).
      *
-     * @see #getAsLongWithDefault
+     * @see [[getAsLongWithDefault]]
      */
     StringValueMap.prototype.getAsLong = function (key) {
         return this.getAsLongWithDefault(key, 0);
@@ -260,7 +261,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a long or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see LongConverter#toLongWithDefault
+     * @see [[LongConverter.toLongWithDefault]]
      */
     StringValueMap.prototype.getAsLongWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -270,7 +271,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable float.
      *
-     * @see FloatConverter#toNullableFloat
+     * @see [[FloatConverter.toNullableFloat]]
      */
     StringValueMap.prototype.getAsNullableFloat = function (key) {
         var value = this.get(key);
@@ -280,7 +281,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a float (or 0 as the default).
      *
-     * @see #getAsFloatWithDefault
+     * @see [[getAsFloatWithDefault]]
      */
     StringValueMap.prototype.getAsFloat = function (key) {
         return this.getAsFloatWithDefault(key, 0);
@@ -291,7 +292,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a float or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see FloatConverter#toFloatWithDefault
+     * @see [[FloatConverter.toFloatWithDefault]]
      */
     StringValueMap.prototype.getAsFloatWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -301,7 +302,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable double.
      *
-     * @see DoubleConverter#toNullableDouble
+     * @see [[DoubleConverter.toNullableDouble]]
      */
     StringValueMap.prototype.getAsNullableDouble = function (key) {
         var value = this.get(key);
@@ -311,7 +312,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a double (or 0 as the default).
      *
-     * @see #getAsDoubleWithDefault
+     * @see [[getAsDoubleWithDefault]]
      */
     StringValueMap.prototype.getAsDouble = function (key) {
         return this.getAsDoubleWithDefault(key, 0);
@@ -322,7 +323,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a double or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DoubleConverter#toDoubleWithDefault
+     * @see [[DoubleConverter.toDoubleWithDefault]]
      */
     StringValueMap.prototype.getAsDoubleWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -332,7 +333,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable Datetime.
      *
-     * @see DateTimeConverter#toNullableDateTime
+     * @see [[DateTimeConverter.toNullableDateTime]]
      */
     StringValueMap.prototype.getAsNullableDateTime = function (key) {
         var value = this.get(key);
@@ -342,7 +343,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a Datetime (or null as the default).
      *
-     * @see #getAsDateTimeWithDefault
+     * @see [[getAsDateTimeWithDefault]]
      */
     StringValueMap.prototype.getAsDateTime = function (key) {
         return this.getAsDateTimeWithDefault(key, null);
@@ -353,7 +354,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns                 the item with the given key as a Datetime or the
      *                          defaultValue, if conversion is not possible.
      *
-     * @see DateTimeConverter#toDateTimeWithDefault
+     * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
     StringValueMap.prototype.getAsDateTimeWithDefault = function (key, defaultValue) {
         var value = this.get(key);
@@ -361,13 +362,13 @@ var StringValueMap = /** @class */ (function () {
     };
     /**
      * Converts the item with the given key into a nullable object of type 'type' using
-     * {@link TypeConverter#toNullableType<T>} and returns it.
+     * [[TypeConverter.toNullableType]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as a nullable object of type 'type'.
      *
-     * @see TypeConverter#toNullableType<T>
+     * @see [[TypeConverter.toNullableType]]
      */
     StringValueMap.prototype.getAsNullableType = function (type, key) {
         var value = this.get(key);
@@ -375,27 +376,27 @@ var StringValueMap = /** @class */ (function () {
     };
     /**
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an object of type 'type' (or null as the default).
      *
-     * @see #getAsTypeWithDefault
+     * @see [[getAsTypeWithDefault]]
      */
     StringValueMap.prototype.getAsType = function (type, key) {
         return this.getAsTypeWithDefault(type, key, null);
     };
     /**
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
      * @param defaultValue      value to return, if conversion is not possible.
      * @returns                 the item with the given key as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *
-     * @see TypeConverter#toTypeWithDefault<T>
+     * @see [[TypeConverter.toTypeWithDefault]]
      */
     StringValueMap.prototype.getAsTypeWithDefault = function (type, key, defaultValue) {
         var value = this.get(key);
@@ -405,8 +406,8 @@ var StringValueMap = /** @class */ (function () {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValue object.
      *
-     * @see AnyValue
-     * @see AnyValue#AnyValue
+     * @see [[AnyValue]]
+     * @see [[AnyValue.AnyValue]]
      */
     StringValueMap.prototype.getAsValue = function (key) {
         var value = this.get(key);
@@ -417,8 +418,8 @@ var StringValueMap = /** @class */ (function () {
      * @returns         the item with the given key as a nullable AnyValueArray object (returns
      *                  null if the item with the given key is null).
      *
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     StringValueMap.prototype.getAsNullableArray = function (key) {
         var value = this.get(key);
@@ -428,8 +429,8 @@ var StringValueMap = /** @class */ (function () {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueArray object.
      *
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     StringValueMap.prototype.getAsArray = function (key) {
         var value = this.get(key);
@@ -442,8 +443,8 @@ var StringValueMap = /** @class */ (function () {
      * @returns             the item with the given key as an AnyValueArray object or 'defaultValue',
      *                      if conversion is not possible.
      *
-     * @see AnyValueArray
-     * @see #getAsNullableArray
+     * @see [[AnyValueArray]]
+     * @see [[getAsNullableArray]]
      */
     StringValueMap.prototype.getAsArrayWithDefault = function (key, defaultValue) {
         var result = this.getAsNullableArray(key);
@@ -454,7 +455,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns         the item with the given key as a nullable AnyValueMap object (returns
      *                  null if the item with the given key is null).
      *
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     StringValueMap.prototype.getAsNullableMap = function (key) {
         var value = this.get(key);
@@ -464,7 +465,7 @@ var StringValueMap = /** @class */ (function () {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueMap object.
      *
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     StringValueMap.prototype.getAsMap = function (key) {
         var value = this.get(key);
@@ -477,7 +478,7 @@ var StringValueMap = /** @class */ (function () {
      * @returns             the item with the given key as an AnyValueMap object or 'defaultValue',
      *                      if conversion is not possible.
      *
-     * @see #getAsNullableMap
+     * @see [[getAsNullableMap]]
      */
     StringValueMap.prototype.getAsMapWithDefault = function (key, defaultValue) {
         var result = this.getAsNullableMap(key);
@@ -514,7 +515,7 @@ var StringValueMap = /** @class */ (function () {
      * @param value     the value to initialize the new StringValueMap with.
      * @returns         the StringValueMap that was created and initialized with 'value'.
      *
-     * @see #StringValueMap
+     * @see [[StringValueMap]]
      */
     StringValueMap.fromValue = function (value) {
         return new StringValueMap(value);
@@ -525,7 +526,7 @@ var StringValueMap = /** @class */ (function () {
      * @param tuples    the key-value tuple parameters to initialize the new StringValueMap with.
      * @returns         the StringValueMap created and filled by the tuples provided.
      *
-     * @see #fromTuplesArray
+     * @see [[fromTuplesArray]]
      */
     StringValueMap.fromTuples = function () {
         var tuples = [];

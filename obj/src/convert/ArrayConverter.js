@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module convert */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to arrays.
@@ -39,33 +40,33 @@ var ArrayConverter = /** @class */ (function () {
             return [value];
     };
     /**
-     * Static method for converting values to arrays using {@link #toNullableArray}.
+     * Static method for converting values to arrays using [[toNullableArray]].
      * An empty array will be used as the default value for the conversion.
      *
      * @param value     the value to convert.
      *
-     * @see #toNullableArray
+     * @see [[toNullableArray]]
      */
     ArrayConverter.toArray = function (value) {
         var result = ArrayConverter.toNullableArray(value);
         return result || [];
     };
     /**
-     * Static method for converting values to arrays using {@link #toNullableArray}.
+     * Static method for converting values to arrays using [[toNullableArray]].
      * If null is returned by the conversion, then this method will return the default
      * value passed.
      *
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      *
-     * @see #toNullableArray
+     * @see [[toNullableArray]]
      */
     ArrayConverter.toArrayWithDefault = function (value, defaultValue) {
         var result = ArrayConverter.toNullableArray(value);
         return result || defaultValue;
     };
     /**
-     * Static method for converting lists to arrays using {@link #toArray}.
+     * Static method for converting lists to arrays using [[toArray]].
      *
      * Conversion cases:
      * - if the list passed as 'value' is null - an empty array will be returned;
@@ -75,7 +76,7 @@ var ArrayConverter = /** @class */ (function () {
      *
      * @param value 	the list to convert.
      *
-     * @see #toArray
+     * @see [[toArray]]
      */
     ArrayConverter.listToArray = function (value) {
         if (value == null)

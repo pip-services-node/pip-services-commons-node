@@ -1,3 +1,4 @@
+/** @module refer */
 import { IReferences } from './IReferences';
 /**
  * Interface for components that requires references to other components

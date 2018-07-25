@@ -1,20 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module run */
 var _ = require('lodash');
 var async = require('async');
 /**
- * Helper class that triggers execution for components
+ * Helper class that can be used to trigger execution of components.
  */
 var Executor = /** @class */ (function () {
     function Executor() {
     }
     /**
-     * Triggers execution for component that implement IExecutable and IParamExecutable interfaces
-     * and passes to IParamExecutable them set of parameters.
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param component         component to be executed.
-     * @param args              set of parameters to pass to executed components.
-     * @param callback          function to call with results when execution is complete.
+     * Static method for triggering the execution of a component. For a component to be executed, it must
+     * implement the [[IExecutable]] interface. This method calls IExecutable's [[IExecutable.execute execute]]
+     * method to execute the component passed as 'component', using the [[Parameters]] passed as 'args'.
+     *
+     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param component 		the component that is to be executed.
+     * @param args              the parameters (arguments) to pass to the component for its execution.
+     * @param callback 			the function to call when execution is complete. It will be called with
+     *                          the result of the execution or with an error, if one is raised.
+     *
+     * @see [[IExecutable]]
+     * @see [[Parameters]]
      */
     Executor.executeOne = function (correlationId, component, args, callback) {
         if (_.isFunction(component.execute)) {
@@ -29,12 +36,19 @@ var Executor = /** @class */ (function () {
             callback(null, null);
     };
     /**
-     * Triggers execution for components that implement IExecutable and IParamExecutable interfaces
-     * and passes to IParamExecutable them set of parameters.
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param components        list of components to be executed.
-     * @param args              set of parameters to pass to executed components.
-     * @param callback          function to call back with results when execution is complete.
+     * Static method for triggering the execution of multiple components. For a component to be executed,
+     * it must implement the [[IExecutable]] interface. This method calls the static [[executeOne]] method
+     * for each of the components passed, using the [[Parameters]] passed as 'args'.
+     *
+     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param components 		the list of components that are to be executed.
+     * @param args              the parameters (arguments) to pass to the components for their execution.
+     * @param callback 			the function to call when execution is complete. It will be called with
+     *                          the results of all executions or with an error, if one is raised.
+     *
+     * @see [[executeOne]]
+     * @see [[IExecutable]]
+     * @see [[Parameters]]
      */
     Executor.execute = function (correlationId, components, args, callback) {
         var results = [];

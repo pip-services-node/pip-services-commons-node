@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module random */
 /**
  * Provides methods that can be used for generating random booleans using 'chance' and 'nextBoolean' methods.
  */

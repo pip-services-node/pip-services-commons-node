@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/** @module data */
 /**
  * Class that defines a field by which values can be sorted. A sort field contains a
  * string field 'name' and a boolean field 'ascending'.

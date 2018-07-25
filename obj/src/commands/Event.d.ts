@@ -1,3 +1,4 @@
+/** @module commands */
 import { IEvent } from './IEvent';
 import { IEventListener } from './IEventListener';
 import { Parameters } from '../run/Parameters';
