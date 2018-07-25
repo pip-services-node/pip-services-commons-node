@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-var _ = require('lodash');
-var async = require('async');
+let _ = require('lodash');
+let async = require('async');
 /**
  * Helper class that can be used to open components.
  */
-var Opener = /** @class */ (function () {
-    function Opener() {
-    }
+class Opener {
     /**
      * Static method for checking whether or not a component has been opened. For a component to be checked,
      * it must implement the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.isOpened isOpened]]
@@ -18,12 +16,12 @@ var Opener = /** @class */ (function () {
      *
      * @see [[IOpenable]]
      */
-    Opener.isOpenedOne = function (component) {
+    static isOpenedOne(component) {
         if (_.isFunction(component.isOpened))
             return component.isOpened();
         else
             return true;
-    };
+    }
     /**
      * Static method for checking whether or not a list of components have been opened. For a component to be checked,
      * it must implement the [[IOpenable]] interface. This method calls the static [[isOpenedOne]] method for each
@@ -34,14 +32,14 @@ var Opener = /** @class */ (function () {
      * @see [[isOpenedOne]]
      * @see [[IOpenable]]
      */
-    Opener.isOpened = function (components) {
+    static isOpened(components) {
         if (components == null)
             return true;
-        var result = true;
-        for (var index = 0; index < components.length; index++)
+        let result = true;
+        for (let index = 0; index < components.length; index++)
             result = result && Opener.isOpenedOne(components[index]);
         return result;
-    };
+    }
     /**
      * Static method for opening a component. For a component to be opened, it must implement
      * the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.open open]] method
@@ -54,7 +52,7 @@ var Opener = /** @class */ (function () {
      *
      * @see [[IOpenable]]
      */
-    Opener.openOne = function (correlationId, component, callback) {
+    static openOne(correlationId, component, callback) {
         if (_.isFunction(component.open)) {
             try {
                 component.open(correlationId, callback);
@@ -68,7 +66,7 @@ var Opener = /** @class */ (function () {
         }
         else if (callback)
             callback(null);
-    };
+    }
     /**
      * Static method for opening multiple components. For a component to be opened, it must implement
      * the [[IOpenable]] interface. This method calls the static [[openOne]] method for each of the
@@ -82,17 +80,16 @@ var Opener = /** @class */ (function () {
      * @see [[openOne]]
      * @see [[IOpenable]]
      */
-    Opener.open = function (correlationId, components, callback) {
-        async.eachSeries(components, function (component, callback) {
+    static open(correlationId, components, callback) {
+        async.eachSeries(components, (component, callback) => {
             Opener.openOne(correlationId, component, callback);
-        }, function (err) {
+        }, (err) => {
             if (callback)
                 callback(err);
             else if (err)
                 throw err;
         });
-    };
-    return Opener;
-}());
+    }
+}
 exports.Opener = Opener;
 //# sourceMappingURL=Opener.js.map

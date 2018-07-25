@@ -1,28 +1,18 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
-var _ = require('lodash');
-var TypeConverter_1 = require("../convert/TypeConverter");
-var StringConverter_1 = require("../convert/StringConverter");
-var BooleanConverter_1 = require("../convert/BooleanConverter");
-var IntegerConverter_1 = require("../convert/IntegerConverter");
-var LongConverter_1 = require("../convert/LongConverter");
-var FloatConverter_1 = require("../convert/FloatConverter");
-var DoubleConverter_1 = require("../convert/DoubleConverter");
-var DateTimeConverter_1 = require("../convert/DateTimeConverter");
-var ArrayConverter_1 = require("../convert/ArrayConverter");
-var AnyValue_1 = require("./AnyValue");
-var AnyValueMap_1 = require("./AnyValueMap");
+let _ = require('lodash');
+const TypeConverter_1 = require("../convert/TypeConverter");
+const StringConverter_1 = require("../convert/StringConverter");
+const BooleanConverter_1 = require("../convert/BooleanConverter");
+const IntegerConverter_1 = require("../convert/IntegerConverter");
+const LongConverter_1 = require("../convert/LongConverter");
+const FloatConverter_1 = require("../convert/FloatConverter");
+const DoubleConverter_1 = require("../convert/DoubleConverter");
+const DateTimeConverter_1 = require("../convert/DateTimeConverter");
+const ArrayConverter_1 = require("../convert/ArrayConverter");
+const AnyValue_1 = require("./AnyValue");
+const AnyValueMap_1 = require("./AnyValueMap");
 /**
  * Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved
  * in various ways with the help of numerous converters.
@@ -37,8 +27,7 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-var AnyValueArray = /** @class */ (function (_super) {
-    __extends(AnyValueArray, _super);
+class AnyValueArray extends Array {
     /**
      * Creates a new instance and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using
@@ -46,57 +35,54 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @param values    the values to store in this AnyValueArray.
      */
-    function AnyValueArray(values) {
-        if (values === void 0) { values = null; }
-        var _this = _super.call(this) || this;
+    constructor(values = null) {
+        super();
         // Set the prototype explicitly.
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        _this.__proto__ = AnyValueArray.prototype;
-        _this.append(values);
-        return _this;
+        this.__proto__ = AnyValueArray.prototype;
+        this.append(values);
     }
     /**
      * @param index     index of the item to retrieve from this AnyValueArray.
      * @returns         the item that is located at the given index.
      */
-    AnyValueArray.prototype.get = function (index) {
+    get(index) {
         return this[index];
-    };
+    }
     /**
      * @param index     the index at which to insert the given value.
      * @param value     the value to insert into this AnyValueArray at the given index.
      */
-    AnyValueArray.prototype.put = function (index, value) {
+    put(index, value) {
         this[index] = value;
-    };
+    }
     /**
      * @param index     index of the item to remove.
      */
-    AnyValueArray.prototype.remove = function (index) {
+    remove(index) {
         this.splice(index, 1);
-    };
+    }
     /**
      * @param elements  items to append to this AnyValueArray.
      */
-    AnyValueArray.prototype.append = function (elements) {
+    append(elements) {
         if (elements != null) {
-            for (var index = 0; index < elements.length; index++)
+            for (let index = 0; index < elements.length; index++)
                 this.push(elements[index]);
         }
-    };
+    }
     /** Removes all items from this AnyValueArray. */
-    AnyValueArray.prototype.clear = function () {
+    clear() {
         this.splice(0, this.length);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index without any conversions or
      *                  all items, if 'index' is undefined or omitted.
      */
-    AnyValueArray.prototype.getAsObject = function (index) {
-        if (index === void 0) { index = undefined; }
+    getAsObject(index = undefined) {
         if (index === undefined) {
-            var result = [];
+            let result = [];
             for (index = 0; index < this.length; index++)
                 result.push(this[index]);
             return result;
@@ -104,7 +90,7 @@ var AnyValueArray = /** @class */ (function (_super) {
         else {
             return this[index];
         }
-    };
+    }
     /**
      * @param index     the position in this AnyValueArray to set the value at.
      * @param value     the value to set in this AnyValueArray at the given 'index'.
@@ -114,37 +100,36 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[ArrayConverter.toArray]]
      */
-    AnyValueArray.prototype.setAsObject = function (index, value) {
-        if (value === void 0) { value = undefined; }
+    setAsObject(index, value = undefined) {
         if (value === undefined) {
             value = index; //originally was not present - added by Mark Makarychev.
             this.clear();
-            var elements = ArrayConverter_1.ArrayConverter.toArray(value);
+            let elements = ArrayConverter_1.ArrayConverter.toArray(value);
             this.append(elements);
         }
         else {
             this[index] = value;
         }
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable string.
      *
      * @see [[StringConverter.toNullableString]]
      */
-    AnyValueArray.prototype.getAsNullableString = function (index) {
-        var value = this[index];
+    getAsNullableString(index) {
+        let value = this[index];
         return StringConverter_1.StringConverter.toNullableString(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a string (or null as the default).
      *
      * @see [[getAsStringWithDefault]]
      */
-    AnyValueArray.prototype.getAsString = function (index) {
+    getAsString(index) {
         return this.getAsStringWithDefault(index, null);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -153,29 +138,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
-    AnyValueArray.prototype.getAsStringWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsStringWithDefault(index, defaultValue) {
+        let value = this[index];
         return StringConverter_1.StringConverter.toStringWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable boolean.
      *
      * @see [[BooleanConverter.toNullableBoolean]]
      */
-    AnyValueArray.prototype.getAsNullableBoolean = function (index) {
-        var value = this[index];
+    getAsNullableBoolean(index) {
+        let value = this[index];
         return BooleanConverter_1.BooleanConverter.toNullableBoolean(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a boolean (or false as the default).
      *
      * @see [[getAsBooleanWithDefault]]
      */
-    AnyValueArray.prototype.getAsBoolean = function (index) {
+    getAsBoolean(index) {
         return this.getAsBooleanWithDefault(index, false);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -184,29 +169,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
-    AnyValueArray.prototype.getAsBooleanWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsBooleanWithDefault(index, defaultValue) {
+        let value = this[index];
         return BooleanConverter_1.BooleanConverter.toBooleanWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable integer.
      *
      * @see [[IntegerConverter.toNullableInteger]]
      */
-    AnyValueArray.prototype.getAsNullableInteger = function (index) {
-        var value = this[index];
+    getAsNullableInteger(index) {
+        let value = this[index];
         return IntegerConverter_1.IntegerConverter.toNullableInteger(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an integer (or 0 as the default).
      *
      * @see [[getAsIntegerWithDefault]]
      */
-    AnyValueArray.prototype.getAsInteger = function (index) {
+    getAsInteger(index) {
         return this.getAsIntegerWithDefault(index, 0);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -215,29 +200,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
-    AnyValueArray.prototype.getAsIntegerWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsIntegerWithDefault(index, defaultValue) {
+        let value = this[index];
         return IntegerConverter_1.IntegerConverter.toIntegerWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable long.
      *
      * @see [[LongConverter.toNullableLong]]
      */
-    AnyValueArray.prototype.getAsNullableLong = function (index) {
-        var value = this[index];
+    getAsNullableLong(index) {
+        let value = this[index];
         return LongConverter_1.LongConverter.toNullableLong(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a long (or 0 as the default).
      *
      * @see [[getAsLongWithDefault]]
      */
-    AnyValueArray.prototype.getAsLong = function (index) {
+    getAsLong(index) {
         return this.getAsLongWithDefault(index, 0);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -246,29 +231,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
-    AnyValueArray.prototype.getAsLongWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsLongWithDefault(index, defaultValue) {
+        let value = this[index];
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable float.
      *
      * @see [[FloatConverter.toNullableFloat]]
      */
-    AnyValueArray.prototype.getAsNullableFloat = function (index) {
-        var value = this[index];
+    getAsNullableFloat(index) {
+        let value = this[index];
         return FloatConverter_1.FloatConverter.toNullableFloat(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a float (or 0 as the default).
      *
      * @see [[getAsFloatWithDefault]]
      */
-    AnyValueArray.prototype.getAsFloat = function (index) {
+    getAsFloat(index) {
         return this.getAsFloatWithDefault(index, 0);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -277,29 +262,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
-    AnyValueArray.prototype.getAsFloatWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsFloatWithDefault(index, defaultValue) {
+        let value = this[index];
         return FloatConverter_1.FloatConverter.toFloatWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable double.
      *
      * @see [[DoubleConverter.toNullableDouble]]
      */
-    AnyValueArray.prototype.getAsNullableDouble = function (index) {
-        var value = this[index];
+    getAsNullableDouble(index) {
+        let value = this[index];
         return DoubleConverter_1.DoubleConverter.toNullableDouble(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a double (or 0 as the default).
      *
      * @see [[getAsDoubleWithDefault]]
      */
-    AnyValueArray.prototype.getAsDouble = function (index) {
+    getAsDouble(index) {
         return this.getAsDoubleWithDefault(index, 0);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -308,29 +293,29 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
-    AnyValueArray.prototype.getAsDoubleWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsDoubleWithDefault(index, defaultValue) {
+        let value = this[index];
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable Datetime.
      *
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
-    AnyValueArray.prototype.getAsNullableDateTime = function (index) {
-        var value = this[index];
+    getAsNullableDateTime(index) {
+        let value = this[index];
         return DateTimeConverter_1.DateTimeConverter.toNullableDateTime(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a Datetime (or null as the default).
      *
      * @see [[getAsDateTimeWithDefault]]
      */
-    AnyValueArray.prototype.getAsDateTime = function (index) {
+    getAsDateTime(index) {
         return this.getAsDateTimeWithDefault(index, null);
-    };
+    }
     /**
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return, if conversion is not possible.
@@ -339,10 +324,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
-    AnyValueArray.prototype.getAsDateTimeWithDefault = function (index, defaultValue) {
-        var value = this[index];
+    getAsDateTimeWithDefault(index, defaultValue) {
+        let value = this[index];
         return DateTimeConverter_1.DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
-    };
+    }
     /**
      * Converts the item at the given index into a nullable object of type 'type' using
      * [[TypeConverter.toNullableType]] and returns it.
@@ -353,10 +338,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[TypeConverter.toNullableType]]
      */
-    AnyValueArray.prototype.getAsNullableType = function (type, index) {
-        var value = this[index];
+    getAsNullableType(type, index) {
+        let value = this[index];
         return TypeConverter_1.TypeConverter.toNullableType(type, value);
-    };
+    }
     /**
      * Converts the item at the given index into an object of type 'type' using
      * [[TypeConverter.toTypeWithDefault]] and returns it.
@@ -367,9 +352,9 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[getAsTypeWithDefault]]
      */
-    AnyValueArray.prototype.getAsType = function (type, index) {
+    getAsType(type, index) {
         return this.getAsTypeWithDefault(type, index, null);
-    };
+    }
     /**
      * Converts the item at the given index into an object of type 'type' using
      * [[TypeConverter.toTypeWithDefault]] and returns it.
@@ -381,10 +366,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[TypeConverter.toTypeWithDefault]]
      */
-    AnyValueArray.prototype.getAsTypeWithDefault = function (type, index, defaultValue) {
-        var value = this[index];
+    getAsTypeWithDefault(type, index, defaultValue) {
+        let value = this[index];
         return TypeConverter_1.TypeConverter.toTypeWithDefault(type, value, defaultValue);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValue object.
@@ -392,10 +377,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      * @see [[AnyValue]]
      * @see [[AnyValue.AnyValue]]
      */
-    AnyValueArray.prototype.getAsValue = function (index) {
-        var value = this[index];
+    getAsValue(index) {
+        let value = this[index];
         return new AnyValue_1.AnyValue(value);
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueArray object (returns
@@ -403,20 +388,20 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[fromValue]]
      */
-    AnyValueArray.prototype.getAsNullableArray = function (index) {
-        var value = this[index];
+    getAsNullableArray(index) {
+        let value = this[index];
         return value != null ? AnyValueArray.fromValue(value) : null;
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueArray object.
      *
      * @see [[fromValue]]
      */
-    AnyValueArray.prototype.getAsArray = function (index) {
-        var value = this[index];
+    getAsArray(index) {
+        let value = this[index];
         return AnyValueArray.fromValue(value);
-    };
+    }
     /**
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted
@@ -426,10 +411,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[getAsNullableArray]]
      */
-    AnyValueArray.prototype.getAsArrayWithDefault = function (index, defaultValue) {
-        var result = this.getAsNullableArray(index);
+    getAsArrayWithDefault(index, defaultValue) {
+        let result = this.getAsNullableArray(index);
         return result != null ? result : defaultValue;
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueMap object (returns
@@ -438,10 +423,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      * @see [[AnyValueMap]]
      * @see [[AnyValueMap.fromValue]]
      */
-    AnyValueArray.prototype.getAsNullableMap = function (index) {
-        var value = this[index];
+    getAsNullableMap(index) {
+        let value = this[index];
         return value != null ? AnyValueMap_1.AnyValueMap.fromValue(value) : null;
-    };
+    }
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueMap object.
@@ -449,10 +434,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      * @see [[AnyValueMap]]
      * @see [[AnyValueMap.fromValue]]
      */
-    AnyValueArray.prototype.getAsMap = function (index) {
-        var value = this[index];
+    getAsMap(index) {
+        let value = this[index];
         return AnyValueMap_1.AnyValueMap.fromValue(value);
-    };
+    }
     /**
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted
@@ -462,17 +447,17 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[getAsNullableMap]]
      */
-    AnyValueArray.prototype.getAsMapWithDefault = function (index, defaultValue) {
-        var result = this.getAsNullableMap(index);
+    getAsMapWithDefault(index, defaultValue) {
+        let result = this.getAsNullableMap(index);
         return result != null ? AnyValueMap_1.AnyValueMap.fromValue(result) : defaultValue;
-    };
+    }
     /**
      * @param value     value to search for in this AnyValueArray.
      * @returns         whether or not this AnyValueArray contains the given value.
      */
-    AnyValueArray.prototype.contains = function (value) {
-        for (var index = 0; index < this.length; index++) {
-            var element = this[index];
+    contains(value) {
+        for (let index = 0; index < this.length; index++) {
+            let element = this[index];
             if (value == null && element == null)
                 return true;
             if (value == null || element == null)
@@ -481,7 +466,7 @@ var AnyValueArray = /** @class */ (function (_super) {
                 return true;
         }
         return false;
-    };
+    }
     /**
      * Checks whether or not this AnyValueArray contains a certain value as an object of type 'type'.
      * The value passed will be converted using [[TypeConverter.toType]], where as this AnyValueArray's
@@ -497,10 +482,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      * @see [[TypeConverter.toType]]
      * @see [[TypeConverter.toNullableType]]
      */
-    AnyValueArray.prototype.containsAsType = function (type, value) {
-        var typedValue = TypeConverter_1.TypeConverter.toType(type, value);
-        for (var index = 0; index < this.length; index++) {
-            var thisTypedValue = TypeConverter_1.TypeConverter.toNullableType(type, this[index]);
+    containsAsType(type, value) {
+        let typedValue = TypeConverter_1.TypeConverter.toType(type, value);
+        for (let index = 0; index < this.length; index++) {
+            let thisTypedValue = TypeConverter_1.TypeConverter.toNullableType(type, this[index]);
             if (typedValue == null && thisTypedValue == null)
                 return true;
             if (typedValue == null || thisTypedValue == null)
@@ -509,38 +494,34 @@ var AnyValueArray = /** @class */ (function (_super) {
                 return true;
         }
         return false;
-    };
+    }
     /** @returns a clone of this object. */
-    AnyValueArray.prototype.clone = function () {
+    clone() {
         return new AnyValueArray(this);
-    };
+    }
     /**
      * @returns this AnyValueArray as a comma-separated values string.
      *
      * Example: "value1,,value3".
      */
-    AnyValueArray.prototype.toString = function () {
-        var builder = '';
-        for (var index = 0; index < this.length; index++) {
+    toString() {
+        let builder = '';
+        for (let index = 0; index < this.length; index++) {
             if (index > 0)
                 builder += ',';
             builder += this.getAsStringWithDefault(index, "");
         }
         return builder;
-    };
+    }
     /**
      * Static method for creating an AnyValueArray from the values passed as parameters.
      *
      * @param values    the values to initialize the AnyValueArray with, which are passed as parameters.
      * @returns         the AnyValueArray created and filled by the values provided.
      */
-    AnyValueArray.fromValues = function () {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
+    static fromValues(...values) {
         return new AnyValueArray(values);
-    };
+    }
     /**
      * Static method for creating an AnyValueArray from a value using [[ArrayConverter.toNullableArray]].
      *
@@ -549,10 +530,10 @@ var AnyValueArray = /** @class */ (function (_super) {
      *
      * @see [[ArrayConverter.toNullableArray]]
      */
-    AnyValueArray.fromValue = function (value) {
-        var values = ArrayConverter_1.ArrayConverter.toNullableArray(value);
+    static fromValue(value) {
+        let values = ArrayConverter_1.ArrayConverter.toNullableArray(value);
         return new AnyValueArray(values);
-    };
+    }
     /**
      * Static method for creating an AnyValueArray from a string of 'values', separated using the char passed as
      * 'separator'.
@@ -562,20 +543,18 @@ var AnyValueArray = /** @class */ (function (_super) {
      * @param removeDuplicates  (optional) boolean that defines whether or not duplicate items should be removed.
      * @returns                 the AnyValueArray that was created and filled by 'values'.
      */
-    AnyValueArray.fromString = function (values, separator, removeDuplicates) {
-        if (removeDuplicates === void 0) { removeDuplicates = false; }
-        var result = new AnyValueArray();
+    static fromString(values, separator, removeDuplicates = false) {
+        let result = new AnyValueArray();
         if (values == null || values.length == 0)
             return result;
-        var items = values.split(separator, -1);
-        for (var index = 0; index < items.length; index++) {
-            var item = items[index];
+        let items = values.split(separator, -1);
+        for (let index = 0; index < items.length; index++) {
+            let item = items[index];
             if ((item != null && item.length > 0) || removeDuplicates == false)
                 result.push(item != null ? new AnyValue_1.AnyValue(item) : null);
         }
         return result;
-    };
-    return AnyValueArray;
-}(Array));
+    }
+}
 exports.AnyValueArray = AnyValueArray;
 //# sourceMappingURL=AnyValueArray.js.map

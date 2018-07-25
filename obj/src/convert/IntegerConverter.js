@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
-var LongConverter_1 = require("./LongConverter");
+let _ = require('lodash');
+const LongConverter_1 = require("./LongConverter");
 /**
  * Provides methods for converting various values to the integer data type.
  */
-var IntegerConverter = /** @class */ (function () {
-    function IntegerConverter() {
-    }
+class IntegerConverter {
     /**
      * Static method for converting values to nullable integers.
      *
@@ -27,9 +25,9 @@ var IntegerConverter = /** @class */ (function () {
      *
      * @see [[LongConverter.toNullableLong]]
      */
-    IntegerConverter.toNullableInteger = function (value) {
+    static toNullableInteger(value) {
         return LongConverter_1.LongConverter.toNullableLong(value);
-    };
+    }
     /**
      * Static method for converting values to integers using [[LongConverter.toLong]] (which uses
      * [[LongConverter.toLongWithDefault]]). 0 will be used as the default value for the conversion.
@@ -39,9 +37,9 @@ var IntegerConverter = /** @class */ (function () {
      * @see [[LongConverter.toLong]]
      * @see [[LongConverter.toLongWithDefault]]
      */
-    IntegerConverter.toInteger = function (value) {
+    static toInteger(value) {
         return LongConverter_1.LongConverter.toLong(value);
-    };
+    }
     /**
      * Static method for converting values to integers using [[LongConverter.toLongWithDefault]]
      * (which uses [[LongConverter.toNullableLong]]). If null is returned by the conversion,
@@ -53,10 +51,9 @@ var IntegerConverter = /** @class */ (function () {
      * @see [[LongConverter.toLongWithDefault]]
      * @see [[LongConverter.toNullableLong]]
      */
-    IntegerConverter.toIntegerWithDefault = function (value, defaultValue) {
+    static toIntegerWithDefault(value, defaultValue) {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
-    };
-    return IntegerConverter;
-}());
+    }
+}
 exports.IntegerConverter = IntegerConverter;
 //# sourceMappingURL=IntegerConverter.js.map

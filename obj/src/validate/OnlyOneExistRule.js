@@ -1,21 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ValidationResult_1 = require("./ValidationResult");
-var ValidationResultType_1 = require("./ValidationResultType");
-var ObjectReader_1 = require("../reflect/ObjectReader");
-var OnlyOneExistRule = /** @class */ (function () {
-    function OnlyOneExistRule() {
-        var properties = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            properties[_i] = arguments[_i];
-        }
+const ValidationResult_1 = require("./ValidationResult");
+const ValidationResultType_1 = require("./ValidationResultType");
+const ObjectReader_1 = require("../reflect/ObjectReader");
+class OnlyOneExistRule {
+    constructor(...properties) {
         this._properties = properties;
     }
-    OnlyOneExistRule.prototype.validate = function (path, schema, value, results) {
-        var name = path || "value";
-        var found = [];
+    validate(path, schema, value, results) {
+        let name = path || "value";
+        let found = [];
         for (var i = 0; i < this._properties.length; i++) {
-            var property = this._properties[i];
+            let property = this._properties[i];
             var propertyValue = ObjectReader_1.ObjectReader.getProperty(value, property);
             if (propertyValue)
                 found.push(property);
@@ -26,8 +22,7 @@ var OnlyOneExistRule = /** @class */ (function () {
         else if (found.length > 1) {
             results.push(new ValidationResult_1.ValidationResult(path, ValidationResultType_1.ValidationResultType.Error, "VALUE_ONLY_ONE", name + "must have only one property from " + this._properties, this._properties, null));
         }
-    };
-    return OnlyOneExistRule;
-}());
+    }
+}
 exports.OnlyOneExistRule = OnlyOneExistRule;
 //# sourceMappingURL=OnlyOneExistRule.js.map

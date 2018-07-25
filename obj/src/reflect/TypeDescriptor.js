@@ -1,21 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-var ConfigException_1 = require("../errors/ConfigException");
-var TypeDescriptor = /** @class */ (function () {
-    function TypeDescriptor(name, library) {
+const ConfigException_1 = require("../errors/ConfigException");
+class TypeDescriptor {
+    constructor(name, library) {
         this._name = name;
         this._library = library;
     }
-    TypeDescriptor.prototype.getName = function () {
+    getName() {
         return this._name;
-    };
-    TypeDescriptor.prototype.getLibrary = function () {
+    }
+    getLibrary() {
         return this._library;
-    };
-    TypeDescriptor.prototype.equals = function (obj) {
+    }
+    equals(obj) {
         if (obj instanceof TypeDescriptor) {
-            var otherType = obj;
+            let otherType = obj;
             if (this.getName() == null || otherType.getName() == null)
                 return false;
             if (this.getName() != otherType.getName())
@@ -25,17 +25,17 @@ var TypeDescriptor = /** @class */ (function () {
                 return true;
         }
         return false;
-    };
-    TypeDescriptor.prototype.toString = function () {
-        var builder = '' + this._name;
+    }
+    toString() {
+        let builder = '' + this._name;
         if (this._library != null)
             builder += ',' + this._library;
         return builder.toString();
-    };
-    TypeDescriptor.fromString = function (value) {
+    }
+    static fromString(value) {
         if (value == null || value.length == 0)
             return null;
-        var tokens = value.split(",");
+        let tokens = value.split(",");
         if (tokens.length == 1) {
             return new TypeDescriptor(tokens[0].trim(), null);
         }
@@ -45,8 +45,7 @@ var TypeDescriptor = /** @class */ (function () {
         else {
             throw new ConfigException_1.ConfigException(null, "BAD_DESCRIPTOR", "Type descriptor " + value + " is in wrong format").withDetails("descriptor", value);
         }
-    };
-    return TypeDescriptor;
-}());
+    }
+}
 exports.TypeDescriptor = TypeDescriptor;
 //# sourceMappingURL=TypeDescriptor.js.map

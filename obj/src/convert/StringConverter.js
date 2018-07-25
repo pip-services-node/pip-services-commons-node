@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to the string data type.
  */
-var StringConverter = /** @class */ (function () {
-    function StringConverter() {
-    }
+class StringConverter {
     /**
      * Static method for converting values to nullable strings.
      *
@@ -20,7 +18,7 @@ var StringConverter = /** @class */ (function () {
      * @param value     the value to convert.
      * @returns         the result of the conversion. If 'value' was null, null will be returned.
      */
-    StringConverter.toNullableString = function (value) {
+    static toNullableString(value) {
         if (value == null)
             return null;
         if (_.isString(value))
@@ -28,7 +26,7 @@ var StringConverter = /** @class */ (function () {
         if (_.isDate(value))
             return value.toISOString();
         return value.toString();
-    };
+    }
     /**
      * Static method for converting values to strings using [[toStringWithDefault]].
      * An empty string ("") will be used as the default value for the conversion.
@@ -37,9 +35,9 @@ var StringConverter = /** @class */ (function () {
      *
      * @see [[toStringWithDefault]]
      */
-    StringConverter.toString = function (value) {
+    static toString(value) {
         return StringConverter.toStringWithDefault(value, "");
-    };
+    }
     /**
      * Static method for converting values to strings using [[toNullableString]].
      * If null is returned by the conversion, then this method will return the default
@@ -50,10 +48,9 @@ var StringConverter = /** @class */ (function () {
      *
      * @see [[toNullableString]]
      */
-    StringConverter.toStringWithDefault = function (value, defaultValue) {
+    static toStringWithDefault(value, defaultValue) {
         return StringConverter.toNullableString(value) || defaultValue;
-    };
-    return StringConverter;
-}());
+    }
+}
 exports.StringConverter = StringConverter;
 //# sourceMappingURL=StringConverter.js.map

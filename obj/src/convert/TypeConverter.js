@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
-var TypeCode_1 = require("./TypeCode");
-var StringConverter_1 = require("./StringConverter");
-var IntegerConverter_1 = require("./IntegerConverter");
-var LongConverter_1 = require("./LongConverter");
-var FloatConverter_1 = require("./FloatConverter");
-var DoubleConverter_1 = require("./DoubleConverter");
-var DateTimeConverter_1 = require("./DateTimeConverter");
-var ArrayConverter_1 = require("./ArrayConverter");
-var MapConverter_1 = require("./MapConverter");
+let _ = require('lodash');
+const TypeCode_1 = require("./TypeCode");
+const StringConverter_1 = require("./StringConverter");
+const IntegerConverter_1 = require("./IntegerConverter");
+const LongConverter_1 = require("./LongConverter");
+const FloatConverter_1 = require("./FloatConverter");
+const DoubleConverter_1 = require("./DoubleConverter");
+const DateTimeConverter_1 = require("./DateTimeConverter");
+const ArrayConverter_1 = require("./ArrayConverter");
+const MapConverter_1 = require("./MapConverter");
 /**
  * Class that uses the converters available in this package to perform "soft" data conversions between various data types,
  * as well as resolve the [[TypeCode]] of an object.
@@ -20,16 +20,14 @@ var MapConverter_1 = require("./MapConverter");
  *
  * @see [[TypeCode]]
  */
-var TypeConverter = /** @class */ (function () {
-    function TypeConverter() {
-    }
+class TypeConverter {
     /**
      * Static method that resolves the TypeCode that corresponds to the passed object's type.
      *
      * @param value 	object whose TypeCode is to be resolved.
      * @returns			the TypeCode that corresponds to the passed object's type.
      */
-    TypeConverter.toTypeCode = function (value) {
+    static toTypeCode(value) {
         if (value == null)
             return TypeCode_1.TypeCode.Unknown;
         if (_.isArray(value))
@@ -62,7 +60,7 @@ var TypeConverter = /** @class */ (function () {
             return TypeCode_1.TypeCode.String;
         }
         return TypeCode_1.TypeCode.Object;
-    };
+    }
     /**
      * Static method that converts the object passed as 'value' to a nullable object of type T.
      *
@@ -72,7 +70,7 @@ var TypeConverter = /** @class */ (function () {
      *
      * @see [[toTypeCode]]
      */
-    TypeConverter.toNullableType = function (type, value) {
+    static toNullableType(type, value) {
         if (value == null)
             return null;
         // Convert to known types
@@ -93,7 +91,7 @@ var TypeConverter = /** @class */ (function () {
         else if (type == TypeCode_1.TypeCode.Map)
             value = MapConverter_1.MapConverter.toNullableMap(value);
         return value;
-    };
+    }
     /**
      * Static method that converts the object passed as 'value' to an object of type T.
      *
@@ -106,9 +104,9 @@ var TypeConverter = /** @class */ (function () {
      * @see [[toNullableType]]
      * @see [[toTypeCode]]
      */
-    TypeConverter.toType = function (type, value) {
+    static toType(type, value) {
         // Convert to the specified type
-        var result = TypeConverter.toNullableType(type, value);
+        let result = TypeConverter.toNullableType(type, value);
         if (result != null)
             return result;
         // Define and return default value based on type
@@ -131,7 +129,7 @@ var TypeConverter = /** @class */ (function () {
         else if (type == TypeCode_1.TypeCode.Array)
             value = [];
         return value;
-    };
+    }
     /**
      * Static method that converts the object passed as 'value' to an object of type T or returns
      * a default value, if the conversion is not possible (when null is returned).
@@ -145,17 +143,17 @@ var TypeConverter = /** @class */ (function () {
      * @see [[toNullableType]]
      * @see [[toTypeCode]]
      */
-    TypeConverter.toTypeWithDefault = function (type, value, defaultValue) {
-        var result = TypeConverter.toNullableType(type, value);
+    static toTypeWithDefault(type, value, defaultValue) {
+        let result = TypeConverter.toNullableType(type, value);
         return result != null ? result : defaultValue;
-    };
+    }
     /**
      * Static method that converts a TypeCode into its string name.
      *
      * @param type 	the TypeCode to convert into a string.
      * @returns		the name of the TypeCode passed as a string value.
      */
-    TypeConverter.toString = function (type) {
+    static toString(type) {
         switch (type) {
             case TypeCode_1.TypeCode.Unknown:
                 return "unknown";
@@ -186,8 +184,7 @@ var TypeConverter = /** @class */ (function () {
             default:
                 return "unknown";
         }
-    };
-    return TypeConverter;
-}());
+    }
+}
 exports.TypeConverter = TypeConverter;
 //# sourceMappingURL=TypeConverter.js.map

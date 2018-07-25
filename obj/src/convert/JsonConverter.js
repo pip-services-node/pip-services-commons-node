@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var TypeConverter_1 = require("./TypeConverter");
-var MapConverter_1 = require("./MapConverter");
+const TypeConverter_1 = require("./TypeConverter");
+const MapConverter_1 = require("./MapConverter");
 /**
  * Provides methods for conversion between various data types and Javascript's object notation.
  */
-var JsonConverter = /** @class */ (function () {
-    function JsonConverter() {
-    }
+class JsonConverter {
     /**
      * Static method for converting JSON strings to nullable objects of type T.
      *
@@ -15,23 +13,23 @@ var JsonConverter = /** @class */ (function () {
      * @param value 	the JSON string to convert.
      * @returns			'value' as an object of type T. If 'value' was null - null will be returned .
      */
-    JsonConverter.fromJson = function (type, value) {
+    static fromJson(type, value) {
         if (value == null)
             return null;
-        var temp = JSON.parse(value);
+        let temp = JSON.parse(value);
         return TypeConverter_1.TypeConverter.toType(type, temp);
-    };
+    }
     /**
      * Static method for converting objects in to JSON strings.
      *
      * @param value 	the value to convert.
      * @returns			the string generated using the standard JSON stringify method.
      */
-    JsonConverter.toJson = function (value) {
+    static toJson(value) {
         if (value == null)
             return null;
         return JSON.stringify(value);
-    };
+    }
     /**
      * Static method for converting JSON strings to nullable maps. Uses
      * the standard JSON parse method and [[MapConverter.toNullableMap]].
@@ -42,17 +40,17 @@ var JsonConverter = /** @class */ (function () {
      *
      * @see [[MapConverter.toNullableMap]]
      */
-    JsonConverter.toNullableMap = function (value) {
+    static toNullableMap(value) {
         if (value == null)
             return null;
         try {
-            var map = JSON.parse(value);
+            let map = JSON.parse(value);
             return MapConverter_1.MapConverter.toNullableMap(map);
         }
         catch (Exception) {
             return null;
         }
-    };
+    }
     /**
      * Static method for converting JSON strings to maps using [[toNullableMap]].
      * An empty map will be used as the default value for the conversion.
@@ -61,10 +59,10 @@ var JsonConverter = /** @class */ (function () {
      *
      * @see [[toNullableMap]]
      */
-    JsonConverter.toMap = function (value) {
-        var result = JsonConverter.toNullableMap(value);
+    static toMap(value) {
+        let result = JsonConverter.toNullableMap(value);
         return result != null ? result : {};
-    };
+    }
     /**
      * Static method for converting JSON strings to maps using [[toNullableMap]].
      * If null is returned by the conversion, then this method will return the default
@@ -75,11 +73,10 @@ var JsonConverter = /** @class */ (function () {
      *
      * @see [[toNullableMap]]
      */
-    JsonConverter.toMapWithDefault = function (value, defaultValue) {
-        var result = JsonConverter.toNullableMap(value);
+    static toMapWithDefault(value, defaultValue) {
+        let result = JsonConverter.toNullableMap(value);
         return result != null ? result : defaultValue;
-    };
-    return JsonConverter;
-}());
+    }
+}
 exports.JsonConverter = JsonConverter;
 //# sourceMappingURL=JsonConverter.js.map

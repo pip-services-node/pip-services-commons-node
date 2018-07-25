@@ -1,23 +1,12 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module errors */
-var ErrorCategory_1 = require("./ErrorCategory");
-var ApplicationException_1 = require("./ApplicationException");
+const ErrorCategory_1 = require("./ErrorCategory");
+const ApplicationException_1 = require("./ApplicationException");
 /**
  * Errors related to mistakes in the microservice's user-defined configurations.
  */
-var ConfigException = /** @class */ (function (_super) {
-    __extends(ConfigException, _super);
+class ConfigException extends ApplicationException_1.ApplicationException {
     /**
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Misconfiguration and set the status to 500.
@@ -25,18 +14,13 @@ var ConfigException = /** @class */ (function (_super) {
      * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
-    function ConfigException(correlation_id, code, message) {
-        if (correlation_id === void 0) { correlation_id = null; }
-        if (code === void 0) { code = null; }
-        if (message === void 0) { message = null; }
-        var _this = _super.call(this, ErrorCategory_1.ErrorCategory.Misconfiguration, correlation_id, code, message) || this;
+    constructor(correlation_id = null, code = null, message = null) {
+        super(ErrorCategory_1.ErrorCategory.Misconfiguration, correlation_id, code, message);
         // Set the prototype explicitly.
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        _this.__proto__ = ConfigException.prototype;
-        _this.status = 500;
-        return _this;
+        this.__proto__ = ConfigException.prototype;
+        this.status = 500;
     }
-    return ConfigException;
-}(ApplicationException_1.ApplicationException));
+}
 exports.ConfigException = ConfigException;
 //# sourceMappingURL=ConfigException.js.map

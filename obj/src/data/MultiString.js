@@ -6,10 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * is the language in which the 'value' is written, and the 'value' is localized string
  * itself.
  */
-var MultiString = /** @class */ (function () {
-    function MultiString() {
-    }
-    return MultiString;
-}());
+class MultiString {
+}
 exports.MultiString = MultiString;
 //# sourceMappingURL=MultiString.js.map

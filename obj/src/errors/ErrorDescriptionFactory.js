@@ -1,18 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module errors */
-var ErrorCategory_1 = require("./ErrorCategory");
-var ErrorDescription_1 = require("./ErrorDescription");
-var ApplicationException_1 = require("./ApplicationException");
+const ErrorCategory_1 = require("./ErrorCategory");
+const ErrorDescription_1 = require("./ErrorDescription");
+const ApplicationException_1 = require("./ApplicationException");
 /**
  * Contains the static method 'create', which converts ApplicationExceptions and specific (unknown) errors into ErrorDescriptions.
  *
  * @see [[ErrorDescription]]
  * @see [[ApplicationException]]
  */
-var ErrorDescriptionFactory = /** @class */ (function () {
-    function ErrorDescriptionFactory() {
-    }
+class ErrorDescriptionFactory {
     /**
      * @param error  	a child classs of ApplicationException (in which case it is simply converted into an ErrorDescription),
      *                  or a specific (unknown) error, which contain error.name (set to ErrorDescription's type), error.message (error.toString(),
@@ -20,10 +18,10 @@ var ErrorDescriptionFactory = /** @class */ (function () {
      *                  status will be 500, and its code (and category) will be 'UNKNOWN' (ErrorCategory.Unknown).
      * @returns       	An ErrorDescription, containing all available information about the error.
      */
-    ErrorDescriptionFactory.create = function (error) {
-        var description = new ErrorDescription_1.ErrorDescription();
+    static create(error) {
+        let description = new ErrorDescription_1.ErrorDescription();
         if (error instanceof ApplicationException_1.ApplicationException) {
-            var ex = error;
+            let ex = error;
             description.category = ex.category;
             description.status = ex.status;
             description.code = ex.code;
@@ -43,8 +41,7 @@ var ErrorDescriptionFactory = /** @class */ (function () {
             description.stack_trace = error.stack;
         }
         return description;
-    };
-    return ErrorDescriptionFactory;
-}());
+    }
+}
 exports.ErrorDescriptionFactory = ErrorDescriptionFactory;
 //# sourceMappingURL=ErrorDescriptionFactory.js.map

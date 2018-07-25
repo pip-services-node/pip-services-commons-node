@@ -1,35 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Class that provides methods for extracting and processing search tags from objects.
  */
-var TagsProcessor = /** @class */ (function () {
-    function TagsProcessor() {
-    }
+class TagsProcessor {
     /**
      * Normalize a tag by replacing with the REGEX: (_|#)
      *
      * @param tag   the tag to normalize.
      * @return      a normalized tag.
      */
-    TagsProcessor.normalizeTag = function (tag) {
+    static normalizeTag(tag) {
         return tag
             ? _.trim(tag.replace(/(_|#)+/g, ' '))
             : null;
-    };
+    }
     /**
      * Compress a tag by replacing with the REGEX: ( |_|#)
      *
      * @param tag   the tag to compress.
      * @return      a compressed tag.
      */
-    TagsProcessor.compressTag = function (tag) {
+    static compressTag(tag) {
         return tag
             ? tag.replace(/( |_|#)/g, '').toLocaleLowerCase()
             : null;
-    };
+    }
     /**
      * Determines if two tags are equal, based on their length and the characters contained.
      *
@@ -37,51 +35,51 @@ var TagsProcessor = /** @class */ (function () {
      * @param tag2  the second tag.
      * @return      true if the tags are equal and false otherwise.
      */
-    TagsProcessor.equalTags = function (tag1, tag2) {
+    static equalTags(tag1, tag2) {
         if (tag1 == null && tag2 == null)
             return true;
         if (tag1 == null || tag2 == null)
             return false;
         return TagsProcessor.compressTag(tag1)
             == TagsProcessor.compressTag(tag2);
-    };
+    }
     /**
      * Normalizes the tags contained in the passed String using [[normalizeTag]].
      *
      * @param tags  the tags to normalize.
      * @return      a String array of normalized tags.
      */
-    TagsProcessor.normalizeTags = function (tags) {
+    static normalizeTags(tags) {
         if (_.isString(tags))
             tags = tags.split(/(,|;)+/);
-        tags = _.map(tags, function (tag) { return TagsProcessor.normalizeTag(tag); });
+        tags = _.map(tags, (tag) => TagsProcessor.normalizeTag(tag));
         return tags;
-    };
+    }
     /**
      * Compresses the tags contained in the passed String using [[compressTag]].
      *
      * @param tags  the tags to compress.
      * @return      a String array of compressed tags.
      */
-    TagsProcessor.compressTags = function (tags) {
+    static compressTags(tags) {
         if (_.isString(tags))
             tags = tags.split(/(,|;)+/);
-        tags = _.map(tags, function (tag) { return TagsProcessor.compressTag(tag); });
+        tags = _.map(tags, (tag) => TagsProcessor.compressTag(tag));
         return tags;
-    };
-    TagsProcessor.extractString = function (field) {
+    }
+    static extractString(field) {
         if (field == null)
             return '';
         if (_.isString(field))
             return field;
         if (!_.isObject(field))
             return '';
-        var result = '';
-        for (var prop in field) {
+        let result = '';
+        for (let prop in field) {
             result += ' ' + TagsProcessor.extractString(field[prop]);
         }
         return result;
-    };
+    }
     /**
      * Extracts hash tags from a JSON object with the help of user-defined tag search fields.
      *
@@ -90,23 +88,18 @@ var TagsProcessor = /** @class */ (function () {
      * @return              a String array of compressed tags, based on the user-defined
      *                      tag search fields.
      */
-    TagsProcessor.extractHashTags = function (obj) {
-        var searchFields = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            searchFields[_i - 1] = arguments[_i];
-        }
-        var tags = TagsProcessor.compressTags(obj.tags);
-        _.each(searchFields, function (field) {
-            var text = TagsProcessor.extractString(obj[field]);
+    static extractHashTags(obj, ...searchFields) {
+        let tags = TagsProcessor.compressTags(obj.tags);
+        _.each(searchFields, (field) => {
+            let text = TagsProcessor.extractString(obj[field]);
             if (text != '') {
-                var hashTags = text.match(TagsProcessor.HASHTAG_REGEX);
+                let hashTags = text.match(TagsProcessor.HASHTAG_REGEX);
                 tags = tags.concat(TagsProcessor.compressTags(hashTags));
             }
         });
         return _.uniq(tags);
-    };
-    TagsProcessor.HASHTAG_REGEX = /#\w+/g;
-    return TagsProcessor;
-}());
+    }
+}
+TagsProcessor.HASHTAG_REGEX = /#\w+/g;
 exports.TagsProcessor = TagsProcessor;
 //# sourceMappingURL=TagsProcessor.js.map

@@ -1,20 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-var _ = require('lodash');
-var TypeCode_1 = require("../convert/TypeCode");
-var TypeConverter_1 = require("../convert/TypeConverter");
-var TypeMatcher = /** @class */ (function () {
-    function TypeMatcher() {
-    }
-    TypeMatcher.matchValue = function (expectedType, actualValue) {
+let _ = require('lodash');
+const TypeCode_1 = require("../convert/TypeCode");
+const TypeConverter_1 = require("../convert/TypeConverter");
+class TypeMatcher {
+    static matchValue(expectedType, actualValue) {
         if (expectedType == null)
             return true;
         if (actualValue == null)
             throw new Error("Actual value cannot be null");
         return TypeMatcher.matchType(expectedType, TypeConverter_1.TypeConverter.toTypeCode(actualValue));
-    };
-    TypeMatcher.matchType = function (expectedType, actualType) {
+    }
+    static matchType(expectedType, actualType) {
         if (expectedType == null)
             return true;
         if (actualType == null)
@@ -37,15 +35,15 @@ var TypeMatcher = /** @class */ (function () {
         if (_.isString(expectedType))
             return TypeMatcher.matchTypeByName(expectedType, actualType);
         return false;
-    };
-    TypeMatcher.matchValueByName = function (expectedType, actualValue) {
+    }
+    static matchValueByName(expectedType, actualValue) {
         if (expectedType == null)
             return true;
         if (actualValue == null)
             throw new Error("Actual value cannot be null");
         return TypeMatcher.matchTypeByName(expectedType, TypeConverter_1.TypeConverter.toTypeCode(actualValue));
-    };
-    TypeMatcher.matchTypeByName = function (expectedType, actualType) {
+    }
+    static matchTypeByName(expectedType, actualType) {
         if (expectedType == null)
             return true;
         if (actualType == null)
@@ -98,8 +96,7 @@ var TypeMatcher = /** @class */ (function () {
         }
         else
             return false;
-    };
-    return TypeMatcher;
-}());
+    }
+}
 exports.TypeMatcher = TypeMatcher;
 //# sourceMappingURL=TypeMatcher.js.map

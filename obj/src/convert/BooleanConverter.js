@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to the boolean data type.
  */
-var BooleanConverter = /** @class */ (function () {
-    function BooleanConverter() {
-    }
+class BooleanConverter {
     /**
      * Static method for converting values to nullable booleans.
      *
@@ -23,7 +21,7 @@ var BooleanConverter = /** @class */ (function () {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    BooleanConverter.toNullableBoolean = function (value) {
+    static toNullableBoolean(value) {
         if (value == null)
             return null;
         if (_.isBoolean(value))
@@ -36,7 +34,7 @@ var BooleanConverter = /** @class */ (function () {
         if (value == '0' || value == 'false' || value == 'f' || value == 'no' || value == 'n')
             return false;
         return null;
-    };
+    }
     /**
      * Static method for converting values to booleans using [[toBooleanWithDefault]].
      * False will be used as the default value for the conversion.
@@ -45,9 +43,9 @@ var BooleanConverter = /** @class */ (function () {
      *
      * @see [[toBooleanWithDefault]]
      */
-    BooleanConverter.toBoolean = function (value) {
+    static toBoolean(value) {
         return BooleanConverter.toBooleanWithDefault(value, false);
-    };
+    }
     /**
      * Static method for converting values to booleans using [[toNullableBoolean]].
      * If null is returned by the conversion, then this method will return the default
@@ -59,12 +57,10 @@ var BooleanConverter = /** @class */ (function () {
      *
      * @see [[toNullableBoolean]]
      */
-    BooleanConverter.toBooleanWithDefault = function (value, defaultValue) {
-        if (defaultValue === void 0) { defaultValue = false; }
+    static toBooleanWithDefault(value, defaultValue = false) {
         var result = BooleanConverter.toNullableBoolean(value);
         return result != null ? result : defaultValue;
-    };
-    return BooleanConverter;
-}());
+    }
+}
 exports.BooleanConverter = BooleanConverter;
 //# sourceMappingURL=BooleanConverter.js.map

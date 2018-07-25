@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
-var RandomInteger_1 = require("./RandomInteger");
+const RandomInteger_1 = require("./RandomInteger");
 /**
  * Provides methods that can be used for generating random Dates/DateTimes, as well as updating existing DateTimes
  * by generating values in the range of 'original DateTime' ±'delta/range'
  */
-var RandomDateTime = /** @class */ (function () {
-    function RandomDateTime() {
-    }
+class RandomDateTime {
     /**
      * Generates a Date in the range ['minYear', 'maxYear'].
      *
@@ -16,21 +14,19 @@ var RandomDateTime = /** @class */ (function () {
      * @param maxYear   (optional) maximum Date that will be generated. Defaults to the current year if omitted.
      * @returns         generated random Date.
      */
-    RandomDateTime.nextDate = function (minYear, maxYear) {
-        if (minYear === void 0) { minYear = null; }
-        if (maxYear === void 0) { maxYear = null; }
-        var currentYear = new Date().getFullYear();
+    static nextDate(minYear = null, maxYear = null) {
+        let currentYear = new Date().getFullYear();
         minYear = minYear == 0 || minYear == null ? currentYear - RandomInteger_1.RandomInteger.nextInteger(10) : minYear;
         maxYear = maxYear == 0 || maxYear == null ? currentYear : maxYear;
-        var year = RandomInteger_1.RandomInteger.nextInteger(minYear, maxYear);
-        var month = RandomInteger_1.RandomInteger.nextInteger(1, 13);
-        var day = RandomInteger_1.RandomInteger.nextInteger(1, 32);
+        let year = RandomInteger_1.RandomInteger.nextInteger(minYear, maxYear);
+        let month = RandomInteger_1.RandomInteger.nextInteger(1, 13);
+        let day = RandomInteger_1.RandomInteger.nextInteger(1, 32);
         if (month == 2)
             day = Math.min(28, day);
         else if (month == 4 || month == 6 || month == 9 || month == 11)
             day = Math.min(30, day);
         return new Date(year, month, day, 0, 0, 0, 0);
-    };
+    }
     //    public static nextTime(): number {
     //        let hour = RandomInteger.nextInteger(0, 24);
     //        let min = RandomInteger.nextInteger(0, 60);
@@ -45,13 +41,11 @@ var RandomDateTime = /** @class */ (function () {
      * @param maxYear   (optional) maximum DateTime that will be generated. Defaults to the current year if omitted.
      * @returns         generated random DateTime.
      */
-    RandomDateTime.nextDateTime = function (minYear, maxYear) {
-        if (minYear === void 0) { minYear = null; }
-        if (maxYear === void 0) { maxYear = null; }
-        var time = RandomDateTime.nextDate(minYear, maxYear).valueOf()
+    static nextDateTime(minYear = null, maxYear = null) {
+        let time = RandomDateTime.nextDate(minYear, maxYear).valueOf()
             + RandomInteger_1.RandomInteger.nextInteger(3600 * 24 * 365);
         return new Date(time);
-    };
+    }
     /**
      * Generates a new DateTime that will differ from 'value' by a maximum of ±'range'.
      * If 'range' is omitted (or 0), then the generated DateTime will differ from 'value' by ±10 days.
@@ -61,17 +55,15 @@ var RandomDateTime = /** @class */ (function () {
      *                  'value' will be returned. Defaults to 10 days if omitted or zero.
      * @returns         updated DateTime.
      */
-    RandomDateTime.updateDateTime = function (value, range) {
-        if (range === void 0) { range = null; }
+    static updateDateTime(value, range = null) {
         range = range != 0 && range != null ? range : 10;
         if (range < 0)
             return value;
         // Days to milliseconds
         range = range * 24 * 3600000;
-        var time = value.valueOf() + RandomInteger_1.RandomInteger.nextInteger(-range, range);
+        let time = value.valueOf() + RandomInteger_1.RandomInteger.nextInteger(-range, range);
         return new Date(time);
-    };
-    return RandomDateTime;
-}());
+    }
+}
 exports.RandomDateTime = RandomDateTime;
 //# sourceMappingURL=RandomDateTime.js.map

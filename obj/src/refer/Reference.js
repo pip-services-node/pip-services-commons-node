@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
-var Descriptor_1 = require("./Descriptor");
+const Descriptor_1 = require("./Descriptor");
 /**
  * Placeholder to store component references.
  */
-var Reference = /** @class */ (function () {
+class Reference {
     /**
      * Create a new reference for an object
      * @param locator a component locator for the reference
      * @param reference a component reference
      */
-    function Reference(locator, component) {
+    constructor(locator, component) {
         if (component == null)
             throw new Error("Component cannot be null");
         this._locator = locator;
@@ -22,7 +22,7 @@ var Reference = /** @class */ (function () {
      * @param locator a location object. It can be standard Descriptor or something else
      * @return <code>true</code> if component matches the locator or <code>false</code> otherwise.
      */
-    Reference.prototype.match = function (locator) {
+    match(locator) {
         // Locate by direct reference matching
         if (this._component == locator)
             return true;
@@ -34,22 +34,21 @@ var Reference = /** @class */ (function () {
             return this._locator == locator;
         else
             return false;
-    };
+    }
     /**
      * Gets component reference
      * @return a component itself
      */
-    Reference.prototype.getComponent = function () {
+    getComponent() {
         return this._component;
-    };
+    }
     /**
      * Gets component locator
      * @return a component locator
      */
-    Reference.prototype.getLocator = function () {
+    getLocator() {
         return this._locator;
-    };
-    return Reference;
-}());
+    }
+}
 exports.Reference = Reference;
 //# sourceMappingURL=Reference.js.map

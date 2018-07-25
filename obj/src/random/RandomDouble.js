@@ -5,9 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Provides methods that can be used for generating random doubles, as well as updating existing doubles
  * by generating values in the range of 'original value' ±'delta/range'
  */
-var RandomDouble = /** @class */ (function () {
-    function RandomDouble() {
-    }
+class RandomDouble {
     /**
      * Generates a double in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      *
@@ -16,8 +14,7 @@ var RandomDouble = /** @class */ (function () {
      * @param max   (optional) maximum value of the double that will be generated. Defaults to 'min' if omitted.
      * @returns     generated random double value.
      */
-    RandomDouble.nextDouble = function (min, max) {
-        if (max === void 0) { max = null; }
+    static nextDouble(min, max = null) {
         if (max == null) {
             max = min;
             min = 0;
@@ -25,7 +22,7 @@ var RandomDouble = /** @class */ (function () {
         if (max - min <= 0)
             return min;
         return min + Math.random() * (max - min);
-    };
+    }
     /**
      * Generates a new double that will differ from 'value' by a maximum of ±'range'. If range is omitted,
      * then the generated value will differ from 'value' by a maximum of ±10%.
@@ -35,16 +32,14 @@ var RandomDouble = /** @class */ (function () {
      *                  Defaults to 10% of 'value' if omitted.
      * @returns         updated double value.
      */
-    RandomDouble.updateDouble = function (value, range) {
-        if (range === void 0) { range = null; }
+    static updateDouble(value, range = null) {
         if (range == null)
             range = 0;
         range = range == 0 ? 0.1 * value : range;
-        var minValue = value - range;
-        var maxValue = value + range;
+        let minValue = value - range;
+        let maxValue = value + range;
         return RandomDouble.nextDouble(minValue, maxValue);
-    };
-    return RandomDouble;
-}());
+    }
+}
 exports.RandomDouble = RandomDouble;
 //# sourceMappingURL=RandomDouble.js.map

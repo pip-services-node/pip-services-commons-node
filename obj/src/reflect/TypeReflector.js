@@ -1,23 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-var _ = require('lodash');
-var path = require("path");
-var NotFoundException_1 = require("../errors/NotFoundException");
-var TypeCode_1 = require("../convert/TypeCode");
-var TypeConverter_1 = require("../convert/TypeConverter");
-var TypeReflector = /** @class */ (function () {
-    function TypeReflector() {
-    }
-    TypeReflector.getType = function (name, library) {
+let _ = require('lodash');
+let path = require("path");
+const NotFoundException_1 = require("../errors/NotFoundException");
+const TypeCode_1 = require("../convert/TypeCode");
+const TypeConverter_1 = require("../convert/TypeConverter");
+class TypeReflector {
+    static getType(name, library) {
         try {
             if (!library)
                 library = name;
-            var absPath = library;
+            let absPath = library;
             if (_.startsWith(absPath, '.'))
                 absPath = path.resolve(absPath);
             // Load module
-            var type = require(absPath);
+            let type = require(absPath);
             if (type == null)
                 return null;
             // Get exported type by name
@@ -28,52 +26,39 @@ var TypeReflector = /** @class */ (function () {
         catch (ex) {
             return null;
         }
-    };
-    TypeReflector.getTypeByDescriptor = function (type) {
+    }
+    static getTypeByDescriptor(type) {
         if (type == null)
             throw new Error("Type descriptor cannot be null");
         return TypeReflector.getType(type.getName(), type.getLibrary());
-    };
-    TypeReflector.createInstanceByType = function (type) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
+    }
+    static createInstanceByType(type, ...args) {
         if (type == null)
             throw new Error("Type constructor cannot be null");
         if (!_.isFunction(type))
             throw new Error("Type contructor has to be a function");
-        return new (type.bind.apply(type, [void 0].concat(args)))();
-    };
-    TypeReflector.createInstance = function (name, library) {
-        var args = [];
-        for (var _i = 2; _i < arguments.length; _i++) {
-            args[_i - 2] = arguments[_i];
-        }
-        var type = TypeReflector.getType(name, library);
+        return new type(...args);
+    }
+    static createInstance(name, library, ...args) {
+        let type = TypeReflector.getType(name, library);
         if (type == null)
             throw new NotFoundException_1.NotFoundException(null, "TYPE_NOT_FOUND", "Type " + name + "," + library + " was not found")
                 .withDetails("type", name).withDetails("library", library);
-        return TypeReflector.createInstanceByType.apply(TypeReflector, [type].concat(args));
-    };
-    TypeReflector.createInstanceByDescriptor = function (type) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
+        return TypeReflector.createInstanceByType(type, ...args);
+    }
+    static createInstanceByDescriptor(type, ...args) {
         if (type == null)
             throw new Error("Type descriptor cannot be null");
-        return TypeReflector.createInstance.apply(TypeReflector, [type.getName(), type.getLibrary()].concat(args));
-    };
-    TypeReflector.isPrimitive = function (value) {
-        var typeCode = TypeConverter_1.TypeConverter.toTypeCode(value);
+        return TypeReflector.createInstance(type.getName(), type.getLibrary(), ...args);
+    }
+    static isPrimitive(value) {
+        let typeCode = TypeConverter_1.TypeConverter.toTypeCode(value);
         return typeCode == TypeCode_1.TypeCode.String || typeCode == TypeCode_1.TypeCode.Enum
             || typeCode == TypeCode_1.TypeCode.Boolean || typeCode == TypeCode_1.TypeCode.Integer
             || typeCode == TypeCode_1.TypeCode.Long || typeCode == TypeCode_1.TypeCode.Float
             || typeCode == TypeCode_1.TypeCode.Double || typeCode == TypeCode_1.TypeCode.DateTime
             || typeCode == TypeCode_1.TypeCode.Duration;
-    };
-    return TypeReflector;
-}());
+    }
+}
 exports.TypeReflector = TypeReflector;
 //# sourceMappingURL=TypeReflector.js.map

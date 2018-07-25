@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to the double data type.
  */
-var DoubleConverter = /** @class */ (function () {
-    function DoubleConverter() {
-    }
+class DoubleConverter {
     /**
      * Static method for converting values to nullable doubles.
      *
@@ -23,7 +21,7 @@ var DoubleConverter = /** @class */ (function () {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    DoubleConverter.toNullableDouble = function (value) {
+    static toNullableDouble(value) {
         if (value == null)
             return null;
         if (_.isNumber(value))
@@ -32,9 +30,9 @@ var DoubleConverter = /** @class */ (function () {
             return value.getTime();
         if (_.isBoolean(value))
             return value ? 1 : 0;
-        var result = parseFloat(value);
+        let result = parseFloat(value);
         return isNaN(result) ? null : result;
-    };
+    }
     /**
      * Static method for converting values to doubles using [[toDoubleWithDefault]].
      * 0 will be used as the default value for the conversion.
@@ -43,9 +41,9 @@ var DoubleConverter = /** @class */ (function () {
      *
      * @see [[toDoubleWithDefault]]
      */
-    DoubleConverter.toDouble = function (value) {
+    static toDouble(value) {
         return DoubleConverter.toDoubleWithDefault(value, 0);
-    };
+    }
     /**
      * Static method for converting values to doubles using [[toNullableDouble]].
      * If null is returned by the conversion, then this method will return the default
@@ -57,12 +55,10 @@ var DoubleConverter = /** @class */ (function () {
      *
      * @see [[toNullableDouble]]
      */
-    DoubleConverter.toDoubleWithDefault = function (value, defaultValue) {
-        if (defaultValue === void 0) { defaultValue = 0; }
+    static toDoubleWithDefault(value, defaultValue = 0) {
         var result = DoubleConverter.toNullableDouble(value);
         return result != null ? result : defaultValue;
-    };
-    return DoubleConverter;
-}());
+    }
+}
 exports.DoubleConverter = DoubleConverter;
 //# sourceMappingURL=DoubleConverter.js.map

@@ -1,13 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ValidationResult = /** @class */ (function () {
-    function ValidationResult(path, type, code, message, expected, actual) {
-        if (path === void 0) { path = null; }
-        if (type === void 0) { type = null; }
-        if (code === void 0) { code = null; }
-        if (message === void 0) { message = null; }
-        if (expected === void 0) { expected = null; }
-        if (actual === void 0) { actual = null; }
+class ValidationResult {
+    constructor(path = null, type = null, code = null, message = null, expected = null, actual = null) {
         this._path = path;
         this._type = type;
         this._code = code;
@@ -15,25 +9,24 @@ var ValidationResult = /** @class */ (function () {
         this._expected = expected;
         this._actual = actual;
     }
-    ValidationResult.prototype.getPath = function () {
+    getPath() {
         return this._path;
-    };
-    ValidationResult.prototype.getType = function () {
+    }
+    getType() {
         return this._type;
-    };
-    ValidationResult.prototype.getCode = function () {
+    }
+    getCode() {
         return this._code;
-    };
-    ValidationResult.prototype.getMessage = function () {
+    }
+    getMessage() {
         return this._message;
-    };
-    ValidationResult.prototype.getExpected = function () {
+    }
+    getExpected() {
         return this._expected;
-    };
-    ValidationResult.prototype.getActual = function () {
+    }
+    getActual() {
         return this._actual;
-    };
-    return ValidationResult;
-}());
+    }
+}
 exports.ValidationResult = ValidationResult;
 //# sourceMappingURL=ValidationResult.js.map

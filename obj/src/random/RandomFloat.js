@@ -5,9 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Provides methods that can be used for generating random floats, as well as updating existing floats
  * by generating a value in the range of 'original value' ±'delta/range'
  */
-var RandomFloat = /** @class */ (function () {
-    function RandomFloat() {
-    }
+class RandomFloat {
     /**
      * Generates a float in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      *
@@ -16,8 +14,7 @@ var RandomFloat = /** @class */ (function () {
      * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
      * @returns     generated random float value.
      */
-    RandomFloat.nextFloat = function (min, max) {
-        if (max === void 0) { max = null; }
+    static nextFloat(min, max = null) {
         if (max == null) {
             max = min;
             min = 0;
@@ -25,7 +22,7 @@ var RandomFloat = /** @class */ (function () {
         if (max - min <= 0)
             return min;
         return min + Math.random() * (max - min);
-    };
+    }
     /**
      * Generates a new float that will differ from 'value' by a maximum of ±'range'. If range is omitted,
      * then the generated value will differ from 'value' by a maximum of ±10%.
@@ -35,16 +32,14 @@ var RandomFloat = /** @class */ (function () {
      *                  Defaults to 10% of 'value' if omitted.
      * @returns         updated float value.
      */
-    RandomFloat.updateFloat = function (value, range) {
-        if (range === void 0) { range = null; }
+    static updateFloat(value, range = null) {
         if (range == null)
             range = 0;
         range = range == 0 ? 0.1 * value : range;
-        var minValue = value - range;
-        var maxValue = value + range;
+        let minValue = value - range;
+        let maxValue = value + range;
         return RandomFloat.nextFloat(minValue, maxValue);
-    };
-    return RandomFloat;
-}());
+    }
+}
 exports.RandomFloat = RandomFloat;
 //# sourceMappingURL=RandomFloat.js.map

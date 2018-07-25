@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-var _ = require('lodash');
-var async = require('async');
+let _ = require('lodash');
+let async = require('async');
 /**
  * Helper class that can be used to close components.
  */
-var Closer = /** @class */ (function () {
-    function Closer() {
-    }
+class Closer {
     /**
      * Static method for closing a component. For a component to be closed, it must implement
      * the [[IClosable]] interface. This method calls ICloseable's [[ICloseable.close close]] method
@@ -21,7 +19,7 @@ var Closer = /** @class */ (function () {
      *
      * @see [[IClosable]]
      */
-    Closer.closeOne = function (correlationId, component, callback) {
+    static closeOne(correlationId, component, callback) {
         if (_.isFunction(component.close)) {
             try {
                 component.close(correlationId, callback);
@@ -35,7 +33,7 @@ var Closer = /** @class */ (function () {
         }
         else if (callback)
             callback(null);
-    };
+    }
     /**
      * Static method for closing multiple components. For a component to be closed, it must implement
      * the [[IClosable]] interface. This method calls the static [[closeOne]] method for each of the
@@ -49,17 +47,16 @@ var Closer = /** @class */ (function () {
      * @see [[closeOne]]
      * @see [[IClosable]]
      */
-    Closer.close = function (correlationId, components, callback) {
-        async.eachSeries(components, function (component, callback) {
+    static close(correlationId, components, callback) {
+        async.eachSeries(components, (component, callback) => {
             Closer.closeOne(correlationId, component, callback);
-        }, function (err) {
+        }, (err) => {
             if (callback)
                 callback(err);
             else if (err)
                 throw err;
         });
-    };
-    return Closer;
-}());
+    }
+}
 exports.Closer = Closer;
 //# sourceMappingURL=Closer.js.map

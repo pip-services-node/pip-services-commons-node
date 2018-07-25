@@ -1,30 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var InvocationException_1 = require("../errors/InvocationException");
-var Event = /** @class */ (function () {
-    function Event(name) {
+const InvocationException_1 = require("../errors/InvocationException");
+class Event {
+    constructor(name) {
         if (!name)
             throw new Error("Name cannot be null");
         this._name = name;
     }
-    Event.prototype.getName = function () {
+    getName() {
         return this._name;
-    };
-    Event.prototype.getListeners = function () {
+    }
+    getListeners() {
         return this._listeners;
-    };
-    Event.prototype.addListener = function (listener) {
+    }
+    addListener(listener) {
         this._listeners.push(listener);
-    };
-    Event.prototype.removeListener = function (listener) {
+    }
+    removeListener(listener) {
         var index = this._listeners.indexOf(listener);
         if (index > -1)
             this._listeners.splice(index, 1);
-    };
-    Event.prototype.notify = function (correlationId, args) {
+    }
+    notify(correlationId, args) {
         for (var i = 0; i < this._listeners.length; i++) {
             try {
-                var listener = this._listeners[i];
+                let listener = this._listeners[i];
                 listener.onEvent(correlationId, this, args);
             }
             catch (ex) {
@@ -33,8 +33,7 @@ var Event = /** @class */ (function () {
                     .wrap(ex);
             }
         }
-    };
-    return Event;
-}());
+    }
+}
 exports.Event = Event;
 //# sourceMappingURL=Event.js.map

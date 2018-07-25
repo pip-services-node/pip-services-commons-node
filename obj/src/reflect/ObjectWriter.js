@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-var _ = require('lodash');
-var PropertyReflector_1 = require("./PropertyReflector");
-var IntegerConverter_1 = require("../convert/IntegerConverter");
-var ObjectWriter = /** @class */ (function () {
-    function ObjectWriter() {
-    }
-    ObjectWriter.setProperty = function (obj, name, value) {
+let _ = require('lodash');
+const PropertyReflector_1 = require("./PropertyReflector");
+const IntegerConverter_1 = require("../convert/IntegerConverter");
+class ObjectWriter {
+    static setProperty(obj, name, value) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
@@ -16,23 +14,22 @@ var ObjectWriter = /** @class */ (function () {
             PropertyReflector_1.PropertyReflector.setProperty(obj, name, value);
         }
         else if (_.isArray(obj)) {
-            var index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
+            let index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
             if (index >= 0) {
                 while (index < obj.length - 1)
                     obj.push(null);
                 obj[index] = value;
             }
         }
-    };
-    ObjectWriter.setProperties = function (obj, values) {
+    }
+    static setProperties(obj, values) {
         if (values == null)
             return;
-        for (var key in values) {
-            var value = values[key];
+        for (let key in values) {
+            let value = values[key];
             ObjectWriter.setProperty(obj, key, value);
         }
-    };
-    return ObjectWriter;
-}());
+    }
+}
 exports.ObjectWriter = ObjectWriter;
 //# sourceMappingURL=ObjectWriter.js.map

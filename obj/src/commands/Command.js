@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module commands */
-var _ = require('lodash');
-var InvocationException_1 = require("../errors/InvocationException");
-var Command = /** @class */ (function () {
-    function Command(name, schema, func) {
+let _ = require('lodash');
+const InvocationException_1 = require("../errors/InvocationException");
+class Command {
+    constructor(name, schema, func) {
         if (!name)
             throw new Error("Name cannot be null");
         if (!func)
@@ -18,10 +18,10 @@ var Command = /** @class */ (function () {
         if (!_.isFunction(this._function))
             throw new Error("Function doesn't have function type");
     }
-    Command.prototype.getName = function () {
+    getName() {
         return this._name;
-    };
-    Command.prototype.execute = function (correlationId, args, callback) {
+    }
+    execute(correlationId, args, callback) {
         if (this._schema) {
             try {
                 this._schema.validateAndThrowException(correlationId, args);
@@ -35,16 +35,15 @@ var Command = /** @class */ (function () {
             this._function(correlationId, args, callback);
         }
         catch (ex) {
-            var err = new InvocationException_1.InvocationException(correlationId, "EXEC_FAILED", "Execution " + this.getName() + " failed: " + ex).withDetails("command", this.getName()).wrap(ex);
+            let err = new InvocationException_1.InvocationException(correlationId, "EXEC_FAILED", "Execution " + this.getName() + " failed: " + ex).withDetails("command", this.getName()).wrap(ex);
             callback(err, null);
         }
-    };
-    Command.prototype.validate = function (args) {
+    }
+    validate(args) {
         if (this._schema)
             return this._schema.validate(args);
         return [];
-    };
-    return Command;
-}());
+    }
+}
 exports.Command = Command;
 //# sourceMappingURL=Command.js.map

@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to arrays.
  */
-var ArrayConverter = /** @class */ (function () {
-    function ArrayConverter() {
-    }
+class ArrayConverter {
     /**
      * Static method for converting values to nullable arrays.
      *
@@ -20,7 +18,7 @@ var ArrayConverter = /** @class */ (function () {
      * @param value     the value to convert.
      * @returns         the result of the conversion. If 'value' was null - null will be returned.
      */
-    ArrayConverter.toNullableArray = function (value) {
+    static toNullableArray(value) {
         // Return null when nothing found
         if (value == null)
             return null;
@@ -29,15 +27,15 @@ var ArrayConverter = /** @class */ (function () {
             return value;
         // Convert map
         else if (_.isObject(value)) {
-            var array = [];
-            for (var prop in value)
+            let array = [];
+            for (let prop in value)
                 array.push(value[prop]);
             return array;
         }
         // Convert single values
         else
             return [value];
-    };
+    }
     /**
      * Static method for converting values to arrays using [[toNullableArray]].
      * An empty array will be used as the default value for the conversion.
@@ -46,10 +44,10 @@ var ArrayConverter = /** @class */ (function () {
      *
      * @see [[toNullableArray]]
      */
-    ArrayConverter.toArray = function (value) {
-        var result = ArrayConverter.toNullableArray(value);
+    static toArray(value) {
+        let result = ArrayConverter.toNullableArray(value);
         return result || [];
-    };
+    }
     /**
      * Static method for converting values to arrays using [[toNullableArray]].
      * If null is returned by the conversion, then this method will return the default
@@ -60,10 +58,10 @@ var ArrayConverter = /** @class */ (function () {
      *
      * @see [[toNullableArray]]
      */
-    ArrayConverter.toArrayWithDefault = function (value, defaultValue) {
-        var result = ArrayConverter.toNullableArray(value);
+    static toArrayWithDefault(value, defaultValue) {
+        let result = ArrayConverter.toNullableArray(value);
         return result || defaultValue;
-    };
+    }
     /**
      * Static method for converting lists to arrays using [[toArray]].
      *
@@ -77,14 +75,13 @@ var ArrayConverter = /** @class */ (function () {
      *
      * @see [[toArray]]
      */
-    ArrayConverter.listToArray = function (value) {
+    static listToArray(value) {
         if (value == null)
             return [];
         if (_.isString(value))
             value = value.split(',');
         return ArrayConverter.toArray(value);
-    };
-    return ArrayConverter;
-}());
+    }
+}
 exports.ArrayConverter = ArrayConverter;
 //# sourceMappingURL=ArrayConverter.js.map

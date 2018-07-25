@@ -1,11 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-var _ = require('lodash');
-var MethodReflector = /** @class */ (function () {
-    function MethodReflector() {
-    }
-    MethodReflector.matchMethod = function (methodName, methodValue, expectedName) {
+let _ = require('lodash');
+class MethodReflector {
+    static matchMethod(methodName, methodValue, expectedName) {
         if (!_.isFunction(methodValue))
             return false;
         if (_.startsWith(methodName, '_'))
@@ -13,32 +11,28 @@ var MethodReflector = /** @class */ (function () {
         if (expectedName == null)
             return true;
         return methodName.toLowerCase() == expectedName;
-    };
-    MethodReflector.hasMethod = function (obj, name) {
+    }
+    static hasMethod(obj, name) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
             throw new Error("Method name cannot be null");
         name = name.toLowerCase();
-        for (var method in obj) {
-            var methodValue = obj[method];
+        for (let method in obj) {
+            let methodValue = obj[method];
             if (MethodReflector.matchMethod(method, methodValue, name))
                 return true;
         }
         return false;
-    };
-    MethodReflector.invokeMethod = function (obj, name) {
-        var args = [];
-        for (var _i = 2; _i < arguments.length; _i++) {
-            args[_i - 2] = arguments[_i];
-        }
+    }
+    static invokeMethod(obj, name, ...args) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
             throw new Error("Method name cannot be null");
         name = name.toLowerCase();
-        for (var method in obj) {
-            var methodValue = obj[method];
+        for (let method in obj) {
+            let methodValue = obj[method];
             try {
                 if (MethodReflector.matchMethod(method, methodValue, name))
                     return methodValue.apply(obj, args);
@@ -48,17 +42,16 @@ var MethodReflector = /** @class */ (function () {
             }
         }
         return null;
-    };
-    MethodReflector.getMethodNames = function (obj) {
-        var methods = [];
-        for (var method in obj) {
-            var methodValue = obj[method];
+    }
+    static getMethodNames(obj) {
+        let methods = [];
+        for (let method in obj) {
+            let methodValue = obj[method];
             if (MethodReflector.matchMethod(method, methodValue, null))
                 methods.push(method);
         }
         return methods;
-    };
-    return MethodReflector;
-}());
+    }
+}
 exports.MethodReflector = MethodReflector;
 //# sourceMappingURL=MethodReflector.js.map

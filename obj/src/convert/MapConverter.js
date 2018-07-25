@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to maps.
  */
-var MapConverter = /** @class */ (function () {
-    function MapConverter() {
-    }
+class MapConverter {
     /**
      * Static method for converting values to nullable maps.
      *
@@ -22,18 +20,18 @@ var MapConverter = /** @class */ (function () {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    MapConverter.toNullableMap = function (value) {
+    static toNullableMap(value) {
         if (value == null)
             return null;
         else if (_.isArray(value)) {
-            var map = {};
-            for (var i = 0; i < value.length; i++)
+            let map = {};
+            for (let i = 0; i < value.length; i++)
                 map[i.toString()] = value[i];
             return map;
         }
         else
             return _.isObject(value) ? value : null;
-    };
+    }
     /**
      * Static method for converting values to maps using [[toNullableMap]].
      * An empty map will be used as the default value for the conversion.
@@ -42,9 +40,9 @@ var MapConverter = /** @class */ (function () {
      *
      * @see [[toNullableMap]]
      */
-    MapConverter.toMap = function (value) {
+    static toMap(value) {
         return MapConverter.toNullableMap(value) || {};
-    };
+    }
     /**
      * Static method for converting values to maps using [[toNullableMap]].
      * If null is returned by the conversion, then this method will return the default
@@ -55,10 +53,9 @@ var MapConverter = /** @class */ (function () {
      *
      * @see [[toNullableMap]]
      */
-    MapConverter.toMapWithDefault = function (value, defaultValue) {
+    static toMapWithDefault(value, defaultValue) {
         return MapConverter.toNullableMap(value) || defaultValue;
-    };
-    return MapConverter;
-}());
+    }
+}
 exports.MapConverter = MapConverter;
 //# sourceMappingURL=MapConverter.js.map

@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Helper class that can be used to trigger notifications for components.
  */
-var Notifier = /** @class */ (function () {
-    function Notifier() {
-    }
+class Notifier {
     /**
      * Static method for triggering notifications for a component. For a component to be notified, it must
      * implement the [[INotifiable]] interface. This method calls INotifiable's [[INotifiable.notify notify]]
@@ -19,10 +17,10 @@ var Notifier = /** @class */ (function () {
      *
      * @see [[INotifiable]]
      */
-    Notifier.notifyOne = function (correlationId, component, args) {
+    static notifyOne(correlationId, component, args) {
         if (_.isFunction(component.notify))
             component.notify(correlationId, args);
-    };
+    }
     /**
      * Static method for triggering notifications for multiple components. For a component to be notified,
      * it must implement the [[INotifiable]] interface. This method calls the static [[notifyOne]] method
@@ -35,13 +33,12 @@ var Notifier = /** @class */ (function () {
      * @see [[notifyOne]]
      * @see [[INotifiable]]
      */
-    Notifier.notify = function (correlationId, components, args) {
+    static notify(correlationId, components, args) {
         if (components == null)
             return;
-        for (var index = 0; index < components.length; index++)
+        for (let index = 0; index < components.length; index++)
             Notifier.notifyOne(correlationId, components[index], args);
-    };
-    return Notifier;
-}());
+    }
+}
 exports.Notifier = Notifier;
 //# sourceMappingURL=Notifier.js.map

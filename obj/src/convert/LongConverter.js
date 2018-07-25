@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-var _ = require('lodash');
+let _ = require('lodash');
 /**
  * Provides methods for converting various values to the long data type.
  */
-var LongConverter = /** @class */ (function () {
-    function LongConverter() {
-    }
+class LongConverter {
     /**
      * Static method for converting values to nullable longs.
      *
@@ -24,7 +22,7 @@ var LongConverter = /** @class */ (function () {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    LongConverter.toNullableLong = function (value) {
+    static toNullableLong(value) {
         if (value == null)
             return null;
         if (_.isNumber(value))
@@ -33,9 +31,9 @@ var LongConverter = /** @class */ (function () {
             return value.getTime();
         if (_.isBoolean(value))
             return value ? 1 : 0;
-        var result = parseFloat(value);
+        let result = parseFloat(value);
         return isNaN(result) ? null : Math.ceil(result);
-    };
+    }
     /**
      * Static method for converting values to longs using [[toLongWithDefault]].
      * 0 will be used as the default value for the conversion.
@@ -44,9 +42,9 @@ var LongConverter = /** @class */ (function () {
      *
      * @see [[toLongWithDefault]]
      */
-    LongConverter.toLong = function (value) {
+    static toLong(value) {
         return LongConverter.toLongWithDefault(value, 0);
-    };
+    }
     /**
      * Static method for converting values to longs using [[toNullableLong]].
      * If null is returned by the conversion, then this method will return the default
@@ -57,11 +55,10 @@ var LongConverter = /** @class */ (function () {
      *
      * @see [[toNullableLong]]
      */
-    LongConverter.toLongWithDefault = function (value, defaultValue) {
+    static toLongWithDefault(value, defaultValue) {
         var result = LongConverter.toNullableLong(value);
         return result != null ? result : defaultValue;
-    };
-    return LongConverter;
-}());
+    }
+}
 exports.LongConverter = LongConverter;
 //# sourceMappingURL=LongConverter.js.map
