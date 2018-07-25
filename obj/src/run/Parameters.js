@@ -35,10 +35,27 @@ var ObjectWriter_1 = require("../reflect/ObjectWriter");
  */
 var Parameters = /** @class */ (function (_super) {
     __extends(Parameters, _super);
+    /**
+     * Creates a new Parameters object from the map passed.
+     *
+     * @param map 	parameters to store in this object. Defaults to null.
+     *
+     * @see [[AnyValueMap.AnyValueMap]]
+     */
     function Parameters(map) {
         if (map === void 0) { map = null; }
         return _super.call(this, map) || this;
     }
+    /**
+     * @param key 	the complex key of the parameter that is to be retrieved.
+     * 				The key can be complex with dot-notation, for example
+     * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this
+     * 				case, RecursiveObjectReader's [[RecursiveObjectReader.getProperty getProperty]]
+     * 				method will be used.
+     * @returns		the parameter stored by the given key.
+     *
+     * @see [[RecursiveObjectReader.getProperty]]
+     */
     Parameters.prototype.get = function (key) {
         if (key == null)
             return null;
@@ -47,6 +64,17 @@ var Parameters = /** @class */ (function (_super) {
         else
             return _super.prototype.get.call(this, key);
     };
+    /**
+     * @param key 	the complex key of the parameter that is to be stored.
+     * 				The key can be complex with dot-notation, for example
+     * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this
+     * 				case, RecursiveObjectReader's [[RecursiveObjectReader.setProperty setProperty]]
+     * 				method will be used.
+     * @param value
+     * @returns		the value that was stored by the given key.
+     *
+     * @see [[RecursiveObjectReader.setProperty]]
+     */
     Parameters.prototype.put = function (key, value) {
         if (key == null)
             return null;
@@ -56,18 +84,51 @@ var Parameters = /** @class */ (function (_super) {
             _super.prototype.put.call(this, key, value);
         return value;
     };
+    /**
+     * @param key   key of the parameter to retrieve.
+     * @returns     the parameter with the given key as a nullable Parameters object.
+     * 				Null is returned if no parameters are found by the given key.
+     *
+     * @see [[AnyValueMap.getAsNullableMap]]
+     */
     Parameters.prototype.getAsNullableParameters = function (key) {
         var value = this.getAsNullableMap(key);
         return value != null ? new Parameters(value) : null;
     };
+    /**
+     * @param key   key of the parameter to retrieve.
+     * @returns     the parameter with the given key as a Parameters object.
+     *
+     * @see [[AnyValueMap.getAsMap]]
+     */
     Parameters.prototype.getAsParameters = function (key) {
         var value = this.getAsMap(key);
         return new Parameters(value);
     };
+    /**
+     * @param key               key of the parameter to retrieve.
+     * @param defaultValue      the value to return if no parameters are found by the given key.
+     * @returns                 the parameter with the given key or the
+     *                          defaultValue (if no parameters are found by the given key
+     * 							and null is returned by [[getAsNullableParameters]]).
+     *
+     * @see [[getAsNullableParameters]]
+     */
     Parameters.prototype.getAsParametersWithDefault = function (key, defaultValue) {
         var result = this.getAsNullableParameters(key);
         return result != null ? result : defaultValue;
     };
+    /**
+     * Checks whether or not this Parameter's object contains a parameter with the given key.
+     *
+     * @param key 	the complex key of the parameter that is to be searched for.
+     * 				The key can be complex with dot-notation, for example
+     * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this
+     * 				case, RecursiveObjectReader's [[RecursiveObjectReader.hasProperty hasProperty]]
+     * 				method will be used.
+     *
+     * @see [[RecursiveObjectReader.hasProperty hasProperty]]
+     */
     Parameters.prototype.containsKey = function (key) {
         return RecursiveObjectReader_1.RecursiveObjectReader.hasProperty(this, key.toString());
     };
@@ -122,10 +183,13 @@ var Parameters = /** @class */ (function (_super) {
         }
         return result;
     };
-    //TODO
     /**
+     * Copies the parameters passed in 'value' to this Parameters object using
+     * [[RecursiveObjectWriter.copyProperties]]. Parameters are read from 'value'
+     * using [[ObjectReader.getProperties]] recursively (for maps), which means
+     * that they can be in the form of a map or an array.
      *
-     * @param value 	property in the
+     * @param value 	the parameters to copy to this Parameters object.
      *
      * @see [[RecursiveObjectWriter.copyProperties]]
      * @see [[RecursiveObjectReader.performGetProperties]]
@@ -187,12 +251,11 @@ var Parameters = /** @class */ (function (_super) {
     Parameters.prototype.toJson = function () {
         return JsonConverter_1.JsonConverter.toJson(this);
     };
-    //TODO
     /**
      * Static method that creates a Parameters object based on the values that are stored
-     * in the 'value' object's properties.
+     * in the map passed as 'value'.
      *
-     * @param value		parameters in the form of an object with properties.
+     * @param value		parameters in the form of a map.
      * @returns			generated Parameters.
      *
      * @see [[AnyValueMap.AnyValueMap]]

@@ -109,26 +109,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/random/RandomDouble.ts#L16">random/RandomDouble.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/random/RandomDouble.ts#L16">random/RandomDouble.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Generates a double in the range [&#39;min&#39;, &#39;max&#39;]. If &#39;max&#39; is omitted, then the range will be set to [0, &#39;min&#39;].</p>
 								</div>
-								<pre><code>         <span class="hljs-keyword">If</span> <span class="hljs-string">'max'</span> <span class="hljs-keyword">is</span> omitted, <span class="hljs-keyword">then</span> <span class="hljs-string">'max'</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">to</span> <span class="hljs-string">'min'</span> <span class="hljs-keyword">and</span> <span class="hljs-string">'min'</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">to</span> <span class="hljs-number">0</span>.
-</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>minimum value of the double that will be generated.</p>
+										<p>minimum value of the double that will be generated.
+										If &#39;max&#39; is omitted, then &#39;max&#39; is set to &#39;min&#39; and &#39;min&#39; is set to 0.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;numb</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>(optional) maximum value of the double that will be generated. Defaults to &#39;min&#39; if omitted.</p>
 									</div>
@@ -149,19 +148,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/random/RandomDouble.ts#L37">random/RandomDouble.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/random/RandomDouble.ts#L37">random/RandomDouble.ts:37</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a new double that will differ from &#39;value&#39; by a maximum of ±&#39;range&#39;. If range is omitted,
+									then the generated value will differ from &#39;value&#39; by a maximum of ±10%.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>double to update.</p>
+									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> range: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;numb</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> range: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) defines the maximum amount by which the new double can differ from &#39;value&#39;.
+										Defaults to 10% of &#39;value&#39; if omitted.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>updated double value.</p>
 						</li>
 					</ul>
 				</section>
@@ -172,9 +185,6 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/commands.html">commands</a>
@@ -190,6 +200,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/random.html">random</a>

@@ -109,13 +109,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/convert/DoubleConverter.ts#L42">convert/DoubleConverter.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/convert/DoubleConverter.ts#L42">convert/DoubleConverter.ts:42</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method for converting values to doubles using <a href="convert.doubleconverter.html#todoublewithdefault">toDoubleWithDefault</a>.
+									0 will be used as the default value for the conversion.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.doubleconverter.html#todoublewithdefault">toDoubleWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to convert.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -132,16 +146,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/convert/DoubleConverter.ts#L57">convert/DoubleConverter.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/convert/DoubleConverter.ts#L57">convert/DoubleConverter.ts:57</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method for converting values to doubles using <a href="convert.doubleconverter.html#tonullabledouble">toNullableDouble</a>.
+										If null is returned by the conversion, then this method will return the default
+									value passed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.doubleconverter.html#tonullabledouble">toNullableDouble</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to convert.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultValue: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the default value to return if the conversion returns null.
+										Defaults to 0 if omitted.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -158,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/convert/DoubleConverter.ts#L24">convert/DoubleConverter.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/convert/DoubleConverter.ts#L24">convert/DoubleConverter.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -172,9 +205,7 @@
 									<li>if &#39;value&#39; is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;</li>
 									<li>if &#39;value&#39; is a boolean - true returns 1 and false returns 0;</li>
 									<li>if &#39;value&#39; is a string - parseFloat(value) will be called, and if the result is a number, then it will be returned;</li>
-									<li><p>otherwise - null will be returned.</p>
-										<pre><code>           will <span class="hljs-keyword">be </span>returned.
-</code></pre></li>
+									<li>otherwise - null will be returned.</li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -187,7 +218,8 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null</p>
+							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
+							will be returned.</p>
 						</li>
 					</ul>
 				</section>
@@ -198,9 +230,6 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/commands.html">commands</a>
@@ -216,6 +245,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/random.html">random</a>

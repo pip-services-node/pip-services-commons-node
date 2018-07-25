@@ -4,7 +4,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 var async = require('async');
 /**
- * Helper class that can be used to clean the data and state of components.
+ * Helper class that can be used to clean the data of components.
+ *
+ * @see [[ICleanable]]
  */
 var Cleaner = /** @class */ (function () {
     function Cleaner() {

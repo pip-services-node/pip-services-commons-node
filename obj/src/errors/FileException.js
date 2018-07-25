@@ -22,7 +22,7 @@ var FileException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.FileError and set the status to 500.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function FileException(correlation_id, code, message) {

@@ -11,7 +11,7 @@ export class UnauthorizedException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.Unauthorized and set the status to 401.
 	 * 
-	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ApplicationException.constructor]]
 	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {

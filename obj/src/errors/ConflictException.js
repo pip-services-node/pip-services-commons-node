@@ -23,7 +23,7 @@ var ConflictException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Conflict and set the status to 409.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function ConflictException(correlation_id, code, message) {

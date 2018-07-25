@@ -24,7 +24,7 @@ var InvalidStateException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.InvalidState and set the status to 500.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function InvalidStateException(correlation_id, code, message) {

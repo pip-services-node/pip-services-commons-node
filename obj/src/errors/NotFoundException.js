@@ -22,7 +22,7 @@ var NotFoundException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.NotFound and set the status to 404.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function NotFoundException(correlation_id, code, message) {

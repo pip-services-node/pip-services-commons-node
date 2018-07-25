@@ -200,13 +200,28 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L26">run/Parameters.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L26">run/Parameters.ts:26</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new Parameters object from the map passed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>[[AnyValueMap.AnyValueMap]]</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> map: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;r(map</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> map: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>parameters to store in this object. Defaults to null.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
@@ -227,13 +242,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#append">append</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L84">data/AnyValueMap.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L84">data/AnyValueMap.ts:84</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>map: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>map of items to append to this AnyValueMap.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -250,13 +270,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L192">run/Parameters.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L192">run/Parameters.ts:192</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies the parameters passed in &#39;value&#39; to this Parameters object using
+										<a href="reflect.recursiveobjectwriter.html#copyproperties">RecursiveObjectWriter.copyProperties</a>. Parameters are read from &#39;value&#39;
+										using <a href="reflect.objectreader.html#getproperties">ObjectReader.getProperties</a> recursively (for maps), which means
+									that they can be in the form of a map or an array.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectwriter.html#copyproperties">RecursiveObjectWriter.copyProperties</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectreader.html#performgetproperties">RecursiveObjectReader.performGetProperties</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.objectreader.html#getproperties">ObjectReader.getProperties</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters to copy to this Parameters object.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -274,9 +316,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L95">data/AnyValueMap.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L95">data/AnyValueMap.ts:95</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all values from this AnyValueMap.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
@@ -293,10 +340,13 @@
 								<p>Implementation of <a href="../interfaces/data.icloneable.html">ICloneable</a>.<a href="../interfaces/data.icloneable.html#clone">clone</a></p>
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L552">data/AnyValueMap.ts:552</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L552">data/AnyValueMap.ts:552</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>a clone of this object.</p>
 						</li>
 					</ul>
 				</section>
@@ -310,13 +360,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L127">run/Parameters.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L127">run/Parameters.ts:127</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether or not this Parameter&#39;s object contains a parameter with the given key.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectreader.html#hasproperty">hasProperty</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the complex key of the parameter that is to be searched for.
+											The key can be complex with dot-notation, for example
+											&quot;Parameter-group-1.Sub-param-group-1-1.Param-1-1-1&quot;. In this
+											case, RecursiveObjectReader&#39;s <a href="reflect.recursiveobjectreader.html#hasproperty">hasProperty</a>
+										method will be used.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -334,16 +401,31 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L49">run/Parameters.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L49">run/Parameters.ts:49</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectreader.html#getproperty">RecursiveObjectReader.getProperty</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the complex key of the parameter that is to be retrieved.
+											The key can be complex with dot-notation, for example
+											&quot;Parameter-group-1.Sub-param-group-1-1.Param-1-1-1&quot;. In this
+											case, RecursiveObjectReader&#39;s <a href="reflect.recursiveobjectreader.html#getproperty">getProperty</a>
+										method will be used.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the parameter stored by the given key.</p>
 						</li>
 					</ul>
 				</section>
@@ -351,23 +433,37 @@
 					<a name="getasarray" class="tsd-anchor"></a>
 					<h3>get<wbr>AsArray</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsArray<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsArray<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasarray">getAsArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L468">data/AnyValueMap.ts:468</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L468">data/AnyValueMap.ts:468</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluearray.html">AnyValueArray</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluearray.html#fromvalue">AnyValueArray.fromValue</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
+							<p>the item with the given key as an AnyValueArray object.</p>
 						</li>
 					</ul>
 				</section>
@@ -375,26 +471,45 @@
 					<a name="getasarraywithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsArray<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsArray<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let res</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsArray<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasarraywithdefault">getAsArrayWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L483">data/AnyValueMap.ts:483</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L483">data/AnyValueMap.ts:483</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluearray.html">AnyValueArray</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasnullablearray">getAsNullableArray</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to use if the item with the given key cannot be converted
+										into an AnyValueArray.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let res</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
+							<p>the item with the given key as an AnyValueArray object or &#39;defaultValue&#39;,
+							if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -409,16 +524,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasboolean">getAsBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L204">data/AnyValueMap.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L204">data/AnyValueMap.ts:204</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasbooleanwithdefault">getAsBooleanWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>the item with the given key as a boolean (or false as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -433,19 +559,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasbooleanwithdefault">getAsBooleanWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L216">data/AnyValueMap.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L216">data/AnyValueMap.ts:216</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.booleanconverter.html#tobooleanwithdefault">BooleanConverter.toBooleanWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>the item with the given key as a boolean or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -453,23 +594,34 @@
 					<a name="getasdatetime" class="tsd-anchor"></a>
 					<h3>get<wbr>AsDate<wbr>Time</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsDate<wbr>Time<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">retu</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsDate<wbr>Time<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasdatetime">getAsDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L374">data/AnyValueMap.ts:374</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L374">data/AnyValueMap.ts:374</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasdatetimewithdefault">getAsDateTimeWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">retu</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>the item with the given key as a Datetime (or null as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -477,26 +629,41 @@
 					<a name="getasdatetimewithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsDate<wbr>Time<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsDate<wbr>Time<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsDate<wbr>Time<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasdatetimewithdefault">getAsDateTimeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L386">data/AnyValueMap.ts:386</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L386">data/AnyValueMap.ts:386</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.datetimeconverter.html#todatetimewithdefault">DateTimeConverter.toDateTimeWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
-									<h5>defaultValue: <span class="tsd-signature-type"></span></h5>
+									<h5>defaultValue: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>the item with the given key as a Datetime or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -511,16 +678,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasdouble">getAsDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L340">data/AnyValueMap.ts:340</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L340">data/AnyValueMap.ts:340</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasdoublewithdefault">getAsDoubleWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a double (or 0 as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -535,19 +713,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasdoublewithdefault">getAsDoubleWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L352">data/AnyValueMap.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L352">data/AnyValueMap.ts:352</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a double or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -562,16 +755,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasfloat">getAsFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L306">data/AnyValueMap.ts:306</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L306">data/AnyValueMap.ts:306</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasfloatwithdefault">getAsFloatWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a float (or 0 as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -586,19 +790,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasfloatwithdefault">getAsFloatWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L318">data/AnyValueMap.ts:318</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L318">data/AnyValueMap.ts:318</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.floatconverter.html#tofloatwithdefault">FloatConverter.toFloatWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a float or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -613,16 +832,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasinteger">getAsInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L238">data/AnyValueMap.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L238">data/AnyValueMap.ts:238</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasintegerwithdefault">getAsIntegerWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as an integer (or 0 as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -637,19 +867,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasintegerwithdefault">getAsIntegerWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L250">data/AnyValueMap.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L250">data/AnyValueMap.ts:250</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.integerconverter.html#tointegerwithdefault">IntegerConverter.toIntegerWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as an integer or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -664,16 +909,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getaslong">getAsLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L272">data/AnyValueMap.ts:272</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L272">data/AnyValueMap.ts:272</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getaslongwithdefault">getAsLongWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a long (or 0 as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -688,19 +944,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getaslongwithdefault">getAsLongWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L284">data/AnyValueMap.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L284">data/AnyValueMap.ts:284</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a long or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -708,23 +979,34 @@
 					<a name="getasmap" class="tsd-anchor"></a>
 					<h3>get<wbr>AsMap</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsMap<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsMap<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasmap">getAsMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L506">data/AnyValueMap.ts:506</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L506">data/AnyValueMap.ts:506</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#fromvalue">fromValue</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
+							<p>the item with the given key as an AnyValueMap object.</p>
 						</li>
 					</ul>
 				</section>
@@ -732,26 +1014,42 @@
 					<a name="getasmapwithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsMap<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsMap<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">nyValueMap {</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsMap<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasmapwithdefault">getAsMapWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L520">data/AnyValueMap.ts:520</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L520">data/AnyValueMap.ts:520</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasnullablemap">getAsNullableMap</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
-									<h5>defaultValue: <span class="tsd-signature-type">nyValueMap {</span></h5>
+									<h5>defaultValue: <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to use if the item with the given key cannot be converted
+										into an AnyValueMap.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
+							<p>the item with the given key as an AnyValueMap object or &#39;defaultValue&#39;,
+							if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -759,23 +1057,38 @@
 					<a name="getasnullablearray" class="tsd-anchor"></a>
 					<h3>get<wbr>AsNullable<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Array<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Array<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullablearray">getAsNullableArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L456">data/AnyValueMap.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L456">data/AnyValueMap.ts:456</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluearray.html">AnyValueArray</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluearray.html#fromvalue">AnyValueArray.fromValue</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
+							<p>the item with the given key as a nullable AnyValueArray object (returns
+							null if the item with the given key is null).</p>
 						</li>
 					</ul>
 				</section>
@@ -790,16 +1103,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullableboolean">getAsNullableBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L193">data/AnyValueMap.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L193">data/AnyValueMap.ts:193</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.booleanconverter.html#tonullableboolean">BooleanConverter.toNullableBoolean</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>the item with the given key as a nullable boolean.</p>
 						</li>
 					</ul>
 				</section>
@@ -807,23 +1131,34 @@
 					<a name="getasnullabledatetime" class="tsd-anchor"></a>
 					<h3>get<wbr>AsNullable<wbr>Date<wbr>Time</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Date<wbr>Time<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Date<wbr>Time<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullabledatetime">getAsNullableDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L363">data/AnyValueMap.ts:363</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L363">data/AnyValueMap.ts:363</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.datetimeconverter.html#tonullabledatetime">DateTimeConverter.toNullableDateTime</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>the item with the given key as a nullable Datetime.</p>
 						</li>
 					</ul>
 				</section>
@@ -838,16 +1173,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullabledouble">getAsNullableDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L329">data/AnyValueMap.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L329">data/AnyValueMap.ts:329</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a nullable double.</p>
 						</li>
 					</ul>
 				</section>
@@ -862,16 +1208,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullablefloat">getAsNullableFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L295">data/AnyValueMap.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L295">data/AnyValueMap.ts:295</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.floatconverter.html#tonullablefloat">FloatConverter.toNullableFloat</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a nullable float.</p>
 						</li>
 					</ul>
 				</section>
@@ -886,16 +1243,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullableinteger">getAsNullableInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L227">data/AnyValueMap.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L227">data/AnyValueMap.ts:227</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.integerconverter.html#tonullableinteger">IntegerConverter.toNullableInteger</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a nullable integer.</p>
 						</li>
 					</ul>
 				</section>
@@ -910,16 +1278,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullablelong">getAsNullableLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L261">data/AnyValueMap.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L261">data/AnyValueMap.ts:261</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the item with the given key as a nullable long.</p>
 						</li>
 					</ul>
 				</section>
@@ -927,23 +1306,35 @@
 					<a name="getasnullablemap" class="tsd-anchor"></a>
 					<h3>get<wbr>AsNullable<wbr>Map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Map<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Map<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullablemap">getAsNullableMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L495">data/AnyValueMap.ts:495</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L495">data/AnyValueMap.ts:495</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#fromvalue">fromValue</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
+							<p>the item with the given key as a nullable AnyValueMap object (returns
+							null if the item with the given key is null).</p>
 						</li>
 					</ul>
 				</section>
@@ -951,22 +1342,34 @@
 					<a name="getasnullableparameters" class="tsd-anchor"></a>
 					<h3>get<wbr>AsNullable<wbr>Parameters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Parameters<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Parameters<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L86">run/Parameters.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L86">run/Parameters.ts:86</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluemap.html#getasnullablemap">AnyValueMap.getAsNullableMap</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the parameter to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the parameter with the given key as a nullable Parameters object.
+							Null is returned if no parameters are found by the given key.</p>
 						</li>
 					</ul>
 				</section>
@@ -981,16 +1384,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullablestring">getAsNullableString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L159">data/AnyValueMap.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L159">data/AnyValueMap.ts:159</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.stringconverter.html#tonullablestring">StringConverter.toNullableString</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the item with the given key as a nullable string.</p>
 						</li>
 					</ul>
 				</section>
@@ -998,16 +1412,27 @@
 					<a name="getasnullabletype" class="tsd-anchor"></a>
 					<h3>get<wbr>AsNullable<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string):</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsNullable<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasnullabletype">getAsNullableType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L401">data/AnyValueMap.ts:401</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L401">data/AnyValueMap.ts:401</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the item with the given key into a nullable object of type &#39;type&#39; using
+									<a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a> and returns it.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -1017,13 +1442,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <span class="tsd-signature-type">string):</span></h5>
+									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>the item with the given key as a nullable object of type &#39;type&#39;.</p>
 						</li>
 					</ul>
 				</section>
@@ -1038,16 +1470,23 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasobject">getAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L119">data/AnyValueMap.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L119">data/AnyValueMap.ts:119</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;{</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the item with the given key without any conversions or
+							all items, if &#39;key&#39; is undefined or omitted.</p>
 						</li>
 					</ul>
 				</section>
@@ -1055,22 +1494,33 @@
 					<a name="getasparameters" class="tsd-anchor"></a>
 					<h3>get<wbr>AsParameters</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsParameters<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsParameters<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L97">run/Parameters.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L97">run/Parameters.ts:97</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluemap.html#getasmap">AnyValueMap.getAsMap</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the parameter to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the parameter with the given key as a Parameters object.</p>
 						</li>
 					</ul>
 				</section>
@@ -1078,25 +1528,41 @@
 					<a name="getasparameterswithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsParameters<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsParameters<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">rameters {</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsParameters<wbr>With<wbr>Default<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L111">run/Parameters.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L111">run/Parameters.ts:111</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasnullableparameters">getAsNullableParameters</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the parameter to retrieve.</p>
+									</div>
 								</li>
 								<li>
-									<h5>defaultValue: <span class="tsd-signature-type">rameters {</span></h5>
+									<h5>defaultValue: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to return if no parameters are found by the given key.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the parameter with the given key or the
+								defaultValue (if no parameters are found by the given key
+							and null is returned by <a href="run.parameters.html#getasnullableparameters">getAsNullableParameters</a>).</p>
 						</li>
 					</ul>
 				</section>
@@ -1111,16 +1577,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasstring">getAsString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L170">data/AnyValueMap.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L170">data/AnyValueMap.ts:170</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getasstringwithdefault">getAsStringWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the item with the given key as a string (or null as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -1135,19 +1612,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasstringwithdefault">getAsStringWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L182">data/AnyValueMap.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L182">data/AnyValueMap.ts:182</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.stringconverter.html#tostringwithdefault">StringConverter.toStringWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the item with the given key as a string or the
+							defaultValue, if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -1155,16 +1647,27 @@
 					<a name="getastype" class="tsd-anchor"></a>
 					<h3>get<wbr>AsType</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string):</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">tu</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getastype">getAsType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L416">data/AnyValueMap.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L416">data/AnyValueMap.ts:416</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the item with the given key into an object of type &#39;type&#39; using
+									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#getastypewithdefault">getAsTypeWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -1174,13 +1677,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <span class="tsd-signature-type">string):</span></h5>
+									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">tu</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>the item with the given key as an object of type &#39;type&#39; (or null as the default).</p>
 						</li>
 					</ul>
 				</section>
@@ -1188,16 +1698,27 @@
 					<a name="getastypewithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsType<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType<wbr>With<wbr>Default&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string, d</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType<wbr>With<wbr>Default&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getastypewithdefault">getAsTypeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L431">data/AnyValueMap.ts:431</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L431">data/AnyValueMap.ts:431</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the item with the given key into an object of type &#39;type&#39; using
+									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -1207,16 +1728,24 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <span class="tsd-signature-type">string, d</span></h5>
+									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>defaultValue: <span class="tsd-signature-type"></span></h5>
+									<h5>defaultValue: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>value to return, if conversion is not possible.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>the item with the given key as an object of type &#39;type&#39; or the defaultValue,
+							if conversion is not possible.</p>
 						</li>
 					</ul>
 				</section>
@@ -1224,23 +1753,37 @@
 					<a name="getasvalue" class="tsd-anchor"></a>
 					<h3>get<wbr>AsValue</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsValue<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsValue<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvalue.html" class="tsd-signature-type">AnyValue</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getasvalue">getAsValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L443">data/AnyValueMap.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L443">data/AnyValueMap.ts:443</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvalue.html">AnyValue</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p>[[AnyValue.AnyValue]]</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to retrieve.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvalue.html" class="tsd-signature-type">AnyValue</a></h4>
+							<p>the item with the given key as an AnyValue object.</p>
 						</li>
 					</ul>
 				</section>
@@ -1255,10 +1798,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#getkeys">getKeys</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L54">data/AnyValueMap.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L54">data/AnyValueMap.ts:54</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>all of the keys that are contained in this AnyValueMap as a list of strings.</p>
 						</li>
 					</ul>
 				</section>
@@ -1273,10 +1819,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#length">length</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L104">data/AnyValueMap.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L104">data/AnyValueMap.ts:104</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the number of key-value pairs stored in this AnyValueMap.</p>
 						</li>
 					</ul>
 				</section>
@@ -1284,22 +1833,32 @@
 					<a name="omit" class="tsd-anchor"></a>
 					<h3>omit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">omit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let res</span></li>
+						<li class="tsd-signature tsd-kind-icon">omit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L223">run/Parameters.ts:223</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L223">run/Parameters.ts:223</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Omits select parameters from this Parameters object using the keys passed as &#39;paths&#39;.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>paths: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the keys passed to this method, whose data must be excluded from the
+										Parameters object that will be returned.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let res</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>this Parameters object&#39;s parameters with the given parameters omitted.</p>
 						</li>
 					</ul>
 				</section>
@@ -1307,25 +1866,45 @@
 					<a name="override" class="tsd-anchor"></a>
 					<h3>override</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">override<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ursive: boo</span>, recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let resul</span></li>
+						<li class="tsd-signature tsd-kind-icon">override<span class="tsd-signature-symbol">(</span>parameters<span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a>, recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L143">run/Parameters.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L143">run/Parameters.ts:143</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Overrides the parameters stored in this object with the ones in
+										&#39;parameters&#39;. If a parameter is already set in this Parameters object,
+									it will be overwritten by the value in &#39;parameters&#39; with the same key.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#setdefaults">setDefaults</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">ursive: boo</span></h5>
+									<h5>parameters: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters to override the parameters of this object with.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> recursive: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>whether or not the parameters need to be set recursively.
+										Defaults to false.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let resul</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>this Parameters object with overridden parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -1333,22 +1912,32 @@
 					<a name="pick" class="tsd-anchor"></a>
 					<h3>pick</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">pick<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let res</span></li>
+						<li class="tsd-signature tsd-kind-icon">pick<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L205">run/Parameters.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L205">run/Parameters.ts:205</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Picks select parameters from this Parameters object using the keys passed as &#39;paths&#39;.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>paths: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the keys passed to this method, whose data must be included in the
+										Parameters object that will be returned.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let res</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>a Parameters object that contains only the selected parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -1363,19 +1952,34 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L69">run/Parameters.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L69">run/Parameters.ts:69</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>[[RecursiveObjectReader.setProperty]]</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the complex key of the parameter that is to be stored.
+											The key can be complex with dot-notation, for example
+											&quot;Parameter-group-1.Sub-param-group-1-1.Param-1-1-1&quot;. In this
+											case, RecursiveObjectReader&#39;s [[RecursiveObjectReader.setProperty setProperty]]
+										method will be used.</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the value that was stored by the given key.</p>
 						</li>
 					</ul>
 				</section>
@@ -1390,13 +1994,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L77">data/AnyValueMap.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L77">data/AnyValueMap.ts:77</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>key of the item to remove.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1414,16 +2023,32 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#setasobject">setAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L142">data/AnyValueMap.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L142">data/AnyValueMap.ts:142</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.mapconverter.html#tomap">MapConverter.toMap</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the key by which to set the &#39;value&#39; passed.</p>
+									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;d {</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to set in this AnyValueMap with the given &#39;key&#39;.
+											If &#39;key&#39; is omitted, then this AnyValueMap will be set (cleared and
+											filled anew) using &#39;value&#39;. In this case &#39;value&#39; will be converted to
+										a map using &quot;MapConverter.toMap(value)&quot; and set to this AnyValueMap.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1434,25 +2059,46 @@
 					<a name="setdefaults" class="tsd-anchor"></a>
 					<h3>set<wbr>Defaults</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Defaults<span class="tsd-signature-symbol">(</span>defaultParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ursive: boo</span>, recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let resul</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Defaults<span class="tsd-signature-symbol">(</span>defaultParameters<span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a>, recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L168">run/Parameters.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L168">run/Parameters.ts:168</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the defaults for this Parameters object, based on the
+										default parameters passed in &#39;defaultParameters&#39;. If a
+										parameter is already set in this Parameters object, it will not be
+									overwritten by the default value in &#39;defaultParameters&#39; with the same key.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html#override">override</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>defaultParameters: <span class="tsd-signature-type">ursive: boo</span></h5>
+									<h5>defaultParameters: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the default parameters to use.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> recursive: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>whether or not the defaults need to be set recursively.
+										Defaults to false.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let resul</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>this Parameters object with the newly set defaults.</p>
 						</li>
 					</ul>
 				</section>
@@ -1466,10 +2112,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L239">run/Parameters.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L239">run/Parameters.ts:239</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert this Parameters object into a JSON string using <a href="convert.jsonconverter.html#tojson">JsonConverter.toJson</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.jsonconverter.html#tojson">JsonConverter.toJson</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>this Parameters object as a JSON string.</p>
 						</li>
 					</ul>
 				</section>
@@ -1484,10 +2141,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L530">data/AnyValueMap.ts:530</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L530">data/AnyValueMap.ts:530</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>this AnyValueMap as a semicolon-separated values string.</p>
+							<p>Example: &quot;key1=value1;key2;key3=value3&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -1495,22 +2156,36 @@
 					<a name="fromconfig" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Config</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters {</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let result</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L308">run/Parameters.ts:308</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L308">run/Parameters.ts:308</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that can convert a ConfigParams object into a Parameters object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="config.configparams.html">ConfigParams</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">Parameters {</span></h5>
+									<h5>config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the ConfigParams that contain parameters.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let result</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the Parameters generated.</p>
 						</li>
 					</ul>
 				</section>
@@ -1518,22 +2193,37 @@
 					<a name="fromjson" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Json</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Json<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let map &#x3D;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Json<span class="tsd-signature-symbol">(</span>json<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L295">run/Parameters.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L295">run/Parameters.ts:295</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that can convert a JSON string to a Parameters object using
+									<a href="convert.jsonconverter.html#tonullablemap">JsonConverter.toNullableMap</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.jsonconverter.html#tonullablemap">JsonConverter.toNullableMap</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>json: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the JSON string containing parameters.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let map &#x3D;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the Parameters generated.</p>
 						</li>
 					</ul>
 				</section>
@@ -1541,23 +2231,32 @@
 					<a name="frommaps" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Maps</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Maps<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>maps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">{le</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Maps<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>maps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#frommaps">fromMaps</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L611">data/AnyValueMap.ts:611</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L611">data/AnyValueMap.ts:611</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method for creating an AnyValueMap using the maps passed as parameters.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>maps: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the maps passed to this method to create an AnyValueMap with.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">{le</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
+							<p>the AnyValueMap created.</p>
 						</li>
 					</ul>
 				</section>
@@ -1565,23 +2264,37 @@
 					<a name="fromtuples" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Tuples</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Tuples<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>tuples<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let map &#x3D;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Tuples<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>tuples<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#fromtuples">fromTuples</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L264">run/Parameters.ts:264</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L264">run/Parameters.ts:264</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that creates a Parameters object using the tuples passed to the method.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluemap.html#fromtuplesarray">AnyValueMap.fromTuplesArray</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the tuples to convert to a Parameters object.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let map &#x3D;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>the generated Parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -1589,23 +2302,32 @@
 					<a name="fromtuplesarray" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Tuples<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Tuples<wbr>Array<span class="tsd-signature-symbol">(</span>tuples<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let res</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Tuples<wbr>Array<span class="tsd-signature-symbol">(</span>tuples<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#fromtuplesarray">fromTuplesArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/data/AnyValueMap.ts#L588">data/AnyValueMap.ts:588</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/data/AnyValueMap.ts#L588">data/AnyValueMap.ts:588</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method for creating an AnyValueMap from an array of tuples.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the key-value tuples array to initialize the new AnyValueMap with.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let res</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
+							<p>the AnyValueMap created and filled by the &#39;tuples&#39; array provided.</p>
 						</li>
 					</ul>
 				</section>
@@ -1613,23 +2335,38 @@
 					<a name="fromvalue" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Value</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">retu</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.anyvaluemap.html">AnyValueMap</a>.<a href="data.anyvaluemap.html#fromvalue">fromValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L252">run/Parameters.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L252">run/Parameters.ts:252</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that creates a Parameters object based on the values that are stored
+									in the map passed as &#39;value&#39;.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>[[AnyValueMap.AnyValueMap]]</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>parameters in the form of a map.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">retu</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>generated Parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -1637,22 +2374,33 @@
 					<a name="mergeparams" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> merge<wbr>Params</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">merge<wbr>Params<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">let map &#x3D;</span></li>
+						<li class="tsd-signature tsd-kind-icon">merge<wbr>Params<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>parameters<span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="run.parameters.html" class="tsd-signature-type">Parameters</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3d22aaa/src/run/Parameters.ts#L281">run/Parameters.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/34d9b11/src/run/Parameters.ts#L281">run/Parameters.ts:281</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that can merge two or more Parameters into one.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="data.anyvaluemap.html#frommaps">AnyValueMap.fromMaps</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>parameters: <span class="tsd-signature-type">Parameters</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>parameters: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">let map &#x3D;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h4>
+							<p>merged Parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -1663,9 +2411,6 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/commands.html">commands</a>
@@ -1681,6 +2426,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/random.html">random</a>

@@ -22,7 +22,7 @@ var UnsupportedException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Unsupported and set the status to 500.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function UnsupportedException(correlation_id, code, message) {

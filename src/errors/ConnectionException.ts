@@ -12,7 +12,7 @@ export class ConnectionException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.NoResponse and set the status to 500.
 	 * 
-	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ApplicationException.constructor]]
 	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {

@@ -16,8 +16,7 @@ export class ArrayConverter {
      * - otherwise - an array containing 'value' will be returned.
      * 
      * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null - null 
-     *                  will be returned.
+     * @returns         the result of the conversion. If 'value' was null - null will be returned.
      */
 	public static toNullableArray(value: any): any[] {
 		// Return null when nothing found

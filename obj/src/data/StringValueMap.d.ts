@@ -7,7 +7,8 @@ import { AnyValueMap } from './AnyValueMap';
  * stored can be retrieved in various ways with the help of numerous converters.
  *
  * StringValueMap is crucial to the PipServices framework, as it is used to create serializable objects. [[ConfigParams]],
- * [[ConnectionParams]], [[FilterParams]], and many other PipServices classes extend StringValueMap.
+ * [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]],
+ * [[FilterParams]], and many other PipServices classes extend StringValueMap.
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]

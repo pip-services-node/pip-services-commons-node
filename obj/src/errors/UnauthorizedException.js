@@ -22,7 +22,7 @@ var UnauthorizedException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Unauthorized and set the status to 401.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function UnauthorizedException(correlation_id, code, message) {

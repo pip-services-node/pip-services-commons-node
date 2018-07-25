@@ -22,7 +22,7 @@ var UnknownException = /** @class */ (function (_super) {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Unknown and set the status to 500.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     function UnknownException(correlation_id, code, message) {

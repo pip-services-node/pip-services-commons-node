@@ -7,7 +7,7 @@ export declare class ConfigException extends ApplicationException {
      * Call ApplicationException's constructor with the category parameter set to
      * ErrorCategory.Misconfiguration and set the status to 500.
      *
-     * @see [[ApplicationException.ApplicationException]]
+     * @see [[ApplicationException.constructor]]
      * @see [[ErrorCategory]]
      */
     constructor(correlation_id?: string, code?: string, message?: string);
