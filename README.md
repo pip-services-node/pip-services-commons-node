@@ -9,21 +9,21 @@ over most fundamental functions and delivers symmetric implementation that can b
 
 All functionality is decomposed into several packages:
 
-- **Commands** - commanding and eventing patterns
-- **Config** - configuration framework
-- **Convert** - soft value converters
-- **Data** - data patterns
-- **Errors** - application errors
-- **Random** - random data generators
-- **Refer** - locator (IoC) pattern
-- **Reflect** - reflection framework
-- **Run** - execution framework
-- **Validate** - validation framework
+- [**Commands**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/commands.html) - commanding and eventing patterns
+- [**Config**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/config.html) - configuration framework
+- [**Convert**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/convert.html) - soft value converters
+- [**Data**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/data.html) - data patterns
+- [**Errors**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/errors.html) - application errors
+- [**Random**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/random.html) - random data generators
+- [**Refer**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/refer.html) - locator (IoC) pattern
+- [**Reflect**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/reflect.html) - reflection framework
+- [**Run**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/run.html) - execution framework
+- [**Validate**](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/modules/validate.html) - validation framework
 
 Quick Links:
 
 * [Downloads](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Downloads.md)
-* [API Reference](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/index.html)
+* [API Reference](https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/global.html)
 * [Building and Testing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md)
 * [Contributing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md/#contrib)
 

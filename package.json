@@ -47,8 +47,6 @@
     "dependencies": {
         "async": "^2.1.0",
         "lodash": "^4.17.0",
-        "typedoc": "^0.11.1",
-        "typedoc-plugin-external-module-name": "^1.1.3",
         "uuid": "^3.0.0"
     },
     "devDependencies": {
@@ -58,6 +56,8 @@
         "@types/mocha": "*",
         "@types/node": "*",
         "chai": "*",
-        "mocha": "*"
+        "mocha": "*",
+        "typedoc": "^0.11.1",
+        "typedoc-plugin-external-module-name": "^1.1.3"
     }
 }
