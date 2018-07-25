@@ -1,3 +1,4 @@
+/** @module reflect */
 let _ = require('lodash');
 
 import { TypeCode } from '../convert/TypeCode';

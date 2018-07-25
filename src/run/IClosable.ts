@@ -1,12 +1,15 @@
+/** @module run */
 /**
- * Interface for components that require explicit closure
+ * Interface for components that require explicit closure.
  */
 export interface IClosable {
 	/**
-	 * Closes component, disconnects it from services, disposes resources
+	 * Abstract method that will contain the logic for closing a component, disconnecting it from other 
+	 * services, and disposing resources.
+	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
-     * @param callback 			function to call when close is complete. If omitted, then the 
-	 * 							function will run synchronously and throw exceptions.
+     * @param callback 			the function to call when the closing process is complete. It will 
+	 * 							be called with an error, if one is raised.
 	 */
 	close(correlationId: string, callback?: (err: any) => void): void;
 }

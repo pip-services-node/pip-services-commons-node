@@ -1,3 +1,4 @@
+/** @module data */
 import { StringValueMap } from './StringValueMap';
 
 /**
@@ -5,7 +6,7 @@ import { StringValueMap } from './StringValueMap';
  * Filter parameters contain the rules and values by which results
  * can be filtered.
  * 
- * @see StringValueMap
+ * @see [[StringValueMap]]
  */
 export class FilterParams extends StringValueMap {
 
@@ -42,12 +43,12 @@ export class FilterParams extends StringValueMap {
 
 	/**
 	 * Static method for creating a new FilterParams object from a string using 
-	 * {@link StringValueMap.fromString}.
+	 * [[StringValueMap.fromString]].
 	 * 
 	 * @param line 	the string containing filter parameters.
 	 * @returns		the FilterParams generated.
 	 * 
-	 * @see StringValueMap.fromString
+	 * @see [[StringValueMap.fromString]]
 	 */
 	public static fromString(line: string): FilterParams {
 		let map = StringValueMap.fromString(line);

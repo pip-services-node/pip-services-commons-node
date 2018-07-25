@@ -1,3 +1,4 @@
+/** @module errors */
 /**
  * Defines broad categories of application errors.
  */

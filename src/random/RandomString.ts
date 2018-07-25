@@ -1,3 +1,4 @@
+/** @module random */
 import { RandomInteger } from './RandomInteger';
 import { RandomBoolean } from './RandomBoolean';
 

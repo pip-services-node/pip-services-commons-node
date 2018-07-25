@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 /**
@@ -32,26 +33,26 @@ export class LongConverter {
     }
 
     /**
-     * Static method for converting values to longs using {@link #toLongWithDefault}. 
+     * Static method for converting values to longs using [[toLongWithDefault]]. 
      * 0 will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toLongWithDefault
+     * @see [[toLongWithDefault]]
      */
     public static toLong(value: any): number {
         return LongConverter.toLongWithDefault(value, 0);
     }
 
     /**
-     * Static method for converting values to longs using {@link #toNullableLong}. 
+     * Static method for converting values to longs using [[toNullableLong]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      * 
-     * @see #toNullableLong
+     * @see [[toNullableLong]]
      */
     public static toLongWithDefault(value: any, defaultValue: number): number {
         var result = LongConverter.toNullableLong(value);

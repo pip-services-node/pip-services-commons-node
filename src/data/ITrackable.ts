@@ -1,9 +1,10 @@
+/** @module data */
 import { IChangeable } from './IChangeable';
 
 /**
  * Interface for data objects that can track their changes, including logical deletion.
  * 
- * @see IChangeable
+ * @see [[IChangeable]]
  */
 export interface ITrackable extends IChangeable {
 	/** The UTC time at which the object was created. */

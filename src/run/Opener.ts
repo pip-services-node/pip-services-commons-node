@@ -1,14 +1,19 @@
+/** @module run */
 let _ = require('lodash');
 let async = require('async');
 
 /**
- * Helper class that opens a collection of components 
+ * Helper class that can be used to open components.
  */
 export class Opener {
 	/**
-	 * Checks if component that implement IOpenable interface is opened
+	 * Static method for checking whether or not a component has been opened. For a component to be checked, 
+	 * it must implement the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.isOpened isOpened]] 
+	 * method to check if the component has been opened.
 	 * 
-	 * @param component 	component to be checked
+	 * @param component 	the component that is to be checked.
+	 * 
+	 * @see [[IOpenable]]
 	 */
 	public static isOpenedOne(component: any): boolean {
 		if (_.isFunction(component.isOpened))
@@ -18,9 +23,14 @@ export class Opener {
 	}	
 
 	/**
-	 * Checks if components that implement IOpenable interface are opened
+	 * Static method for checking whether or not a list of components have been opened. For a component to be checked, 
+	 * it must implement the [[IOpenable]] interface. This method calls the static [[isOpenedOne]] method for each 
+	 * component passed, to check if it has been opened.
 	 * 
-	 * @param components 	list of components to be checked
+	 * @param components 	the list of components that are to be checked.
+	 * 
+	 * @see [[isOpenedOne]]
+	 * @see [[IOpenable]]
 	 */
 	public static isOpened(components: any[]): boolean {
 		if (components == null) return true;
@@ -33,11 +43,16 @@ export class Opener {
 	}
 
 	/**
-	 * Opens a component that implement IOpenable interface
+	 * Static method for opening a component. For a component to be opened, it must implement 
+	 * the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.open open]] method 
+	 * to open the component passed.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
-	 * @param component 		component to be opened.
-     * @param callback 			function to call when open is complete.
+	 * @param component 		the component that is to be opened.
+     * @param callback 			the function to call when the opening process is complete. It will 
+	 * 							be called with an error, if one is raised.
+	 * 
+	 * @see [[IOpenable]]
 	 */
 	public static openOne(correlationId: string, component: any, callback?: (err: any) => void): void {
         if (_.isFunction(component.open)) {
@@ -52,11 +67,17 @@ export class Opener {
 	}	
 
 	/**
-	 * Opens component that implement IOpenable interface
+	 * Static method for opening multiple components. For a component to be opened, it must implement 
+	 * the [[IOpenable]] interface. This method calls the static [[openOne]] method for each of the 
+	 * components passed.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.
-	 * @param components 		list of components to be opened.
-     * @param callback 			function to call when open is complete.
+	 * @param components 		the list of components that are to be opened.
+     * @param callback 			the function to call when the opening process is complete. It will 
+	 * 							be called with an error, if one is raised.
+	 * 
+	 * @see [[openOne]]
+	 * @see [[IOpenable]]
 	 */
 	public static open(correlationId: string, components: any[], callback?: (err: any) => void): void {
         async.eachSeries(

@@ -1,3 +1,4 @@
+/** @module commands */
 import { ICommand } from './ICommand';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';

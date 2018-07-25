@@ -1,3 +1,4 @@
+/** @module data */
 let _ = require('lodash');
 
 import { TypeCode } from '../convert/TypeCode';
@@ -18,22 +19,22 @@ import { AnyValueArray } from './AnyValueArray';
  * Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved 
  * in various ways with the help of numerous converters.
  * 
- * @see StringConverter
- * @see TypeConverter
- * @see BooleanConverter
- * @see IntegerConverter
- * @see LongConverter
- * @see DoubleConverter
- * @see FloatConverter
- * @see DateTimeConverter
- * @see ICloneable
+ * @see [[StringConverter]]
+ * @see [[TypeConverter]]
+ * @see [[BooleanConverter]]
+ * @see [[IntegerConverter]]
+ * @see [[LongConverter]]
+ * @see [[DoubleConverter]]
+ * @see [[FloatConverter]]
+ * @see [[DateTimeConverter]]
+ * @see [[ICloneable]]
  */
 export class AnyValueMap implements ICloneable {
 
     /**
      * Creates a new instance and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using 
-     * {@link #setAsObject} or {@link #append}.
+     * [[setAsObject]] or [[append]].
      * 
      * @param values    the values to store in this AnyValueMap.
      */
@@ -136,7 +137,7 @@ export class AnyValueMap implements ICloneable {
      *                  filled anew) using 'value'. In this case 'value' will be converted to 
      *                  a map using "MapConverter.toMap(value)" and set to this AnyValueMap.
      * 
-     * @see MapConverter#toMap
+     * @see [[MapConverter.toMap]]
      */
     public setAsObject(key: any, value: any = undefined): void {
         if (value === undefined) {
@@ -153,7 +154,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable string. 
      * 
-     * @see StringConverter#toNullableString
+     * @see [[StringConverter.toNullableString]]
      */
     public getAsNullableString(key: string): string {
         let value = this.get(key);
@@ -164,7 +165,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a string (or null as the default). 
      * 
-     * @see #getAsStringWithDefault
+     * @see [[getAsStringWithDefault]]
      */
     public getAsString(key: string): string {
         return this.getAsStringWithDefault(key, null);
@@ -176,7 +177,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a string or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see StringConverter#toStringWithDefault
+     * @see [[StringConverter.toStringWithDefault]]
      */
     public getAsStringWithDefault(key: string, defaultValue: string): string {
         let value = this.get(key);
@@ -187,7 +188,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable boolean. 
      * 
-     * @see BooleanConverter#toNullableBoolean
+     * @see [[BooleanConverter.toNullableBoolean]]
      */
     public getAsNullableBoolean(key: string): boolean {
         let value = this.get(key);
@@ -198,7 +199,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a boolean (or false as the default). 
      * 
-     * @see #getAsBooleanWithDefault
+     * @see [[getAsBooleanWithDefault]]
      */
     public getAsBoolean(key: string): boolean {
         return this.getAsBooleanWithDefault(key, false);
@@ -210,7 +211,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a boolean or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see BooleanConverter#toBooleanWithDefault
+     * @see [[BooleanConverter.toBooleanWithDefault]]
      */
     public getAsBooleanWithDefault(key: string, defaultValue: boolean): boolean {
         let value = this.get(key);
@@ -221,7 +222,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable integer. 
      * 
-     * @see IntegerConverter#toNullableInteger
+     * @see [[IntegerConverter.toNullableInteger]]
      */
     public getAsNullableInteger(key: string): number {
         let value = this.get(key);
@@ -232,7 +233,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as an integer (or 0 as the default). 
      * 
-     * @see #getAsIntegerWithDefault
+     * @see [[getAsIntegerWithDefault]]
      */
     public getAsInteger(key: string): number {
         return this.getAsIntegerWithDefault(key, 0);
@@ -244,7 +245,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as an integer or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see IntegerConverter#toIntegerWithDefault
+     * @see [[IntegerConverter.toIntegerWithDefault]]
      */
     public getAsIntegerWithDefault(key: string, defaultValue: number): number {
         let value = this.get(key);
@@ -255,7 +256,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable long. 
      * 
-     * @see LongConverter#toNullableLong
+     * @see [[LongConverter.toNullableLong]]
      */
     public getAsNullableLong(key: string): number {
         let value = this.get(key);
@@ -266,7 +267,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a long (or 0 as the default). 
      * 
-     * @see #getAsLongWithDefault
+     * @see [[getAsLongWithDefault]]
      */
     public getAsLong(key: string): number {
         return this.getAsLongWithDefault(key, 0);
@@ -278,7 +279,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a long or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see LongConverter#toLongWithDefault
+     * @see [[LongConverter.toLongWithDefault]]
      */
     public getAsLongWithDefault(key: string, defaultValue: number): number {
         let value = this.get(key);
@@ -289,7 +290,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable float. 
      * 
-     * @see FloatConverter#toNullableFloat
+     * @see [[FloatConverter.toNullableFloat]]
      */
     public getAsNullableFloat(key: string): number {
         let value = this.get(key);
@@ -300,7 +301,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a float (or 0 as the default). 
      * 
-     * @see #getAsFloatWithDefault
+     * @see [[getAsFloatWithDefault]]
      */
     public getAsFloat(key: string): number {
         return this.getAsFloatWithDefault(key, 0);
@@ -312,7 +313,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a float or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see FloatConverter#toFloatWithDefault
+     * @see [[FloatConverter.toFloatWithDefault]]
      */
     public getAsFloatWithDefault(key: string, defaultValue: number): number {
         let value = this.get(key);
@@ -323,7 +324,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable double. 
      * 
-     * @see DoubleConverter#toNullableDouble
+     * @see [[DoubleConverter.toNullableDouble]]
      */
     public getAsNullableDouble(key: string): number {
         let value = this.get(key);
@@ -334,7 +335,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a double (or 0 as the default). 
      * 
-     * @see #getAsDoubleWithDefault
+     * @see [[getAsDoubleWithDefault]]
      */
     public getAsDouble(key: string): number {
         return this.getAsDoubleWithDefault(key, 0);
@@ -346,7 +347,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a double or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see DoubleConverter#toDoubleWithDefault
+     * @see [[DoubleConverter.toDoubleWithDefault]]
      */
     public getAsDoubleWithDefault(key: string, defaultValue: number): number {
         let value = this.get(key);
@@ -357,7 +358,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a nullable Datetime. 
      * 
-     * @see DateTimeConverter#toNullableDateTime
+     * @see [[DateTimeConverter.toNullableDateTime]]
      */
     public getAsNullableDateTime(key: string): Date {
         let value = this.get(key);
@@ -368,7 +369,7 @@ export class AnyValueMap implements ICloneable {
      * @param key   key of the item to retrieve.
      * @returns     the item with the given key as a Datetime (or null as the default). 
      * 
-     * @see #getAsDateTimeWithDefault
+     * @see [[getAsDateTimeWithDefault]]
      */
     public getAsDateTime(key: string): Date {
         return this.getAsDateTimeWithDefault(key, null);
@@ -380,7 +381,7 @@ export class AnyValueMap implements ICloneable {
      * @returns                 the item with the given key as a Datetime or the
      *                          defaultValue, if conversion is not possible.
      * 
-     * @see DateTimeConverter#toDateTimeWithDefault
+     * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
     public getAsDateTimeWithDefault(key: string, defaultValue: Date): Date {
         let value = this.get(key);
@@ -389,13 +390,13 @@ export class AnyValueMap implements ICloneable {
     
     /** 
      * Converts the item with the given key into a nullable object of type 'type' using
-     * {@link TypeConverter#toNullableType<T>} and returns it.
+     * [[TypeConverter.toNullableType]] and returns it.
      * 
      * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as a nullable object of type 'type'.
      * 
-     * @see TypeConverter#toNullableType<T>
+     * @see [[TypeConverter.toNullableType]]
      */
     public getAsNullableType<T>(type: TypeCode, key: string): T {
         let value = this.get(key);
@@ -404,13 +405,13 @@ export class AnyValueMap implements ICloneable {
 
     /** 
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      * 
      * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an object of type 'type' (or null as the default). 
      * 
-     * @see #getAsTypeWithDefault
+     * @see [[getAsTypeWithDefault]]
      */
     public getAsType<T>(type: TypeCode, key: string): T {
         return this.getAsTypeWithDefault<T>(type, key, null);
@@ -418,14 +419,14 @@ export class AnyValueMap implements ICloneable {
 
     /**
      * Converts the item with the given key into an object of type 'type' using
-     * {@link TypeConverter#toTypeWithDefault<T>} and returns it.
+     * [[TypeConverter.toTypeWithDefault]] and returns it.
      * 
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
      * @param defaultValue      value to return, if conversion is not possible.
      * @returns                 the item with the given key as an object of type 'type' or the defaultValue, 
      *                          if conversion is not possible.
      * 
-     * @see TypeConverter#toTypeWithDefault<T>
+     * @see [[TypeConverter.toTypeWithDefault]]
      */
     public getAsTypeWithDefault<T>(type: TypeCode, key: string, defaultValue: T): T {
         let value = this.get(key);
@@ -436,8 +437,8 @@ export class AnyValueMap implements ICloneable {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValue object. 
      * 
-     * @see AnyValue
-     * @see AnyValue#AnyValue
+     * @see [[AnyValue]]
+     * @see [[AnyValue.AnyValue]]
      */
     public getAsValue(key: string): AnyValue {
         let value = this.get(key);
@@ -449,8 +450,8 @@ export class AnyValueMap implements ICloneable {
      * @returns         the item with the given key as a nullable AnyValueArray object (returns
      *                  null if the item with the given key is null).
      * 
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     public getAsNullableArray(key: string): AnyValueArray {
         let value = this.get(key);
@@ -461,8 +462,8 @@ export class AnyValueMap implements ICloneable {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueArray object. 
      * 
-     * @see AnyValueArray
-     * @see AnyValueArray#fromValue
+     * @see [[AnyValueArray]]
+     * @see [[AnyValueArray.fromValue]]
      */
     public getAsArray(key: string): AnyValueArray {
         let value = this.get(key);
@@ -476,8 +477,8 @@ export class AnyValueMap implements ICloneable {
      * @returns             the item with the given key as an AnyValueArray object or 'defaultValue',
      *                      if conversion is not possible. 
      * 
-     * @see AnyValueArray
-     * @see #getAsNullableArray
+     * @see [[AnyValueArray]]
+     * @see [[getAsNullableArray]]
      */
     public getAsArrayWithDefault(key: string, defaultValue: AnyValueArray): AnyValueArray {
     	let result = this.getAsNullableArray(key);
@@ -489,7 +490,7 @@ export class AnyValueMap implements ICloneable {
      * @returns         the item with the given key as a nullable AnyValueMap object (returns
      *                  null if the item with the given key is null).
      * 
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     public getAsNullableMap(key: string): AnyValueMap {
         let value = this.get(key);
@@ -500,7 +501,7 @@ export class AnyValueMap implements ICloneable {
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key as an AnyValueMap object. 
      * 
-     * @see #fromValue
+     * @see [[fromValue]]
      */
     public getAsMap(key: string): AnyValueMap {
         let value = this.get(key);
@@ -514,7 +515,7 @@ export class AnyValueMap implements ICloneable {
      * @returns             the item with the given key as an AnyValueMap object or 'defaultValue',
      *                      if conversion is not possible. 
      * 
-     * @see #getAsNullableMap
+     * @see [[getAsNullableMap]]
      */
     public getAsMapWithDefault(key: string, defaultValue: AnyValueMap): AnyValueMap {
         let result = this.getAsNullableMap(key);
@@ -553,12 +554,12 @@ export class AnyValueMap implements ICloneable {
     }
 
     /**
-     * Static method for creating an AnyValueMap from a value using {@link #setAsObject}.
+     * Static method for creating an AnyValueMap from a value using [[setAsObject]].
      * 
      * @param value     the value to set in the new AnyValueMap.
      * @returns         the AnyValueMap that was created and set to 'value'.
      * 
-     * @see #setAsObject
+     * @see [[setAsObject]]
      */
     public static fromValue(value: any): AnyValueMap {
     	let result = new AnyValueMap();
@@ -572,7 +573,7 @@ export class AnyValueMap implements ICloneable {
      * @param tuples    the key-value tuple parameters to initialize the new AnyValueMap with.
      * @returns         the AnyValueMap created and filled by the tuples provided.
      * 
-     * @see #fromTuplesArray
+     * @see [[fromTuplesArray]]
      */
     public static fromTuples(...tuples: any[]): AnyValueMap {
         return AnyValueMap.fromTuplesArray(tuples);

@@ -1,3 +1,4 @@
+/** @module refer */
 let _ = require('lodash');
 
 import { IReferences } from './IReferences';

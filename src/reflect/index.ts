@@ -1,3 +1,4 @@
+/** @module reflect */
 export { MethodReflector } from './MethodReflector';
 export { ObjectReader } from './ObjectReader';
 export { ObjectWriter } from './ObjectWriter';

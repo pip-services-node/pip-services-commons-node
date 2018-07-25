@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 /**
@@ -38,12 +39,12 @@ export class ArrayConverter {
 	}
 
 	/**
-     * Static method for converting values to arrays using {@link #toNullableArray}. 
+     * Static method for converting values to arrays using [[toNullableArray]]. 
      * An empty array will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toNullableArray
+     * @see [[toNullableArray]]
      */
 	public static toArray(value: any): any[] {
 		let result: any[] = ArrayConverter.toNullableArray(value);
@@ -51,14 +52,14 @@ export class ArrayConverter {
 	}
 
 	/**
-     * Static method for converting values to arrays using {@link #toNullableArray}. 
+     * Static method for converting values to arrays using [[toNullableArray]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      * 
-     * @see #toNullableArray
+     * @see [[toNullableArray]]
      */
 	public static toArrayWithDefault(value: any, defaultValue: any[]): any[] {
 		let result: any[] = ArrayConverter.toNullableArray(value);
@@ -66,7 +67,7 @@ export class ArrayConverter {
 	}
 
 	/**
-	 * Static method for converting lists to arrays using {@link #toArray}.
+	 * Static method for converting lists to arrays using [[toArray]].
 	 * 
 	 * Conversion cases:
 	 * - if the list passed as 'value' is null - an empty array will be returned;
@@ -76,7 +77,7 @@ export class ArrayConverter {
 	 * 
 	 * @param value 	the list to convert.
 	 * 
-	 * @see #toArray
+	 * @see [[toArray]]
 	 */
 	public static listToArray(value: any): any[] {
 		if (value == null) return [];

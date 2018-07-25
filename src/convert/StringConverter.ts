@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 /**
@@ -25,26 +26,26 @@ export class StringConverter {
     }
 
     /**
-     * Static method for converting values to strings using {@link #toStringWithDefault}. 
+     * Static method for converting values to strings using [[toStringWithDefault]]. 
      * An empty string ("") will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toStringWithDefault
+     * @see [[toStringWithDefault]]
      */
     public static toString(value: any): string {
         return StringConverter.toStringWithDefault(value, "");
     }
 
     /**
-     * Static method for converting values to strings using {@link #toNullableString}. 
+     * Static method for converting values to strings using [[toNullableString]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
      * @param value         the value to convert.
      * @param defaultValue  the default value to return if the conversion returns null.
      * 
-     * @see #toNullableString
+     * @see [[toNullableString]]
      */
     public static toStringWithDefault(value: any, defaultValue: string): string {
         return StringConverter.toNullableString(value) || defaultValue;

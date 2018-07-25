@@ -1,3 +1,4 @@
+/** @module refer */
 import { ConfigException } from '../errors/ConfigException';
 
 /**

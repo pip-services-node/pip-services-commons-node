@@ -1,3 +1,4 @@
+/** @module errors */
 import { ErrorCategory } from './ErrorCategory';
 import { ApplicationException } from './ApplicationException';
 
@@ -10,8 +11,8 @@ export class InvocationException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.FailedInvocation and set the status to 500.
 	 * 
-	 * @see ApplicationException#ApplicationException
-	 * @see ErrorCategory
+	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {
 		super(ErrorCategory.FailedInvocation, correlation_id, code, message);

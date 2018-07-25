@@ -1,3 +1,4 @@
+/** @module errors */
 import { ErrorCategory } from './ErrorCategory';
 import { ApplicationException } from './ApplicationException';
 
@@ -11,8 +12,8 @@ export class ConflictException extends ApplicationException {
 	 * Call ApplicationException's constructor with the category parameter set to 
 	 * ErrorCategory.Conflict and set the status to 409.
 	 * 
-	 * @see ApplicationException#ApplicationException
-	 * @see ErrorCategory
+	 * @see [[ApplicationException.ApplicationException]]
+	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {
 		super(ErrorCategory.Conflict, correlation_id, code, message);

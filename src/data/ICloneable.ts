@@ -1,3 +1,4 @@
+/** @module data */
 /**
  * Interface for data objects that are cloneable.
  */

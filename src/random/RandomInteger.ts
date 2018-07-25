@@ -1,3 +1,4 @@
+/** @module random */
 /**
  * Provides methods that can be used for generating random integers, as well as updating existing integers 
  * by generating values in the range of 'original value' ±'delta/range'. The 'sequence' method allows 

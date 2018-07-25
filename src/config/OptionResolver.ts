@@ -1,14 +1,15 @@
+/** @module config */
 import { ConfigParams } from './ConfigParams';
 
 /**
- * Contains the static method {@link #resolve}, which can be used for resolving 
+ * Contains the static method [[resolve]], which can be used for resolving 
  * the options of a ConfigParams configuration.
  */
 export class OptionResolver {
 
     /**
      * Static method for resolving the options of a ConfigParams object. The configuration's options are 
-     * searched for in the section named "options" in the {@link ConfigParams} object. If no options are found
+     * searched for in the section named "options" in the [[ConfigParams]] object. If no options are found
      * and 'configAsDefault' is set to true, then 'config' will be returned.
      * 
      * @param config            ConfigParams, whose options are to be resolved.

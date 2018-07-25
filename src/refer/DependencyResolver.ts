@@ -1,3 +1,4 @@
+/** @module refer */
 import { StringConverter } from '../convert/StringConverter';
 import { ConfigParams } from '../config/ConfigParams';
 import { IReconfigurable } from '../config/IReconfigurable';

@@ -1,3 +1,4 @@
+/** @module errors */
 import { ErrorCategory } from './ErrorCategory';
 import { ErrorDescription } from './ErrorDescription';
 import { ApplicationException } from './ApplicationException';
@@ -17,8 +18,8 @@ import { InvalidStateException } from './InvalidStateException';
 /**
  * Contains the static method 'create', which converts ErrorDescriptions back into ApplicationExceptions.
  * 
- * @see ErrorDescription
- * @see ApplicationException
+ * @see [[ErrorDescription]]
+ * @see [[ApplicationException]]
  */
 export class ApplicationExceptionFactory {
 	

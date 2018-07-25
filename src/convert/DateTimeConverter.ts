@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 /**
@@ -31,19 +32,19 @@ export class DateTimeConverter {
     }
 
     /**
-     * Static method for converting values to datetimes using {@link #toDateTimeWithDefault}. 
+     * Static method for converting values to datetimes using [[toDateTimeWithDefault]]. 
      * An empty date (new Date()) will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toDateTimeWithDefault
+     * @see [[toDateTimeWithDefault]]
      */
     public static toDateTime(value: any): Date {
         return DateTimeConverter.toDateTimeWithDefault(value, new Date());
     }
 
     /**
-     * Static method for converting values to datetimes using {@link #toNullableDateTime}. 
+     * Static method for converting values to datetimes using [[toNullableDateTime]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
@@ -51,7 +52,7 @@ export class DateTimeConverter {
      * @param defaultValue  the default value to return if the conversion returns null. 
      *                      Defaults to null if omitted.
      * 
-     * @see #toNullableDateTime
+     * @see [[toNullableDateTime]]
      */
     public static toDateTimeWithDefault(value: any, defaultValue: Date = null): Date {
         var result = DateTimeConverter.toNullableDateTime(value);

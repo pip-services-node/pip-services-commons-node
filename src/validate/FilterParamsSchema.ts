@@ -1,3 +1,4 @@
+/** @module validate */
 import { TypeCode } from '../convert/TypeCode';
 import { MapSchema } from './MapSchema';
 

@@ -1,3 +1,4 @@
+/** @module convert */
 let _ = require('lodash');
 
 /**
@@ -31,19 +32,19 @@ export class DoubleConverter {
     }
 
     /**
-     * Static method for converting values to doubles using {@link #toDoubleWithDefault}. 
+     * Static method for converting values to doubles using [[toDoubleWithDefault]]. 
      * 0 will be used as the default value for the conversion.
      * 
      * @param value     the value to convert.
      * 
-     * @see #toDoubleWithDefault
+     * @see [[toDoubleWithDefault]]
      */
     public static toDouble(value: any): number {
         return DoubleConverter.toDoubleWithDefault(value, 0);
     }
 
     /**
-     * Static method for converting values to doubles using {@link #toNullableDouble}. 
+     * Static method for converting values to doubles using [[toNullableDouble]]. 
      * If null is returned by the conversion, then this method will return the default 
      * value passed.
      * 
@@ -51,7 +52,7 @@ export class DoubleConverter {
      * @param defaultValue  the default value to return if the conversion returns null. 
      *                      Defaults to 0 if omitted.
      * 
-     * @see #toNullableDouble
+     * @see [[toNullableDouble]]
      */
     public static toDoubleWithDefault(value: any, defaultValue: number = 0): number {
         var result = DoubleConverter.toNullableDouble(value);
