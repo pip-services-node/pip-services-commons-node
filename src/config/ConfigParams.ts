@@ -1,3 +1,4 @@
+/** @module config */
 let _ = require('lodash');
 
 import { StringValueMap } from '../data/StringValueMap';
@@ -5,7 +6,7 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
 
 /**
  * ConfigParams represent a hierarchical map that contains configuration parameters and 
- * uses complex keys with dot notation to store simple string values.
+ * uses complex keys with dot-notation to store simple string values.
  * 
  * Provides hierarchical organization of various configuration parameters using sections, 
  * subsections, and keys.
@@ -157,8 +158,8 @@ export class ConfigParams extends StringValueMap {
 	 * configuration is already set in this ConfigParams object, it will not be
 	 * overwritten by the default value in 'defaultConfigParams' with the same key.
 	 * 
-	 * @param defaultConfigParams	default configuration parameters (ConfigParams object).
-	 * @returns						ConfigParams object with newly set defaults.
+	 * @param defaultConfigParams	the default configuration parameters to use.
+	 * @returns						this ConfigParams object with the newly set defaults.
 	 * 
 	 * @see [[override]]
 	 */
@@ -182,10 +183,10 @@ export class ConfigParams extends StringValueMap {
 	}
 
 	/**
-	 * Static method that creates a ConfigParams object from an array of tuples.
+	 * Static method that creates a ConfigParams object using the tuples passed to the method.
 	 * 
-	 * @param tuples	configuration parameters in the form of an array of tuples.
-	 * @returns			generated ConfigParams.
+	 * @param tuples	the tuples to convert to a ConfigParams object.
+	 * @returns			the generated ConfigParams.
 	 * 
 	 * @see [[StringValueMap.fromTuplesArray]]
 	 */
@@ -211,10 +212,11 @@ export class ConfigParams extends StringValueMap {
 	/**
 	 * Static method that can merge two or more ConfigParams into one.
 	 * 
-	 * @param configs 	array of ConfigParams that are to be merged into one ConfigParams object. 
-	 * 					The order of elements in this array is important, as it regulates which values 
-	 * 					to keep in the case of identical complex keys (the ConfigParams with the 
-	 * 					highest index override the values of other ConfigParams with the same key).
+	 * @param configs 	the ConfigParams that are to be merged into one ConfigParams object. 
+	 * 					The order in which the ConfigParams are passed to this method is important, 
+	 * 					as it regulates which values to keep in the case of identical complex keys 
+	 * 					(the ConfigParams passed later/last override the values of other ConfigParams 
+	 * 					with the same key).
 	 * @returns			merged ConfigParams.
 	 * 
 	 * @see [[StringValueMap.fromMaps]]

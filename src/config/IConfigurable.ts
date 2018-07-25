@@ -11,8 +11,7 @@ import { ConfigParams } from './ConfigParams';
 export interface IConfigurable {
 
     /**
-     * Abstract method for configuring objects using ConfigParams. Once a component 
-     * is configured, it will be switched to the 'Configured' state.
+     * Abstract method for configuring objects using ConfigParams.
      * 
      * @param config    ConfigParams to use for object configuration.
      */
