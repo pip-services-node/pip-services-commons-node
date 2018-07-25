@@ -67,6 +67,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Helper class that provides methods for starting tasks/callbacks with a timer,
+						delaying their starts, and stopping them as well.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -134,19 +142,56 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L17">run/FixedRateTimer.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L18">run/FixedRateTimer.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an object that is capable of starting a timer to call a task or a callback after
+									the time set in &#39;interval&#39; has passed. The timer can be delayed by setting a &#39;delay&#39;.</p>
+								</div>
+								<p>All parameters default to null and can be set later on using <a href="run.fixedratetimer.html#settask">setTask</a>/<a href="run.fixedratetimer.html#setcallback">setCallback</a>,
+								<a href="run.fixedratetimer.html#setinterval">setInterval</a>, and <a href="run.fixedratetimer.html#setdelay">setDelay</a>.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.fixedratetimer.html#settask">setTask</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="run.fixedratetimer.html#setcallback">setCallback</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="run.fixedratetimer.html#setinterval">setInterval</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="run.fixedratetimer.html#setdelay">setDelay</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> taskOrCallback: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;ull,</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> taskOrCallback: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;umber</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the task or callback to initialize this object with.</p>
+										</div>
+									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> interval: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;ull,</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> interval: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;er &#x3D;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the interval of time after which the task or callback must be called.</p>
+										</div>
+									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> delay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;ull)</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> delay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;if (_</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the delay to introduce before starting the timer.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="run.fixedratetimer.html" class="tsd-signature-type">FixedRateTimer</a></h4>
@@ -162,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">_callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L13">run/FixedRateTimer.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L14">run/FixedRateTimer.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -187,7 +232,7 @@
 					<div class="tsd-signature tsd-kind-icon">_delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L14">run/FixedRateTimer.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L15">run/FixedRateTimer.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,17 +242,17 @@
 					<div class="tsd-signature tsd-kind-icon">_interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L15">run/FixedRateTimer.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L16">run/FixedRateTimer.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_task" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _task</h3>
-					<div class="tsd-signature tsd-kind-icon">_task<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Notifiable;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_task<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">otifiable;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L12">run/FixedRateTimer.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L13">run/FixedRateTimer.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +262,7 @@
 					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L17">run/FixedRateTimer.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L18">run/FixedRateTimer.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +272,7 @@
 					<div class="tsd-signature tsd-kind-icon">_timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L16">run/FixedRateTimer.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L17">run/FixedRateTimer.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L87">run/FixedRateTimer.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L150">run/FixedRateTimer.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -288,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L37">run/FixedRateTimer.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L57">run/FixedRateTimer.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -317,7 +362,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L43">run/FixedRateTimer.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L65">run/FixedRateTimer.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -334,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L46">run/FixedRateTimer.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L74">run/FixedRateTimer.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -345,16 +390,16 @@
 					<a name="gettask" class="tsd-anchor"></a>
 					<h3>get<wbr>Task</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Task<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/run.inotifiable.html" class="tsd-signature-type">INotifiable</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Task<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">rn this._tas</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L29">run/FixedRateTimer.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L47">run/FixedRateTimer.ts:47</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/run.inotifiable.html" class="tsd-signature-type">INotifiable</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">rn this._tas</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -368,7 +413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L49">run/FixedRateTimer.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L84">run/FixedRateTimer.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -385,7 +430,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L38">run/FixedRateTimer.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L59">run/FixedRateTimer.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -420,7 +465,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L44">run/FixedRateTimer.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L71">run/FixedRateTimer.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -443,7 +488,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L47">run/FixedRateTimer.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L76">run/FixedRateTimer.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -460,19 +505,19 @@
 					<a name="settask" class="tsd-anchor"></a>
 					<h3>set<wbr>Task</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Task<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Notifiable):</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Task<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">d {</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L30">run/FixedRateTimer.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L49">run/FixedRateTimer.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">Notifiable):</span></h5>
+									<h5>value: <span class="tsd-signature-type">d {</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -489,7 +534,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L51">run/FixedRateTimer.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L100">run/FixedRateTimer.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -506,7 +551,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/FixedRateTimer.ts#L75">run/FixedRateTimer.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/FixedRateTimer.ts#L130">run/FixedRateTimer.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

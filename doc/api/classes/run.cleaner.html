@@ -70,8 +70,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that can be used to clean the data and state of components.</p>
+						<p>Helper class that can be used to clean the data of components.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/run.icleanable.html">ICleanable</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,45 +113,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/Cleaner.ts#L46">run/Cleaner.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/Cleaner.ts#L48">run/Cleaner.ts:48</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for cleaning multiple components. For a component to be cleaned, it must implement
-										the <a href="../interfaces/run.icleanable.html">ICleanable</a> interface. This method calls the static <a href="run.cleaner.html#clearone">clearOne</a> method for each of the
-									components passed.</p>
-								</div>
-								<pre><code>                        be called <span class="hljs-keyword">with</span> an <span class="hljs-keyword">error</span>, <span class="hljs-keyword">if</span> one <span class="hljs-keyword">is</span> raised.
-</code></pre>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="run.cleaner.html#clearone">clearOne</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="../interfaces/run.icleanable.html">ICleanable</a></p>
-									</dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>unique business transaction id to trace calls across components.</p>
-									</div>
 								</li>
 								<li>
 									<h5>components: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the list of components that are to be cleaned.</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the clearing process is complete. It will</p>
-									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -181,7 +160,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/Cleaner.ts#L21">run/Cleaner.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/Cleaner.ts#L23">run/Cleaner.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

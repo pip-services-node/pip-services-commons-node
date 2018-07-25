@@ -70,9 +70,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for components that can clean their data.
-						Such components are typically used during testing.</p>
+						<p>Interface for components that can clean their data.</p>
 					</div>
+					<p>Such components are typically used during testing, when a database or queue is used and needs to be
+						quickly cleaned (or truncated) once the test has finished. This is done to remove any garbage that
+						might have been left-over by a test, as this data can interfere with future tests. To ensure that all
+						tests run as clean as possible, the database/queue should be returned/reverted back to its initial state.
+					This interface&#39;s <a href="run.icleanable.html#clear">clear</a> method allows for such cleaning to be performed.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d4406b2/src/run/ICleanable.ts#L15">run/ICleanable.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c938931/src/run/ICleanable.ts#L19">run/ICleanable.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
