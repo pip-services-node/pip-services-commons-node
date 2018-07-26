@@ -61,7 +61,7 @@ export interface IReferences {
 	 * @param locator a locator to find references
 	 * @param callback callback function with execution error
 	 * @return a list with found component references
-	 * @throws ReferenceException when no single component reference is found 
+	 * @throws a [[ReferenceException]] when no single component reference is found 
 	 */
 	getRequired<T>(locator: any): T[];
 
@@ -82,7 +82,7 @@ export interface IReferences {
 	 * @param locator a locator to find a reference
 	 * @param callback callback function with execution error
 	 * @return a found component reference
-	 * @throws ReferenceException when requested component wasn't found
+	 * @throws a [[ReferenceException]] when requested component wasn't found
 	 */
 	getOneRequired<T>(locator: any): T;
 
@@ -92,7 +92,7 @@ export interface IReferences {
 	 * @param locator a locator to find a reference
 	 * @param required force to raise exception is no reference is found
 	 * @return list of found references
-	 * @throws ReferenceException when requested component wasn't found
+	 * @throws a [[ReferenceException]] when requested component wasn't found
 	 */
 	find<T>(locator: any, required: boolean): T[];
 }
