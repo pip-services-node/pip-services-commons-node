@@ -70,15 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Component descriptor used to find a component by its descriptive elements:</p>
-						<ul>
-							<li> logical group: package or other logical group of components like &#39;pip-services-storage-blocks&#39;
-								<li> component type: identifies component interface like &#39;controller&#39;, &#39;services&#39; or &#39;cache&#39;
-									<li> component kind: identifies component implementation like &#39;memory&#39;, &#39;file&#39; or &#39;mongodb&#39;, ...
-										<li> component name: identifies component internal content, ...
-											<li> implementation version: &#39;1.0&#39;, &#39;1.5&#39; or &#39;10.4&#39;
-						</ul>
+						<p>Component descriptor that is used to find a component by its descriptive elements. Contains 5 sections:</p>
 					</div>
+					<ul>
+						<li><strong>logical group:</strong> the package or other logical group of a component, for example: &#39;pip-services-storage-blocks&#39;</li>
+						<li><strong>component type:</strong> identifies a component&#39;s interface, for example: &#39;persistence&#39;, &#39;controller&#39;, &#39;services&#39;, or &#39;cache&#39;</li>
+						<li><strong>component kind:</strong> identifies a component&#39;s implementation, for example: &#39;memory&#39;, &#39;file&#39;, or &#39;mongodb&#39;</li>
+						<li><strong>component name:</strong> identifies a component&#39;s internal content</li>
+						<li><strong>implementation version:</strong> for example: &#39;1.0&#39;, &#39;1.5&#39;, or &#39;10.4&#39;</li>
+					</ul>
+					<p><code>*</code> can be used for any of the above sections to indicate &#39;any&#39;.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -142,12 +143,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L19">refer/Descriptor.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L20">refer/Descriptor.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates instance of a component locator</p>
+									<p>Creates an instance of a component descriptor.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -156,7 +157,7 @@
 									<h5>group: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>logical group: &#39;pip-services-runtime&#39;, &#39;pip-services-logging&#39;</p>
+											<p>the logical group (examples: &#39;pip-services-runtime&#39;, &#39;pip-services-logging&#39;, &#39;*&#39;).</p>
 										</div>
 									</div>
 								</li>
@@ -164,7 +165,7 @@
 									<h5>type: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>logical type: &#39;cache&#39;, &#39;services&#39; or &#39;controllers&#39;</p>
+											<p>the logical type (examples: &#39;persistence&#39;, &#39;controller&#39;, &#39;cache&#39;, &#39;*&#39;).</p>
 										</div>
 									</div>
 								</li>
@@ -172,7 +173,7 @@
 									<h5>kind: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>implementation: &#39;memory&#39;, &#39;file&#39; or &#39;memcached&#39;</p>
+											<p>the implementation (examples: &#39;memory&#39;, &#39;mongodb&#39;, &#39;*&#39;).</p>
 										</div>
 									</div>
 								</li>
@@ -180,7 +181,7 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>internal content</p>
+											<p>the internal content</p>
 										</div>
 									</div>
 								</li>
@@ -188,7 +189,7 @@
 									<h5>version: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>implementation version: &#39;1.0&#39;. &#39;1.5&#39; or &#39;10.4&#39;</p>
+											<p>implementation version (examples: &#39;1.0&#39;, &#39;1.5&#39;, &#39;10.4&#39;, &#39;*&#39;).</p>
 										</div>
 									</div>
 								</li>
@@ -206,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">_group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L15">refer/Descriptor.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L16">refer/Descriptor.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">_kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L17">refer/Descriptor.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L18">refer/Descriptor.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">_name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L18">refer/Descriptor.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L19">refer/Descriptor.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +237,7 @@
 					<div class="tsd-signature tsd-kind-icon">_type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L16">refer/Descriptor.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L17">refer/Descriptor.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +247,7 @@
 					<div class="tsd-signature tsd-kind-icon">_version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L19">refer/Descriptor.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L20">refer/Descriptor.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,16 +264,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L126">refer/Descriptor.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L163">refer/Descriptor.ts:163</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Matches this descriptor to the value that was passed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.descriptor.html#match">match</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to match against this descriptor.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code>, if value is an instance of Descriptor and matches this descriptor.
+							Otherwise, <code>false</code> is returned.</p>
 						</li>
 					</ul>
 				</section>
@@ -286,16 +302,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L113">refer/Descriptor.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L134">refer/Descriptor.ts:134</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Matches this descriptor to another descriptor.
+										All <code><em></code> or <code>null</code> descriptor elements match ONLY to <code></em></code>
+									or <code>null</code> values (as oppossed to <a href="refer.descriptor.html#match">match</a>).</p>
+								</div>
+								<p>Specific values must match exactly.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.descriptor.html#match">match</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>descriptor: <a href="refer.descriptor.html" class="tsd-signature-type">Descriptor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the descriptor to match this one against.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code>, if the descriptors match, and <code>false</code> - otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -309,7 +342,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L105">refer/Descriptor.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L114">refer/Descriptor.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -335,16 +368,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L47">refer/Descriptor.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L50">refer/Descriptor.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component group</p>
+									<p>Gets this component descriptor&#39;s logical group section.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>a component group</p>
+							<p>the component&#39;s logical group.</p>
 						</li>
 					</ul>
 				</section>
@@ -358,16 +391,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L63">refer/Descriptor.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L68">refer/Descriptor.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component kind</p>
+									<p>Gets this component descriptor&#39;s implementation section.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>a component kind</p>
+							<p>the component&#39;s implementation.</p>
 						</li>
 					</ul>
 				</section>
@@ -381,16 +414,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L71">refer/Descriptor.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L77">refer/Descriptor.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component name</p>
+									<p>Gets this component descriptor&#39;s name section.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>a component name</p>
+							<p>the component&#39;s name.</p>
 						</li>
 					</ul>
 				</section>
@@ -404,16 +437,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L55">refer/Descriptor.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L59">refer/Descriptor.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component type</p>
+									<p>Gets this component descriptor&#39;s logical type section.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>a component type</p>
+							<p>the component&#39;s logical type.</p>
 						</li>
 					</ul>
 				</section>
@@ -427,16 +460,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L79">refer/Descriptor.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L86">refer/Descriptor.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets an implementation version</p>
+									<p>Gets this component descriptor&#39;s implementation version section.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>an implementation version</p>
+							<p>the component&#39;s implementation version.</p>
 						</li>
 					</ul>
 				</section>
@@ -450,10 +483,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L121">refer/Descriptor.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L149">refer/Descriptor.ts:149</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether or not a descriptor contains <code>*</code> or <code>null</code>
+									elements in any of its sections.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code>, if no <code>*</code>s or <code>null</code>s are found. Otherwise,
+							<code>false</code> is returned.</p>
 						</li>
 					</ul>
 				</section>
@@ -467,27 +508,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L97">refer/Descriptor.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L106">refer/Descriptor.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Matches this descriptor to another descriptor
-										All &#39;*&#39; or null descriptor elements match to any other value.
+									<p>Matches this descriptor to another descriptor.
+										All <code>*</code> or <code>null</code> descriptor elements match to any other value.
 									Specific values must match exactly.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.descriptor.html#exactmatch">exactMatch</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>descriptor: <a href="refer.descriptor.html" class="tsd-signature-type">Descriptor</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>another descriptor to match this one.</p>
+										<p>the descriptor to match this one against.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p><b>true</b> if descriptors match or <b>false</b> otherwise.</p>
+							<p><code>true</code>, if the descriptors match, and <code>false</code> - otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -501,7 +547,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L83">refer/Descriptor.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L90">refer/Descriptor.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -527,10 +573,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L132">refer/Descriptor.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L175">refer/Descriptor.ts:175</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts this descriptor to a string by substituting any <code>null</code>s with <code>*</code>s,
+									and by separating its 5 sections with colons.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>this descriptor as a string. Example result: &quot;pip-services-logging:persistence:memory:*:1.0&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -544,16 +597,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Descriptor.ts#L140">refer/Descriptor.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Descriptor.ts#L191">refer/Descriptor.ts:191</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that can convert a colon-separated descriptor string into a Descriptor object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>a <a href="errors.configexception.html">ConfigException</a>, if the descriptor string is of a wrong format.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">String</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a colon-separated descriptor string. Example string:
+										&quot;pip-services-logging:persistence:memory:*:1.0&quot;.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="refer.descriptor.html" class="tsd-signature-type">Descriptor</a></h4>
+							<p>the Descriptor that was parsed from the string.</p>
 						</li>
 					</ul>
 				</section>

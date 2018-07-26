@@ -70,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Placeholder to store component references.</p>
+						<p>A placeholder that stores component references.</p>
 					</div>
 				</div>
 			</section>
@@ -122,12 +122,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L9">refer/Reference.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L9">refer/Reference.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a new reference for an object</p>
+									<p>Create a new Reference object and initializes it using the locator and reference given.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,7 +136,8 @@
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>a component locator for the reference</p>
+											<p>the component locator for the reference. It can be a standard Descriptor
+											or anything else.</p>
 										</div>
 									</div>
 								</li>
@@ -157,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">_component<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L9">refer/Reference.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L9">refer/Reference.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">_locator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L8">refer/Reference.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L8">refer/Reference.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,16 +185,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L47">refer/Reference.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L55">refer/Reference.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets component reference</p>
+									<p>Gets the component stored in this Reference object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a component itself</p>
+							<p>the component stored.</p>
 						</li>
 					</ul>
 				</section>
@@ -207,16 +208,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L55">refer/Reference.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L64">refer/Reference.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets component locator</p>
+									<p>Gets the locator of the component that is stored in this Reference object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a component locator</p>
+							<p>the component&#39;s locator.</p>
 						</li>
 					</ul>
 				</section>
@@ -230,25 +231,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/Reference.ts#L29">refer/Reference.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/Reference.ts#L36">refer/Reference.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if locator matches the current component</p>
+									<p>Checks if a locator matches this Reference object. A match is considered to be made if the locator
+									matches this Reference&#39;s component or its locator.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.descriptor.html">Descriptor</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a location object. It can be standard Descriptor or something else</p>
+										<p>the locator to match against this Reference.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p><code>true</code> if component matches the locator or <code>false</code> otherwise.</p>
+							<p><code>true</code>, if this reference matches the locator, and <code>false</code> - otherwise.</p>
 						</li>
 					</ul>
 				</section>

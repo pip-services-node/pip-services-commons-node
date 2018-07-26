@@ -1,10 +1,10 @@
 /** @module refer */
 /**
- * Interface for components that require clear of references to other components
+ * Interface for components that require clearing of their references to other components.
  */
 export interface IUnreferenceable {
 	/**
-	 * Unsets previously set references to other components. 
+	 * Unsets (clears) previously set references to other components. 
 	 */
 	unsetReferences(): void;
 }

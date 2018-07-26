@@ -70,8 +70,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Set of component references with abilities to add new references, find reference using locators
-						or remove reference from the set</p>
+						<p>Interface for creating sets of component references, which have the ability to add new references,
+						find reference using locators, or remove reference from the set.</p>
 					</div>
 				</div>
 			</section>
@@ -123,17 +123,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L97">refer/IReferences.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L104">refer/IReferences.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Find all references by specified query criteria
-									and matching to the specified type.</p>
+									<p>Abstract method that will contain the logic for finding all references that match
+									the specified query criteria and the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a> when requested component wasn&#39;t found</p>
+									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a>, if the requested component was not found.</p>
 									</dd>
 								</dl>
 							</div>
@@ -148,18 +148,18 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find a reference</p>
+										<p>the locator to find a reference by.</p>
 									</div>
 								</li>
 								<li>
 									<h5>required: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>force to raise exception is no reference is found</p>
+										<p>forces to raise an exception, if no reference is found.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>list of found references</p>
+							<p>a list of found references.</p>
 						</li>
 					</ul>
 				</section>
@@ -173,16 +173,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L46">refer/IReferences.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L50">refer/IReferences.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets all stored component references</p>
+									<p>Abstract method that will contain the logic for getting all stored component references.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with component references</p>
+							<p>a list, containing all component references stored in the set.</p>
 						</li>
 					</ul>
 				</section>
@@ -196,16 +196,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L39">refer/IReferences.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L43">refer/IReferences.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets all stored component locators</p>
+									<p>Abstract method that will contain the logic for getting all stored component locators.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with component locators</p>
+							<p>a list, containing the locators for all of the components stored in the set.</p>
 						</li>
 					</ul>
 				</section>
@@ -219,14 +219,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L76">refer/IReferences.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L81">refer/IReferences.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component references that matches provided locator
-										and matching to the specified type.
-									The search is performed from latest added references.</p>
+									<p>Abstract method that will contain the logic for getting the component reference that matches
+										the provided locator and the specified type. The search is performed, starting from the
+									last-added references.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -240,12 +240,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find a reference</p>
+										<p>the locator to find a reference by.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>a found component reference or <code>null</code> if nothing was found</p>
+							<p>the component reference found or <code>null</code>, if none were found.</p>
 						</li>
 					</ul>
 				</section>
@@ -259,18 +259,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L87">refer/IReferences.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L92">refer/IReferences.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component references that matches provided locator
-										and matching to the specified type.
-									The search is performed from latest added references.</p>
+									<p>Abstract method that will contain the logic for getting the component reference that
+										matches the provided locator and the specified type.
+									The search is performed, starting from the last-added references.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a> when requested component wasn&#39;t found</p>
+									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a>, if the requested component was not found.</p>
 									</dd>
 								</dl>
 							</div>
@@ -285,12 +285,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find a reference</p>
+										<p>the locator to find a reference by.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>a found component reference</p>
+							<p>the component reference found.</p>
 						</li>
 					</ul>
 				</section>
@@ -304,13 +304,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L55">refer/IReferences.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L59">refer/IReferences.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a list of component references that match provided locator
-									and matching to the specified type.</p>
+									<p>Abstract method that will contain the logic for getting a list of component references
+									that match the provided locator and the specified type.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -324,12 +324,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find references</p>
+										<p>the locator to find references by.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with found component references</p>
+							<p>a list, containing all component references found.</p>
 						</li>
 					</ul>
 				</section>
@@ -343,18 +343,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L66">refer/IReferences.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L71">refer/IReferences.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a list of component references that match provided locator.
-										and matching to the specified type.
-									If no references found an exception is thrown</p>
+									<p>Abstract method that will contain the logic for getting a list of component references
+										that match the provided locator and the specified type. If no references are found,
+									an exception will be thrown.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a> when no single component reference is found</p>
+									<dd><p>a <a href="../classes/refer.referenceexception.html">ReferenceException</a>, if no component references are found by the given locator and type.</p>
 									</dd>
 								</dl>
 							</div>
@@ -369,12 +369,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find references</p>
+										<p>the locator to find references by.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with found component references</p>
+							<p>a list, containing all component references found.</p>
 						</li>
 					</ul>
 				</section>
@@ -388,12 +388,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L15">refer/IReferences.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L16">refer/IReferences.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Puts a new component reference to the set with explicit locator</p>
+									<p>Abstract method that will contain the logic for putting a new component reference into
+									the set using an explicit locator.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -401,13 +402,13 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find the reference</p>
+										<p>the locator to find the reference by.</p>
 									</div>
 								</li>
 								<li>
 									<h5>component: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a component reference to be added</p>
+										<p>the component reference that is to be added.</p>
 									</div>
 								</li>
 							</ul>
@@ -425,26 +426,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L24">refer/IReferences.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L27">refer/IReferences.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes component reference from the set.
-									The method removes only the last reference.</p>
+									<p>Abstract method that will contain the logic for removing a component reference from the set.
+									Removes only the last reference.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.ireferences.html#removeall">removeAll</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find the reference to remove</p>
+										<p>the locator of the reference that is to be removed.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a removed reference</p>
+							<p>the removed reference.</p>
 						</li>
 					</ul>
 				</section>
@@ -458,12 +464,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b9f2dca/src/refer/IReferences.ts#L32">refer/IReferences.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/IReferences.ts#L36">refer/IReferences.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes all component references from the set.</p>
+									<p>Abstract method that will contain the logic for removing all component references with the
+									given locator from the set.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -471,12 +478,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a locator to find the reference to remove</p>
+										<p>the locator to remove references by.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with removed references</p>
+							<p>a list, containing all removed references.</p>
 						</li>
 					</ul>
 				</section>
