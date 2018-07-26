@@ -67,6 +67,22 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class for <a href="../interfaces/commands.icommand.html">commands</a> that were intercepted by a <a href="../interfaces/commands.icommandintercepter.html">command interceptor</a>
+						and are to be executed next.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/commands.icommand.html">ICommand</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p>[[[ICommandIntercepter]]</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -121,16 +137,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L9">commands/InterceptedCommand.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L16">commands/InterceptedCommand.ts:16</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>intercepter: <a href="../interfaces/commands.icommandintercepter.html" class="tsd-signature-type">ICommandIntercepter</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the interceptor that intercepted the next command.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>next: <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the command that is to be executed next.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="commands.interceptedcommand.html" class="tsd-signature-type">InterceptedCommand</a></h4>
@@ -146,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">_intercepter<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommandintercepter.html" class="tsd-signature-type">ICommandIntercepter</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L8">commands/InterceptedCommand.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L15">commands/InterceptedCommand.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">_next<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L9">commands/InterceptedCommand.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L16">commands/InterceptedCommand.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,19 +201,39 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L20">commands/InterceptedCommand.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L45">commands/InterceptedCommand.ts:45</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executes the next <a href="../interfaces/commands.icommand.html">command</a> using the given <a href="run.parameters.html">parameters</a> (arguments).</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html">Parameters</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>args: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters (arguments) to pass to the command for execution.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the function that is to be called once execution is complete. If an exception is raised, then
+										it will be called with the error.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -224,10 +272,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#getname">getName</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L16">commands/InterceptedCommand.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L30">commands/InterceptedCommand.ts:30</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the name of the next command.</p>
 						</li>
 					</ul>
 				</section>
@@ -242,16 +293,34 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/InterceptedCommand.ts#L24">commands/InterceptedCommand.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/InterceptedCommand.ts#L59">commands/InterceptedCommand.ts:59</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the <a href="run.parameters.html">parameters</a> (arguments) that are to be passed to the next
+									<a href="../interfaces/commands.icommand.html">command</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="run.parameters.html">Parameters</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="validate.validationresult.html">ValidationResult</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>args: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters (arguments) to validate for the next command.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>an array of ValidationResults.</p>
 						</li>
 					</ul>
 				</section>

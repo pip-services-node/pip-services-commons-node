@@ -67,6 +67,19 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Events consist of a name and a set of listeners. Listeners are notified whenever
+						the event is raised and can be added or removed as needed.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/commands.ievent.html">IEvent</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -123,13 +136,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L10">commands/Event.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L16">commands/Event.ts:16</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes a new event object using the given event name.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>an Error if the name is null.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the name of the event that is to be created.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="commands.event.html" class="tsd-signature-type">Event</a></h4>
@@ -145,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">_listeners<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.ieventlistener.html" class="tsd-signature-type">IEventListener</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L10">commands/Event.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L16">commands/Event.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +183,7 @@
 					<div class="tsd-signature tsd-kind-icon">_name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L9">commands/Event.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L15">commands/Event.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,13 +201,21 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.ievent.html">IEvent</a>.<a href="../interfaces/commands.ievent.html#addlistener">addListener</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L27">commands/Event.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L50">commands/Event.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a listener to receive notifications for this event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>listener: <a href="../interfaces/commands.ieventlistener.html" class="tsd-signature-type">IEventListener</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the listener reference to add.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -197,10 +233,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.ievent.html">IEvent</a>.<a href="../interfaces/commands.ievent.html#getlisteners">getListeners</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L23">commands/Event.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L41">commands/Event.ts:41</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/commands.ieventlistener.html" class="tsd-signature-type">IEventListener</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>the listeners that are to receive notifications for this event.</p>
 						</li>
 					</ul>
 				</section>
@@ -215,10 +254,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.ievent.html">IEvent</a>.<a href="../interfaces/commands.ievent.html#getname">getName</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L19">commands/Event.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L34">commands/Event.ts:34</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the name of this event.</p>
 						</li>
 					</ul>
 				</section>
@@ -233,16 +275,33 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.ievent.html">IEvent</a>.<a href="../interfaces/commands.ievent.html#notify">notify</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L38">commands/Event.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L74">commands/Event.ts:74</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Raises this event and notifies the listeners referenced using the correlationId
+									and <a href="run.parameters.html">parameters</a> (arguments) given.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>an InvocationException if the event fails to be raised.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>args: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters to raise this event with.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -260,13 +319,21 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.ievent.html">IEvent</a>.<a href="../interfaces/commands.ievent.html#removelistener">removeListener</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/Event.ts#L31">commands/Event.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/Event.ts#L59">commands/Event.ts:59</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a listener, so that it no longer receives notifications for this event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>listener: <a href="../interfaces/commands.ieventlistener.html" class="tsd-signature-type">IEventListener</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the listener reference to remove.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

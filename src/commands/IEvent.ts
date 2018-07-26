@@ -4,28 +4,30 @@ import { IEventListener } from './IEventListener';
 import { INotifiable } from '../run/INotifiable';
 
 /**
- * Interface for command events.
+ * Interface for events, which notify listeners once an event has occurred.
  */
 export interface IEvent extends INotifiable {
 	/**
-	 * Gets the event name
+	 * @returns the name of the event.
 	 */
     getName(): string;
 
     /**
-     * Get listeners that receive notifications for that event
+     * @returns the listeners that are to receive notifications for this event.
      */
     getListeners(): IEventListener[];
 
     /**
-     * Adds listener to receive notifications
-     * @param listener a listener reference to be added
+     * Adds a listener to receive notifications for this event.
+     * 
+     * @param listener      the listener reference to add.
      */
     addListener(listener: IEventListener): void;
 
     /**
-     * Removes listener for event notifications.
-     * @param listener a listener reference to be removed
+     * Removes a listener, so that it no longer receives notifications for this event.
+     * 
+     * @param listener      the listener reference to remove.
      */
     removeListener(listener: IEventListener): void;
 }

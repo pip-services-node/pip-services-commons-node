@@ -72,11 +72,11 @@
 					<div class="lead">
 						<p>Interface for commands, which are used in command design patterns.</p>
 					</div>
-					<p>Command design patterns can come to be of use when implementing various remote procedure calls,
-						as they replace unique calls with universal &quot;message transfer&quot; calls. The message itself contains
-					the called method&#39;s signature, as well as the set of parameters.</p>
-					<p>By transforming the call of a method/command into a command design pattern, the opportunity
-					of using uniform interfaces becomes available, which allows for calling any amount of concrete methods.</p>
+					<p>Command design patterns come in handy when implementing remote procedure calls, as they replace unique
+						calls with universal &quot;message transfer&quot; calls. The message itself contains the called method&#39;s signature,
+					as well as the set of parameters.</p>
+					<p>When designing calls of methods/commands using command design pattern, uniform interfaces can be used,
+					which, in turn, allow any amount of concrete methods to be called.</p>
 					<p>Command design patterns can be used for <a href="commands.icommandintercepter.html">intercepting</a> messages and various logging
 					implementations.</p>
 				</div>
@@ -129,7 +129,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iexecutable.html">IExecutable</a>.<a href="run.iexecutable.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,9 +194,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/ICommand.ts#L20">commands/ICommand.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/ICommand.ts#L23">commands/ICommand.ts:23</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract function that will contain the logic for resolving the name of the command.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
@@ -211,16 +216,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/ICommand.ts#L21">commands/ICommand.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/ICommand.ts#L35">commands/ICommand.ts:35</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract function that will contain the logic for validating the <a href="../classes/run.parameters.html">parameters</a>
+									(arguments) that are to be passed to the command.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../classes/run.parameters.html">Parameters</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="../classes/validate.validationresult.html">ValidationResult</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>args: <a href="../classes/run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters (arguments) to validate.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>an array of ValidationResults.</p>
 						</li>
 					</ul>
 				</section>

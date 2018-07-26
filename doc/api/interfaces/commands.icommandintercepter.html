@@ -67,6 +67,19 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Interface for command interceptors, which can intercept a command&#39;s unique call and
+						replace it with a universal &quot;message transfer&quot; call.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="commands.icommand.html">ICommand</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -102,22 +115,46 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/ICommandIntercepter.ts#L8">commands/ICommandIntercepter.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/ICommandIntercepter.ts#L34">commands/ICommandIntercepter.ts:34</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract method that will contain the logic for executing the <a href="commands.icommand.html">command</a> passed as a parameter,
+									using the given <a href="../classes/run.parameters.html">parameters</a> (arguments).</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../classes/run.parameters.html">Parameters</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>command: <a href="commands.icommand.html" class="tsd-signature-type">ICommand</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the command that is to be executed.</p>
+									</div>
 								</li>
 								<li>
 									<h5>args: <a href="../classes/run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters (arguments) to pass to the command for execution.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the function that is to be called once execution is complete. If an exception is raised, then
+										it will be called with the error.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -155,16 +192,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/ICommandIntercepter.ts#L7">commands/ICommandIntercepter.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/ICommandIntercepter.ts#L20">commands/ICommandIntercepter.ts:20</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract method that will contain the logic for resolving the name of
+									a <a href="commands.icommand.html">command</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>command: <a href="commands.icommand.html" class="tsd-signature-type">ICommand</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the command to get the name of.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the name of the command passed as a parameter.</p>
 						</li>
 					</ul>
 				</section>
@@ -178,19 +225,40 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/8d866d5/src/commands/ICommandIntercepter.ts#L9">commands/ICommandIntercepter.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/f133835/src/commands/ICommandIntercepter.ts#L47">commands/ICommandIntercepter.ts:47</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Abstract method that will contain the logic for validating the <a href="../classes/run.parameters.html">parameters</a> (arguments)
+									that are to be passed to the <a href="commands.icommand.html">command</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../classes/run.parameters.html">Parameters</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="../classes/validate.validationresult.html">ValidationResult</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>command: <a href="commands.icommand.html" class="tsd-signature-type">ICommand</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the command to validate the args for.</p>
+									</div>
 								</li>
 								<li>
 									<h5>args: <a href="../classes/run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the parameters (arguments) to validate.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>an array of ValidationResults.</p>
 						</li>
 					</ul>
 				</section>
