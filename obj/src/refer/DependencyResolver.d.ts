@@ -21,7 +21,7 @@ export declare class DependencyResolver implements IReferenceable, IReconfigurab
      * If no references found an exception is thrown
      * @param name a dependency name
      * @return a list with found component references
-     * @throws ReferenceException when no single component reference is found
+     * @throws a [[ReferenceException]] when no single component reference is found
      */
     getRequired<T>(name: string): T[];
     /**
@@ -36,7 +36,7 @@ export declare class DependencyResolver implements IReferenceable, IReconfigurab
      * The search is performed from latest added references.
      * @param name a dependency name
      * @return a found component reference
-     * @throws ReferenceException when requested component wasn't found
+     * @throws a [[ReferenceException]] when requested component wasn't found
      */
     getOneRequired<T>(name: string): T;
     /**
@@ -44,7 +44,7 @@ export declare class DependencyResolver implements IReferenceable, IReconfigurab
      * @param name a dependency name
      * @param required force to raise exception is no reference is found
      * @return list of found references
-     * @throws ReferenceException when requested component wasn't found
+     * @throws a [[ReferenceException]] when requested component wasn't found
      */
     find<T>(name: string, required: boolean): T[];
     static fromTuples(...tuples: any[]): DependencyResolver;

@@ -59,7 +59,7 @@ class DependencyResolver {
      * If no references found an exception is thrown
      * @param name a dependency name
      * @return a list with found component references
-     * @throws ReferenceException when no single component reference is found
+     * @throws a [[ReferenceException]] when no single component reference is found
      */
     getRequired(name) {
         let locator = this.locate(name);
@@ -82,7 +82,7 @@ class DependencyResolver {
      * The search is performed from latest added references.
      * @param name a dependency name
      * @return a found component reference
-     * @throws ReferenceException when requested component wasn't found
+     * @throws a [[ReferenceException]] when requested component wasn't found
      */
     getOneRequired(name) {
         let locator = this.locate(name);
@@ -95,7 +95,7 @@ class DependencyResolver {
      * @param name a dependency name
      * @param required force to raise exception is no reference is found
      * @return list of found references
-     * @throws ReferenceException when requested component wasn't found
+     * @throws a [[ReferenceException]] when requested component wasn't found
      */
     find(name, required) {
         if (name == null)
