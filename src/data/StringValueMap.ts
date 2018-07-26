@@ -441,7 +441,7 @@ export class StringValueMap {
      * @returns         the item with the given key as an AnyValue object. 
      * 
      * @see [[AnyValue]]
-     * @see [[AnyValue.AnyValue]]
+     * @see [[AnyValue.constructor]]
      */
     public getAsValue(key: string): AnyValue {
         let value = this.get(key);

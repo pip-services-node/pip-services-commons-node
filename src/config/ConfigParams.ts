@@ -38,7 +38,7 @@ export class ConfigParams extends StringValueMap {
 	 * 
 	 * @param values 	configuration parameters to store in this object. Defaults to null.
 	 * 
-	 * @see [[StringValueMap.StringValueMap]]
+	 * @see [[StringValueMap.constructor]]
 	 */
 	public constructor(values: any = null) {
 		super(values);

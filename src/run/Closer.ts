@@ -8,7 +8,7 @@ let async = require('async');
 export class Closer {
 	/**
 	 * Static method for closing a component. For a component to be closed, it must implement 
-	 * the [[IClosable]] interface. This method calls ICloseable's [[ICloseable.close close]] method 
+	 * the [[IClosable]] interface. This method calls ICloseable's [[IClosable.close close]] method 
 	 * to close the component passed.
 	 * 
 	 * @param correlationId 	unique business transaction id to trace calls across components.

@@ -9,7 +9,7 @@ import { ValidationResult } from '../validate/ValidationResult';
  * and are to be executed next.
  * 
  * @see [[ICommand]]
- * @see [[[ICommandIntercepter]]
+ * @see [[ICommandIntercepter]]
  */
 export class InterceptedCommand implements ICommand {
     private readonly _intercepter: ICommandIntercepter;
