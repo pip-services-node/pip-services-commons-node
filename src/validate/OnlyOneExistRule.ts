@@ -5,13 +5,31 @@ import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
 import { ObjectReader } from '../reflect/ObjectReader';
 
+/**
+ * Validation rule that requires only one of the properties that are set to be present for validation 
+ * to pass.
+ */
 export class OnlyOneExistRule implements IValidationRule {
     private readonly _properties: string[];
 
+    /**
+     * Creates a new OnlyOneExistRule object and initializes it using the properties passed.
+     * 
+     * @param properties    the properties to initialize the new OnlyOneExistRule object with.
+     */
     public constructor(...properties: string[]) {
         this._properties = properties;
     }
 
+    /**
+     * Validates the passed value. Only one of the properties set in this OnlyOneExistRule 
+     * object must exist in the given value for validation to pass.
+     * 
+     * @param path      the name of the value that is to be validated.
+     * @param schema    (not used in this implementation).
+     * @param value     the value that is to be validated.
+     * @param results   the results of the validation.
+     */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         let name = path || "value";
         let found: string[] = [];

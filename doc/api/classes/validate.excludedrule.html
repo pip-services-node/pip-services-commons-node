@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Validation rule that requires the values that are set to be absent for validation to pass.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -118,13 +125,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/ExcludedRule.ts#L8">validate/ExcludedRule.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/ExcludedRule.ts#L11">validate/ExcludedRule.ts:11</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new ExcludedRule object and initializes it using the values passed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the values to initialize the new ExcludedRule object with.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.excludedrule.html" class="tsd-signature-type">ExcludedRule</a></h4>
@@ -140,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">_values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/ExcludedRule.ts#L8">validate/ExcludedRule.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/ExcludedRule.ts#L11">validate/ExcludedRule.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,22 +175,40 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/ExcludedRule.ts#L14">validate/ExcludedRule.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/ExcludedRule.ts#L31">validate/ExcludedRule.ts:31</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given value. None of the values set in this ExcludedRule object must exist
+									in the value that is given for validation to pass.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(not used in this implementation).</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

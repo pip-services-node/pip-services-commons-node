@@ -4,13 +4,30 @@ import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
 
+/**
+ * Validation rule that requires the values that are set to be absent for validation to pass.
+ */
 export class ExcludedRule implements IValidationRule {
     private readonly _values: any[];
 
+    /**
+     * Creates a new ExcludedRule object and initializes it using the values passed.
+     * 
+     * @param values    the values to initialize the new ExcludedRule object with.
+     */
     public constructor(...values: any[]) {
         this._values = values;
     }
 
+    /**
+     * Validates the given value. None of the values set in this ExcludedRule object must exist 
+     * in the value that is given for validation to pass.
+     * 
+     * @param path      the name of the value that is to be validated.
+     * @param schema    (not used in this implementation).
+     * @param value     the value that is to be validated.
+     * @param results   the results of the validation.
+     */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         if (!this._values) return;
 

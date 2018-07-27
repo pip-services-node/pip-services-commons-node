@@ -3,6 +3,10 @@ import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
 import { BadRequestException } from '../errors/BadRequestException';
 
+//TODO - check attentively
+/**
+ * Caused by errors in validation.
+ */
 export class ValidationException extends BadRequestException {
     private static readonly SerialVersionUid: number = -1459801864235223845;
 
@@ -33,6 +37,20 @@ export class ValidationException extends BadRequestException {
         return builder;
     }
 
+    /**
+     * Static method that returns a [[ValidationException]] when any [[ValidationResultType.Error Errors]] 
+     * are present in the [[ValidationResult validation results]]. If strict is set to <code>true</code>,
+     * then [[ValidationResultType.Warning Warnings]] will also return a ValidationException.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param results           the results of a validation.
+     * @param strict            defines whether or not an exception should be returned if a Warning 
+     *                          is found in the results.
+     * 
+     * @see [[ValidationResult]]
+     * @see [[ValidationException]]
+     * @see [[ValidationResultType]]
+     */
     public static fromResults(correlationId: string, results: ValidationResult[], strict: boolean): ValidationException {
         var hasErrors = false;
 
@@ -49,6 +67,20 @@ export class ValidationException extends BadRequestException {
         return hasErrors ? new ValidationException(correlationId, null, results) : null;
     }
 
+    /**
+     * Static method that throws a [[ValidationException]] when any [[ValidationResultType.Error Errors]] 
+     * are present in the [[ValidationResult validation results]]. If strict is set to <code>true</code>,
+     * then [[ValidationResultType.Warning Warnings]] will also cause a ValidationException to be thrown.
+     * 
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param results           the results of a validation.
+     * @param strict            defines whether or not an exception should be returned if a [[ValidationResultType.Warning Warning]] 
+     *                          is found in the results.
+     * 
+     * @see [[ValidationResult]]
+     * @see [[ValidationException]]
+     * @see [[ValidationResultType]]
+     */
     public static throwExceptionIfNeeded(correlationId: string, results: ValidationResult[], strict: boolean): void {
         let ex = ValidationException.fromResults(correlationId, results, strict);
         if (ex) throw ex;

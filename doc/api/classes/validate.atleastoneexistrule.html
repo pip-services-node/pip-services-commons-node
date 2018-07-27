@@ -67,6 +67,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Validation rule that requires at least one of the properties that are set to be present for validation
+						to pass.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -118,13 +126,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/AtLeastOneExistRule.ts#L9">validate/AtLeastOneExistRule.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/AtLeastOneExistRule.ts#L13">validate/AtLeastOneExistRule.ts:13</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new AtLeastOneExistRule object and initializes it using the properties passed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>properties: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the properties to initialize the new AtLeastOneExistRule object with.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.atleastoneexistrule.html" class="tsd-signature-type">AtLeastOneExistRule</a></h4>
@@ -140,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">_properties<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/AtLeastOneExistRule.ts#L9">validate/AtLeastOneExistRule.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/AtLeastOneExistRule.ts#L13">validate/AtLeastOneExistRule.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,22 +176,40 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/50561e0/src/validate/AtLeastOneExistRule.ts#L15">validate/AtLeastOneExistRule.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c90bfb6/src/validate/AtLeastOneExistRule.ts#L33">validate/AtLeastOneExistRule.ts:33</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the passed value. At least one of the properties set in this AtLeastOneExistRule
+									object must exist in the given value for validation to pass.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(not used in this implementation).</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
