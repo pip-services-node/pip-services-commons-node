@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-let _ = require('lodash');
-const TypeCode_1 = require("../convert/TypeCode");
-const TypeConverter_1 = require("../convert/TypeConverter");
-const ObjectReader_1 = require("./ObjectReader");
-class RecursiveObjectReader {
-    static performHasProperty(obj, names, nameIndex) {
+var _ = require('lodash');
+var TypeCode_1 = require("../convert/TypeCode");
+var TypeConverter_1 = require("../convert/TypeConverter");
+var ObjectReader_1 = require("./ObjectReader");
+var RecursiveObjectReader = /** @class */ (function () {
+    function RecursiveObjectReader() {
+    }
+    RecursiveObjectReader.performHasProperty = function (obj, names, nameIndex) {
         if (nameIndex < names.length - 1) {
-            let value = ObjectReader_1.ObjectReader.getProperty(obj, names[nameIndex]);
+            var value = ObjectReader_1.ObjectReader.getProperty(obj, names[nameIndex]);
             if (value != null)
                 return RecursiveObjectReader.performHasProperty(value, names, nameIndex + 1);
             else
@@ -16,18 +18,18 @@ class RecursiveObjectReader {
         }
         else
             return ObjectReader_1.ObjectReader.hasProperty(obj, names[nameIndex]);
-    }
-    static hasProperty(obj, name) {
+    };
+    RecursiveObjectReader.hasProperty = function (obj, name) {
         if (obj == null || name == null)
             return false;
-        let names = name.split(".");
+        var names = name.split(".");
         if (names == null || names.length == 0)
             return false;
         return RecursiveObjectReader.performHasProperty(obj, names, 0);
-    }
-    static performGetProperty(obj, names, nameIndex) {
+    };
+    RecursiveObjectReader.performGetProperty = function (obj, names, nameIndex) {
         if (nameIndex < names.length - 1) {
-            let value = ObjectReader_1.ObjectReader.getProperty(obj, names[nameIndex]);
+            var value = ObjectReader_1.ObjectReader.getProperty(obj, names[nameIndex]);
             if (value != null)
                 return RecursiveObjectReader.performGetProperty(value, names, nameIndex + 1);
             else
@@ -35,30 +37,30 @@ class RecursiveObjectReader {
         }
         else
             return ObjectReader_1.ObjectReader.getProperty(obj, names[nameIndex]);
-    }
-    static getProperty(obj, name) {
+    };
+    RecursiveObjectReader.getProperty = function (obj, name) {
         if (obj == null || name == null)
             return null;
-        let names = name.split(".");
+        var names = name.split(".");
         if (names == null || names.length == 0)
             return null;
         return RecursiveObjectReader.performGetProperty(obj, names, 0);
-    }
-    static isSimpleValue(value) {
-        let code = TypeConverter_1.TypeConverter.toTypeCode(value);
+    };
+    RecursiveObjectReader.isSimpleValue = function (value) {
+        var code = TypeConverter_1.TypeConverter.toTypeCode(value);
         return code != TypeCode_1.TypeCode.Array && code != TypeCode_1.TypeCode.Map && code != TypeCode_1.TypeCode.Object;
-    }
-    static performGetPropertyNames(obj, path, result, cycleDetect) {
-        let map = ObjectReader_1.ObjectReader.getProperties(obj);
+    };
+    RecursiveObjectReader.performGetPropertyNames = function (obj, path, result, cycleDetect) {
+        var map = ObjectReader_1.ObjectReader.getProperties(obj);
         if (!_.isEmpty(map) && cycleDetect.length < 100) {
             cycleDetect.push(obj);
             try {
-                for (let key in map) {
-                    let value = map[key];
+                for (var key in map) {
+                    var value = map[key];
                     // Prevent cycles 
                     if (cycleDetect.indexOf(value) >= 0)
                         continue;
-                    let newPath = path != null ? path + "." + key : key;
+                    var newPath = path != null ? path + "." + key : key;
                     // Add simple values directly
                     if (RecursiveObjectReader.isSimpleValue(value))
                         result.push(newPath);
@@ -68,7 +70,7 @@ class RecursiveObjectReader {
                 }
             }
             finally {
-                let index = cycleDetect.indexOf(obj);
+                var index = cycleDetect.indexOf(obj);
                 if (index >= 0)
                     cycleDetect.splice(index, 1);
             }
@@ -77,29 +79,29 @@ class RecursiveObjectReader {
             if (path != null)
                 result.push(path);
         }
-    }
-    static getPropertyNames(obj) {
-        let propertyNames = [];
+    };
+    RecursiveObjectReader.getPropertyNames = function (obj) {
+        var propertyNames = [];
         if (obj == null) {
             return propertyNames;
         }
         else {
-            let cycleDetect = [];
+            var cycleDetect = [];
             RecursiveObjectReader.performGetPropertyNames(obj, null, propertyNames, cycleDetect);
             return propertyNames;
         }
-    }
-    static performGetProperties(obj, path, result, cycleDetect) {
-        let map = ObjectReader_1.ObjectReader.getProperties(obj);
+    };
+    RecursiveObjectReader.performGetProperties = function (obj, path, result, cycleDetect) {
+        var map = ObjectReader_1.ObjectReader.getProperties(obj);
         if (!_.isEmpty(map) && cycleDetect.length < 100) {
             cycleDetect.push(obj);
             try {
-                for (let key in map) {
-                    let value = map[key];
+                for (var key in map) {
+                    var value = map[key];
                     // Prevent cycles 
                     if (cycleDetect.indexOf(value) >= 0)
                         continue;
-                    let newPath = path != null ? path + "." + key : key;
+                    var newPath = path != null ? path + "." + key : key;
                     // Add simple values directly
                     if (RecursiveObjectReader.isSimpleValue(value))
                         result[newPath] = value;
@@ -109,7 +111,7 @@ class RecursiveObjectReader {
                 }
             }
             finally {
-                let index = cycleDetect.indexOf(obj);
+                var index = cycleDetect.indexOf(obj);
                 if (index >= 0)
                     cycleDetect.splice(index, 1);
             }
@@ -118,15 +120,16 @@ class RecursiveObjectReader {
             if (path != null)
                 result[path] = obj;
         }
-    }
-    static getProperties(obj) {
-        let properties = {};
+    };
+    RecursiveObjectReader.getProperties = function (obj) {
+        var properties = {};
         if (obj != null) {
-            let cycleDetect = [];
+            var cycleDetect = [];
             RecursiveObjectReader.performGetProperties(obj, null, properties, cycleDetect);
         }
         return properties;
-    }
-}
+    };
+    return RecursiveObjectReader;
+}());
 exports.RecursiveObjectReader = RecursiveObjectReader;
 //# sourceMappingURL=RecursiveObjectReader.js.map

@@ -22,7 +22,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @see [[ApplicationException]]
  * @see [[ApplicationExceptionFactory]]
  */
-class ErrorDescription {
-}
+var ErrorDescription = /** @class */ (function () {
+    function ErrorDescription() {
+    }
+    return ErrorDescription;
+}());
 exports.ErrorDescription = ErrorDescription;
 //# sourceMappingURL=ErrorDescription.js.map

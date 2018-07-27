@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-let _ = require('lodash');
-let async = require('async');
+var _ = require('lodash');
+var async = require('async');
 /**
  * Helper class that can be used to trigger execution of components.
  */
-class Executor {
+var Executor = /** @class */ (function () {
+    function Executor() {
+    }
     /**
      * Static method for triggering the execution of a component. For a component to be executed, it must
      * implement the [[IExecutable]] interface. This method calls IExecutable's [[IExecutable.execute execute]]
@@ -21,7 +23,7 @@ class Executor {
      * @see [[IExecutable]]
      * @see [[Parameters]]
      */
-    static executeOne(correlationId, component, args, callback) {
+    Executor.executeOne = function (correlationId, component, args, callback) {
         if (_.isFunction(component.execute)) {
             try {
                 return component.execute(correlationId, args, callback);
@@ -32,7 +34,7 @@ class Executor {
         }
         else
             callback(null, null);
-    }
+    };
     /**
      * Static method for triggering the execution of multiple components. For a component to be executed,
      * it must implement the [[IExecutable]] interface. This method calls the static [[executeOne]] method
@@ -48,17 +50,18 @@ class Executor {
      * @see [[IExecutable]]
      * @see [[Parameters]]
      */
-    static execute(correlationId, components, args, callback) {
-        let results = [];
-        async.eachSeries(components, (component, callback) => {
-            Executor.executeOne(correlationId, component, args, (err, result) => {
+    Executor.execute = function (correlationId, components, args, callback) {
+        var results = [];
+        async.eachSeries(components, function (component, callback) {
+            Executor.executeOne(correlationId, component, args, function (err, result) {
                 results.push(result);
                 callback(err);
             });
-        }, (err) => {
+        }, function (err) {
             callback(err, results);
         });
-    }
-}
+    };
+    return Executor;
+}());
 exports.Executor = Executor;
 //# sourceMappingURL=Executor.js.map

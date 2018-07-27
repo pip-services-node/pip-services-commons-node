@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-let _ = require('lodash');
-class PropertyReflector {
-    static matchField(fieldName, fieldValue, expectedName) {
+var _ = require('lodash');
+var PropertyReflector = /** @class */ (function () {
+    function PropertyReflector() {
+    }
+    PropertyReflector.matchField = function (fieldName, fieldValue, expectedName) {
         if (_.isFunction(fieldValue))
             return false;
         if (_.startsWith(fieldName, '_'))
@@ -11,28 +13,28 @@ class PropertyReflector {
         if (expectedName == null)
             return true;
         return fieldName.toLowerCase() == expectedName;
-    }
-    static hasProperty(obj, name) {
+    };
+    PropertyReflector.hasProperty = function (obj, name) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
             throw new Error("Property name cannot be null");
         name = name.toLowerCase();
-        for (let field in obj) {
-            let fieldValue = obj[field];
+        for (var field in obj) {
+            var fieldValue = obj[field];
             if (PropertyReflector.matchField(field, fieldValue, name))
                 return true;
         }
         return false;
-    }
-    static getProperty(obj, name) {
+    };
+    PropertyReflector.getProperty = function (obj, name) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
             throw new Error("Property name cannot be null");
         name = name.toLowerCase();
-        for (let field in obj) {
-            let fieldValue = obj[field];
+        for (var field in obj) {
+            var fieldValue = obj[field];
             try {
                 if (PropertyReflector.matchField(field, fieldValue, name))
                     return fieldValue;
@@ -42,20 +44,20 @@ class PropertyReflector {
             }
         }
         return null;
-    }
-    static getPropertyNames(obj) {
-        let properties = [];
-        for (let field in obj) {
-            let fieldValue = obj[field];
+    };
+    PropertyReflector.getPropertyNames = function (obj) {
+        var properties = [];
+        for (var field in obj) {
+            var fieldValue = obj[field];
             if (PropertyReflector.matchField(field, fieldValue, null))
                 properties.push(field);
         }
         return properties;
-    }
-    static getProperties(obj) {
-        let map = {};
-        for (let field in obj) {
-            let fieldValue = obj[field];
+    };
+    PropertyReflector.getProperties = function (obj) {
+        var map = {};
+        for (var field in obj) {
+            var fieldValue = obj[field];
             try {
                 if (PropertyReflector.matchField(field, fieldValue, null))
                     map[field] = fieldValue;
@@ -65,15 +67,15 @@ class PropertyReflector {
             }
         }
         return map;
-    }
-    static setProperty(obj, name, value) {
+    };
+    PropertyReflector.setProperty = function (obj, name, value) {
         if (obj == null)
             throw new Error("Object cannot be null");
         if (name == null)
             throw new Error("Property name cannot be null");
-        let expectedName = name.toLowerCase();
-        for (let field in obj) {
-            let fieldValue = obj[field];
+        var expectedName = name.toLowerCase();
+        for (var field in obj) {
+            var fieldValue = obj[field];
             try {
                 if (PropertyReflector.matchField(field, fieldValue, expectedName)) {
                     obj[field] = value;
@@ -86,15 +88,16 @@ class PropertyReflector {
         }
         // If no existing properties found set it directly
         obj[name] = value;
-    }
-    static setProperties(obj, values) {
+    };
+    PropertyReflector.setProperties = function (obj, values) {
         if (values == null)
             return;
-        for (let field in values) {
-            let fieldValue = values[field];
+        for (var field in values) {
+            var fieldValue = values[field];
             PropertyReflector.setProperty(obj, field, fieldValue);
         }
-    }
-}
+    };
+    return PropertyReflector;
+}());
 exports.PropertyReflector = PropertyReflector;
 //# sourceMappingURL=PropertyReflector.js.map

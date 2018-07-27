@@ -24,7 +24,7 @@ export declare class Parameters extends AnyValueMap {
      *
      * @param map 	parameters to store in this object. Defaults to null.
      *
-     * @see [[AnyValueMap.AnyValueMap]]
+     * @see [[AnyValueMap.constructor]]
      */
     constructor(map?: any);
     /**
@@ -42,12 +42,12 @@ export declare class Parameters extends AnyValueMap {
      * @param key 	the complex key of the parameter that is to be stored.
      * 				The key can be complex with dot-notation, for example
      * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this
-     * 				case, RecursiveObjectReader's [[RecursiveObjectReader.setProperty setProperty]]
+     * 				case, RecursiveObjectWriter's [[RecursiveObjectWriter.setProperty setProperty]]
      * 				method will be used.
      * @param value
      * @returns		the value that was stored by the given key.
      *
-     * @see [[RecursiveObjectReader.setProperty]]
+     * @see [[RecursiveObjectWriter.setProperty]]
      */
     put(key: string, value: any): any;
     /**
@@ -160,7 +160,7 @@ export declare class Parameters extends AnyValueMap {
      * @param value		parameters in the form of a map.
      * @returns			generated Parameters.
      *
-     * @see [[AnyValueMap.AnyValueMap]]
+     * @see [[AnyValueMap.constructor]]
      */
     static fromValue(value: any): Parameters;
     /**

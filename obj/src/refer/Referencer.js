@@ -1,46 +1,65 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
-let _ = require('lodash');
+var _ = require('lodash');
 /**
- * Helper class that assigns references to components
+ * Helper class that assigns references to components.
  */
-class Referencer {
+var Referencer = /** @class */ (function () {
+    function Referencer() {
+    }
     /**
-     * Assigns references to component that implement IReferenceable interface
-     * @param references references to be assigned
-     * @param component a components to assign references
-     * @param callback callback function with execution error
+     * Assigns references to a component. For references to be assigned, the component must
+     * implement the [[IReferenceable]] interface.
+     *
+     * @param references 	the references to be assigned.
+     * @param component 	the component to assign the references to.
+     * @param callback 		function that will be called with an execution error, if one is raised.
+     *
+     * @see [[IReferenceable]]
      */
-    static setReferencesForOne(references, component) {
+    Referencer.setReferencesForOne = function (references, component) {
         if (_.isFunction(component.setReferences))
             component.setReferences(references);
-    }
+    };
     /**
-     * Assigns references to components that implement IReferenceable interface
-     * @param references references to be assigned
-     * @param components a list of components to assign references
+     * Assigns references to multiple components at once. For references to be assigned, all
+     * component must implement the [[IReferenceable]] interface.
+     *
+     * @param references 	the references to be assigned.
+     * @param components 	a list of components to assign the references to.
+     *
+     * @see [[IReferenceable]]
      */
-    static setReferences(references, components) {
-        for (let index = 0; index < components.length; index++)
+    Referencer.setReferences = function (references, components) {
+        for (var index = 0; index < components.length; index++)
             Referencer.setReferencesForOne(references, components[index]);
-    }
+    };
     /**
-     * Clears references for component that implement IUnreferenceable interface
-     * @param component a components to clear references
+     * Clears the references of a component. For references to be unset, the component must
+     * implement the [[IUnreferenceable]] interface.
+     *
+     * @param component 	the component, whose references must be cleared.
+     *
+     * @see [[IUnreferenceable]]
      */
-    static unsetReferencesForOne(component) {
+    Referencer.unsetReferencesForOne = function (component) {
         if (_.isFunction(component.unsetReferences))
             component.unsetReferences();
-    }
+    };
     /**
-     * Clears references for components that implement IUnreferenceable interface
-     * @param components a list of components to clear references
+     * Clears the references of multiple components at once. For references to be unset, the component must
+     * implement the [[IUnreferenceable]] interface.
+     *
+     * @param components 	the list of components, whose references must be cleared.
+     *
+     * @see [[IUnreferenceable]]
      */
-    static unsetReferences(components) {
-        for (let index = 0; index < components.length; index++)
+    Referencer.unsetReferences = function (components) {
+        for (var index = 0; index < components.length; index++)
             Referencer.unsetReferencesForOne(components[index]);
-    }
-}
+    };
+    return Referencer;
+}());
 exports.Referencer = Referencer;
 //# sourceMappingURL=Referencer.js.map

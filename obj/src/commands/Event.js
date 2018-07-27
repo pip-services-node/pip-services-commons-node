@@ -1,20 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InvocationException_1 = require("../errors/InvocationException");
+var InvocationException_1 = require("../errors/InvocationException");
 /**
  * Events consist of a name and a set of listeners. Listeners are notified whenever
  * the event is raised and can be added or removed as needed.
  *
  * @see [[IEvent]]
  */
-class Event {
+var Event = /** @class */ (function () {
     /**
      * Initializes a new event object using the given event name.
      *
      * @param name  the name of the event that is to be created.
      * @throws an Error if the name is null.
      */
-    constructor(name) {
+    function Event(name) {
         if (!name)
             throw new Error("Name cannot be null");
         this._name = name;
@@ -22,33 +22,33 @@ class Event {
     /**
      * @returns the name of this event.
      */
-    getName() {
+    Event.prototype.getName = function () {
         return this._name;
-    }
+    };
     /**
      * @returns the listeners that are to receive notifications for this event.
      */
-    getListeners() {
+    Event.prototype.getListeners = function () {
         return this._listeners;
-    }
+    };
     /**
      * Adds a listener to receive notifications for this event.
      *
      * @param listener      the listener reference to add.
      */
-    addListener(listener) {
+    Event.prototype.addListener = function (listener) {
         this._listeners.push(listener);
-    }
+    };
     /**
      * Removes a listener, so that it no longer receives notifications for this event.
      *
      * @param listener      the listener reference to remove.
      */
-    removeListener(listener) {
+    Event.prototype.removeListener = function (listener) {
         var index = this._listeners.indexOf(listener);
         if (index > -1)
             this._listeners.splice(index, 1);
-    }
+    };
     /**
      * Raises this event and notifies the listeners referenced using the correlationId
      * and [[Parameters parameters]] (arguments) given.
@@ -57,10 +57,10 @@ class Event {
      * @param args              the parameters to raise this event with.
      * @throws an [[InvocationException]], if the event fails to be raised.
      */
-    notify(correlationId, args) {
+    Event.prototype.notify = function (correlationId, args) {
         for (var i = 0; i < this._listeners.length; i++) {
             try {
-                let listener = this._listeners[i];
+                var listener = this._listeners[i];
                 listener.onEvent(correlationId, this, args);
             }
             catch (ex) {
@@ -69,7 +69,8 @@ class Event {
                     .wrap(ex);
             }
         }
-    }
-}
+    };
+    return Event;
+}());
 exports.Event = Event;
 //# sourceMappingURL=Event.js.map

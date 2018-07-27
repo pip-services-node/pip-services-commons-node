@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
+var _ = require('lodash');
 /**
  * Provides methods for converting various values to the datetime data type.
  */
-class DateTimeConverter {
+var DateTimeConverter = /** @class */ (function () {
+    function DateTimeConverter() {
+    }
     /**
      * Static method for converting values to nullable datetimes.
      *
@@ -22,16 +24,16 @@ class DateTimeConverter {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    static toNullableDateTime(value) {
+    DateTimeConverter.toNullableDateTime = function (value) {
         if (value == null)
             return null;
         if (_.isDate(value))
             return value;
         if (_.isNumber(value))
             return new Date(value);
-        let result = Date.parse(value);
+        var result = Date.parse(value);
         return isNaN(result) ? null : new Date(result);
-    }
+    };
     /**
      * Static method for converting values to datetimes using [[toDateTimeWithDefault]].
      * An empty date (new Date()) will be used as the default value for the conversion.
@@ -40,9 +42,9 @@ class DateTimeConverter {
      *
      * @see [[toDateTimeWithDefault]]
      */
-    static toDateTime(value) {
+    DateTimeConverter.toDateTime = function (value) {
         return DateTimeConverter.toDateTimeWithDefault(value, new Date());
-    }
+    };
     /**
      * Static method for converting values to datetimes using [[toNullableDateTime]].
      * If null is returned by the conversion, then this method will return the default
@@ -54,10 +56,12 @@ class DateTimeConverter {
      *
      * @see [[toNullableDateTime]]
      */
-    static toDateTimeWithDefault(value, defaultValue = null) {
+    DateTimeConverter.toDateTimeWithDefault = function (value, defaultValue) {
+        if (defaultValue === void 0) { defaultValue = null; }
         var result = DateTimeConverter.toNullableDateTime(value);
         return result != null ? result : defaultValue;
-    }
-}
+    };
+    return DateTimeConverter;
+}());
 exports.DateTimeConverter = DateTimeConverter;
 //# sourceMappingURL=DateTimeConverter.js.map

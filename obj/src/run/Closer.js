@@ -1,15 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-let _ = require('lodash');
-let async = require('async');
+var _ = require('lodash');
+var async = require('async');
 /**
  * Helper class that can be used to close components.
  */
-class Closer {
+var Closer = /** @class */ (function () {
+    function Closer() {
+    }
     /**
      * Static method for closing a component. For a component to be closed, it must implement
-     * the [[IClosable]] interface. This method calls ICloseable's [[ICloseable.close close]] method
+     * the [[IClosable]] interface. This method calls ICloseable's [[IClosable.close close]] method
      * to close the component passed.
      *
      * @param correlationId 	unique business transaction id to trace calls across components.
@@ -19,7 +21,7 @@ class Closer {
      *
      * @see [[IClosable]]
      */
-    static closeOne(correlationId, component, callback) {
+    Closer.closeOne = function (correlationId, component, callback) {
         if (_.isFunction(component.close)) {
             try {
                 component.close(correlationId, callback);
@@ -33,7 +35,7 @@ class Closer {
         }
         else if (callback)
             callback(null);
-    }
+    };
     /**
      * Static method for closing multiple components. For a component to be closed, it must implement
      * the [[IClosable]] interface. This method calls the static [[closeOne]] method for each of the
@@ -47,16 +49,17 @@ class Closer {
      * @see [[closeOne]]
      * @see [[IClosable]]
      */
-    static close(correlationId, components, callback) {
-        async.eachSeries(components, (component, callback) => {
+    Closer.close = function (correlationId, components, callback) {
+        async.eachSeries(components, function (component, callback) {
             Closer.closeOne(correlationId, component, callback);
-        }, (err) => {
+        }, function (err) {
             if (callback)
                 callback(err);
             else if (err)
                 throw err;
         });
-    }
-}
+    };
+    return Closer;
+}());
 exports.Closer = Closer;
 //# sourceMappingURL=Closer.js.map

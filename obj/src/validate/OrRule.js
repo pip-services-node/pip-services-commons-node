@@ -1,13 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class OrRule {
-    constructor(...rules) {
+var OrRule = /** @class */ (function () {
+    function OrRule() {
+        var rules = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            rules[_i] = arguments[_i];
+        }
         this._rules = rules;
     }
-    validate(path, schema, value, results) {
+    OrRule.prototype.validate = function (path, schema, value, results) {
         if (!this._rules || this._rules.length == 0)
             return;
-        let localResults = [];
+        var localResults = [];
         for (var i = 0; i < this._rules.length; i++) {
             var resultCount = localResults.length;
             this._rules[i].validate(path, schema, value, localResults);
@@ -15,7 +19,8 @@ class OrRule {
                 return;
         }
         results.push.apply(results, localResults);
-    }
-}
+    };
+    return OrRule;
+}());
 exports.OrRule = OrRule;
 //# sourceMappingURL=OrRule.js.map

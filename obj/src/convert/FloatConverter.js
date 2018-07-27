@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
+var _ = require('lodash');
 /**
  * Provides methods for converting various values to the float data type.
  */
-const DoubleConverter_1 = require("./DoubleConverter");
-class FloatConverter {
+var DoubleConverter_1 = require("./DoubleConverter");
+var FloatConverter = /** @class */ (function () {
+    function FloatConverter() {
+    }
     /**
      * Static method for converting values to nullable floats.
      *
@@ -24,9 +26,9 @@ class FloatConverter {
      *
      * @see [[DoubleConverter.toNullableDouble]]
      */
-    static toNullableFloat(value) {
+    FloatConverter.toNullableFloat = function (value) {
         return DoubleConverter_1.DoubleConverter.toNullableDouble(value);
-    }
+    };
     /**
      * Static method for converting values to floats using [[DoubleConverter.toDouble]] (which uses
      * [[DoubleConverter.toDoubleWithDefault]]). 0 will be used as the default value for the conversion.
@@ -36,9 +38,9 @@ class FloatConverter {
      * @see [[DoubleConverter.toDouble]]
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
-    static toFloat(value) {
+    FloatConverter.toFloat = function (value) {
         return DoubleConverter_1.DoubleConverter.toDouble(value);
-    }
+    };
     /**
      * Static method for converting values to floats using [[DoubleConverter.toDoubleWithDefault]]
      * (which uses [[DoubleConverter.toNullableDouble]]). If null is returned by the conversion,
@@ -50,9 +52,10 @@ class FloatConverter {
      * @see [[DoubleConverter.toDoubleWithDefault]]
      * @see [[DoubleConverter.toNullableDouble]]
      */
-    static toFloatWithDefault(value, defaultValue) {
+    FloatConverter.toFloatWithDefault = function (value, defaultValue) {
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(value, defaultValue);
-    }
-}
+    };
+    return FloatConverter;
+}());
 exports.FloatConverter = FloatConverter;
 //# sourceMappingURL=FloatConverter.js.map

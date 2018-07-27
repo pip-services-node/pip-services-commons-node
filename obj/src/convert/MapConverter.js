@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
+var _ = require('lodash');
 /**
  * Provides methods for converting various values to maps.
  */
-class MapConverter {
+var MapConverter = /** @class */ (function () {
+    function MapConverter() {
+    }
     /**
      * Static method for converting values to nullable maps.
      *
@@ -20,18 +22,18 @@ class MapConverter {
      * @returns         the result of the conversion. If 'value' was null or is not convertible - null
      *                  will be returned.
      */
-    static toNullableMap(value) {
+    MapConverter.toNullableMap = function (value) {
         if (value == null)
             return null;
         else if (_.isArray(value)) {
-            let map = {};
-            for (let i = 0; i < value.length; i++)
+            var map = {};
+            for (var i = 0; i < value.length; i++)
                 map[i.toString()] = value[i];
             return map;
         }
         else
             return _.isObject(value) ? value : null;
-    }
+    };
     /**
      * Static method for converting values to maps using [[toNullableMap]].
      * An empty map will be used as the default value for the conversion.
@@ -40,9 +42,9 @@ class MapConverter {
      *
      * @see [[toNullableMap]]
      */
-    static toMap(value) {
+    MapConverter.toMap = function (value) {
         return MapConverter.toNullableMap(value) || {};
-    }
+    };
     /**
      * Static method for converting values to maps using [[toNullableMap]].
      * If null is returned by the conversion, then this method will return the default
@@ -53,9 +55,10 @@ class MapConverter {
      *
      * @see [[toNullableMap]]
      */
-    static toMapWithDefault(value, defaultValue) {
+    MapConverter.toMapWithDefault = function (value, defaultValue) {
         return MapConverter.toNullableMap(value) || defaultValue;
-    }
-}
+    };
+    return MapConverter;
+}());
 exports.MapConverter = MapConverter;
 //# sourceMappingURL=MapConverter.js.map

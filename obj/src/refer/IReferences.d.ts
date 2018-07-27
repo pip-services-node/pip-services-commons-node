@@ -1,86 +1,93 @@
 /**
- * Set of component references with abilities to add new references, find reference using locators
- * or remove reference from the set
+ * Interface for creating sets of component references, which have the ability to add new references,
+ * find reference using locators, or remove reference from the set.
  */
 export interface IReferences {
     /**
-     * Puts a new component reference to the set with explicit locator
-     * @param locator a locator to find the reference
-     * @param component a component reference to be added
-     * @param callback callback function with execution error
+     * Abstract method that will contain the logic for putting a new component reference into
+     * the set using an explicit locator.
+     *
+     * @param locator 	the locator to find the reference by.
+     * @param component the component reference that is to be added.
      */
     put(locator: any, component: any): any;
     /**
-     * Removes component reference from the set.
-     * The method removes only the last reference.
-     * @param locator a locator to find the reference to remove
-     * @return a removed reference
-     * @param callback callback function with execution error
+     * Abstract method that will contain the logic for removing a component reference from the set.
+     * Removes only the last reference.
+     *
+     * @param locator 	the locator of the reference that is to be removed.
+     * @returns the removed reference.
+     *
+     * @see [[removeAll]]
      */
     remove(locator: any): any;
     /**
-     * Removes all component references from the set.
-     * @param locator a locator to find the reference to remove
-     * @return a list with removed references
-     * @param callback callback function with execution error
+     * Abstract method that will contain the logic for removing all component references with the
+     * given locator from the set.
+     *
+     * @param locator 	the locator to remove references by.
+     * @returns a list, containing all removed references.
      */
     removeAll(locator: any): any[];
     /**
-     * Gets all stored component locators
-     * @return a list with component locators
-     * @param callback callback function with execution error
+     * Abstract method that will contain the logic for getting all stored component locators.
+     *
+     * @returns a list, containing the locators for all of the components stored in the set.
      */
     getAllLocators(): any[];
     /**
-     * Gets all stored component references
-     * @return a list with component references
-     * @param callback callback function with execution error
+     * Abstract method that will contain the logic for getting all stored component references.
+     *
+     * @returns a list, containing all component references stored in the set.
      */
     getAll(): any[];
     /**
-     * Gets a list of component references that match provided locator
-     * and matching to the specified type.
-     * @param locator a locator to find references
-     * @param callback callback function with execution error
-     * @return a list with found component references
+     * Abstract method that will contain the logic for getting a list of component references
+     * that match the provided locator and the specified type.
+     *
+     * @param locator 	the locator to find references by.
+     * @returns a list, containing all component references found.
      */
     getOptional<T>(locator: any): T[];
     /**
-     * Gets a list of component references that match provided locator.
-     * and matching to the specified type.
-     * If no references found an exception is thrown
-     * @param locator a locator to find references
-     * @param callback callback function with execution error
-     * @return a list with found component references
-     * @throws a [[ReferenceException]] when no single component reference is found
+     * Abstract method that will contain the logic for getting a list of component references
+     * that match the provided locator and the specified type. If no references are found,
+     * an exception will be thrown.
+     *
+     * @param locator 	the locator to find references by.
+     * @returns a list, containing all component references found.
+     *
+     * @throws a [[ReferenceException]], if no component references are found by the given locator and type.
      */
     getRequired<T>(locator: any): T[];
     /**
-     * Gets a component references that matches provided locator
-     * and matching to the specified type.
-     * The search is performed from latest added references.
-     * @param locator a locator to find a reference
-     * @param callback callback function with execution error
-     * @return a found component reference or <code>null</code> if nothing was found
+     * Abstract method that will contain the logic for getting the component reference that matches
+     * the provided locator and the specified type. The search is performed, starting from the
+     * last-added references.
+     *
+     * @param locator 	the locator to find a reference by.
+     * @returns the component reference found or <code>null</code>, if none were found.
      */
     getOneOptional<T>(locator: any): T;
     /**
-     * Gets a component references that matches provided locator
-     * and matching to the specified type.
-     * The search is performed from latest added references.
-     * @param locator a locator to find a reference
-     * @param callback callback function with execution error
-     * @return a found component reference
-     * @throws a [[ReferenceException]] when requested component wasn't found
+     * Abstract method that will contain the logic for getting the component reference that
+     * matches the provided locator and the specified type.
+     * The search is performed, starting from the last-added references.
+     *
+     * @param locator 	the locator to find a reference by.
+     * @returns the component reference found.
+     * @throws a [[ReferenceException]], if the requested component was not found.
      */
     getOneRequired<T>(locator: any): T;
     /**
-     * Find all references by specified query criteria
-     * and matching to the specified type.
-     * @param locator a locator to find a reference
-     * @param required force to raise exception is no reference is found
-     * @return list of found references
-     * @throws a [[ReferenceException]] when requested component wasn't found
+     * Abstract method that will contain the logic for finding all references that match
+     * the specified query criteria and the specified type.
+     *
+     * @param locator 	the locator to find a reference by.
+     * @param required 	forces to raise an exception, if no reference is found.
+     * @returns a list of found references.
+     *
+     * @throws a [[ReferenceException]], if the requested component was not found.
      */
     find<T>(locator: any, required: boolean): T[];
 }

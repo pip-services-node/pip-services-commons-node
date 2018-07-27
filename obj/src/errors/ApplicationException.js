@@ -1,9 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module errors */
-let _ = require('lodash');
-const ErrorCategory_1 = require("./ErrorCategory");
-const StringValueMap_1 = require("../data/StringValueMap");
+var _ = require('lodash');
+var ErrorCategory_1 = require("./ErrorCategory");
+var StringValueMap_1 = require("../data/StringValueMap");
 /**
  * This class provides cross-language (portable) and language-independent (localizable) standardization of exceptions.
  *
@@ -37,106 +47,112 @@ const StringValueMap_1 = require("../data/StringValueMap");
  *
  * @see [[ErrorDescription]]
  */
-class ApplicationException extends Error {
+var ApplicationException = /** @class */ (function (_super) {
+    __extends(ApplicationException, _super);
     /**
      * @param category          category that this exception belongs to.
      * @param correlation_id    unique business transaction id to trace calls across components.
      * @param code              unique code that can be used to identify the error.
      * @param message           the message that was contained in the original error.
      */
-    constructor(category = null, correlation_id = null, code = null, message = null) {
-        super(message);
+    function ApplicationException(category, correlation_id, code, message) {
+        if (category === void 0) { category = null; }
+        if (correlation_id === void 0) { correlation_id = null; }
+        if (code === void 0) { code = null; }
+        if (message === void 0) { message = null; }
+        var _this = _super.call(this, message) || this;
         /** Used when sending over the REST interface, so that we know what HTTP status code to raise. */
-        this.status = 500;
+        _this.status = 500;
         /** Every error needs a unique code by which it can be identified. Using this code,
          *  we can select which localized error messages to use and what to display in the UI.*/
-        this.code = 'UNKNOWN';
+        _this.code = 'UNKNOWN';
         // Set the prototype explicitly.
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-        this.__proto__ = ApplicationException.prototype;
-        this.category = category || ErrorCategory_1.ErrorCategory.Unknown;
-        this.correlation_id = correlation_id;
-        this.code = code || 'UNKNOWN';
-        if (!this.message)
-            this.message = message || 'Unknown error';
-        this.name = this.code;
+        _this.__proto__ = ApplicationException.prototype;
+        _this.category = category || ErrorCategory_1.ErrorCategory.Unknown;
+        _this.correlation_id = correlation_id;
+        _this.code = code || 'UNKNOWN';
+        if (!_this.message)
+            _this.message = message || 'Unknown error';
+        _this.name = _this.code;
+        return _this;
     }
     /**
      * Returns additional information about the cause of the exception.
      */
-    getCauseString() {
+    ApplicationException.prototype.getCauseString = function () {
         return this.cause != null ? this.cause.toString() : null;
-    }
+    };
     /**
      * Sets additional information about the cause of the exception.
      */
-    setCauseString(value) {
+    ApplicationException.prototype.setCauseString = function (value) {
         this.cause = value;
-    }
+    };
     /**
      * Returns the stack trace of the exception.
      */
-    getStackTraceString() {
+    ApplicationException.prototype.getStackTraceString = function () {
         return this.stack_trace || this.stack;
-    }
+    };
     /**
      * Sets the stack trace of the exception.
      */
-    setStackTraceString(value) {
+    ApplicationException.prototype.setStackTraceString = function (value) {
         this.stack_trace = value;
-    }
+    };
     /**
      * Sets the code of the exception and returns the resulting ApplicationException.
      * Every error needs a unique code by which it can be identified. Using this code,
      * we can select which localized error messages to use and what to display in the UI.
      * */
-    withCode(code) {
+    ApplicationException.prototype.withCode = function (code) {
         this.code = code || 'UNKNOWN';
         this.name = this.code;
         return this;
-    }
+    };
     /**
      * Sets the cause of the exception and returns the resulting ApplicationException.
      * The 'cause' field contains additional information about the cause of the exception.
      */
-    withCause(cause) {
+    ApplicationException.prototype.withCause = function (cause) {
         if (cause)
             this.cause = cause.message;
         return this;
-    }
+    };
     /**
      * Sets the status of the exception and returns the resulting ApplicationException.
      * The 'status' field is used when sending exceptions over the REST interface,
      * so that we know what HTTP status code to raise.
      */
-    withStatus(status) {
+    ApplicationException.prototype.withStatus = function (status) {
         this.status = status || 500;
         return this;
-    }
+    };
     /**
      * Sets the details of the exception and returns the resulting ApplicationException.
      * Details are used to add additional information to localized error message strings.
      */
-    withDetails(key, value) {
+    ApplicationException.prototype.withDetails = function (key, value) {
         this.details = this.details || new StringValueMap_1.StringValueMap();
         this.details.setAsObject(key, value);
         return this;
-    }
+    };
     /**
      * Sets the correlation ID of the exception and returns the resulting ApplicationException.
      * The correlation ID ties an exception to a specific business transaction.
      */
-    withCorrelationId(correlation_id) {
+    ApplicationException.prototype.withCorrelationId = function (correlation_id) {
         this.correlation_id = correlation_id;
         return this;
-    }
+    };
     /**
      * Sets the stack trace of the exception and returns the resulting ApplicationException.
      */
-    withStackTrace(stackTrace) {
+    ApplicationException.prototype.withStackTrace = function (stackTrace) {
         this.stack_trace = stackTrace;
         return this;
-    }
+    };
     /**
      * Wrapping allows us to transform general exceptions into ApplicationExceptions.
      *
@@ -160,13 +176,13 @@ class ApplicationException extends Error {
      *
      * @see [[unwrapError]]
      */
-    wrap(cause) {
+    ApplicationException.prototype.wrap = function (cause) {
         cause = ApplicationException.unwrapError(cause);
         if (cause instanceof ApplicationException)
             return cause;
         this.withCause(cause);
         return this;
-    }
+    };
     /**
      * Static method that is identical to the non-static method [[wrap]]. Wraps 'cause' around
      * the ApplicationException passed as 'error', instead of itself (this).
@@ -178,20 +194,20 @@ class ApplicationException extends Error {
      *
      * @see [[wrap]]
      */
-    static wrapError(error, cause) {
+    ApplicationException.wrapError = function (error, cause) {
         cause = ApplicationException.unwrapError(cause);
         if (cause instanceof ApplicationException)
             return cause;
         error.withCause(cause);
         return error;
-    }
+    };
     /**
      * Used to unwrap Seneca exceptions and restify exceptions.
      *
      * @param error     error that may contain Seneca or restify exceptions.
      * @returns         For Seneca exceptions: error.orig. For restify exceptions: error.body.
      */
-    static unwrapError(error) {
+    ApplicationException.unwrapError = function (error) {
         if (error == null)
             return null;
         // Unwrapping Seneca exceptions
@@ -204,7 +220,8 @@ class ApplicationException extends Error {
         if (error.body && !_.isEmpty(error.body))
             error = error.body;
         return error;
-    }
-}
+    };
+    return ApplicationException;
+}(Error));
 exports.ApplicationException = ApplicationException;
 //# sourceMappingURL=ApplicationException.js.map

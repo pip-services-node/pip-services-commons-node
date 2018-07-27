@@ -1,7 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class ValidationResult {
-    constructor(path = null, type = null, code = null, message = null, expected = null, actual = null) {
+var ValidationResult = /** @class */ (function () {
+    function ValidationResult(path, type, code, message, expected, actual) {
+        if (path === void 0) { path = null; }
+        if (type === void 0) { type = null; }
+        if (code === void 0) { code = null; }
+        if (message === void 0) { message = null; }
+        if (expected === void 0) { expected = null; }
+        if (actual === void 0) { actual = null; }
         this._path = path;
         this._type = type;
         this._code = code;
@@ -9,24 +15,25 @@ class ValidationResult {
         this._expected = expected;
         this._actual = actual;
     }
-    getPath() {
+    ValidationResult.prototype.getPath = function () {
         return this._path;
-    }
-    getType() {
+    };
+    ValidationResult.prototype.getType = function () {
         return this._type;
-    }
-    getCode() {
+    };
+    ValidationResult.prototype.getCode = function () {
         return this._code;
-    }
-    getMessage() {
+    };
+    ValidationResult.prototype.getMessage = function () {
         return this._message;
-    }
-    getExpected() {
+    };
+    ValidationResult.prototype.getExpected = function () {
         return this._expected;
-    }
-    getActual() {
+    };
+    ValidationResult.prototype.getActual = function () {
         return this._actual;
-    }
-}
+    };
+    return ValidationResult;
+}());
 exports.ValidationResult = ValidationResult;
 //# sourceMappingURL=ValidationResult.js.map

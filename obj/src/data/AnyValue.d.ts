@@ -107,7 +107,7 @@ export declare class AnyValue implements ICloneable {
     /**
      * @returns this object's 'value' field as a nullable long.
      *
-     * @see [[LongConvertertoNullableLong]]
+     * @see [[LongConverter.toNullableLong]]
      */
     getAsNullableLong(): number;
     /**

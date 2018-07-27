@@ -1,11 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
+var _ = require('lodash');
 /**
  * Provides methods for converting various values to the string data type.
  */
-class StringConverter {
+var StringConverter = /** @class */ (function () {
+    function StringConverter() {
+    }
     /**
      * Static method for converting values to nullable strings.
      *
@@ -18,7 +20,7 @@ class StringConverter {
      * @param value     the value to convert.
      * @returns         the result of the conversion. If 'value' was null, null will be returned.
      */
-    static toNullableString(value) {
+    StringConverter.toNullableString = function (value) {
         if (value == null)
             return null;
         if (_.isString(value))
@@ -26,7 +28,7 @@ class StringConverter {
         if (_.isDate(value))
             return value.toISOString();
         return value.toString();
-    }
+    };
     /**
      * Static method for converting values to strings using [[toStringWithDefault]].
      * An empty string ("") will be used as the default value for the conversion.
@@ -35,9 +37,9 @@ class StringConverter {
      *
      * @see [[toStringWithDefault]]
      */
-    static toString(value) {
+    StringConverter.toString = function (value) {
         return StringConverter.toStringWithDefault(value, "");
-    }
+    };
     /**
      * Static method for converting values to strings using [[toNullableString]].
      * If null is returned by the conversion, then this method will return the default
@@ -48,9 +50,10 @@ class StringConverter {
      *
      * @see [[toNullableString]]
      */
-    static toStringWithDefault(value, defaultValue) {
+    StringConverter.toStringWithDefault = function (value, defaultValue) {
         return StringConverter.toNullableString(value) || defaultValue;
-    }
-}
+    };
+    return StringConverter;
+}());
 exports.StringConverter = StringConverter;
 //# sourceMappingURL=StringConverter.js.map

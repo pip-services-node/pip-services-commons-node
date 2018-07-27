@@ -1,7 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
-const StringValueMap_1 = require("./StringValueMap");
+var StringValueMap_1 = require("./StringValueMap");
 /**
  * Class that includes standard design patterns for filtering data.
  * Filter parameters contain the rules and values by which results
@@ -9,14 +19,16 @@ const StringValueMap_1 = require("./StringValueMap");
  *
  * @see [[StringValueMap]]
  */
-class FilterParams extends StringValueMap_1.StringValueMap {
+var FilterParams = /** @class */ (function (_super) {
+    __extends(FilterParams, _super);
     /**
      * Initializes a new FilterParams object using the value 'map'.
      *
      * @param map 	the value to initalized the new FilterParams with.
      */
-    constructor(map = null) {
-        super(map);
+    function FilterParams(map) {
+        if (map === void 0) { map = null; }
+        return _super.call(this, map) || this;
     }
     /**
      * Static method for creating a new FilterParams object using the 'value' given.
@@ -24,9 +36,9 @@ class FilterParams extends StringValueMap_1.StringValueMap {
      * @param value 	the value to initialize the new FilterParams with.
      * @returns			the FilterParams generated.
      */
-    static fromValue(value) {
+    FilterParams.fromValue = function (value) {
         return new FilterParams(value);
-    }
+    };
     /**
      * Static method for creating a new FilterParams object using the tuples passed
      * as parameters.
@@ -34,10 +46,14 @@ class FilterParams extends StringValueMap_1.StringValueMap {
      * @param tuples 	the tuples to initialize the new FilterParams with.
      * @returns			the FilterParams generated.
      */
-    static fromTuples(...tuples) {
-        let map = StringValueMap_1.StringValueMap.fromTuplesArray(tuples);
+    FilterParams.fromTuples = function () {
+        var tuples = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            tuples[_i] = arguments[_i];
+        }
+        var map = StringValueMap_1.StringValueMap.fromTuplesArray(tuples);
         return new FilterParams(map);
-    }
+    };
     /**
      * Static method for creating a new FilterParams object from a string using
      * [[StringValueMap.fromString]].
@@ -47,10 +63,11 @@ class FilterParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[StringValueMap.fromString]]
      */
-    static fromString(line) {
-        let map = StringValueMap_1.StringValueMap.fromString(line);
+    FilterParams.fromString = function (line) {
+        var map = StringValueMap_1.StringValueMap.fromString(line);
         return new FilterParams(map);
-    }
-}
+    };
+    return FilterParams;
+}(StringValueMap_1.StringValueMap));
 exports.FilterParams = FilterParams;
 //# sourceMappingURL=FilterParams.js.map

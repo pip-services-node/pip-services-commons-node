@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-let _ = require('lodash');
-let async = require('async');
+var _ = require('lodash');
+var async = require('async');
 /**
  * Helper class that can be used to clean the data of components.
  *
  * @see [[ICleanable]]
  */
-class Cleaner {
+var Cleaner = /** @class */ (function () {
+    function Cleaner() {
+    }
     /**
      * Static method for cleaning a component. For a component to be cleaned, it must implement
      * the [[ICleanable]] interface. This method calls ICleanable's [[ICleanable.clear clear]] method
@@ -21,7 +23,7 @@ class Cleaner {
      *
      * @see [[ICleanable]]
      */
-    static clearOne(correlationId, component, callback) {
+    Cleaner.clearOne = function (correlationId, component, callback) {
         if (_.isFunction(component.clear)) {
             try {
                 component.clear(correlationId);
@@ -35,7 +37,7 @@ class Cleaner {
         }
         else if (callback)
             callback(null);
-    }
+    };
     /**
      * Static method for cleaning multiple components. For a component to be cleaned, it must implement
      * the [[ICleanable]] interface. This method calls the static [[clearOne]] method for each of the
@@ -49,16 +51,17 @@ class Cleaner {
      * @see [[clearOne]]
      * @see [[ICleanable]]
      */
-    static clear(correlationId, components, callback) {
-        async.eachSeries(components, (component, callback) => {
+    Cleaner.clear = function (correlationId, components, callback) {
+        async.eachSeries(components, function (component, callback) {
             Cleaner.clearOne(correlationId, component, callback);
-        }, (err) => {
+        }, function (err) {
             if (callback)
                 callback(err);
             else if (err)
                 throw err;
         });
-    }
-}
+    };
+    return Cleaner;
+}());
 exports.Cleaner = Cleaner;
 //# sourceMappingURL=Cleaner.js.map

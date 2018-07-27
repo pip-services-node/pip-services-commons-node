@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * by generating values in the range of 'original value' ±'delta/range'. The 'sequence' method allows
  * for variable length integer array generation.
  */
-class RandomInteger {
+var RandomInteger = /** @class */ (function () {
+    function RandomInteger() {
+    }
     /**
      * Generates a integer in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      *
@@ -15,7 +17,8 @@ class RandomInteger {
      * @param max   (optional) maximum value of the integer that will be generated. Defaults to 'min' if omitted.
      * @returns     generated random integer value.
      */
-    static nextInteger(min, max = null) {
+    RandomInteger.nextInteger = function (min, max) {
+        if (max === void 0) { max = null; }
         if (max == null) {
             max = min;
             min = 0;
@@ -23,7 +26,7 @@ class RandomInteger {
         if (max - min <= 0)
             return min;
         return Math.floor(min + Math.random() * (max - min));
-    }
+    };
     /**
      * Generates a new integer that will differ from 'value' by a maximum of ±'range'. If range is omitted,
      * then the generated value will differ from 'value' by a maximum of ±10%.
@@ -33,14 +36,15 @@ class RandomInteger {
      *                  Defaults to 10% of 'value' (floored) if omitted.
      * @returns         updated integer value.
      */
-    static updateInteger(value, range = null) {
+    RandomInteger.updateInteger = function (value, range) {
+        if (range === void 0) { range = null; }
         if (range == null)
             range = 0;
         range = range == 0 ? Math.floor(0.1 * value) : range;
-        let minValue = value - range;
-        let maxValue = value + range;
+        var minValue = value - range;
+        var maxValue = value + range;
         return RandomInteger.nextInteger(minValue, maxValue);
-    }
+    };
     /**
      * Generates an array of integers, whose values are identical to their indexes. The length of the array is randomly chosen from the range ['min', 'max'].
      * If 'max' is omitted, then the the array's length will be 'min'.
@@ -49,14 +53,16 @@ class RandomInteger {
      * @param max   (optional) maximum length of the array that will be generated.
      * @returns     generated array of integers.
      */
-    static sequence(min, max = null) {
+    RandomInteger.sequence = function (min, max) {
+        if (max === void 0) { max = null; }
         max = max != null ? max : min;
-        let count = RandomInteger.nextInteger(min, max);
-        let result = [];
-        for (let i = 0; i < count; i++)
+        var count = RandomInteger.nextInteger(min, max);
+        var result = [];
+        for (var i = 0; i < count; i++)
             result.push(i);
         return result;
-    }
-}
+    };
+    return RandomInteger;
+}());
 exports.RandomInteger = RandomInteger;
 //# sourceMappingURL=RandomInteger.js.map

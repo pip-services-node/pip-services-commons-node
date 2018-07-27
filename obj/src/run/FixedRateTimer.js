@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
-let _ = require('lodash');
-const Parameters_1 = require("./Parameters");
+var _ = require('lodash');
+var Parameters_1 = require("./Parameters");
 /**
  * Helper class that provides methods for starting tasks/callbacks with a timer,
  * delaying their starts, and stopping them as well.
  */
-class FixedRateTimer {
+var FixedRateTimer = /** @class */ (function () {
     /**
      * Creates an object that is capable of starting a timer to call a task or a callback after
      * the time set in 'interval' has passed. The timer can be delayed by setting a 'delay'.
@@ -24,7 +24,10 @@ class FixedRateTimer {
      * @see [[setInterval]]
      * @see [[setDelay]]
      */
-    constructor(taskOrCallback = null, interval = null, delay = null) {
+    function FixedRateTimer(taskOrCallback, interval, delay) {
+        if (taskOrCallback === void 0) { taskOrCallback = null; }
+        if (interval === void 0) { interval = null; }
+        if (delay === void 0) { delay = null; }
         if (_.isObject(taskOrCallback) && _.isFunction(taskOrCallback.notify))
             this.setTask(taskOrCallback);
         else
@@ -33,40 +36,41 @@ class FixedRateTimer {
         this.setDelay(delay);
     }
     /** @returns the task that is to be called once the set interval times out. */
-    getTask() { return this._task; }
+    FixedRateTimer.prototype.getTask = function () { return this._task; };
     /** @param value the task to call once the set interval times out. */
-    setTask(value) {
+    FixedRateTimer.prototype.setTask = function (value) {
+        var _this = this;
         this._task = value;
-        this._callback = () => {
-            this._task.notify("pip-commons-timer", new Parameters_1.Parameters());
+        this._callback = function () {
+            _this._task.notify("pip-commons-timer", new Parameters_1.Parameters());
         };
-    }
+    };
     /** @returns the callback function that is to be called once the set interval times out. */
-    getCallback() { return this._callback; }
+    FixedRateTimer.prototype.getCallback = function () { return this._callback; };
     /** @param value the callback function to call once the set interval times out. */
-    setCallback(value) {
+    FixedRateTimer.prototype.setCallback = function (value) {
         this._callback = value;
         this._task = null;
-    }
+    };
     /** @returns the delay that will be introduced before starting this object's timer. */
-    getDelay() { return this._delay; }
+    FixedRateTimer.prototype.getDelay = function () { return this._delay; };
     /**
      * @param value the delay to introduce before starting this object's timer.
      *
      * Note: the delay to use is calculated as "delay - interval".
      */
-    setDelay(value) { this._delay = value; }
+    FixedRateTimer.prototype.setDelay = function (value) { this._delay = value; };
     /** @returns the amount of time that must pass before the set task or callback function is called. */
-    getInterval() { return this._interval; }
+    FixedRateTimer.prototype.getInterval = function () { return this._interval; };
     /** @param value the amount of time that must pass before the set task or callback function is called. */
-    setInterval(value) { this._interval = value; }
+    FixedRateTimer.prototype.setInterval = function (value) { this._interval = value; };
     /**
      * Checks whether or not this object's timer has started counting down from the
      * interval that was set. When using a delay, the timer is considered to have started
      * only after the delay has passed. If the set delay has not yet passed, false
      * will be returned.
      */
-    isStarted() { return this._timer != null; }
+    FixedRateTimer.prototype.isStarted = function () { return this._timer != null; };
     /**
      * Starts a timer to call this object's 'callback' function as soon as the time set in
      * 'interval' has passed.
@@ -81,35 +85,36 @@ class FixedRateTimer {
      *
      * @see [[stop]]
      */
-    start() {
+    FixedRateTimer.prototype.start = function () {
+        var _this = this;
         // Stop previously set timer
         this.stop();
         // Exit if interval is not defined
         if (this._interval == null || this._interval <= 0)
             return;
         // Introducing delay
-        let delay = Math.max(0, this._delay - this._interval);
-        this._timeout = setTimeout(() => {
-            this._timeout = null;
+        var delay = Math.max(0, this._delay - this._interval);
+        this._timeout = setTimeout(function () {
+            _this._timeout = null;
             // Set a new timer
-            this._timer = setInterval(() => {
+            _this._timer = setInterval(function () {
                 try {
-                    if (this._callback)
-                        this._callback();
+                    if (_this._callback)
+                        _this._callback();
                 }
                 catch (ex) {
                     // Ignore or better log!
                 }
-            }, this._interval);
+            }, _this._interval);
         }, delay);
-    }
+    };
     /**
      * Stops this objects timer by clearing any timeouts (delays)
      * or timers (intervals) that were set using [[start]].
      *
      * @see [[start]]
      */
-    stop() {
+    FixedRateTimer.prototype.stop = function () {
         if (this._timeout != null) {
             clearTimeout(this._timeout);
             this._timeout = null;
@@ -118,7 +123,7 @@ class FixedRateTimer {
             clearInterval(this._timer);
             this._timer = null;
         }
-    }
+    };
     /**
      * Stops this objects timer using [[stop]] and closes it.
      *
@@ -127,11 +132,12 @@ class FixedRateTimer {
      *
      * @see [[stop]]
      */
-    close(correlationId, callback) {
+    FixedRateTimer.prototype.close = function (correlationId, callback) {
         this.stop();
         if (callback != null)
             callback(null);
-    }
-}
+    };
+    return FixedRateTimer;
+}());
 exports.FixedRateTimer = FixedRateTimer;
 //# sourceMappingURL=FixedRateTimer.js.map

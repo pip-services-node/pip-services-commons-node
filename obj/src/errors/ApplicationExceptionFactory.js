@@ -1,40 +1,42 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module errors */
-const ErrorCategory_1 = require("./ErrorCategory");
-const UnknownException_1 = require("./UnknownException");
-const InternalException_1 = require("./InternalException");
-const ConfigException_1 = require("./ConfigException");
-const ConnectionException_1 = require("./ConnectionException");
-const InvocationException_1 = require("./InvocationException");
-const FileException_1 = require("./FileException");
-const BadRequestException_1 = require("./BadRequestException");
-const UnauthorizedException_1 = require("./UnauthorizedException");
-const ConflictException_1 = require("./ConflictException");
-const NotFoundException_1 = require("./NotFoundException");
-const UnsupportedException_1 = require("./UnsupportedException");
-const InvalidStateException_1 = require("./InvalidStateException");
+var ErrorCategory_1 = require("./ErrorCategory");
+var UnknownException_1 = require("./UnknownException");
+var InternalException_1 = require("./InternalException");
+var ConfigException_1 = require("./ConfigException");
+var ConnectionException_1 = require("./ConnectionException");
+var InvocationException_1 = require("./InvocationException");
+var FileException_1 = require("./FileException");
+var BadRequestException_1 = require("./BadRequestException");
+var UnauthorizedException_1 = require("./UnauthorizedException");
+var ConflictException_1 = require("./ConflictException");
+var NotFoundException_1 = require("./NotFoundException");
+var UnsupportedException_1 = require("./UnsupportedException");
+var InvalidStateException_1 = require("./InvalidStateException");
 /**
  * Contains the static method 'create', which converts ErrorDescriptions back into ApplicationExceptions.
  *
  * @see [[ErrorDescription]]
  * @see [[ApplicationException]]
  */
-class ApplicationExceptionFactory {
+var ApplicationExceptionFactory = /** @class */ (function () {
+    function ApplicationExceptionFactory() {
+    }
     /**
      * @param description  	An ErrorDescription, which contains the error's category (defines what type of ApplicationException to create);
      * 						correlationId, code, and message (all 3 are used in the ApplicationException's constructor); details, cause,
      * 						and stack_trace (to fill the corresponding fields of the ApplicationException object).
      * @returns       		A class child class of ApplicationException, which corresponding to the ErrorDescription that was passed.
      */
-    static create(description) {
+    ApplicationExceptionFactory.create = function (description) {
         if (description == null)
             throw new Error("Description cannot be null");
-        let error = null;
-        let category = description.category;
-        let code = description.code;
-        let message = description.message;
-        let correlationId = description.correlation_id;
+        var error = null;
+        var category = description.category;
+        var code = description.code;
+        var message = description.message;
+        var correlationId = description.correlation_id;
         // Create well-known exception type based on error category
         if (ErrorCategory_1.ErrorCategory.Unknown == category)
             error = new UnknownException_1.UnknownException(correlationId, code, message);
@@ -70,7 +72,8 @@ class ApplicationExceptionFactory {
         error.setCauseString(description.cause);
         error.setStackTraceString(description.stack_trace);
         return error;
-    }
-}
+    };
+    return ApplicationExceptionFactory;
+}());
 exports.ApplicationExceptionFactory = ApplicationExceptionFactory;
 //# sourceMappingURL=ApplicationExceptionFactory.js.map

@@ -261,7 +261,7 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
      * @returns         the item at the given index as an AnyValue object.
      *
      * @see [[AnyValue]]
-     * @see [[AnyValue.AnyValue]]
+     * @see [[AnyValue.constructor]]
      */
     getAsValue(index: number): AnyValue;
     /**

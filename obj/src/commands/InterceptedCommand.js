@@ -5,23 +5,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * and are to be executed next.
  *
  * @see [[ICommand]]
- * @see [[[ICommandIntercepter]]
+ * @see [[ICommandIntercepter]]
  */
-class InterceptedCommand {
+var InterceptedCommand = /** @class */ (function () {
     /**
      * @param intercepter   the interceptor that intercepted the next command.
      * @param next          the command that is to be executed next.
      */
-    constructor(intercepter, next) {
+    function InterceptedCommand(intercepter, next) {
         this._intercepter = intercepter;
         this._next = next;
     }
     /**
      * @returns the name of the next command.
      */
-    getName() {
+    InterceptedCommand.prototype.getName = function () {
         return this._intercepter.getName(this._next);
-    }
+    };
     /**
      * Executes the next [[ICommand command]] using the given [[Parameters parameters]] (arguments).
      *
@@ -32,9 +32,9 @@ class InterceptedCommand {
      *
      * @see [[Parameters]]
      */
-    execute(correlationId, args, callback) {
+    InterceptedCommand.prototype.execute = function (correlationId, args, callback) {
         this._intercepter.execute(correlationId, this._next, args, callback);
-    }
+    };
     /**
      * Validates the [[Parameters parameters]] (arguments) that are to be passed to the next
      * [[ICommand command]].
@@ -45,9 +45,10 @@ class InterceptedCommand {
      * @see [[Parameters]]
      * @see [[ValidationResult]]
      */
-    validate(args) {
+    InterceptedCommand.prototype.validate = function (args) {
         return this._intercepter.validate(this._next, args);
-    }
-}
+    };
+    return InterceptedCommand;
+}());
 exports.InterceptedCommand = InterceptedCommand;
 //# sourceMappingURL=InterceptedCommand.js.map

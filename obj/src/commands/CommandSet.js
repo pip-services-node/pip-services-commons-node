@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InterceptedCommand_1 = require("./InterceptedCommand");
-const BadRequestException_1 = require("../errors/BadRequestException");
-const ValidationException_1 = require("../validate/ValidationException");
-const ValidationResult_1 = require("../validate/ValidationResult");
-const ValidationResultType_1 = require("../validate/ValidationResultType");
-const IdGenerator_1 = require("../data/IdGenerator");
+var InterceptedCommand_1 = require("./InterceptedCommand");
+var BadRequestException_1 = require("../errors/BadRequestException");
+var ValidationException_1 = require("../validate/ValidationException");
+var ValidationResult_1 = require("../validate/ValidationResult");
+var ValidationResultType_1 = require("../validate/ValidationResultType");
+var IdGenerator_1 = require("../data/IdGenerator");
 /**
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]]
  * is capable of processing.
@@ -13,11 +13,11 @@ const IdGenerator_1 = require("../data/IdGenerator");
  * @see [[Command]]
  * @see [[ICommandable]]
  */
-class CommandSet {
+var CommandSet = /** @class */ (function () {
     /**
      * Creates a new CommandSet object.
      */
-    constructor() {
+    function CommandSet() {
         this._commands = [];
         this._events = [];
         this._intercepters = [];
@@ -29,17 +29,17 @@ class CommandSet {
      *
      * @see [[ICommand]]
      */
-    getCommands() {
+    CommandSet.prototype.getCommands = function () {
         return this._commands;
-    }
+    };
     /**
      * @returns the events included in this CommandSet.
      *
      * @see [[IEvent]]
      */
-    getEvents() {
+    CommandSet.prototype.getEvents = function () {
         return this._events;
-    }
+    };
     /**
      * Searches for a command by its name in this CommandSet.
      *
@@ -47,9 +47,9 @@ class CommandSet {
      *
      * @see [[ICommand]]
      */
-    findCommand(commandName) {
+    CommandSet.prototype.findCommand = function (commandName) {
         return this._commandsByName[commandName];
-    }
+    };
     /**
      * Searches for an event by its name in this CommandSet.
      *
@@ -57,34 +57,34 @@ class CommandSet {
      *
      * @see [[IEvent]]
      */
-    findEvent(eventName) {
+    CommandSet.prototype.findEvent = function (eventName) {
         return this._eventsByName[eventName];
-    }
+    };
     /**
      * Adds the command passed to the private command chain '_commandsByName', after
      * linking it with all of the command interceptors of this CommandSet.
      *
      * @param command
      */
-    buildCommandChain(command) {
-        let next = command;
+    CommandSet.prototype.buildCommandChain = function (command) {
+        var next = command;
         for (var i = this._intercepters.length - 1; i >= 0; i--)
             next = new InterceptedCommand_1.InterceptedCommand(this._intercepters[i], next);
         this._commandsByName[next.getName()] = next;
-    }
+    };
     /**
      * Rebuilds the private command chain '_commandsByName' using
      * the commands stored in this CommandSet.
      *
      * @see [[buildCommandChain]]
      */
-    rebuildAllCommandChains() {
+    CommandSet.prototype.rebuildAllCommandChains = function () {
         this._commandsByName = {};
         for (var i = 0; i < this._commands.length; i++) {
-            let command = this._commands[i];
+            var command = this._commands[i];
             this.buildCommandChain(command);
         }
-    }
+    };
     /**
      * Adds a [[ICommand command]] to this CommandSet.
      *
@@ -92,10 +92,10 @@ class CommandSet {
      *
      * @see [[ICommand]]
      */
-    addCommand(command) {
+    CommandSet.prototype.addCommand = function (command) {
         this._commands.push(command);
         this.buildCommandChain(command);
-    }
+    };
     /**
      * Adds multiple [[ICommand commands]] to this CommandSet.
      *
@@ -103,10 +103,10 @@ class CommandSet {
      *
      * @see [[ICommand]]
      */
-    addCommands(commands) {
+    CommandSet.prototype.addCommands = function (commands) {
         for (var i = 0; i < commands.length; i++)
             this.addCommand(commands[i]);
-    }
+    };
     /**
      * Adds an [[IEvent event]] to this CommandSet.
      *
@@ -114,10 +114,10 @@ class CommandSet {
      *
      * @see [[IEvent]]
      */
-    addEvent(event) {
+    CommandSet.prototype.addEvent = function (event) {
         this._events.push(event);
         this._eventsByName[event.getName()] = event;
-    }
+    };
     /**
      * Adds multiple [[IEvent events]] to this CommandSet.
      *
@@ -125,20 +125,20 @@ class CommandSet {
      *
      * @see [[IEvent]]
      */
-    addEvents(events) {
+    CommandSet.prototype.addEvents = function (events) {
         for (var i = 0; i < events.length; i++)
             this.addEvent(events[i]);
-    }
+    };
     /**
      * Adds all of the commands and events included in the passed CommandSet
      * to this CommandSet.
      *
      * @param commandSet    the CommandSet to add.
      */
-    addCommandSet(commandSet) {
+    CommandSet.prototype.addCommandSet = function (commandSet) {
         this.addCommands(commandSet.getCommands());
         this.addEvents(commandSet.getEvents());
-    }
+    };
     /**
      * Adds a [[IEventListener listener]] to all of the events in this CommandSet.
      *
@@ -146,10 +146,10 @@ class CommandSet {
      *
      * @see [[IEventListener]]
      */
-    addListener(listener) {
+    CommandSet.prototype.addListener = function (listener) {
         for (var i = 0; i < this._events.length; i++)
             this._events[i].addListener(listener);
-    }
+    };
     /**
      * Removes a [[IEventListener listener]] from all of the events in this CommandSet.
      *
@@ -157,10 +157,10 @@ class CommandSet {
      *
      * @see [[IEventListener]]
      */
-    removeListener(listener) {
+    CommandSet.prototype.removeListener = function (listener) {
         for (var i = 0; i < this._events.length; i++)
             this._events[i].removeListener(listener);
-    }
+    };
     /**
      * Adds a [[ICommandIntercepter command interceptor]] to this CommandSet.
      *
@@ -168,10 +168,10 @@ class CommandSet {
      *
      * @see [[ICommandIntercepter]]
      */
-    addInterceptor(intercepter) {
+    CommandSet.prototype.addInterceptor = function (intercepter) {
         this._intercepters.push(intercepter);
         this.rebuildAllCommandChains();
-    }
+    };
     /**
      * Executes the [[ICommand command]] with the given name, using the given [[Parameters parameters]] (arguments).
      *
@@ -185,16 +185,16 @@ class CommandSet {
      * @see [[ICommand]]
      * @see [[Parameters]]
      */
-    execute(correlationId, commandName, args, callback) {
-        let cref = this.findCommand(commandName);
+    CommandSet.prototype.execute = function (correlationId, commandName, args, callback) {
+        var cref = this.findCommand(commandName);
         if (!cref) {
-            let err = new BadRequestException_1.BadRequestException(correlationId, "CMD_NOT_FOUND", "Request command does not exist")
+            var err = new BadRequestException_1.BadRequestException(correlationId, "CMD_NOT_FOUND", "Request command does not exist")
                 .withDetails("command", commandName);
             callback(err, null);
         }
         if (!correlationId)
             correlationId = IdGenerator_1.IdGenerator.nextShort();
-        let results = cref.validate(args);
+        var results = cref.validate(args);
         try {
             ValidationException_1.ValidationException.throwExceptionIfNeeded(correlationId, results, false);
             cref.execute(correlationId, args, callback);
@@ -202,7 +202,7 @@ class CommandSet {
         catch (ex) {
             callback(ex, null);
         }
-    }
+    };
     /**
      * Validates the [[Parameters parameters]] (arguments) that are to be passed to the
      * [[ICommand command]] with the given name.
@@ -217,15 +217,15 @@ class CommandSet {
      * @see [[Parameters]]
      * @see [[ValidationResult]]
      */
-    validate(commandName, args) {
-        let cref = this.findCommand(commandName);
+    CommandSet.prototype.validate = function (commandName, args) {
+        var cref = this.findCommand(commandName);
         if (!cref) {
-            let result = [];
+            var result = [];
             result.push(new ValidationResult_1.ValidationResult(null, ValidationResultType_1.ValidationResultType.Error, "CMD_NOT_FOUND", "Requested command does not exist", null, null));
             return result;
         }
         return cref.validate(args);
-    }
+    };
     /**
      * Raises the event with the given name and notifies the event's listeners using the
      * correlationId and [[Parameters parameters]] (arguments) given.
@@ -234,11 +234,12 @@ class CommandSet {
      * @param eventName         the name of the event that is to be raised.
      * @param args              the parameters to raise this event with.
      */
-    notify(correlationId, eventName, args) {
-        let event = this.findEvent(eventName);
+    CommandSet.prototype.notify = function (correlationId, eventName, args) {
+        var event = this.findEvent(eventName);
         if (event)
             event.notify(correlationId, args);
-    }
-}
+    };
+    return CommandSet;
+}());
 exports.CommandSet = CommandSet;
 //# sourceMappingURL=CommandSet.js.map

@@ -1,28 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
-const Descriptor_1 = require("./Descriptor");
+var Descriptor_1 = require("./Descriptor");
 /**
- * Placeholder to store component references.
+ * A placeholder that stores component references.
  */
-class Reference {
+var Reference = /** @class */ (function () {
     /**
-     * Create a new reference for an object
-     * @param locator a component locator for the reference
-     * @param reference a component reference
+     * Create a new Reference object and initializes it using the locator and reference given.
+     *
+     * @param locator 		the component locator for the reference. It can be a standard Descriptor
+     * 						or anything else.
+     * @param reference 	the component reference.
      */
-    constructor(locator, component) {
+    function Reference(locator, component) {
         if (component == null)
             throw new Error("Component cannot be null");
         this._locator = locator;
         this._component = component;
     }
     /**
-     * Checks if locator matches the current component
-     * @param locator a location object. It can be standard Descriptor or something else
-     * @return <code>true</code> if component matches the locator or <code>false</code> otherwise.
+     * Checks if a locator matches this Reference object. A match is considered to be made if the locator
+     * matches this Reference's component or its locator.
+     *
+     *
+     * @param locator 	the locator to match against this Reference.
+     * @return <code>true</code>, if this reference matches the locator, and <code>false</code> - otherwise.
+     *
+     * @see [[Descriptor]]
      */
-    match(locator) {
+    Reference.prototype.match = function (locator) {
         // Locate by direct reference matching
         if (this._component == locator)
             return true;
@@ -34,21 +41,24 @@ class Reference {
             return this._locator == locator;
         else
             return false;
-    }
+    };
     /**
-     * Gets component reference
-     * @return a component itself
+     * Gets the component stored in this Reference object.
+     *
+     * @return the component stored.
      */
-    getComponent() {
+    Reference.prototype.getComponent = function () {
         return this._component;
-    }
+    };
     /**
-     * Gets component locator
-     * @return a component locator
+     * Gets the locator of the component that is stored in this Reference object.
+     *
+     * @return the component's locator.
      */
-    getLocator() {
+    Reference.prototype.getLocator = function () {
         return this._locator;
-    }
-}
+    };
+    return Reference;
+}());
 exports.Reference = Reference;
 //# sourceMappingURL=Reference.js.map

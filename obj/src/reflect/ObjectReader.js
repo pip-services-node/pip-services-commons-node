@@ -1,15 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
-let _ = require('lodash');
-const PropertyReflector_1 = require("./PropertyReflector");
-const IntegerConverter_1 = require("../convert/IntegerConverter");
-class ObjectReader {
-    static getValue(obj) {
+var _ = require('lodash');
+var PropertyReflector_1 = require("./PropertyReflector");
+var IntegerConverter_1 = require("../convert/IntegerConverter");
+var ObjectReader = /** @class */ (function () {
+    function ObjectReader() {
+    }
+    ObjectReader.getValue = function (obj) {
         // Todo: just a blank implementation for compatibility
         return obj;
-    }
-    static hasProperty(obj, name) {
+    };
+    ObjectReader.hasProperty = function (obj, name) {
         if (obj == null || name == null) {
             return false;
         }
@@ -17,14 +19,14 @@ class ObjectReader {
             return PropertyReflector_1.PropertyReflector.hasProperty(obj, name);
         }
         else if (_.isArray(obj)) {
-            let index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
+            var index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
             return index != null && index < obj.length;
         }
         else {
             return false;
         }
-    }
-    static getProperty(obj, name) {
+    };
+    ObjectReader.getProperty = function (obj, name) {
         if (obj == null || name == null) {
             return null;
         }
@@ -32,15 +34,15 @@ class ObjectReader {
             return PropertyReflector_1.PropertyReflector.getProperty(obj, name);
         }
         else if (_.isArray(obj)) {
-            let index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
+            var index = IntegerConverter_1.IntegerConverter.toNullableInteger(name);
             return index != null && index < obj.length ? obj[index] : null;
         }
         else {
             return null;
         }
-    }
-    static getPropertyNames(obj) {
-        let properties = [];
+    };
+    ObjectReader.getPropertyNames = function (obj) {
+        var properties = [];
         if (obj == null) {
             // Do nothing
         }
@@ -48,17 +50,17 @@ class ObjectReader {
             properties = PropertyReflector_1.PropertyReflector.getPropertyNames(obj);
         }
         else if (_.isArray(obj)) {
-            let length = obj.length;
-            for (let index = 0; index < length; index++)
+            var length_1 = obj.length;
+            for (var index = 0; index < length_1; index++)
                 properties.push(index.toString());
         }
         else {
             // Do nothing
         }
         return properties;
-    }
-    static getProperties(obj) {
-        let map = {};
+    };
+    ObjectReader.getProperties = function (obj) {
+        var map = {};
         if (obj == null) {
             // Do nothing
         }
@@ -66,15 +68,16 @@ class ObjectReader {
             map = PropertyReflector_1.PropertyReflector.getProperties(obj);
         }
         else if (_.isArray(obj)) {
-            let length = obj.length;
-            for (let index = 0; index < length; index++)
+            var length_2 = obj.length;
+            for (var index = 0; index < length_2; index++)
                 map[index.toString()] = obj[index];
         }
         else {
             // Do nothing
         }
         return map;
-    }
-}
+    };
+    return ObjectReader;
+}());
 exports.ObjectReader = ObjectReader;
 //# sourceMappingURL=ObjectReader.js.map

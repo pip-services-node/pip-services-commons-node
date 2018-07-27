@@ -1,9 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module config */
-let _ = require('lodash');
-const StringValueMap_1 = require("../data/StringValueMap");
-const RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
+var _ = require('lodash');
+var StringValueMap_1 = require("../data/StringValueMap");
+var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
 /**
  * ConfigParams represent a hierarchical map that contains configuration parameters and
  * uses complex keys with dot-notation to store simple string values.
@@ -29,7 +39,8 @@ const RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
  */
-class ConfigParams extends StringValueMap_1.StringValueMap {
+var ConfigParams = /** @class */ (function (_super) {
+    __extends(ConfigParams, _super);
     /**
      * Creates a new ConfigParams object from an array of tuples, a parameterized string
      * (Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"), or from an object with
@@ -37,27 +48,28 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @param values 	configuration parameters to store in this object. Defaults to null.
      *
-     * @see [[StringValueMap.StringValueMap]]
+     * @see [[StringValueMap.constructor]]
      */
-    constructor(values = null) {
-        super(values);
+    function ConfigParams(values) {
+        if (values === void 0) { values = null; }
+        return _super.call(this, values) || this;
     }
     /**
      * @returns the names of all sections that are present in this object's complex keys.
      *
      * Example key "Section-1.Subsection-1-1.Key-1-1-1" contains the section named "Section-1".
      */
-    getSectionNames() {
-        let sections = [];
-        for (let key in this) {
+    ConfigParams.prototype.getSectionNames = function () {
+        var sections = [];
+        for (var key in this) {
             if (this.hasOwnProperty(key)) {
-                let pos = key.indexOf('.');
-                let section = key;
+                var pos = key.indexOf('.');
+                var section = key;
                 if (pos > 0)
                     section = key.substring(0, pos);
                 // Perform case sensitive search
-                let found = false;
-                for (let index = 0; index < sections.length; index++) {
+                var found = false;
+                for (var index = 0; index < sections.length; index++) {
                     if (section == sections[index]) {
                         found = true;
                         break;
@@ -68,7 +80,7 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
             }
         }
         return sections;
-    }
+    };
     /**
      * @param section	name of the section to retrieve configuration parameters from.
      * @returns 		all configuration parameters that belong to the section named 'section'.
@@ -77,24 +89,24 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      * Calling <code>getSection("Section-1")</code> would return a ConfigParams object containing
      * the key "Subsection-1-1.Key-1-1-1"
      */
-    getSection(section) {
-        let result = new ConfigParams();
-        let prefix = section + ".";
-        for (let key in this) {
+    ConfigParams.prototype.getSection = function (section) {
+        var result = new ConfigParams();
+        var prefix = section + ".";
+        for (var key in this) {
             if (this.hasOwnProperty(key)) {
                 // Prevents exception on the next line
                 if (key.length < prefix.length)
                     continue;
                 // Perform case sensitive match
-                let keyPrefix = key.substring(0, prefix.length);
+                var keyPrefix = key.substring(0, prefix.length);
                 if (keyPrefix == prefix) {
-                    let name = key.substring(prefix.length);
-                    result.put(name, this[key]);
+                    var name_1 = key.substring(prefix.length);
+                    result.put(name_1, this[key]);
                 }
             }
         }
         return result;
-    }
+    };
     /**
      * Adds 'sectionParams' to this ConfigParams object under the section named 'section'.
      *
@@ -103,23 +115,23 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      * 							when added to this ConfigParams object.
      * @param sectionParams 	ConfigParams that are to be added under the section named 'section'.
      */
-    addSection(section, sectionParams) {
+    ConfigParams.prototype.addSection = function (section, sectionParams) {
         if (section == null)
             throw new Error("Section name cannot be null");
         if (sectionParams != null) {
-            for (let key in sectionParams) {
+            for (var key in sectionParams) {
                 if (sectionParams.hasOwnProperty(key)) {
-                    let name = key;
-                    if (name.length > 0 && section.length > 0)
-                        name = section + "." + name;
-                    else if (name.length == 0)
-                        name = section;
-                    let value = sectionParams[key];
-                    this.put(name, value);
+                    var name_2 = key;
+                    if (name_2.length > 0 && section.length > 0)
+                        name_2 = section + "." + name_2;
+                    else if (name_2.length == 0)
+                        name_2 = section;
+                    var value = sectionParams[key];
+                    this.put(name_2, value);
                 }
             }
         }
-    }
+    };
     /**
      * Overrides the configuration parameters stored in this object with the ones in
      * 'configParams'. If a configuration is already set in this ConfigParams object,
@@ -131,10 +143,10 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[setDefaults]]
      */
-    override(configParams) {
-        let map = StringValueMap_1.StringValueMap.fromMaps(this, configParams);
+    ConfigParams.prototype.override = function (configParams) {
+        var map = StringValueMap_1.StringValueMap.fromMaps(this, configParams);
         return new ConfigParams(map);
-    }
+    };
     /**
      * Sets the default configurations for this ConfigParams object, based on the
      * default configuration parameters passed in 'defaultConfigParams'. If a
@@ -146,10 +158,10 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[override]]
      */
-    setDefaults(defaultConfigParams) {
-        let map = StringValueMap_1.StringValueMap.fromMaps(defaultConfigParams, this);
+    ConfigParams.prototype.setDefaults = function (defaultConfigParams) {
+        var map = StringValueMap_1.StringValueMap.fromMaps(defaultConfigParams, this);
         return new ConfigParams(map);
-    }
+    };
     /**
      * Static method that creates a ConfigParams object based on the values that are stored
      * in the 'value' object's properties.
@@ -159,10 +171,10 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[RecursiveObjectReader.getProperties]]
      */
-    static fromValue(value) {
-        let map = RecursiveObjectReader_1.RecursiveObjectReader.getProperties(value);
+    ConfigParams.fromValue = function (value) {
+        var map = RecursiveObjectReader_1.RecursiveObjectReader.getProperties(value);
         return new ConfigParams(map);
-    }
+    };
     /**
      * Static method that creates a ConfigParams object using the tuples passed to the method.
      *
@@ -171,10 +183,14 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[StringValueMap.fromTuplesArray]]
      */
-    static fromTuples(...tuples) {
-        let map = StringValueMap_1.StringValueMap.fromTuplesArray(tuples);
+    ConfigParams.fromTuples = function () {
+        var tuples = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            tuples[_i] = arguments[_i];
+        }
+        var map = StringValueMap_1.StringValueMap.fromTuplesArray(tuples);
         return new ConfigParams(map);
-    }
+    };
     /**
      * Static method that creates a ConfigParams object from a parameterized string.
      *
@@ -184,10 +200,10 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[StringValueMap.fromString]]
      */
-    static fromString(line) {
-        let map = StringValueMap_1.StringValueMap.fromString(line);
+    ConfigParams.fromString = function (line) {
+        var map = StringValueMap_1.StringValueMap.fromString(line);
         return new ConfigParams(map);
-    }
+    };
     /**
      * Static method that can merge two or more ConfigParams into one.
      *
@@ -200,10 +216,15 @@ class ConfigParams extends StringValueMap_1.StringValueMap {
      *
      * @see [[StringValueMap.fromMaps]]
      */
-    static mergeConfigs(...configs) {
-        let map = StringValueMap_1.StringValueMap.fromMaps(...configs);
+    ConfigParams.mergeConfigs = function () {
+        var configs = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            configs[_i] = arguments[_i];
+        }
+        var map = StringValueMap_1.StringValueMap.fromMaps.apply(StringValueMap_1.StringValueMap, configs);
         return new ConfigParams(map);
-    }
-}
+    };
+    return ConfigParams;
+}(StringValueMap_1.StringValueMap));
 exports.ConfigParams = ConfigParams;
 //# sourceMappingURL=ConfigParams.js.map

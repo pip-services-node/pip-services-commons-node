@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
-const TypeCode_1 = require("./TypeCode");
-const TypeConverter_1 = require("./TypeConverter");
-const TypeReflector_1 = require("../reflect/TypeReflector");
+var _ = require('lodash');
+var TypeCode_1 = require("./TypeCode");
+var TypeConverter_1 = require("./TypeConverter");
+var TypeReflector_1 = require("../reflect/TypeReflector");
 /**
  * Provides methods for converting nested maps using recursion.
  */
-class RecursiveMapConverter {
+var RecursiveMapConverter = /** @class */ (function () {
+    function RecursiveMapConverter() {
+    }
     /**
      * Recursively converts the object passed into a map using [[valueToMap]].
      *
@@ -16,7 +18,7 @@ class RecursiveMapConverter {
      *
      * @see [[valueToMap]]
      */
-    static objectToMap(value) {
+    RecursiveMapConverter.objectToMap = function (value) {
         if (value == null)
             return null;
         var result = {};
@@ -27,7 +29,7 @@ class RecursiveMapConverter {
             result[props[i]] = propValue;
         }
         return result;
-    }
+    };
     /**
      * Conversion cases:
      * - if 'value' is null, then null will be returned;
@@ -42,7 +44,7 @@ class RecursiveMapConverter {
      * @see [[arrayToMap]]
      * @see [[objectToMap]]
      */
-    static valueToMap(value) {
+    RecursiveMapConverter.valueToMap = function (value) {
         if (value == null)
             return null;
         // Skip expected non-primitive values
@@ -58,7 +60,7 @@ class RecursiveMapConverter {
         if (valueType == TypeCode_1.TypeCode.Array)
             return RecursiveMapConverter.arrayToMap(value);
         return RecursiveMapConverter.objectToMap(value);
-    }
+    };
     /**
      * Recursively converts the map passed using [[valueToMap]].
      *
@@ -66,13 +68,13 @@ class RecursiveMapConverter {
      *
      * @see [[valueToMap]]
      */
-    static mapToMap(value) {
+    RecursiveMapConverter.mapToMap = function (value) {
         var result = {};
         var keys = Object.keys(value);
         for (var i = 0; i < keys.length; i++) {
             result[keys[i]] = RecursiveMapConverter.valueToMap(value[keys[i]]);
         }
-    }
+    };
     /**
      * Recursively converts the array passed into a map using [[valueToMap]].
      *
@@ -80,13 +82,13 @@ class RecursiveMapConverter {
      *
      * @see [[valueToMap]]
      */
-    static arrayToMap(value) {
+    RecursiveMapConverter.arrayToMap = function (value) {
         var result = [];
         for (var i = 0; i < value.length; i++) {
             result[i] = RecursiveMapConverter.valueToMap(value[i]);
         }
         return result;
-    }
+    };
     /**
      * Static method for recursively converting the value passed to a nullable map using [[valueToMap]].
      *
@@ -95,9 +97,9 @@ class RecursiveMapConverter {
      *
      * @see [[valueToMap]]
      */
-    static toNullableMap(value) {
+    RecursiveMapConverter.toNullableMap = function (value) {
         return RecursiveMapConverter.valueToMap(value);
-    }
+    };
     /**
      * Static method for recursively converting the value passed to a map using [[toNullableMap]]
      * (which uses [[valueToMap]]).
@@ -108,9 +110,9 @@ class RecursiveMapConverter {
      * @see [[toNullableMap]]
      * @see [[valueToMap]]
      */
-    static toMap(value) {
+    RecursiveMapConverter.toMap = function (value) {
         return RecursiveMapConverter.toNullableMap(value) || {};
-    }
+    };
     /**
      * Static method for recursively converting the value passed to a map using [[toNullableMap]]
      * (which uses [[valueToMap]]).
@@ -122,9 +124,10 @@ class RecursiveMapConverter {
      * @see [[toNullableMap]]
      * @see [[valueToMap]]
      */
-    static toMapWithDefault(value, defaultValue) {
+    RecursiveMapConverter.toMapWithDefault = function (value, defaultValue) {
         return RecursiveMapConverter.toNullableMap(value) || defaultValue;
-    }
-}
+    };
+    return RecursiveMapConverter;
+}());
 exports.RecursiveMapConverter = RecursiveMapConverter;
 //# sourceMappingURL=RecursiveMapConverter.js.map

@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
-let _ = require('lodash');
-const LongConverter_1 = require("./LongConverter");
+var _ = require('lodash');
+var LongConverter_1 = require("./LongConverter");
 /**
  * Provides methods for converting various values to the integer data type.
  */
-class IntegerConverter {
+var IntegerConverter = /** @class */ (function () {
+    function IntegerConverter() {
+    }
     /**
      * Static method for converting values to nullable integers.
      *
@@ -25,9 +27,9 @@ class IntegerConverter {
      *
      * @see [[LongConverter.toNullableLong]]
      */
-    static toNullableInteger(value) {
+    IntegerConverter.toNullableInteger = function (value) {
         return LongConverter_1.LongConverter.toNullableLong(value);
-    }
+    };
     /**
      * Static method for converting values to integers using [[LongConverter.toLong]] (which uses
      * [[LongConverter.toLongWithDefault]]). 0 will be used as the default value for the conversion.
@@ -37,9 +39,9 @@ class IntegerConverter {
      * @see [[LongConverter.toLong]]
      * @see [[LongConverter.toLongWithDefault]]
      */
-    static toInteger(value) {
+    IntegerConverter.toInteger = function (value) {
         return LongConverter_1.LongConverter.toLong(value);
-    }
+    };
     /**
      * Static method for converting values to integers using [[LongConverter.toLongWithDefault]]
      * (which uses [[LongConverter.toNullableLong]]). If null is returned by the conversion,
@@ -51,9 +53,10 @@ class IntegerConverter {
      * @see [[LongConverter.toLongWithDefault]]
      * @see [[LongConverter.toNullableLong]]
      */
-    static toIntegerWithDefault(value, defaultValue) {
+    IntegerConverter.toIntegerWithDefault = function (value, defaultValue) {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
-    }
-}
+    };
+    return IntegerConverter;
+}());
 exports.IntegerConverter = IntegerConverter;
 //# sourceMappingURL=IntegerConverter.js.map

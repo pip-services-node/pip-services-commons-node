@@ -268,7 +268,7 @@ export declare class StringValueMap {
      * @returns         the item with the given key as an AnyValue object.
      *
      * @see [[AnyValue]]
-     * @see [[AnyValue.AnyValue]]
+     * @see [[AnyValue.constructor]]
      */
     getAsValue(key: string): AnyValue;
     /**

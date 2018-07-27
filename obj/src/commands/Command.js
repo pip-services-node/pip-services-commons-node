@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module commands */
-let _ = require('lodash');
-const InvocationException_1 = require("../errors/InvocationException");
+var _ = require('lodash');
+var InvocationException_1 = require("../errors/InvocationException");
 /**
  * Used for remote procedure calls, which replace unique calls with universal "message transfer" calls.
  * The message itself contains the called method's signature, as well as the set of parameters.
  *
  * @see [[ICommand]]
  */
-class Command {
+var Command = /** @class */ (function () {
     /**
      * @param name      the name of the command.
      * @param schema    the command's schema.
@@ -17,7 +17,7 @@ class Command {
      * @throws  an Error if 'name' or 'func' are null, or if 'func' does not have
      *          a function type.
      */
-    constructor(name, schema, func) {
+    function Command(name, schema, func) {
         if (!name)
             throw new Error("Name cannot be null");
         if (!func)
@@ -34,9 +34,9 @@ class Command {
     /**
      * @returns the name of this command.
      */
-    getName() {
+    Command.prototype.getName = function () {
         return this._name;
-    }
+    };
     /**
      * Executes this command using the given [[Parameters parameters]] (arguments).
      *
@@ -49,7 +49,7 @@ class Command {
      * @see [[Parameters]]
      * @see [[InvocationException]]
      */
-    execute(correlationId, args, callback) {
+    Command.prototype.execute = function (correlationId, args, callback) {
         if (this._schema) {
             try {
                 this._schema.validateAndThrowException(correlationId, args);
@@ -63,10 +63,10 @@ class Command {
             this._function(correlationId, args, callback);
         }
         catch (ex) {
-            let err = new InvocationException_1.InvocationException(correlationId, "EXEC_FAILED", "Execution " + this.getName() + " failed: " + ex).withDetails("command", this.getName()).wrap(ex);
+            var err = new InvocationException_1.InvocationException(correlationId, "EXEC_FAILED", "Execution " + this.getName() + " failed: " + ex).withDetails("command", this.getName()).wrap(ex);
             callback(err, null);
         }
-    }
+    };
     /**
      * Validates the [[Parameters parameters]] (arguments) that are to be passed to this command
      * using the set schema.
@@ -77,11 +77,12 @@ class Command {
      * @see [[Parameters]]
      * @see [[ValidationResult]]
      */
-    validate(args) {
+    Command.prototype.validate = function (args) {
         if (this._schema)
             return this._schema.validate(args);
         return [];
-    }
-}
+    };
+    return Command;
+}());
 exports.Command = Command;
 //# sourceMappingURL=Command.js.map
