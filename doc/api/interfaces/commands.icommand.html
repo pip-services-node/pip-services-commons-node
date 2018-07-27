@@ -72,13 +72,23 @@
 					<div class="lead">
 						<p>Interface for commands, which are used in command design patterns.</p>
 					</div>
-					<p>Command design patterns come in handy when implementing remote procedure calls, as they replace unique
+					<p>Command design patterns come in handy when implementing remote procedure calls, as they can replace unique
 						calls with universal &quot;message transfer&quot; calls. The message itself contains the called method&#39;s signature,
-					as well as the set of parameters.</p>
-					<p>When designing calls of methods/commands using command design pattern, uniform interfaces can be used,
-					which, in turn, allow any amount of concrete methods to be called.</p>
-					<p>Command design patterns can be used for <a href="commands.icommandinterceptor.html">intercepting</a> messages and various logging
-					implementations.</p>
+						as well as the set of parameters. When designing calls of methods/commands using command design pattern,
+					uniform interfaces can be used, which, in turn, allow any amount of concrete methods to be called.</p>
+					<p>Command design patterns can also be used for <a href="commands.icommandinterceptor.html">intercepting</a> commands and building execution
+					chains out of <a href="../classes/commands.interceptedcommand.html">intercepted commands</a>.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.command.html">Command</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="commands.icommandinterceptor.html">ICommandInterceptor</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.interceptedcommand.html">InterceptedCommand</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -129,7 +139,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iexecutable.html">IExecutable</a>.<a href="run.iexecutable.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/ICommand.ts#L23">commands/ICommand.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/ICommand.ts#L25">commands/ICommand.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -216,7 +226,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/ICommand.ts#L35">commands/ICommand.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/ICommand.ts#L37">commands/ICommand.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

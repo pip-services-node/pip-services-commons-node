@@ -73,6 +73,9 @@
 						<p>Defines a set of commands and events, which a given <a href="../interfaces/commands.icommandable.html">commandable interface</a>
 						is capable of processing.</p>
 					</div>
+					<p>Event listeners and command interceptors can also be added to a command set. If command interceptors are
+						added before the commands themselves, then execution chains will be built for each command that is added.
+					Otherwise - no execution chains will be generated.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="commands.command.html">Command</a></p>
@@ -148,7 +151,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L27">commands/CommandSet.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L31">commands/CommandSet.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -169,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">_commands<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L22">commands/CommandSet.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L26">commands/CommandSet.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">_commands<wbr>ByName<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L26">commands/CommandSet.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L30">commands/CommandSet.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -197,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">_events<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L23">commands/CommandSet.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L27">commands/CommandSet.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">_events<wbr>ByName<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L27">commands/CommandSet.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L31">commands/CommandSet.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -225,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">_interceptors<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommandinterceptor.html" class="tsd-signature-type">ICommandInterceptor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L24">commands/CommandSet.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L28">commands/CommandSet.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -242,12 +245,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L111">commands/CommandSet.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L121">commands/CommandSet.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a <a href="../interfaces/commands.icommand.html">command</a> to this CommandSet.</p>
+									<p>Adds a <a href="../interfaces/commands.icommand.html">command</a> to this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -278,13 +281,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L158">commands/CommandSet.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L168">commands/CommandSet.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds all of the commands and events included in the passed CommandSet
-									to this CommandSet.</p>
+									<p>Adds all of the commands and events included in the passed CommandSet object
+									to this command set.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,12 +313,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L123">commands/CommandSet.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L133">commands/CommandSet.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds multiple <a href="../interfaces/commands.icommand.html">commands</a> to this CommandSet.</p>
+									<p>Adds multiple <a href="../interfaces/commands.icommand.html">commands</a> to this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -346,12 +349,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L135">commands/CommandSet.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L145">commands/CommandSet.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds an <a href="../interfaces/commands.ievent.html">event</a> to this CommandSet.</p>
+									<p>Adds an <a href="../interfaces/commands.ievent.html">event</a> to this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -382,12 +385,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L147">commands/CommandSet.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L157">commands/CommandSet.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds multiple <a href="../interfaces/commands.ievent.html">events</a> to this CommandSet.</p>
+									<p>Adds multiple <a href="../interfaces/commands.ievent.html">events</a> to this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -418,12 +421,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L194">commands/CommandSet.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L204">commands/CommandSet.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a <a href="../interfaces/commands.icommandinterceptor.html">command interceptor</a> to this CommandSet.</p>
+									<p>Adds a <a href="../interfaces/commands.icommandinterceptor.html">command interceptor</a> to this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -454,12 +457,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L170">commands/CommandSet.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L180">commands/CommandSet.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a <a href="../interfaces/commands.ieventlistener.html">listener</a> to all of the events in this CommandSet.</p>
+									<p>Adds a <a href="../interfaces/commands.ieventlistener.html">listener</a> to all of the events in this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -490,14 +493,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L80">commands/CommandSet.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L89">commands/CommandSet.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds the command passed to the private command chain &#39;_commandsByName&#39;, after
-									linking it with all of the command interceptors of this CommandSet.</p>
+									<p>Builds a command chain(*) for the given command using the command interceptors
+										present in this command set. Once the chain is built, it is added to this object&#39;s private
+									&#39;_commandsByName&#39; list.</p>
 								</div>
+								<p>(*)A command chain (execution chain) consists of command interceptors, through which a given
+									command is passed. Each command interceptor runs perpendicular logic (aspects, such as
+								logging, caching, blocking) before (or instead of) actually calling the command.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -521,7 +528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L212">commands/CommandSet.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L222">commands/CommandSet.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -603,12 +610,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L59">commands/CommandSet.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L63">commands/CommandSet.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Searches for a command by its name in this CommandSet.</p>
+									<p>Searches for a command by its name in this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -639,12 +646,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L70">commands/CommandSet.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L74">commands/CommandSet.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Searches for an event by its name in this CommandSet.</p>
+									<p>Searches for an event by its name in this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -675,7 +682,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L39">commands/CommandSet.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L43">commands/CommandSet.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -686,7 +693,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a><span class="tsd-signature-symbol">[]</span></h4>
-							<p>the commands included in this CommandSet.</p>
+							<p>the commands included in this command set.</p>
 						</li>
 					</ul>
 				</section>
@@ -700,7 +707,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L48">commands/CommandSet.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L52">commands/CommandSet.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -711,7 +718,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/commands.ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span></h4>
-							<p>the events included in this CommandSet.</p>
+							<p>the events included in this command set.</p>
 						</li>
 					</ul>
 				</section>
@@ -725,13 +732,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L281">commands/CommandSet.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L291">commands/CommandSet.ts:291</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Raises the event with the given name and notifies the event&#39;s listeners using the
-									correlationId and <a href="run.parameters.html">parameters</a> (arguments) given.</p>
+									correlation id and <a href="run.parameters.html">parameters</a> (arguments) given.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -769,13 +776,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L95">commands/CommandSet.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L105">commands/CommandSet.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Rebuilds the private command chain &#39;_commandsByName&#39; using
-									the commands stored in this CommandSet.</p>
+									<p>Rebuilds the private &#39;_commandsByName&#39; list using the commands stored in this command set.
+										If interceptors are present in this command set, then a command (execution) chain will be
+									built for each command.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -797,12 +805,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L182">commands/CommandSet.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L192">commands/CommandSet.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes a <a href="../interfaces/commands.ieventlistener.html">listener</a> from all of the events in this CommandSet.</p>
+									<p>Removes a <a href="../interfaces/commands.ieventlistener.html">listener</a> from all of the events in this command set.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -833,7 +841,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/CommandSet.ts#L253">commands/CommandSet.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/CommandSet.ts#L263">commands/CommandSet.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

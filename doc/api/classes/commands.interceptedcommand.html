@@ -70,9 +70,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class for <a href="../interfaces/commands.icommand.html">commands</a> that were intercepted by a <a href="../interfaces/commands.icommandinterceptor.html">command interceptor</a>
-						and are to be executed next.</p>
+						<p>Class for <a href="../interfaces/commands.icommand.html">commands</a> that are intercepted by <a href="../interfaces/commands.icommandinterceptor.html">command interceptors</a>
+							in an execution chain(*). Intercepted commands are used as pattern decorators in the command design pattern.
+						They are represented as regular commands but run their own logic before calling the actual command.</p>
 					</div>
+					<p>(*)An execution chain consists of <a href="../interfaces/commands.icommandinterceptor.html">command interceptors</a>, through which a given
+						<a href="../interfaces/commands.icommand.html">command</a> is passed. Each command interceptor runs perpendicular logic (aspects, such as
+					logging, caching, blocking) before (or instead of) actually calling the command.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/commands.icommand.html">ICommand</a></p>
@@ -137,10 +141,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L16">commands/InterceptedCommand.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L21">commands/InterceptedCommand.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
+									about the interceptor that is being used and the next command in the chain.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -148,7 +156,7 @@
 									<h5>interceptor: <a href="../interfaces/commands.icommandinterceptor.html" class="tsd-signature-type">ICommandInterceptor</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the interceptor that intercepted the next command.</p>
+											<p>the interceptor that is intercepting the command.</p>
 										</div>
 									</div>
 								</li>
@@ -156,7 +164,7 @@
 									<h5>next: <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the command that is to be executed next.</p>
+											<p>(link to) the next command in the command&#39;s execution chain.</p>
 										</div>
 									</div>
 								</li>
@@ -174,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">_interceptor<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommandinterceptor.html" class="tsd-signature-type">ICommandInterceptor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L15">commands/InterceptedCommand.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L20">commands/InterceptedCommand.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">_next<span class="tsd-signature-symbol">:</span> <a href="../interfaces/commands.icommand.html" class="tsd-signature-type">ICommand</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L16">commands/InterceptedCommand.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L21">commands/InterceptedCommand.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -201,12 +209,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L45">commands/InterceptedCommand.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L53">commands/InterceptedCommand.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Executes the next <a href="../interfaces/commands.icommand.html">command</a> using the given <a href="run.parameters.html">parameters</a> (arguments).</p>
+									<p>Executes the next command in the execution chain using the given <a href="run.parameters.html">parameters</a> (arguments).</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -272,13 +280,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#getname">getName</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L30">commands/InterceptedCommand.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L38">commands/InterceptedCommand.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the name of the next command.</p>
+							<p>the name of the command that is being intercepted.</p>
 						</li>
 					</ul>
 				</section>
@@ -293,13 +301,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a0ee44a/src/commands/InterceptedCommand.ts#L59">commands/InterceptedCommand.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/fa1da85/src/commands/InterceptedCommand.ts#L67">commands/InterceptedCommand.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the <a href="run.parameters.html">parameters</a> (arguments) that are to be passed to the next
-									<a href="../interfaces/commands.icommand.html">command</a>.</p>
+									<p>Validates the <a href="run.parameters.html">parameters</a> (arguments) that are to be passed to the command that is next
+									in the execution chain.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
