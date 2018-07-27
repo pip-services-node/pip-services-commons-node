@@ -9,7 +9,7 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * @see [[ICommand]]
  */
-export interface ICommandIntercepter {
+export interface ICommandInterceptor {
     /**
      * Abstract method that will contain the logic for resolving the name of 
      * a [[ICommand command]].

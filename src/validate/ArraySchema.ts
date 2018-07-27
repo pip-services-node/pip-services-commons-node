@@ -1,7 +1,7 @@
 /** @module validate */
 let _ = require('lodash');
 
-import { Schema } from '../validate/Schema';
+import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
 import { ObjectReader } from '../reflect/ObjectReader';

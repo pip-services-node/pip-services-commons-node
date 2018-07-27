@@ -1,26 +1,26 @@
 /** @module commands */
 import { ICommand } from './ICommand';
-import { ICommandIntercepter } from './ICommandIntercepter';
+import { ICommandInterceptor } from './ICommandInterceptor';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Class for [[ICommand commands]] that were intercepted by a [[ICommandIntercepter command interceptor]] 
+ * Class for [[ICommand commands]] that were intercepted by a [[ICommandInterceptor command interceptor]] 
  * and are to be executed next.
  * 
  * @see [[ICommand]]
- * @see [[ICommandIntercepter]]
+ * @see [[ICommandInterceptor]]
  */
 export class InterceptedCommand implements ICommand {
-    private readonly _intercepter: ICommandIntercepter;
+    private readonly _interceptor: ICommandInterceptor;
     private readonly _next: ICommand;
 
     /**
-     * @param intercepter   the interceptor that intercepted the next command.
+     * @param interceptor   the interceptor that intercepted the next command.
      * @param next          the command that is to be executed next.
      */
-    public constructor(intercepter: ICommandIntercepter, next: ICommand) {
-        this._intercepter = intercepter;
+    public constructor(interceptor: ICommandInterceptor, next: ICommand) {
+        this._interceptor = interceptor;
         this._next = next;
     }
 
@@ -28,7 +28,7 @@ export class InterceptedCommand implements ICommand {
      * @returns the name of the next command.
      */
     public getName(): string {
-        return this._intercepter.getName(this._next);
+        return this._interceptor.getName(this._next);
     }
 
 
@@ -43,7 +43,7 @@ export class InterceptedCommand implements ICommand {
      * @see [[Parameters]]
      */
     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
-        this._intercepter.execute(correlationId, this._next, args, callback);
+        this._interceptor.execute(correlationId, this._next, args, callback);
     }
 
     /**
@@ -57,7 +57,7 @@ export class InterceptedCommand implements ICommand {
      * @see [[ValidationResult]]
      */
     public validate(args: Parameters): ValidationResult[] {
-        return this._intercepter.validate(this._next, args);
+        return this._interceptor.validate(this._next, args);
     }
 
 }

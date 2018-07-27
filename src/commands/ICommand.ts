@@ -13,7 +13,7 @@ import { ValidationResult } from '../validate/ValidationResult';
  * When designing calls of methods/commands using command design pattern, uniform interfaces can be used, 
  * which, in turn, allow any amount of concrete methods to be called.
  * 
- * Command design patterns can be used for [[ICommandIntercepter intercepting]] messages and various logging 
+ * Command design patterns can be used for [[ICommandInterceptor intercepting]] messages and various logging 
  * implementations. 
  */
 export interface ICommand extends IExecutable {

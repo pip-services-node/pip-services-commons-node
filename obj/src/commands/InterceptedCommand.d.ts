@@ -1,23 +1,23 @@
 /** @module commands */
 import { ICommand } from './ICommand';
-import { ICommandIntercepter } from './ICommandIntercepter';
+import { ICommandInterceptor } from './ICommandInterceptor';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 /**
- * Class for [[ICommand commands]] that were intercepted by a [[ICommandIntercepter command interceptor]]
+ * Class for [[ICommand commands]] that were intercepted by a [[ICommandInterceptor command interceptor]]
  * and are to be executed next.
  *
  * @see [[ICommand]]
- * @see [[ICommandIntercepter]]
+ * @see [[ICommandInterceptor]]
  */
 export declare class InterceptedCommand implements ICommand {
-    private readonly _intercepter;
+    private readonly _interceptor;
     private readonly _next;
     /**
-     * @param intercepter   the interceptor that intercepted the next command.
+     * @param interceptor   the interceptor that intercepted the next command.
      * @param next          the command that is to be executed next.
      */
-    constructor(intercepter: ICommandIntercepter, next: ICommand);
+    constructor(interceptor: ICommandInterceptor, next: ICommand);
     /**
      * @returns the name of the next command.
      */

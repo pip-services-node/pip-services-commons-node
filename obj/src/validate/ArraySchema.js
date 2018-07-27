@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module validate */
 var _ = require('lodash');
-var Schema_1 = require("../validate/Schema");
+var Schema_1 = require("./Schema");
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");
 var ObjectReader_1 = require("../reflect/ObjectReader");

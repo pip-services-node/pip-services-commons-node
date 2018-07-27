@@ -1,6 +1,6 @@
 /** @module commands */
 export { ICommand } from './ICommand';
-export { ICommandIntercepter } from './ICommandIntercepter';
+export { ICommandInterceptor } from './ICommandInterceptor';
 export { IEvent } from './IEvent';
 export { IEventListener } from './IEventListener';
 export { Command } from './Command';

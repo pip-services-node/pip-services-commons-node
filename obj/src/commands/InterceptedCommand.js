@@ -1,26 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Class for [[ICommand commands]] that were intercepted by a [[ICommandIntercepter command interceptor]]
+ * Class for [[ICommand commands]] that were intercepted by a [[ICommandInterceptor command interceptor]]
  * and are to be executed next.
  *
  * @see [[ICommand]]
- * @see [[ICommandIntercepter]]
+ * @see [[ICommandInterceptor]]
  */
 var InterceptedCommand = /** @class */ (function () {
     /**
-     * @param intercepter   the interceptor that intercepted the next command.
+     * @param interceptor   the interceptor that intercepted the next command.
      * @param next          the command that is to be executed next.
      */
-    function InterceptedCommand(intercepter, next) {
-        this._intercepter = intercepter;
+    function InterceptedCommand(interceptor, next) {
+        this._interceptor = interceptor;
         this._next = next;
     }
     /**
      * @returns the name of the next command.
      */
     InterceptedCommand.prototype.getName = function () {
-        return this._intercepter.getName(this._next);
+        return this._interceptor.getName(this._next);
     };
     /**
      * Executes the next [[ICommand command]] using the given [[Parameters parameters]] (arguments).
@@ -33,7 +33,7 @@ var InterceptedCommand = /** @class */ (function () {
      * @see [[Parameters]]
      */
     InterceptedCommand.prototype.execute = function (correlationId, args, callback) {
-        this._intercepter.execute(correlationId, this._next, args, callback);
+        this._interceptor.execute(correlationId, this._next, args, callback);
     };
     /**
      * Validates the [[Parameters parameters]] (arguments) that are to be passed to the next
@@ -46,7 +46,7 @@ var InterceptedCommand = /** @class */ (function () {
      * @see [[ValidationResult]]
      */
     InterceptedCommand.prototype.validate = function (args) {
-        return this._intercepter.validate(this._next, args);
+        return this._interceptor.validate(this._next, args);
     };
     return InterceptedCommand;
 }());

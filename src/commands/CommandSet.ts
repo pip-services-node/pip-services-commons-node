@@ -2,7 +2,7 @@
 import { ICommand } from './ICommand';
 import { IEvent } from './IEvent';
 import { IEventListener } from './IEventListener';
-import { ICommandIntercepter } from './ICommandIntercepter';
+import { ICommandInterceptor } from './ICommandInterceptor';
 import { InterceptedCommand } from './InterceptedCommand';
 import { BadRequestException } from '../errors/BadRequestException';
 import { ValidationException } from '../validate/ValidationException';
@@ -21,7 +21,7 @@ import { IdGenerator } from '../data/IdGenerator';
 export class CommandSet {
     private readonly _commands: ICommand[] = [];
     private readonly _events: IEvent[] = [];
-    private readonly _intercepters: ICommandIntercepter[] = [];
+    private readonly _interceptors: ICommandInterceptor[] = [];
 
     private _commandsByName: { [name: string]: ICommand } = {};
     private _eventsByName: { [name: string]: IEvent } = {};
@@ -80,8 +80,8 @@ export class CommandSet {
     private buildCommandChain(command: ICommand): void {
         let next: ICommand = command;
 
-        for (var i = this._intercepters.length - 1; i >= 0; i--)
-            next = new InterceptedCommand(this._intercepters[i], next);
+        for (var i = this._interceptors.length - 1; i >= 0; i--)
+            next = new InterceptedCommand(this._interceptors[i], next);
 
         this._commandsByName[next.getName()] = next;
     }
@@ -185,14 +185,14 @@ export class CommandSet {
     }
 
     /**
-     * Adds a [[ICommandIntercepter command interceptor]] to this CommandSet.
+     * Adds a [[ICommandInterceptor command interceptor]] to this CommandSet.
      * 
-     * @param intercepter     the interceptor to add.
+     * @param interceptor     the interceptor to add.
      * 
-     * @see [[ICommandIntercepter]]
+     * @see [[ICommandInterceptor]]
      */
-    public addInterceptor(intercepter: ICommandIntercepter): void {
-        this._intercepters.push(intercepter);
+    public addInterceptor(interceptor: ICommandInterceptor): void {
+        this._interceptors.push(interceptor);
         this.rebuildAllCommandChains();
     }
 
