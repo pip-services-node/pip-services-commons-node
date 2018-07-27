@@ -4,6 +4,12 @@ import { TypeCode } from '../convert/TypeCode';
 /**
  * Interface for creating sets of component references, which have the ability to add new references, 
  * find reference using locators, or remove reference from the set.
+ * 
+ * Used as part of the inversion of control design pattern, specifically - inversion of dependency.
+ * 
+ * In PipServices, the "location design pattern” is used, which is much simpler than dependency injection.
+ * It is simple to implement and portable between languages. Used for building various containers, as well as 
+ * for testing objects. 
  */
 export interface IReferences {
 	/**

@@ -76,7 +76,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * Places a new dependency into this DependencyResolver object.
 	 * 
 	 * @param name 		the dependency's name.
-	 * @param locator 	the locator to fing the dependency by.
+	 * @param locator 	the locator to find the dependency by.
 	 */
 	public put(name: string, locator: any): void {
 		this._dependencies[name] = locator;
