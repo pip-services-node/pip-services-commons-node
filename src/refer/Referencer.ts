@@ -13,7 +13,7 @@ export class Referencer {
 	 * 
 	 * @param references 	the references to be assigned.
 	 * @param component 	the component to assign the references to.
-	 * @param callback 		function that will be called with an execution error, if one is raised.
+	 * @param callback 		function that will be called with an execution error if one is raised.
 	 * 
 	 * @see [[IReferenceable]]
 	 */

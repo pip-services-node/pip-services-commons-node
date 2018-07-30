@@ -214,7 +214,7 @@ export class CommandSet {
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error (for example: a ValidationException can be thrown).
-     * @throws a [[BadRequestException]], if no command exists with the given name.
+     * @throws a [[BadRequestException]] if no command exists with the given name.
      * 
      * @see [[ICommand]]
      * @see [[Parameters]]

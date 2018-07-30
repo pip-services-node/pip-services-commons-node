@@ -88,7 +88,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * @param name 	the name of the dependency to locate.
 	 * @returns the locator of the dependency that was located.
 	 * 
-	 * @throws an Error, if 'name' is null, or if no references are set. 
+	 * @throws an Error if 'name' is null or no references are set. 
 	 */
 	private locate(name: string): any {
 		if (name == null)
@@ -118,7 +118,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * @param name 		the name of the dependency that stores the component's locator.
 	 * @returns a list, containing all component references found.
 	 * 
-	 * @throws a [[ReferenceException]], if no dependencies (locators) are found by the given name.
+	 * @throws a [[ReferenceException]] if no dependencies (locators) are found by the given name.
 	 */
 	public getRequired<T>(name: string): T[] {
 		let locator = this.locate(name);
@@ -134,7 +134,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * last-added references.
 	 * 
 	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @returns the component references found or <code>null</code>, if none were found.
+	 * @returns the component references found or <code>null</code> (if none were found).
 	 */
 	public getOneOptional<T>(name: string): T {
 		let locator = this.locate(name);
@@ -151,7 +151,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * @param name 		the name of the dependency that stores the component's locator.
 	 * @returns the component reference found.
 	 * 
-	 * @throws a [[ReferenceException]], if no dependencies (locators) are found by the given name.
+	 * @throws a [[ReferenceException]] if no dependencies (locators) are found by the given name.
 	 */
 	public getOneRequired<T>(name: string): T {
 		let locator = this.locate(name);
@@ -165,11 +165,11 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	 * Finds all references that match the specified query criteria and the specified type.
 	 * 
 	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @param required 	forces to raise an exception, if no reference is found.
+	 * @param required 	forces to raise an exception if no reference is found.
 	 * @returns a list of found references.
 	 * 
-	 * @throws an Error, if the name is <code>null</code>.
-	 * @throws a [[ReferenceException]], if required was set to <code>true</code>
+	 * @throws an Error if the name is <code>null</code>.
+	 * @throws a [[ReferenceException]] if required was set to <code>true</code>
      *          and nothing was found.
 	 */
 	public find<T>(name: string, required: boolean): T[] {

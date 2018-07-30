@@ -121,7 +121,7 @@ export class References implements IReferences {
 	 * is performed, starting from the last-added references.
 	 * 
 	 * @param locator 	the locator to find a reference by.
-	 * @returns the first found component reference or <code>null</code>, if none were found.
+	 * @returns the first found component reference or <code>null</code> (if none were found).
 	 */
     public getOneOptional<T>(locator: any): T {
     	try {
@@ -175,11 +175,11 @@ export class References implements IReferences {
 	 * Finds all references that match the specified query criteria and the specified type.
 	 * 
 	 * @param locator 	the locator to find a reference by.
-	 * @param required 	forces to raise an exception, if no reference is found.
+	 * @param required 	forces to raise an exception if no reference is found.
 	 * @returns a list of found references.
      * 
-	 * @throws an Error, if the locator is <code>null</code>.
-     * @throws a [[ReferenceException]], if required was set to <code>true</code>
+	 * @throws an Error if the locator is <code>null</code>.
+     * @throws a [[ReferenceException]] if 'required' was set to <code>true</code>
      *          and nothing was found.
 	 */
 	public find<T>(locator: any, required: boolean): T[] {

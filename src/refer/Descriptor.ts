@@ -155,7 +155,7 @@ export class Descriptor {
 	 * Matches this descriptor to the value that was passed.
 	 * 
 	 * @param value 	the value to match against this descriptor.
-	 * @returns <code>true</code>, if value is an instance of Descriptor and matches this descriptor.
+	 * @returns <code>true</code> if value is an instance of Descriptor and matches this descriptor.
 	 * 			Otherwise, <code>false</code> is returned.
 	 * 
 	 * @see [[match]]
@@ -186,7 +186,7 @@ export class Descriptor {
 	 * @param value 	a colon-separated descriptor string. Example string: 
 	 * 					"pip-services-logging:persistence:memory:*:1.0".
 	 * @returns the Descriptor that was parsed from the string.
-	 * @throws a [[ConfigException]], if the descriptor string is of a wrong format.
+	 * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
 	 */
 	public static fromString(value: String): Descriptor {
 		if (value == null || value.length == 0) 
