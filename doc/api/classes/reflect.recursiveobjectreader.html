@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Helper class that contains methods for reading nested object properties recursively.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -108,16 +115,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L135">reflect/RecursiveObjectReader.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L191">reflect/RecursiveObjectReader.ts:191</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that retrieves an object&#39;s properties as a map. Nested properties&#39;
+									keys represent the path to the property and are set as dot-notation formatted strings.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object to get a map of properties from.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>a map, containing property names and their values. Nested properties&#39; keys are formatted
+							using dot-notation. Example nested property key: &quot;data.sampleData.sample1&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -131,19 +149,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L42">reflect/RecursiveObjectReader.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L70">reflect/RecursiveObjectReader.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that retrieves the value stored in the passed object by the given property name.
+									If &#39;obj&#39; or &#39;name&#39; are <code>null</code> - <code>null</code> will be returned.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object to read a property from.</p>
+									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the property (in dot-notation) to retrieve.
+										Example property name: &quot;data.sampleData.sample1&quot;.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the value stored by the given property name or null (if the property cannot be read).</p>
 						</li>
 					</ul>
 				</section>
@@ -157,16 +189,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L90">reflect/RecursiveObjectReader.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L137">reflect/RecursiveObjectReader.ts:137</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that retrieves the names of an object&#39;s properties, including all nested property names.
+									Nested properties&#39; names represent the path to the property and are formatted using dot-notation.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object, whose property names are to be retrieved.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>a string array, containing the names of the object&#39;s properties. Nested properties are formatted
+							using dot-notation. Example nested property name: &quot;data.sampleData.sample1&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -180,19 +223,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L21">reflect/RecursiveObjectReader.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L39">reflect/RecursiveObjectReader.ts:39</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not an object contains a nested property with the given
+									name (in dot-notation).</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object to search for a property in.</p>
+									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the property (in dot-notation) to search for.
+										Example property name: &quot;data.sampleData.sample1&quot;.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>whether or not the object has a property with the given name. If &#39;obj&#39; or &#39;name&#39;
+							are <code>null</code> - <code>false</code> will be returned.</p>
 						</li>
 					</ul>
 				</section>
@@ -206,9 +264,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L52">reflect/RecursiveObjectReader.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L82">reflect/RecursiveObjectReader.ts:82</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether or not value is of a primative type (not an array, map, or object). Primative types do not
+									need to use recursive calls.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -229,9 +293,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L102">reflect/RecursiveObjectReader.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L150">reflect/RecursiveObjectReader.ts:150</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectreader.html#performgetpropertynames">performGetPropertyNames</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -261,9 +332,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L31">reflect/RecursiveObjectReader.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L50">reflect/RecursiveObjectReader.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectreader.html#performhasproperty">performHasProperty</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -290,22 +368,39 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L57">reflect/RecursiveObjectReader.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L95">reflect/RecursiveObjectReader.ts:95</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private static method that recursively retrieves the property names of the object that was passed.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object to get nested property names from.</p>
+									</div>
 								</li>
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the path to the nested property that is being processed in the current  recursive call.</p>
+									</div>
 								</li>
 								<li>
 									<h5>result: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the string array to which full property names are added to, once resolved.</p>
+									</div>
 								</li>
 								<li>
 									<h5>cycleDetect: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>used to detect (and stop) recursive cycling.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -322,9 +417,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/reflect/RecursiveObjectReader.ts#L10">reflect/RecursiveObjectReader.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3370303/src/reflect/RecursiveObjectReader.ts#L18">reflect/RecursiveObjectReader.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private static method that recursively check whether or not the given object contains a property,
+									whose nested name correspond to &#39;names&#39;. The &#39;nameIndex&#39; is used to track the depth of recursion.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
