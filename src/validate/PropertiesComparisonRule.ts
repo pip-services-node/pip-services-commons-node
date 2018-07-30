@@ -6,10 +6,8 @@ import { ObjectComparator } from './ObjectComparator';
 import { ValidationResultType } from './ValidationResultType';
 import { ObjectReader } from '../reflect/ObjectReader';
 
-//TODO - check attentively
 /**
- * Validation rule that requires the operation that is set to pass successfully. For validation to pass, the operation 
- * must be successfully applied to the properties of the value that are set.
+ * Validation rule that requires an object's properties to be in a certain relation for validation to pass successfully.
  */
 export class PropertiesComparisonRule implements IValidationRule {
     private readonly _property1: string;
@@ -20,8 +18,11 @@ export class PropertiesComparisonRule implements IValidationRule {
      * Creates a new PropertiesComparisonRule object and initializes it using the passed pair of properties.
      * 
      * @param property1     the first property in the pair.
-     * @param operation     the operation to apply to the pair of properties.
-     * @param property2     the first property in the pair.
+     * @param operation     the operation to apply to the pair of properties. 
+     *                      For example: the operation ">=" validates that "property1 >= property2".
+     * @param property2     the second property in the pair.
+     * 
+     * @see [[ObjectComparator.compare]]
      */
     public constructor(property1: string, operation: string, property2: string) {
         this._property1 = property1;
@@ -30,19 +31,21 @@ export class PropertiesComparisonRule implements IValidationRule {
     }
 
     /**
-     * Validates the passed value against the value set in this PropertiesComparisonRule object. 
-     * The operation set in this object must pass upon being applied to the given and set values 
-     * for validation to pass.
+     * Validates that the set properties of 'value' are in a certain relation to one another. The 'operation' that is set 
+     * in this object must pass upon being applied to the passed value's 'property1' and 'property2' for validation to pass.
+     * For example: if the operation ">=" is set, it will validate that "value.property1 >= value.property2".
      * 
-     * Properties are retrieved from the value using the ObjectComparator class's 
-     * [[ObjectComparator.getProperty getProperty]] method.
+     * Properties are retrieved from the value using [[ObjectReader.getProperty]], and comparison is done using 
+     * [[ObjectComparator.compare]].
      * 
      * @param path      the name of the value that is to be validated.
      * @param schema    (not used in this implementation).
      * @param value     the value, whose properties are to be validated.
      * @param results   the results of the validation.
      * 
-     * @see [[ObjectComparator.getProperty]]
+     * @see [[constructor]]
+     * @see [[ObjectReader.getProperty]]
+     * @see [[ObjectComparator.compare]]
      */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         let name = path || "value";

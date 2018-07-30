@@ -11,7 +11,8 @@ import { TypeCode } from '../convert/TypeCode';
 import { TypeConverter } from '../convert/TypeConverter';
 
 /**
- * Allows creating various schemas for a wide variety of objects, which are to be used during validation.
+ * Allows for the creation of various schemas, which can be used for validating a wide variety 
+ * of objects.
  */
 export class Schema {
     private _required: boolean;
@@ -20,27 +21,33 @@ export class Schema {
     /**
      * Creates a new general Schema object.
      * 
-     * @param required  (optional) defines whether or not this schema is required. 
+     * @param required  (optional) defines whether or not <code>null</code> 
+     *                  values should cause validation to fail (as   
+     *                  a [[ValidationResultType.Error validation error]]). 
      *                  Can be set later on using [[setRequired]].
-     * @param rules     (optional) the validation rules to include in this Schema.
-     *                  Can be set later on using [[setRules]].
+     * @param rules     (optional) the the [[IValidationRule validation rules]] to 
+     *                  include in this Schema. Can be set later on using [[setRules]].
+     * 
+     * @see [[IValidationRule]]
      */
     public constructor(required?: boolean, rules?: IValidationRule[]) {
         this._required = required;
         this._rules = rules;
     }
-
+    
     /**
-     * @returns whether or not this Schema is required.
+     * @returns whether or not <code>null</code> values will cause validation to fail 
+     * (as a [[ValidationResultType.Error validation error]]).
      */
     public isRequired(): boolean {
         return this._required;
     }
 
     /**
-     * Changes whether or not this schema is required.
+     * Changes whether or not <code>null</code> values should cause validation to fail 
+     * (as a [[ValidationResultType.Error validation error]]).
      * 
-     * @param value     boolean value that defines whether or not this Schema is required.
+     * @param value     defines whether or not this Schema is required.
      */
     public setRequired(value: boolean) {
         this._required = value;
@@ -65,7 +72,12 @@ export class Schema {
     /**
      * Makes this Schema required (required = true) and returns it.
      * 
+     * When a Schema is required, <code>null</code> values cause 
+     * validation to fail (as a [[ValidationResultType.Error validation error]]).
+     * 
      * @returns this Schema object as a required Schema.
+     * 
+     * @see [[makeOptional]]
      */
     public makeRequired(): Schema {
         this._required = true;
@@ -75,7 +87,11 @@ export class Schema {
     /**
      * Makes this Schema optional (required = false) and returns it.
      * 
+     * When a Schema is optional, <code>null</code> values pass validation.
+     * 
      * @returns this Schema object as an optional Schema.
+     * 
+     * @see [[makeRequired]]
      */
     public makeOptional(): Schema {
         this._required = false;
@@ -94,9 +110,8 @@ export class Schema {
     }
 
     /**
-     * Performs validation of the value passed using the rules set in this Schema. 
-     * If this schema is set as required, then the given value must not be null for 
-     * validation to pass.
+     * Validates the given 'value' using the rules that are set. If this schema is set as 
+     * 'required', then 'value' must not be null for validation to pass.
      * 
      * @param path      the name of the value that is to be validated.
      * @param value     the value that is to be validated.
@@ -137,21 +152,26 @@ export class Schema {
         return type.toString();
     }
 
-    //TODO
     /**
-     * Performs validation of the value passed as an object of the given type, using the rules set in this Schema. 
-     * If this schema is set as required, then the given value must not be null for validation to pass.
+     * Validates that the passed 'value' is an object of the given 'type'. If 'type' is an instance of 
+     * Schema - 'value' will be validated using the Schema's [[performValidation]] method. The type 
+     * of 'value' is determined using [[TypeConverter.toTypeCode]] and is compared to 'type' using
+     * [[TypeMatcher.matchType]]
      * 
      * @param path      the name of the value that is to be validated.
-     * @param type      the value's type.
+     * @param type      the type to validate against.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.
+     * 
+     * @see [[performValidation]]
+     * @see [[TypeConverter.toTypeCode]]
+     * @see [[TypeMatcher.matchType]]
      */
     protected performTypeValidation(path: string, type: any, value: any, results: ValidationResult[]): void {
         // If type it not defined then skip
         if (type == null) return;
 
-        // Perform validation against schema
+        // Perform validation against the schema
         if (type instanceof Schema) {
             let schema: Schema = type as Schema;
             schema.performValidation(path, value, results);
@@ -182,7 +202,7 @@ export class Schema {
     }
 
     /**
-     * Validates the value passed using this class's [[performValidation]] method.
+     * Validates the given value using this class's [[performValidation]] method.
      * 
      * @param value     the value to validate using this Schema's rules.
      * @returns an array of ValidationResults
@@ -195,27 +215,25 @@ export class Schema {
         return results;
     }
 
-    //TODO
     /**
-     * Validates the passed value and returns any exceptions that were raised.
+     * Validates the given value and returns any exceptions that were raised.
      * 
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param value             the value to validate using this Schema's rules.
-     * @param strict            
+     * @param strict            defines whether or not "Warnings" should raise exceptions.
      */
     public validateAndReturnException(correlationId: string, value: any, strict: boolean = false): ValidationException {
         let results: ValidationResult[] = this.validate(value);
         return ValidationException.fromResults(correlationId, results, strict);
     }
 
-    //TODO
     /**
-     * Validates the passed value and throws an exception (if one was raised) using 
+     * Validates the given value and, if an exception was raised, throws the exception using 
      * [[ValidationException.throwExceptionIfNeeded]].
      * 
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param value             the value to validate using this Schema's rules.
-     * @param strict            
+     * @param strict            defines whether or not "Warnings" should raise exceptions.
      * 
      * @see [[ValidationException.throwExceptionIfNeeded]]
      */

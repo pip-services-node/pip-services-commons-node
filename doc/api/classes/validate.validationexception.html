@@ -70,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Caused by errors in validation.</p>
+						<p>Caused by errors in validation. If using strict mode, warnings will also raise validation exceptions.</p>
 					</div>
 				</div>
 			</section>
@@ -151,19 +151,52 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="errors.badrequestexception.html">BadRequestException</a>.<a href="errors.badrequestexception.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ValidationException.ts#L11">validate/ValidationException.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ValidationException.ts#L10">validate/ValidationException.ts:10</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new ValidationException and initializes it using the given parameters.
+										If no message is given, <a href="validate.validationexception.html#composemessage">composeMessage</a> will be used to generate a message using the
+									given &#39;results&#39;. Otherwise, the &#39;results&#39; will be included as details.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.validationexception.html#composemessage">composeMessage</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="validate.validationresult.html">ValidationResult</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="errors.applicationexception.html">ApplicationException</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>unique business transaction id to trace calls across components.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> message: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) the message to include in this exception.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) the validation results to include as details in this exception.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.validationexception.html" class="tsd-signature-type">ValidationException</a></h4>
@@ -180,7 +213,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#category">category</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L46">errors/ApplicationException.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L46">errors/ApplicationException.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +229,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#cause">cause</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L65">errors/ApplicationException.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L65">errors/ApplicationException.ts:65</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -212,7 +245,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#code">code</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L51">errors/ApplicationException.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L51">errors/ApplicationException.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,7 +262,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#correlation_id">correlation_id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L61">errors/ApplicationException.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L61">errors/ApplicationException.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +279,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#details">details</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L58">errors/ApplicationException.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L58">errors/ApplicationException.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -266,7 +299,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#message">message</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L44">errors/ApplicationException.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L44">errors/ApplicationException.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -284,7 +317,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#stack_trace">stack_trace</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L63">errors/ApplicationException.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L63">errors/ApplicationException.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -300,7 +333,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#status">status</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L48">errors/ApplicationException.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L48">errors/ApplicationException.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -315,7 +348,7 @@
 					<div class="tsd-signature tsd-kind-icon">Serial<wbr>Version<wbr>Uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1459801864235223845</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ValidationException.ts#L11">validate/ValidationException.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ValidationException.ts#L10">validate/ValidationException.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -367,7 +400,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#getcausestring">getCauseString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L90">errors/ApplicationException.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L90">errors/ApplicationException.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +423,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#getstacktracestring">getStackTraceString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L104">errors/ApplicationException.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L104">errors/ApplicationException.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -413,7 +446,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#setcausestring">setCauseString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L97">errors/ApplicationException.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L97">errors/ApplicationException.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,7 +475,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#setstacktracestring">setStackTraceString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L111">errors/ApplicationException.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L111">errors/ApplicationException.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -471,7 +504,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcause">withCause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L130">errors/ApplicationException.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L130">errors/ApplicationException.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,7 +534,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcode">withCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L120">errors/ApplicationException.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L120">errors/ApplicationException.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,7 +565,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcorrelationid">withCorrelationId</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L160">errors/ApplicationException.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L160">errors/ApplicationException.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +595,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withdetails">withDetails</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L150">errors/ApplicationException.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L150">errors/ApplicationException.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -595,7 +628,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withstacktrace">withStackTrace</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L168">errors/ApplicationException.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L168">errors/ApplicationException.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -624,7 +657,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withstatus">withStatus</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L141">errors/ApplicationException.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L141">errors/ApplicationException.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,7 +688,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#wrap">wrap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L196">errors/ApplicationException.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L196">errors/ApplicationException.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -707,16 +740,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ValidationException.ts#L20">validate/ValidationException.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ValidationException.ts#L38">validate/ValidationException.ts:38</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that generates a message string for the given <a href="validate.validationresult.html">validation results</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the validation results to convert into a message string.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the generated message string. For example: &quot;Validation failed: <ErrorResult1>, <ErrorResult2>&quot;</p>
 						</li>
 					</ul>
 				</section>
@@ -730,14 +772,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ValidationException.ts#L54">validate/ValidationException.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ValidationException.ts#L72">validate/ValidationException.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Static method that returns a <a href="validate.validationexception.html">ValidationException</a> when any <a href="../enums/validate.validationresulttype.html#error">Errors</a>
-										are present in the <a href="validate.validationresult.html">validation results</a>. If strict is set to <code>true</code>,
-									then <a href="../enums/validate.validationresulttype.html#warning">Warnings</a> will also return a ValidationException.</p>
+										are present in the given <a href="validate.validationresult.html">validation results</a>. If strict is set to <code>true</code>,
+									then <a href="../enums/validate.validationresulttype.html#warning">Warnings</a> will also cause a ValidationException to be returned.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -787,7 +829,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ValidationException.ts#L84">validate/ValidationException.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ValidationException.ts#L102">validate/ValidationException.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -825,7 +867,7 @@
 								<li>
 									<h5>strict: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>defines whether or not an exception should be returned if a <a href="../enums/validate.validationresulttype.html#warning">Warning</a>
+										<p>defines whether or not an exception should be returned if a Warning
 										is found in the results.</p>
 									</div>
 								</li>
@@ -845,7 +887,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#unwraperror">unwrapError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L233">errors/ApplicationException.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L233">errors/ApplicationException.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -878,7 +920,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#wraperror">wrapError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/errors/ApplicationException.ts#L217">errors/ApplicationException.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/errors/ApplicationException.ts#L217">errors/ApplicationException.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

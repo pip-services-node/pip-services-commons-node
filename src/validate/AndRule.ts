@@ -12,7 +12,9 @@ export class AndRule implements IValidationRule {
     /**
      * Creates a new AndRule object and initializes it using the rules passed.
      * 
-     * @param rules     the rules to initialize the new AndRule object with.
+     * @param rules     the [[IValidationRule rules]] to initialize the new AndRule object with.
+     * 
+     * @see [[IValidationRule]]
      */
     public constructor(...rules: IValidationRule[]) {
         this._rules = rules;

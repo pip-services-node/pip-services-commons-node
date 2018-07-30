@@ -67,6 +67,18 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Used to validate object properties, as well as their type. Using in <a href="validate.objectschema.html">ObjectSchemas</a>.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="validate.objectschema.html">ObjectSchema</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -134,22 +146,60 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L8">validate/PropertySchema.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L13">validate/PropertySchema.ts:13</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new PropertySchema object which can validate an object&#39;s property using the
+									set rules. The data type of the property will also be validated if a <a href="../enums/convert.typecode.html">type</a> is set.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> required: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>defines whether or not <code>null</code> values
+												should cause validation to fail (as
+											a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rules: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the <a href="../interfaces/validate.ivalidationrule.html">rules</a> to set for this Schema.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the name of the property that is to be validated.
+											Can be set later on using <a href="validate.propertyschema.html#setname">setName</a>.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> type: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the <a href="../enums/convert.typecode.html">data type</a> to check for when validating an object&#39;s property.
+											Can be set later on using <a href="validate.propertyschema.html#settype">setType</a>.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.propertyschema.html" class="tsd-signature-type">PropertySchema</a></h4>
@@ -165,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">_name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L7">validate/PropertySchema.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L12">validate/PropertySchema.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">_type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L8">validate/PropertySchema.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L13">validate/PropertySchema.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,10 +242,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L17">validate/PropertySchema.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L41">validate/PropertySchema.ts:41</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>the name of the property that this PropertySchema validates.</p>
 						</li>
 					</ul>
 				</section>
@@ -210,7 +263,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#getrules">getRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L52">validate/Schema.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L59">validate/Schema.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,10 +283,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L25">validate/PropertySchema.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L55">validate/PropertySchema.ts:55</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the <a href="../enums/convert.typecode.html">data type</a> that this PropertySchema checks for when validating a property.</p>
 						</li>
 					</ul>
 				</section>
@@ -248,13 +304,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#isrequired">isRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L36">validate/Schema.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L42">validate/Schema.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this Schema is required.</p>
+							<p>whether or not <code>null</code> values will cause validation to fail
+							(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
 						</li>
 					</ul>
 				</section>
@@ -269,13 +326,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makeoptional">makeOptional</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L80">validate/Schema.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L96">validate/Schema.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Makes this Schema optional (required = false) and returns it.</p>
 								</div>
+								<p>When a Schema is optional, <code>null</code> values pass validation.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.propertyschema.html#makerequired">makeRequired</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
 							<p>this Schema object as an optional Schema.</p>
@@ -293,13 +356,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makerequired">makeRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L70">validate/Schema.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L82">validate/Schema.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Makes this Schema required (required = true) and returns it.</p>
 								</div>
+								<p>When a Schema is required, <code>null</code> values cause
+								validation to fail (as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.propertyschema.html#makeoptional">makeOptional</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
 							<p>this Schema object as a required Schema.</p>
@@ -317,14 +387,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performtypevalidation">performTypeValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L150">validate/Schema.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L170">validate/Schema.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Performs validation of the value passed as an object of the given type, using the rules set in this Schema.
-									If this schema is set as required, then the given value must not be null for validation to pass.</p>
+									<p>Validates that the passed &#39;value&#39; is an object of the given &#39;type&#39;. If &#39;type&#39; is an instance of
+										Schema - &#39;value&#39; will be validated using the Schema&#39;s <a href="validate.propertyschema.html#performvalidation">performValidation</a> method. The type
+										of &#39;value&#39; is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> and is compared to &#39;type&#39; using
+									<a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.propertyschema.html#performvalidation">performValidation</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -337,7 +420,7 @@
 								<li>
 									<h5>type: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value&#39;s type.</p>
+										<p>the type to validate against.</p>
 									</div>
 								</li>
 								<li>
@@ -368,19 +451,34 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performvalidation">performValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L33">validate/PropertySchema.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L75">validate/PropertySchema.ts:75</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given &#39;value&#39; using <a href="validate.schema.html#performvalidation">Schema.performValidation</a> and, if a <a href="validate.propertyschema.html#gettype">type</a> is a set,
+									additionally validates that the passed value (property) is of the correct data type.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -397,13 +495,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L21">validate/PropertySchema.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L48">validate/PropertySchema.ts:48</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the property that this PropertySchema should validate.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -421,12 +524,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrequired">setRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L45">validate/Schema.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L52">validate/Schema.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Changes whether or not this schema is required.</p>
+									<p>Changes whether or not <code>null</code> values should cause validation to fail
+									(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -434,7 +538,7 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>boolean value that defines whether or not this Schema is required.</p>
+										<p>defines whether or not this Schema is required.</p>
 									</div>
 								</li>
 							</ul>
@@ -453,7 +557,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrules">setRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L61">validate/Schema.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L68">validate/Schema.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -484,13 +588,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/PropertySchema.ts#L29">validate/PropertySchema.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/PropertySchema.ts#L63">validate/PropertySchema.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the <a href="../enums/convert.typecode.html">data type</a> that this PropertySchema should check for when
+										validating a property.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -508,12 +618,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L192">validate/Schema.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L212">validate/Schema.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the value passed using this class&#39;s <a href="validate.propertyschema.html#performvalidation">performValidation</a> method.</p>
+									<p>Validates the given value using this class&#39;s <a href="validate.propertyschema.html#performvalidation">performValidation</a> method.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -546,12 +656,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandreturnexception">validateAndReturnException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L206">validate/Schema.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L225">validate/Schema.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the passed value and returns any exceptions that were raised.</p>
+									<p>Validates the given value and returns any exceptions that were raised.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -571,6 +681,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
 									</div>
 								</li>
 							</ul>
@@ -589,12 +700,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandthrowexception">validateAndThrowException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L222">validate/Schema.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L240">validate/Schema.ts:240</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the passed value and throws an exception (if one was raised) using
+									<p>Validates the given value and, if an exception was raised, throws the exception using
 									<a href="validate.validationexception.html#throwexceptionifneeded">ValidationException.throwExceptionIfNeeded</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -620,6 +731,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
 									</div>
 								</li>
 							</ul>
@@ -638,7 +750,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#withrule">withRule</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L90">validate/Schema.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L106">validate/Schema.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

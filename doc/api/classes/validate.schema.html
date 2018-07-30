@@ -70,7 +70,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Allows creating various schemas for a wide variety of objects, which are to be used during validation.</p>
+						<p>Allows for the creation of various schemas, which can be used for validating a wide variety
+						of objects.</p>
 					</div>
 				</div>
 			</section>
@@ -146,13 +147,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L18">validate/Schema.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L19">validate/Schema.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a new general Schema object.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -160,7 +166,9 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> required: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>(optional) defines whether or not this schema is required.
+											<p>(optional) defines whether or not <code>null</code>
+												values should cause validation to fail (as
+												a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).
 											Can be set later on using <a href="validate.schema.html#setrequired">setRequired</a>.</p>
 										</div>
 									</div>
@@ -169,8 +177,8 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rules: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>(optional) the validation rules to include in this Schema.
-											Can be set later on using <a href="validate.schema.html#setrules">setRules</a>.</p>
+											<p>(optional) the the <a href="../interfaces/validate.ivalidationrule.html">validation rules</a> to
+											include in this Schema. Can be set later on using <a href="validate.schema.html#setrules">setRules</a>.</p>
 										</div>
 									</div>
 								</li>
@@ -188,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">_required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L17">validate/Schema.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L18">validate/Schema.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">_rules<span class="tsd-signature-symbol">:</span> <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L18">validate/Schema.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L19">validate/Schema.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L52">validate/Schema.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L59">validate/Schema.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,13 +243,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L36">validate/Schema.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L42">validate/Schema.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this Schema is required.</p>
+							<p>whether or not <code>null</code> values will cause validation to fail
+							(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
 						</li>
 					</ul>
 				</section>
@@ -255,13 +264,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L80">validate/Schema.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L96">validate/Schema.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Makes this Schema optional (required = false) and returns it.</p>
 								</div>
+								<p>When a Schema is optional, <code>null</code> values pass validation.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#makerequired">makeRequired</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
 							<p>this Schema object as an optional Schema.</p>
@@ -278,13 +293,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L70">validate/Schema.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L82">validate/Schema.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Makes this Schema required (required = true) and returns it.</p>
 								</div>
+								<p>When a Schema is required, <code>null</code> values cause
+								validation to fail (as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#makeoptional">makeOptional</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
 							<p>this Schema object as a required Schema.</p>
@@ -301,14 +323,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L150">validate/Schema.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L170">validate/Schema.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Performs validation of the value passed as an object of the given type, using the rules set in this Schema.
-									If this schema is set as required, then the given value must not be null for validation to pass.</p>
+									<p>Validates that the passed &#39;value&#39; is an object of the given &#39;type&#39;. If &#39;type&#39; is an instance of
+										Schema - &#39;value&#39; will be validated using the Schema&#39;s <a href="validate.schema.html#performvalidation">performValidation</a> method. The type
+										of &#39;value&#39; is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> and is compared to &#39;type&#39; using
+									<a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#performvalidation">performValidation</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -321,7 +356,7 @@
 								<li>
 									<h5>type: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value&#39;s type.</p>
+										<p>the type to validate against.</p>
 									</div>
 								</li>
 								<li>
@@ -351,14 +386,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L105">validate/Schema.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L120">validate/Schema.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Performs validation of the value passed using the rules set in this Schema.
-										If this schema is set as required, then the given value must not be null for
-									validation to pass.</p>
+									<p>Validates the given &#39;value&#39; using the rules that are set. If this schema is set as
+									&#39;required&#39;, then &#39;value&#39; must not be null for validation to pass.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -396,12 +430,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L45">validate/Schema.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L52">validate/Schema.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Changes whether or not this schema is required.</p>
+									<p>Changes whether or not <code>null</code> values should cause validation to fail
+									(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -409,7 +444,7 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>boolean value that defines whether or not this Schema is required.</p>
+										<p>defines whether or not this Schema is required.</p>
 									</div>
 								</li>
 							</ul>
@@ -427,7 +462,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L61">validate/Schema.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L68">validate/Schema.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L132">validate/Schema.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L147">validate/Schema.ts:147</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -481,12 +516,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L192">validate/Schema.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L212">validate/Schema.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the value passed using this class&#39;s <a href="validate.schema.html#performvalidation">performValidation</a> method.</p>
+									<p>Validates the given value using this class&#39;s <a href="validate.schema.html#performvalidation">performValidation</a> method.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -518,12 +553,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L206">validate/Schema.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L225">validate/Schema.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the passed value and returns any exceptions that were raised.</p>
+									<p>Validates the given value and returns any exceptions that were raised.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -543,6 +578,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
 									</div>
 								</li>
 							</ul>
@@ -560,12 +596,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L222">validate/Schema.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L240">validate/Schema.ts:240</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the passed value and throws an exception (if one was raised) using
+									<p>Validates the given value and, if an exception was raised, throws the exception using
 									<a href="validate.validationexception.html#throwexceptionifneeded">ValidationException.throwExceptionIfNeeded</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -591,6 +627,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
 									</div>
 								</li>
 							</ul>
@@ -608,7 +645,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/Schema.ts#L90">validate/Schema.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/Schema.ts#L106">validate/Schema.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

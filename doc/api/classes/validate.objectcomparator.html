@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Helper class for comparing various objects.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -105,9 +112,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L30">validate/ObjectComparator.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L50">validate/ObjectComparator.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not a pair of values are equal. If both values are
+									null - they are considered to be equal.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -131,9 +144,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L38">validate/ObjectComparator.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L64">validate/ObjectComparator.ts:64</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not a pair of values are not equal by inverting the
+									result of <a href="validate.objectcomparator.html#areequal">areEqual</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#areequal">areEqual</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -157,19 +181,46 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L9">validate/ObjectComparator.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L25">validate/ObjectComparator.ts:25</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that compares a set of values using the given operation.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#areequal">areEqual</a>/<a href="validate.objectcomparator.html#arenotequal">areNotEqual</a> (operation - &quot;==&quot;/&quot;!=&quot;)</p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#less">less</a>/<a href="validate.objectcomparator.html#more">more</a> (operation - &quot;&lt;&quot;/&quot;&gt;&quot;)</p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#match">match</a> (operation - &quot;LIKE&quot;)</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value1: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the first value in the pair.</p>
+									</div>
 								</li>
 								<li>
 									<h5>operation: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the operation to apply to the pair of values. Supported operations:
+											&quot;==&quot; (&quot;=&quot;, &quot;EQ&quot;), &quot;!= &quot; (&quot;&lt;&gt;&quot;, &quot;NE&quot;); &quot;&lt;&quot;/&quot;&gt;&quot; (&quot;LT&quot;/&quot;GT&quot;), &quot;&lt;=&quot;/&quot;&gt;=&quot;
+										(&quot;LE&quot;/&quot;GE&quot;); &quot;LIKE&quot;.</p>
+									</div>
 								</li>
 								<li>
 									<h5>value2: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the second value in the pair.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -186,9 +237,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L42">validate/ObjectComparator.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L72">validate/ObjectComparator.ts:72</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not the first parameter is less than the second one
+									(value1 &lt; value2). If either value is null - <code>false</code> will be returned.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -212,9 +269,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L62">validate/ObjectComparator.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L101">validate/ObjectComparator.ts:101</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not a pair of values match. The values are converted to
+										strings using <a href="convert.stringconverter.html#tostring">StringConverter&#39;s toString</a> method to see if they
+									match. If both values are null - they are considered to match.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -238,9 +302,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/c986814/src/validate/ObjectComparator.ts#L52">validate/ObjectComparator.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/63e08c5/src/validate/ObjectComparator.ts#L86">validate/ObjectComparator.ts:86</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that checks whether or not the first parameter is greater than the second one
+									(value1 &gt; value2). If either value is null - <code>false</code> will be returned.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
