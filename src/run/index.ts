@@ -1,4 +1,9 @@
-/** @module run */
+/** 
+ * @module run 
+ * @preferred
+ * Contains design patterns for the standard lifecycle of objects (opened, 
+ * closed, openable, closable, runnable). Helper classes for lifecycle provisioning.  
+ */
 export { Parameters } from './Parameters';
 
 export { IParameterized } from './IParameterized';
