@@ -80,11 +80,13 @@ export class RecursiveObjectWriter {
 		}
 	}
 
-	//TODO
 	/**
+	 * Copies object properties from a source to the given destination. Calls 
+	 * [[RecursiveObjectReader.getProperties]] to retrieve properties from the source 
+	 * and [[RecursiveObjectWriter.setProperties]] to set them in the destination.
 	 * 
-	 * @param dest 
-	 * @param src 
+	 * @param dest 	the destination to which the properties are to be copied.
+	 * @param src 	the source from which the properties are to be copied.
 	 */
 	public static copyProperties(dest: any, src: any): void {
 		if (dest == null || src == null) return;

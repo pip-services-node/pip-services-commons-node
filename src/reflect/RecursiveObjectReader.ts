@@ -125,7 +125,6 @@ export class RecursiveObjectReader {
 		}
 	}
 
-	//TODO - check
 	/**
      * Static method that retrieves the names of an object's properties, including all nested property names. 
 	 * Nested properties' names represent the path to the property and are formatted using dot-notation.
