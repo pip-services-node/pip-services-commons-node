@@ -1,7 +1,9 @@
 /** @module data */
+/** @hidden */ 
 let uuid = require('uuid');
 
 // Maps for number <-> hex string conversion
+/** @hidden */ 
 let byteToHex = [];
 for (let i = 0; i < 256; i++) {
     byteToHex[i] = (i + 0x100).toString(16).substr(1);

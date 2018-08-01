@@ -1,4 +1,5 @@
 /** @module errors */
+/** @hidden */ 
 let _ = require('lodash');
 
 import { ErrorCategory } from './ErrorCategory';

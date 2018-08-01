@@ -1,5 +1,7 @@
 /** @module run */
+/** @hidden */ 
 let _ = require('lodash');
+/** @hidden */ 
 let async = require('async');
 
 import { Parameters } from './Parameters';

@@ -1,4 +1,5 @@
 /** @module validate */
+/** @hidden */ 
 let _ = require('lodash');
 
 import { Schema } from './Schema';

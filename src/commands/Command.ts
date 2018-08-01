@@ -1,4 +1,5 @@
 /** @module commands */
+/** @hidden */
 let _ = require('lodash');
 
 import { ICommand } from './ICommand';

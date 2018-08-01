@@ -1,6 +1,6 @@
 /** @module data */
 import { AnyValueArray } from "./AnyValueArray";
-
+/** @hidden */ 
 const _ = require('lodash');
 
 /**

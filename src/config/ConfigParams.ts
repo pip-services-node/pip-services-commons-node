@@ -1,4 +1,5 @@
 /** @module config */
+/** @hidden */
 let _ = require('lodash');
 
 import { StringValueMap } from '../data/StringValueMap';

@@ -1,5 +1,5 @@
 /** @module convert */
-let _ = require('lodash');
+/** @hidden */ let _ = require('lodash');
 
 import { TypeCode } from './TypeCode';
 import { StringConverter } from './StringConverter';

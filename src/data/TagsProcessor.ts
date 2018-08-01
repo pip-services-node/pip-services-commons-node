@@ -1,4 +1,5 @@
 /** @module data */
+/** @hidden */ 
 let _ = require('lodash');
 
 /**

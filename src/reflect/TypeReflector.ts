@@ -1,5 +1,7 @@
 /** @module reflect */
+/** @hidden */ 
 let _ = require('lodash');
+/** @hidden */ 
 let path = require("path");
 
 import { TypeDescriptor } from './TypeDescriptor';
