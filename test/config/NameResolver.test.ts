@@ -3,9 +3,9 @@ let assert = require('chai').assert;
 import { ConfigParams } from '../../src/config/ConfigParams';
 import { NameResolver } from '../../src/config/NameResolver';
 
-suite('JsonConfigReader', ()=> {
+suite('NameResolver', ()=> {
 
-    test('Read Config', (done) => {
+    test('Resolve Name', () => {
         var config = ConfigParams.fromTuples("id", "ABC");
         var name = NameResolver.resolve(config);
 		assert.equal(name, 'ABC');
@@ -13,16 +13,12 @@ suite('JsonConfigReader', ()=> {
         var config = ConfigParams.fromTuples("name", "ABC");
         var name = NameResolver.resolve(config);
 		assert.equal(name, 'ABC');
-
-        done();
     });    
 
-    test('Empty Name', (done) => {
+    test('Resolve Empty Name', () => {
         var config = ConfigParams.fromTuples();
         var name = NameResolver.resolve(config);
 		assert.isNull(name);
-
-        done();
     });    
 
 });
