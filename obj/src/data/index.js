@@ -1,6 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @module data */
+/**
+ * @module data
+ * @preferred
+ *
+ * Abstract, portable data types. For example – anytype, anyvalues, anyarrays, anymaps, stringmaps
+ * (on which many serializable objects are based on – configmap, filtermaps, connectionparams – all
+ * extend stringvaluemap). Includes standard design patterns for working with data (data paging,
+ * filtering, GUIDs).
+ */
 var AnyValue_1 = require("./AnyValue");
 exports.AnyValue = AnyValue_1.AnyValue;
 var AnyValueArray_1 = require("./AnyValueArray");

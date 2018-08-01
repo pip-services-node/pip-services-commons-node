@@ -12,14 +12,36 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ValidationResultType_1 = require("./ValidationResultType");
 var BadRequestException_1 = require("../errors/BadRequestException");
+/**
+ * Caused by errors in validation. If using strict mode, warnings will also raise validation exceptions.
+ */
 var ValidationException = /** @class */ (function (_super) {
     __extends(ValidationException, _super);
+    /**
+     * Creates a new ValidationException and initializes it using the given parameters.
+     * If no message is given, [[composeMessage]] will be used to generate a message using the
+     * given 'results'. Otherwise, the 'results' will be included as details.
+     *
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param message           (optional) the message to include in this exception.
+     * @param results           (optional) the validation results to include as details in this exception.
+     *
+     * @see [[composeMessage]]
+     * @see [[ValidationResult]]
+     * @see [[ApplicationException]]
+     */
     function ValidationException(correlationId, message, results) {
         var _this = _super.call(this, correlationId, "INVALID_DATA", message || ValidationException.composeMessage(results)) || this;
         if (results)
             _this.withDetails("results", results);
         return _this;
     }
+    /**
+     * Static method that generates a message string for the given [[ValidationResult validation results]].
+     *
+     * @param results   the validation results to convert into a message string.
+     * @returns the generated message string. For example: "Validation failed: <ErrorResult1>, <ErrorResult2>"
+     */
     ValidationException.composeMessage = function (results) {
         var builder = "Validation failed";
         if (results && results.length > 0) {
@@ -35,6 +57,20 @@ var ValidationException = /** @class */ (function (_super) {
         }
         return builder;
     };
+    /**
+     * Static method that returns a [[ValidationException]] when any [[ValidationResultType.Error Errors]]
+     * are present in the given [[ValidationResult validation results]]. If strict is set to <code>true</code>,
+     * then [[ValidationResultType.Warning Warnings]] will also cause a ValidationException to be returned.
+     *
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param results           the results of a validation.
+     * @param strict            defines whether or not an exception should be returned if a Warning
+     *                          is found in the results.
+     *
+     * @see [[ValidationResult]]
+     * @see [[ValidationException]]
+     * @see [[ValidationResultType]]
+     */
     ValidationException.fromResults = function (correlationId, results, strict) {
         var hasErrors = false;
         for (var i = 0; i < results.length; i++) {
@@ -46,6 +82,20 @@ var ValidationException = /** @class */ (function (_super) {
         }
         return hasErrors ? new ValidationException(correlationId, null, results) : null;
     };
+    /**
+     * Static method that throws a [[ValidationException]] when any [[ValidationResultType.Error Errors]]
+     * are present in the [[ValidationResult validation results]]. If strict is set to <code>true</code>,
+     * then [[ValidationResultType.Warning Warnings]] will also cause a ValidationException to be thrown.
+     *
+     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param results           the results of a validation.
+     * @param strict            defines whether or not an exception should be returned if a Warning
+     *                          is found in the results.
+     *
+     * @see [[ValidationResult]]
+     * @see [[ValidationException]]
+     * @see [[ValidationResultType]]
+     */
     ValidationException.throwExceptionIfNeeded = function (correlationId, results, strict) {
         var ex = ValidationException.fromResults(correlationId, results, strict);
         if (ex)

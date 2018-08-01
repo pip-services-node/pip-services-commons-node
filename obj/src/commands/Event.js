@@ -55,7 +55,7 @@ var Event = /** @class */ (function () {
      *
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param args              the parameters to raise this event with.
-     * @throws an [[InvocationException]], if the event fails to be raised.
+     * @throws an [[InvocationException]] if the event fails to be raised.
      */
     Event.prototype.notify = function (correlationId, args) {
         for (var i = 0; i < this._listeners.length; i++) {

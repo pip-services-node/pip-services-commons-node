@@ -1,6 +1,12 @@
 /**
  * Interface for creating sets of component references, which have the ability to add new references,
  * find reference using locators, or remove reference from the set.
+ *
+ * Used as part of the inversion of control design pattern, specifically - inversion of dependency.
+ *
+ * In PipServices, the "location design pattern” is used, which is much simpler than dependency injection.
+ * It is simple to implement and portable between languages. Used for building various containers, as well as
+ * for testing objects.
  */
 export interface IReferences {
     /**
@@ -57,7 +63,7 @@ export interface IReferences {
      * @param locator 	the locator to find references by.
      * @returns a list, containing all component references found.
      *
-     * @throws a [[ReferenceException]], if no component references are found by the given locator and type.
+     * @throws a [[ReferenceException]] if no component references are found by the given locator and type.
      */
     getRequired<T>(locator: any): T[];
     /**
@@ -66,7 +72,7 @@ export interface IReferences {
      * last-added references.
      *
      * @param locator 	the locator to find a reference by.
-     * @returns the component reference found or <code>null</code>, if none were found.
+     * @returns the component reference found or <code>null</code> (if none were found).
      */
     getOneOptional<T>(locator: any): T;
     /**
@@ -76,7 +82,7 @@ export interface IReferences {
      *
      * @param locator 	the locator to find a reference by.
      * @returns the component reference found.
-     * @throws a [[ReferenceException]], if the requested component was not found.
+     * @throws a [[ReferenceException]] if the requested component was not found.
      */
     getOneRequired<T>(locator: any): T;
     /**
@@ -84,10 +90,10 @@ export interface IReferences {
      * the specified query criteria and the specified type.
      *
      * @param locator 	the locator to find a reference by.
-     * @param required 	forces to raise an exception, if no reference is found.
+     * @param required 	forces to raise an exception if no reference is found.
      * @returns a list of found references.
      *
-     * @throws a [[ReferenceException]], if the requested component was not found.
+     * @throws a [[ReferenceException]] if the requested component was not found.
      */
     find<T>(locator: any, required: boolean): T[];
 }

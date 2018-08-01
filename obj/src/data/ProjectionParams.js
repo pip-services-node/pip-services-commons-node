@@ -10,8 +10,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AnyValueArray_1 = require("./AnyValueArray");
 /** @module data */
+var AnyValueArray_1 = require("./AnyValueArray");
 var _ = require('lodash');
 /**
  * Class that includes standard design patterns for data projection. Projection parameters
@@ -36,6 +36,9 @@ var ProjectionParams = /** @class */ (function (_super) {
         }
         return _this;
     }
+    /**
+     * @returns these ProjectionParams as a comma-separated values string.
+     */
     ProjectionParams.prototype.toString = function () {
         var builder = "";
         for (var index = 0; index < this.length; index++) {
@@ -46,6 +49,15 @@ var ProjectionParams = /** @class */ (function (_super) {
         }
         return builder;
     };
+    /**
+     * Static method that creates a ProjectionParams object using the given value.
+     *
+     * @param value     the value to initialize the new ProjectionParams with. If it is
+     *                  not an array, [[AnyValueArray.fromValue]] used for conversion.
+     * @returns the ProjectionParams object that was generated using 'value'.
+     *
+     * @see [[AnyValueArray.fromValue]]
+     */
     ProjectionParams.fromValue = function (value) {
         if (!_.isArray(value))
             value = AnyValueArray_1.AnyValueArray.fromValue(value);

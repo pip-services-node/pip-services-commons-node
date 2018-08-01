@@ -8,11 +8,11 @@
 export { IValidationRule } from './IValidationRule';
 export { AndRule } from './AndRule';
 export { ArraySchema } from './ArraySchema';
-export { AtLeastOneExistRule } from './AtLeastOneExistRule';
+export { AtLeastOneExistsRule } from './AtLeastOneExistsRule';
 export { ExcludedRule } from './ExcludedRule';
 export { IncludedRule } from './IncludedRule';
 export { NotRule } from './NotRule';
-export { OnlyOneExistRule } from './OnlyOneExistRule';
+export { OnlyOneExistsRule } from './OnlyOneExistsRule';
 export { OrRule } from './OrRule';
 export { PropertiesComparisonRule } from './PropertiesComparisonRule';
 export { ValueComparisonRule } from './ValueComparisonRule';

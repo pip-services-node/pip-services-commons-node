@@ -102,7 +102,7 @@ var AnyValueMap = /** @class */ (function () {
     /**
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key without any conversions or
-     *                  all items, if 'key' is undefined or omitted.
+     *                  all items (if 'key' is undefined or omitted).
      */
     AnyValueMap.prototype.getAsObject = function (key) {
         if (key === void 0) { key = undefined; }
@@ -161,9 +161,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -192,9 +192,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -223,9 +223,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -254,9 +254,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -285,9 +285,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -316,9 +316,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -347,9 +347,9 @@ var AnyValueMap = /** @class */ (function () {
     };
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -389,7 +389,7 @@ var AnyValueMap = /** @class */ (function () {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *

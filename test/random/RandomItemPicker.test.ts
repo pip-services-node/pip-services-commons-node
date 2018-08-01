@@ -1,23 +1,23 @@
 let assert = require('chai').assert;
 
-import { RandomArray } from '../../src/random/RandomArray';
+import { RandomItemPicker } from '../../src/random/RandomItemPicker';
 
-suite('RandomArray', ()=> {
+suite('RandomItemPicker', ()=> {
 
     test('Pick', () => {
         let listEmpty = [];
-    	let value = RandomArray.pick(listEmpty);
+    	let value = RandomItemPicker.pick(listEmpty);
     	assert.isTrue(value == null); 
     	
         let array: number[] = [1, 2];
-    	value = RandomArray.pick<number>(array);
+    	value = RandomItemPicker.pick<number>(array);
     	assert.isTrue(value == 1 || value == 2); 
     	
         let list: number[] = [];
-    	assert.isNull(RandomArray.pick(list));
+    	assert.isNull(RandomItemPicker.pick(list));
     	
         list = [1, 2];
-    	value = RandomArray.pick(array);
+    	value = RandomItemPicker.pick(array);
     	assert.isTrue(value == 1 || value == 2); 
    });
 

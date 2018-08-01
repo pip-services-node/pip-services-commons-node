@@ -9,7 +9,7 @@ import { ObjectReader } from '../reflect/ObjectReader';
  * Validation rule that requires at least one of the properties that are set to be present for validation 
  * to pass.
  */
-export class AtLeastOneExistRule implements IValidationRule {
+export class AtLeastOneExistsRule implements IValidationRule {
     private readonly _properties: string[];
 
     /**

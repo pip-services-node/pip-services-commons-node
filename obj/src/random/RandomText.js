@@ -15,25 +15,25 @@ var RandomText = /** @class */ (function () {
      * @returns the name of a random color. Returned name is capitalized.
      */
     RandomText.color = function () {
-        return RandomString_1.RandomString.pick(RandomText._colors);
+        return RandomString_1.RandomString.pickString(RandomText._colors);
     };
     /**
      * @returns the name of a random object. Returned name is capitalized.
      */
     RandomText.stuff = function () {
-        return RandomString_1.RandomString.pick(RandomText._stuffs);
+        return RandomString_1.RandomString.pickString(RandomText._stuffs);
     };
     /**
      * @returns a random adjective. Returned adjective is capitalized.
      */
     RandomText.adjective = function () {
-        return RandomString_1.RandomString.pick(RandomText._adjectives);
+        return RandomString_1.RandomString.pickString(RandomText._adjectives);
     };
     /**
      * @returns a random verb. Returned verb is capitalized.
      */
     RandomText.verb = function () {
-        return RandomString_1.RandomString.pick(RandomText._verbs);
+        return RandomString_1.RandomString.pickString(RandomText._verbs);
     };
     /**
      * @returns a random phrase, consisting of random words. Words will be separated by spaces,
@@ -46,9 +46,9 @@ var RandomText = /** @class */ (function () {
         if (size <= 0)
             return "";
         var result = '';
-        result += RandomString_1.RandomString.pick(RandomText._allWords);
+        result += RandomString_1.RandomString.pickString(RandomText._allWords);
         while (result.length < size) {
-            result += " " + RandomString_1.RandomString.pick(RandomText._allWords).toLowerCase();
+            result += " " + RandomString_1.RandomString.pickString(RandomText._allWords).toLowerCase();
         }
         return result;
     };
@@ -59,11 +59,11 @@ var RandomText = /** @class */ (function () {
     RandomText.fullName = function () {
         var result = '';
         if (RandomBoolean_1.RandomBoolean.chance(3, 5))
-            result += RandomString_1.RandomString.pick(RandomText._namePrefixes) + " ";
-        result += RandomString_1.RandomString.pick(RandomText._firstNames)
-            + " " + RandomString_1.RandomString.pick(RandomText._lastNames);
+            result += RandomString_1.RandomString.pickString(RandomText._namePrefixes) + " ";
+        result += RandomString_1.RandomString.pickString(RandomText._firstNames)
+            + " " + RandomString_1.RandomString.pickString(RandomText._lastNames);
         if (RandomBoolean_1.RandomBoolean.chance(5, 10))
-            result += " " + RandomString_1.RandomString.pick(RandomText._nameSuffixes);
+            result += " " + RandomString_1.RandomString.pickString(RandomText._nameSuffixes);
         return result;
     };
     /**
@@ -71,7 +71,7 @@ var RandomText = /** @class */ (function () {
      *          Returned word is capitalized.
      */
     RandomText.word = function () {
-        return RandomString_1.RandomString.pick(RandomText._allWords);
+        return RandomString_1.RandomString.pickString(RandomText._allWords);
     };
     /**
      * @param min   minimum number of words in the sequence. Sequence will contain 'min' random words if 'max' is omitted.
@@ -85,7 +85,7 @@ var RandomText = /** @class */ (function () {
         var result = '';
         var count = RandomInteger_1.RandomInteger.nextInteger(min, max || min);
         for (var i = 0; i < count; i++)
-            result += RandomString_1.RandomString.pick(RandomText._allWords);
+            result += RandomString_1.RandomString.pickString(RandomText._allWords);
         return result;
     };
     /**
@@ -120,9 +120,9 @@ var RandomText = /** @class */ (function () {
         maxSize = Math.max(minSize, maxSize || minSize);
         var size = RandomInteger_1.RandomInteger.nextInteger(minSize, maxSize);
         var result = '';
-        result += RandomString_1.RandomString.pick(RandomText._allWords);
+        result += RandomString_1.RandomString.pickString(RandomText._allWords);
         while (result.length < size) {
-            var next = RandomString_1.RandomString.pick(RandomText._allWords);
+            var next = RandomString_1.RandomString.pickString(RandomText._allWords);
             if (RandomBoolean_1.RandomBoolean.chance(4, 6))
                 next = " " + next.toLowerCase();
             else if (RandomBoolean_1.RandomBoolean.chance(2, 5))

@@ -17,7 +17,7 @@ var Closer = /** @class */ (function () {
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param component 		the component that is to be closed.
      * @param callback 			the function to call when the closing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      *
      * @see [[IClosable]]
      */
@@ -44,7 +44,7 @@ var Closer = /** @class */ (function () {
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param components 		the list of components that are to be closed.
      * @param callback 			the function to call when the closing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      *
      * @see [[closeOne]]
      * @see [[IClosable]]

@@ -10,6 +10,10 @@ var IdGenerator_1 = require("../data/IdGenerator");
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]]
  * is capable of processing.
  *
+ * Event listeners and command interceptors can also be added to a command set. If command interceptors are
+ * added before the commands themselves, then execution chains will be built for each command that is added.
+ * Otherwise - no execution chains will be generated.
+ *
  * @see [[Command]]
  * @see [[ICommandable]]
  */
@@ -25,7 +29,7 @@ var CommandSet = /** @class */ (function () {
         this._eventsByName = {};
     }
     /**
-     * @returns the commands included in this CommandSet.
+     * @returns the commands included in this command set.
      *
      * @see [[ICommand]]
      */
@@ -33,7 +37,7 @@ var CommandSet = /** @class */ (function () {
         return this._commands;
     };
     /**
-     * @returns the events included in this CommandSet.
+     * @returns the events included in this command set.
      *
      * @see [[IEvent]]
      */
@@ -41,7 +45,7 @@ var CommandSet = /** @class */ (function () {
         return this._events;
     };
     /**
-     * Searches for a command by its name in this CommandSet.
+     * Searches for a command by its name in this command set.
      *
      * @param commandName   the name of the command to search for.
      *
@@ -51,7 +55,7 @@ var CommandSet = /** @class */ (function () {
         return this._commandsByName[commandName];
     };
     /**
-     * Searches for an event by its name in this CommandSet.
+     * Searches for an event by its name in this command set.
      *
      * @param eventName     the name of the event to search for.
      *
@@ -61,8 +65,13 @@ var CommandSet = /** @class */ (function () {
         return this._eventsByName[eventName];
     };
     /**
-     * Adds the command passed to the private command chain '_commandsByName', after
-     * linking it with all of the command interceptors of this CommandSet.
+     * Builds a command chain(*) for the given command using the command interceptors
+     * present in this command set. Once the chain is built, it is added to this object's private
+     * '_commandsByName' list.
+     *
+     * (*)A command chain (execution chain) consists of command interceptors, through which a given
+     * command is passed. Each command interceptor runs perpendicular logic (aspects, such as
+     * logging, caching, blocking) before (or instead of) actually calling the command.
      *
      * @param command
      */
@@ -73,8 +82,9 @@ var CommandSet = /** @class */ (function () {
         this._commandsByName[next.getName()] = next;
     };
     /**
-     * Rebuilds the private command chain '_commandsByName' using
-     * the commands stored in this CommandSet.
+     * Rebuilds the private '_commandsByName' list using the commands stored in this command set.
+     * If interceptors are present in this command set, then a command (execution) chain will be
+     * built for each command.
      *
      * @see [[buildCommandChain]]
      */
@@ -86,7 +96,7 @@ var CommandSet = /** @class */ (function () {
         }
     };
     /**
-     * Adds a [[ICommand command]] to this CommandSet.
+     * Adds a [[ICommand command]] to this command set.
      *
      * @param command   the command to add.
      *
@@ -97,7 +107,7 @@ var CommandSet = /** @class */ (function () {
         this.buildCommandChain(command);
     };
     /**
-     * Adds multiple [[ICommand commands]] to this CommandSet.
+     * Adds multiple [[ICommand commands]] to this command set.
      *
      * @param commands  the array of commands to add.
      *
@@ -108,7 +118,7 @@ var CommandSet = /** @class */ (function () {
             this.addCommand(commands[i]);
     };
     /**
-     * Adds an [[IEvent event]] to this CommandSet.
+     * Adds an [[IEvent event]] to this command set.
      *
      * @param event     the event to add.
      *
@@ -119,7 +129,7 @@ var CommandSet = /** @class */ (function () {
         this._eventsByName[event.getName()] = event;
     };
     /**
-     * Adds multiple [[IEvent events]] to this CommandSet.
+     * Adds multiple [[IEvent events]] to this command set.
      *
      * @param events    the array of events to add.
      *
@@ -130,8 +140,8 @@ var CommandSet = /** @class */ (function () {
             this.addEvent(events[i]);
     };
     /**
-     * Adds all of the commands and events included in the passed CommandSet
-     * to this CommandSet.
+     * Adds all of the commands and events included in the passed CommandSet object
+     * to this command set.
      *
      * @param commandSet    the CommandSet to add.
      */
@@ -140,7 +150,7 @@ var CommandSet = /** @class */ (function () {
         this.addEvents(commandSet.getEvents());
     };
     /**
-     * Adds a [[IEventListener listener]] to all of the events in this CommandSet.
+     * Adds a [[IEventListener listener]] to all of the events in this command set.
      *
      * @param listener  the listener to add.
      *
@@ -151,7 +161,7 @@ var CommandSet = /** @class */ (function () {
             this._events[i].addListener(listener);
     };
     /**
-     * Removes a [[IEventListener listener]] from all of the events in this CommandSet.
+     * Removes a [[IEventListener listener]] from all of the events in this command set.
      *
      * @param listener  the listener to remove.
      *
@@ -162,7 +172,7 @@ var CommandSet = /** @class */ (function () {
             this._events[i].removeListener(listener);
     };
     /**
-     * Adds a [[ICommandInterceptor command interceptor]] to this CommandSet.
+     * Adds a [[ICommandInterceptor command interceptor]] to this command set.
      *
      * @param interceptor     the interceptor to add.
      *
@@ -180,7 +190,7 @@ var CommandSet = /** @class */ (function () {
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error (for example: a ValidationException can be thrown).
-     * @throws a [[BadRequestException]], if no command exists with the given name.
+     * @throws a [[BadRequestException]] if no command exists with the given name.
      *
      * @see [[ICommand]]
      * @see [[Parameters]]
@@ -228,7 +238,7 @@ var CommandSet = /** @class */ (function () {
     };
     /**
      * Raises the event with the given name and notifies the event's listeners using the
-     * correlationId and [[Parameters parameters]] (arguments) given.
+     * correlation id and [[Parameters parameters]] (arguments) given.
      *
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param eventName         the name of the event that is to be raised.

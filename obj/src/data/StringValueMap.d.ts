@@ -55,7 +55,7 @@ export declare class StringValueMap {
     /**
      * @param key       key of the item to retrieve.
      * @returns         the item with the given key without any conversions or
-     *                  all items, if 'key' is undefined or omitted.
+     *                  all items (if 'key' is undefined or omitted).
      */
     getAsObject(key?: string): any;
     /**
@@ -84,9 +84,9 @@ export declare class StringValueMap {
     getAsString(key: string): string;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -107,9 +107,9 @@ export declare class StringValueMap {
     getAsBoolean(key: string): boolean;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -130,9 +130,9 @@ export declare class StringValueMap {
     getAsInteger(key: string): number;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -153,9 +153,9 @@ export declare class StringValueMap {
     getAsLong(key: string): number;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -176,9 +176,9 @@ export declare class StringValueMap {
     getAsFloat(key: string): number;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -199,9 +199,9 @@ export declare class StringValueMap {
     getAsDouble(key: string): number;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -222,9 +222,9 @@ export declare class StringValueMap {
     getAsDateTime(key: string): Date;
     /**
      * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -256,7 +256,7 @@ export declare class StringValueMap {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item with the given key as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *

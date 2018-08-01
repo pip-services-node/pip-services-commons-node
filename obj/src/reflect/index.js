@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @module reflect */
+/**
+ * @module reflect
+ * @preferred
+ * Contains classes for data reflection. Reflects objects into parameters, methods.
+ * Most programming languages contain reflections, but they are all implemented
+ * differently. In the PipService framework, dynamic data types are often used. So as
+ * to not rewrite these dynamic data types differently for each language,
+ * this cross-language reflection package was written. All dynamic data types that are
+ * built on top of this package are portable from one language to another.
+ */
 var MethodReflector_1 = require("./MethodReflector");
 exports.MethodReflector = MethodReflector_1.MethodReflector;
 var ObjectReader_1 = require("./ObjectReader");

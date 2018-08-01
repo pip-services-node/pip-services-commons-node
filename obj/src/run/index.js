@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @module run */
+/**
+ * @module run
+ * @preferred
+ * Contains design patterns for the standard lifecycle of objects (opened,
+ * closed, openable, closable, runnable). Helper classes for lifecycle provisioning.
+ */
 var Parameters_1 = require("./Parameters");
 exports.Parameters = Parameters_1.Parameters;
 var Opener_1 = require("./Opener");

@@ -21,7 +21,7 @@ export declare class RandomString {
      * @param values    strings to pick from.
      * @returns         randomly picked string.
      */
-    static pick(values: string[]): string;
+    static pickString(values: string[]): string;
     /**
      * Distorts the string passed as 'value' by making it lower case and by
      * either adding a symbol ("_,.:-/.[].{},#-!,$=%.+^.&*-() ") to the end of the string,

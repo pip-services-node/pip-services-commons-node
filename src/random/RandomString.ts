@@ -33,7 +33,7 @@ export class RandomString {
      * @param values    strings to pick from.
      * @returns         randomly picked string.
      */
-    public static pick(values: string[]): string {
+    public static pickString(values: string[]): string {
         if (values == null || values.length == 0)
             return '';
 

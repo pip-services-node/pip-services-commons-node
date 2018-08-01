@@ -91,7 +91,7 @@ var AnyValueArray = /** @class */ (function (_super) {
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index without any conversions or
-     *                  all items, if 'index' is undefined or omitted.
+     *                  all items (if 'index' is undefined or omitted).
      */
     AnyValueArray.prototype.getAsObject = function (index) {
         if (index === void 0) { index = undefined; }
@@ -147,9 +147,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -178,9 +178,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -209,9 +209,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -240,9 +240,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -271,9 +271,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -302,9 +302,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -333,9 +333,9 @@ var AnyValueArray = /** @class */ (function (_super) {
     };
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -375,7 +375,7 @@ var AnyValueArray = /** @class */ (function (_super) {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *

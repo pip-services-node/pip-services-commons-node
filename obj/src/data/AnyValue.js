@@ -81,9 +81,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsStringWithDefault(null);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -107,9 +107,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsBooleanWithDefault(false);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -133,9 +133,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsIntegerWithDefault(0);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -159,9 +159,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsLongWithDefault(0);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -185,9 +185,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsFloatWithDefault(0);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -211,9 +211,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsDoubleWithDefault(0);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -237,9 +237,9 @@ var AnyValue = /** @class */ (function () {
         return this.getAsDateTimeWithDefault(null);
     };
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -275,7 +275,7 @@ var AnyValue = /** @class */ (function () {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *

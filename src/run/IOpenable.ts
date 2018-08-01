@@ -11,7 +11,7 @@ export interface IOpenable extends IClosable {
 	 * 
 	 * @returns true if the component has been opened and false otherwise.
 	 */
-	isOpened(): boolean;
+	isOpen(): boolean;
 
 	/**
 	 * Abstract method that will contain the logic for opening a component and establishing 

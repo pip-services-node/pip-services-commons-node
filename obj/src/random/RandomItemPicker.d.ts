@@ -1,7 +1,7 @@
 /**
  * Allows for picking items at random from an array of type T.
  */
-export declare class RandomArray {
+export declare class RandomItemPicker {
     /**
      * Picks an item at random from the array 'values'.
      *

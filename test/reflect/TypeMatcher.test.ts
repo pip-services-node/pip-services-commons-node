@@ -6,48 +6,48 @@ import { TypeMatcher } from '../../src/reflect/TypeMatcher';
 suite('TypeMatcher', ()=> {
 
    test('Match Integer', () => {
-		assert.isTrue(TypeMatcher.matchValueByName("int", 123));
-		assert.isTrue(TypeMatcher.matchValueByName("Integer", 123));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.Long, 123));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("int", 123));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("Integer", 123));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.Long, 123));
    });
 
    test('Match Boolean', () => {
-		assert.isTrue(TypeMatcher.matchValueByName("bool", true));
-		assert.isTrue(TypeMatcher.matchValueByName("Boolean", true));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.Boolean, true));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("bool", true));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("Boolean", true));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.Boolean, true));
    });
 
    test('Match Double', () => {
-		assert.isTrue(TypeMatcher.matchValueByName("double", 123.456));
-		assert.isTrue(TypeMatcher.matchValueByName("Double", 123.456));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.Double, 123.456));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("double", 123.456));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("Double", 123.456));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.Double, 123.456));
    });
 
    test('Match String', () => {
-		assert.isTrue(TypeMatcher.matchValueByName("string", "ABC"));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.String, "ABC"));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("string", "ABC"));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.String, "ABC"));
    });
 
    test('Match DateTime', () => {
-		assert.isTrue(TypeMatcher.matchValueByName("date", new Date()));
-		assert.isTrue(TypeMatcher.matchValueByName("DateTime", new Date()));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.DateTime, new Date()));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("date", new Date()));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("DateTime", new Date()));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.DateTime, new Date()));
    });
 
    test('Match Map', () => {
         let map = {};
-		assert.isTrue(TypeMatcher.matchValueByName("map", map));
-		assert.isTrue(TypeMatcher.matchValueByName("dict", map));
-		assert.isTrue(TypeMatcher.matchValueByName("Dictionary", map));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.Map, map));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("map", map));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("dict", map));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("Dictionary", map));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.Map, map));
    });
 
    test('Match Array', () => {
         let array: number[] = [];
-		assert.isTrue(TypeMatcher.matchValueByName("list", array));
-		assert.isTrue(TypeMatcher.matchValueByName("array", array));
-		assert.isTrue(TypeMatcher.matchValueByName("object[]", array));
-		assert.isTrue(TypeMatcher.matchValue(TypeCode.Array, array));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("list", array));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("array", array));
+		assert.isTrue(TypeMatcher.matchValuesTypeByName("object[]", array));
+		assert.isTrue(TypeMatcher.matchValuesType(TypeCode.Array, array));
    });
 
 });

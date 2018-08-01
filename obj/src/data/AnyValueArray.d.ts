@@ -48,7 +48,7 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     /**
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index without any conversions or
-     *                  all items, if 'index' is undefined or omitted.
+     *                  all items (if 'index' is undefined or omitted).
      */
     getAsObject(index?: number): any;
     /**
@@ -77,9 +77,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsString(index: number): string;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -100,9 +100,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsBoolean(index: number): boolean;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -123,9 +123,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsInteger(index: number): number;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -146,9 +146,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsLong(index: number): number;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -169,9 +169,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsFloat(index: number): number;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -192,9 +192,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsDouble(index: number): number;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -215,9 +215,9 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
     getAsDateTime(index: number): Date;
     /**
      * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -249,7 +249,7 @@ export declare class AnyValueArray extends Array<any> implements ICloneable {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      *
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an object of type 'type' or the defaultValue,
      *                          if conversion is not possible.
      *

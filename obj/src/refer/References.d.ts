@@ -51,12 +51,30 @@ export declare class References implements IReferences {
      */
     getAll(): any[];
     /**
+     * Gets a component references that matches the provided locator and the specified type. The search
+     * is performed, starting from the last-added references.
+     *
+     * @param locator 	the locator to find a reference by.
+     * @returns the first found component reference or <code>null</code> (if none were found).
+     */
+    getOneOptional<T>(locator: any): T;
+    /**
+     * Gets a component reference that matches the provided locator and the specified type.
+     * The search is performed, starting from the last-added references.
+     *
+     * If no references are found, an exception will be thrown by [[References.find]].
+     *
+     * @param locator 	the locator to find a reference by.
+     * @returns the first found component reference.
+     */
+    getOneRequired<T>(locator: any): T;
+    /**
      * Gets a list of component references that match the provided locator and the specified type.
      *
      * @param locator 	the locator to find references by.
      * @returns a list, containing all component references found.
      */
-    getOneOptional<T>(locator: any): T;
+    getOptional<T>(locator: any): T[];
     /**
      * Gets a list of component references that match the provided locator and the specified type.
      * If no references are found, an exception will be thrown.
@@ -64,37 +82,21 @@ export declare class References implements IReferences {
      * @param locator 	the locator to find references by.
      * @returns a list, containing all component references found.
      */
-    getOneRequired<T>(locator: any): T;
-    /**
-     * Gets the component reference that matches the provided locator and the specified type.
-     * The search is performed, starting from the last-added references.
-     *
-     * @param locator 	the locator to find a reference by.
-     * @returns the component reference found or <code>null</code>, if none were found.
-     */
-    getOptional<T>(locator: any): T[];
-    /**
-     * Gets the component reference that matches the provided locator and the specified type.
-     * The search is performed, starting from the last-added references.
-     *
-     * @param locator 	the locator to find a reference by.
-     * @returns the component reference found.
-     */
     getRequired<T>(locator: any): T[];
     /**
      * Finds all references that match the specified query criteria and the specified type.
      *
      * @param locator 	the locator to find a reference by.
-     * @param required 	forces to raise an exception, if no reference is found.
+     * @param required 	forces to raise an exception if no reference is found.
      * @returns a list of found references.
      *
-     * @throws a Error, if the locator is <code>null</code>.
-     * @throws a [[ReferenceException]], if required is set to <code>true</code>
+     * @throws an Error if the locator is <code>null</code>.
+     * @throws a [[ReferenceException]] if 'required' was set to <code>true</code>
      *          and nothing was found.
      */
     find<T>(locator: any, required: boolean): T[];
     /**
-     * Static method that creates a new References objects using the tuples arrays that are passed as parameters.
+     * Static method that creates a new References object using the tuples arrays that are passed as parameters.
      *
      * @param tuples    the tuples arrays to initialize the new References object with.
      *                  A tuples array contains index-based pairs, such as [key1,value1,key2,value2].

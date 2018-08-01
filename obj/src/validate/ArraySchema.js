@@ -18,20 +18,48 @@ var ValidationResultType_1 = require("./ValidationResultType");
 var ObjectReader_1 = require("../reflect/ObjectReader");
 var TypeCode_1 = require("../convert/TypeCode");
 var TypeConverter_1 = require("../convert/TypeConverter");
+/**
+ * Used to validate arrays, as well as their values' data types.
+ */
 var ArraySchema = /** @class */ (function (_super) {
     __extends(ArraySchema, _super);
+    /**
+     * Creates a new ArraySchema, which can be used to validate arrays that contain
+     * values of the data type 'valueType'.
+     *
+     * @param valueType     the [[TypeCode data type]] to check for when validating an array's values.
+     *
+     * @see [[TypeCode]]
+     */
     function ArraySchema(valueType) {
         var _this = _super.call(this) || this;
         _this._valueType = valueType;
         return _this;
     }
     Object.defineProperty(ArraySchema.prototype, "valueType", {
+        /**
+         * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
+         */
         get: function () {
             return this._valueType;
         },
         enumerable: true,
         configurable: true
     });
+    /**
+     * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is an array,
+     * additionally validates that all values stored are objects of the data type
+     * [[valueType that is set]] in this ArraySchema object.
+     *
+     * @param path      the name of the value that is to be validated.
+     * @param value     the value that is to be validated.
+     * @param results   the results of the validation. If 'value' is not an array - the
+     *                  results will contain a [[ValidationResultType.Error validation error]].
+     *
+     * @see [[Schema.performValidation]]
+     * @see [[valueType]]
+     * @see [[ValidationResultType.Error]]
+     */
     ArraySchema.prototype.performValidation = function (path, value, results) {
         var name = path || "value";
         value = ObjectReader_1.ObjectReader.getValue(value);

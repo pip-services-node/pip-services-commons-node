@@ -18,7 +18,7 @@ var Executor = /** @class */ (function () {
      * @param component 		the component that is to be executed.
      * @param args              the parameters (arguments) to pass to the component for its execution.
      * @param callback 			the function to call when execution is complete. It will be called with
-     *                          the result of the execution or with an error, if one is raised.
+     *                          the result of the execution or with an error (if one is raised).
      *
      * @see [[IExecutable]]
      * @see [[Parameters]]
@@ -44,7 +44,7 @@ var Executor = /** @class */ (function () {
      * @param components 		the list of components that are to be executed.
      * @param args              the parameters (arguments) to pass to the components for their execution.
      * @param callback 			the function to call when execution is complete. It will be called with
-     *                          the results of all executions or with an error, if one is raised.
+     *                          the results of all executions or with an error (if one is raised).
      *
      * @see [[executeOne]]
      * @see [[IExecutable]]

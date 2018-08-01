@@ -31,7 +31,7 @@ export declare class Command implements ICommand {
      * @param args          the parameters (arguments) to pass to this command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised,
      *                      then it will be called with the error.
-     * @throws an [[InvocationException]], if the execution fails.
+     * @throws an [[InvocationException]] if the execution fails.
      *
      * @see [[Parameters]]
      * @see [[InvocationException]]
@@ -42,7 +42,7 @@ export declare class Command implements ICommand {
      * using the set schema.
      *
      * @param args  the parameters (arguments) to validate using this command's schema.
-     * @returns     an array of ValidationResults or an empty array, if no schema is set.
+     * @returns     an array of ValidationResults or an empty array (if no schema is set).
      *
      * @see [[Parameters]]
      * @see [[ValidationResult]]

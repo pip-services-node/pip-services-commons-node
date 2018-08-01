@@ -14,12 +14,12 @@ suite('ApplicationException', ()=> {
     const Message: string = "message";
 
     beforeEach(function() {
-        _ex = new Error("Couse exception");
+        _ex = new Error("Cause exception");
 
         _appEx = new ApplicationException(Category, CorrelationId, Code, Message);
     });
 
-    test('With Couse', () => {
+    test('With Cause', () => {
         _appEx.withCause(_ex);
 
         assert.equal(_ex.message, _appEx.cause);

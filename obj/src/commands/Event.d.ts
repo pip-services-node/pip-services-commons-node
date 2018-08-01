@@ -44,7 +44,7 @@ export declare class Event implements IEvent {
      *
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param args              the parameters to raise this event with.
-     * @throws an [[InvocationException]], if the event fails to be raised.
+     * @throws an [[InvocationException]] if the event fails to be raised.
      */
     notify(correlationId: string, args: Parameters): void;
 }

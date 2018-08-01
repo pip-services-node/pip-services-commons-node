@@ -27,7 +27,7 @@ var RandomString = /** @class */ (function () {
      * @param values    strings to pick from.
      * @returns         randomly picked string.
      */
-    RandomString.pick = function (values) {
+    RandomString.pickString = function (values) {
         if (values == null || values.length == 0)
             return '';
         var index = RandomInteger_1.RandomInteger.nextInteger(values.length);

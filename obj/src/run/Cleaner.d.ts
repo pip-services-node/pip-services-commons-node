@@ -12,7 +12,7 @@ export declare class Cleaner {
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param component 		the component that is to be cleaned.
      * @param callback 			the function to call when the clearing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      *
      * @see [[ICleanable]]
      */
@@ -25,7 +25,7 @@ export declare class Cleaner {
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param components 		the list of components that are to be cleaned.
      * @param callback 			the function to call when the clearing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      *
      * @see [[clearOne]]
      * @see [[ICleanable]]

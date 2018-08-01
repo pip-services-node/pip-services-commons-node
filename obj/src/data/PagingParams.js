@@ -28,7 +28,7 @@ var PagingParams = /** @class */ (function () {
      * @returns 		the number of result to skip or 'minSkip',
      * 					if the 'skip' field is less than 'minSkip'.
      */
-    PagingParams.prototype.getSkip = function (minSkip) {
+    PagingParams.prototype.getSkipAmount = function (minSkip) {
         if (this.skip == null)
             return minSkip;
         if (this.skip < minSkip)
@@ -40,7 +40,7 @@ var PagingParams = /** @class */ (function () {
      * @returns 		the number of result to take or 'maxTake',
      * 					if the 'take' field is more than 'maxTake'.
      */
-    PagingParams.prototype.getTake = function (maxTake) {
+    PagingParams.prototype.getTakeAmount = function (maxTake) {
         if (this.take == null)
             return maxTake;
         if (this.take < 0)

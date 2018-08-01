@@ -5,8 +5,8 @@ var RandomInteger_1 = require("./RandomInteger");
 /**
  * Allows for picking items at random from an array of type T.
  */
-var RandomArray = /** @class */ (function () {
-    function RandomArray() {
+var RandomItemPicker = /** @class */ (function () {
+    function RandomItemPicker() {
     }
     /**
      * Picks an item at random from the array 'values'.
@@ -14,12 +14,12 @@ var RandomArray = /** @class */ (function () {
      * @param values    array of items to pick from.
      * @returns         picked item.
      */
-    RandomArray.pick = function (values) {
+    RandomItemPicker.pick = function (values) {
         if (values == null || values.length == 0)
             return null;
         return values[RandomInteger_1.RandomInteger.nextInteger(values.length)];
     };
-    return RandomArray;
+    return RandomItemPicker;
 }());
-exports.RandomArray = RandomArray;
-//# sourceMappingURL=RandomArray.js.map
+exports.RandomItemPicker = RandomItemPicker;
+//# sourceMappingURL=RandomItemPicker.js.map

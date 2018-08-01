@@ -4,8 +4,13 @@ import { ICommandInterceptor } from './ICommandInterceptor';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 /**
- * Class for [[ICommand commands]] that were intercepted by a [[ICommandInterceptor command interceptor]]
- * and are to be executed next.
+ * Class for [[ICommand commands]] that are intercepted by [[ICommandInterceptor command interceptors]]
+ * in an execution chain(*). Intercepted commands are used as pattern decorators in the command design pattern.
+ * They are represented as regular commands but run their own logic before calling the actual command.
+ *
+ * (*)An execution chain consists of [[ICommandInterceptor command interceptors]], through which a given
+ * [[ICommand command]] is passed. Each command interceptor runs perpendicular logic (aspects, such as
+ * logging, caching, blocking) before (or instead of) actually calling the command.
  *
  * @see [[ICommand]]
  * @see [[ICommandInterceptor]]
@@ -14,16 +19,19 @@ export declare class InterceptedCommand implements ICommand {
     private readonly _interceptor;
     private readonly _next;
     /**
-     * @param interceptor   the interceptor that intercepted the next command.
-     * @param next          the command that is to be executed next.
+     * Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
+     * about the interceptor that is being used and the next command in the chain.
+     *
+     * @param interceptor   the interceptor that is intercepting the command.
+     * @param next          (link to) the next command in the command's execution chain.
      */
     constructor(interceptor: ICommandInterceptor, next: ICommand);
     /**
-     * @returns the name of the next command.
+     * @returns the name of the command that is being intercepted.
      */
     getName(): string;
     /**
-     * Executes the next [[ICommand command]] using the given [[Parameters parameters]] (arguments).
+     * Executes the next command in the execution chain using the given [[Parameters parameters]] (arguments).
      *
      * @param correlationId unique business transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to the command for execution.
@@ -34,8 +42,8 @@ export declare class InterceptedCommand implements ICommand {
      */
     execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void;
     /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the next
-     * [[ICommand command]].
+     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the command that is next
+     * in the execution chain.
      *
      * @param args      the parameters (arguments) to validate for the next command.
      * @returns         an array of ValidationResults.

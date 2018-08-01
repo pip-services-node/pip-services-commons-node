@@ -8,14 +8,14 @@ let async = require('async');
 export class Opener {
 	/**
 	 * Static method for checking whether or not a component has been opened. For a component to be checked, 
-	 * it must implement the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.isOpened isOpened]] 
+	 * it must implement the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.isOpen isOpen]] 
 	 * method to check if the component has been opened.
 	 * 
 	 * @param component 	the component that is to be checked.
 	 * 
 	 * @see [[IOpenable]]
 	 */
-	public static isOpenedOne(component: any): boolean {
+	public static isOpen(component: any): boolean {
 		if (_.isFunction(component.isOpened))
 			return component.isOpened();
 		else
@@ -24,20 +24,20 @@ export class Opener {
 
 	/**
 	 * Static method for checking whether or not a list of components have been opened. For a component to be checked, 
-	 * it must implement the [[IOpenable]] interface. This method calls the static [[isOpenedOne]] method for each 
+	 * it must implement the [[IOpenable]] interface. This method calls the static [[isOpen]] method for each 
 	 * component passed, to check if it has been opened.
 	 * 
 	 * @param components 	the list of components that are to be checked.
 	 * 
-	 * @see [[isOpenedOne]]
+	 * @see [[isOpen]]
 	 * @see [[IOpenable]]
 	 */
-	public static isOpened(components: any[]): boolean {
+	public static areOpen(components: any[]): boolean {
 		if (components == null) return true;
 		
 		let result: boolean = true;
 		for (let index = 0; index < components.length; index++)
-			result = result && Opener.isOpenedOne(components[index]);
+			result = result && Opener.isOpen(components[index]);
 		
 		return result;
 	}
@@ -79,7 +79,7 @@ export class Opener {
 	 * @see [[openOne]]
 	 * @see [[IOpenable]]
 	 */
-	public static open(correlationId: string, components: any[], callback?: (err: any) => void): void {
+	public static openMany(correlationId: string, components: any[], callback?: (err: any) => void): void {
         async.eachSeries(
             components,
             (component, callback) => {

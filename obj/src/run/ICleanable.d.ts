@@ -14,7 +14,7 @@ export interface ICleanable {
      *
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param callback 			the function to call when the clearing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      */
     clear(correlationId: string, callback?: (err: any) => void): void;
 }

@@ -16,8 +16,26 @@ var Schema_1 = require("./Schema");
 var PropertySchema_1 = require("./PropertySchema");
 var ObjectComparator_1 = require("./ObjectComparator");
 var ObjectReader_1 = require("../reflect/ObjectReader");
+/**
+ * Used to validate objects, as well as their properties.
+ */
 var ObjectSchema = /** @class */ (function (_super) {
     __extends(ObjectSchema, _super);
+    /**
+     * Creates a new ObjectSchema, which can be used to validate objects using the given rules.
+     * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
+     * this ObjectSchema.
+     *
+     * @param allowExcessProperies      defines whether or not validation results should contain
+     *                                  a [[ValidationResultType.Warning Warning]], when excess
+     *                                  properties are detected.
+     * @param required                  defines whether or not <code>null</code> object
+     *                                  properties should cause validation to fail (as
+     *                                  a [[ValidationResultType.Error validation error]]).
+     * @param rules                     the [[IValidationRule rules]] to set for this Schema.
+     *
+     * @see [[IValidationRule]]
+     */
     function ObjectSchema(allowExcessProperies, required, rules) {
         var _this = _super.call(this, required, rules) || this;
         _this._allowExcess = false;
@@ -25,9 +43,19 @@ var ObjectSchema = /** @class */ (function (_super) {
         return _this;
     }
     Object.defineProperty(ObjectSchema.prototype, "properties", {
+        /**
+         * @returns the array of PropertySchemas, which are to be used for object validation.
+         *
+         * @see [[PropertySchema]]
+         */
         get: function () {
             return this._properties;
         },
+        /**
+         * @param value     the array of PropertySchemas to use for object validation.
+         *
+         * @see [[PropertySchema]]
+         */
         set: function (value) {
             this._properties = value;
         },
@@ -35,24 +63,58 @@ var ObjectSchema = /** @class */ (function (_super) {
         configurable: true
     });
     Object.defineProperty(ObjectSchema.prototype, "isUndefinedAllowed", {
+        /**
+         * @returns whether or not undefined properties are allowed to pass validation.
+         */
         get: function () {
             return this._isUndefinedAllowed;
         },
+        /**
+         * @param value     whether or not undefined properties should be allowed to pass validation.
+         */
         set: function (value) {
             this._isUndefinedAllowed = value;
         },
         enumerable: true,
         configurable: true
     });
+    /**
+     * Sets 'isUndefinedAllowed' to the given 'value' and returns the modified ObjectSchema.
+     *
+     * @param value     whether or not undefined properties should be allowed to pass validation.
+     * @returns this ObjectSchema with 'isUndefinedAllowed' set to the value that was passed.
+     */
     ObjectSchema.prototype.allowUndefined = function (value) {
         this.isUndefinedAllowed = value;
         return this;
     };
+    /**
+     * Adds a [[PropertySchema]] to this ObjectSchema object, which will be used for validating
+     * objects' properties.
+     *
+     * @param schema    the PropertySchema to add to this ObjectSchema.
+     * @returns this ObjectSchema with the new PropertySchema added to its list of properties.
+     *
+     * @see [[PropertySchema]]
+     */
     ObjectSchema.prototype.withProperty = function (schema) {
         this.properties = this.properties || [];
         this.properties.push(schema);
         return this;
     };
+    /**
+     * Adds a new [[PropertySchema]] to this ObjectSchema using the given parameters and makes it
+     * required. When a Schema is required, <code>null</code> values cause validation to fail (as
+     * a [[ValidationResultType.Error validation error]]).
+     *
+     * @param name      the name of the property that is to be validated.
+     * @param type      the [[TypeCode data type]] to check for when validating an object's property.
+     * @param rules     the [[IValidationRule rules]] to set for the property's schema.
+     *
+     * @see [[PropertySchema]]
+     * @see [[TypeCode]]
+     * @see [[IValidationRule]]
+     */
     ObjectSchema.prototype.withRequiredProperty = function (name, type) {
         var rules = [];
         for (var _i = 2; _i < arguments.length; _i++) {
@@ -64,6 +126,18 @@ var ObjectSchema = /** @class */ (function (_super) {
         schema.makeRequired();
         return this.withProperty(schema);
     };
+    /**
+     * Adds a new [[PropertySchema]] to this ObjectSchema using the given parameters and makes it
+     * optional. When a Schema is optional, <code>null</code> values pass validation.
+     *
+     * @param name      the name of the property that is to be validated.
+     * @param type      the [[TypeCode data type]] to check for when validating an object's property.
+     * @param rules     the [[IValidationRule rules]] to set for the property's schema.
+     *
+     * @see [[PropertySchema]]
+     * @see [[TypeCode]]
+     * @see [[IValidationRule]]
+     */
     ObjectSchema.prototype.withOptionalProperty = function (name, type) {
         var rules = [];
         for (var _i = 2; _i < arguments.length; _i++) {
@@ -75,6 +149,19 @@ var ObjectSchema = /** @class */ (function (_super) {
         schema.makeOptional();
         return this.withProperty(schema);
     };
+    /**
+     * Validates the given 'value' using [[Schema.performValidation]] and, if
+     * [[PropertySchema PropertySchemas]] were set, additionally validates value's properties.
+     * If excess properties are not allowed and are detected - the validation results will
+     * contain a [[ValidationResultType.Warning Warning]].
+     *
+     * @param path      the name of the value that is to be validated.
+     * @param value     the value that is to be validated.
+     * @param results   the results of the validation. If excess properties are not allowed and
+     *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].
+     *
+     * @see [[PropertySchema]]
+     */
     ObjectSchema.prototype.performValidation = function (path, value, results) {
         _super.prototype.performValidation.call(this, path, value, results);
         if (!value)

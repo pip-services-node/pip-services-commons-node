@@ -9,7 +9,7 @@ export interface IClosable {
      *
      * @param correlationId 	unique business transaction id to trace calls across components.
      * @param callback 			the function to call when the closing process is complete. It will
-     * 							be called with an error, if one is raised.
+     * 							be called with an error if one is raised.
      */
     close(correlationId: string, callback?: (err: any) => void): void;
 }

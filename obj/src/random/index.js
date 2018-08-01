@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/** @module random */
+/**
+ * @module random
+ * @preferred
+ * Contains implementation of random value generators that are used for
+ * functional as well as non-functional testing. Used to generate random
+ * objects and fill databases with unique objects.
+ */
 var RandomInteger_1 = require("./RandomInteger");
 exports.RandomInteger = RandomInteger_1.RandomInteger;
 var RandomFloat_1 = require("./RandomFloat");
@@ -9,8 +15,8 @@ var RandomDouble_1 = require("./RandomDouble");
 exports.RandomDouble = RandomDouble_1.RandomDouble;
 var RandomBoolean_1 = require("./RandomBoolean");
 exports.RandomBoolean = RandomBoolean_1.RandomBoolean;
-var RandomArray_1 = require("./RandomArray");
-exports.RandomArray = RandomArray_1.RandomArray;
+var RandomItemPicker_1 = require("./RandomItemPicker");
+exports.RandomItemPicker = RandomItemPicker_1.RandomItemPicker;
 var RandomDateTime_1 = require("./RandomDateTime");
 exports.RandomDateTime = RandomDateTime_1.RandomDateTime;
 var RandomString_1 = require("./RandomString");

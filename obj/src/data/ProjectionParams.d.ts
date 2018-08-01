@@ -7,7 +7,19 @@ export declare class ProjectionParams extends Array<string> {
      * @param values    the projection parameters to initialize this ProjectionParams object with.
      */
     constructor(values?: any[]);
+    /**
+     * @returns these ProjectionParams as a comma-separated values string.
+     */
     toString(): string;
+    /**
+     * Static method that creates a ProjectionParams object using the given value.
+     *
+     * @param value     the value to initialize the new ProjectionParams with. If it is
+     *                  not an array, [[AnyValueArray.fromValue]] used for conversion.
+     * @returns the ProjectionParams object that was generated using 'value'.
+     *
+     * @see [[AnyValueArray.fromValue]]
+     */
     static fromValue(value: any): ProjectionParams;
     /**
      * Static method for creating new ProjectionParams objects using the values

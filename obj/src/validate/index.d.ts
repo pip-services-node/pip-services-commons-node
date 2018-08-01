@@ -1,12 +1,18 @@
-/** @module validate */
+/**
+ * @module validate
+ * @preferred
+ * Validation frameworks exist in various languages, but since this is one of the underlying
+ * functions that is incorporated into (various) other packages, we decided to implement it
+ * in a portable format, for identical implementation across languages.
+ */
 export { IValidationRule } from './IValidationRule';
 export { AndRule } from './AndRule';
 export { ArraySchema } from './ArraySchema';
-export { AtLeastOneExistRule } from './AtLeastOneExistRule';
+export { AtLeastOneExistsRule } from './AtLeastOneExistsRule';
 export { ExcludedRule } from './ExcludedRule';
 export { IncludedRule } from './IncludedRule';
 export { NotRule } from './NotRule';
-export { OnlyOneExistRule } from './OnlyOneExistRule';
+export { OnlyOneExistsRule } from './OnlyOneExistsRule';
 export { OrRule } from './OrRule';
 export { PropertiesComparisonRule } from './PropertiesComparisonRule';
 export { ValueComparisonRule } from './ValueComparisonRule';

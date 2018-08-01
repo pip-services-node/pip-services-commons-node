@@ -9,6 +9,10 @@ import { Parameters } from '../run/Parameters';
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]]
  * is capable of processing.
  *
+ * Event listeners and command interceptors can also be added to a command set. If command interceptors are
+ * added before the commands themselves, then execution chains will be built for each command that is added.
+ * Otherwise - no execution chains will be generated.
+ *
  * @see [[Command]]
  * @see [[ICommandable]]
  */
@@ -23,19 +27,19 @@ export declare class CommandSet {
      */
     constructor();
     /**
-     * @returns the commands included in this CommandSet.
+     * @returns the commands included in this command set.
      *
      * @see [[ICommand]]
      */
     getCommands(): ICommand[];
     /**
-     * @returns the events included in this CommandSet.
+     * @returns the events included in this command set.
      *
      * @see [[IEvent]]
      */
     getEvents(): IEvent[];
     /**
-     * Searches for a command by its name in this CommandSet.
+     * Searches for a command by its name in this command set.
      *
      * @param commandName   the name of the command to search for.
      *
@@ -43,7 +47,7 @@ export declare class CommandSet {
      */
     findCommand(commandName: string): ICommand;
     /**
-     * Searches for an event by its name in this CommandSet.
+     * Searches for an event by its name in this command set.
      *
      * @param eventName     the name of the event to search for.
      *
@@ -51,21 +55,27 @@ export declare class CommandSet {
      */
     findEvent(eventName: string): IEvent;
     /**
-     * Adds the command passed to the private command chain '_commandsByName', after
-     * linking it with all of the command interceptors of this CommandSet.
+     * Builds a command chain(*) for the given command using the command interceptors
+     * present in this command set. Once the chain is built, it is added to this object's private
+     * '_commandsByName' list.
+     *
+     * (*)A command chain (execution chain) consists of command interceptors, through which a given
+     * command is passed. Each command interceptor runs perpendicular logic (aspects, such as
+     * logging, caching, blocking) before (or instead of) actually calling the command.
      *
      * @param command
      */
     private buildCommandChain;
     /**
-     * Rebuilds the private command chain '_commandsByName' using
-     * the commands stored in this CommandSet.
+     * Rebuilds the private '_commandsByName' list using the commands stored in this command set.
+     * If interceptors are present in this command set, then a command (execution) chain will be
+     * built for each command.
      *
      * @see [[buildCommandChain]]
      */
     private rebuildAllCommandChains;
     /**
-     * Adds a [[ICommand command]] to this CommandSet.
+     * Adds a [[ICommand command]] to this command set.
      *
      * @param command   the command to add.
      *
@@ -73,7 +83,7 @@ export declare class CommandSet {
      */
     addCommand(command: ICommand): void;
     /**
-     * Adds multiple [[ICommand commands]] to this CommandSet.
+     * Adds multiple [[ICommand commands]] to this command set.
      *
      * @param commands  the array of commands to add.
      *
@@ -81,7 +91,7 @@ export declare class CommandSet {
      */
     addCommands(commands: ICommand[]): void;
     /**
-     * Adds an [[IEvent event]] to this CommandSet.
+     * Adds an [[IEvent event]] to this command set.
      *
      * @param event     the event to add.
      *
@@ -89,7 +99,7 @@ export declare class CommandSet {
      */
     addEvent(event: IEvent): void;
     /**
-     * Adds multiple [[IEvent events]] to this CommandSet.
+     * Adds multiple [[IEvent events]] to this command set.
      *
      * @param events    the array of events to add.
      *
@@ -97,14 +107,14 @@ export declare class CommandSet {
      */
     addEvents(events: IEvent[]): void;
     /**
-     * Adds all of the commands and events included in the passed CommandSet
-     * to this CommandSet.
+     * Adds all of the commands and events included in the passed CommandSet object
+     * to this command set.
      *
      * @param commandSet    the CommandSet to add.
      */
     addCommandSet(commandSet: CommandSet): void;
     /**
-     * Adds a [[IEventListener listener]] to all of the events in this CommandSet.
+     * Adds a [[IEventListener listener]] to all of the events in this command set.
      *
      * @param listener  the listener to add.
      *
@@ -112,7 +122,7 @@ export declare class CommandSet {
      */
     addListener(listener: IEventListener): void;
     /**
-     * Removes a [[IEventListener listener]] from all of the events in this CommandSet.
+     * Removes a [[IEventListener listener]] from all of the events in this command set.
      *
      * @param listener  the listener to remove.
      *
@@ -120,7 +130,7 @@ export declare class CommandSet {
      */
     removeListener(listener: IEventListener): void;
     /**
-     * Adds a [[ICommandInterceptor command interceptor]] to this CommandSet.
+     * Adds a [[ICommandInterceptor command interceptor]] to this command set.
      *
      * @param interceptor     the interceptor to add.
      *
@@ -135,7 +145,7 @@ export declare class CommandSet {
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error (for example: a ValidationException can be thrown).
-     * @throws a [[BadRequestException]], if no command exists with the given name.
+     * @throws a [[BadRequestException]] if no command exists with the given name.
      *
      * @see [[ICommand]]
      * @see [[Parameters]]
@@ -158,7 +168,7 @@ export declare class CommandSet {
     validate(commandName: string, args: Parameters): ValidationResult[];
     /**
      * Raises the event with the given name and notifies the event's listeners using the
-     * correlationId and [[Parameters parameters]] (arguments) given.
+     * correlation id and [[Parameters parameters]] (arguments) given.
      *
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param eventName         the name of the event that is to be raised.

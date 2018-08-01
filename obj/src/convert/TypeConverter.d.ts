@@ -41,13 +41,13 @@ export declare class TypeConverter {
     static toType<T>(type: TypeCode, value: any): T;
     /**
      * Static method that converts the object passed as 'value' to an object of type T or returns
-     * a default value, if the conversion is not possible (when null is returned).
+     * a default value if the conversion is not possible (when null is returned).
      *
      * @param type 			the TypeCode for the data type into which 'value' is to be converted.
      * @param value 		the value to convert.
      * @param defaultValue	the default value to return if conversion is not possible (returns null).
-     * @returns				'value' as an object of type T or 'defaultValue', if the result of the
-     * 						conversion using TypeConverter.toNullableType<T>(type, value) is null.
+     * @returns				'value' as an object of type T or 'defaultValue' (if the result of the
+     * 						conversion using TypeConverter.toNullableType<T>(type, value) is null).
      *
      * @see [[toNullableType]]
      * @see [[toTypeCode]]

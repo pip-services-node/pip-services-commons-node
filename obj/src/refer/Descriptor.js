@@ -143,7 +143,7 @@ var Descriptor = /** @class */ (function () {
      * Matches this descriptor to the value that was passed.
      *
      * @param value 	the value to match against this descriptor.
-     * @returns <code>true</code>, if value is an instance of Descriptor and matches this descriptor.
+     * @returns <code>true</code> if value is an instance of Descriptor and matches this descriptor.
      * 			Otherwise, <code>false</code> is returned.
      *
      * @see [[match]]
@@ -172,7 +172,7 @@ var Descriptor = /** @class */ (function () {
      * @param value 	a colon-separated descriptor string. Example string:
      * 					"pip-services-logging:persistence:memory:*:1.0".
      * @returns the Descriptor that was parsed from the string.
-     * @throws a [[ConfigException]], if the descriptor string is of a wrong format.
+     * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
      */
     Descriptor.fromString = function (value) {
         if (value == null || value.length == 0)

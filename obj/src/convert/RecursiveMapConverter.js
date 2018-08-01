@@ -105,7 +105,7 @@ var RecursiveMapConverter = /** @class */ (function () {
      * (which uses [[valueToMap]]).
      *
      * @param value     the map to recursively convert.
-     * @returns         the converted map or an empty map, if the conversion returns null.
+     * @returns         the converted map or an empty map (if the conversion returns null).
      *
      * @see [[toNullableMap]]
      * @see [[valueToMap]]
@@ -119,7 +119,7 @@ var RecursiveMapConverter = /** @class */ (function () {
      *
      * @param value         the map to recursively convert.
      * @param defaultValue  the value to return if the conversion returns null.
-     * @returns             the converted map or the default value, if the conversion returns null.
+     * @returns             the converted map or the default value (if the conversion returns null).
      *
      * @see [[toNullableMap]]
      * @see [[valueToMap]]

@@ -9,7 +9,7 @@ export { RandomInteger } from './RandomInteger';
 export { RandomFloat } from './RandomFloat';
 export { RandomDouble } from './RandomDouble';
 export { RandomBoolean } from './RandomBoolean';
-export { RandomArray } from './RandomArray';
+export { RandomItemPicker } from './RandomItemPicker';
 export { RandomDateTime } from './RandomDateTime';
 export { RandomString } from './RandomString';
 export { RandomText } from './RandomText';
