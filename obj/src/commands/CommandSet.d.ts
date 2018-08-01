@@ -2,7 +2,7 @@
 import { ICommand } from './ICommand';
 import { IEvent } from './IEvent';
 import { IEventListener } from './IEventListener';
-import { ICommandIntercepter } from './ICommandIntercepter';
+import { ICommandInterceptor } from './ICommandInterceptor';
 import { ValidationResult } from '../validate/ValidationResult';
 import { Parameters } from '../run/Parameters';
 /**
@@ -15,7 +15,7 @@ import { Parameters } from '../run/Parameters';
 export declare class CommandSet {
     private readonly _commands;
     private readonly _events;
-    private readonly _intercepters;
+    private readonly _interceptors;
     private _commandsByName;
     private _eventsByName;
     /**
@@ -120,13 +120,13 @@ export declare class CommandSet {
      */
     removeListener(listener: IEventListener): void;
     /**
-     * Adds a [[ICommandIntercepter command interceptor]] to this CommandSet.
+     * Adds a [[ICommandInterceptor command interceptor]] to this CommandSet.
      *
-     * @param intercepter     the interceptor to add.
+     * @param interceptor     the interceptor to add.
      *
-     * @see [[ICommandIntercepter]]
+     * @see [[ICommandInterceptor]]
      */
-    addInterceptor(intercepter: ICommandIntercepter): void;
+    addInterceptor(interceptor: ICommandInterceptor): void;
     /**
      * Executes the [[ICommand command]] with the given name, using the given [[Parameters parameters]] (arguments).
      *

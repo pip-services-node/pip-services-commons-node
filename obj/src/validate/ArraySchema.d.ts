@@ -1,4 +1,4 @@
-import { Schema } from '../validate/Schema';
+import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 export declare class ArraySchema extends Schema {
     private _valueType;

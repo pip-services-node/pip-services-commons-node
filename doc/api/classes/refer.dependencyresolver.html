@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Helper class for resolving component dependencies.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -129,16 +136,47 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L12">refer/DependencyResolver.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L15">refer/DependencyResolver.ts:15</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new DependencyResolver object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="config.configparams.html">ConfigParams</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="refer.dependencyresolver.html#configure">configure</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/refer.ireferences.html">IReferences</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="refer.dependencyresolver.html#setreferences">setReferences</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) the configuration parameters (dependencies) to configure this
+											object with. If omitted, then they can be set later on using <a href="refer.dependencyresolver.html#configure">configure</a>.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> references: <a href="../interfaces/refer.ireferences.html" class="tsd-signature-type">IReferences</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) the component references to set for this object.
+											If omitted, then they can be set later on using <a href="refer.dependencyresolver.html#setreferences">setReferences</a>.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="refer.dependencyresolver.html" class="tsd-signature-type">DependencyResolver</a></h4>
@@ -154,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dependencies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L11">refer/DependencyResolver.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L14">refer/DependencyResolver.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">_references<span class="tsd-signature-symbol">:</span> <a href="../interfaces/refer.ireferences.html" class="tsd-signature-type">IReferences</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L12">refer/DependencyResolver.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L15">refer/DependencyResolver.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,13 +220,28 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/config.ireconfigurable.html">IReconfigurable</a>.<a href="../interfaces/config.ireconfigurable.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L21">refer/DependencyResolver.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L46">refer/DependencyResolver.ts:46</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Configures this object using the given <a href="config.configparams.html">ConfigParams</a>. This method looks for a section
+										named &quot;dependencies&quot;, which should contain locators (or <a href="refer.descriptor.html">Descriptors</a>) to
+									dependencies.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="config.configparams.html">ConfigParams</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the dependencies to configure this object with.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -205,16 +258,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L116">refer/DependencyResolver.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L175">refer/DependencyResolver.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Find all references by specified query criteria</p>
+									<p>Finds all references that match the specified query criteria and the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> when requested component wasn&#39;t found</p>
+									<dd><p>an Error if the name is <code>null</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> if required was set to <code>true</code>
+										and nothing was found.</p>
 									</dd>
 								</dl>
 							</div>
@@ -229,18 +286,18 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a dependency name</p>
+										<p>the name of the dependency that stores the component&#39;s locator.</p>
 									</div>
 								</li>
 								<li>
 									<h5>required: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>force to raise exception is no reference is found</p>
+										<p>forces to raise an exception if no reference is found.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>list of found references</p>
+							<p>a list of found references.</p>
 						</li>
 					</ul>
 				</section>
@@ -254,13 +311,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L89">refer/DependencyResolver.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L139">refer/DependencyResolver.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component references that matches provided locator.
-									The search is performed from latest added references.</p>
+									<p>Gets a component reference that matches the locator stored by the given name
+										in the dependencies that are set. The search is performed, starting from the
+									last-added references.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -274,12 +332,12 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a dependency name</p>
+										<p>the name of the dependency that stores the component&#39;s locator.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>a found component reference or <code>null</code> if nothing was found</p>
+							<p>the component references found or <code>null</code> (if none were found).</p>
 						</li>
 					</ul>
 				</section>
@@ -293,17 +351,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L101">refer/DependencyResolver.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L156">refer/DependencyResolver.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a component references that matches provided locator.
-									The search is performed from latest added references.</p>
+									<p>Gets a component reference that matches the locator stored by the given name
+										in the dependencies that are set. The search is performed, starting from the
+									last-added references.</p>
 								</div>
+								<p>If no dependencies are found by the given name, an exception will be thrown.</p>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> when requested component wasn&#39;t found</p>
+									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> if no dependencies (locators) are found by the given name.</p>
 									</dd>
 								</dl>
 							</div>
@@ -318,12 +378,12 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a dependency name</p>
+										<p>the name of the dependency that stores the component&#39;s locator.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>a found component reference</p>
+							<p>the component reference found.</p>
 						</li>
 					</ul>
 				</section>
@@ -337,12 +397,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L63">refer/DependencyResolver.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L109">refer/DependencyResolver.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a list of component references that match provided locator</p>
+									<p>Gets a list of component references that match the locator stored by the given name
+									in the dependencies that are set.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -356,12 +417,12 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a dependency name</p>
+										<p>the name of the dependency that stores the component&#39;s locator.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with found component references</p>
+							<p>a list, containing all component references found.</p>
 						</li>
 					</ul>
 				</section>
@@ -375,17 +436,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L75">refer/DependencyResolver.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L123">refer/DependencyResolver.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a list of component references that match provided locator.
-									If no references found an exception is thrown</p>
+									<p>Gets a list of component references that match the locator stored by the given name
+									in the dependencies that are set. If no references are found, an exception will be thrown.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> when no single component reference is found</p>
+									<dd><p>a <a href="refer.referenceexception.html">ReferenceException</a> if no dependencies (locators) are found by the given name.</p>
 									</dd>
 								</dl>
 							</div>
@@ -400,12 +461,12 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a dependency name</p>
+										<p>the name of the dependency that stores the component&#39;s locator.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a list with found component references</p>
+							<p>a list, containing all component references found.</p>
 						</li>
 					</ul>
 				</section>
@@ -419,16 +480,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L49">refer/DependencyResolver.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L93">refer/DependencyResolver.ts:93</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Locates the dependency with the given name.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>an Error if &#39;name&#39; is null or no references are set.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the dependency to locate.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>the locator of the dependency that was located.</p>
 						</li>
 					</ul>
 				</section>
@@ -442,16 +517,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L45">refer/DependencyResolver.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L81">refer/DependencyResolver.ts:81</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Places a new dependency into this DependencyResolver object.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the dependency&#39;s name.</p>
+									</div>
 								</li>
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the locator to find the dependency by.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -469,13 +555,21 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a>.<a href="../interfaces/refer.ireferenceable.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L41">refer/DependencyResolver.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L71">refer/DependencyResolver.ts:71</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets this object&#39;s component references.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <a href="../interfaces/refer.ireferences.html" class="tsd-signature-type">IReferences</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the component references to set.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -492,16 +586,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/refer/DependencyResolver.ts#L130">refer/DependencyResolver.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/refer/DependencyResolver.ts#L196">refer/DependencyResolver.ts:196</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method that creates a new DependencyResolver object using the tuples arrays that are passed as parameters.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the tuples arrays to initialize the new References object with.
+										A tuples array contains index-based pairs, such as [key1,value1,key2,value2].</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="refer.dependencyresolver.html" class="tsd-signature-type">DependencyResolver</a></h4>
+							<p>the DependencyResolver object that was generated using the given tuples arrays,</p>
 						</li>
 					</ul>
 				</section>

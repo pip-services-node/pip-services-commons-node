@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Validation rule that requires an object&#39;s properties to be in a certain relation for validation to pass successfully.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -120,19 +127,45 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/validate/PropertiesComparisonRule.ts#L12">validate/PropertiesComparisonRule.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/validate/PropertiesComparisonRule.ts#L15">validate/PropertiesComparisonRule.ts:15</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new PropertiesComparisonRule object and initializes it using the passed pair of properties.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#compare">ObjectComparator.compare</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>property1: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first property in the pair.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>operation: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the operation to apply to the pair of properties.
+											For example: the operation &quot;&gt;=&quot; validates that &quot;property1 &gt;= property2&quot;.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>property2: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second property in the pair.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.propertiescomparisonrule.html" class="tsd-signature-type">PropertiesComparisonRule</a></h4>
@@ -148,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">_operation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/validate/PropertiesComparisonRule.ts#L12">validate/PropertiesComparisonRule.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/validate/PropertiesComparisonRule.ts#L15">validate/PropertiesComparisonRule.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">_property1<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/validate/PropertiesComparisonRule.ts#L10">validate/PropertiesComparisonRule.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/validate/PropertiesComparisonRule.ts#L13">validate/PropertiesComparisonRule.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">_property2<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/validate/PropertiesComparisonRule.ts#L11">validate/PropertiesComparisonRule.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/validate/PropertiesComparisonRule.ts#L14">validate/PropertiesComparisonRule.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,22 +219,54 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/14cef19/src/validate/PropertiesComparisonRule.ts#L20">validate/PropertiesComparisonRule.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/28ab63a/src/validate/PropertiesComparisonRule.ts#L50">validate/PropertiesComparisonRule.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates that the set properties of &#39;value&#39; are in a certain relation to one another. The &#39;operation&#39; that is set
+										in this object must pass upon being applied to the passed value&#39;s &#39;property1&#39; and &#39;property2&#39; for validation to pass.
+									For example: if the operation &quot;&gt;=&quot; is set, it will validate that &quot;value.property1 &gt;= value.property2&quot;.</p>
+								</div>
+								<p>Properties are retrieved from the value using <a href="reflect.objectreader.html#getproperty">ObjectReader.getProperty</a>, and comparison is done using
+								<a href="validate.objectcomparator.html#compare">ObjectComparator.compare</a>.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.propertiescomparisonrule.html#constructor">constructor</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.objectreader.html#getproperty">ObjectReader.getProperty</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="validate.objectcomparator.html#compare">ObjectComparator.compare</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the name of the value that is to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>schema: <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(not used in this implementation).</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value, whose properties are to be validated.</p>
+									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

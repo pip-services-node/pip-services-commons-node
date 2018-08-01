@@ -1,39 +1,47 @@
 /** @module commands */
 import { ICommand } from './ICommand';
-import { ICommandIntercepter } from './ICommandIntercepter';
+import { ICommandInterceptor } from './ICommandInterceptor';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Class for [[ICommand commands]] that were intercepted by a [[ICommandIntercepter command interceptor]] 
- * and are to be executed next.
+ * Class for [[ICommand commands]] that are intercepted by [[ICommandInterceptor command interceptors]] 
+ * in an execution chain(*). Intercepted commands are used as pattern decorators in the command design pattern. 
+ * They are represented as regular commands but run their own logic before calling the actual command.
+ * 
+ * (*)An execution chain consists of [[ICommandInterceptor command interceptors]], through which a given 
+ * [[ICommand command]] is passed. Each command interceptor runs perpendicular logic (aspects, such as 
+ * logging, caching, blocking) before (or instead of) actually calling the command.
  * 
  * @see [[ICommand]]
- * @see [[ICommandIntercepter]]
+ * @see [[ICommandInterceptor]]
  */
 export class InterceptedCommand implements ICommand {
-    private readonly _intercepter: ICommandIntercepter;
+    private readonly _interceptor: ICommandInterceptor;
     private readonly _next: ICommand;
 
     /**
-     * @param intercepter   the interceptor that intercepted the next command.
-     * @param next          the command that is to be executed next.
+     * Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information 
+     * about the interceptor that is being used and the next command in the chain.
+     * 
+     * @param interceptor   the interceptor that is intercepting the command.
+     * @param next          (link to) the next command in the command's execution chain.
      */
-    public constructor(intercepter: ICommandIntercepter, next: ICommand) {
-        this._intercepter = intercepter;
+    public constructor(interceptor: ICommandInterceptor, next: ICommand) {
+        this._interceptor = interceptor;
         this._next = next;
     }
 
     /**
-     * @returns the name of the next command.
+     * @returns the name of the command that is being intercepted.
      */
     public getName(): string {
-        return this._intercepter.getName(this._next);
+        return this._interceptor.getName(this._next);
     }
 
 
     /**
-     * Executes the next [[ICommand command]] using the given [[Parameters parameters]] (arguments).
+     * Executes the next command in the execution chain using the given [[Parameters parameters]] (arguments).
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to the command for execution.
@@ -43,12 +51,12 @@ export class InterceptedCommand implements ICommand {
      * @see [[Parameters]]
      */
     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
-        this._intercepter.execute(correlationId, this._next, args, callback);
+        this._interceptor.execute(correlationId, this._next, args, callback);
     }
 
     /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the next 
-     * [[ICommand command]].
+     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the command that is next 
+     * in the execution chain.
      * 
      * @param args      the parameters (arguments) to validate for the next command.
      * @returns         an array of ValidationResults.
@@ -57,7 +65,7 @@ export class InterceptedCommand implements ICommand {
      * @see [[ValidationResult]]
      */
     public validate(args: Parameters): ValidationResult[] {
-        return this._intercepter.validate(this._next, args);
+        return this._interceptor.validate(this._next, args);
     }
 
 }

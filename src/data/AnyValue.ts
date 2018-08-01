@@ -91,9 +91,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a string or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -120,9 +120,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a boolean or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -149,9 +149,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as an integer or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -178,9 +178,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a long or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -207,9 +207,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a float or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -236,9 +236,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a double or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -265,9 +265,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as a Datetime or the
-     *                          defaultValue, if conversion is not possible.
+     *                          defaultValue (if conversion is not possible).
      * 
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -306,7 +306,7 @@ export class AnyValue implements ICloneable {
      * [[TypeConverter.toTypeWithDefault]] and returns it.
      * 
      * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return, if conversion is not possible.
+     * @param defaultValue      value to return if conversion is not possible.
      * @returns                 this object's 'value' field as an object of type 'type' or the defaultValue, 
      *                          if conversion is not possible.
      * 

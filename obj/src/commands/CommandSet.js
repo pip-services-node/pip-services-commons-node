@@ -20,7 +20,7 @@ var CommandSet = /** @class */ (function () {
     function CommandSet() {
         this._commands = [];
         this._events = [];
-        this._intercepters = [];
+        this._interceptors = [];
         this._commandsByName = {};
         this._eventsByName = {};
     }
@@ -68,8 +68,8 @@ var CommandSet = /** @class */ (function () {
      */
     CommandSet.prototype.buildCommandChain = function (command) {
         var next = command;
-        for (var i = this._intercepters.length - 1; i >= 0; i--)
-            next = new InterceptedCommand_1.InterceptedCommand(this._intercepters[i], next);
+        for (var i = this._interceptors.length - 1; i >= 0; i--)
+            next = new InterceptedCommand_1.InterceptedCommand(this._interceptors[i], next);
         this._commandsByName[next.getName()] = next;
     };
     /**
@@ -162,14 +162,14 @@ var CommandSet = /** @class */ (function () {
             this._events[i].removeListener(listener);
     };
     /**
-     * Adds a [[ICommandIntercepter command interceptor]] to this CommandSet.
+     * Adds a [[ICommandInterceptor command interceptor]] to this CommandSet.
      *
-     * @param intercepter     the interceptor to add.
+     * @param interceptor     the interceptor to add.
      *
-     * @see [[ICommandIntercepter]]
+     * @see [[ICommandInterceptor]]
      */
-    CommandSet.prototype.addInterceptor = function (intercepter) {
-        this._intercepters.push(intercepter);
+    CommandSet.prototype.addInterceptor = function (interceptor) {
+        this._interceptors.push(interceptor);
         this.rebuildAllCommandChains();
     };
     /**

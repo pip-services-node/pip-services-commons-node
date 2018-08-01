@@ -1,6 +1,5 @@
-import { AnyValueArray } from "./AnyValueArray";
-
 /** @module data */
+import { AnyValueArray } from "./AnyValueArray";
 
 const _ = require('lodash');
 
@@ -26,6 +25,9 @@ export class ProjectionParams extends Array<string> {
         }
     }
 
+    /**
+     * @returns these ProjectionParams as a comma-separated values string.
+     */
     public toString(): string {
         let builder = "";
 
@@ -40,6 +42,15 @@ export class ProjectionParams extends Array<string> {
         return builder;
     }
 
+    /**
+     * Static method that creates a ProjectionParams object using the given value.
+     * 
+     * @param value     the value to initialize the new ProjectionParams with. If it is 
+     *                  not an array, [[AnyValueArray.fromValue]] used for conversion.
+     * @returns the ProjectionParams object that was generated using 'value'.
+     * 
+     * @see [[AnyValueArray.fromValue]]
+     */
     public static fromValue(value: any): ProjectionParams {
         if (!_.isArray(value))
             value = AnyValueArray.fromValue(value);
