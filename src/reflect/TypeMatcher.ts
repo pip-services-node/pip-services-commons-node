@@ -28,9 +28,9 @@ export class TypeMatcher {
      * @see [[TypeCode]]
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchType]]
-     * @see [[matchValuesTypeByName]] (for matching by types' string names)
+     * @see [[matchValueTypeByName]] (for matching by types' string names)
      */
-    public static matchValuesType(expectedType: any, actualValue: any): boolean {
+    public static matchValueType(expectedType: any, actualValue: any): boolean {
         if (expectedType == null)
             return true;
         if (actualValue == null)
@@ -99,9 +99,9 @@ export class TypeMatcher {
      * 
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchTypeByName]]
-     * @see [[matchValuesType]] (for matching by [[TypeCode]])
+     * @see [[matchValueType]] (for matching by [[TypeCode]])
      */
-    public static matchValuesTypeByName(expectedType: string, actualValue: any): boolean {
+    public static matchValueTypeByName(expectedType: string, actualValue: any): boolean {
         if (expectedType == null) 
         	return true;
         if (actualValue == null)

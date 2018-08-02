@@ -29,9 +29,9 @@ var TypeMatcher = /** @class */ (function () {
      * @see [[TypeCode]]
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchType]]
-     * @see [[matchValuesTypeByName]] (for matching by types' string names)
+     * @see [[matchValueTypeByName]] (for matching by types' string names)
      */
-    TypeMatcher.matchValuesType = function (expectedType, actualValue) {
+    TypeMatcher.matchValueType = function (expectedType, actualValue) {
         if (expectedType == null)
             return true;
         if (actualValue == null)
@@ -94,9 +94,9 @@ var TypeMatcher = /** @class */ (function () {
      *
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchTypeByName]]
-     * @see [[matchValuesType]] (for matching by [[TypeCode]])
+     * @see [[matchValueType]] (for matching by [[TypeCode]])
      */
-    TypeMatcher.matchValuesTypeByName = function (expectedType, actualValue) {
+    TypeMatcher.matchValueTypeByName = function (expectedType, actualValue) {
         if (expectedType == null)
             return true;
         if (actualValue == null)

@@ -21,13 +21,13 @@ export declare class PagingParams {
      * @returns 		the number of result to skip or 'minSkip',
      * 					if the 'skip' field is less than 'minSkip'.
      */
-    getSkipAmount(minSkip: number): number;
+    getSkip(minSkip: number): number;
     /**
      * @param maxTake 	the maximum value to return.
      * @returns 		the number of result to take or 'maxTake',
      * 					if the 'take' field is more than 'maxTake'.
      */
-    getTakeAmount(maxTake: number): number;
+    getTake(maxTake: number): number;
     /**
      * Static method for converting a value into a PagingParams object. If
      * 'value' is an instance of PagingParams then it will be returned. Otherwise,

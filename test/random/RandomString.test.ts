@@ -13,10 +13,10 @@ suite('RandomString', ()=> {
     	 assert.isTrue(chars.indexOf(charVariable) != -1);  
     	 
          let valuesEmpty: string[] = [];
-    	 assert.isTrue(RandomString.pickString(valuesEmpty) == "");
+    	 assert.isTrue(RandomString.pick(valuesEmpty) == "");
     			 
          let values = [ "ab", "cd" ];
-    	 let result = RandomString.pickString(values);
+    	 let result = RandomString.pick(values);
     	 assert.isTrue(result == "ab" || result == "cd");    	 
    });
 

@@ -20,9 +20,9 @@ var Opener = /** @class */ (function () {
      *
      * @see [[IOpenable]]
      */
-    Opener.isOpen = function (component) {
-        if (_.isFunction(component.isOpened))
-            return component.isOpened();
+    Opener.isOpenOne = function (component) {
+        if (_.isFunction(component.isOpen))
+            return component.isOpen();
         else
             return true;
     };
@@ -36,12 +36,12 @@ var Opener = /** @class */ (function () {
      * @see [[isOpen]]
      * @see [[IOpenable]]
      */
-    Opener.areOpen = function (components) {
+    Opener.isOpen = function (components) {
         if (components == null)
             return true;
         var result = true;
         for (var index = 0; index < components.length; index++)
-            result = result && Opener.isOpen(components[index]);
+            result = result && Opener.isOpenOne(components[index]);
         return result;
     };
     /**
@@ -84,7 +84,7 @@ var Opener = /** @class */ (function () {
      * @see [[openOne]]
      * @see [[IOpenable]]
      */
-    Opener.openMany = function (correlationId, components, callback) {
+    Opener.open = function (correlationId, components, callback) {
         async.eachSeries(components, function (component, callback) {
             Opener.openOne(correlationId, component, callback);
         }, function (err) {

@@ -32,7 +32,7 @@ export class PagingParams {
 	 * @returns 		the number of result to skip or 'minSkip', 
 	 * 					if the 'skip' field is less than 'minSkip'.
 	 */
-    public getSkipAmount(minSkip: number): number {
+    public getSkip(minSkip: number): number {
     	if (this.skip == null) return minSkip;
     	if (this.skip < minSkip) return minSkip;
     	return this.skip; 
@@ -43,7 +43,7 @@ export class PagingParams {
 	 * @returns 		the number of result to take or 'maxTake', 
 	 * 					if the 'take' field is more than 'maxTake'.
 	 */
-    public getTakeAmount(maxTake: number): number {
+    public getTake(maxTake: number): number {
     	if (this.take == null) return maxTake;
     	if (this.take < 0) return 0;
     	if (this.take > maxTake) return maxTake;

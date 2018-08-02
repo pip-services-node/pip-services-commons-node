@@ -17,9 +17,9 @@ export class Opener {
 	 * 
 	 * @see [[IOpenable]]
 	 */
-	public static isOpen(component: any): boolean {
-		if (_.isFunction(component.isOpened))
-			return component.isOpened();
+	public static isOpenOne(component: any): boolean {
+		if (_.isFunction(component.isOpen))
+			return component.isOpen();
 		else
 			return true;
 	}	
@@ -34,12 +34,12 @@ export class Opener {
 	 * @see [[isOpen]]
 	 * @see [[IOpenable]]
 	 */
-	public static areOpen(components: any[]): boolean {
+	public static isOpen(components: any[]): boolean {
 		if (components == null) return true;
 		
 		let result: boolean = true;
 		for (let index = 0; index < components.length; index++)
-			result = result && Opener.isOpen(components[index]);
+			result = result && Opener.isOpenOne(components[index]);
 		
 		return result;
 	}
@@ -81,7 +81,7 @@ export class Opener {
 	 * @see [[openOne]]
 	 * @see [[IOpenable]]
 	 */
-	public static openMany(correlationId: string, components: any[], callback?: (err: any) => void): void {
+	public static open(correlationId: string, components: any[], callback?: (err: any) => void): void {
         async.eachSeries(
             components,
             (component, callback) => {

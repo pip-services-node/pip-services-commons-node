@@ -74,28 +74,28 @@ export class RandomText {
      * @returns the name of a random color. Returned name is capitalized.
      */
     public static color(): string {
-        return RandomString.pickString(RandomText._colors);
+        return RandomString.pick(RandomText._colors);
     }
 
     /**
      * @returns the name of a random object. Returned name is capitalized.
      */
     public static stuff(): string {
-        return RandomString.pickString(RandomText._stuffs);
+        return RandomString.pick(RandomText._stuffs);
     }
 
     /**
      * @returns a random adjective. Returned adjective is capitalized.
      */
     public static adjective(): string {
-        return RandomString.pickString(RandomText._adjectives);
+        return RandomString.pick(RandomText._adjectives);
     }
 
     /**
      * @returns a random verb. Returned verb is capitalized.
      */
     public static verb(): string {
-        return RandomString.pickString(RandomText._verbs);
+        return RandomString.pick(RandomText._verbs);
     }
 
     /**
@@ -108,9 +108,9 @@ export class RandomText {
         if (size <= 0) return "";
 
         let result = '';
-        result += RandomString.pickString(RandomText._allWords);
+        result += RandomString.pick(RandomText._allWords);
         while (result.length < size) {
-            result += " " + RandomString.pickString(RandomText._allWords).toLowerCase();
+            result += " " + RandomString.pick(RandomText._allWords).toLowerCase();
         }
 
         return result;
@@ -124,13 +124,13 @@ export class RandomText {
         let result = '';
 
         if (RandomBoolean.chance(3, 5))
-            result += RandomString.pickString(RandomText._namePrefixes) + " ";
+            result += RandomString.pick(RandomText._namePrefixes) + " ";
 
-        result += RandomString.pickString(RandomText._firstNames)
-            + " " + RandomString.pickString(RandomText._lastNames);
+        result += RandomString.pick(RandomText._firstNames)
+            + " " + RandomString.pick(RandomText._lastNames);
 
         if (RandomBoolean.chance(5, 10))
-            result += " " + RandomString.pickString(RandomText._nameSuffixes);
+            result += " " + RandomString.pick(RandomText._nameSuffixes);
 
         return result;
     }
@@ -140,7 +140,7 @@ export class RandomText {
      *          Returned word is capitalized.
      */
     public static word(): string {
-        return RandomString.pickString(RandomText._allWords);
+        return RandomString.pick(RandomText._allWords);
     }
 
     /**
@@ -155,7 +155,7 @@ export class RandomText {
 
         let count = RandomInteger.nextInteger(min, max || min);
         for (let i = 0; i < count; i++)
-            result += RandomString.pickString(RandomText._allWords);
+            result += RandomString.pick(RandomText._allWords);
 
         return result;
     }
@@ -196,10 +196,10 @@ export class RandomText {
         let size = RandomInteger.nextInteger(minSize, maxSize);
 
         let result = '';
-        result += RandomString.pickString(RandomText._allWords);
+        result += RandomString.pick(RandomText._allWords);
 
         while (result.length < size) {
-            let next = RandomString.pickString(RandomText._allWords);
+            let next = RandomString.pick(RandomText._allWords);
             if (RandomBoolean.chance(4, 6))
                 next = " " + next.toLowerCase();
             else if (RandomBoolean.chance(2, 5))

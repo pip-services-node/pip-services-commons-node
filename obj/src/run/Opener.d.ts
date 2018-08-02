@@ -11,7 +11,7 @@ export declare class Opener {
      *
      * @see [[IOpenable]]
      */
-    static isOpen(component: any): boolean;
+    static isOpenOne(component: any): boolean;
     /**
      * Static method for checking whether or not a list of components have been opened. For a component to be checked,
      * it must implement the [[IOpenable]] interface. This method calls the static [[isOpen]] method for each
@@ -22,7 +22,7 @@ export declare class Opener {
      * @see [[isOpen]]
      * @see [[IOpenable]]
      */
-    static areOpen(components: any[]): boolean;
+    static isOpen(components: any[]): boolean;
     /**
      * Static method for opening a component. For a component to be opened, it must implement
      * the [[IOpenable]] interface. This method calls IOpenable's [[IOpenable.open open]] method
@@ -49,5 +49,5 @@ export declare class Opener {
      * @see [[openOne]]
      * @see [[IOpenable]]
      */
-    static openMany(correlationId: string, components: any[], callback?: (err: any) => void): void;
+    static open(correlationId: string, components: any[], callback?: (err: any) => void): void;
 }

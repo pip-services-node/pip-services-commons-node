@@ -21,9 +21,9 @@ export declare class TypeMatcher {
      * @see [[TypeCode]]
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchType]]
-     * @see [[matchValuesTypeByName]] (for matching by types' string names)
+     * @see [[matchValueTypeByName]] (for matching by types' string names)
      */
-    static matchValuesType(expectedType: any, actualValue: any): boolean;
+    static matchValueType(expectedType: any, actualValue: any): boolean;
     /**
      * Static method that checks whether or not the two given [[TypeCode data types]] match.
      * If the expected type is in the format of a string - this class's [[matchTypeByName]]
@@ -57,9 +57,9 @@ export declare class TypeMatcher {
      *
      * @see [[TypeConverter.toTypeCode]]
      * @see [[matchTypeByName]]
-     * @see [[matchValuesType]] (for matching by [[TypeCode]])
+     * @see [[matchValueType]] (for matching by [[TypeCode]])
      */
-    static matchValuesTypeByName(expectedType: string, actualValue: any): boolean;
+    static matchValueTypeByName(expectedType: string, actualValue: any): boolean;
     /**
      * Static method that checks whether or not the two given data type names ([[TypeCode]] strings)
      * match.
