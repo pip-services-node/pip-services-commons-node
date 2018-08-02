@@ -21,8 +21,8 @@ var Opener = /** @class */ (function () {
      * @see [[IOpenable]]
      */
     Opener.isOpen = function (component) {
-        if (_.isFunction(component.isOpened))
-            return component.isOpened();
+        if (_.isFunction(component.isOpen))
+            return component.isOpen();
         else
             return true;
     };

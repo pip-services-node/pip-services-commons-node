@@ -18,8 +18,8 @@ export class Opener {
 	 * @see [[IOpenable]]
 	 */
 	public static isOpen(component: any): boolean {
-		if (_.isFunction(component.isOpened))
-			return component.isOpened();
+		if (_.isFunction(component.isOpen))
+			return component.isOpen();
 		else
 			return true;
 	}	
