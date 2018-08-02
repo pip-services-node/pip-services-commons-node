@@ -20,11 +20,7 @@ var Opener = /** @class */ (function () {
      *
      * @see [[IOpenable]]
      */
-<<<<<<< HEAD
     Opener.isOpenOne = function (component) {
-=======
-    Opener.isOpen = function (component) {
->>>>>>> 346e56e21539be6cadf7e5a204c52eb8d8473283
         if (_.isFunction(component.isOpen))
             return component.isOpen();
         else
