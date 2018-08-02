@@ -17,7 +17,11 @@ export class Opener {
 	 * 
 	 * @see [[IOpenable]]
 	 */
+<<<<<<< HEAD
 	public static isOpenOne(component: any): boolean {
+=======
+	public static isOpen(component: any): boolean {
+>>>>>>> 346e56e21539be6cadf7e5a204c52eb8d8473283
 		if (_.isFunction(component.isOpen))
 			return component.isOpen();
 		else
