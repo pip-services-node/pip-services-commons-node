@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
+/** @hidden */
 var _ = require('lodash');
 /**
  * Class that provides methods for extracting and processing search tags from objects.

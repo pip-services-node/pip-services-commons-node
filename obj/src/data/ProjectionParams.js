@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
 var AnyValueArray_1 = require("./AnyValueArray");
+/** @hidden */
 var _ = require('lodash');
 /**
  * Class that includes standard design patterns for data projection. Projection parameters

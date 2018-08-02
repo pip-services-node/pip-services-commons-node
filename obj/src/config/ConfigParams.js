@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module config */
+/** @hidden */
 var _ = require('lodash');
 var StringValueMap_1 = require("../data/StringValueMap");
 var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");

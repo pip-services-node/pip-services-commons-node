@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
+/** @hidden */
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the float data type.

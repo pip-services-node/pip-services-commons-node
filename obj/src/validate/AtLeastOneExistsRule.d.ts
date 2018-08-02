@@ -9,13 +9,13 @@ import { ValidationResult } from './ValidationResult';
 export declare class AtLeastOneExistsRule implements IValidationRule {
     private readonly _properties;
     /**
-     * Creates a new AtLeastOneExistRule object and initializes it using the properties passed.
+     * Creates a new AtLeastOneExistsRule object and initializes it using the properties passed.
      *
-     * @param properties    the properties to initialize the new AtLeastOneExistRule object with.
+     * @param properties    the properties to initialize the new AtLeastOneExistsRule object with.
      */
     constructor(...properties: string[]);
     /**
-     * Validates the passed value. At least one of the properties set in this AtLeastOneExistRule
+     * Validates the passed value. At least one of the properties set in this AtLeastOneExistsRule
      * object must exist in the given value for validation to pass.
      *
      * @param path      the name of the value that is to be validated.

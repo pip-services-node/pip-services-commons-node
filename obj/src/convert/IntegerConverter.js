@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
+/** @hidden */
 var _ = require('lodash');
 var LongConverter_1 = require("./LongConverter");
 /**

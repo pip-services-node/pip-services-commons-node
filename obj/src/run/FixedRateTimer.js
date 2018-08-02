@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
+/** @hidden */
 var _ = require('lodash');
 var Parameters_1 = require("./Parameters");
 /**

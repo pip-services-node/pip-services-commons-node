@@ -4,7 +4,7 @@ import { RandomInteger } from './RandomInteger';
 /**
  * Allows for picking items at random from an array of type T.
  */
-export class RandomItemPicker {
+export class RandomArray {
     
     /**
      * Picks an item at random from the array 'values'.

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
+/** @hidden */
 var _ = require('lodash');
 /**
  * Helper class that assigns references to components.

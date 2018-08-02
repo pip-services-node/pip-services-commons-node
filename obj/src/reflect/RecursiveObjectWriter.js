@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
+/** @hidden */
 var _ = require('lodash');
 var IntegerConverter_1 = require("../convert/IntegerConverter");
 var ObjectReader_1 = require("./ObjectReader");

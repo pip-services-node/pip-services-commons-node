@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module run */
+/** @hidden */
 var _ = require('lodash');
+/** @hidden */
 var async = require('async');
 /**
  * Helper class that can be used to close components.

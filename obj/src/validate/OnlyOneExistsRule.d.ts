@@ -9,13 +9,13 @@ import { ValidationResult } from './ValidationResult';
 export declare class OnlyOneExistsRule implements IValidationRule {
     private readonly _properties;
     /**
-     * Creates a new OnlyOneExistRule object and initializes it using the properties passed.
+     * Creates a new OnlyOneExistsRule object and initializes it using the properties passed.
      *
-     * @param properties    the properties to initialize the new OnlyOneExistRule object with.
+     * @param properties    the properties to initialize the new OnlyOneExistsRule object with.
      */
     constructor(...properties: string[]);
     /**
-     * Validates the passed value. Only one of the properties set in this OnlyOneExistRule
+     * Validates the passed value. Only one of the properties set in this OnlyOneExistsRule
      * object must exist in the given value for validation to pass.
      *
      * @param path      the name of the value that is to be validated.

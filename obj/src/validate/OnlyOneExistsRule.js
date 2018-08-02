@@ -9,9 +9,9 @@ var ObjectReader_1 = require("../reflect/ObjectReader");
  */
 var OnlyOneExistsRule = /** @class */ (function () {
     /**
-     * Creates a new OnlyOneExistRule object and initializes it using the properties passed.
+     * Creates a new OnlyOneExistsRule object and initializes it using the properties passed.
      *
-     * @param properties    the properties to initialize the new OnlyOneExistRule object with.
+     * @param properties    the properties to initialize the new OnlyOneExistsRule object with.
      */
     function OnlyOneExistsRule() {
         var properties = [];
@@ -21,7 +21,7 @@ var OnlyOneExistsRule = /** @class */ (function () {
         this._properties = properties;
     }
     /**
-     * Validates the passed value. Only one of the properties set in this OnlyOneExistRule
+     * Validates the passed value. Only one of the properties set in this OnlyOneExistsRule
      * object must exist in the given value for validation to pass.
      *
      * @param path      the name of the value that is to be validated.

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
+/** @hidden */
 var _ = require('lodash');
 /**
  * Helper class that contains methods for working with an object's properties.

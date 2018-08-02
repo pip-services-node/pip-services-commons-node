@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
+/** @hidden */
 var _ = require('lodash');
 var TypeConverter_1 = require("../convert/TypeConverter");
 var StringConverter_1 = require("../convert/StringConverter");

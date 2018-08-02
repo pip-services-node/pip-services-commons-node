@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
+/** @hidden */
 var uuid = require('uuid');
 // Maps for number <-> hex string conversion
+/** @hidden */
 var byteToHex = [];
 for (var i = 0; i < 256; i++) {
     byteToHex[i] = (i + 0x100).toString(16).substr(1);
