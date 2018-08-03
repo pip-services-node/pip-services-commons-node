@@ -20,7 +20,7 @@ export class Descriptor {
 	private _version: string;
 	
 	/**
-	 * Creates an instance of a component descriptor.
+	 * Creates a component descriptor object.
 	 * 
 	 * @param group 	the logical group (examples: 'pip-services-runtime', 'pip-services-logging', '*').
 	 * @param type 		the logical type (examples: 'persistence', 'controller', 'cache', '*').

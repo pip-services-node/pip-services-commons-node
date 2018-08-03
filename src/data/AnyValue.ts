@@ -31,7 +31,7 @@ export class AnyValue implements ICloneable {
 	public value: any;
 
     /**
-     * Creates a new instance and sets its 'value' field to the value passed
+     * Creates a new object and sets its 'value' field to the value passed
      * as a parameter. If 'value' is omitted, it can be set later on using 
      * [[setAsObject]].
      * 

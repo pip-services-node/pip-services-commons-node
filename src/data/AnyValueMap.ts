@@ -33,7 +33,7 @@ import { AnyValueArray } from './AnyValueArray';
 export class AnyValueMap implements ICloneable {
 
     /**
-     * Creates a new instance and sets its values to the 'values' passed
+     * Creates a new object and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using 
      * [[setAsObject]] or [[append]].
      * 
