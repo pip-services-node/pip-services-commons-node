@@ -4,14 +4,12 @@ import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Interface for commands, which are used in command design patterns.
+ * Interface for Commands, which are part of the Command design pattern.
  * 
- * Command design patterns come in handy when implementing remote procedure calls, as they can replace unique 
- * calls with universal "message transfer" calls. The message itself contains the called method's signature, 
- * as well as the set of parameters. When designing calls of methods/commands using command design pattern, 
- * uniform interfaces can be used, which, in turn, allow any amount of concrete methods to be called.
+ * Commands provide an alternative way of calling methods. Instead of calling methods via their signatures, 
+ * any call of any method can be represented and executed using the universal Command pattern.
  * 
- * Command design patterns can also be used for [[ICommandInterceptor intercepting]] commands and building execution 
+ * Command design patterns also allow for command [[ICommandInterceptor interception]] and building execution 
  * chains out of [[InterceptedCommand intercepted commands]]. 
  * 
  * @see [[Command]]

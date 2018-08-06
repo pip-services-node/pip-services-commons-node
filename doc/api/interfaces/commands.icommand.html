@@ -70,13 +70,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for commands, which are used in command design patterns.</p>
+						<p>Interface for Commands, which are part of the Command design pattern.</p>
 					</div>
-					<p>Command design patterns come in handy when implementing remote procedure calls, as they can replace unique
-						calls with universal &quot;message transfer&quot; calls. The message itself contains the called method&#39;s signature,
-						as well as the set of parameters. When designing calls of methods/commands using command design pattern,
-					uniform interfaces can be used, which, in turn, allow any amount of concrete methods to be called.</p>
-					<p>Command design patterns can also be used for <a href="commands.icommandinterceptor.html">intercepting</a> commands and building execution
+					<p>Commands provide an alternative way of calling methods. Instead of calling methods via their signatures,
+					any call of any method can be represented and executed using the universal Command pattern.</p>
+					<p>Command design patterns also allow for command <a href="commands.icommandinterceptor.html">interception</a> and building execution
 					chains out of <a href="../classes/commands.interceptedcommand.html">intercepted commands</a>.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
@@ -139,7 +137,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iexecutable.html">IExecutable</a>.<a href="run.iexecutable.html#execute">execute</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a4741c6/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/33c6692/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,7 +202,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a4741c6/src/commands/ICommand.ts#L25">commands/ICommand.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/33c6692/src/commands/ICommand.ts#L23">commands/ICommand.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/a4741c6/src/commands/ICommand.ts#L37">commands/ICommand.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/33c6692/src/commands/ICommand.ts#L35">commands/ICommand.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

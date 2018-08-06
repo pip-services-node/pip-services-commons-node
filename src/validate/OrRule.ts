@@ -24,7 +24,7 @@ export class OrRule implements IValidationRule {
      * Validates the given value by calling the [[IValidationRule.validate validate]] method for 
      * each rule that is set in this OrRule object, until at least one validation passes successfully.
      * 
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    the schema to use for validation.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

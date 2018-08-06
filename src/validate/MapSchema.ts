@@ -75,7 +75,7 @@ export class MapSchema extends Schema {
      * additionally validates that all keys and values are of the data types [[getKeyType keyType]]
      * and [[getValueType valueType]], respectively.
      * 
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation. If 'value' is not a map and this schema is 
      *                  set as 'required', then the results will contain a 

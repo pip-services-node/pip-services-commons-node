@@ -144,7 +144,7 @@ export class ObjectSchema extends Schema {
      * If excess properties are not allowed and are detected - the validation results will 
      * contain a [[ValidationResultType.Warning Warning]].
      * 
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation. If excess properties are not allowed and
      *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].  

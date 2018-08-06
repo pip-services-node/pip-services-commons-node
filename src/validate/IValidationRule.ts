@@ -15,7 +15,7 @@ export interface IValidationRule {
     /**
      * Abstract method that will contain the logic for validating a value using the given schema.
      * 
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    the schema to use for validation.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

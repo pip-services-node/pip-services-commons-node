@@ -23,7 +23,7 @@ export class ExcludedRule implements IValidationRule {
      * Validates the given value. None of the values set in this ExcludedRule object must exist 
      * in the value that is given for validation to pass.
      * 
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    (not used in this implementation).
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

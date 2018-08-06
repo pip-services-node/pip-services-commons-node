@@ -5,6 +5,7 @@ import { INotifiable } from '../run/INotifiable';
 
 /**
  * Interface for events, which notify listeners once an event has occurred.
+ * Events can be used for asynchronous method calling. 
  */
 export interface IEvent extends INotifiable {
 	/**
