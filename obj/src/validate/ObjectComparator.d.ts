@@ -32,12 +32,12 @@ export declare class ObjectComparator {
      * Static method that checks whether or not the first parameter is less than the second one
      * (value1 < value2). If either value is null - <code>false</code> will be returned.
      */
-    static less(value1: any, value2: any): boolean;
+    static isLess(value1: any, value2: any): boolean;
     /**
      * Static method that checks whether or not the first parameter is greater than the second one
      * (value1 > value2). If either value is null - <code>false</code> will be returned.
      */
-    static greater(value1: any, value2: any): boolean;
+    static isGreater(value1: any, value2: any): boolean;
     /**
      * Static method that checks whether or not a pair of values match. The values are converted to
      * strings using [[StringConverter.toString StringConverter's toString]] method to see if they

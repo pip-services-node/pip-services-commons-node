@@ -31,13 +31,13 @@ export class ObjectComparator {
         if (operation == "!=" || operation == "<>" || operation == "NE")
             return ObjectComparator.areNotEqual(value1, value2);
         if (operation == "<" || operation == "LT")
-            return ObjectComparator.less(value1, value2);
+            return ObjectComparator.isLess(value1, value2);
         if (operation == "<=" || operation == "LE")
-            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.less(value1, value2);
+            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isLess(value1, value2);
         if (operation == ">" || operation == "GT")
-            return ObjectComparator.greater(value1, value2);
+            return ObjectComparator.isGreater(value1, value2);
         if (operation == ">=" || operation == "GE")
-            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.greater(value1, value2);
+            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isGreater(value1, value2);
         if (operation == "LIKE")
             return ObjectComparator.match(value1, value2);
 
@@ -70,7 +70,7 @@ export class ObjectComparator {
      * Static method that checks whether or not the first parameter is less than the second one 
      * (value1 < value2). If either value is null - <code>false</code> will be returned.
      */
-    public static less(value1: any, value2: any): boolean {
+    public static isLess(value1: any, value2: any): boolean {
         var number1 = DoubleConverter.toNullableDouble(value1);
         var number2 = DoubleConverter.toNullableDouble(value2);
 
@@ -84,7 +84,7 @@ export class ObjectComparator {
      * Static method that checks whether or not the first parameter is greater than the second one 
      * (value1 > value2). If either value is null - <code>false</code> will be returned.
      */
-    public static greater(value1: any, value2: any): boolean {
+    public static isGreater(value1: any, value2: any): boolean {
         var number1 = DoubleConverter.toNullableDouble(value1);
         var number2 = DoubleConverter.toNullableDouble(value2);
 

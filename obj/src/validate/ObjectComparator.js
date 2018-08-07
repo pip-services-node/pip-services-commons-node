@@ -31,13 +31,13 @@ var ObjectComparator = /** @class */ (function () {
         if (operation == "!=" || operation == "<>" || operation == "NE")
             return ObjectComparator.areNotEqual(value1, value2);
         if (operation == "<" || operation == "LT")
-            return ObjectComparator.less(value1, value2);
+            return ObjectComparator.isLess(value1, value2);
         if (operation == "<=" || operation == "LE")
-            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.less(value1, value2);
+            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isLess(value1, value2);
         if (operation == ">" || operation == "GT")
-            return ObjectComparator.greater(value1, value2);
+            return ObjectComparator.isGreater(value1, value2);
         if (operation == ">=" || operation == "GE")
-            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.greater(value1, value2);
+            return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isGreater(value1, value2);
         if (operation == "LIKE")
             return ObjectComparator.match(value1, value2);
         return true;
@@ -66,7 +66,7 @@ var ObjectComparator = /** @class */ (function () {
      * Static method that checks whether or not the first parameter is less than the second one
      * (value1 < value2). If either value is null - <code>false</code> will be returned.
      */
-    ObjectComparator.less = function (value1, value2) {
+    ObjectComparator.isLess = function (value1, value2) {
         var number1 = DoubleConverter_1.DoubleConverter.toNullableDouble(value1);
         var number2 = DoubleConverter_1.DoubleConverter.toNullableDouble(value2);
         if (number1 == null || number2 == null)
@@ -77,7 +77,7 @@ var ObjectComparator = /** @class */ (function () {
      * Static method that checks whether or not the first parameter is greater than the second one
      * (value1 > value2). If either value is null - <code>false</code> will be returned.
      */
-    ObjectComparator.greater = function (value1, value2) {
+    ObjectComparator.isGreater = function (value1, value2) {
         var number1 = DoubleConverter_1.DoubleConverter.toNullableDouble(value1);
         var number2 = DoubleConverter_1.DoubleConverter.toNullableDouble(value2);
         if (number1 == null || number2 == null)
