@@ -48,7 +48,7 @@ export declare class PropertySchema extends Schema {
      * Validates the given 'value' using [[Schema.performValidation]] and, if a [[getType type]] is a set,
      * additionally validates that the passed value (property) is of the correct data type.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.
      */

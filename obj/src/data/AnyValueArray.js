@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -41,7 +44,7 @@ var AnyValueMap_1 = require("./AnyValueMap");
 var AnyValueArray = /** @class */ (function (_super) {
     __extends(AnyValueArray, _super);
     /**
-     * Creates a new instance and sets its values to the 'values' passed
+     * Creates a new object and sets its values to the 'values' passed
      * as a parameter. If 'values' are omitted, they can be set later on using
      * [[setAsObject]] or [[append]].
      *

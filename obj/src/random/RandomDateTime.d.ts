@@ -6,25 +6,27 @@ export declare class RandomDateTime {
     /**
      * Generates a Date in the range ['minYear', 'maxYear'].
      *
-     * @param minYear   (optional) minimum Date that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum Date that will be generated. Defaults to the current year if omitted.
+     * @param min   minimum Date that will be generated.
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date that will be generated. Defaults to 'min' if omitted.
      * @returns         generated random Date.
      */
-    static nextDate(minYear?: number, maxYear?: number): Date;
+    static nextDate(min: Date, max?: Date): Date;
     /**
-     * Generates a DateTime in the range ['minYear', 'maxYear'].
+     * Generates a Date and time in the range ['minYear', 'maxYear'].
      *
-     * @param minYear   (optional) minimum DateTime that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum DateTime that will be generated. Defaults to the current year if omitted.
-     * @returns         generated random DateTime.
+     * @param min   minimum Date and time that will be generated.
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date and time that will be generated. Defaults to 'min' if omitted.
+     * @returns         generated random Date and time.
      */
-    static nextDateTime(minYear?: number, maxYear?: number): Date;
+    static nextDateTime(min: Date, max?: Date): Date;
     /**
      * Generates a new DateTime that will differ from 'value' by a maximum of ±'range'.
      * If 'range' is omitted (or 0), then the generated DateTime will differ from 'value' by ±10 days.
      *
      * @param value     DateTime to update.
-     * @param range     (optional) defines the maximum amount of days by which the new DateTime can differ from 'value'. If range is a negative number,
+     * @param range     (optional) defines the maximum amount of milliseconds by which the new DateTime can differ from 'value'. If range is a negative number,
      *                  'value' will be returned. Defaults to 10 days if omitted or zero.
      * @returns         updated DateTime.
      */

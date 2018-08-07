@@ -16,7 +16,7 @@ export declare class Descriptor {
     private _name;
     private _version;
     /**
-     * Creates an instance of a component descriptor.
+     * Creates a component descriptor object.
      *
      * @param group 	the logical group (examples: 'pip-services-runtime', 'pip-services-logging', '*').
      * @param type 		the logical type (examples: 'persistence', 'controller', 'cache', '*').

@@ -23,7 +23,7 @@ export declare class ArraySchema extends Schema {
      * additionally validates that all values stored are objects of the data type
      * [[valueType that is set]] in this ArraySchema object.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation. If 'value' is not an array - the
      *                  results will contain a [[ValidationResultType.Error validation error]].

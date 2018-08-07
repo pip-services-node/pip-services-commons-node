@@ -101,7 +101,7 @@ var Schema = /** @class */ (function () {
      * Validates the given 'value' using the rules that are set. If this schema is set as
      * 'required', then 'value' must not be null for validation to pass.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.
      */
@@ -136,7 +136,7 @@ var Schema = /** @class */ (function () {
      * of 'value' is determined using [[TypeConverter.toTypeCode]] and is compared to 'type' using
      * [[TypeMatcher.matchType]]
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param type      the type to validate against.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

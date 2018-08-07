@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var InvocationException_1 = require("../errors/InvocationException");
 /**
  * Events consist of a name and a set of listeners. Listeners are notified whenever
- * the event is raised and can be added or removed as needed.
+ * the event is raised and can be added or removed as needed. Events can be used for
+ * asynchronous method calling.
  *
  * @see [[IEvent]]
  */

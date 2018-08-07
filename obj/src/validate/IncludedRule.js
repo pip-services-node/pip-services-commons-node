@@ -22,7 +22,7 @@ var IncludedRule = /** @class */ (function () {
      * Validates the given value, which must be found amongst the values set in this IncludedRule object
      * for validation to pass.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    (not used in this implementation).
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

@@ -15,7 +15,7 @@ var ConfigException_1 = require("../errors/ConfigException");
  */
 var Descriptor = /** @class */ (function () {
     /**
-     * Creates an instance of a component descriptor.
+     * Creates a component descriptor object.
      *
      * @param group 	the logical group (examples: 'pip-services-runtime', 'pip-services-logging', '*').
      * @param type 		the logical type (examples: 'persistence', 'controller', 'cache', '*').

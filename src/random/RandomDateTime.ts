@@ -10,45 +10,44 @@ export class RandomDateTime {
     /**
      * Generates a Date in the range ['minYear', 'maxYear'].
      * 
-     * @param minYear   (optional) minimum Date that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum Date that will be generated. Defaults to the current year if omitted.
+     * @param min   minimum Date that will be generated. 
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date that will be generated. Defaults to 'min' if omitted.
      * @returns         generated random Date.
      */
-    public static nextDate(minYear: number = null, maxYear: number = null): Date {
-        let currentYear = new Date().getFullYear();
-        minYear = minYear == 0 || minYear == null ? currentYear - RandomInteger.nextInteger(10) : minYear;
-        maxYear = maxYear == 0 || maxYear == null ? currentYear : maxYear;
+    public static nextDate(min: Date, max: Date = null): Date {
+        if (max == null) {
+            max = min;
+            min = new Date(2000, 0, 1);
+        }
 
-        let year = RandomInteger.nextInteger(minYear, maxYear);
-        let month = RandomInteger.nextInteger(1, 13);
-        let day = RandomInteger.nextInteger(1, 32);
+        let diff = max.getTime() - min.getTime();
+        if (diff <= 0) return min;
 
-        if (month == 2)
-            day = Math.min(28, day);
-        else if (month == 4 || month == 6 || month == 9 || month == 11)
-            day = Math.min(30, day);
-        return new Date(year, month, day, 0, 0, 0, 0);
+        let time = min.getTime() + RandomInteger.nextInteger(0, diff);
+        let date = new Date(time);
+        
+        return new Date(date.getFullYear(), date.getMonth(), date.getDay());
     }
 
-    //    public static nextTime(): number {
-    //        let hour = RandomInteger.nextInteger(0, 24);
-    //        let min = RandomInteger.nextInteger(0, 60);
-    //        let sec = RandomInteger.nextInteger(0, 60);
-    //        let millis = RandomInteger.nextInteger(0, 1000);
-
-    //        return ((hour * 60 + min) * 60 + sec) * 1000 + millis;
-    //    }
-
     /**
-     * Generates a DateTime in the range ['minYear', 'maxYear'].
+     * Generates a Date and time in the range ['minYear', 'maxYear'].
      * 
-     * @param minYear   (optional) minimum DateTime that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum DateTime that will be generated. Defaults to the current year if omitted.
-     * @returns         generated random DateTime.
+     * @param min   minimum Date and time that will be generated. 
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date and time that will be generated. Defaults to 'min' if omitted.
+     * @returns         generated random Date and time.
      */
-    public static nextDateTime(minYear: number = null, maxYear: number = null): Date {
-        let time = RandomDateTime.nextDate(minYear, maxYear).valueOf()
-            + RandomInteger.nextInteger(3600 * 24 * 365);
+    public static nextDateTime(min: Date, max: Date = null): Date {
+        if (max == null) {
+            max = min;
+            min = new Date(2000, 0, 1);
+        }
+
+        let diff = max.getTime() - min.getTime();
+        if (diff <= 0) return min;
+
+        let time = min.getTime() + RandomInteger.nextInteger(0, diff);
         return new Date(time);
     }
 
@@ -57,17 +56,17 @@ export class RandomDateTime {
      * If 'range' is omitted (or 0), then the generated DateTime will differ from 'value' by ±10 days. 
      * 
      * @param value     DateTime to update.
-     * @param range     (optional) defines the maximum amount of days by which the new DateTime can differ from 'value'. If range is a negative number,
+     * @param range     (optional) defines the maximum amount of milliseconds by which the new DateTime can differ from 'value'. If range is a negative number,
      *                  'value' will be returned. Defaults to 10 days if omitted or zero.
      * @returns         updated DateTime.
      */
     public static updateDateTime(value: Date, range: number = null): Date {
-        range = range != 0 && range != null ? range : 10;
+        range = range != 0 && range != null ? range : 10 * 24 * 3600000;
         if (range < 0)
             return value;
 
         // Days to milliseconds
-        range = range * 24 * 3600000;
+        range = range;
         let time = value.valueOf() + RandomInteger.nextInteger(-range, range);
         return new Date(time);
     }

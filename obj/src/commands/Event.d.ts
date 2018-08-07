@@ -4,7 +4,8 @@ import { IEventListener } from './IEventListener';
 import { Parameters } from '../run/Parameters';
 /**
  * Events consist of a name and a set of listeners. Listeners are notified whenever
- * the event is raised and can be added or removed as needed.
+ * the event is raised and can be added or removed as needed. Events can be used for
+ * asynchronous method calling.
  *
  * @see [[IEvent]]
  */

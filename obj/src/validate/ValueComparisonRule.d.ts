@@ -22,7 +22,7 @@ export declare class ValueComparisonRule implements IValidationRule {
      *
      * Comparison is done using ObjectComparator's [[ObjectComparator.compare compare]] method.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    (not used in this implementation).
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

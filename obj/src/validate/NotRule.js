@@ -19,7 +19,7 @@ var NotRule = /** @class */ (function () {
      * the "not" rule that is set in this NotRule object. Validation fails if validation of the
      * "not" rule passes.
      *
-     * @param path      the name of the value that is to be validated.
+     * @param path      the dot notation path to the value that is to be validated.
      * @param schema    the schema to use for validation.
      * @param value     the value that is to be validated.
      * @param results   the results of the validation.

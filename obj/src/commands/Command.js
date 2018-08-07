@@ -5,8 +5,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 var InvocationException_1 = require("../errors/InvocationException");
 /**
- * Used for remote procedure calls, which replace unique calls with universal "message transfer" calls.
- * The message itself contains the called method's signature, as well as the set of parameters.
+ * Implementation of the Command pattern, which provides an alternative way of calling method.
+ * Instead of calling methods via their signatures, any call of any method can be represented
+ * and executed using this universal Command class.
  *
  * @see [[ICommand]]
  */

@@ -14,7 +14,7 @@ export declare class ValidationResult {
      * Creates a new ValidationResult object and stores in it information about the
      * validation's result.
      *
-     * @param path      the name of the result.
+     * @param path      the dot notation path of the value that was validated.
      * @param type      the result's [[ValidationResultType type]]. For example: Information, Warning, or Error.
      * @param code      the result's code.
      * @param message   additional information about the result.

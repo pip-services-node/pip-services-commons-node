@@ -12,44 +12,42 @@ var RandomDateTime = /** @class */ (function () {
     /**
      * Generates a Date in the range ['minYear', 'maxYear'].
      *
-     * @param minYear   (optional) minimum Date that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum Date that will be generated. Defaults to the current year if omitted.
+     * @param min   minimum Date that will be generated.
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date that will be generated. Defaults to 'min' if omitted.
      * @returns         generated random Date.
      */
-    RandomDateTime.nextDate = function (minYear, maxYear) {
-        if (minYear === void 0) { minYear = null; }
-        if (maxYear === void 0) { maxYear = null; }
-        var currentYear = new Date().getFullYear();
-        minYear = minYear == 0 || minYear == null ? currentYear - RandomInteger_1.RandomInteger.nextInteger(10) : minYear;
-        maxYear = maxYear == 0 || maxYear == null ? currentYear : maxYear;
-        var year = RandomInteger_1.RandomInteger.nextInteger(minYear, maxYear);
-        var month = RandomInteger_1.RandomInteger.nextInteger(1, 13);
-        var day = RandomInteger_1.RandomInteger.nextInteger(1, 32);
-        if (month == 2)
-            day = Math.min(28, day);
-        else if (month == 4 || month == 6 || month == 9 || month == 11)
-            day = Math.min(30, day);
-        return new Date(year, month, day, 0, 0, 0, 0);
+    RandomDateTime.nextDate = function (min, max) {
+        if (max === void 0) { max = null; }
+        if (max == null) {
+            max = min;
+            min = new Date(2000, 0, 1);
+        }
+        var diff = max.getTime() - min.getTime();
+        if (diff <= 0)
+            return min;
+        var time = min.getTime() + RandomInteger_1.RandomInteger.nextInteger(0, diff);
+        var date = new Date(time);
+        return new Date(date.getFullYear(), date.getMonth(), date.getDay());
     };
-    //    public static nextTime(): number {
-    //        let hour = RandomInteger.nextInteger(0, 24);
-    //        let min = RandomInteger.nextInteger(0, 60);
-    //        let sec = RandomInteger.nextInteger(0, 60);
-    //        let millis = RandomInteger.nextInteger(0, 1000);
-    //        return ((hour * 60 + min) * 60 + sec) * 1000 + millis;
-    //    }
     /**
-     * Generates a DateTime in the range ['minYear', 'maxYear'].
+     * Generates a Date and time in the range ['minYear', 'maxYear'].
      *
-     * @param minYear   (optional) minimum DateTime that will be generated. Defaults to 0-10 years ago (from the current year) if omitted.
-     * @param maxYear   (optional) maximum DateTime that will be generated. Defaults to the current year if omitted.
-     * @returns         generated random DateTime.
+     * @param min   minimum Date and time that will be generated.
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
+     * @param max   (optional) maximum Date and time that will be generated. Defaults to 'min' if omitted.
+     * @returns         generated random Date and time.
      */
-    RandomDateTime.nextDateTime = function (minYear, maxYear) {
-        if (minYear === void 0) { minYear = null; }
-        if (maxYear === void 0) { maxYear = null; }
-        var time = RandomDateTime.nextDate(minYear, maxYear).valueOf()
-            + RandomInteger_1.RandomInteger.nextInteger(3600 * 24 * 365);
+    RandomDateTime.nextDateTime = function (min, max) {
+        if (max === void 0) { max = null; }
+        if (max == null) {
+            max = min;
+            min = new Date(2000, 0, 1);
+        }
+        var diff = max.getTime() - min.getTime();
+        if (diff <= 0)
+            return min;
+        var time = min.getTime() + RandomInteger_1.RandomInteger.nextInteger(0, diff);
         return new Date(time);
     };
     /**
@@ -57,17 +55,17 @@ var RandomDateTime = /** @class */ (function () {
      * If 'range' is omitted (or 0), then the generated DateTime will differ from 'value' by ±10 days.
      *
      * @param value     DateTime to update.
-     * @param range     (optional) defines the maximum amount of days by which the new DateTime can differ from 'value'. If range is a negative number,
+     * @param range     (optional) defines the maximum amount of milliseconds by which the new DateTime can differ from 'value'. If range is a negative number,
      *                  'value' will be returned. Defaults to 10 days if omitted or zero.
      * @returns         updated DateTime.
      */
     RandomDateTime.updateDateTime = function (value, range) {
         if (range === void 0) { range = null; }
-        range = range != 0 && range != null ? range : 10;
+        range = range != 0 && range != null ? range : 10 * 24 * 3600000;
         if (range < 0)
             return value;
         // Days to milliseconds
-        range = range * 24 * 3600000;
+        range = range;
         var time = value.valueOf() + RandomInteger_1.RandomInteger.nextInteger(-range, range);
         return new Date(time);
     };
