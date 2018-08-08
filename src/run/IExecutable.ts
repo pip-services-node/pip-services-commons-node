@@ -3,6 +3,28 @@ import { Parameters } from './Parameters';
 
 /**
  * Interface for active components that can be called to execute work.
+ * 
+ * Implementation example:
+ * 
+ *     // Define command
+ *     class MyCommand implements IExecutable {
+ *     …
+ *     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any)): void {
+ *         // Extract arguments
+ *         let item = args.Get(‘item’);
+ *         // Call controller
+ *         this.controller.DoSomething(correlationId, item, callback);
+ *     }
+ *     …
+ *     }
+ *     
+ * Example of calling the command:
+ * 
+ *     // Calling command
+ *     var args = Parameters.fromTuples(‘item’, item);
+ *     command.execute(correlationId, args, (err, result) => {
+ *     …
+ *     });
  */
 export interface IExecutable {
 	/**

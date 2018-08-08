@@ -72,6 +72,25 @@
 					<div class="lead">
 						<p>Interface for active components that can be called to execute work.</p>
 					</div>
+					<p>Implementation example:</p>
+					<pre><code><span class="hljs-comment">// Define command</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommand</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IExecutable</span> {</span>
+…
+<span class="hljs-keyword">public</span> execute(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">args:</span> Parameters, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any, <span class="hljs-string">result:</span> any)): <span class="hljs-keyword">void</span> {
+    <span class="hljs-comment">// Extract arguments</span>
+    let item = args.Get(‘item’);
+    <span class="hljs-comment">// Call controller</span>
+    <span class="hljs-keyword">this</span>.controller.DoSomething(correlationId, item, callback);
+}
+…
+}
+</code></pre><p>Example of calling the command:</p>
+					<pre><code><span class="hljs-comment">// Calling command</span>
+<span class="hljs-keyword">var</span> <span class="hljs-keyword">args</span> = Parameters.fromTuples(‘item’, item);
+command.execute(correlationId, <span class="hljs-keyword">args</span>, (<span class="hljs-keyword">err</span>, result) =&gt; {
+…
+});
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -112,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/run/IExecutable.ts#L16">run/IExecutable.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/run/IExecutable.ts#L38">run/IExecutable.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

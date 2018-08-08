@@ -4,17 +4,15 @@ import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used 
- * as a part of aspect-oriented programming. 
  * 
- * Aspect-oriented programming contains perpendicular logic (aspects, for example: logging, caching, blocking), which 
- * can be removed from the business logic and added to these perpendicular calls. When using interceptors, a command can 
- * pass through an execution chain, consisting of interceptors, which can: 
- * - simply make some note of the command, notify, log, get metrics, or do some other passive task; or
- * - intercept the command completely and, for example, return a previous record of the call from the cache. 
+ * Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used 
+ * to intercept calls, perform a set of actions, and, optionally, cancel the command's actual execution by simply 
+ * returning a result. 
  * 
  * A command’s return value can also be intercepted in a similar manner. For example: the result can be written to cache, 
  * so that the next call doesn’t have to be made. 
+ * 
+ * This mechanism can be used for authentication, logging, and other functions.
  * 
  * Command interceptors are also often used for intercepting a command's unique call and replace it with a universal 
  * "message transfer" call.

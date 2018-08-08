@@ -71,17 +71,12 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used
-						as a part of aspect-oriented programming.</p>
+							to intercept calls, perform a set of actions, and, optionally, cancel the command&#39;s actual execution by simply
+						returning a result.</p>
 					</div>
-					<p>Aspect-oriented programming contains perpendicular logic (aspects, for example: logging, caching, blocking), which
-						can be removed from the business logic and added to these perpendicular calls. When using interceptors, a command can
-					pass through an execution chain, consisting of interceptors, which can:</p>
-					<ul>
-						<li>simply make some note of the command, notify, log, get metrics, or do some other passive task; or</li>
-						<li>intercept the command completely and, for example, return a previous record of the call from the cache.</li>
-					</ul>
 					<p>A command’s return value can also be intercepted in a similar manner. For example: the result can be written to cache,
 					so that the next call doesn’t have to be made.</p>
+					<p>This mechanism can be used for authentication, logging, and other functions.</p>
 					<p>Command interceptors are also often used for intercepting a command&#39;s unique call and replace it with a universal
 					&quot;message transfer&quot; call.</p>
 					<dl class="tsd-comment-tags">
@@ -129,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/commands/ICommandInterceptor.ts#L47">commands/ICommandInterceptor.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L45">commands/ICommandInterceptor.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/commands/ICommandInterceptor.ts#L33">commands/ICommandInterceptor.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L31">commands/ICommandInterceptor.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -239,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/commands/ICommandInterceptor.ts#L60">commands/ICommandInterceptor.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L58">commands/ICommandInterceptor.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

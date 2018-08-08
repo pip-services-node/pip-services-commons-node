@@ -17,16 +17,16 @@
  * - [[ICommandable Commandable Interfaces]] – part of the command design pattern, used to make classes with certain logic, which 
  * are capable of receiving and processing commands in this universal form.   
  * 
- * - [[ICommandInterceptor Command interceptors]] – modify the message execution pipeline. They intercept calls and is often used 
- * for aspect-oriented programming. Aspect-oriented programming contains perpendicular logic (aspects, for example: logging, 
- * caching, blocking), which can be removed from the business logic and added to these perpendicular calls. A command goes 
- * through a chain of interceptors, which can simply make some note of the command, notify, log, get metrics, or they can 
- * intercept it completely and return some record from the cache. A command’s return value can also be intercepted in a 
- * similar manner (the result can be written to cache, so that the next call doesn’t have to be made). 
+ * - [[ICommandInterceptor Command interceptors]] – modify the message execution pipeline. Command interceptors are used to intercept 
+ * calls, perform a set of actions, and, optionally, cancel the command's actual execution by simply returning a result. This logic 
+ * is used in  aspect-oriented programming. Aspect-oriented programming contains perpendicular logic (aspects, for example: logging, 
+ * caching, blocking), which can be removed from the business logic and added to these perpendicular calls. When using interceptors, 
+ * a command can pass through an execution chain, consisting of interceptors, which can: 
+ *     - simply make some note of the command, notify, log, get metrics, or do some other passive task; or
+ *     - intercept the command completely and, for example, return a previous record of the call from the cache. A command’s return 
+ *     value can also be intercepted in a similar manner: the result can be written to cache, so that the next call doesn’t have to be made. 
  * 
- * (Interceptors can be added to a command set before/after the commands are added, which allows for building/skipping execution chains.)
- * 
- * - [[InterceptedCommand Intercepted commands]] are used as pattern decorators in the command design pattern. They are represented as regular \
+ * - [[InterceptedCommand Intercepted commands]] are used as pattern decorators in the command design pattern. They are represented as regular 
  * commands, but run their own logic before calling the actual command. 
  */
 export { ICommand } from './ICommand';
