@@ -42,7 +42,7 @@ var OnlyOneExistsRule = /** @class */ (function () {
             results.push(new ValidationResult_1.ValidationResult(path, ValidationResultType_1.ValidationResultType.Error, "VALUE_NULL", name + " must have at least one property from " + this._properties, this._properties, null));
         }
         else if (found.length > 1) {
-            results.push(new ValidationResult_1.ValidationResult(path, ValidationResultType_1.ValidationResultType.Error, "VALUE_ONLY_ONE", name + "must have only one property from " + this._properties, this._properties, null));
+            results.push(new ValidationResult_1.ValidationResult(path, ValidationResultType_1.ValidationResultType.Error, "VALUE_ONLY_ONE", name + " must have only one property from " + this._properties, this._properties, null));
         }
     };
     return OnlyOneExistsRule;

@@ -60,7 +60,7 @@ export class OnlyOneExistsRule implements IValidationRule {
                     path,
                     ValidationResultType.Error,
                     "VALUE_ONLY_ONE",
-                    name + "must have only one property from " + this._properties,
+                    name + " must have only one property from " + this._properties,
                     this._properties,
                     null
                 )

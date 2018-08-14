@@ -3,6 +3,7 @@ import { IValidationRule } from './IValidationRule';
 import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 import { ValidationResultType } from './ValidationResultType';
+import { ObjectComparator } from './ObjectComparator';
 
 /**
  * Validation rule that requires at least one of the set values to be present for validation to pass.
@@ -37,8 +38,9 @@ export class IncludedRule implements IValidationRule {
         for (var i = 0; i < this._values.length && !found; i++) {
             let thisValue: any = this._values[i];
 
-            if (thisValue && thisValue == value) {
+            if (ObjectComparator.compare(value, 'EQ', thisValue)) {
                 found = true;
+                break;
             }
         }
 

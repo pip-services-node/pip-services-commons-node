@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");
+var ObjectComparator_1 = require("./ObjectComparator");
 /**
  * Validation rule that requires at least one of the set values to be present for validation to pass.
  */
@@ -34,8 +35,9 @@ var IncludedRule = /** @class */ (function () {
         var found = false;
         for (var i = 0; i < this._values.length && !found; i++) {
             var thisValue = this._values[i];
-            if (thisValue && thisValue == value) {
+            if (ObjectComparator_1.ObjectComparator.compare(value, 'EQ', thisValue)) {
                 found = true;
+                break;
             }
         }
         if (!found) {

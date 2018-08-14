@@ -9,7 +9,7 @@ import { AtLeastOneExistsRule } from '../../src/validate/AtLeastOneExistsRule';
 
 suite('AndRule', ()=> {
 
-    test('Only One Exist Rule', (done) => {
+    test('AndRule', (done) => {
         var obj = new TestObject();
 
         var schema = new Schema().withRule(new AndRule(new AtLeastOneExistsRule("missingProperty", "stringProperty", "nullProperty"), new AtLeastOneExistsRule("stringProperty", "nullProperty", "intField")));
