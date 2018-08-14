@@ -29,7 +29,7 @@ var ObjectSchema = /** @class */ (function (_super) {
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
      * this ObjectSchema.
      *
-     * @param allowExtraProperies      defines whether or not validation results should contain
+     * @param allowUndefined      defines whether or not validation results should contain
      *                                  a [[ValidationResultType.Warning Warning]], when extra
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object
@@ -39,10 +39,9 @@ var ObjectSchema = /** @class */ (function (_super) {
      *
      * @see [[IValidationRule]]
      */
-    function ObjectSchema(allowExtraProperies, required, rules) {
+    function ObjectSchema(allowUndefined, required, rules) {
         var _this = _super.call(this, required, rules) || this;
-        _this._allowExtra = false;
-        _this._allowExtra = allowExtraProperies;
+        _this._allowUndefined = allowUndefined;
         return _this;
     }
     Object.defineProperty(ObjectSchema.prototype, "properties", {
@@ -190,7 +189,7 @@ var ObjectSchema = /** @class */ (function (_super) {
                     propertySchema.performValidation(path, null, results);
             }
         }
-        if (!this._allowExtra)
+        if (!this._allowUndefined)
             for (var key in properties) {
                 var propertyPath = key && path != "" ? path + "." + key : key;
                 results.push(new ValidationResult_1.ValidationResult(propertyPath, ValidationResultType_1.ValidationResultType.Warning, "UNEXPECTED_PROPERTY", name + " contains unexpected property " + key, null, key));

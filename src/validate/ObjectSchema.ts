@@ -13,14 +13,13 @@ import { ObjectReader } from '../reflect/ObjectReader';
 export class ObjectSchema extends Schema {
     private _properties: PropertySchema[];
     private _allowUndefined: boolean;
-    private _allowExtra: boolean = false;
 
     /**
      * Creates a new ObjectSchema, which can be used to validate objects using the given rules. 
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to 
      * this ObjectSchema. 
      * 
-     * @param allowExtraProperies      defines whether or not validation results should contain 
+     * @param allowUndefined      defines whether or not validation results should contain 
      *                                  a [[ValidationResultType.Warning Warning]], when extra 
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object 
@@ -30,9 +29,9 @@ export class ObjectSchema extends Schema {
      * 
      * @see [[IValidationRule]]
      */
-    public constructor(allowExtraProperies?: boolean, required?: boolean, rules?: IValidationRule[]) {
+    public constructor(allowUndefined?: boolean, required?: boolean, rules?: IValidationRule[]) {
         super(required, rules);
-        this._allowExtra = allowExtraProperies;
+        this._allowUndefined = allowUndefined;
     }
 
     /**
@@ -182,7 +181,7 @@ export class ObjectSchema extends Schema {
             }
         }
 
-        if (!this._allowExtra)
+        if (!this._allowUndefined)
             for (var key in properties) {
                 let propertyPath: string = key && path != "" ? path + "." + key : key;
 

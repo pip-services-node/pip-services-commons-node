@@ -9,13 +9,12 @@ import { PropertySchema } from './PropertySchema';
 export declare class ObjectSchema extends Schema {
     private _properties;
     private _allowUndefined;
-    private _allowExtra;
     /**
      * Creates a new ObjectSchema, which can be used to validate objects using the given rules.
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
      * this ObjectSchema.
      *
-     * @param allowExtraProperies      defines whether or not validation results should contain
+     * @param allowUndefined      defines whether or not validation results should contain
      *                                  a [[ValidationResultType.Warning Warning]], when extra
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object
@@ -25,7 +24,7 @@ export declare class ObjectSchema extends Schema {
      *
      * @see [[IValidationRule]]
      */
-    constructor(allowExtraProperies?: boolean, required?: boolean, rules?: IValidationRule[]);
+    constructor(allowUndefined?: boolean, required?: boolean, rules?: IValidationRule[]);
     /**
      * @returns the array of PropertySchemas, which are to be used for object validation.
      *
