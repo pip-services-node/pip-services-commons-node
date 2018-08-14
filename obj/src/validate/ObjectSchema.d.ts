@@ -8,15 +8,15 @@ import { PropertySchema } from './PropertySchema';
  */
 export declare class ObjectSchema extends Schema {
     private _properties;
-    private _isUndefinedAllowed;
-    private _allowExcess;
+    private _allowUndefined;
+    private _allowExtra;
     /**
      * Creates a new ObjectSchema, which can be used to validate objects using the given rules.
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
      * this ObjectSchema.
      *
-     * @param allowExcessProperies      defines whether or not validation results should contain
-     *                                  a [[ValidationResultType.Warning Warning]], when excess
+     * @param allowExtraProperies      defines whether or not validation results should contain
+     *                                  a [[ValidationResultType.Warning Warning]], when extra
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object
      *                                  properties should cause validation to fail (as
@@ -25,7 +25,7 @@ export declare class ObjectSchema extends Schema {
      *
      * @see [[IValidationRule]]
      */
-    constructor(allowExcessProperies?: boolean, required?: boolean, rules?: IValidationRule[]);
+    constructor(allowExtraProperies?: boolean, required?: boolean, rules?: IValidationRule[]);
     /**
      * @returns the array of PropertySchemas, which are to be used for object validation.
      *
@@ -91,12 +91,12 @@ export declare class ObjectSchema extends Schema {
     /**
      * Validates the given 'value' using [[Schema.performValidation]] and, if
      * [[PropertySchema PropertySchemas]] were set, additionally validates value's properties.
-     * If excess properties are not allowed and are detected - the validation results will
+     * If extra properties are not allowed and are detected - the validation results will
      * contain a [[ValidationResultType.Warning Warning]].
      *
      * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If excess properties are not allowed and
+     * @param results   the results of the validation. If extra properties are not allowed and
      *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].
      *
      * @see [[PropertySchema]]

@@ -12,16 +12,16 @@ import { ObjectReader } from '../reflect/ObjectReader';
  */
 export class ObjectSchema extends Schema {
     private _properties: PropertySchema[];
-    private _isUndefinedAllowed: boolean;
-    private _allowExcess: boolean = false;
+    private _allowUndefined: boolean;
+    private _allowExtra: boolean = false;
 
     /**
      * Creates a new ObjectSchema, which can be used to validate objects using the given rules. 
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to 
      * this ObjectSchema. 
      * 
-     * @param allowExcessProperies      defines whether or not validation results should contain 
-     *                                  a [[ValidationResultType.Warning Warning]], when excess 
+     * @param allowExtraProperies      defines whether or not validation results should contain 
+     *                                  a [[ValidationResultType.Warning Warning]], when extra 
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object 
      *                                  properties should cause validation to fail (as   
@@ -30,9 +30,9 @@ export class ObjectSchema extends Schema {
      * 
      * @see [[IValidationRule]]
      */
-    public constructor(allowExcessProperies?: boolean, required?: boolean, rules?: IValidationRule[]) {
+    public constructor(allowExtraProperies?: boolean, required?: boolean, rules?: IValidationRule[]) {
         super(required, rules);
-        this._allowExcess = allowExcessProperies;
+        this._allowExtra = allowExtraProperies;
     }
 
     /**
@@ -57,14 +57,14 @@ export class ObjectSchema extends Schema {
      * @returns whether or not undefined properties are allowed to pass validation.
      */
     public get isUndefinedAllowed(): boolean {
-        return this._isUndefinedAllowed;
+        return this._allowUndefined;
     }
 
     /**
      * @param value     whether or not undefined properties should be allowed to pass validation.
      */
     public set isUndefinedAllowed(value: boolean) {
-        this._isUndefinedAllowed = value;
+        this._allowUndefined = value;
     }
 
     /**
@@ -141,12 +141,12 @@ export class ObjectSchema extends Schema {
     /**
      * Validates the given 'value' using [[Schema.performValidation]] and, if 
      * [[PropertySchema PropertySchemas]] were set, additionally validates value's properties. 
-     * If excess properties are not allowed and are detected - the validation results will 
+     * If extra properties are not allowed and are detected - the validation results will 
      * contain a [[ValidationResultType.Warning Warning]].
      * 
      * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If excess properties are not allowed and
+     * @param results   the results of the validation. If extra properties are not allowed and
      *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].  
      * 
      * @see [[PropertySchema]]
@@ -182,7 +182,7 @@ export class ObjectSchema extends Schema {
             }
         }
 
-        if (!this._allowExcess)
+        if (!this._allowExtra)
             for (var key in properties) {
                 let propertyPath: string = key && path != "" ? path + "." + key : key;
 

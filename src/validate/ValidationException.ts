@@ -46,7 +46,7 @@ export class ValidationException extends BadRequestException {
                 if (result.getType() == ValidationResultType.Information)
                     continue;
 
-                builder += !first ? ": " : ", ";
+                builder += first ? ": " : ", ";
                 builder += result.getMessage();
                 first = false;
             }

@@ -32,15 +32,15 @@ var ObjectComparator = /** @class */ (function () {
             return ObjectComparator.areNotEqual(value1, value2);
         if (operation == "<" || operation == "LT")
             return ObjectComparator.isLess(value1, value2);
-        if (operation == "<=" || operation == "LE")
+        if (operation == "<=" || operation == "LE" || operation == "LTE")
             return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isLess(value1, value2);
         if (operation == ">" || operation == "GT")
             return ObjectComparator.isGreater(value1, value2);
-        if (operation == ">=" || operation == "GE")
+        if (operation == ">=" || operation == "GE" || operation == "GTE")
             return ObjectComparator.areEqual(value1, value2) || ObjectComparator.isGreater(value1, value2);
         if (operation == "LIKE")
             return ObjectComparator.match(value1, value2);
-        return true;
+        return false;
     };
     /**
      * Static method that checks whether or not a pair of values are equal. If both values are

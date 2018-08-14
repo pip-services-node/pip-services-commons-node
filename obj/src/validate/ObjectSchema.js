@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -26,8 +29,8 @@ var ObjectSchema = /** @class */ (function (_super) {
      * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
      * this ObjectSchema.
      *
-     * @param allowExcessProperies      defines whether or not validation results should contain
-     *                                  a [[ValidationResultType.Warning Warning]], when excess
+     * @param allowExtraProperies      defines whether or not validation results should contain
+     *                                  a [[ValidationResultType.Warning Warning]], when extra
      *                                  properties are detected.
      * @param required                  defines whether or not <code>null</code> object
      *                                  properties should cause validation to fail (as
@@ -36,10 +39,10 @@ var ObjectSchema = /** @class */ (function (_super) {
      *
      * @see [[IValidationRule]]
      */
-    function ObjectSchema(allowExcessProperies, required, rules) {
+    function ObjectSchema(allowExtraProperies, required, rules) {
         var _this = _super.call(this, required, rules) || this;
-        _this._allowExcess = false;
-        _this._allowExcess = allowExcessProperies;
+        _this._allowExtra = false;
+        _this._allowExtra = allowExtraProperies;
         return _this;
     }
     Object.defineProperty(ObjectSchema.prototype, "properties", {
@@ -67,13 +70,13 @@ var ObjectSchema = /** @class */ (function (_super) {
          * @returns whether or not undefined properties are allowed to pass validation.
          */
         get: function () {
-            return this._isUndefinedAllowed;
+            return this._allowUndefined;
         },
         /**
          * @param value     whether or not undefined properties should be allowed to pass validation.
          */
         set: function (value) {
-            this._isUndefinedAllowed = value;
+            this._allowUndefined = value;
         },
         enumerable: true,
         configurable: true
@@ -152,12 +155,12 @@ var ObjectSchema = /** @class */ (function (_super) {
     /**
      * Validates the given 'value' using [[Schema.performValidation]] and, if
      * [[PropertySchema PropertySchemas]] were set, additionally validates value's properties.
-     * If excess properties are not allowed and are detected - the validation results will
+     * If extra properties are not allowed and are detected - the validation results will
      * contain a [[ValidationResultType.Warning Warning]].
      *
      * @param path      the dot notation path to the value that is to be validated.
      * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If excess properties are not allowed and
+     * @param results   the results of the validation. If extra properties are not allowed and
      *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].
      *
      * @see [[PropertySchema]]
@@ -187,7 +190,7 @@ var ObjectSchema = /** @class */ (function (_super) {
                     propertySchema.performValidation(path, null, results);
             }
         }
-        if (!this._allowExcess)
+        if (!this._allowExtra)
             for (var key in properties) {
                 var propertyPath = key && path != "" ? path + "." + key : key;
                 results.push(new ValidationResult_1.ValidationResult(propertyPath, ValidationResultType_1.ValidationResultType.Warning, "UNEXPECTED_PROPERTY", name + " contains unexpected property " + key, null, key));
