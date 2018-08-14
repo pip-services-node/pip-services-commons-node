@@ -40,16 +40,12 @@ var ArraySchema = /** @class */ (function (_super) {
         _this._valueType = valueType;
         return _this;
     }
-    Object.defineProperty(ArraySchema.prototype, "valueType", {
-        /**
-         * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
-         */
-        get: function () {
-            return this._valueType;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    /**
+     * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
+     */
+    ArraySchema.prototype.getValueType = function () {
+        return this._valueType;
+    };
     /**
      * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is an array,
      * additionally validates that all values stored are objects of the data type
@@ -73,7 +69,7 @@ var ArraySchema = /** @class */ (function (_super) {
         if (_.isArray(value)) {
             for (var index = 0; index < value.length; index++) {
                 var elementPath = path != "" ? path + "." + index : index.toString();
-                this.performTypeValidation(elementPath, this.valueType, value[index], results);
+                this.performTypeValidation(elementPath, this.getValueType(), value[index], results);
             }
         }
         else {

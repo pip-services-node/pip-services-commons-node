@@ -32,7 +32,7 @@ export class ArraySchema extends Schema {
     /**
      * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
      */
-    public get valueType(): any {
+    public getValueType(): any {
         return this._valueType;
     }
 
@@ -61,7 +61,7 @@ export class ArraySchema extends Schema {
         if (_.isArray(value)) {
             for (let index = 0; index < value.length; index++) {
                 let elementPath = path != "" ? path + "." + index : index.toString();
-                this.performTypeValidation(elementPath, this.valueType, value[index], results);
+                this.performTypeValidation(elementPath, this.getValueType(), value[index], results);
             }
         } else {
             results.push(

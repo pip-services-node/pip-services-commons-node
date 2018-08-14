@@ -44,26 +44,22 @@ var ObjectSchema = /** @class */ (function (_super) {
         _this._allowUndefined = allowUndefined;
         return _this;
     }
-    Object.defineProperty(ObjectSchema.prototype, "properties", {
-        /**
-         * @returns the array of PropertySchemas, which are to be used for object validation.
-         *
-         * @see [[PropertySchema]]
-         */
-        get: function () {
-            return this._properties;
-        },
-        /**
-         * @param value     the array of PropertySchemas to use for object validation.
-         *
-         * @see [[PropertySchema]]
-         */
-        set: function (value) {
-            this._properties = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    /**
+     * @returns the array of PropertySchemas, which are to be used for object validation.
+     *
+     * @see [[PropertySchema]]
+     */
+    ObjectSchema.prototype.getProperties = function () {
+        return this._properties;
+    };
+    /**
+     * @param value     the array of PropertySchemas to use for object validation.
+     *
+     * @see [[PropertySchema]]
+     */
+    ObjectSchema.prototype.setSroperties = function (value) {
+        this._properties = value;
+    };
     Object.defineProperty(ObjectSchema.prototype, "isUndefinedAllowed", {
         /**
          * @returns whether or not undefined properties are allowed to pass validation.
@@ -100,8 +96,8 @@ var ObjectSchema = /** @class */ (function (_super) {
      * @see [[PropertySchema]]
      */
     ObjectSchema.prototype.withProperty = function (schema) {
-        this.properties = this.properties || [];
-        this.properties.push(schema);
+        this._properties = this._properties || [];
+        this._properties.push(schema);
         return this;
     };
     /**
@@ -122,7 +118,6 @@ var ObjectSchema = /** @class */ (function (_super) {
         for (var _i = 2; _i < arguments.length; _i++) {
             rules[_i - 2] = arguments[_i];
         }
-        this.properties = this.properties || [];
         var schema = new PropertySchema_1.PropertySchema(null, null, name, type);
         schema.setRules(rules.slice());
         schema.makeRequired();
@@ -145,7 +140,6 @@ var ObjectSchema = /** @class */ (function (_super) {
         for (var _i = 2; _i < arguments.length; _i++) {
             rules[_i - 2] = arguments[_i];
         }
-        this.properties = this.properties || [];
         var schema = new PropertySchema_1.PropertySchema(null, null, name, type);
         schema.setRules(rules.slice());
         schema.makeOptional();
@@ -170,9 +164,9 @@ var ObjectSchema = /** @class */ (function (_super) {
             return;
         var name = path || "value";
         var properties = ObjectReader_1.ObjectReader.getProperties(value);
-        if (this.properties) {
-            for (var i = 0; i < this.properties.length; i++) {
-                var propertySchema = this.properties[i];
+        if (this._properties) {
+            for (var i = 0; i < this._properties.length; i++) {
+                var propertySchema = this._properties[i];
                 var processedName = null;
                 for (var key in properties) {
                     var propertyName = key;

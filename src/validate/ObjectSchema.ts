@@ -39,7 +39,7 @@ export class ObjectSchema extends Schema {
      * 
      * @see [[PropertySchema]]
      */
-    public get properties(): PropertySchema[] {
+    public getProperties(): PropertySchema[] {
         return this._properties;
     }
 
@@ -48,7 +48,7 @@ export class ObjectSchema extends Schema {
      * 
      * @see [[PropertySchema]]
      */
-    public set properties(value: PropertySchema[]) {
+    public setSroperties(value: PropertySchema[]) {
         this._properties = value;
     }
 
@@ -87,8 +87,8 @@ export class ObjectSchema extends Schema {
      * @see [[PropertySchema]]
      */
     public withProperty(schema: PropertySchema): ObjectSchema {
-        this.properties = this.properties || [];
-        this.properties.push(schema);
+        this._properties = this._properties || [];
+        this._properties.push(schema);
         return this;
     }
 
@@ -106,8 +106,6 @@ export class ObjectSchema extends Schema {
      * @see [[IValidationRule]]
      */
     public withRequiredProperty(name: string, type?: any, ...rules: IValidationRule[]): ObjectSchema {
-        this.properties = this.properties || [];
-
         var schema = new PropertySchema(null, null, name, type);
         schema.setRules(rules.slice());
         schema.makeRequired();
@@ -128,8 +126,6 @@ export class ObjectSchema extends Schema {
      * @see [[IValidationRule]]
      */
     public withOptionalProperty(name: string, type?: any, ...rules: IValidationRule[]): ObjectSchema {
-        this.properties = this.properties || [];
-
         var schema = new PropertySchema(null, null, name, type);
         schema.setRules(rules.slice());
         schema.makeOptional();
@@ -158,9 +154,9 @@ export class ObjectSchema extends Schema {
         let name = path || "value";
         let properties = ObjectReader.getProperties(value);
 
-        if (this.properties) {
-            for (var i = 0; i < this.properties.length; i++) {
-                var propertySchema: PropertySchema = this.properties[i];
+        if (this._properties) {
+            for (var i = 0; i < this._properties.length; i++) {
+                var propertySchema: PropertySchema = this._properties[i];
                 var processedName = null;
 
                 for (var key in properties) {

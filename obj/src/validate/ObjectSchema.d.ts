@@ -30,12 +30,13 @@ export declare class ObjectSchema extends Schema {
      *
      * @see [[PropertySchema]]
      */
+    getProperties(): PropertySchema[];
     /**
-    * @param value     the array of PropertySchemas to use for object validation.
-    *
-    * @see [[PropertySchema]]
-    */
-    properties: PropertySchema[];
+     * @param value     the array of PropertySchemas to use for object validation.
+     *
+     * @see [[PropertySchema]]
+     */
+    setSroperties(value: PropertySchema[]): void;
     /**
      * @returns whether or not undefined properties are allowed to pass validation.
      */

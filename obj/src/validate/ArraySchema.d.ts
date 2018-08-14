@@ -17,7 +17,7 @@ export declare class ArraySchema extends Schema {
     /**
      * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
      */
-    readonly valueType: any;
+    getValueType(): any;
     /**
      * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is an array,
      * additionally validates that all values stored are objects of the data type
