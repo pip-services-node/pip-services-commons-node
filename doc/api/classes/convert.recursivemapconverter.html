@@ -89,13 +89,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="convert.recursivemapconverter.html#arraytomap" class="tsd-kind-icon">array<wbr>ToMap</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="convert.recursivemapconverter.html#maptomap" class="tsd-kind-icon">map<wbr>ToMap</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="convert.recursivemapconverter.html#objecttomap" class="tsd-kind-icon">object<wbr>ToMap</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.recursivemapconverter.html#tomap" class="tsd-kind-icon">to<wbr>Map</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.recursivemapconverter.html#tomapwithdefault" class="tsd-kind-icon">to<wbr>Map<wbr>With<wbr>Default</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.recursivemapconverter.html#tonullablemap" class="tsd-kind-icon">to<wbr>Nullable<wbr>Map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="convert.recursivemapconverter.html#valuetomap" class="tsd-kind-icon">value<wbr>ToMap</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,114 +99,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="arraytomap" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> array<wbr>ToMap</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>ToMap<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L94">convert/RecursiveMapConverter.ts:94</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Recursively converts the array passed into a map using <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the array to recursively convert into a map.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="maptomap" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> map<wbr>ToMap</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">map<wbr>ToMap<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L78">convert/RecursiveMapConverter.ts:78</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Recursively converts the map passed using <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the map to recursively convert.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="objecttomap" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> object<wbr>ToMap</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">object<wbr>ToMap<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L21">convert/RecursiveMapConverter.ts:21</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Recursively converts the object passed into a map using <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the object to recursively convert into a map.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="tomap" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Map</h3>
@@ -221,20 +109,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L126">convert/RecursiveMapConverter.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/convert/RecursiveMapConverter.ts#L126">convert/RecursiveMapConverter.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Static method for recursively converting the value passed to a map using <a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a>
-									(which uses <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>).</p>
+									(which uses [[valueToMap]]).</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a></p>
 									</dd>
 									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
+									<dd><p>[[valueToMap]]</p>
 									</dd>
 								</dl>
 							</div>
@@ -262,20 +150,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L141">convert/RecursiveMapConverter.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/convert/RecursiveMapConverter.ts#L141">convert/RecursiveMapConverter.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Static method for recursively converting the value passed to a map using <a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a>
-									(which uses <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>).</p>
+									(which uses [[valueToMap]]).</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a></p>
 									</dd>
 									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
+									<dd><p>[[valueToMap]]</p>
 									</dd>
 								</dl>
 							</div>
@@ -309,16 +197,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L112">convert/RecursiveMapConverter.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/convert/RecursiveMapConverter.ts#L112">convert/RecursiveMapConverter.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for recursively converting the value passed to a nullable map using <a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a>.</p>
+									<p>Static method for recursively converting the value passed to a nullable map using [[valueToMap]].</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#valuetomap">valueToMap</a></p>
+									<dd><p>[[valueToMap]]</p>
 									</dd>
 								</dl>
 							</div>
@@ -333,55 +221,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 							<p>the converted map or null.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="valuetomap" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> value<wbr>ToMap</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">value<wbr>ToMap<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/460bbc1/src/convert/RecursiveMapConverter.ts#L51">convert/RecursiveMapConverter.ts:51</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Conversion cases:</p>
-									<ul>
-										<li>if &#39;value&#39; is null, then null will be returned;</li>
-										<li>if &#39;value&#39; is a string or a primitive type, then it will be returned as is;</li>
-										<li>if &#39;value&#39; is a map, then it will be passed to <a href="convert.recursivemapconverter.html#maptomap">mapToMap</a>, and the result will be returned;</li>
-										<li>if &#39;value&#39; is an array, then it will be passed to <a href="convert.recursivemapconverter.html#arraytomap">arrayToMap</a>, and the result will be returned;</li>
-										<li>otherwise &#39;value&#39; will be passed to <a href="convert.recursivemapconverter.html#objecttomap">objectToMap</a>, and the result will be returned;</li>
-									</ul>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#maptomap">mapToMap</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#arraytomap">arrayToMap</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.recursivemapconverter.html#objecttomap">objectToMap</a></p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the value to convert to a map recursively.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -465,15 +304,6 @@
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="convert.recursivemapconverter.html" class="tsd-kind-icon">Recursive<wbr>Map<wbr>Converter</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="convert.recursivemapconverter.html#arraytomap" class="tsd-kind-icon">array<wbr>ToMap</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="convert.recursivemapconverter.html#maptomap" class="tsd-kind-icon">map<wbr>ToMap</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="convert.recursivemapconverter.html#objecttomap" class="tsd-kind-icon">object<wbr>ToMap</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="convert.recursivemapconverter.html#tomap" class="tsd-kind-icon">to<wbr>Map</a>
 							</li>
@@ -482,9 +312,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="convert.recursivemapconverter.html#tonullablemap" class="tsd-kind-icon">to<wbr>Nullable<wbr>Map</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="convert.recursivemapconverter.html#valuetomap" class="tsd-kind-icon">value<wbr>ToMap</a>
 							</li>
 						</ul>
 					</li>
