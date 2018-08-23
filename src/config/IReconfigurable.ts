@@ -2,7 +2,7 @@
 import { IConfigurable } from './IConfigurable';
 
 /**
- * Interface that indicates that a class can be configured more than once.
+ * Interface for components that can be reconfigured when configuration changes
  * 
  * @see [[IConfigurable]]
  */
