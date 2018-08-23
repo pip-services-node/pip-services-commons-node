@@ -5,7 +5,7 @@ import { ValidationResult } from '../validate/ValidationResult';
 
 /**
  * 
- * Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used 
+ * Interface for stackable command intercepters, which can modify the message execution pipeline. Command interceptors are used 
  * to intercept calls, perform a set of actions, and, optionally, cancel the command's actual execution by simply 
  * returning a result. 
  * 
