@@ -29,6 +29,22 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * 
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
+ * 
+ * ### Examples ###
+ * Configuration User's MongoDbPersistence object using static method fromTuples()
+ *  let mongoUri = process.env['MONGO_SERVICE_URI'];
+    let mongoHost = process.env['MONGO_SERVICE_HOST'] || 'localhost';
+    let mongoPort = process.env['MONGO_SERVICE_PORT'] || 27017;
+    let mongoDatabase = process.env['MONGO_SERVICE_DB'] || 'test';
+
+    setup((done) => {
+        persistence = new BeaconsMongoDbPersistence();
+        persistence.configure(ConfigParams.fromTuples(
+            'connection.uri', mongoUri,
+            'connection.host', mongoHost,
+            'connection.port', mongoPort,
+            'connection.database', mongoDatabase
+        ));
  */
 export class ConfigParams extends StringValueMap {
 
