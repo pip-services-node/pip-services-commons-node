@@ -15,6 +15,48 @@ import { ValidationResult } from '../validate/ValidationResult';
  * and executed using this universal Command class.
  * 
  * @see [[ICommand]]
+ * 
+ * ### Examples ###
+ * 
+ * Example Command class implementation and using
+ * 
+ * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
+ * private _controller: IMyDataController;
+
+    constructor(controller: IMyDataController) { // TO DO description of the controller interface
+        super();
+
+        this._controller = controller;
+
+        this.addCommand(this.makeGetMyDataCommand());
+        this.addCommand(this.makeGetMyDataByIdCommand());
+    }   
+ *  private makeGetMyDataCommand(): ICommand {
+        return new Command(
+            'get_mydata',
+            new ObjectSchema(true)
+                .withOptionalProperty('filter', new FilterParamsSchema())
+                .withOptionalProperty('paging', new PagingParamsSchema()),
+            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+                let filter = FilterParams.fromValue(args.get('filter'));
+                let paging = PagingParams.fromValue(args.get('paging'));
+                this._controller.getMyData(correlationId, filter, paging, callback);
+            }
+        );
+    }
+
+    private makeGetMyDataByIdCommand(): ICommand {
+        return new Command(
+            'get_mydata_by_id',
+            new ObjectSchema(true)
+                .withRequiredProperty('mydata_id', TypeCode.String),
+            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+                let myDataId = args.getAsString('mydata_id');
+                this._controller.getMyDataById(correlationId, myDataId, callback);
+            }
+        );
+    }
+ * }
  */
 export class Command implements ICommand {
     private readonly _schema: Schema;

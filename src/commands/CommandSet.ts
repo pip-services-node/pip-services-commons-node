@@ -14,13 +14,57 @@ import { IdGenerator } from '../data/IdGenerator';
 /**
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]] 
  * is capable of processing.
+ * Handles command registration and execution.
+ * Enables intercepters to control or modify command behavior 
  * 
- * Event listeners and command interceptors can also be added to a command set. If command interceptors are 
- * added before the commands themselves, then execution chains will be built for each command that is added. 
+ * If command interceptors are added before the commands themselves, 
+ * then execution chains will be built for each command that is added. 
  * Otherwise - no execution chains will be generated.
  * 
  * @see [[Command]]
  * @see [[ICommandable]]
+ * 
+ * ### Examples ###
+ * 
+ * Example CommandSet class implementation and using
+ * 
+ * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
+ * private _controller: IMyDataController;
+
+    constructor(controller: IMyDataController) { // TO DO description of the controller interface
+        super();
+
+        this._controller = controller;
+
+        this.addCommand(this.makeCreateMyDataCommand());
+        this.addCommand(this.makeDeleteMyDataByIdCommand());
+    }
+
+    private makeCreateMyDataCommand(): ICommand {
+        return new Command( @see [[Command]]
+            'create_mydata',
+            new ObjectSchema(true)
+                .withRequiredProperty('mydata', new MyDataV1Schema()),
+            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+                let mydata = args.getAsObject('mydata');
+                this._controller.createMyData(correlationId, mydata, callback);
+            }
+        );
+    }
+
+    private makeDeleteMyDataByIdCommand(): ICommand {
+        return new Command(
+            'delete_mydata_by_id',
+            new ObjectSchema(true)
+                .withRequiredProperty('mydata_id', TypeCode.String),
+            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+                let mydataId = args.getAsString('mydata_id');
+                this._controller.deleteMyDataById(correlationId, mydataId, callback);
+            }
+        );
+    }
+}
+ * 
  */
 export class CommandSet {
     private readonly _commands: ICommand[] = [];
@@ -58,6 +102,8 @@ export class CommandSet {
      * 
      * @param commandName   the name of the command to search for.
      * 
+     * @returns a command whose name is the same as the method parameter
+     * 
      * @see [[ICommand]]
      */
     public findCommand(commandName: string): ICommand {
@@ -68,6 +114,8 @@ export class CommandSet {
      * Searches for an event by its name in this command set.
      * 
      * @param eventName     the name of the event to search for.
+     * 
+     * @returns a event whose name is the same as the method parameter
      * 
      * @see [[IEvent]]
      */
