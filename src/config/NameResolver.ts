@@ -5,6 +5,13 @@ import { Descriptor } from '../refer/Descriptor';
 /**
  * Contains the static method [[resolve]], which can be used for resolving the name 
  * of a ConfigParams configuration.
+ * 
+ * ### Examples ###
+ * 
+ * public nameResolution : void {
+ *      ConfigParams config = ConfigParams.fromTuples("Id", "MyName");
+        String name = NameResolver.resolve(config);
+    }
  */
 export class NameResolver {
 

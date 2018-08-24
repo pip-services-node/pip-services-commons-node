@@ -4,6 +4,13 @@ import { ConfigParams } from './ConfigParams';
 /**
  * Contains the static method [[resolve]], which can be used for resolving 
  * the options of a ConfigParams configuration.
+ * 
+ * ### Examples ###
+ * 
+ * public optionResolution : ConfigParams {
+ *      ConfigParams config = ConfigParams.fromTuples("Id", "MyConfig");
+        return OptionResolver.resolve(config);
+    }
  */
 export class OptionResolver {
 
