@@ -50,6 +50,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
     
     /**
+     * Returns the item that is located at the given index.
+     * 
      * @param index     index of the item to retrieve from this AnyValueArray.
      * @returns         the item that is located at the given index.
      */
@@ -58,6 +60,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Puts the value into this AnyValueArray at the given index.
+     * 
      * @param index     the index at which to insert the given value.
      * @param value     the value to insert into this AnyValueArray at the given index.
      */
@@ -66,6 +70,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Removes item by the index from this AnyValueArray.
+     * 
      * @param index     index of the item to remove.
      */
     public remove(index: number): void {
@@ -73,6 +79,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Appends items to this AnyValueArray.
+     * 
      * @param elements  items to append to this AnyValueArray.
      */
     public append(elements: any[]): void {
@@ -124,6 +132,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
     
     /** 
+     * Converts item at the given index into a nullable string object using
+     * [[StringConverter.toNullableString]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable string. 
      * 
@@ -135,6 +146,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default string object using
+     * [[AnyValueArray.getAsStringWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a string (or null as the default). 
      * 
@@ -145,6 +159,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default string object using
+     * [[StringConverter.toStringWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a string or the
@@ -158,6 +175,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable boolean object using
+     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable boolean. 
      * 
@@ -169,6 +189,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default boolean object using
+     * [[AnyValueArray.getAsBooleanWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a boolean (or false as the default). 
      * 
@@ -179,6 +202,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default boolean object using
+     * [[BooleanConverter.toBooleanWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a boolean or the
@@ -192,6 +218,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable integer object using
+     * [[IntegerConverter.toNullableInteger]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable integer. 
      * 
@@ -203,6 +232,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default integer object using
+     * [[AnyValueArray.getAsIntegerWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an integer (or 0 as the default). 
      * 
@@ -213,6 +245,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default integer object using
+     * [[IntegerConverter.toIntegerWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an integer or the
@@ -226,6 +261,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable long object using
+     * [[LongConverter.toNullableLong]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable long. 
      * 
@@ -237,6 +275,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default long object using
+     * [[AnyValueArray.getAsLongWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a long (or 0 as the default). 
      * 
@@ -247,6 +288,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default long object using
+     * [[LongConverter.toLongWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a long or the
@@ -260,6 +304,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable float object using
+     * [[FloatConverter.toNullableFloat]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable float. 
      * 
@@ -271,6 +318,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default float object using
+     * [[AnyValueArray.getAsFloatWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a float (or 0 as the default). 
      * 
@@ -281,6 +331,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default float object using
+     * [[FloatConverter.toFloatWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a float or the
@@ -294,6 +347,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable double object using
+     * [[DoubleConverter.toNullableDouble]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable double. 
      * 
@@ -305,6 +361,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default double object using
+     * [[AnyValueArray.getAsDoubleWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a double (or 0 as the default). 
      * 
@@ -315,6 +374,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default double object using
+     * [[DoubleConverter.toDoubleWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a double or the
@@ -328,6 +390,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a nullable Datetime object using
+     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable Datetime. 
      * 
@@ -339,6 +404,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Converts item at the given index into a default Datetime object using
+     * [[AnyValueArray.getAsDateTimeWithDefault]] and returns it.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a Datetime (or null as the default). 
      * 
@@ -349,6 +417,9 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Converts item at the given index into a default Datetime object using
+     * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
+     * 
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a Datetime or the
@@ -407,6 +478,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as an AnyValue object.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValue object. 
      * 
@@ -419,6 +492,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as a nullable AnyValueArray object.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueArray object (returns
      *                  null if the item at the given index is null).
@@ -431,6 +506,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as an AnyValueArray object.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueArray object. 
      * 
@@ -442,6 +519,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
     
     /** 
+     * Returns the item at the given index as an AnyValueArray object or 'defaultValue', if conversion is not possible.
+     * 
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted 
      *                      into an AnyValueArray.
@@ -456,6 +535,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as a nullable AnyValueMap object.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueMap object (returns
      *                  null if the item at the given index is null).
@@ -469,6 +550,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as an AnyValueMap object.
+     * 
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueMap object. 
      * 
@@ -481,6 +564,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /** 
+     * Returns the item at the given index as an AnyValueMap object or 'defaultValue', if conversion is not possible.
+     * 
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted 
      *                      into an AnyValueMap.
@@ -495,6 +580,8 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
+     * Verifies that this AnyValueArray contains the given value. 
+     * 
      * @param value     value to search for in this AnyValueArray.
      * @returns         whether or not this AnyValueArray contains the given value.
      */
@@ -514,7 +601,7 @@ export class AnyValueArray extends Array<any> implements ICloneable {
     }
 
     /**
-     * Checks whether or not this AnyValueArray contains a certain value as an object of type 'type'.
+     * Verifies that this AnyValueArray contains a certain value as an object of type 'type'.
      * The value passed will be converted using [[TypeConverter.toType]], where as this AnyValueArray's 
      * values will be converted using [[TypeConverter.toNullableType]]. After conversion, the value is searched 
      * for amongst the AnyValueArray's converted values.
