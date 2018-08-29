@@ -26,8 +26,6 @@ import { IdGenerator } from '../data/IdGenerator';
  * 
  * ### Examples ###
  * 
- * Example CommandSet class implementation and using
- * 
  * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
  * private _controller: IMyDataController;
 
@@ -255,7 +253,7 @@ export class CommandSet {
     }
 
     /**
-     * Executes the [[ICommand command]] with the given name, using the given [[Parameters parameters]] (arguments).
+     * Executes the [[ICommand command]] with the given name, using the given [[Parameters args]].
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param commandName   the name of that command that is to be executed.
@@ -295,7 +293,7 @@ export class CommandSet {
     }
 
     /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the 
+     * Validates the [[Parameters args]] that are to be passed to the 
      * [[ICommand command]] with the given name.
      * 
      * @param commandName   the name of the command for which the 'args' must be validated.
@@ -330,7 +328,7 @@ export class CommandSet {
     
     /**
      * Raises the event with the given name and notifies the event's listeners using the 
-     * correlation id and [[Parameters parameters]] (arguments) given.
+     * correlation id and [[Parameters args]] given.
      * 
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param eventName         the name of the event that is to be raised.

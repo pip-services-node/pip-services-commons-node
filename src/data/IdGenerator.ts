@@ -11,6 +11,15 @@ for (let i = 0; i < 256; i++) {
 
 /**
  * Contains standard design patterns for generating GUIDs.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod () {
+ * 		let id1 = IdGenerator.nextShort();
+ *      ...
+ * 
+ *      let id2 = IdGenerator.nextLong();	
+ * }
  */
 export class IdGenerator {
     

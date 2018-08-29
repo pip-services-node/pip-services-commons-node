@@ -25,6 +25,13 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let anyValue = new AnyValue(value);
+ * 		...
+ * }
  */
 export class AnyValue implements ICloneable {
     /** The value stored by this object. */

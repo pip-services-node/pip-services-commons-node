@@ -4,6 +4,13 @@ import { RandomBoolean } from './RandomBoolean';
 
 /**
  * Provides methods that can be used for generating random strings and chars, as well as picking at random strings/chars from a given set of strings/chars.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod(minLength: number, maxLength: number ) {
+ *      let stringValue = RandomString.nextString(minLength, maxLength);
+ *      ...
+ * }
  */
 export class RandomString {
     private static readonly _digits = "01234956789";

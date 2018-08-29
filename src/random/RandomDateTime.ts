@@ -4,6 +4,16 @@ import { RandomInteger } from './RandomInteger';
 /**
  * Provides methods that can be used for generating random Dates/DateTimes, as well as updating existing DateTimes 
  * by generating values in the range of 'original DateTime' ±'delta/range'
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod(min: Date, max: Date ) {
+ *      let dateValue = RandomDateTime.nextDate(min, max);
+ *      ...
+ * 
+ *      let dateTimeValue = RandomDateTime.nextDateTime(min, max);
+ *      ...
+ * }
  */
 export class RandomDateTime {
 

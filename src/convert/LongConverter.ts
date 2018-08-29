@@ -4,6 +4,13 @@ let _ = require('lodash');
 
 /**
  * Provides methods for converting various values to the long data type.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let longValue = LongConverter.toLong(value);
+ * 		...
+ * }
  */
 export class LongConverter {
 

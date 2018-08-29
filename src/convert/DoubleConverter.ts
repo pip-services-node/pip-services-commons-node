@@ -4,6 +4,13 @@ let _ = require('lodash');
 
 /**
  * Provides methods for converting various values to the double data type.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let doubleValue = DoubleConverter.toDouble(value);
+ * 		...
+ * }
  */
 export class DoubleConverter {
 

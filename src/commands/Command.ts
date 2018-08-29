@@ -96,7 +96,7 @@ export class Command implements ICommand {
     }
 
     /**
-     * Executes this command using the given [[Parameters parameters]] (arguments).
+     * Executes this command using the given [[Parameters args]].
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to this command for execution.
@@ -131,7 +131,7 @@ export class Command implements ICommand {
     }
 
     /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to this command 
+     * Validates the [[Parameters args]] that are to be passed to this command 
      * using the set schema.
      * 
      * @param args  the parameters (arguments) to validate using this command's schema.

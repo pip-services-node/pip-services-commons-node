@@ -15,6 +15,22 @@ import { ValidationResult } from '../validate/ValidationResult';
  * @see [[Command]]
  * @see [[ICommandInterceptor]]
  * @see [[InterceptedCommand]]
+ * 
+ * ### Examples ###
+ * 
+ * export class MyCommand implements ICommand {
+ *      private name : string;
+ * 
+ *      public getName(): string {
+            return this._name;
+        }
+
+        public validate(): ValidationResult[] {
+            ...
+        }
+
+        ...
+ * }
  */
 export interface ICommand extends IExecutable {
     /**
@@ -23,8 +39,8 @@ export interface ICommand extends IExecutable {
     getName(): string;
 
     /**
-     * Abstract function that will contain the logic for validating the [[Parameters parameters]] 
-     * (arguments) that are to be passed to the command.
+     * Abstract function that will contain the logic for validating the [[Parameters args]] 
+     * that are to be passed to the command.
      * 
      * @param args  the parameters (arguments) to validate.
      * @returns     an array of ValidationResults.

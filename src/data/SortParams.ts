@@ -7,6 +7,14 @@ import { SortField } from './SortField';
  * data from a data source, using the fields available. 
  * 
  * @see [[SortField]]
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod () {
+ * 		let sortParams = new SortParams();
+ * 		sortParams.add(new SortField("key", false));
+ *      ...	
+ * }
  */
 export class SortParams extends Array<SortField> {
 

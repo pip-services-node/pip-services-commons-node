@@ -29,6 +29,15 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
+ * 
+ * ### Examples ###
+ * public MyMethod (values: any[]) {
+ * 		let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
+ * 		...
+ * 
+ *      let array2 = new AnyValueArray(values);
+ *      ...
+ * }
  */
 export class AnyValueArray extends Array<any> implements ICloneable {
 

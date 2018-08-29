@@ -10,6 +10,9 @@ import { TypeCode } from '../convert/TypeCode';
  * In PipServices, the "location design pattern” is used, which is much simpler than dependency injection.
  * It is simple to implement and portable between languages. Used for building various containers, as well as 
  * for testing objects. 
+ * 
+ * ### Examples ###
+ * 
  */
 export interface IReferences {
 	/**

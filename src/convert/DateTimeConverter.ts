@@ -4,6 +4,13 @@ let _ = require('lodash');
 
 /**
  * Provides methods for converting various values to the datetime data type.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let dateTimeValue = DateTimeConverter.toDateTime(value);
+ * 		...
+ * }
  */
 export class DateTimeConverter {
 

@@ -4,6 +4,13 @@ let _ = require('lodash');
 
 /**
  * Provides methods for converting various values to arrays.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let array = ArrayConverter.toArray(value);
+ * 		...
+ * }
  */
 export class ArrayConverter {
 

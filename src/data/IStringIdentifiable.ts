@@ -7,6 +7,13 @@ import { IIdentifiable } from './IIdentifiable';
  * 
  * @see [[IIdentifiable]]
  * @see [[IdGenerator]]
+ * 
+ * ### Examples ###
+ * 
+ * export class MyData implements IStringIdentifiable {
+ * 		public id: string;
+ * 		...
+ * }
  */
 export interface IStringIdentifiable extends IIdentifiable<string> {
 	/** The object's unique string id. */

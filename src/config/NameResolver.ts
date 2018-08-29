@@ -9,8 +9,9 @@ import { Descriptor } from '../refer/Descriptor';
  * ### Examples ###
  * 
  * public nameResolution : void {
- *      ConfigParams config = ConfigParams.fromTuples("Id", "MyName");
-        String name = NameResolver.resolve(config);
+ *      let config = ConfigParams.fromTuples("Id", "MyName");
+        let name = NameResolver.resolve(config);
+        ...
     }
  */
 export class NameResolver {

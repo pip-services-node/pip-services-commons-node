@@ -31,20 +31,25 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * @see [[StringValueMap]]
  * 
  * ### Examples ###
- * Configuration User's MongoDbPersistence object using static method fromTuples()
- *  let mongoUri = process.env['MONGO_SERVICE_URI'];
-    let mongoHost = process.env['MONGO_SERVICE_HOST'] || 'localhost';
-    let mongoPort = process.env['MONGO_SERVICE_PORT'] || 27017;
-    let mongoDatabase = process.env['MONGO_SERVICE_DB'] || 'test';
+ * Ways to use the ConfigParams class and methods:
+ * 
+ * public MyMethod () {
+ * 		 let config = ConfigParams.fromTuples(
+            "Section1.Key1", "Value1",
+            "Section1.Key2", "Value2",
+            "Section1.Key3", "Value3"
+		);
+		
+		...
 
-    setup((done) => {
-        persistence = new BeaconsMongoDbPersistence();
-        persistence.configure(ConfigParams.fromTuples(
-            'connection.uri', mongoUri,
-            'connection.host', mongoHost,
-            'connection.port', mongoPort,
-            'connection.database', mongoDatabase
-        ));
+		let value = config.get("Section1.Key1");
+		
+		...
+
+		MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
+		or
+		MyDataConfigClass myConfig = new MyDataConfigClass(config);
+ * }
  */
 export class ConfigParams extends StringValueMap {
 

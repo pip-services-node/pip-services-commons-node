@@ -4,6 +4,13 @@ let _ = require('lodash');
 
 /**
  * Provides methods for converting various values to maps.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let map = MapConverter.toMap(value);
+ * 		...
+ * }
  */
 export class MapConverter {
 

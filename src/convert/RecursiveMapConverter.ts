@@ -8,6 +8,15 @@ import { TypeReflector } from '../reflect/TypeReflector';
 
 /**
  * Provides methods for converting nested maps using recursion.
+ * 
+ * ### Examples ###
+ * 
+ * public MyMethod (value: any) {
+ * 		let map = RecursiveMapConverter.valueToMap(value);
+ * 		...
+ * 
+ *      let new_map = RecursiveMapConverter.mapToMap(map);
+ * }
  */
 export class RecursiveMapConverter {
 

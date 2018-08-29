@@ -8,7 +8,7 @@ import { ConfigParams } from './ConfigParams';
  * ### Examples ###
  * 
  * public optionResolution : ConfigParams {
- *      ConfigParams config = ConfigParams.fromTuples("Id", "MyConfig");
+ *      let config = ConfigParams.fromTuples("Id", "MyConfig");
         return OptionResolver.resolve(config);
     }
  */
