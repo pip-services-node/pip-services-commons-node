@@ -35,29 +35,14 @@ import { IdGenerator } from '../data/IdGenerator';
         this._controller = controller;
 
         this.addCommand(this.makeCreateMyDataCommand());
-        this.addCommand(this.makeDeleteMyDataByIdCommand());
     }
 
     private makeCreateMyDataCommand(): ICommand {
         return new Command( @see [[Command]]
             'create_mydata',
-            new ObjectSchema(true)
-                .withRequiredProperty('mydata', new MyDataV1Schema()),
+            new ObjectSchema(true),
             (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                let mydata = args.getAsObject('mydata');
-                this._controller.createMyData(correlationId, mydata, callback);
-            }
-        );
-    }
-
-    private makeDeleteMyDataByIdCommand(): ICommand {
-        return new Command(
-            'delete_mydata_by_id',
-            new ObjectSchema(true)
-                .withRequiredProperty('mydata_id', TypeCode.String),
-            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                let mydataId = args.getAsString('mydata_id');
-                this._controller.deleteMyDataById(correlationId, mydataId, callback);
+                ...
             }
         );
     }
@@ -98,7 +83,7 @@ export class CommandSet {
     /**
      * Searches for a command by its name in this command set.
      * 
-     * @param commandName   the name of the command to search for.
+     * @param commandName the name of the command to search for.
      * 
      * @returns a command whose name is the same as the method parameter
      * 
@@ -111,7 +96,7 @@ export class CommandSet {
     /**
      * Searches for an event by its name in this command set.
      * 
-     * @param eventName     the name of the event to search for.
+     * @param eventName the name of the event to search for.
      * 
      * @returns a event whose name is the same as the method parameter
      * 
@@ -172,7 +157,7 @@ export class CommandSet {
     /**
      * Adds multiple [[ICommand commands]] to this command set.
      * 
-     * @param commands  the array of commands to add.
+     * @param commands the array of commands to add.
      * 
      * @see [[ICommand]]
      */
@@ -184,7 +169,7 @@ export class CommandSet {
     /**
      * Adds an [[IEvent event]] to this command set.
      * 
-     * @param event     the event to add.
+     * @param event the event to add.
      * 
      * @see [[IEvent]]
      */
@@ -196,7 +181,7 @@ export class CommandSet {
     /**
      * Adds multiple [[IEvent events]] to this command set.
      * 
-     * @param events    the array of events to add.
+     * @param events the array of events to add.
      * 
      * @see [[IEvent]]
      */
@@ -209,7 +194,7 @@ export class CommandSet {
      * Adds all of the commands and events included in the passed CommandSet object
      * to this command set.
      * 
-     * @param commandSet    the CommandSet to add.
+     * @param commandSet the CommandSet to add.
      */
     public addCommandSet(commandSet: CommandSet): void {
         this.addCommands(commandSet.getCommands());
@@ -253,7 +238,8 @@ export class CommandSet {
     }
 
     /**
-     * Executes the [[ICommand command]] with the given name, using the given [[Parameters args]].
+     * Validates the [[Parameters args]] by the schema of [[ICommand command]] with the given name 
+     * and executes this [[ICommand command]], using the given [[Parameters args]].
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param commandName   the name of that command that is to be executed.

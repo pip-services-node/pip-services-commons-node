@@ -19,6 +19,46 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * @see [[ICommand]]
  * @see [[InterceptedCommand]]
+ * 
+ * * * ### Examples ###
+ * 
+ * Example ICommandInterceptor interface using
+ * 
+ * export class MyService implements IMyService, ICommandInterceptor
+   {
+       
+       constructor() { }
+
+       private getName(command: ICommand): string {
+            return command.getName();
+       }
+
+       public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
+           // Execute command here...
+       }
+
+       private validate(command: ICommand, args: Parameters): ValidationResult[] {
+           // Validate arguments here...
+       }
+ * }
+ * 
+ * export class MyService2 implements IMyService2
+   {
+       
+       private _interceptedCommand: InterceptedCommand;
+       private _command: ICommand;
+       private _myService: IMyService;
+
+       constructor() {
+           // Getting or creating _myService
+           // Getting or creating _command
+           _interceptedCommand = new InterceptedCommand(_myService, _command);
+        }
+
+       private myFunction(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
+           _myService.execute(correlationId, args, callbak);
+       }
+ * }
  */
 export interface ICommandInterceptor {
     /**

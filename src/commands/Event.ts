@@ -12,6 +12,39 @@ import { ValidationResult } from '../validate/ValidationResult';
  * asynchronous method calling. 
  * 
  * @see [[IEvent]]
+ * @see [[IEventListener]]
+ * 
+ * ### Examples ###
+ * 
+ * Example Event class implementation and using in combination with IEventListener intreface
+ * 
+ * 
+ * export class MyDataController implements IMyDataController, IEventListener
+   {
+       constructor() { ... }
+
+       private onEvent(correlationId: string, event: IEvent, args: Parameters): void
+       {
+            // Process event here...
+       }
+   }
+   ...
+   export class MyService implements IMyService
+   {
+       private _controller: IMyDataController;
+       private IEvent successEvent = new Event("success_on_process");
+
+       constructor() { 
+           // Getting or creating of controller
+           successEvent.addListener(_controller);
+       }
+
+       private onSuccess(correlationId: string, args: Parameters)
+       {
+           successEvent.notify(correlationId, args || null);
+       }
+ * }
+ * 
  */
 export class Event implements IEvent {
     private _name: string;
@@ -47,7 +80,7 @@ export class Event implements IEvent {
     /**
      * Adds a listener to receive notifications for this event.
      * 
-     * @param listener      the listener reference to add.
+     * @param listener the listener reference to add.
      */
     public addListener(listener: IEventListener): void {
         this._listeners.push(listener);

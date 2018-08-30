@@ -7,6 +7,13 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that includes standard design patterns for data paging.
  * Paging parameters contain information about how to retrieve
  * data pages from a data source. 
+ * 
+ * ### Examples ###
+ * 
+ * let params: PagingParams;
+ * 
+ * params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
+ * 
  */
 export class PagingParams {	
 	/** the number of result to skip. */

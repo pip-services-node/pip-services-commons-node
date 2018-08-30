@@ -10,6 +10,8 @@ import { ConfigParams } from './ConfigParams';
  * 
  * ### Examples ###
  * 
+ * Example IConfigurable intreface using
+ * 
  * export class MyClass implements IConfigurable {
    let myParam : string = "default value";
 

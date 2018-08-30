@@ -4,6 +4,8 @@ import { IReferences } from './IReferences';
 /**
  * Interface for components that require referencing other components. 
  * 
+ * @see [[IReferences]]
+ * 
  * ### Examples ###
  * 
  * export class MyReferenceClass implements IReferenceable {
@@ -13,7 +15,7 @@ import { IReferences } from './IReferences';
  * 			setReferences(references)
  * 		}
  * 
- * 		public setReferences references: IReferences): void {
+ * 		public setReferences(references: IReferences): void {
  * 			this._references = references;
  * 		}
  * 

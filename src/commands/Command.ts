@@ -23,36 +23,19 @@ import { ValidationResult } from '../validate/ValidationResult';
  * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
  * private _controller: IMyDataController;
 
-    constructor(controller: IMyDataController) { // TO DO description of the controller interface
+    constructor(controller: IMyDataController) { // Any data controller interface
         super();
 
         this._controller = controller;
 
         this.addCommand(this.makeGetMyDataCommand());
-        this.addCommand(this.makeGetMyDataByIdCommand());
     }   
  *  private makeGetMyDataCommand(): ICommand {
         return new Command(
             'get_mydata',
-            new ObjectSchema(true)
-                .withOptionalProperty('filter', new FilterParamsSchema())
-                .withOptionalProperty('paging', new PagingParamsSchema()),
+            null,
             (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                let filter = FilterParams.fromValue(args.get('filter'));
-                let paging = PagingParams.fromValue(args.get('paging'));
-                this._controller.getMyData(correlationId, filter, paging, callback);
-            }
-        );
-    }
-
-    private makeGetMyDataByIdCommand(): ICommand {
-        return new Command(
-            'get_mydata_by_id',
-            new ObjectSchema(true)
-                .withRequiredProperty('mydata_id', TypeCode.String),
-            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                let myDataId = args.getAsString('mydata_id');
-                this._controller.getMyDataById(correlationId, myDataId, callback);
+                ...
             }
         );
     }
@@ -64,7 +47,7 @@ export class Command implements ICommand {
     private _name: string;
 
     /**
-     * @param name      the name of the command.
+     * @param name      the name of the command. It identifies the command
      * @param schema    the command's schema.
      * @param func      the function that is to be executed by this command.
      * @throws  an Error if 'name' or 'func' are null, or if 'func' does not have 
@@ -96,7 +79,7 @@ export class Command implements ICommand {
     }
 
     /**
-     * Executes this command using the given [[Parameters args]].
+     * Validates the [[Parameters args]] by the set schema and calls the function, passing the [[Parameters args]] to it. 
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to this command for execution.
@@ -131,7 +114,7 @@ export class Command implements ICommand {
     }
 
     /**
-     * Validates the [[Parameters args]] that are to be passed to this command 
+     * Validates the [[Parameters args]] that are to be passed to the function 
      * using the set schema.
      * 
      * @param args  the parameters (arguments) to validate using this command's schema.
