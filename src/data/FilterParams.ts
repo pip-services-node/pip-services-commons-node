@@ -9,7 +9,8 @@ import { StringValueMap } from './StringValueMap';
  * @see [[StringValueMap]]
  * 
  * ### Examples ###
- * Ways to use the FilterParams class and methods:
+ * 
+ * A FilterParams object can be created and used in the following way:
  * 
  *     public MyMethod () {
  *         let filter = FilterParams.fromTuples(

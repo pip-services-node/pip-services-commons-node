@@ -16,8 +16,7 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * Example Event class implementation and using in combination with IEventListener interface
- * 
+ * Example Event class implementation and usage (in combination with the IEventListener interface):
  * 
  *     export class MyDataController implements IMyDataController, IEventListener
  *     {

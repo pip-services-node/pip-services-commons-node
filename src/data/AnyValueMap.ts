@@ -20,16 +20,6 @@ import { AnyValueArray } from './AnyValueArray';
  * Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved 
  * in various ways with the help of numerous converters.
  * 
- * @see [[StringConverter]]
- * @see [[TypeConverter]]
- * @see [[BooleanConverter]]
- * @see [[IntegerConverter]]
- * @see [[LongConverter]]
- * @see [[DoubleConverter]]
- * @see [[FloatConverter]]
- * @see [[DateTimeConverter]]
- * @see [[ICloneable]]
- * 
  * ### Examples ###
  *     public MyMethod (values: any[]) {
  *         let map1 = AnyValueMap.fromTuples(
@@ -41,6 +31,16 @@ import { AnyValueArray } from './AnyValueArray';
  *         let map2 = new AnyValueMap(values);
  *         ...
  *     }
+ * 
+ * @see [[StringConverter]]
+ * @see [[TypeConverter]]
+ * @see [[BooleanConverter]]
+ * @see [[IntegerConverter]]
+ * @see [[LongConverter]]
+ * @see [[DoubleConverter]]
+ * @see [[FloatConverter]]
+ * @see [[DateTimeConverter]]
+ * @see [[ICloneable]]
  */
 export class AnyValueMap implements ICloneable {
 

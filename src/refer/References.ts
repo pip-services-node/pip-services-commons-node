@@ -10,6 +10,7 @@ import { ReferenceException } from './ReferenceException';
  * 
  * ### Examples ###
  * 
+ * Example container that will contain a reference to a service once created:
  *     export class myContainer {
  *         private _references: IReferences;
  *         
@@ -18,7 +19,8 @@ import { ReferenceException } from './ReferenceException';
  *             ...
  *         }
  *     }
- *      
+ * 
+ *  Retrieving the service from the container's reference:   
  *     export class myController implements IMyController, IReferenceable {
  *         private _service: IMyServiceV1;
  *         

@@ -7,6 +7,8 @@ import { RandomBoolean } from './RandomBoolean';
  * 
  * ### Examples ###
  * 
+ * Example usage:
+ * 
  *     public MyMethod(minLength: number, maxLength: number ) {
  *         let stringValue = RandomString.nextString(minLength, maxLength);
  *         ...

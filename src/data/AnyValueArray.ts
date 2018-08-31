@@ -20,6 +20,15 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved 
  * in various ways with the help of numerous converters.
  * 
+ * ### Examples ###
+ *     public MyMethod (values: any[]) {
+ *         let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
+ *         ...
+ *         
+ *         let array2 = new AnyValueArray(values);
+ *         ...
+ *     }
+ * 
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
  * @see [[BooleanConverter]]
@@ -29,15 +38,6 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
- * 
- * ### Examples ###
- *     public MyMethod (values: any[]) {
- *         let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
- *         ...
- *         
- *         let array2 = new AnyValueArray(values);
- *         ...
- *     }
  */
 export class AnyValueArray extends Array<any> implements ICloneable {
 

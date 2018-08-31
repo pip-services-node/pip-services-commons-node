@@ -3,8 +3,8 @@
  * Interface for data objects that are cloneable.
  * 
  * ### Examples ###
- * Ways to use the ICloneable interface and methods:
  * 
+ * Example implementation of the ICloneable interface:
  * 
  *     export class MyClass implements IMyClass, ICloneable {
  *         constructor() { };

@@ -34,6 +34,9 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[DateTimeConverter]]
  * 
  * ### Examples ###
+ * 
+ * Example StringValueMap object usage:
+ * 
  *     public MyMethod (map: any) {
  *         let map1 = StringValueMap.fromTuples(
  *             "key1", 123,

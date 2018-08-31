@@ -16,6 +16,13 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that allows for usage of abstract, portable data types. Stores a value in its
  * 'value' field, which can be retrieved in various ways with the help of numerous converters.
  * 
+ * ### Examples ###
+ * 
+ *     public MyMethod (value: any) {
+ *         let anyValue = new AnyValue(value);
+ *         ...
+ *     }
+ * 
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
  * @see [[BooleanConverter]]
@@ -25,13 +32,6 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
- * 
- * ### Examples ###
- * 
- *     public MyMethod (value: any) {
- *         let anyValue = new AnyValue(value);
- *         ...
- *     }
  */
 export class AnyValue implements ICloneable {
     /** The value stored by this object. */

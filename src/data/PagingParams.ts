@@ -3,12 +3,15 @@ import { IntegerConverter } from '../convert/IntegerConverter';
 import { BooleanConverter } from '../convert/BooleanConverter';
 import { AnyValueMap } from './AnyValueMap';
 
+//TODO: add to the example a method call that accept PagingParams. 
 /**
  * Class that includes standard design patterns for data paging.
  * Paging parameters contain information about how to retrieve
  * data pages from a data source. 
  * 
  * ### Examples ###
+ * 
+ * Example PagingParams object usage:
  * 
  *     let params: PagingParams;
  *     

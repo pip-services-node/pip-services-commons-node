@@ -9,6 +9,8 @@ import { RandomBoolean } from './RandomBoolean';
  * 
  * ### Examples ###
  * 
+ * Example usage:
+ * 
  *     public MyMethod() {
  *         let textValue = RandomText.word();
  *         ...

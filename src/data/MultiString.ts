@@ -6,6 +6,8 @@
  * 
  * ### Examples ###
  * 
+ * Example MultiString object usage:
+ * 
  *     let strings: MultiString;
  *     strings["en"] = "my string";
  *     strings["ru"] = "моя строка";

@@ -8,6 +8,8 @@ import { IChangeable } from './IChangeable';
  * 
  * ### Examples ###
  * 
+ * Example implementation of the ITrackable interface:
+ * 
  *     export class MyData implements ITrackable {
  *         public change_time: Date;
  *         public create_time: Date;

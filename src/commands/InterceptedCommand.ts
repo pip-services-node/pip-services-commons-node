@@ -16,9 +16,9 @@ import { ValidationResult } from '../validate/ValidationResult';
  * @see [[ICommand]]
  * @see [[ICommandInterceptor]]
  * 
- * * ### Examples ###
+ * ### Examples ###
  * 
- * Example InterceptedCommand class implementation and using
+ * Example InterceptedCommand class implementation and usage:
  * 
  *     export class MyService implements IMyService, ICommandInterceptor
  *     {       

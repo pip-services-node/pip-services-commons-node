@@ -8,6 +8,8 @@ import { IReferences } from './IReferences';
  * 
  * ### Examples ###
  * 
+ * Example implementation of the IReferenceable interface:
+ * 
  *     export class MyReferenceClass implements IReferenceable {
  *         public _references: IReferences;
  *         

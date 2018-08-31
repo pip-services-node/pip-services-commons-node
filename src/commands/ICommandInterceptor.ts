@@ -22,7 +22,7 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * Example usage of the ICommandInterceptor interface
+ * Example implementation and usage of the ICommandInterceptor interface:
  * 
  *     export class MyService implements IMyService, ICommandInterceptor
  *     {

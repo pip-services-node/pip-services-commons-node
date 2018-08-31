@@ -8,6 +8,8 @@ import { Descriptor } from '../refer/Descriptor';
  * 
  * ### Examples ###
  * 
+ * Example usage of the static <code>resolve</code> method:
+ * 
  *     public nameResolution : void {
  *         let config = ConfigParams.fromTuples("Id", "MyName");
  *         let name = NameResolver.resolve(config);

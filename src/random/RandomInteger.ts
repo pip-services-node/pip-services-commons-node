@@ -6,6 +6,8 @@
  * 
  * ### Examples ###
  * 
+ * Example usage:
+ * 
  *     public MyMethod(min: number, max: number ) {
  *         let intValue = RandomInteger.nextInteger(min, max);
  *         ...

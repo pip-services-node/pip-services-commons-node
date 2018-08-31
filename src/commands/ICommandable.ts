@@ -13,6 +13,8 @@ import { CommandSet } from './CommandSet';
  * 
  * ### Examples ###
  * 
+ * Example ICommandable interface implementation:
+ * 
  *     export class MyDataController implements ICommandable, IMyDataController {
  *         private commandSet : MyDataCommandSet; 
  *         

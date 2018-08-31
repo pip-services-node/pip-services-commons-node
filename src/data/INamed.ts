@@ -3,7 +3,8 @@
  * Interface for data objects that have human-readable names.
  * 
  * ### Examples ###
- * Ways to use the INamed interface:
+ * 
+ * Example implementation of the INamed interface:
  * 
  *     export class MyData implements INamed {
  *         public name: string;

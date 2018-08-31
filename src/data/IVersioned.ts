@@ -7,6 +7,8 @@
  * 
  * ### Examples ###
  * 
+ * Example implementation of the IVersioned interface:
+ * 
  *     export class MyData implements IVersioned {
  *         public version: string;
  *         ...

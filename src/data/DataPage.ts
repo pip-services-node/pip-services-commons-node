@@ -6,7 +6,7 @@
  * 
  * ### Examples ###
  * 
- * Example DataPage class usage
+ * Example DataPage class usage:
  * 
  *     let dataPage: DataPage<string> = new DataPage<string>(["Hello, Pip.User!"], 1);
  *     

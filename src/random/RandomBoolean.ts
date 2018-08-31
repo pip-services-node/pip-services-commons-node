@@ -4,6 +4,8 @@
  * 
  * ### Examples ###
  * 
+ * Example usage:
+ * 
  *     public MyMethod(chances: number, maxChances: number) {
  *         let boolValue1 = RandomBoolean.chance(chances, maxChances);
  *         ...

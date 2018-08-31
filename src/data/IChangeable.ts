@@ -3,7 +3,8 @@
  * Interface for data objects that can track their changes.
  * 
  * ### Examples ###
- * Ways to use the IChangeable interface:
+ * 
+ * Example implementation of the IChangeable interface:
  * 
  *     export class MyData implements IChangeable {
  *         public change_time: Date;

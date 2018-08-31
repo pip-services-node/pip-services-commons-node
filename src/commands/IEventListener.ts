@@ -8,9 +8,9 @@ import { Parameters } from '../run/Parameters';
  * @see [[IEvent]]
  * @see [[Event]]
  * 
- *  * ### Examples ###
+ * ### Examples ###
  * 
- * Example Event class and interface using
+ * Example Event class implementation and usage (in combination with the IEventListener interface):
  * 
  *     export class MyDataController implements IMyDataController, IEventListener
  *     {

@@ -15,6 +15,7 @@ import { TypeCode } from '../convert/TypeCode';
  * 
  * ### Examples ###
  * 
+ * Example container that will contain a reference to a service once created:
  *     export class myContainer {
  *         private _references: IReferences;
  *         
@@ -24,6 +25,7 @@ import { TypeCode } from '../convert/TypeCode';
  *         }
  *     }
  * 
+ * Retrieving the service from the container's reference:
  *     export class myController implements IMyController, IReferenceable {
  *         private _service: IMyServiceV1;
  *         

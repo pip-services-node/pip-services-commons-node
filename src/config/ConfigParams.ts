@@ -31,6 +31,7 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * @see [[StringValueMap]]
  * 
  * ### Examples ###
+ * 
  * Example usage of the ConfigParams class and its methods:
  * 
  *     public MyMethod () {

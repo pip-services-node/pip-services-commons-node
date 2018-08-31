@@ -3,11 +3,14 @@ import { AnyValueArray } from "./AnyValueArray";
 /** @hidden */ 
 const _ = require('lodash');
 
+//TODO: add to the example a method call that accept ProjectionParams. 
 /**
  * Class that includes standard design patterns for data projection. Projection parameters 
  * contain information about what data to retrieve from a data source. 
  * 
  * ### Examples ###
+ * 
+ * Example ProjectionParams object usage:
  * 
  *     let params: ProjectionParams;
  *     

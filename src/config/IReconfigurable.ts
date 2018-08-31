@@ -6,9 +6,9 @@ import { IConfigurable } from './IConfigurable';
  * 
  * @see [[IConfigurable]]
  * 
- *  * ### Examples ###
+ * ### Examples ###
  * 
- * Example usage of the IReconfigurable interface
+ * Example implementation of the IReconfigurable interface:
  * 
  *     export class MyClass implements IReconfigurable {
  *         let myParam : string = "default value";

@@ -18,6 +18,8 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
+ * Example ICommand interface implementation:
+ * 
  *     export class MyCommand implements ICommand {
  *         private name : string;
  *     

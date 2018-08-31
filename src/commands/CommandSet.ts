@@ -26,6 +26,8 @@ import { IdGenerator } from '../data/IdGenerator';
  * 
  * ### Examples ###
  * 
+ * Example CommandSet class implementation and usage:
+ * 
  *     export class MyDataCommandSet extends CommandSet {
  *         private _controller: IMyDataController;
  *         constructor(controller: IMyDataController) { // TO DO description of the controller interface

@@ -14,6 +14,8 @@ import { ConfigException } from '../errors/ConfigException';
  * 
  * ### Examples ###
  * 
+ * A Descriptor object can be created and used in the following way:
+ * 
  *     public MyMethod(){
  *         let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
  *         ...

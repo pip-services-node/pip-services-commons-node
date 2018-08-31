@@ -81,26 +81,25 @@
 						<dt>see</dt>
 						<dd><p><a href="../classes/refer.references.html">References</a></p>
 							<h3 id="examples">Examples</h3>
-							<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> myContainer {
-    <span class="hljs-keyword">private</span> _references: IReferences;
-
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-        _references = References.fromTuples(<span class="hljs-string">"myservice.v1"</span>, <span class="hljs-keyword">new</span> MyServiceV1(), ...);
+							<p>Example container that will contain a reference to a service once created:
+								export class myContainer {
+							private _references: IReferences;</p>
+							<pre><code>    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span> <span class="hljs-comment">{
+        _references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
         ...
-    }
-}
+    }</span>
+}</span>
+</code></pre><p>Retrieving the service from the container&#39;s reference:
+								export class myController implements IMyController, IReferenceable {
+							private _service: IMyServiceV1;</p>
+							<pre><code>    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span> <span class="hljs-comment">{
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> myController <span class="hljs-keyword">implements</span> IMyController, IReferenceable {
-    <span class="hljs-keyword">private</span> _service: IMyServiceV1;
+    }</span>
 
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-
-    }
-
-    setReferences(references: IReferences) {
-        _service = references.getOneRequired&lt;IMyServiceV1&gt;(<span class="hljs-string">"myservice.v1"</span>);
-    }
-}
+    <span class="hljs-title">setReferences</span><span class="hljs-params">(references: IReferences)</span> <span class="hljs-comment">{
+        _service = references.getOneRequired&lt;IMyServiceV1&gt;("myservice.v1");
+    }</span>
+}</span>
 </code></pre></dd>
 					</dl>
 				</div>
@@ -153,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L136">refer/IReferences.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L138">refer/IReferences.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +202,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L82">refer/IReferences.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L84">refer/IReferences.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,7 +225,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L75">refer/IReferences.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L77">refer/IReferences.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L113">refer/IReferences.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L115">refer/IReferences.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L124">refer/IReferences.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L126">refer/IReferences.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L91">refer/IReferences.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L93">refer/IReferences.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L103">refer/IReferences.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L105">refer/IReferences.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -418,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L48">refer/IReferences.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L50">refer/IReferences.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,7 +455,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L59">refer/IReferences.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L61">refer/IReferences.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L68">refer/IReferences.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/d987e95/src/refer/IReferences.ts#L70">refer/IReferences.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

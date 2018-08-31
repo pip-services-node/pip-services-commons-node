@@ -3,7 +3,8 @@
  * Interface for data objects that can be identified by an id.
  * 
  * ### Examples ###
- * Ways to use the IIdentifiable interface:
+ * 
+ * Example implementation of the IIdentifiable interface:
  * 
  *     export class MyData implements IIdentifiable<string> {
  *         public id: string;

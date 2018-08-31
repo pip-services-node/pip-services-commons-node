@@ -7,6 +7,8 @@
  * 
  * ### Examples ###
  * 
+ * Example implementation of the IUnreferenceable interface:
+ * 
  *     export class MyUnReferenceableClass implements IReferenceable, IUnreferenceable {
  *         public _references: IReferences;
  *         

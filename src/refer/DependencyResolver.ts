@@ -12,6 +12,8 @@ import { Descriptor } from './Descriptor';
  * 
  * ### Examples ###
  * 
+ * A DependencyResolver object can be created and used in the following way:
+ * 
  *     public MyMethod(IReferences references){ 
  *         let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
  *         ...
