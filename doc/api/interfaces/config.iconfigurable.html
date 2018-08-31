@@ -77,7 +77,16 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../classes/config.configparams.html">ConfigParams</a></p>
-						</dd>
+							<h3 id="examples">Examples</h3>
+							<p>Example usage of the IConfigurable interface</p>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IConfigurable</span> {</span>
+    let <span class="hljs-string">myParam :</span> string = <span class="hljs-string">"default value"</span>;
+    <span class="hljs-keyword">public</span> configure(<span class="hljs-string">config:</span> ConfigParams) : <span class="hljs-keyword">void</span>  {
+        myParam = config.getAsStringWithDefault(<span class="hljs-string">"options.param"</span>, myParam);
+        ...
+    }
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -119,7 +128,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/config/IConfigurable.ts#L18">config/IConfigurable.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/config/IConfigurable.ts#L30">config/IConfigurable.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

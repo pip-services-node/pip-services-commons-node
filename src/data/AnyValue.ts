@@ -28,10 +28,10 @@ import { AnyValueMap } from './AnyValueMap';
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let anyValue = new AnyValue(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let anyValue = new AnyValue(value);
+ *         ...
+ *     }
  */
 export class AnyValue implements ICloneable {
     /** The value stored by this object. */

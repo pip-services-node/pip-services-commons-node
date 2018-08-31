@@ -77,6 +77,32 @@
 					<p>In PipServices, the &quot;location design pattern” is used, which is much simpler than dependency injection.
 						It is simple to implement and portable between languages. Used for building various containers, as well as
 					for testing objects.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/refer.references.html">References</a></p>
+							<h3 id="examples">Examples</h3>
+							<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> myContainer {
+    <span class="hljs-keyword">private</span> _references: IReferences;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
+        _references = References.fromTuples(<span class="hljs-string">"myservice.v1"</span>, <span class="hljs-keyword">new</span> MyServiceV1(), ...);
+        ...
+    }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> myController <span class="hljs-keyword">implements</span> IMyController, IReferenceable {
+    <span class="hljs-keyword">private</span> _service: IMyServiceV1;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
+
+    }
+
+    setReferences(references: IReferences) {
+        _service = references.getOneRequired&lt;IMyServiceV1&gt;(<span class="hljs-string">"myservice.v1"</span>);
+    }
+}
+</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -127,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L110">refer/IReferences.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L136">refer/IReferences.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -177,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L56">refer/IReferences.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L82">refer/IReferences.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -200,7 +226,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L49">refer/IReferences.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L75">refer/IReferences.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +249,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L87">refer/IReferences.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L113">refer/IReferences.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L98">refer/IReferences.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L124">refer/IReferences.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -308,7 +334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L65">refer/IReferences.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L91">refer/IReferences.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L77">refer/IReferences.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L103">refer/IReferences.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -392,7 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L22">refer/IReferences.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L48">refer/IReferences.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -430,7 +456,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L33">refer/IReferences.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L59">refer/IReferences.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -468,7 +494,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferences.ts#L42">refer/IReferences.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferences.ts#L68">refer/IReferences.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

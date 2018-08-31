@@ -8,11 +8,11 @@ import { Descriptor } from '../refer/Descriptor';
  * 
  * ### Examples ###
  * 
- * public nameResolution : void {
- *      let config = ConfigParams.fromTuples("Id", "MyName");
-        let name = NameResolver.resolve(config);
-        ...
-    }
+ *     public nameResolution : void {
+ *         let config = ConfigParams.fromTuples("Id", "MyName");
+ *         let name = NameResolver.resolve(config);
+ *         ...
+ *     }
  */
 export class NameResolver {
 

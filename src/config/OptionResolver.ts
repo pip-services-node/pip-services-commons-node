@@ -7,10 +7,10 @@ import { ConfigParams } from './ConfigParams';
  * 
  * ### Examples ###
  * 
- * public optionResolution : ConfigParams {
- *      let config = ConfigParams.fromTuples("Id", "MyConfig");
-        return OptionResolver.resolve(config);
-    }
+ *     public optionResolution : ConfigParams {
+ *         let config = ConfigParams.fromTuples("Id", "MyConfig");
+ *         return OptionResolver.resolve(config);
+ *     }
  */
 export class OptionResolver {
 

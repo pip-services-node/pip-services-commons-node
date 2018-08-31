@@ -18,19 +18,20 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * export class MyCommand implements ICommand {
- *      private name : string;
+ *     export class MyCommand implements ICommand {
+ *         private name : string;
+ *     
+ *         public getName(): string {
+ *             return this._name;
+ *         }
  * 
- *      public getName(): string {
-            return this._name;
-        }
-
-        public validate(): ValidationResult[] {
-            ...
-        }
-
-        ...
- * }
+ *         public validate(): ValidationResult[] {
+ *             ...
+ *         }
+ * 
+ *         ...
+ * 
+ *      }
  */
 export interface ICommand extends IExecutable {
     /**

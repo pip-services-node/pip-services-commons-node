@@ -14,12 +14,12 @@ import { ConfigException } from '../errors/ConfigException';
  * 
  * ### Examples ###
  * 
- * public MyMethod(){
- * 		let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
- * 		...
- * 		
- * 		registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
- * }
+ *     public MyMethod(){
+ *         let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
+ *         ...
+ *         
+ *         registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
+ *     }
  */
 export class Descriptor {
 	private _group: string;

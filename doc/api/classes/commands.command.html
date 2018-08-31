@@ -77,6 +77,28 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/commands.icommand.html">ICommand</a></p>
+							<h3 id="examples">Examples</h3>
+							<p>Example Command class implementation and usage:</p>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataCommandSet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CommandSet</span> </span>{
+    <span class="hljs-keyword">private</span> _controller: <span class="hljs-type">IMyDataController</span>;
+    constructor(controller: <span class="hljs-type">IMyDataController</span>) { <span class="hljs-comment">// Any data controller interface</span>
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>._controller = controller;
+        <span class="hljs-keyword">this</span>.addCommand(<span class="hljs-keyword">this</span>.makeGetMyDataCommand());
+    }
+    <span class="hljs-keyword">private</span> makeGetMyDataCommand(): <span class="hljs-type">ICommand</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Command</span>(
+            <span class="hljs-symbol">'get_mydat</span>a',
+            <span class="hljs-literal">null</span>,
+            (correlationId: string, args: <span class="hljs-type">Parameters</span>, callback: (err: any, result: any) =&gt; void) =&gt; {
+                ...
+            }
+        );
+    }
+}
+</code></pre></dd>
+						<dt>see</dt>
+						<dd><p><a href="commands.commandset.html">CommandSet</a></p>
 						</dd>
 					</dl>
 				</div>
@@ -128,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/Command.ts#L22">commands/Command.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/Command.ts#L45">commands/Command.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -145,7 +167,7 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the name of the command.</p>
+											<p>the name of the command. It identifies the command</p>
 										</div>
 									</div>
 								</li>
@@ -183,12 +205,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/Command.ts#L68">commands/Command.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/Command.ts#L91">commands/Command.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Executes this command using the given <a href="run.parameters.html">parameters</a> (arguments).</p>
+									<p>Validates the <a href="run.parameters.html">args</a> by the set schema and calls the function, passing the <a href="run.parameters.html">args</a> to it.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
@@ -260,7 +282,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#getname">getName</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/Command.ts#L52">commands/Command.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/Command.ts#L75">commands/Command.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -281,12 +303,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/Command.ts#L101">commands/Command.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/Command.ts#L124">commands/Command.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the <a href="run.parameters.html">parameters</a> (arguments) that are to be passed to this command
+									<p>Validates the <a href="run.parameters.html">args</a> that are to be passed to the function
 									using the set schema.</p>
 								</div>
 								<dl class="tsd-comment-tags">

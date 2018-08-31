@@ -7,10 +7,10 @@ import { RandomBoolean } from './RandomBoolean';
  * 
  * ### Examples ###
  * 
- * public MyMethod(minLength: number, maxLength: number ) {
- *      let stringValue = RandomString.nextString(minLength, maxLength);
- *      ...
- * }
+ *     public MyMethod(minLength: number, maxLength: number ) {
+ *         let stringValue = RandomString.nextString(minLength, maxLength);
+ *         ...
+ *     }
  */
 export class RandomString {
     private static readonly _digits = "01234956789";

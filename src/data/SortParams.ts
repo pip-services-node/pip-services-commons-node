@@ -10,11 +10,11 @@ import { SortField } from './SortField';
  * 
  * ### Examples ###
  * 
- * public MyMethod () {
- * 		let sortParams = new SortParams();
- * 		sortParams.add(new SortField("key", false));
- *      ...	
- * }
+ *     public MyMethod () {
+ *         let sortParams = new SortParams();
+ *         sortParams.add(new SortField("key", false));
+ *         ...	
+ *     }
  */
 export class SortParams extends Array<SortField> {
 

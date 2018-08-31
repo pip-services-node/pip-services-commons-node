@@ -70,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used
+						<p>Interface for stackable command intercepters, which can modify the message execution pipeline. Command interceptors are used
 							to intercept calls, perform a set of actions, and, optionally, cancel the command&#39;s actual execution by simply
 						returning a result.</p>
 					</div>
@@ -85,7 +85,42 @@
 						</dd>
 						<dt>see</dt>
 						<dd><p><a href="../classes/commands.interceptedcommand.html">InterceptedCommand</a></p>
-						</dd>
+							<h3 id="examples">Examples</h3>
+							<p>Example usage of the ICommandInterceptor interface</p>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyService</span>, <span class="hljs-title">ICommandInterceptor</span>
+{</span>
+    constructor() { }
+
+    <span class="hljs-keyword">private</span> getName(<span class="hljs-string">command:</span> ICommand): string {
+        <span class="hljs-keyword">return</span> command.getName();
+    }
+
+    <span class="hljs-keyword">public</span> execute(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">command:</span> ICommand, <span class="hljs-string">args:</span> Parameters, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any, <span class="hljs-string">result:</span> any) =&gt; <span class="hljs-keyword">void</span>): <span class="hljs-keyword">void</span> {
+        <span class="hljs-comment">// Execute command here...</span>
+    }
+
+    <span class="hljs-keyword">private</span> validate(<span class="hljs-string">command:</span> ICommand, <span class="hljs-string">args:</span> Parameters): ValidationResult[] {
+        <span class="hljs-comment">// Validate arguments here...</span>
+    }
+}
+
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService2</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyService2</span>
+{</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_interceptedCommand:</span> InterceptedCommand;
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_command:</span> ICommand;
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_myService:</span> IMyService;
+
+    constructor() {
+        <span class="hljs-comment">// Getting or creating _myService</span>
+        <span class="hljs-comment">// Getting or creating _command</span>
+        _interceptedCommand = <span class="hljs-keyword">new</span> InterceptedCommand(_myService, _command);
+    }
+
+    <span class="hljs-keyword">private</span> myFunction(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">args:</span> Parameters, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any, <span class="hljs-string">result:</span> any) =&gt; <span class="hljs-keyword">void</span>): <span class="hljs-keyword">void</span> {
+        _myService.execute(correlationId, args, callbak);
+    }
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -124,7 +159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L45">commands/ICommandInterceptor.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/ICommandInterceptor.ts#L83">commands/ICommandInterceptor.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -201,7 +236,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L31">commands/ICommandInterceptor.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/ICommandInterceptor.ts#L69">commands/ICommandInterceptor.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandInterceptor.ts#L58">commands/ICommandInterceptor.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/ICommandInterceptor.ts#L96">commands/ICommandInterceptor.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

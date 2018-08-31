@@ -73,6 +73,13 @@
 						<p>Contains the static method <a href="config.nameresolver.html#resolve">resolve</a>, which can be used for resolving the name
 						of a ConfigParams configuration.</p>
 					</div>
+					<h3 id="examples">Examples</h3>
+					<pre><code>public nameResolution : void {
+    let<span class="hljs-built_in"> config </span>= ConfigParams.fromTuples(<span class="hljs-string">"Id"</span>, <span class="hljs-string">"MyName"</span>);
+    let name = NameResolver.resolve(config);
+    <span class="hljs-built_in">..</span>.
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/config/NameResolver.ts#L21">config/NameResolver.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/config/NameResolver.ts#L29">config/NameResolver.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

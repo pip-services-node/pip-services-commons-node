@@ -70,9 +70,41 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for events, which notify listeners once an event has occurred.
+						<p>Interface for command events, which notify listeners once an event has occurred.
 						Events can be used for asynchronous method calling.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="commands.ieventlistener.html">IEventListener</a></p>
+							<h3 id="examples">Examples</h3>
+							<p>Example Event class and interface using</p>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyDataController</span>, <span class="hljs-title">IEventListener</span>
+{</span>
+    constructor() { ... }
+
+    <span class="hljs-keyword">private</span> onEvent(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">event:</span> IEvent, <span class="hljs-string">args:</span> Parameters): <span class="hljs-keyword">void</span>
+    {
+        <span class="hljs-comment">// Process event here...</span>
+    }
+}
+...
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyService</span>
+{</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_controller:</span> IMyDataController;
+    <span class="hljs-keyword">private</span> IEvent successEvent = <span class="hljs-keyword">new</span> Event(<span class="hljs-string">"success_on_process"</span>);
+
+    constructor() {
+        <span class="hljs-comment">// Getting or creating of controller</span>
+        successEvent.addListener(_controller);
+    }
+
+    <span class="hljs-keyword">private</span> onSuccess(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">args:</span> Parameters)
+    {
+        successEvent.notify(correlationId, args || <span class="hljs-literal">null</span>);
+    }
+}
+</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -123,7 +155,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/IEvent.ts#L26">commands/IEvent.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/IEvent.ts#L60">commands/IEvent.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/IEvent.ts#L19">commands/IEvent.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/IEvent.ts#L53">commands/IEvent.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,7 +206,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/IEvent.ts#L14">commands/IEvent.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/IEvent.ts#L48">commands/IEvent.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,7 +227,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.inotifiable.html">INotifiable</a>.<a href="run.inotifiable.html#notify">notify</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/run/INotifiable.ts#L14">run/INotifiable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/run/INotifiable.ts#L14">run/INotifiable.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/IEvent.ts#L33">commands/IEvent.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/IEvent.ts#L67">commands/IEvent.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -8,12 +8,12 @@ import { IChangeable } from './IChangeable';
  * 
  * ### Examples ###
  * 
- * * export class MyData implements ITrackable {
- * 		public change_time: Date;
- * 		public create_time: Date;
- * 		public deleted: boolean;
- * 		...
- * }
+ *     export class MyData implements ITrackable {
+ *         public change_time: Date;
+ *         public create_time: Date;
+ *         public deleted: boolean;
+ *         ...
+ *     }
  */
 export interface ITrackable extends IChangeable {
 	/** The UTC time at which the object was created. */

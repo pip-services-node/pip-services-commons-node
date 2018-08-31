@@ -8,12 +8,13 @@ import { MapConverter } from './MapConverter';
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let jsonValue = JsonConverter.toJson(value);
- * 		...
- * 
- * 		let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); @see [[TypeCode]]
- * }
+ *     public MyMethod (value: any) {
+ *         let jsonValue = JsonConverter.toJson(value);
+ *         ...
+ *         
+ *         let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); 
+ *     }
+ * @see [[TypeCode]]
  */
 export class JsonConverter {
 

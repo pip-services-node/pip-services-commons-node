@@ -11,12 +11,12 @@ import { TypeReflector } from '../reflect/TypeReflector';
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let map = RecursiveMapConverter.valueToMap(value);
- * 		...
- * 
- *      let new_map = RecursiveMapConverter.mapToMap(map);
- * }
+ *     public MyMethod (value: any) {
+ *         let map = RecursiveMapConverter.valueToMap(value);
+ *         ...
+ *         
+ *         let new_map = RecursiveMapConverter.mapToMap(map);
+ *     }
  */
 export class RecursiveMapConverter {
 

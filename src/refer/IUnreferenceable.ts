@@ -5,26 +5,26 @@
  * @see [[IReferences]]
  * @see [[IReferenceable]]
  * 
- * * ### Examples ###
+ * ### Examples ###
  * 
- * export class MyUnReferenceableClass implements IReferenceable, IUnreferenceable {
- * 		public _references: IReferences;
- * 
- * 		constructor(references: IReferences) {	
- * 			setReferences(references)
- * 		}
- * 		
- * 		public setReferences(references: IReferences): void {
- * 			this._references = references;
- * 		}
- * 
- * 		public unsetReferences (): void {
- * 			this._references = null;
- * 		}
- * 
- * 		...
- * 	
- * }
+ *     export class MyUnReferenceableClass implements IReferenceable, IUnreferenceable {
+ *         public _references: IReferences;
+ *         
+ *         constructor(references: IReferences) {	
+ *             setReferences(references)
+ *         }
+ *         
+ *         public setReferences(references: IReferences): void {
+ *             this._references = references;
+ *         }
+ *         
+ *         public unsetReferences (): void {
+ *             this._references = null;
+ *         }
+ *         
+ *         ...
+ *         
+ *     }
  */
 export interface IUnreferenceable {
 	/**

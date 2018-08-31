@@ -10,9 +10,9 @@ import { AnyValueMap } from './AnyValueMap';
  * 
  * ### Examples ###
  * 
- * let params: PagingParams;
- * 
- * params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
+ *     let params: PagingParams;
+ *     
+ *     params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
  * 
  */
 export class PagingParams {	

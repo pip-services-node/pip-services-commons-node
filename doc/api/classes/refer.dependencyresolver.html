@@ -72,6 +72,21 @@
 					<div class="lead">
 						<p>Helper class for resolving component dependencies.</p>
 					</div>
+					<h3 id="examples">Examples</h3>
+					<pre><code><span class="hljs-keyword">public</span> MyMethod(IReferences references){
+    <span class="hljs-keyword">let</span> _dependencyResolver = <span class="hljs-literal">new</span> DependencyResolver(ConfigParams.fromTuples(<span class="hljs-string">"Dependency"</span>, <span class="hljs-string">"Value"</span>));
+    <span class="hljs-params">...</span>
+
+    _dependencyResolver.setReferences(references);
+    <span class="hljs-params">...</span>
+
+}
+</code></pre>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/refer.ireferences.html">IReferences</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -128,7 +143,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L15">refer/DependencyResolver.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L27">refer/DependencyResolver.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -189,7 +204,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/config.ireconfigurable.html">IReconfigurable</a>.<a href="../interfaces/config.ireconfigurable.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L46">refer/DependencyResolver.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L58">refer/DependencyResolver.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L175">refer/DependencyResolver.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L187">refer/DependencyResolver.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +295,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L139">refer/DependencyResolver.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L151">refer/DependencyResolver.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L156">refer/DependencyResolver.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L168">refer/DependencyResolver.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -366,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L109">refer/DependencyResolver.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L121">refer/DependencyResolver.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +420,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L123">refer/DependencyResolver.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L135">refer/DependencyResolver.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L81">refer/DependencyResolver.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L93">refer/DependencyResolver.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -487,7 +502,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a>.<a href="../interfaces/refer.ireferenceable.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L71">refer/DependencyResolver.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L83">refer/DependencyResolver.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/DependencyResolver.ts#L196">refer/DependencyResolver.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/DependencyResolver.ts#L208">refer/DependencyResolver.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

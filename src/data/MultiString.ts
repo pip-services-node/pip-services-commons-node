@@ -6,9 +6,9 @@
  * 
  * ### Examples ###
  * 
- * let strings: MultiString;
- * strings["en"] = "my string";
- * strings["ru"] = "моя строка";
+ *     let strings: MultiString;
+ *     strings["en"] = "my string";
+ *     strings["ru"] = "моя строка";
  * 
  */
 export class MultiString {

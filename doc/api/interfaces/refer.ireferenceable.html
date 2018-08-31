@@ -72,6 +72,26 @@
 					<div class="lead">
 						<p>Interface for components that require referencing other components.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="refer.ireferences.html">IReferences</a></p>
+							<h3 id="examples">Examples</h3>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyReferenceClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IReferenceable</span> {</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-string">_references:</span> IReferences;
+
+    constructor(<span class="hljs-string">references:</span> IReferences) {
+        setReferences(references)
+    }
+
+    <span class="hljs-keyword">public</span> setReferences(<span class="hljs-string">references:</span> IReferences): <span class="hljs-keyword">void</span> {
+        <span class="hljs-keyword">this</span>._references = references;
+    }
+
+    ...
+
+}
+</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -113,7 +133,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IReferenceable.ts#L14">refer/IReferenceable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IReferenceable.ts#L34">refer/IReferenceable.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -121,6 +141,11 @@
 									<p>Sets references to other components. After references are set,
 									required dependencies can be found using component locators.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="refer.ireferences.html">IReferences</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">

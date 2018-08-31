@@ -7,13 +7,13 @@ import { RandomInteger } from './RandomInteger';
  * 
  * ### Examples ###
  * 
- * public MyMethod(min: Date, max: Date ) {
- *      let dateValue = RandomDateTime.nextDate(min, max);
- *      ...
- * 
- *      let dateTimeValue = RandomDateTime.nextDateTime(min, max);
- *      ...
- * }
+ *     public MyMethod(min: Date, max: Date ) {
+ *         let dateValue = RandomDateTime.nextDate(min, max);
+ *         ...
+ *         
+ *         let dateTimeValue = RandomDateTime.nextDateTime(min, max);
+ *         ...
+ *     }
  */
 export class RandomDateTime {
 

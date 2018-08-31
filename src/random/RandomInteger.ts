@@ -6,10 +6,10 @@
  * 
  * ### Examples ###
  * 
- * public MyMethod(min: number, max: number ) {
- *      let intValue = RandomInteger.nextInteger(min, max);
- *      ...
- * }
+ *     public MyMethod(min: number, max: number ) {
+ *         let intValue = RandomInteger.nextInteger(min, max);
+ *         ...
+ *     }
  */
 export class RandomInteger {
     

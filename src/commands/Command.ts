@@ -18,28 +18,26 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * Example Command class implementation and using
+ * Example Command class implementation and usage:
  * 
- * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
- * private _controller: IMyDataController;
-
-    constructor(controller: IMyDataController) { // Any data controller interface
-        super();
-
-        this._controller = controller;
-
-        this.addCommand(this.makeGetMyDataCommand());
-    }   
- *  private makeGetMyDataCommand(): ICommand {
-        return new Command(
-            'get_mydata',
-            null,
-            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                ...
-            }
-        );
-    }
- * }
+ *     export class MyDataCommandSet extends CommandSet {
+ *         private _controller: IMyDataController;
+ *         constructor(controller: IMyDataController) { // Any data controller interface
+ *             super();
+ *             this._controller = controller;
+ *             this.addCommand(this.makeGetMyDataCommand());
+ *         }   
+ *         private makeGetMyDataCommand(): ICommand {
+ *             return new Command(
+ *                 'get_mydata',
+ *                 null,
+ *                 (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+ *                     ...
+ *                 }
+ *             );
+ *         }
+ *     }
+ * @see [[CommandSet]]
  */
 export class Command implements ICommand {
     private readonly _schema: Schema;

@@ -31,25 +31,25 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * @see [[StringValueMap]]
  * 
  * ### Examples ###
- * Ways to use the ConfigParams class and methods:
+ * Example usage of the ConfigParams class and its methods:
  * 
- * public MyMethod () {
- * 		 let config = ConfigParams.fromTuples(
-            "Section1.Key1", "Value1",
-            "Section1.Key2", "Value2",
-            "Section1.Key3", "Value3"
-		);
-		
-		...
-
-		let value = config.get("Section1.Key1");
-		
-		...
-
-		MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
-		or
-		MyDataConfigClass myConfig = new MyDataConfigClass(config);
- * }
+ *     public MyMethod () {
+ *         let config = ConfigParams.fromTuples(
+ *            "Section1.Key1", "Value1",
+ *            "Section1.Key2", "Value2",
+ *            "Section1.Key3", "Value3"
+ *         );
+ *         
+ *         ...
+ *         
+ *         let value = config.get("Section1.Key1");
+ *         
+ *         ...
+ *         
+ *         MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
+ *         //or
+ *         MyDataConfigClass myConfig = new MyDataConfigClass(config);
+ *     }
  */
 export class ConfigParams extends StringValueMap {
 

@@ -5,12 +5,12 @@
  * strings are higher (bigger) than the previous version string. When generated 
  * automatically, the version is represented by a timestamp string. 
  * 
- * * ### Examples ###
+ * ### Examples ###
  * 
- * * export class MyData implements IVersioned {
- * 		public version: string;
- * 		...
- * }
+ *     export class MyData implements IVersioned {
+ *         public version: string;
+ *         ...
+ *     }
  */
 export interface IVersioned {
 	/** The object's version. */

@@ -11,17 +11,17 @@ import { StringValueMap } from './StringValueMap';
  * ### Examples ###
  * Ways to use the FilterParams class and methods:
  * 
- * public MyMethod () {
- * 		 let filter = FilterParams.fromTuples(
-            "Section1.Key1", "Value1",
-            "Section1.Key2", "Value2",
-            "Section1.Key3", "Value3"
-		);
-		...
-
-		let myData = getMyDataByFilter(filter);
-		...		
- * }
+ *     public MyMethod () {
+ *         let filter = FilterParams.fromTuples(
+ *             "Section1.Key1", "Value1",
+ *             "Section1.Key2", "Value2",
+ *             "Section1.Key3", "Value3"
+ *         );
+ *         ...
+ *         
+ *         let myData = getMyDataByFilter(filter);
+ *         ...		
+ *     }
  */
 export class FilterParams extends StringValueMap {
 

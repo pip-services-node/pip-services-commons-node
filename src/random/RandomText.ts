@@ -9,10 +9,10 @@ import { RandomBoolean } from './RandomBoolean';
  * 
  * ### Examples ###
  * 
- * public MyMethod() {
- *      let textValue = RandomText.word();
- *      ...
- * }
+ *     public MyMethod() {
+ *         let textValue = RandomText.word();
+ *         ...
+ *     }
  */
 export class RandomText {
     private static readonly _namePrefixes = ["Dr.", "Mr.", "Mrs"];

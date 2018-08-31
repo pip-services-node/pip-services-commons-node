@@ -13,30 +13,31 @@ import { CommandSet } from './CommandSet';
  * 
  * ### Examples ###
  * 
- * export class MyDataController implements ICommandable, IMyDataController {
- *  private commandSet : MyDataCommandSet; @see [[CommandSet]] examples
- * 
- *  public getCommandSet(): CommandSet {
-        if (this._commandSet == null) {
-            this._commandSet = new BeaconsCommandSet(this);
-        }
-
-        return this._commandSet;
-    }    
- *  
- *  ...
- * 
- *  // IMyDataController methods implementation for working with MyData.
- * 
- *  public getMyData(...) {
- *      ...
- *  }
- * 
- *  public getMyDataById(...) {
- *      ...
- *  }
- * 
- * }
+ *     export class MyDataController implements ICommandable, IMyDataController {
+ *         private commandSet : MyDataCommandSet; 
+ *         
+ *         public getCommandSet(): CommandSet {
+ *             if (this._commandSet == null) {
+ *                 this._commandSet = new BeaconsCommandSet(this);
+ *             }
+ *          
+ *             return this._commandSet;
+ *         }    
+ *          
+ *         ...
+ *         
+ *         // IMyDataController methods implementation for working with MyData.
+ *         
+ *         public getMyData(...) {
+ *             ...
+ *         }
+ *         
+ *         public getMyDataById(...) {
+ *             ...
+ *         }
+ *     
+ *     }
+ * @see [[CommandSet]] examples
  */
 export interface ICommandable {
 

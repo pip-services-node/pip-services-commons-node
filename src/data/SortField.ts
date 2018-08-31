@@ -5,10 +5,10 @@
  * 
  * ### Examples ###
  * 
- * public MyMethod () {
- * 		let sortField = new SortField("key1", true);
- *      ...	
- * }
+ *     public MyMethod () {
+ *         let sortField = new SortField("key1", true);
+ *         ...	
+ *     }
  */
 export class SortField {	
 	private name: string;

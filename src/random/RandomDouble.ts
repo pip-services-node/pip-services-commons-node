@@ -5,10 +5,10 @@
  * 
  * ### Examples ###
  * 
- * public MyMethod(min: number, max: number ) {
- *      let doubleValue = RandomDouble.nextDouble(min, max);
- *      ...
- * }
+ *     public MyMethod(min: number, max: number ) {
+ *         let doubleValue = RandomDouble.nextDouble(min, max);
+ *         ...
+ *     }
  */
 export class RandomDouble {
 

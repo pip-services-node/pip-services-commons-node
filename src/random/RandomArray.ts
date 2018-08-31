@@ -1,15 +1,15 @@
 /** @module random */
 import { RandomInteger } from './RandomInteger';
-
+//TODO: shouldn't "let array" be "let item" or "let arrayItem"?
 /**
  * Allows for picking items at random from an array of type T.
  * 
  * ### Examples ###
  * 
- * public MyMethod(values: T[]) {
- *      let array = RandomArray.pick(values);
- *      ...
- * }
+ *     public MyMethod(values: T[]) {
+ *         let array = RandomArray.pick(values);
+ *         ...
+ *     }
  */
 export class RandomArray {
     

@@ -4,15 +4,14 @@
  * A data page contains a list of items that are of type T (the data), as well as 
  * their total amount (the total).
  * 
- *  *  * ### Examples ###
+ * ### Examples ###
  * 
- * Example DataPage class using
+ * Example DataPage class usage
  * 
-   let dataPage: DataPage<string> = new DataPage<string>(["Hello, Pip.User!"], 1);
-  
-   dataPage.data.push("Hello, World!");
-   dataPage.total = 2;
- * 
+ *     let dataPage: DataPage<string> = new DataPage<string>(["Hello, Pip.User!"], 1);
+ *     
+ *     dataPage.data.push("Hello, World!");
+ *     dataPage.total = 2;
  */
 export class DataPage<T> {
     /** The total amount of items in the data page. */

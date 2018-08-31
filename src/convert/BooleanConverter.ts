@@ -7,10 +7,10 @@ let _ = require('lodash');
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let boolValue = BooleanConverter.toBoolean(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let boolValue = BooleanConverter.toBoolean(value);
+ *         ...
+ *     }
  */
 export class BooleanConverter {
 

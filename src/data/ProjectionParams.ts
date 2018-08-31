@@ -7,11 +7,11 @@ const _ = require('lodash');
  * Class that includes standard design patterns for data projection. Projection parameters 
  * contain information about what data to retrieve from a data source. 
  * 
- *  * ### Examples ###
+ * ### Examples ###
  * 
- * let params: ProjectionParams;
- * 
- * params = new ProjectionParams(["data1(attr1"]); // To get attribute named attr1 in data type data1
+ *     let params: ProjectionParams;
+ *     
+ *     params = new ProjectionParams(["data1(attr1)"]); // To get attribute named attr1 in data type data1
  * 
  */
 export class ProjectionParams extends Array<string> {

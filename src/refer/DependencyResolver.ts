@@ -12,15 +12,15 @@ import { Descriptor } from './Descriptor';
  * 
  * ### Examples ###
  * 
- * public MyMethod(IReferences references){ @see [[IReferences]]
- * 		let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
- * 		...
- * 		
- * 		_dependencyResolver.setReferences(references);
- * 
- * 		...
- * 
- * }
+ *     public MyMethod(IReferences references){ 
+ *         let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
+ *         ...
+ *         
+ *         _dependencyResolver.setReferences(references);
+ *         ...
+ *         
+ *     }
+ * @see [[IReferences]]
  */
 export class DependencyResolver implements IReferenceable, IReconfigurable {
 	private _dependencies: any = {};

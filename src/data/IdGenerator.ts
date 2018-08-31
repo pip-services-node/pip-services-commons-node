@@ -14,12 +14,12 @@ for (let i = 0; i < 256; i++) {
  * 
  * ### Examples ###
  * 
- * public MyMethod () {
- * 		let id1 = IdGenerator.nextShort();
- *      ...
- * 
- *      let id2 = IdGenerator.nextLong();	
- * }
+ *     public MyMethod () {
+ *        let id1 = IdGenerator.nextShort();
+ *        ...
+ *        
+ *        let id2 = IdGenerator.nextLong();	
+ *     }
  */
 export class IdGenerator {
     

@@ -31,16 +31,16 @@ import { AnyValueArray } from './AnyValueArray';
  * @see [[ICloneable]]
  * 
  * ### Examples ###
- * public MyMethod (values: any[]) {
- * 		let map1 = AnyValueMap.fromTuples(
-			"key1", 123,
-			"key2", "ABC"
-		);
- * 		...
- * 
- *      let map2 = new AnyValueMap(values);
- *      ...
- * }
+ *     public MyMethod (values: any[]) {
+ *         let map1 = AnyValueMap.fromTuples(
+ *             "key1", 123,
+ *             "key2", "ABC"
+ *         );
+ *         ...
+ *         
+ *         let map2 = new AnyValueMap(values);
+ *         ...
+ *     }
  */
 export class AnyValueMap implements ICloneable {
 

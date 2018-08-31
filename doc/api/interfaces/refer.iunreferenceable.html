@@ -72,6 +72,33 @@
 					<div class="lead">
 						<p>Interface for components that require clearing of their references to other components.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="refer.ireferences.html">IReferences</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="refer.ireferenceable.html">IReferenceable</a></p>
+							<h3 id="examples">Examples</h3>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyUnReferenceableClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IReferenceable</span>, <span class="hljs-title">IUnreferenceable</span> {</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-string">_references:</span> IReferences;
+
+    constructor(<span class="hljs-string">references:</span> IReferences) {
+        setReferences(references)
+    }
+
+    <span class="hljs-keyword">public</span> setReferences(<span class="hljs-string">references:</span> IReferences): <span class="hljs-keyword">void</span> {
+        <span class="hljs-keyword">this</span>._references = references;
+    }
+
+    <span class="hljs-keyword">public</span> unsetReferences (): <span class="hljs-keyword">void</span> {
+        <span class="hljs-keyword">this</span>._references = <span class="hljs-literal">null</span>;
+    }
+
+    ...
+
+}
+</code></pre></dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -107,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/refer/IUnreferenceable.ts#L9">refer/IUnreferenceable.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/refer/IUnreferenceable.ts#L33">refer/IUnreferenceable.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

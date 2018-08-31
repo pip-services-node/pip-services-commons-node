@@ -2,18 +2,18 @@
 /** @hidden */ 
 let _ = require('lodash');
 
+import { DoubleConverter } from './DoubleConverter';
+
 /**
  * Provides methods for converting various values to the float data type.
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let floatValue = FloatConverter.toFloat(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let floatValue = FloatConverter.toFloat(value);
+ *         ...
+ *     }
  */
-import { DoubleConverter } from './DoubleConverter';
-
 export class FloatConverter {
 
     /**

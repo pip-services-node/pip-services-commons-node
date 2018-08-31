@@ -34,16 +34,16 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[DateTimeConverter]]
  * 
  * ### Examples ###
- * public MyMethod (map: any) {
- * 		let map1 = StringValueMap.fromTuples(
-			"key1", 123,
-			"key2", "ABC"
-		);
- * 		...
- * 
- *      let map2 = new StringValueMap(map);
- *      ...
- * }
+ *     public MyMethod (map: any) {
+ *         let map1 = StringValueMap.fromTuples(
+ *             "key1", 123,
+ *             "key2", "ABC"
+ *         );
+ *         ...
+ *         
+ *         let map2 = new StringValueMap(map);
+ *         ...
+ *     }
  */
 export class StringValueMap {
 

@@ -76,6 +76,39 @@
 						<dt>see</dt>
 						<dd><p><a href="commands.ievent.html">IEvent</a></p>
 						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.event.html">Event</a></p>
+							<ul>
+								<li><h3 id="examples">Examples</h3>
+								</li>
+							</ul>
+							<p>Example Event class and interface using</p>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyDataController</span>, <span class="hljs-title">IEventListener</span>
+{</span>
+    constructor() { ... }
+
+    <span class="hljs-keyword">private</span> onEvent(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">event:</span> IEvent, <span class="hljs-string">args:</span> Parameters): <span class="hljs-keyword">void</span>
+    {
+        <span class="hljs-comment">// Process event here...</span>
+    }
+}
+...
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IMyService</span>
+{</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_controller:</span> IMyDataController;
+    <span class="hljs-keyword">private</span> IEvent successEvent = <span class="hljs-keyword">new</span> Event(<span class="hljs-string">"success_on_process"</span>);
+
+    constructor() {
+        <span class="hljs-comment">// Getting or creating of controller</span>
+        successEvent.addListener(_controller);
+    }
+
+    <span class="hljs-keyword">private</span> onSuccess(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">args:</span> Parameters)
+    {
+        successEvent.notify(correlationId, args || <span class="hljs-literal">null</span>);
+    }
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -112,7 +145,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/IEventListener.ts#L18">commands/IEventListener.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/IEventListener.ts#L49">commands/IEventListener.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

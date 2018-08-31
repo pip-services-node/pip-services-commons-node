@@ -7,10 +7,10 @@ let _ = require('lodash');
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let stringValue = StringConverter.toString(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let stringValue = StringConverter.toString(value);
+ *         ...
+ *     }
  */
 export class StringConverter {
 

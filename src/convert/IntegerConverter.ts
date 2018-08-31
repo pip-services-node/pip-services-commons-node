@@ -9,10 +9,10 @@ import { LongConverter } from './LongConverter';
  * 
  * ### Examples ###
  * 
- * public MyMethod (value: any) {
- * 		let intValue = IntegerConverter.toInteger(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let intValue = IntegerConverter.toInteger(value);
+ *         ...
+ *     }
  */
 export class IntegerConverter {
 

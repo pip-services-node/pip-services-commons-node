@@ -16,34 +16,34 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * Example Event class implementation and using in combination with IEventListener intreface
+ * Example Event class implementation and using in combination with IEventListener interface
  * 
  * 
- * export class MyDataController implements IMyDataController, IEventListener
-   {
-       constructor() { ... }
-
-       private onEvent(correlationId: string, event: IEvent, args: Parameters): void
-       {
-            // Process event here...
-       }
-   }
-   ...
-   export class MyService implements IMyService
-   {
-       private _controller: IMyDataController;
-       private IEvent successEvent = new Event("success_on_process");
-
-       constructor() { 
-           // Getting or creating of controller
-           successEvent.addListener(_controller);
-       }
-
-       private onSuccess(correlationId: string, args: Parameters)
-       {
-           successEvent.notify(correlationId, args || null);
-       }
- * }
+ *     export class MyDataController implements IMyDataController, IEventListener
+ *     {
+ *             constructor() { ... }
+ *             
+ *             private onEvent(correlationId: string, event: IEvent, args: Parameters): void
+ *             {
+ *                 // Process event here...
+ *             }
+ *     }
+ *     ...
+ *     export class MyService implements IMyService
+ *     {
+ *             private _controller: IMyDataController;
+ *             private IEvent successEvent = new Event("success_on_process");
+ *             
+ *             constructor() { 
+ *                 // Getting or creating of controller
+ *                 successEvent.addListener(_controller);
+ *             }
+ *             
+ *             private onSuccess(correlationId: string, args: Parameters)
+ *             {
+ *                 successEvent.notify(correlationId, args || null);
+ *             }
+ *     }
  * 
  */
 export class Event implements IEvent {

@@ -8,20 +8,20 @@ import { IReferences } from './IReferences';
  * 
  * ### Examples ###
  * 
- * export class MyReferenceClass implements IReferenceable {
- * 		public _references: IReferences;
- * 
- * 		constructor(references: IReferences) {	
- * 			setReferences(references)
- * 		}
- * 
- * 		public setReferences(references: IReferences): void {
- * 			this._references = references;
- * 		}
- * 
- * 		...
- * 	
- * }
+ *     export class MyReferenceClass implements IReferenceable {
+ *         public _references: IReferences;
+ *         
+ *         constructor(references: IReferences) {	
+ *             setReferences(references)
+ *         }
+ *         
+ *         public setReferences(references: IReferences): void {
+ *             this._references = references;
+ *         }
+ *         
+ *         ...
+ *         
+ *     }
  */
 export interface IReferenceable {
 	/**

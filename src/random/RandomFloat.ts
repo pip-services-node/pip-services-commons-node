@@ -5,10 +5,10 @@
  * 
  * ### Examples ###
  * 
- * public MyMethod(min: number, max: number ) {
- *      let floatValue = RandomFloat.nextFloat(min, max);
- *      ...
- * }
+ *     public MyMethod(min: number, max: number ) {
+ *         let floatValue = RandomFloat.nextFloat(min, max);
+ *         ...
+ *     }
  */
 export class RandomFloat {
    

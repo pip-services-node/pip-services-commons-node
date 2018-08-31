@@ -79,6 +79,34 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a></p>
+							<h3 id="examples">Examples</h3>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataController</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ICommandable</span>, <span class="hljs-title">IMyDataController</span> </span>{
+    <span class="hljs-keyword">private</span> commandSet : MyDataCommandSet;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">getCommandSet</span><span class="hljs-params">()</span>: CommandSet </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._commandSet == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">this</span>._commandSet = <span class="hljs-keyword">new</span> BeaconsCommandSet(<span class="hljs-keyword">this</span>);
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._commandSet;
+    }
+
+    ...
+
+    <span class="hljs-comment">// IMyDataController methods implementation for working with MyData.</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">getMyData</span><span class="hljs-params">(...)</span> </span>{
+        ...
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">getMyDataById</span><span class="hljs-params">(...)</span> </span>{
+        ...
+    }
+
+}
+</code></pre></dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a> examples</p>
 						</dd>
 					</dl>
 				</div>
@@ -116,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/be5c6fe/src/commands/ICommandable.ts#L22">commands/ICommandable.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/ba05d9c/src/commands/ICommandable.ts#L50">commands/ICommandable.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
