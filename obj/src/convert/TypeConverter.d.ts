@@ -7,6 +7,13 @@ import { TypeCode } from './TypeCode';
  * that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on).
  *
  * @see [[TypeCode]]
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(TypeCode.Long, value: any) {
+ * 		let longValue = TypeConverter.toType(value);
+ * 		...
+ * }
  */
 export declare class TypeConverter {
     /**

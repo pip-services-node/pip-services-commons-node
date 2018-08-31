@@ -2,6 +2,13 @@
 /**
  * Provides methods that can be used for generating random floats, as well as updating existing floats
  * by generating a value in the range of 'original value' ±'delta/range'
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(min: number, max: number ) {
+ *      let floatValue = RandomFloat.nextFloat(min, max);
+ *      ...
+ * }
  */
 export declare class RandomFloat {
     /**

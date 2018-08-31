@@ -5,7 +5,7 @@ import { RandomDateTime } from '../../src/random/RandomDateTime';
 suite('RandomDateTime', ()=> {
 
     test('Next Date', () => {
-    	let date = RandomDateTime.nextDate(new Date(2015, 0, 1), new Date(2016, 0, 1));
+    	let date = RandomDateTime.nextDate(new Date(2015, 1, 1), new Date(2016, 1, 1));
     	assert.isTrue(date.getFullYear() == 2015 || date.getFullYear() == 2016 );  
 
     	date = RandomDateTime.nextDate(new Date());

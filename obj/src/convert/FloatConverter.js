@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the float data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let floatValue = FloatConverter.toFloat(value);
+ * 		...
+ * }
  */
 var DoubleConverter_1 = require("./DoubleConverter");
 var FloatConverter = /** @class */ (function () {

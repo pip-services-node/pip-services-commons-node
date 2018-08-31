@@ -1,5 +1,12 @@
 /**
  * Allows for picking items at random from an array of type T.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(values: T[]) {
+ *      let array = RandomArray.pick(values);
+ *      ...
+ * }
  */
 export declare class RandomArray {
     /**

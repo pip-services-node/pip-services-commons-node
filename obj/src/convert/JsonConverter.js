@@ -4,6 +4,15 @@ var TypeConverter_1 = require("./TypeConverter");
 var MapConverter_1 = require("./MapConverter");
 /**
  * Provides methods for conversion between various data types and Javascript's object notation.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let jsonValue = JsonConverter.toJson(value);
+ * 		...
+ *
+ * 		let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); @see [[TypeCode]]
+ * }
  */
 var JsonConverter = /** @class */ (function () {
     function JsonConverter() {

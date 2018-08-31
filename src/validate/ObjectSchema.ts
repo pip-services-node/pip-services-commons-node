@@ -48,7 +48,7 @@ export class ObjectSchema extends Schema {
      * 
      * @see [[PropertySchema]]
      */
-    public setSroperties(value: PropertySchema[]) {
+    public setProperties(value: PropertySchema[]) {
         this._properties = value;
     }
 

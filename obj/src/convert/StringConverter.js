@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the string data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let stringValue = StringConverter.toString(value);
+ * 		...
+ * }
  */
 var StringConverter = /** @class */ (function () {
     function StringConverter() {

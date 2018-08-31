@@ -1,5 +1,12 @@
 /**
  * Provides methods for converting various values to the double data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let doubleValue = DoubleConverter.toDouble(value);
+ * 		...
+ * }
  */
 export declare class DoubleConverter {
     /**

@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to arrays.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let array = ArrayConverter.toArray(value);
+ * 		...
+ * }
  */
 var ArrayConverter = /** @class */ (function () {
     function ArrayConverter() {

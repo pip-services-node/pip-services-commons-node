@@ -1,6 +1,30 @@
 /** @module refer */
 /**
  * Interface for components that require clearing of their references to other components.
+ *
+ * @see [[IReferences]]
+ * @see [[IReferenceable]]
+ *
+ * * ### Examples ###
+ *
+ * export class MyUnReferenceableClass implements IReferenceable, IUnreferenceable {
+ * 		public _references: IReferences;
+ *
+ * 		constructor(references: IReferences) {
+ * 			setReferences(references)
+ * 		}
+ *
+ * 		public setReferences(references: IReferences): void {
+ * 			this._references = references;
+ * 		}
+ *
+ * 		public unsetReferences (): void {
+ * 			this._references = null;
+ * 		}
+ *
+ * 		...
+ *
+ * }
  */
 export interface IUnreferenceable {
     /**

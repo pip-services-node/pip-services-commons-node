@@ -23,6 +23,27 @@ import { StringValueMap } from '../data/StringValueMap';
  *
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
+ *
+ * ### Examples ###
+ * Ways to use the ConfigParams class and methods:
+ *
+ * public MyMethod () {
+ * 		 let config = ConfigParams.fromTuples(
+            "Section1.Key1", "Value1",
+            "Section1.Key2", "Value2",
+            "Section1.Key3", "Value3"
+        );
+        
+        ...
+
+        let value = config.get("Section1.Key1");
+        
+        ...
+
+        MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
+        or
+        MyDataConfigClass myConfig = new MyDataConfigClass(config);
+ * }
  */
 export declare class ConfigParams extends StringValueMap {
     /**

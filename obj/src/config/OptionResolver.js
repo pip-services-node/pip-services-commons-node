@@ -3,6 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Contains the static method [[resolve]], which can be used for resolving
  * the options of a ConfigParams configuration.
+ *
+ * ### Examples ###
+ *
+ * public optionResolution : ConfigParams {
+ *      let config = ConfigParams.fromTuples("Id", "MyConfig");
+        return OptionResolver.resolve(config);
+    }
  */
 var OptionResolver = /** @class */ (function () {
     function OptionResolver() {

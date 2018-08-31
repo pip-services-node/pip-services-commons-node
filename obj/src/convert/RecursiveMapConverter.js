@@ -8,6 +8,15 @@ var TypeConverter_1 = require("./TypeConverter");
 var TypeReflector_1 = require("../reflect/TypeReflector");
 /**
  * Provides methods for converting nested maps using recursion.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let map = RecursiveMapConverter.valueToMap(value);
+ * 		...
+ *
+ *      let new_map = RecursiveMapConverter.mapToMap(map);
+ * }
  */
 var RecursiveMapConverter = /** @class */ (function () {
     function RecursiveMapConverter() {

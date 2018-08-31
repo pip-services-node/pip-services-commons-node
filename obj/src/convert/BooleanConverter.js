@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the boolean data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let boolValue = BooleanConverter.toBoolean(value);
+ * 		...
+ * }
  */
 var BooleanConverter = /** @class */ (function () {
     function BooleanConverter() {

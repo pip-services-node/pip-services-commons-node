@@ -6,6 +6,18 @@ var ReferenceException_1 = require("./ReferenceException");
 var Descriptor_1 = require("./Descriptor");
 /**
  * Helper class for resolving component dependencies.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(IReferences references){ @see [[IReferences]]
+ * 		let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
+ * 		...
+ *
+ * 		_dependencyResolver.setReferences(references);
+ *
+ * 		...
+ *
+ * }
  */
 var DependencyResolver = /** @class */ (function () {
     /**

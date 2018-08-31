@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the datetime data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let dateTimeValue = DateTimeConverter.toDateTime(value);
+ * 		...
+ * }
  */
 var DateTimeConverter = /** @class */ (function () {
     function DateTimeConverter() {

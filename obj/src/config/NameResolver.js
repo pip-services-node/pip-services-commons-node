@@ -4,6 +4,14 @@ var Descriptor_1 = require("../refer/Descriptor");
 /**
  * Contains the static method [[resolve]], which can be used for resolving the name
  * of a ConfigParams configuration.
+ *
+ * ### Examples ###
+ *
+ * public nameResolution : void {
+ *      let config = ConfigParams.fromTuples("Id", "MyName");
+        let name = NameResolver.resolve(config);
+        ...
+    }
  */
 var NameResolver = /** @class */ (function () {
     function NameResolver() {

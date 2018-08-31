@@ -1,11 +1,8 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -42,6 +39,27 @@ var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
  *
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
+ *
+ * ### Examples ###
+ * Ways to use the ConfigParams class and methods:
+ *
+ * public MyMethod () {
+ * 		 let config = ConfigParams.fromTuples(
+            "Section1.Key1", "Value1",
+            "Section1.Key2", "Value2",
+            "Section1.Key3", "Value3"
+        );
+        
+        ...
+
+        let value = config.get("Section1.Key1");
+        
+        ...
+
+        MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
+        or
+        MyDataConfigClass myConfig = new MyDataConfigClass(config);
+ * }
  */
 var ConfigParams = /** @class */ (function (_super) {
     __extends(ConfigParams, _super);

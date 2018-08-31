@@ -1,5 +1,12 @@
 /**
  * Provides methods for converting various values to the long data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let longValue = LongConverter.toLong(value);
+ * 		...
+ * }
  */
 export declare class LongConverter {
     /**

@@ -4,6 +4,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Provides methods that can be used for generating random doubles, as well as updating existing doubles
  * by generating values in the range of 'original value' ±'delta/range'
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(min: number, max: number ) {
+ *      let doubleValue = RandomDouble.nextDouble(min, max);
+ *      ...
+ * }
  */
 var RandomDouble = /** @class */ (function () {
     function RandomDouble() {

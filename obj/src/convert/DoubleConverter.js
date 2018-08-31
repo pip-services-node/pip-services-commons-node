@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the double data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let doubleValue = DoubleConverter.toDouble(value);
+ * 		...
+ * }
  */
 var DoubleConverter = /** @class */ (function () {
     function DoubleConverter() {

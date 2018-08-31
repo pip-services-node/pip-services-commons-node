@@ -4,6 +4,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var RandomInteger_1 = require("./RandomInteger");
 /**
  * Allows for picking items at random from an array of type T.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(values: T[]) {
+ *      let array = RandomArray.pick(values);
+ *      ...
+ * }
  */
 var RandomArray = /** @class */ (function () {
     function RandomArray() {

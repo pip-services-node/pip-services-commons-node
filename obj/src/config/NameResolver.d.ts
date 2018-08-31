@@ -3,6 +3,14 @@ import { ConfigParams } from './ConfigParams';
 /**
  * Contains the static method [[resolve]], which can be used for resolving the name
  * of a ConfigParams configuration.
+ *
+ * ### Examples ###
+ *
+ * public nameResolution : void {
+ *      let config = ConfigParams.fromTuples("Id", "MyName");
+        let name = NameResolver.resolve(config);
+        ...
+    }
  */
 export declare class NameResolver {
     /**

@@ -8,6 +8,15 @@
  * - **implementation version:** for example: '1.0', '1.5', or '10.4'
  *
  * <code>*</code> can be used for any of the above sections to indicate 'any'.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(){
+ * 		let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
+ * 		...
+ *
+ * 		registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
+ * }
  */
 export declare class Descriptor {
     private _group;

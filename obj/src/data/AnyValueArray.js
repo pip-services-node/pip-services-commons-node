@@ -1,11 +1,8 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -40,6 +37,15 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
+ *
+ * ### Examples ###
+ * public MyMethod (values: any[]) {
+ * 		let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
+ * 		...
+ *
+ *      let array2 = new AnyValueArray(values);
+ *      ...
+ * }
  */
 var AnyValueArray = /** @class */ (function (_super) {
     __extends(AnyValueArray, _super);
@@ -60,6 +66,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return _this;
     }
     /**
+     * Returns the item that is located at the given index.
+     *
      * @param index     index of the item to retrieve from this AnyValueArray.
      * @returns         the item that is located at the given index.
      */
@@ -67,6 +75,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this[index];
     };
     /**
+     * Puts the value into this AnyValueArray at the given index.
+     *
      * @param index     the index at which to insert the given value.
      * @param value     the value to insert into this AnyValueArray at the given index.
      */
@@ -74,12 +84,16 @@ var AnyValueArray = /** @class */ (function (_super) {
         this[index] = value;
     };
     /**
+     * Removes item by the index from this AnyValueArray.
+     *
      * @param index     index of the item to remove.
      */
     AnyValueArray.prototype.remove = function (index) {
         this.splice(index, 1);
     };
     /**
+     * Appends items to this AnyValueArray.
+     *
      * @param elements  items to append to this AnyValueArray.
      */
     AnyValueArray.prototype.append = function (elements) {
@@ -131,6 +145,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         }
     };
     /**
+     * Converts item at the given index into a nullable string object using
+     * [[StringConverter.toNullableString]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable string.
      *
@@ -141,6 +158,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return StringConverter_1.StringConverter.toNullableString(value);
     };
     /**
+     * Converts item at the given index into a default string object using
+     * [[AnyValueArray.getAsStringWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a string (or null as the default).
      *
@@ -150,6 +170,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsStringWithDefault(index, null);
     };
     /**
+     * Converts item at the given index into a default string object using
+     * [[StringConverter.toStringWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a string or the
@@ -162,6 +185,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return StringConverter_1.StringConverter.toStringWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable boolean object using
+     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable boolean.
      *
@@ -172,6 +198,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return BooleanConverter_1.BooleanConverter.toNullableBoolean(value);
     };
     /**
+     * Converts item at the given index into a default boolean object using
+     * [[AnyValueArray.getAsBooleanWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a boolean (or false as the default).
      *
@@ -181,6 +210,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsBooleanWithDefault(index, false);
     };
     /**
+     * Converts item at the given index into a default boolean object using
+     * [[BooleanConverter.toBooleanWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a boolean or the
@@ -193,6 +225,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return BooleanConverter_1.BooleanConverter.toBooleanWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable integer object using
+     * [[IntegerConverter.toNullableInteger]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable integer.
      *
@@ -203,6 +238,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return IntegerConverter_1.IntegerConverter.toNullableInteger(value);
     };
     /**
+     * Converts item at the given index into a default integer object using
+     * [[AnyValueArray.getAsIntegerWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an integer (or 0 as the default).
      *
@@ -212,6 +250,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsIntegerWithDefault(index, 0);
     };
     /**
+     * Converts item at the given index into a default integer object using
+     * [[IntegerConverter.toIntegerWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as an integer or the
@@ -224,6 +265,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return IntegerConverter_1.IntegerConverter.toIntegerWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable long object using
+     * [[LongConverter.toNullableLong]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable long.
      *
@@ -234,6 +278,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return LongConverter_1.LongConverter.toNullableLong(value);
     };
     /**
+     * Converts item at the given index into a default long object using
+     * [[AnyValueArray.getAsLongWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a long (or 0 as the default).
      *
@@ -243,6 +290,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsLongWithDefault(index, 0);
     };
     /**
+     * Converts item at the given index into a default long object using
+     * [[LongConverter.toLongWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a long or the
@@ -255,6 +305,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable float object using
+     * [[FloatConverter.toNullableFloat]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable float.
      *
@@ -265,6 +318,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return FloatConverter_1.FloatConverter.toNullableFloat(value);
     };
     /**
+     * Converts item at the given index into a default float object using
+     * [[AnyValueArray.getAsFloatWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a float (or 0 as the default).
      *
@@ -274,6 +330,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsFloatWithDefault(index, 0);
     };
     /**
+     * Converts item at the given index into a default float object using
+     * [[FloatConverter.toFloatWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a float or the
@@ -286,6 +345,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return FloatConverter_1.FloatConverter.toFloatWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable double object using
+     * [[DoubleConverter.toNullableDouble]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable double.
      *
@@ -296,6 +358,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DoubleConverter_1.DoubleConverter.toNullableDouble(value);
     };
     /**
+     * Converts item at the given index into a default double object using
+     * [[AnyValueArray.getAsDoubleWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a double (or 0 as the default).
      *
@@ -305,6 +370,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsDoubleWithDefault(index, 0);
     };
     /**
+     * Converts item at the given index into a default double object using
+     * [[DoubleConverter.toDoubleWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a double or the
@@ -317,6 +385,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(value, defaultValue);
     };
     /**
+     * Converts item at the given index into a nullable Datetime object using
+     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable Datetime.
      *
@@ -327,6 +398,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DateTimeConverter_1.DateTimeConverter.toNullableDateTime(value);
     };
     /**
+     * Converts item at the given index into a default Datetime object using
+     * [[AnyValueArray.getAsDateTimeWithDefault]] and returns it.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a Datetime (or null as the default).
      *
@@ -336,6 +410,9 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsDateTimeWithDefault(index, null);
     };
     /**
+     * Converts item at the given index into a default Datetime object using
+     * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
+     *
      * @param index             index of the item to retrieve.
      * @param defaultValue      value to return if conversion is not possible.
      * @returns                 the item at the given index as a Datetime or the
@@ -390,6 +467,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return TypeConverter_1.TypeConverter.toTypeWithDefault(type, value, defaultValue);
     };
     /**
+     * Returns the item at the given index as an AnyValue object.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValue object.
      *
@@ -401,6 +480,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return new AnyValue_1.AnyValue(value);
     };
     /**
+     * Returns the item at the given index as a nullable AnyValueArray object.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueArray object (returns
      *                  null if the item at the given index is null).
@@ -412,6 +493,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return value != null ? AnyValueArray.fromValue(value) : null;
     };
     /**
+     * Returns the item at the given index as an AnyValueArray object.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueArray object.
      *
@@ -422,6 +505,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return AnyValueArray.fromValue(value);
     };
     /**
+     * Returns the item at the given index as an AnyValueArray object or 'defaultValue', if conversion is not possible.
+     *
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted
      *                      into an AnyValueArray.
@@ -435,6 +520,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return result != null ? result : defaultValue;
     };
     /**
+     * Returns the item at the given index as a nullable AnyValueMap object.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as a nullable AnyValueMap object (returns
      *                  null if the item at the given index is null).
@@ -447,6 +534,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return value != null ? AnyValueMap_1.AnyValueMap.fromValue(value) : null;
     };
     /**
+     * Returns the item at the given index as an AnyValueMap object.
+     *
      * @param index     index of the item to retrieve.
      * @returns         the item at the given index as an AnyValueMap object.
      *
@@ -458,6 +547,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return AnyValueMap_1.AnyValueMap.fromValue(value);
     };
     /**
+     * Returns the item at the given index as an AnyValueMap object or 'defaultValue', if conversion is not possible.
+     *
      * @param index         index of the item to retrieve.
      * @param defaultValue  value to use if the item at the given index cannot be converted
      *                      into an AnyValueMap.
@@ -471,6 +562,8 @@ var AnyValueArray = /** @class */ (function (_super) {
         return result != null ? AnyValueMap_1.AnyValueMap.fromValue(result) : defaultValue;
     };
     /**
+     * Verifies that this AnyValueArray contains the given value.
+     *
      * @param value     value to search for in this AnyValueArray.
      * @returns         whether or not this AnyValueArray contains the given value.
      */
@@ -487,7 +580,7 @@ var AnyValueArray = /** @class */ (function (_super) {
         return false;
     };
     /**
-     * Checks whether or not this AnyValueArray contains a certain value as an object of type 'type'.
+     * Verifies that this AnyValueArray contains a certain value as an object of type 'type'.
      * The value passed will be converted using [[TypeConverter.toType]], where as this AnyValueArray's
      * values will be converted using [[TypeConverter.toNullableType]]. After conversion, the value is searched
      * for amongst the AnyValueArray's converted values.

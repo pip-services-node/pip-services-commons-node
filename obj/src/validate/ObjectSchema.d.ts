@@ -36,7 +36,7 @@ export declare class ObjectSchema extends Schema {
      *
      * @see [[PropertySchema]]
      */
-    setSroperties(value: PropertySchema[]): void;
+    setProperties(value: PropertySchema[]): void;
     /**
      * @returns whether or not undefined properties are allowed to pass validation.
      */

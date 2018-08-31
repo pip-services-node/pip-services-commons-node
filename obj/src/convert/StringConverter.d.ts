@@ -1,5 +1,12 @@
 /**
  * Provides methods for converting various values to the string data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let stringValue = StringConverter.toString(value);
+ * 		...
+ * }
  */
 export declare class StringConverter {
     /**

@@ -6,6 +6,20 @@ import { ConfigParams } from './ConfigParams';
  * ConfigParams that 'configure' receives as a parameter.
  *
  * @see [[ConfigParams]]
+ *
+ * ### Examples ###
+ *
+ * Example IConfigurable intreface using
+ *
+ * export class MyClass implements IConfigurable {
+   let myParam : string = "default value";
+
+  public configure(config: ConfigParams) : void  {
+      myParam = config.getAsStringWithDefault("options.param", myParam);
+     ...
+  }
+
+}
  */
 export interface IConfigurable {
     /**

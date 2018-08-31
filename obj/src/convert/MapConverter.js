@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to maps.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let map = MapConverter.toMap(value);
+ * 		...
+ * }
  */
 var MapConverter = /** @class */ (function () {
     function MapConverter() {

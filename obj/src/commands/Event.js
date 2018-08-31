@@ -2,11 +2,45 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var InvocationException_1 = require("../errors/InvocationException");
 /**
+ * Events class is requered to receive notifications on command execution results and failures.
  * Events consist of a name and a set of listeners. Listeners are notified whenever
  * the event is raised and can be added or removed as needed. Events can be used for
  * asynchronous method calling.
  *
  * @see [[IEvent]]
+ * @see [[IEventListener]]
+ *
+ * ### Examples ###
+ *
+ * Example Event class implementation and using in combination with IEventListener intreface
+ *
+ *
+ * export class MyDataController implements IMyDataController, IEventListener
+   {
+       constructor() { ... }
+
+       private onEvent(correlationId: string, event: IEvent, args: Parameters): void
+       {
+            // Process event here...
+       }
+   }
+   ...
+   export class MyService implements IMyService
+   {
+       private _controller: IMyDataController;
+       private IEvent successEvent = new Event("success_on_process");
+
+       constructor() {
+           // Getting or creating of controller
+           successEvent.addListener(_controller);
+       }
+
+       private onSuccess(correlationId: string, args: Parameters)
+       {
+           successEvent.notify(correlationId, args || null);
+       }
+ * }
+ *
  */
 var Event = /** @class */ (function () {
     /**
@@ -35,7 +69,7 @@ var Event = /** @class */ (function () {
     /**
      * Adds a listener to receive notifications for this event.
      *
-     * @param listener      the listener reference to add.
+     * @param listener the listener reference to add.
      */
     Event.prototype.addListener = function (listener) {
         this._listeners.push(listener);

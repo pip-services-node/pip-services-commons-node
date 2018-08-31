@@ -1,5 +1,12 @@
 /**
  * Provides methods for converting various values to the integer data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let intValue = IntegerConverter.toInteger(value);
+ * 		...
+ * }
  */
 export declare class IntegerConverter {
     /**

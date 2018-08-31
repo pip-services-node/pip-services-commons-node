@@ -8,13 +8,40 @@ import { Parameters } from '../run/Parameters';
 /**
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]]
  * is capable of processing.
+ * Handles command registration and execution.
+ * Enables intercepters to control or modify command behavior
  *
- * Event listeners and command interceptors can also be added to a command set. If command interceptors are
- * added before the commands themselves, then execution chains will be built for each command that is added.
+ * If command interceptors are added before the commands themselves,
+ * then execution chains will be built for each command that is added.
  * Otherwise - no execution chains will be generated.
  *
  * @see [[Command]]
  * @see [[ICommandable]]
+ *
+ * ### Examples ###
+ *
+ * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
+ * private _controller: IMyDataController;
+
+    constructor(controller: IMyDataController) { // TO DO description of the controller interface
+        super();
+
+        this._controller = controller;
+
+        this.addCommand(this.makeCreateMyDataCommand());
+    }
+
+    private makeCreateMyDataCommand(): ICommand {
+        return new Command( @see [[Command]]
+            'create_mydata',
+            new ObjectSchema(true),
+            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+                ...
+            }
+        );
+    }
+}
+ *
  */
 export declare class CommandSet {
     private readonly _commands;
@@ -41,7 +68,9 @@ export declare class CommandSet {
     /**
      * Searches for a command by its name in this command set.
      *
-     * @param commandName   the name of the command to search for.
+     * @param commandName the name of the command to search for.
+     *
+     * @returns a command whose name is the same as the method parameter
      *
      * @see [[ICommand]]
      */
@@ -49,7 +78,9 @@ export declare class CommandSet {
     /**
      * Searches for an event by its name in this command set.
      *
-     * @param eventName     the name of the event to search for.
+     * @param eventName the name of the event to search for.
+     *
+     * @returns a event whose name is the same as the method parameter
      *
      * @see [[IEvent]]
      */
@@ -85,7 +116,7 @@ export declare class CommandSet {
     /**
      * Adds multiple [[ICommand commands]] to this command set.
      *
-     * @param commands  the array of commands to add.
+     * @param commands the array of commands to add.
      *
      * @see [[ICommand]]
      */
@@ -93,7 +124,7 @@ export declare class CommandSet {
     /**
      * Adds an [[IEvent event]] to this command set.
      *
-     * @param event     the event to add.
+     * @param event the event to add.
      *
      * @see [[IEvent]]
      */
@@ -101,7 +132,7 @@ export declare class CommandSet {
     /**
      * Adds multiple [[IEvent events]] to this command set.
      *
-     * @param events    the array of events to add.
+     * @param events the array of events to add.
      *
      * @see [[IEvent]]
      */
@@ -110,7 +141,7 @@ export declare class CommandSet {
      * Adds all of the commands and events included in the passed CommandSet object
      * to this command set.
      *
-     * @param commandSet    the CommandSet to add.
+     * @param commandSet the CommandSet to add.
      */
     addCommandSet(commandSet: CommandSet): void;
     /**
@@ -138,7 +169,8 @@ export declare class CommandSet {
      */
     addInterceptor(interceptor: ICommandInterceptor): void;
     /**
-     * Executes the [[ICommand command]] with the given name, using the given [[Parameters parameters]] (arguments).
+     * Validates the [[Parameters args]] by the schema of [[ICommand command]] with the given name
+     * and executes this [[ICommand command]], using the given [[Parameters args]].
      *
      * @param correlationId unique business transaction id to trace calls across components.
      * @param commandName   the name of that command that is to be executed.
@@ -152,7 +184,7 @@ export declare class CommandSet {
      */
     execute(correlationId: string, commandName: string, args: Parameters, callback: (err: any, result: any) => void): void;
     /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the
+     * Validates the [[Parameters args]] that are to be passed to the
      * [[ICommand command]] with the given name.
      *
      * @param commandName   the name of the command for which the 'args' must be validated.
@@ -168,7 +200,7 @@ export declare class CommandSet {
     validate(commandName: string, args: Parameters): ValidationResult[];
     /**
      * Raises the event with the given name and notifies the event's listeners using the
-     * correlation id and [[Parameters parameters]] (arguments) given.
+     * correlation id and [[Parameters args]] given.
      *
      * @param correlationId     unique business transaction id to trace calls across components.
      * @param eventName         the name of the event that is to be raised.

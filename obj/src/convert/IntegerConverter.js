@@ -6,6 +6,13 @@ var _ = require('lodash');
 var LongConverter_1 = require("./LongConverter");
 /**
  * Provides methods for converting various values to the integer data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let intValue = IntegerConverter.toInteger(value);
+ * 		...
+ * }
  */
 var IntegerConverter = /** @class */ (function () {
     function IntegerConverter() {

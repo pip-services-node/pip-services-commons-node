@@ -5,6 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Provides methods for converting various values to the long data type.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let longValue = LongConverter.toLong(value);
+ * 		...
+ * }
  */
 var LongConverter = /** @class */ (function () {
     function LongConverter() {

@@ -1,6 +1,16 @@
 /** @module random */
 /**
  * Provides methods that can be used for generating random booleans using 'chance' and 'nextBoolean' methods.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod(chances: number, maxChances: number) {
+ *      let boolValue1 = RandomBoolean.chance(chances, maxChances);
+ *      ...
+ *
+ *      let boolValue2 = RandomBoolean.nextBoolean();
+ *      ...
+ * }
  */
 export declare class RandomBoolean {
     /**

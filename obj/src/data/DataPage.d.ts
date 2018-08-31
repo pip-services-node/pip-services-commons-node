@@ -3,6 +3,16 @@
  * Class that is used by standard design patterns, which work with data paging.
  * A data page contains a list of items that are of type T (the data), as well as
  * their total amount (the total).
+ *
+ *  *  * ### Examples ###
+ *
+ * Example DataPage class using
+ *
+   let dataPage: DataPage<string> = new DataPage<string>(["Hello, Pip.User!"], 1);
+  
+   dataPage.data.push("Hello, World!");
+   dataPage.total = 2;
+ *
  */
 export declare class DataPage<T> {
     /** The total amount of items in the data page. */

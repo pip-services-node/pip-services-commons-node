@@ -2,6 +2,15 @@
 import { TypeCode } from './TypeCode';
 /**
  * Provides methods for conversion between various data types and Javascript's object notation.
+ *
+ * ### Examples ###
+ *
+ * public MyMethod (value: any) {
+ * 		let jsonValue = JsonConverter.toJson(value);
+ * 		...
+ *
+ * 		let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); @see [[TypeCode]]
+ * }
  */
 export declare class JsonConverter {
     /**

@@ -1,11 +1,8 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -19,6 +16,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * data from a data source, using the fields available.
  *
  * @see [[SortField]]
+ *
+ * ### Examples ###
+ *
+ * public MyMethod () {
+ * 		let sortParams = new SortParams();
+ * 		sortParams.add(new SortField("key", false));
+ *      ...
+ * }
  */
 var SortParams = /** @class */ (function (_super) {
     __extends(SortParams, _super);

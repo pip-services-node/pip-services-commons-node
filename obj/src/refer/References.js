@@ -7,6 +7,30 @@ var ReferenceException_1 = require("./ReferenceException");
  * Basic implementation of [[IReferences]], which stores components as a flat list.
  *
  * @see [[IReferences]]
+ *
+ * ### Examples ###
+ *
+ * 	export class myContainer {
+ * 		private _references: IReferences;
+ *
+ * 		constructor() {
+ * 			_references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
+ * 			...
+ * 		}
+ * 	}
+ *
+ * 	export class myController implements IMyController, IReferenceable {
+ * 		private _service: IMyServiceV1;
+ *
+ * 		constructor() {
+ *
+ * 		}
+ *
+ * 		setReferences(references: IReferences) {
+ * 			_service = references.getOneRequired<IMyServiceV1>("myservice.v1");
+ * 		}
+ * 	}
+ *
  */
 var References = /** @class */ (function () {
     /**

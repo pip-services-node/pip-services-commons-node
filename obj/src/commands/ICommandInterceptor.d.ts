@@ -4,7 +4,7 @@ import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 /**
  *
- * Interface for command interceptors, which can modify the message execution pipeline. Command interceptors are used
+ * Interface for stackable command intercepters, which can modify the message execution pipeline. Command interceptors are used
  * to intercept calls, perform a set of actions, and, optionally, cancel the command's actual execution by simply
  * returning a result.
  *
@@ -18,6 +18,46 @@ import { ValidationResult } from '../validate/ValidationResult';
  *
  * @see [[ICommand]]
  * @see [[InterceptedCommand]]
+ *
+ * * * ### Examples ###
+ *
+ * Example ICommandInterceptor interface using
+ *
+ * export class MyService implements IMyService, ICommandInterceptor
+   {
+       
+       constructor() { }
+
+       private getName(command: ICommand): string {
+            return command.getName();
+       }
+
+       public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
+           // Execute command here...
+       }
+
+       private validate(command: ICommand, args: Parameters): ValidationResult[] {
+           // Validate arguments here...
+       }
+ * }
+ *
+ * export class MyService2 implements IMyService2
+   {
+       
+       private _interceptedCommand: InterceptedCommand;
+       private _command: ICommand;
+       private _myService: IMyService;
+
+       constructor() {
+           // Getting or creating _myService
+           // Getting or creating _command
+           _interceptedCommand = new InterceptedCommand(_myService, _command);
+        }
+
+       private myFunction(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
+           _myService.execute(correlationId, args, callbak);
+       }
+ * }
  */
 export interface ICommandInterceptor {
     /**

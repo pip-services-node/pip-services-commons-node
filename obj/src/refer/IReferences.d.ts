@@ -7,6 +7,32 @@
  * In PipServices, the "location design pattern” is used, which is much simpler than dependency injection.
  * It is simple to implement and portable between languages. Used for building various containers, as well as
  * for testing objects.
+ *
+ * @see [[References]]
+ *
+ * ### Examples ###
+ *
+ * 	export class myContainer {
+ * 		private _references: IReferences;
+ *
+ * 		constructor() {
+ * 			_references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
+ * 			...
+ * 		}
+ * 	}
+ *
+ * 	export class myController implements IMyController, IReferenceable {
+ * 		private _service: IMyServiceV1;
+ *
+ * 		constructor() {
+ *
+ * 		}
+ *
+ * 		setReferences(references: IReferences) {
+ * 			_service = references.getOneRequired<IMyServiceV1>("myservice.v1");
+ * 		}
+ * 	}
+ *
  */
 export interface IReferences {
     /**
