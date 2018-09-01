@@ -6,7 +6,7 @@ import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Events class is requered to receive notifications on command execution results and failures.
+ * Used to receive notifications about command execution results and failures.
  * Events consist of a name and a set of listeners. Listeners are notified whenever 
  * the event is raised and can be added or removed as needed. Events can be used for 
  * asynchronous method calling. 

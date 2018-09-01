@@ -2,7 +2,7 @@
 import { IConfigurable } from './IConfigurable';
 
 /**
- * Interface for components that can be reconfigured when configuration changes
+ * Interface for components that can be reconfigured when configuration changes occur.
  * 
  * @see [[IConfigurable]]
  * 

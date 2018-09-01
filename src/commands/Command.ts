@@ -45,7 +45,7 @@ export class Command implements ICommand {
     private _name: string;
 
     /**
-     * @param name      the name of the command. It identifies the command
+     * @param name      the name of the command. Used for command identification.
      * @param schema    the command's schema.
      * @param func      the function that is to be executed by this command.
      * @throws  an Error if 'name' or 'func' are null, or if 'func' does not have 
@@ -77,12 +77,13 @@ export class Command implements ICommand {
     }
 
     /**
-     * Validates the [[Parameters args]] by the set schema and calls the function, passing the [[Parameters args]] to it. 
+     * Validates the given [[Parameters args]] using the set schema and calls the function with 
+     * the validated [[Parameters args]]. 
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to this command for execution.
-     * @param callback      the function that is to be called once execution is complete. If an exception is raised, 
-     *                      then it will be called with the error.
+     * @param callback      the function that is to be called once execution is complete. If an 
+     *                      exception is raised, then it will be called with the error.
      * @throws an [[InvocationException]] if the execution fails.
      * 
      * @see [[Parameters]]

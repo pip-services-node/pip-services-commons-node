@@ -14,8 +14,8 @@ import { IdGenerator } from '../data/IdGenerator';
 /**
  * Defines a set of commands and events, which a given [[ICommandable commandable interface]] 
  * is capable of processing.
- * Handles command registration and execution.
- * Enables intercepters to control or modify command behavior 
+ * 
+ * Handles command registration and execution. Enables interceptors to control or modify command behavior.
  * 
  * If command interceptors are added before the commands themselves, 
  * then execution chains will be built for each command that is added. 
@@ -86,7 +86,7 @@ export class CommandSet {
      * 
      * @param commandName the name of the command to search for.
      * 
-     * @returns a command whose name is the same as the method parameter
+     * @returns the command, whose name matches the provided name.
      * 
      * @see [[ICommand]]
      */
@@ -99,7 +99,7 @@ export class CommandSet {
      * 
      * @param eventName the name of the event to search for.
      * 
-     * @returns a event whose name is the same as the method parameter
+     * @returns the event, whose name matches the provided name.
      * 
      * @see [[IEvent]]
      */
@@ -239,8 +239,8 @@ export class CommandSet {
     }
 
     /**
-     * Validates the [[Parameters args]] by the schema of [[ICommand command]] with the given name 
-     * and executes this [[ICommand command]], using the given [[Parameters args]].
+     * Validates the given [[Parameters args]] using the schema that is set in the [[ICommand command]] with 
+     * the given name and executes the [[ICommand command]] using the validated [[Parameters args]].
      * 
      * @param correlationId unique business transaction id to trace calls across components.
      * @param commandName   the name of that command that is to be executed.

@@ -43,7 +43,6 @@ import { INotifiable } from '../run/INotifiable';
 export interface IEvent extends INotifiable {
 	/**
 	 * @returns the name of the event.
-     * 
 	 */
     getName(): string;
 
