@@ -3,10 +3,12 @@
  *
  * ### Examples ###
  *
- * public MyMethod(values: T[]) {
- *      let array = RandomArray.pick(values);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(values: T[]) {
+ *         let value = RandomArray.pick(values);
+ *         ...
+ *     }
  */
 export declare class RandomArray {
     /**

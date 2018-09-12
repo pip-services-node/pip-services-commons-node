@@ -8,10 +8,12 @@ var RandomBoolean_1 = require("./RandomBoolean");
  *
  * ### Examples ###
  *
- * public MyMethod(minLength: number, maxLength: number ) {
- *      let stringValue = RandomString.nextString(minLength, maxLength);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(minLength: number, maxLength: number ) {
+ *         let stringValue = RandomString.nextString(minLength, maxLength);
+ *         ...
+ *     }
  */
 var RandomString = /** @class */ (function () {
     function RandomString() {

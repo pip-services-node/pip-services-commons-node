@@ -7,10 +7,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Examples ###
  *
- * public MyMethod () {
- * 		let sortField = new SortField("key1", true);
- *      ...
- * }
+ *     public MyMethod () {
+ *         let sortField = new SortField("key1", true);
+ *         ...
+ *     }
  */
 var SortField = /** @class */ (function () {
     /**

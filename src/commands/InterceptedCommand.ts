@@ -81,7 +81,7 @@ export class InterceptedCommand implements ICommand {
     /**
      * Executes the next command in the execution chain using the given [[Parameters parameters]] (arguments).
      * 
-     * @param correlationId unique business transaction id to trace calls across components.
+     * @param correlationId unique transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error.

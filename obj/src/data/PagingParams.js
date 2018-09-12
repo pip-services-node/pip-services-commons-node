@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var IntegerConverter_1 = require("../convert/IntegerConverter");
 var BooleanConverter_1 = require("../convert/BooleanConverter");
 var AnyValueMap_1 = require("./AnyValueMap");
+//TODO: add to the example a method call that accept PagingParams. 
 /**
  * Class that includes standard design patterns for data paging.
  * Paging parameters contain information about how to retrieve
@@ -11,9 +12,11 @@ var AnyValueMap_1 = require("./AnyValueMap");
  *
  * ### Examples ###
  *
- * let params: PagingParams;
+ * Example PagingParams object usage:
  *
- * params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
+ *     let params: PagingParams;
+ *
+ *     params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
  *
  */
 var PagingParams = /** @class */ (function () {

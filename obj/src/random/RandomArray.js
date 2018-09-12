@@ -7,10 +7,12 @@ var RandomInteger_1 = require("./RandomInteger");
  *
  * ### Examples ###
  *
- * public MyMethod(values: T[]) {
- *      let array = RandomArray.pick(values);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(values: T[]) {
+ *         let value = RandomArray.pick(values);
+ *         ...
+ *     }
  */
 var RandomArray = /** @class */ (function () {
     function RandomArray() {

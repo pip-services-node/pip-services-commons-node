@@ -8,10 +8,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Examples ###
  *
- * public MyMethod(min: number, max: number ) {
- *      let intValue = RandomInteger.nextInteger(min, max);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(min: number, max: number ) {
+ *         let intValue = RandomInteger.nextInteger(min, max);
+ *         ...
+ *     }
  */
 var RandomInteger = /** @class */ (function () {
     function RandomInteger() {

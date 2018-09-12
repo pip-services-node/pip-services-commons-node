@@ -3,10 +3,10 @@
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let dateTimeValue = DateTimeConverter.toDateTime(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let dateTimeValue = DateTimeConverter.toDateTime(value);
+ *         ...
+ *     }
  */
 export declare class DateTimeConverter {
     /**

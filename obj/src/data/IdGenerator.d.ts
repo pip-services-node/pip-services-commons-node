@@ -3,12 +3,12 @@
  *
  * ### Examples ###
  *
- * public MyMethod () {
- * 		let id1 = IdGenerator.nextShort();
- *      ...
+ *     public MyMethod () {
+ *        let id1 = IdGenerator.nextShort();
+ *        ...
  *
- *      let id2 = IdGenerator.nextLong();
- * }
+ *        let id2 = IdGenerator.nextLong();
+ *     }
  */
 export declare class IdGenerator {
     /**

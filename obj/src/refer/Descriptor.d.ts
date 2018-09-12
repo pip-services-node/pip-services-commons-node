@@ -11,12 +11,14 @@
  *
  * ### Examples ###
  *
- * public MyMethod(){
- * 		let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
- * 		...
+ * A Descriptor object can be created and used in the following way:
  *
- * 		registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
- * }
+ *     public MyMethod(){
+ *         let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
+ *         ...
+ *
+ *         registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
+ *     }
  */
 export declare class Descriptor {
     private _group;

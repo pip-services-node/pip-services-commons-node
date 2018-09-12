@@ -8,10 +8,10 @@ var _ = require('lodash');
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let map = MapConverter.toMap(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let map = MapConverter.toMap(value);
+ *         ...
+ *     }
  */
 var MapConverter = /** @class */ (function () {
     function MapConverter() {

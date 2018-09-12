@@ -8,19 +8,20 @@ import { StringValueMap } from './StringValueMap';
  * @see [[StringValueMap]]
  *
  * ### Examples ###
- * Ways to use the FilterParams class and methods:
  *
- * public MyMethod () {
- * 		 let filter = FilterParams.fromTuples(
-            "Section1.Key1", "Value1",
-            "Section1.Key2", "Value2",
-            "Section1.Key3", "Value3"
-        );
-        ...
-
-        let myData = getMyDataByFilter(filter);
-        ...
- * }
+ * A FilterParams object can be created and used in the following way:
+ *
+ *     public MyMethod () {
+ *         let filter = FilterParams.fromTuples(
+ *             "Section1.Key1", "Value1",
+ *             "Section1.Key2", "Value2",
+ *             "Section1.Key3", "Value3"
+ *         );
+ *         ...
+ *
+ *         let myData = getMyDataByFilter(filter);
+ *         ...
+ *     }
  */
 export declare class FilterParams extends StringValueMap {
     /**

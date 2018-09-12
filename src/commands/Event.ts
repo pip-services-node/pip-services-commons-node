@@ -3,7 +3,6 @@ import { IEvent } from './IEvent';
 import { IEventListener } from './IEventListener';
 import { InvocationException } from '../errors/InvocationException';
 import { Parameters } from '../run/Parameters';
-import { ValidationResult } from '../validate/ValidationResult';
 
 /**
  * Used to receive notifications about command execution results and failures.
@@ -16,33 +15,14 @@ import { ValidationResult } from '../validate/ValidationResult';
  * 
  * ### Examples ###
  * 
- * Example Event class implementation and usage (in combination with the IEventListener interface):
+ * let event = new Event("my_event");
  * 
- *     export class MyDataController implements IMyDataController, IEventListener
- *     {
- *             constructor() { ... }
- *             
- *             private onEvent(correlationId: string, event: IEvent, args: Parameters): void
- *             {
- *                 // Process event here...
- *             }
- *     }
- *     ...
- *     export class MyService implements IMyService
- *     {
- *             private _controller: IMyDataController;
- *             private IEvent successEvent = new Event("success_on_process");
- *             
- *             constructor() { 
- *                 // Getting or creating of controller
- *                 successEvent.addListener(_controller);
- *             }
- *             
- *             private onSuccess(correlationId: string, args: Parameters)
- *             {
- *                 successEvent.notify(correlationId, args || null);
- *             }
- *     }
+ * event.addListener(myListener);
+ * 
+ * event.notify("123", Parameters.fromTuples(
+ *   "param1", "ABC",
+ *   "param2", 123
+ * ));
  * 
  */
 export class Event implements IEvent {
@@ -101,7 +81,7 @@ export class Event implements IEvent {
      * Raises this event and notifies the listeners referenced using the correlationId 
      * and [[Parameters parameters]] (arguments) given.
      * 
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param args              the parameters to raise this event with.
      * @throws an [[InvocationException]] if the event fails to be raised.  
      */

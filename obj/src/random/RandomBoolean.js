@@ -6,13 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Examples ###
  *
- * public MyMethod(chances: number, maxChances: number) {
- *      let boolValue1 = RandomBoolean.chance(chances, maxChances);
- *      ...
+ * Example usage:
  *
- *      let boolValue2 = RandomBoolean.nextBoolean();
- *      ...
- * }
+ *     public MyMethod(chances: number, maxChances: number) {
+ *         let boolValue1 = RandomBoolean.chance(chances, maxChances);
+ *         ...
+ *
+ *         let boolValue2 = RandomBoolean.nextBoolean();
+ *         ...
+ *     }
  */
 var RandomBoolean = /** @class */ (function () {
     function RandomBoolean() {

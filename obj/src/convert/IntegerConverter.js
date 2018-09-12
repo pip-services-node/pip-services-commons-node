@@ -9,10 +9,10 @@ var LongConverter_1 = require("./LongConverter");
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let intValue = IntegerConverter.toInteger(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let intValue = IntegerConverter.toInteger(value);
+ *         ...
+ *     }
  */
 var IntegerConverter = /** @class */ (function () {
     function IntegerConverter() {

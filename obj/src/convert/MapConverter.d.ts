@@ -3,10 +3,10 @@
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let map = MapConverter.toMap(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let map = MapConverter.toMap(value);
+ *         ...
+ *     }
  */
 export declare class MapConverter {
     /**

@@ -15,7 +15,7 @@ export interface IOpenable extends IClosable {
      * Abstract method that will contain the logic for opening a component and establishing
      * connections to other services.
      *
-     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param correlationId 	optional transaction id to trace calls across components.
      * @param callback 			the function to call when the opening process is complete. It will
      * 							be called with an error if one is raised.
      */

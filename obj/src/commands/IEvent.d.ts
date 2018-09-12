@@ -8,39 +8,38 @@ import { INotifiable } from '../run/INotifiable';
  *
  * ### Examples ###
  *
- * Example Event class and interface using
+ * Example Event class implementation and usage (in combination with the IEventListener interface):
  *
- * export class MyDataController implements IMyDataController, IEventListener
-   {
-       constructor() { ... }
-
-       private onEvent(correlationId: string, event: IEvent, args: Parameters): void
-       {
-            // Process event here...
-       }
-   }
-   ...
- * export class MyService implements IMyService
-   {
-       private _controller: IMyDataController;
-       private IEvent successEvent = new Event("success_on_process");
-
-       constructor() {
-           // Getting or creating of controller
-           successEvent.addListener(_controller);
-       }
-
-       private onSuccess(correlationId: string, args: Parameters)
-       {
-           successEvent.notify(correlationId, args || null);
-       }
- * }
+ *     export class MyDataController implements IMyDataController, IEventListener
+ *     {
+ *         constructor() { ... }
+ *
+ *         private onEvent(correlationId: string, event: IEvent, args: Parameters): void
+ *         {
+ *             // Process event here...
+ *         }
+ *     }
+ *     ...
+ *     export class MyService implements IMyService
+ *     {
+ *         private _controller: IMyDataController;
+ *         private IEvent successEvent = new Event("success_on_process");
+ *
+ *         constructor() {
+ *             // Getting or creating of controller
+ *             successEvent.addListener(_controller);
+ *         }
+ *
+ *         private onSuccess(correlationId: string, args: Parameters)
+ *         {
+ *             successEvent.notify(correlationId, args || null);
+ *         }
+ *     }
  *
  */
 export interface IEvent extends INotifiable {
     /**
      * @returns the name of the event.
-     *
      */
     getName(): string;
     /**

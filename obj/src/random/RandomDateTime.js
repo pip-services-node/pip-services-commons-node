@@ -4,17 +4,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var RandomInteger_1 = require("./RandomInteger");
 /**
  * Provides methods that can be used for generating random Dates/DateTimes, as well as updating existing DateTimes
- * by generating values in the range of 'original DateTime' ±'delta/range'
+ * by generating values in the range of 'original DateTime' ±'delta/range'.
  *
  * ### Examples ###
  *
- * public MyMethod(min: Date, max: Date ) {
- *      let dateValue = RandomDateTime.nextDate(min, max);
- *      ...
+ * Example usage:
  *
- *      let dateTimeValue = RandomDateTime.nextDateTime(min, max);
- *      ...
- * }
+ *     public MyMethod(min: Date, max: Date ) {
+ *         let dateValue = RandomDateTime.nextDate(min, max);
+ *         ...
+ *
+ *         let dateTimeValue = RandomDateTime.nextDateTime(min, max);
+ *         ...
+ *     }
  */
 var RandomDateTime = /** @class */ (function () {
     function RandomDateTime() {

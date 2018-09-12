@@ -3,10 +3,10 @@
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let longValue = LongConverter.toLong(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let longValue = LongConverter.toLong(value);
+ *         ...
+ *     }
  */
 export declare class LongConverter {
     /**

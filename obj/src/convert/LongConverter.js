@@ -8,10 +8,10 @@ var _ = require('lodash');
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let longValue = LongConverter.toLong(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let longValue = LongConverter.toLong(value);
+ *         ...
+ *     }
  */
 var LongConverter = /** @class */ (function () {
     function LongConverter() {

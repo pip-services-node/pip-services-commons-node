@@ -6,6 +6,18 @@ import { AnyValueArray } from './AnyValueArray';
  * Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved
  * in various ways with the help of numerous converters.
  *
+ * ### Examples ###
+ *     public MyMethod (values: any[]) {
+ *         let map1 = AnyValueMap.fromTuples(
+ *             "key1", 123,
+ *             "key2", "ABC"
+ *         );
+ *         ...
+ *
+ *         let map2 = new AnyValueMap(values);
+ *         ...
+ *     }
+ *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
  * @see [[BooleanConverter]]
@@ -15,18 +27,6 @@ import { AnyValueArray } from './AnyValueArray';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
- *
- * ### Examples ###
- * public MyMethod (values: any[]) {
- * 		let map1 = AnyValueMap.fromTuples(
-            "key1", 123,
-            "key2", "ABC"
-        );
- * 		...
- *
- *      let map2 = new AnyValueMap(values);
- *      ...
- * }
  */
 export declare class AnyValueMap implements ICloneable {
     /**
@@ -45,34 +45,34 @@ export declare class AnyValueMap implements ICloneable {
      */
     get(key: string): any;
     /**
-     * Returns keyset that are contained in this AnyValueMap as a list of strings.
+     * Returns this AnyValueMap's keyset as a list of strings.
      *
      * @returns all of the keys that are contained in this AnyValueMap as a list of strings.
      */
     getKeys(): string[];
     /**
-     * Puts the value into this AnyValueMap by the given key.
+     * Puts a value into this AnyValueMap by the given key.
      *
      * @param key       the key by which to insert the given value.
      * @param value     the value to insert into this AnyValueMap by the given key.
      */
     put(key: string, value: any): any;
     /**
-     * Removes item by the key from this AnyValueMap.
+     * Removes an item by its key from this AnyValueMap.
      *
      * @param key       key of the item to remove.
      */
     remove(key: string): void;
     /**
-     * Appends map of items to this AnyValueMap.
+     * Appends a map of items to this AnyValueMap.
      *
-     * @param map   map of items to append to this AnyValueMap.
+     * @param map   the map of items to append to this AnyValueMap.
      */
     append(map: any): void;
     /** Removes all values from this AnyValueMap. */
     clear(): any;
     /**
-     * Returns the number of key-value mappings in this map.
+     * Returns the number of key-value mappings present in this map.
      *
      * @returns the number of key-value pairs stored in this AnyValueMap.
      */
@@ -94,7 +94,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     setAsObject(key: any, value?: any): void;
     /**
-     * Converts item at the given key into a nullable string object using
+     * Converts the item at the given key into a nullable string object using
      * [[StringConverter.toNullableString]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -104,7 +104,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableString(key: string): string;
     /**
-     * Converts item at the given key into a default string object using
+     * Converts the item at the given key into a defaultable string object using
      * [[AnyValueMap.getAsStringWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -114,7 +114,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsString(key: string): string;
     /**
-     * Converts item at the given key into a default string object using
+     * Converts the item at the given key into a defaultable string object using
      * [[StringConverter.toStringWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -126,7 +126,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsStringWithDefault(key: string, defaultValue: string): string;
     /**
-     * Converts item at the given key into a nullable boolean object using
+     * Converts the item at the given key into a nullable boolean object using
      * [[BooleanConverter.toNullableBoolean]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -136,7 +136,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableBoolean(key: string): boolean;
     /**
-     * Converts item at the given key into a default boolean object using
+     * Converts the item at the given key into a defaultable boolean object using
      * [[AnyValueMap.getAsBooleanWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -146,7 +146,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsBoolean(key: string): boolean;
     /**
-     * Converts item at the given key into a default boolean object using
+     * Converts the item at the given key into a defaultable boolean object using
      * [[BooleanConverter.toBooleanWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -158,7 +158,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsBooleanWithDefault(key: string, defaultValue: boolean): boolean;
     /**
-     * Converts item at the given key into a nullable integer object using
+     * Converts the item at the given key into a nullable integer object using
      * [[IntegerConverter.toNullableInteger]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -168,7 +168,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableInteger(key: string): number;
     /**
-     * Converts item at the given key into a default integer object using
+     * Converts the item at the given key into a defaultable integer object using
      * [[AnyValueMap.getAsIntegerWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -178,7 +178,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsInteger(key: string): number;
     /**
-     * Converts item at the given key into a default integer object using
+     * Converts the item at the given key into a defaultable integer object using
      * [[IntegerConverter.toIntegerWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -190,7 +190,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsIntegerWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable long object using
+     * Converts the item at the given key into a nullable long object using
      * [[LongConverter.toNullableLong]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -200,7 +200,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableLong(key: string): number;
     /**
-     * Converts item at the given key into a default long object using
+     * Converts the item at the given key into a defaultable long object using
      * [[AnyValueMap.getAsLongWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -210,7 +210,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsLong(key: string): number;
     /**
-     * Converts item at the given key into a default long object using
+     * Converts the item at the given key into a defaultable long object using
      * [[LongConverter.toLongWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -222,7 +222,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsLongWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable float object using
+     * Converts the item at the given key into a nullable float object using
      * [[FloatConverter.toNullableFloat]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -232,7 +232,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableFloat(key: string): number;
     /**
-     * Converts item at the given key into a default float object using
+     * Converts the item at the given key into a defaultable float object using
      * [[AnyValueMap.getAsFloatWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -242,7 +242,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsFloat(key: string): number;
     /**
-     * Converts item at the given key into a default float object using
+     * Converts the item at the given key into a defaultable float object using
      * [[FloatConverter.toFloatWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -254,7 +254,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsFloatWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable double object using
+     * Converts the item at the given key into a nullable double object using
      * [[DoubleConverter.toNullableDouble]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -264,7 +264,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableDouble(key: string): number;
     /**
-     * Converts item at the given key into a default double object using
+     * Converts the item at the given key into a defaultable double object using
      * [[AnyValueMap.getAsDoubleWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -274,7 +274,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsDouble(key: string): number;
     /**
-     * Converts item at the given key into a default double object using
+     * Converts the item at the given key into a defaultable double object using
      * [[DoubleConverter.toDoubleWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -286,7 +286,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsDoubleWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable Datetime object using
+     * Converts the item at the given key into a nullable Datetime object using
      * [[DateTimeConverter.toNullableDateTime]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -296,7 +296,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsNullableDateTime(key: string): Date;
     /**
-     * Converts item at the given key into a default Datetime object using
+     * Converts the item at the given key into a defaultable Datetime object using
      * [[AnyValueMap.getAsDateTimeWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -306,7 +306,7 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsDateTime(key: string): Date;
     /**
-     * Converts item at the given key into a default Datetime object using
+     * Converts the item at the given key into a defaultable Datetime object using
      * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -383,13 +383,14 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsArray(key: string): AnyValueArray;
     /**
-     * Returns the item at the given key as an AnyValueArray object or 'defaultValue', if conversion is not possible.
+     * Returns the item at the given key as an AnyValueArray object
+     * (or 'defaultValue' if conversion is not possible).
      *
      * @param key           key of the item to retrieve.
      * @param defaultValue  value to use if the item at the given key cannot be converted
      *                      into an AnyValueArray.
-     * @returns             the item at the given key as an AnyValueArray object or 'defaultValue',
-     *                      if conversion is not possible.
+     * @returns             the item at the given key as an AnyValueArray object or 'defaultValue'
+     *                      (if conversion is not possible).
      *
      * @see [[AnyValueArray]]
      * @see [[getAsNullableArray]]
@@ -415,13 +416,14 @@ export declare class AnyValueMap implements ICloneable {
      */
     getAsMap(key: string): AnyValueMap;
     /**
-     * Returns the item at the given key as an AnyValueMap object or 'defaultValue', if conversion is not possible.
+     * Returns the item at the given key as an AnyValueMap object
+     * (or 'defaultValue' if conversion is not possible).
      *
      * @param key           key of the item to retrieve.
      * @param defaultValue  value to use if the item at the given key cannot be converted
      *                      into an AnyValueMap.
-     * @returns             the item at the given key as an AnyValueMap object or 'defaultValue',
-     *                      if conversion is not possible.
+     * @returns             the item at the given key as an AnyValueMap object or 'defaultValue'
+     *                      (if conversion is not possible).
      *
      * @see [[getAsNullableMap]]
      */

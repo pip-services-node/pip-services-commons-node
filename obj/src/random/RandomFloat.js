@@ -3,14 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
 /**
  * Provides methods that can be used for generating random floats, as well as updating existing floats
- * by generating a value in the range of 'original value' ±'delta/range'
+ * by generating a value in the range of 'original value' ±'delta/range'.
  *
  * ### Examples ###
  *
- * public MyMethod(min: number, max: number ) {
- *      let floatValue = RandomFloat.nextFloat(min, max);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(min: number, max: number ) {
+ *         let floatValue = RandomFloat.nextFloat(min, max);
+ *         ...
+ *     }
  */
 var RandomFloat = /** @class */ (function () {
     function RandomFloat() {

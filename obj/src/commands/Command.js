@@ -5,44 +5,39 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 var InvocationException_1 = require("../errors/InvocationException");
 /**
- * Implementation of the Command pattern, which provides an alternative way of calling method.
- * Instead of calling methods via their signatures, any call of any method can be represented
- * and executed using this universal Command class.
- *
- * @see [[ICommand]]
+ * Concrete implementation of [[ICommand ICommand]] interface. Command allows to call a method
+ * or function using Command pattern.
  *
  * ### Examples ###
  *
- * Example Command class implementation and using
+ * let command = new Command("add", null, (correlationId, args, callback) => {
+ *     let param1 = args.getAsFloat("param1");
+ *     let param2 = args.getAsFloat("param2");
+ *     let result = param1 + param2;
+ *     callback(null, result);
+ * });
  *
- * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
- * private _controller: IMyDataController;
-
-    constructor(controller: IMyDataController) { // Any data controller interface
-        super();
-
-        this._controller = controller;
-
-        this.addCommand(this.makeGetMyDataCommand());
-    }
- *  private makeGetMyDataCommand(): ICommand {
-        return new Command(
-            'get_mydata',
-            null,
-            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                ...
-            }
-        );
-    }
- * }
+ * command.execute(
+ *   "123",
+ *   Parameters.fromTyples(
+ *     "param1", 2,
+ *     "param2", 2
+ *   ),
+ *   (err, result) => {
+ *     if (err) console.error(err);
+ *     else console.log("2 + 2 = " + result);
+ *   }
+ * );
+ *
+ * @see [[ICommand]]
+ * @see [[CommandSet]]
  */
 var Command = /** @class */ (function () {
     /**
-     * @param name      the name of the command. It identifies the command
-     * @param schema    the command's schema.
-     * @param func      the function that is to be executed by this command.
-     * @throws  an Error if 'name' or 'func' are null, or if 'func' does not have
-     *          a function type.
+     * Creates a new command object.
+     * @param name      the command name.
+     * @param schema    the schema to validate command arguments.
+     * @param func      the function to be executed by this command.
      */
     function Command(name, schema, func) {
         if (!name)
@@ -59,22 +54,22 @@ var Command = /** @class */ (function () {
             throw new Error("Function doesn't have function type");
     }
     /**
+     * Gets the command name.
      * @returns the name of this command.
      */
     Command.prototype.getName = function () {
         return this._name;
     };
     /**
-     * Validates the [[Parameters args]] by the set schema and calls the function, passing the [[Parameters args]] to it.
+     * Executes the command. Before execution is validates [[Parameters args]] using
+     * the defined schema. The command execution intercepts exceptions raised
+     * by the called function and returns them as an error in callback.
      *
-     * @param correlationId unique business transaction id to trace calls across components.
+     * @param correlationId optional transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to this command for execution.
-     * @param callback      the function that is to be called once execution is complete. If an exception is raised,
-     *                      then it will be called with the error.
-     * @throws an [[InvocationException]] if the execution fails.
+     * @param callback      function to be called when command is complete
      *
      * @see [[Parameters]]
-     * @see [[InvocationException]]
      */
     Command.prototype.execute = function (correlationId, args, callback) {
         if (this._schema) {
@@ -95,8 +90,7 @@ var Command = /** @class */ (function () {
         }
     };
     /**
-     * Validates the [[Parameters args]] that are to be passed to the function
-     * using the set schema.
+     * Validates the command [[Parameters args]] before execution using the defined schema.
      *
      * @param args  the parameters (arguments) to validate using this command's schema.
      * @returns     an array of ValidationResults or an empty array (if no schema is set).

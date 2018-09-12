@@ -7,12 +7,13 @@ var MapConverter_1 = require("./MapConverter");
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let jsonValue = JsonConverter.toJson(value);
- * 		...
+ *     public MyMethod (value: any) {
+ *         let jsonValue = JsonConverter.toJson(value);
+ *         ...
  *
- * 		let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); @see [[TypeCode]]
- * }
+ *         let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue);
+ *     }
+ * @see [[TypeCode]]
  */
 var JsonConverter = /** @class */ (function () {
     function JsonConverter() {

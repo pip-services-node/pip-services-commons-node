@@ -4,10 +4,12 @@
  *
  * ### Examples ###
  *
- * public MyMethod() {
- *      let textValue = RandomText.word();
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod() {
+ *         let textValue = RandomText.word();
+ *         ...
+ *     }
  */
 export declare class RandomText {
     private static readonly _namePrefixes;

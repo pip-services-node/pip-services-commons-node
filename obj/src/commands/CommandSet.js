@@ -7,46 +7,44 @@ var ValidationResult_1 = require("../validate/ValidationResult");
 var ValidationResultType_1 = require("../validate/ValidationResultType");
 var IdGenerator_1 = require("../data/IdGenerator");
 /**
- * Defines a set of commands and events, which a given [[ICommandable commandable interface]]
- * is capable of processing.
- * Handles command registration and execution.
- * Enables intercepters to control or modify command behavior
- *
- * If command interceptors are added before the commands themselves,
- * then execution chains will be built for each command that is added.
- * Otherwise - no execution chains will be generated.
+ * Defines a set of commands and events supported by a [[ICommandable]] object.
+ * The [[CommandSet]] allows to use command interceptors to extend and alter
+ * the command execution pipeline.
  *
  * @see [[Command]]
  * @see [[ICommandable]]
  *
  * ### Examples ###
  *
- * export class MyDataCommandSet extends CommandSet @see [[CommandSet]] {
- * private _controller: IMyDataController;
-
-    constructor(controller: IMyDataController) { // TO DO description of the controller interface
-        super();
-
-        this._controller = controller;
-
-        this.addCommand(this.makeCreateMyDataCommand());
-    }
-
-    private makeCreateMyDataCommand(): ICommand {
-        return new Command( @see [[Command]]
-            'create_mydata',
-            new ObjectSchema(true),
-            (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
-                ...
-            }
-        );
-    }
-}
+ * Example CommandSet class implementation and usage:
  *
+ * export class MyDataCommandSet extends CommandSet {
+ *    private _controller: IMyDataController;
+ *
+ *    constructor(controller: IMyDataController) { // Any data controller interface
+ *      super();
+ *      this._controller = controller;
+ *      this.addCommand(this.makeGetMyDataCommand());
+ *    }
+ *
+ *    private makeGetMyDataCommand(): ICommand {
+ *      return new Command(
+ *        'get_mydata',
+ *        null,
+ *        (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+ *          let param = args.getAsString('param');
+ *          this._controller.getMyData(correlationId, param, callback);
+ *        }
+ *      );
+ *    }
+ * }
+ *
+ * @see [[CommandSet]]
+ * @see [[Command]]
  */
 var CommandSet = /** @class */ (function () {
     /**
-     * Creates a new CommandSet object.
+     * Creates an empty CommandSet object.
      */
     function CommandSet() {
         this._commands = [];
@@ -56,7 +54,8 @@ var CommandSet = /** @class */ (function () {
         this._eventsByName = {};
     }
     /**
-     * @returns the commands included in this command set.
+     * Gets all commands registered in this command set.
+     * @returns a list of commands.
      *
      * @see [[ICommand]]
      */
@@ -64,7 +63,8 @@ var CommandSet = /** @class */ (function () {
         return this._commands;
     };
     /**
-     * @returns the events included in this command set.
+     * Gets all events registred in this command set.
+     * @returns a list of events.
      *
      * @see [[IEvent]]
      */
@@ -72,11 +72,11 @@ var CommandSet = /** @class */ (function () {
         return this._events;
     };
     /**
-     * Searches for a command by its name in this command set.
+     * Searches for a command by its name.
      *
      * @param commandName the name of the command to search for.
      *
-     * @returns a command whose name is the same as the method parameter
+     * @returns the command, whose name matches the provided name.
      *
      * @see [[ICommand]]
      */
@@ -88,37 +88,19 @@ var CommandSet = /** @class */ (function () {
      *
      * @param eventName the name of the event to search for.
      *
-     * @returns a event whose name is the same as the method parameter
+     * @returns the event, whose name matches the provided name.
      *
      * @see [[IEvent]]
      */
     CommandSet.prototype.findEvent = function (eventName) {
         return this._eventsByName[eventName];
     };
-    /**
-     * Builds a command chain(*) for the given command using the command interceptors
-     * present in this command set. Once the chain is built, it is added to this object's private
-     * '_commandsByName' list.
-     *
-     * (*)A command chain (execution chain) consists of command interceptors, through which a given
-     * command is passed. Each command interceptor runs perpendicular logic (aspects, such as
-     * logging, caching, blocking) before (or instead of) actually calling the command.
-     *
-     * @param command
-     */
     CommandSet.prototype.buildCommandChain = function (command) {
         var next = command;
         for (var i = this._interceptors.length - 1; i >= 0; i--)
             next = new InterceptedCommand_1.InterceptedCommand(this._interceptors[i], next);
         this._commandsByName[next.getName()] = next;
     };
-    /**
-     * Rebuilds the private '_commandsByName' list using the commands stored in this command set.
-     * If interceptors are present in this command set, then a command (execution) chain will be
-     * built for each command.
-     *
-     * @see [[buildCommandChain]]
-     */
     CommandSet.prototype.rebuildAllCommandChains = function () {
         this._commandsByName = {};
         for (var i = 0; i < this._commands.length; i++) {
@@ -171,8 +153,8 @@ var CommandSet = /** @class */ (function () {
             this.addEvent(events[i]);
     };
     /**
-     * Adds all of the commands and events included in the passed CommandSet object
-     * to this command set.
+     * Adds all of the commands and events registered in specified [[CommandSet command set]]
+     * to this one.
      *
      * @param commandSet the CommandSet to add.
      */
@@ -181,7 +163,7 @@ var CommandSet = /** @class */ (function () {
         this.addEvents(commandSet.getEvents());
     };
     /**
-     * Adds a [[IEventListener listener]] to all of the events in this command set.
+     * Adds a [[IEventListener listener]] to receive notifications on fired events.
      *
      * @param listener  the listener to add.
      *
@@ -192,7 +174,7 @@ var CommandSet = /** @class */ (function () {
             this._events[i].addListener(listener);
     };
     /**
-     * Removes a [[IEventListener listener]] from all of the events in this command set.
+     * Removes previosly added [[IEventListener listener]].
      *
      * @param listener  the listener to remove.
      *
@@ -214,10 +196,9 @@ var CommandSet = /** @class */ (function () {
         this.rebuildAllCommandChains();
     };
     /**
-     * Validates the [[Parameters args]] by the schema of [[ICommand command]] with the given name
-     * and executes this [[ICommand command]], using the given [[Parameters args]].
+     * Executes a [[ICommand command]] specificed by its name.
      *
-     * @param correlationId unique business transaction id to trace calls across components.
+     * @param correlationId optional transaction id to trace calls across components.
      * @param commandName   the name of that command that is to be executed.
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
@@ -246,8 +227,9 @@ var CommandSet = /** @class */ (function () {
         }
     };
     /**
-     * Validates the [[Parameters args]] that are to be passed to the
-     * [[ICommand command]] with the given name.
+     * Validates [[Parameters args]] for command specified by its name using defined schema.
+     * If validation schema is not defined than the methods returns no errors.
+     * It returns validation error if the command is not found.
      *
      * @param commandName   the name of the command for which the 'args' must be validated.
      * @param args          the parameters (arguments) to validate.
@@ -269,12 +251,12 @@ var CommandSet = /** @class */ (function () {
         return cref.validate(args);
     };
     /**
-     * Raises the event with the given name and notifies the event's listeners using the
-     * correlation id and [[Parameters args]] given.
+     * Fires event specified by its name and notifies all registered
+     * [[IEventListener listeners]]
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
-     * @param eventName         the name of the event that is to be raised.
-     * @param args              the parameters to raise this event with.
+     * @param correlationId     optional transaction id to trace calls across components.
+     * @param eventName         the name of the event that is to be fired.
+     * @param args              the event arguments (parameters).
      */
     CommandSet.prototype.notify = function (correlationId, eventName, args) {
         var event = this.findEvent(eventName);

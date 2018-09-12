@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -20,19 +23,20 @@ var StringValueMap_1 = require("./StringValueMap");
  * @see [[StringValueMap]]
  *
  * ### Examples ###
- * Ways to use the FilterParams class and methods:
  *
- * public MyMethod () {
- * 		 let filter = FilterParams.fromTuples(
-            "Section1.Key1", "Value1",
-            "Section1.Key2", "Value2",
-            "Section1.Key3", "Value3"
-        );
-        ...
-
-        let myData = getMyDataByFilter(filter);
-        ...
- * }
+ * A FilterParams object can be created and used in the following way:
+ *
+ *     public MyMethod () {
+ *         let filter = FilterParams.fromTuples(
+ *             "Section1.Key1", "Value1",
+ *             "Section1.Key2", "Value2",
+ *             "Section1.Key3", "Value3"
+ *         );
+ *         ...
+ *
+ *         let myData = getMyDataByFilter(filter);
+ *         ...
+ *     }
  */
 var FilterParams = /** @class */ (function (_super) {
     __extends(FilterParams, _super);

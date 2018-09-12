@@ -8,10 +8,10 @@ var _ = require('lodash');
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let array = ArrayConverter.toArray(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let array = ArrayConverter.toArray(value);
+ *         ...
+ *     }
  */
 var ArrayConverter = /** @class */ (function () {
     function ArrayConverter() {

@@ -12,45 +12,43 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @see [[ICommand]]
  * @see [[ICommandInterceptor]]
  *
- * * ### Examples ###
+ * ### Examples ###
  *
- * Example InterceptedCommand class implementation and using
+ * Example InterceptedCommand class implementation and usage:
  *
- * export class MyService implements IMyService, ICommandInterceptor
-   {
-       
-       constructor() { }
-
-       private getName(command: ICommand): string {
-            return command.getName();
-       }
-
-       public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
-           // Execute command here...
-       }
-
-       private validate(command: ICommand, args: Parameters): ValidationResult[] {
-           // Validate arguments here...
-       }
- * }
+ *     export class MyService implements IMyService, ICommandInterceptor
+ *     {
+ *         constructor() { }
  *
- * export class MyService2 implements IMyService2
-   {
-       
-       private _interceptedCommand: InterceptedCommand;
-       private _command: ICommand;
-       private _myService: IMyService;
-
-       constructor() {
-           // Getting or creating _myService
-           // Getting or creating _command
-           _interceptedCommand = new InterceptedCommand(_myService, _command);
-        }
-
-       private myFunction(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
-           _interceptedCommand.execute(correlationId, args, callbak);
-       }
- * }
+ *         private getName(command: ICommand): string {
+ *             return command.getName();
+ *         }
+ *
+ *         public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
+ *             // Execute command here...
+ *         }
+ *
+ *         private validate(command: ICommand, args: Parameters): ValidationResult[] {
+ *             // Validate arguments here...
+ *         }
+ *     }
+ *
+ *     export class MyService2 implements IMyService2
+ *     {
+ *         private _interceptedCommand: InterceptedCommand;
+ *         private _command: ICommand;
+ *         private _myService: IMyService;
+ *
+ *         constructor() {
+ *             // Getting or creating _myService
+ *             // Getting or creating _command
+ *             _interceptedCommand = new InterceptedCommand(_myService, _command);
+ *         }
+ *
+ *         private myFunction(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
+ *             _interceptedCommand.execute(correlationId, args, callbak);
+ *         }
+ *     }
  */
 var InterceptedCommand = /** @class */ (function () {
     /**
@@ -73,7 +71,7 @@ var InterceptedCommand = /** @class */ (function () {
     /**
      * Executes the next command in the execution chain using the given [[Parameters parameters]] (arguments).
      *
-     * @param correlationId unique business transaction id to trace calls across components.
+     * @param correlationId unique transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error.

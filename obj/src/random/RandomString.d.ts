@@ -3,10 +3,12 @@
  *
  * ### Examples ###
  *
- * public MyMethod(minLength: number, maxLength: number ) {
- *      let stringValue = RandomString.nextString(minLength, maxLength);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(minLength: number, maxLength: number ) {
+ *         let stringValue = RandomString.nextString(minLength, maxLength);
+ *         ...
+ *     }
  */
 export declare class RandomString {
     private static readonly _digits;

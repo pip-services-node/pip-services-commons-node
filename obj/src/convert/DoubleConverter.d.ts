@@ -3,10 +3,10 @@
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let doubleValue = DoubleConverter.toDouble(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let doubleValue = DoubleConverter.toDouble(value);
+ *         ...
+ *     }
  */
 export declare class DoubleConverter {
     /**

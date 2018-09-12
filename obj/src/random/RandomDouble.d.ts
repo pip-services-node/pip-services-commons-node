@@ -1,14 +1,16 @@
 /** @module random */
 /**
  * Provides methods that can be used for generating random doubles, as well as updating existing doubles
- * by generating values in the range of 'original value' ±'delta/range'
+ * by generating values in the range of 'original value' ±'delta/range'.
  *
  * ### Examples ###
  *
- * public MyMethod(min: number, max: number ) {
- *      let doubleValue = RandomDouble.nextDouble(min, max);
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod(min: number, max: number ) {
+ *         let doubleValue = RandomDouble.nextDouble(min, max);
+ *         ...
+ *     }
  */
 export declare class RandomDouble {
     /**

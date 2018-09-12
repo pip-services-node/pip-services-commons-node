@@ -3,10 +3,10 @@
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let intValue = IntegerConverter.toInteger(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let intValue = IntegerConverter.toInteger(value);
+ *         ...
+ *     }
  */
 export declare class IntegerConverter {
     /**

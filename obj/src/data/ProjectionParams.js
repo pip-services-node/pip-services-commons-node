@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -14,15 +17,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var AnyValueArray_1 = require("./AnyValueArray");
 /** @hidden */
 var _ = require('lodash');
+//TODO: add to the example a method call that accept ProjectionParams. 
 /**
  * Class that includes standard design patterns for data projection. Projection parameters
  * contain information about what data to retrieve from a data source.
  *
- *  * ### Examples ###
+ * ### Examples ###
  *
- * let params: ProjectionParams;
+ * Example ProjectionParams object usage:
  *
- * params = new ProjectionParams(["data1(attr1"]); // To get attribute named attr1 in data type data1
+ *     let params: ProjectionParams;
+ *
+ *     params = new ProjectionParams(["data1(attr1)"]); // To get attribute named attr1 in data type data1
  *
  */
 var ProjectionParams = /** @class */ (function (_super) {

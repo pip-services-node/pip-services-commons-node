@@ -8,10 +8,10 @@ var _ = require('lodash');
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let doubleValue = DoubleConverter.toDouble(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let doubleValue = DoubleConverter.toDouble(value);
+ *         ...
+ *     }
  */
 var DoubleConverter = /** @class */ (function () {
     function DoubleConverter() {

@@ -11,12 +11,12 @@ var TypeReflector_1 = require("../reflect/TypeReflector");
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let map = RecursiveMapConverter.valueToMap(value);
- * 		...
+ *     public MyMethod (value: any) {
+ *         let map = RecursiveMapConverter.valueToMap(value);
+ *         ...
  *
- *      let new_map = RecursiveMapConverter.mapToMap(map);
- * }
+ *         let new_map = RecursiveMapConverter.mapToMap(map);
+ *     }
  */
 var RecursiveMapConverter = /** @class */ (function () {
     function RecursiveMapConverter() {

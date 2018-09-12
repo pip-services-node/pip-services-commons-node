@@ -8,9 +8,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Examples ###
  *
- * let strings: MultiString;
- * strings["en"] = "my string";
- * strings["ru"] = "моя строка";
+ * Example MultiString object usage:
+ *
+ *     let strings: MultiString;
+ *     strings["en"] = "my string";
+ *     strings["ru"] = "моя строка";
  *
  */
 var MultiString = /** @class */ (function () {

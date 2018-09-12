@@ -60,7 +60,7 @@ export declare class ApplicationException extends Error {
     cause: string;
     /**
      * @param category          category that this exception belongs to.
-     * @param correlation_id    unique business transaction id to trace calls across components.
+     * @param correlation_id    optional transaction id to trace calls across components.
      * @param code              unique code that can be used to identify the error.
      * @param message           the message that was contained in the original error.
      */

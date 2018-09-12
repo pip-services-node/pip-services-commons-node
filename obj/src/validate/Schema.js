@@ -182,7 +182,7 @@ var Schema = /** @class */ (function () {
     /**
      * Validates the given value and returns any exceptions that were raised.
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param value             the value to validate using this Schema's rules.
      * @param strict            defines whether or not "Warnings" should raise exceptions.
      */
@@ -195,7 +195,7 @@ var Schema = /** @class */ (function () {
      * Validates the given value and, if an exception was raised, throws the exception using
      * [[ValidationException.throwExceptionIfNeeded]].
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param value             the value to validate using this Schema's rules.
      * @param strict            defines whether or not "Warnings" should raise exceptions.
      *

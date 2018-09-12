@@ -5,12 +5,13 @@ import { TypeCode } from './TypeCode';
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let jsonValue = JsonConverter.toJson(value);
- * 		...
+ *     public MyMethod (value: any) {
+ *         let jsonValue = JsonConverter.toJson(value);
+ *         ...
  *
- * 		let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue); @see [[TypeCode]]
- * }
+ *         let new_value = JsonConverter.fromJson(TypeCode.String, jsonValue);
+ *     }
+ * @see [[TypeCode]]
  */
 export declare class JsonConverter {
     /**

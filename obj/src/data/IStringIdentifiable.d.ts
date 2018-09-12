@@ -9,10 +9,12 @@ import { IIdentifiable } from './IIdentifiable';
  *
  * ### Examples ###
  *
- * export class MyData implements IStringIdentifiable {
- * 		public id: string;
- * 		...
- * }
+ * Example implementation of the IStringIdentifiable interface:
+ *
+ *     export class MyData implements IStringIdentifiable {
+ *         public id: string;
+ *         ...
+ *     }
  */
 export interface IStringIdentifiable extends IIdentifiable<string> {
     /** The object's unique string id. */

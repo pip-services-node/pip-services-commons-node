@@ -8,7 +8,7 @@ export declare class ReferenceException extends InternalException {
      * Creates a new ReferenceException, containing information about the exception's
      * correlation id and locator.
      *
-     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param correlationId 	optional transaction id to trace calls across components.
      * @param locator 			the locator by which no components were found.
      */
     constructor(correlationId: string, locator: any);

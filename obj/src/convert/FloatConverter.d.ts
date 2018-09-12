@@ -1,3 +1,13 @@
+/**
+ * Provides methods for converting various values to the float data type.
+ *
+ * ### Examples ###
+ *
+ *     public MyMethod (value: any) {
+ *         let floatValue = FloatConverter.toFloat(value);
+ *         ...
+ *     }
+ */
 export declare class FloatConverter {
     /**
      * Static method for converting values to nullable floats.

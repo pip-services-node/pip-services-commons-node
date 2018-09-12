@@ -9,17 +9,15 @@ import { ConfigParams } from './ConfigParams';
  *
  * ### Examples ###
  *
- * Example IConfigurable intreface using
+ * Example implementation of the IConfigurable interface:
  *
- * export class MyClass implements IConfigurable {
-   let myParam : string = "default value";
-
-  public configure(config: ConfigParams) : void  {
-      myParam = config.getAsStringWithDefault("options.param", myParam);
-     ...
-  }
-
-}
+ *     export class MyClass implements IConfigurable {
+ *         let myParam : string = "default value";
+ *         public configure(config: ConfigParams) : void  {
+ *             myParam = config.getAsStringWithDefault("options.param", myParam);
+ *             ...
+ *         }
+ *     }
  */
 export interface IConfigurable {
     /**

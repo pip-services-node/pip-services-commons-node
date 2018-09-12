@@ -23,10 +23,10 @@ var MapConverter_1 = require("./MapConverter");
  *
  * ### Examples ###
  *
- * public MyMethod(TypeCode.Long, value: any) {
- * 		let longValue = TypeConverter.toType(value);
- * 		...
- * }
+ *     public MyMethod(TypeCode.Long, value: any) {
+ *         let longValue = TypeConverter.toType(value);
+ *         ...
+ *     }
  */
 var TypeConverter = /** @class */ (function () {
     function TypeConverter() {

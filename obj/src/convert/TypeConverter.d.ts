@@ -10,10 +10,10 @@ import { TypeCode } from './TypeCode';
  *
  * ### Examples ###
  *
- * public MyMethod(TypeCode.Long, value: any) {
- * 		let longValue = TypeConverter.toType(value);
- * 		...
- * }
+ *     public MyMethod(TypeCode.Long, value: any) {
+ *         let longValue = TypeConverter.toType(value);
+ *         ...
+ *     }
  */
 export declare class TypeConverter {
     /**

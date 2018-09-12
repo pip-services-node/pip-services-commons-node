@@ -5,38 +5,35 @@ let _ = require('lodash');
 import { ICommand } from './ICommand';
 import { InvocationException } from '../errors/InvocationException';
 import { Schema } from '../validate/Schema';
-import { IExecutable } from '../run/IExecutable';
 import { Parameters } from '../run/Parameters';
 import { ValidationResult } from '../validate/ValidationResult';
 
 /**
- * Implementation of the Command pattern, which provides an alternative way of calling method. 
- * Instead of calling methods via their signatures, any call of any method can be represented 
- * and executed using this universal Command class.
- * 
- * @see [[ICommand]]
+ * Concrete implementation of [[ICommand ICommand]] interface. Command allows to call a method
+ * or function using Command pattern.
  * 
  * ### Examples ###
+ *  
+ * let command = new Command("add", null, (correlationId, args, callback) => {
+ *     let param1 = args.getAsFloat("param1");
+ *     let param2 = args.getAsFloat("param2");
+ *     let result = param1 + param2;
+ *     callback(null, result);
+ * });
  * 
- * Example Command class implementation and usage:
+ * command.execute(
+ *   "123",
+ *   Parameters.fromTyples(
+ *     "param1", 2,
+ *     "param2", 2
+ *   ),
+ *   (err, result) => {
+ *     if (err) console.error(err);
+ *     else console.log("2 + 2 = " + result);
+ *   }
+ * );
  * 
- *     export class MyDataCommandSet extends CommandSet {
- *         private _controller: IMyDataController;
- *         constructor(controller: IMyDataController) { // Any data controller interface
- *             super();
- *             this._controller = controller;
- *             this.addCommand(this.makeGetMyDataCommand());
- *         }   
- *         private makeGetMyDataCommand(): ICommand {
- *             return new Command(
- *                 'get_mydata',
- *                 null,
- *                 (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
- *                     ...
- *                 }
- *             );
- *         }
- *     }
+ * @see [[ICommand]]
  * @see [[CommandSet]]
  */
 export class Command implements ICommand {
@@ -45,11 +42,10 @@ export class Command implements ICommand {
     private _name: string;
 
     /**
-     * @param name      the name of the command. Used for command identification.
-     * @param schema    the command's schema.
-     * @param func      the function that is to be executed by this command.
-     * @throws  an Error if 'name' or 'func' are null, or if 'func' does not have 
-     *          a function type.
+     * Creates a new command object.
+     * @param name      the command name.
+     * @param schema    the schema to validate command arguments.
+     * @param func      the function to be executed by this command.
      */
     public constructor(name: string, schema: Schema, func: any) {
         if (!name)
@@ -70,6 +66,7 @@ export class Command implements ICommand {
     }
 
     /** 
+     * Gets the command name.
      * @returns the name of this command. 
      */
     public getName(): string {
@@ -77,17 +74,15 @@ export class Command implements ICommand {
     }
 
     /**
-     * Validates the given [[Parameters args]] using the set schema and calls the function with 
-     * the validated [[Parameters args]]. 
+     * Executes the command. Before execution is validates [[Parameters args]] using
+     * the defined schema. The command execution intercepts exceptions raised
+     * by the called function and returns them as an error in callback.
      * 
-     * @param correlationId unique business transaction id to trace calls across components.
+     * @param correlationId optional transaction id to trace calls across components.
      * @param args          the parameters (arguments) to pass to this command for execution.
-     * @param callback      the function that is to be called once execution is complete. If an 
-     *                      exception is raised, then it will be called with the error.
-     * @throws an [[InvocationException]] if the execution fails.
+     * @param callback      function to be called when command is complete
      * 
      * @see [[Parameters]]
-     * @see [[InvocationException]]
      */
     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
         if (this._schema) {
@@ -113,8 +108,7 @@ export class Command implements ICommand {
     }
 
     /**
-     * Validates the [[Parameters args]] that are to be passed to the function 
-     * using the set schema.
+     * Validates the command [[Parameters args]] before execution using the defined schema.
      * 
      * @param args  the parameters (arguments) to validate using this command's schema.
      * @returns     an array of ValidationResults or an empty array (if no schema is set).

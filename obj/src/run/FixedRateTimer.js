@@ -128,7 +128,7 @@ var FixedRateTimer = /** @class */ (function () {
     /**
      * Stops this objects timer using [[stop]] and closes it.
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param callback          the function to call once the closing process is complete.
      *
      * @see [[stop]]

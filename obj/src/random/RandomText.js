@@ -10,10 +10,12 @@ var RandomBoolean_1 = require("./RandomBoolean");
  *
  * ### Examples ###
  *
- * public MyMethod() {
- *      let textValue = RandomText.word();
- *      ...
- * }
+ * Example usage:
+ *
+ *     public MyMethod() {
+ *         let textValue = RandomText.word();
+ *         ...
+ *     }
  */
 var RandomText = /** @class */ (function () {
     function RandomText() {

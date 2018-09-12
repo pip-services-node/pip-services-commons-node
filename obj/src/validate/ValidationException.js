@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -22,7 +25,7 @@ var ValidationException = /** @class */ (function (_super) {
      * If no message is given, [[composeMessage]] will be used to generate a message using the
      * given 'results'. Otherwise, the 'results' will be included as details.
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param message           (optional) the message to include in this exception.
      * @param results           (optional) the validation results to include as details in this exception.
      *
@@ -62,7 +65,7 @@ var ValidationException = /** @class */ (function (_super) {
      * are present in the given [[ValidationResult validation results]]. If strict is set to <code>true</code>,
      * then [[ValidationResultType.Warning Warnings]] will also cause a ValidationException to be returned.
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param results           the results of a validation.
      * @param strict            defines whether or not an exception should be returned if a Warning
      *                          is found in the results.
@@ -87,7 +90,7 @@ var ValidationException = /** @class */ (function (_super) {
      * are present in the [[ValidationResult validation results]]. If strict is set to <code>true</code>,
      * then [[ValidationResultType.Warning Warnings]] will also cause a ValidationException to be thrown.
      *
-     * @param correlationId     unique business transaction id to trace calls across components.
+     * @param correlationId     optional transaction id to trace calls across components.
      * @param results           the results of a validation.
      * @param strict            defines whether or not an exception should be returned if a Warning
      *                          is found in the results.

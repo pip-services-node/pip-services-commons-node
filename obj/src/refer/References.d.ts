@@ -8,26 +8,28 @@ import { IReferences } from './IReferences';
  *
  * ### Examples ###
  *
- * 	export class myContainer {
- * 		private _references: IReferences;
+ * Example container that will contain a reference to a service once created:
+ *     export class myContainer {
+ *         private _references: IReferences;
  *
- * 		constructor() {
- * 			_references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
- * 			...
- * 		}
- * 	}
+ *         constructor() {
+ *             _references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
+ *             ...
+ *         }
+ *     }
  *
- * 	export class myController implements IMyController, IReferenceable {
- * 		private _service: IMyServiceV1;
+ *  Retrieving the service from the container's reference:
+ *     export class myController implements IMyController, IReferenceable {
+ *         private _service: IMyServiceV1;
  *
- * 		constructor() {
+ *         constructor() {
  *
- * 		}
+ *         }
  *
- * 		setReferences(references: IReferences) {
- * 			_service = references.getOneRequired<IMyServiceV1>("myservice.v1");
- * 		}
- * 	}
+ *         setReferences(references: IReferences) {
+ *             _service = references.getOneRequired<IMyServiceV1>("myservice.v1");
+ *         }
+ *     }
  *
  */
 export declare class References implements IReferences {

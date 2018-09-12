@@ -7,20 +7,22 @@ import { IReferences } from './IReferences';
  *
  * ### Examples ###
  *
- * export class MyReferenceClass implements IReferenceable {
- * 		public _references: IReferences;
+ * Example implementation of the IReferenceable interface:
  *
- * 		constructor(references: IReferences) {
- * 			setReferences(references)
- * 		}
+ *     export class MyReferenceClass implements IReferenceable {
+ *         public _references: IReferences;
  *
- * 		public setReferences(references: IReferences): void {
- * 			this._references = references;
- * 		}
+ *         constructor(references: IReferences) {
+ *             setReferences(references)
+ *         }
  *
- * 		...
+ *         public setReferences(references: IReferences): void {
+ *             this._references = references;
+ *         }
  *
- * }
+ *         ...
+ *
+ *     }
  */
 export interface IReferenceable {
     /**

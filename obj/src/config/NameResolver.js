@@ -7,11 +7,13 @@ var Descriptor_1 = require("../refer/Descriptor");
  *
  * ### Examples ###
  *
- * public nameResolution : void {
- *      let config = ConfigParams.fromTuples("Id", "MyName");
-        let name = NameResolver.resolve(config);
-        ...
-    }
+ * Example usage of the static <code>resolve</code> method:
+ *
+ *     public nameResolution : void {
+ *         let config = ConfigParams.fromTuples("Id", "MyName");
+ *         let name = NameResolver.resolve(config);
+ *         ...
+ *     }
  */
 var NameResolver = /** @class */ (function () {
     function NameResolver() {

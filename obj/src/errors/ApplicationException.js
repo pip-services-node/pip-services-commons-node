@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -52,7 +55,7 @@ var ApplicationException = /** @class */ (function (_super) {
     __extends(ApplicationException, _super);
     /**
      * @param category          category that this exception belongs to.
-     * @param correlation_id    unique business transaction id to trace calls across components.
+     * @param correlation_id    optional transaction id to trace calls across components.
      * @param code              unique code that can be used to identify the error.
      * @param message           the message that was contained in the original error.
      */

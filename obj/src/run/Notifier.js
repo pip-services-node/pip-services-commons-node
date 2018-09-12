@@ -14,7 +14,7 @@ var Notifier = /** @class */ (function () {
      * implement the [[INotifiable]] interface. This method calls INotifiable's [[INotifiable.notify notify]]
      * method to notify the component passed.
      *
-     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param correlationId 	optional transaction id to trace calls across components.
      * @param component 		the component that is to be notified.
      * @param args              the parameters (arguments) to pass to the component.
      *
@@ -29,7 +29,7 @@ var Notifier = /** @class */ (function () {
      * it must implement the [[INotifiable]] interface. This method calls the static [[notifyOne]] method
      * for each of the components passed.
      *
-     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param correlationId 	optional transaction id to trace calls across components.
      * @param components 		the list of components that are to be notified.
      * @param args              the parameters (arguments) to pass to the components.
      *

@@ -7,15 +7,17 @@ import { IReferences } from './IReferences';
  *
  * ### Examples ###
  *
- * public MyMethod(IReferences references){ @see [[IReferences]]
- * 		let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
- * 		...
+ * A DependencyResolver object can be created and used in the following way:
  *
- * 		_dependencyResolver.setReferences(references);
+ *     public MyMethod(IReferences references){
+ *         let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
+ *         ...
  *
- * 		...
+ *         _dependencyResolver.setReferences(references);
+ *         ...
  *
- * }
+ *     }
+ * @see [[IReferences]]
  */
 export declare class DependencyResolver implements IReferenceable, IReconfigurable {
     private _dependencies;

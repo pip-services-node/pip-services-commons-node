@@ -6,11 +6,13 @@ import { ConfigParams } from './ConfigParams';
  *
  * ### Examples ###
  *
- * public nameResolution : void {
- *      let config = ConfigParams.fromTuples("Id", "MyName");
-        let name = NameResolver.resolve(config);
-        ...
-    }
+ * Example usage of the static <code>resolve</code> method:
+ *
+ *     public nameResolution : void {
+ *         let config = ConfigParams.fromTuples("Id", "MyName");
+ *         let name = NameResolver.resolve(config);
+ *         ...
+ *     }
  */
 export declare class NameResolver {
     /**

@@ -20,16 +20,19 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[DateTimeConverter]]
  *
  * ### Examples ###
- * public MyMethod (map: any) {
- * 		let map1 = StringValueMap.fromTuples(
-            "key1", 123,
-            "key2", "ABC"
-        );
- * 		...
  *
- *      let map2 = new StringValueMap(map);
- *      ...
- * }
+ * Example StringValueMap object usage:
+ *
+ *     public MyMethod (map: any) {
+ *         let map1 = StringValueMap.fromTuples(
+ *             "key1", 123,
+ *             "key2", "ABC"
+ *         );
+ *         ...
+ *
+ *         let map2 = new StringValueMap(map);
+ *         ...
+ *     }
  */
 export declare class StringValueMap {
     /**
@@ -48,34 +51,34 @@ export declare class StringValueMap {
      */
     get(key: string): string;
     /**
-     * Returns keyset that are contained in this StringValueMap as a list of strings.
+     * Returns this StringValueMap's keyset as a list of strings.
      *
      * @returns all of the keys that are contained in this StringValueMap as a list of strings.
      */
     getKeys(): string[];
     /**
-     * Puts the value into this StringValueMap by the given key.
+     * Puts a value into this StringValueMap by the given key.
      *
      * @param key       the key by which to insert the given value.
      * @param value     the value to insert into this StringValueMap by the given key.
      */
     put(key: string, value: any): any;
     /**
-     * Removes item by the key from this StringValueMap.
+     * Removes an item by its key from this StringValueMap.
      *
-     * @param key       key of the item to remove.
+     * @param key       the key of the item to remove.
      */
     remove(key: string): void;
     /**
-     * Appends map of items to this StringValueMap.
+     * Appends a map of items to this StringValueMap.
      *
-     * @param map   map of items to append to this StringValueMap.
+     * @param map   the map of items to append to this StringValueMap.
      */
     append(map: any): void;
     /** Removes all values from this StringValueMap. */
     clear(): any;
     /**
-     * Returns the number of key-value mappings in this map.
+     * Returns the number of key-value mappings present in this map.
      *
      * @returns the number of key-value pairs stored in this StringValueMap.
      */
@@ -97,7 +100,7 @@ export declare class StringValueMap {
      */
     setAsObject(key: any, value?: any): void;
     /**
-     * Converts item at the given key into a nullable string object using
+     * Converts the item at the given key into a nullable string object using
      * [[StringConverter.toNullableString]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -107,7 +110,7 @@ export declare class StringValueMap {
      */
     getAsNullableString(key: string): string;
     /**
-     * Converts item at the given key into a default string object using
+     * Converts the item at the given key into a defaultable string object using
      * [[StringValueMap.getAsStringWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -117,7 +120,7 @@ export declare class StringValueMap {
      */
     getAsString(key: string): string;
     /**
-     * Converts item at the given key into a default string object using
+     * Converts the item at the given key into a defaultable string object using
      * [[StringConverter.toStringWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -129,7 +132,7 @@ export declare class StringValueMap {
      */
     getAsStringWithDefault(key: string, defaultValue: string): string;
     /**
-     * Converts item at the given key into a nullable boolean object using
+     * Converts the item at the given key into a nullable boolean object using
      * [[BooleanConverter.toNullableBoolean]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -139,7 +142,7 @@ export declare class StringValueMap {
      */
     getAsNullableBoolean(key: string): boolean;
     /**
-     * Converts item at the given key into a default boolean object using
+     * Converts the item at the given key into a defaultable boolean object using
      * [[StringValueMap.getAsBooleanWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -149,7 +152,7 @@ export declare class StringValueMap {
      */
     getAsBoolean(key: string): boolean;
     /**
-     * Converts item at the given key into a default boolean object using
+     * Converts the item at the given key into a defaultable boolean object using
      * [[BooleanConverter.toBooleanWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -161,7 +164,7 @@ export declare class StringValueMap {
      */
     getAsBooleanWithDefault(key: string, defaultValue: boolean): boolean;
     /**
-     * Converts item at the given key into a nullable integer object using
+     * Converts the item at the given key into a nullable integer object using
      * [[IntegerConverter.toNullableInteger]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -171,7 +174,7 @@ export declare class StringValueMap {
      */
     getAsNullableInteger(key: string): number;
     /**
-     * Converts item at the given key into a default integer object using
+     * Converts the item at the given key into a defaultable integer object using
      * [[StringValueMap.getAsIntegerWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -181,7 +184,7 @@ export declare class StringValueMap {
      */
     getAsInteger(key: string): number;
     /**
-     * Converts item at the given key into a default integer object using
+     * Converts the item at the given key into a defaultable integer object using
      * [[IntegerConverter.toIntegerWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -193,7 +196,7 @@ export declare class StringValueMap {
      */
     getAsIntegerWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable long object using
+     * Converts the item at the given key into a nullable long object using
      * [[LongConverter.toNullableLong]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -203,7 +206,7 @@ export declare class StringValueMap {
      */
     getAsNullableLong(key: string): number;
     /**
-     * Converts item at the given key into a default long object using
+     * Converts the item at the given key into a defaultable long object using
      * [[StringValueMap.getAsLongWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -213,7 +216,7 @@ export declare class StringValueMap {
      */
     getAsLong(key: string): number;
     /**
-     * Converts item at the given key into a default long object using
+     * Converts the item at the given key into a defaultable long object using
      * [[LongConverter.toLongWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -225,7 +228,7 @@ export declare class StringValueMap {
      */
     getAsLongWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable float object using
+     * Converts the item at the given key into a nullable float object using
      * [[FloatConverter.toNullableFloat]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -235,7 +238,7 @@ export declare class StringValueMap {
      */
     getAsNullableFloat(key: string): number;
     /**
-     * Converts item at the given key into a default float object using
+     * Converts the item at the given key into a defaultable float object using
      * [[StringValueMap.getAsFloatWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -245,7 +248,7 @@ export declare class StringValueMap {
      */
     getAsFloat(key: string): number;
     /**
-     * Converts item at the given key into a default float object using
+     * Converts the item at the given key into a defaultable float object using
      * [[FloatConverter.toFloatWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -257,7 +260,7 @@ export declare class StringValueMap {
      */
     getAsFloatWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable double object using
+     * Converts the item at the given key into a nullable double object using
      * [[DoubleConverter.toNullableDouble]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -267,7 +270,7 @@ export declare class StringValueMap {
      */
     getAsNullableDouble(key: string): number;
     /**
-     * Converts item at the given key into a default double object using
+     * Converts the item at the given key into a defaultable double object using
      * [[StringValueMap.getAsDoubleWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -277,7 +280,7 @@ export declare class StringValueMap {
      */
     getAsDouble(key: string): number;
     /**
-     * Converts item at the given key into a default double object using
+     * Converts the item at the given key into a defaultable double object using
      * [[DoubleConverter.toDoubleWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -289,7 +292,7 @@ export declare class StringValueMap {
      */
     getAsDoubleWithDefault(key: string, defaultValue: number): number;
     /**
-     * Converts item at the given key into a nullable Datetime object using
+     * Converts the item at the given key into a nullable Datetime object using
      * [[DateTimeConverter.toNullableDateTime]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -299,7 +302,7 @@ export declare class StringValueMap {
      */
     getAsNullableDateTime(key: string): Date;
     /**
-     * Converts item at the given key into a default Datetime object using
+     * Converts the item at the given key into a defaultable Datetime object using
      * [[StringValueMap.getAsDateTimeWithDefault]] and returns it.
      *
      * @param key   key of the item to retrieve.
@@ -309,7 +312,7 @@ export declare class StringValueMap {
      */
     getAsDateTime(key: string): Date;
     /**
-     * Converts item at the given key into a default Datetime object using
+     * Converts the item at the given key into a defaultable Datetime object using
      * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
      *
      * @param key               key of the item to retrieve.
@@ -386,13 +389,14 @@ export declare class StringValueMap {
      */
     getAsArray(key: string): AnyValueArray;
     /**
-     * Returns the item at the given key as an AnyValueArray object or 'defaultValue', if conversion is not possible.
+     * Returns the item at the given key as an AnyValueArray object
+     * (or 'defaultValue' if conversion is not possible).
      *
      * @param key           key of the item to retrieve.
      * @param defaultValue  value to use if the item at the given key cannot be converted
      *                      into an AnyValueArray.
-     * @returns             the item at the given key as an AnyValueArray object or 'defaultValue',
-     *                      if conversion is not possible.
+     * @returns             the item at the given key as an AnyValueArray object or 'defaultValue'
+     *                      (if conversion is not possible).
      *
      * @see [[AnyValueArray]]
      * @see [[getAsNullableArray]]
@@ -418,13 +422,14 @@ export declare class StringValueMap {
      */
     getAsMap(key: string): AnyValueMap;
     /**
-     * Returns the item at the given key as an AnyValueMap object or 'defaultValue', if conversion is not possible.
+     * Returns the item at the given key as an AnyValueMap object
+     * (or 'defaultValue' if conversion is not possible).
      *
      * @param key           key of the item to retrieve.
      * @param defaultValue  value to use if the item at the given key cannot be converted
      *                      into an AnyValueMap.
-     * @returns             the item at the given key as an AnyValueMap object or 'defaultValue',
-     *                      if conversion is not possible.
+     * @returns             the item at the given key as an AnyValueMap object or 'defaultValue'
+     *                      (if conversion is not possible).
      *
      * @see [[getAsNullableMap]]
      */

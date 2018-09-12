@@ -6,10 +6,12 @@ import { ConfigParams } from './ConfigParams';
  *
  * ### Examples ###
  *
- * public optionResolution : ConfigParams {
- *      let config = ConfigParams.fromTuples("Id", "MyConfig");
-        return OptionResolver.resolve(config);
-    }
+ * Example usage of the static <code>resolve</code> method:
+ *
+ *     public optionResolution : ConfigParams {
+ *         let config = ConfigParams.fromTuples("Id", "MyConfig");
+ *         return OptionResolver.resolve(config);
+ *     }
  */
 export declare class OptionResolver {
     /**

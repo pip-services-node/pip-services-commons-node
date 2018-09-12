@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -21,7 +24,7 @@ var ReferenceException = /** @class */ (function (_super) {
      * Creates a new ReferenceException, containing information about the exception's
      * correlation id and locator.
      *
-     * @param correlationId 	unique business transaction id to trace calls across components.
+     * @param correlationId 	optional transaction id to trace calls across components.
      * @param locator 			the locator by which no components were found.
      */
     function ReferenceException(correlationId, locator) {

@@ -8,10 +8,10 @@ var _ = require('lodash');
  *
  * ### Examples ###
  *
- * public MyMethod (value: any) {
- * 		let dateTimeValue = DateTimeConverter.toDateTime(value);
- * 		...
- * }
+ *     public MyMethod (value: any) {
+ *         let dateTimeValue = DateTimeConverter.toDateTime(value);
+ *         ...
+ *     }
  */
 var DateTimeConverter = /** @class */ (function () {
     function DateTimeConverter() {
