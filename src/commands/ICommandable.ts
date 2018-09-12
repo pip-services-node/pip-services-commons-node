@@ -2,7 +2,7 @@
 import { CommandSet } from './CommandSet';
 
 /**
- * Interface for commandable objects, which are part of the command design pattern.
+ * An interface for commandable objects, which are part of the command design pattern.
  * The commandable object exposes its functonality as commands and events groupped
  * into a [[CommandSet CommandSet]].
  * 
@@ -11,7 +11,7 @@ import { CommandSet } from './CommandSet';
  * 
  * @see [[CommandSet]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  * export class MyDataController implements ICommandable, IMyDataController {
  *   private _commandSet : MyDataCommandSet; 

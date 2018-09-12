@@ -4,50 +4,23 @@ import { IEventListener } from './IEventListener';
 import { INotifiable } from '../run/INotifiable';
 
 /**
- * Interface for command events, which notify listeners once an event has occurred.
- * Events can be used for asynchronous method calling. 
- *  
+ * An interface for Events, which are part of the Command design pattern.
+ * Events allows to send asynchronious notifications to multiple subscribed listeners.
+ * 
  * @see [[IEventListener]]
- * 
- * ### Examples ###
- * 
- * Example Event class implementation and usage (in combination with the IEventListener interface):
- * 
- *     export class MyDataController implements IMyDataController, IEventListener
- *     {
- *         constructor() { ... }
- *         
- *         private onEvent(correlationId: string, event: IEvent, args: Parameters): void
- *         {
- *             // Process event here...
- *         }
- *     }
- *     ...
- *     export class MyService implements IMyService
- *     {
- *         private _controller: IMyDataController; 
- *         private IEvent successEvent = new Event("success_on_process");
- *         
- *         constructor() { 
- *             // Getting or creating of controller
- *             successEvent.addListener(_controller);
- *         }
- *         
- *         private onSuccess(correlationId: string, args: Parameters)
- *         {
- *             successEvent.notify(correlationId, args || null);
- *         }
- *     }
- * 
  */
 export interface IEvent extends INotifiable {
 	/**
+     * Gets the event name.
+     * 
 	 * @returns the name of the event.
 	 */
     getName(): string;
 
     /**
-     * @returns the listeners that are to receive notifications for this event.
+     * Gets all subscribed listeners.
+     * 
+     * @returns a list of listeners.
      */
     getListeners(): IEventListener[];
 
