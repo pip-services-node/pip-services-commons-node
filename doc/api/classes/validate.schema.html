@@ -1,0 +1,842 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Schema | pip-services-commons-node</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">pip-services-commons-node</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/validate.html">validate</a>
+				</li>
+				<li>
+					<a href="validate.schema.html">Schema</a>
+				</li>
+			</ul>
+			<h1>Class Schema</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Allows for the creation of various schemas, which can be used for validating a wide variety
+						of objects.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Schema</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="validate.arrayschema.html" class="tsd-signature-type">ArraySchema</a>
+							</li>
+							<li>
+								<a href="validate.mapschema.html" class="tsd-signature-type">MapSchema</a>
+							</li>
+							<li>
+								<a href="validate.propertyschema.html" class="tsd-signature-type">PropertySchema</a>
+							</li>
+							<li>
+								<a href="validate.objectschema.html" class="tsd-signature-type">ObjectSchema</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="validate.schema.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#getrules" class="tsd-kind-icon">get<wbr>Rules</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#isrequired" class="tsd-kind-icon">is<wbr>Required</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#makeoptional" class="tsd-kind-icon">make<wbr>Optional</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#makerequired" class="tsd-kind-icon">make<wbr>Required</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="validate.schema.html#performtypevalidation" class="tsd-kind-icon">perform<wbr>Type<wbr>Validation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="validate.schema.html#performvalidation" class="tsd-kind-icon">perform<wbr>Validation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#setrequired" class="tsd-kind-icon">set<wbr>Required</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#setrules" class="tsd-kind-icon">set<wbr>Rules</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#validateandreturnexception" class="tsd-kind-icon">validate<wbr>And<wbr>Return<wbr>Exception</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#validateandthrowexception" class="tsd-kind-icon">validate<wbr>And<wbr>Throw<wbr>Exception</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="validate.schema.html#withrule" class="tsd-kind-icon">with<wbr>Rule</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Schema<span class="tsd-signature-symbol">(</span>required<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, rules<span class="tsd-signature-symbol">?: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.schema.html" class="tsd-signature-type">Schema</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L20">validate/Schema.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new general Schema object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> required: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) defines whether or not <code>null</code>
+												values should cause validation to fail (as
+												a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).
+											Can be set later on using <a href="validate.schema.html#setrequired">setRequired</a>.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rules: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) the the <a href="../interfaces/validate.ivalidationrule.html">validation rules</a> to
+											include in this Schema. Can be set later on using <a href="validate.schema.html#setrules">setRules</a>.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrules" class="tsd-anchor"></a>
+					<h3>get<wbr>Rules</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Rules<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L60">validate/Schema.ts:60</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>an array, containing the validation rules that are included in this Schema.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isrequired" class="tsd-anchor"></a>
+					<h3>is<wbr>Required</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Required<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L43">validate/Schema.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>whether or not <code>null</code> values will cause validation to fail
+							(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="makeoptional" class="tsd-anchor"></a>
+					<h3>make<wbr>Optional</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Optional<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.schema.html" class="tsd-signature-type">Schema</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L97">validate/Schema.ts:97</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Makes this Schema optional (required = false) and returns it.</p>
+								</div>
+								<p>When a Schema is optional, <code>null</code> values pass validation.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#makerequired">makeRequired</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
+							<p>this Schema object as an optional Schema.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="makerequired" class="tsd-anchor"></a>
+					<h3>make<wbr>Required</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">make<wbr>Required<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.schema.html" class="tsd-signature-type">Schema</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L83">validate/Schema.ts:83</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Makes this Schema required (required = true) and returns it.</p>
+								</div>
+								<p>When a Schema is required, <code>null</code> values cause
+								validation to fail (as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#makeoptional">makeOptional</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
+							<p>this Schema object as a required Schema.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="performtypevalidation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> perform<wbr>Type<wbr>Validation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">perform<wbr>Type<wbr>Validation<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, results<span class="tsd-signature-symbol">: </span><a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L171">validate/Schema.ts:171</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates that the passed &#39;value&#39; is an object of the given &#39;type&#39;. If &#39;type&#39; is an instance of
+										Schema - &#39;value&#39; will be validated using the Schema&#39;s <a href="validate.schema.html#performvalidation">performValidation</a> method. The type
+										of &#39;value&#39; is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> and is compared to &#39;type&#39; using
+									<a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.schema.html#performvalidation">performValidation</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the dot notation path to the value that is to be validated.</p>
+									</div>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the type to validate against.</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value that is to be validated.</p>
+									</div>
+								</li>
+								<li>
+									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="performvalidation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> perform<wbr>Validation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">perform<wbr>Validation<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, results<span class="tsd-signature-symbol">: </span><a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L121">validate/Schema.ts:121</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given &#39;value&#39; using the rules that are set. If this schema is set as
+									&#39;required&#39;, then &#39;value&#39; must not be null for validation to pass.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the dot notation path to the value that is to be validated.</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value that is to be validated.</p>
+									</div>
+								</li>
+								<li>
+									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the results of the validation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setrequired" class="tsd-anchor"></a>
+					<h3>set<wbr>Required</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Required<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L53">validate/Schema.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes whether or not <code>null</code> values should cause validation to fail
+									(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not this Schema is required.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setrules" class="tsd-anchor"></a>
+					<h3>set<wbr>Rules</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Rules<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L69">validate/Schema.ts:69</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes this Schema&#39;s validation rules to the ones passed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the array of validation rules to include in this Schema.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L213">validate/Schema.ts:213</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given value using this class&#39;s <a href="validate.schema.html#performvalidation">performValidation</a> method.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.validationresult.html">ValidationResult</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to validate using this Schema&#39;s rules.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>an array of ValidationResults</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="validateandreturnexception" class="tsd-anchor"></a>
+					<h3>validate<wbr>And<wbr>Return<wbr>Exception</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>And<wbr>Return<wbr>Exception<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, strict<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.validationexception.html" class="tsd-signature-type">ValidationException</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L226">validate/Schema.ts:226</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given value and returns any exceptions that were raised.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>optional transaction id to trace calls across components.</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to validate using this Schema&#39;s rules.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="validate.validationexception.html" class="tsd-signature-type">ValidationException</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="validateandthrowexception" class="tsd-anchor"></a>
+					<h3>validate<wbr>And<wbr>Throw<wbr>Exception</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>And<wbr>Throw<wbr>Exception<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, strict<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L241">validate/Schema.ts:241</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the given value and, if an exception was raised, throws the exception using
+									<a href="validate.validationexception.html#throwexceptionifneeded">ValidationException.throwExceptionIfNeeded</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="validate.validationexception.html#throwexceptionifneeded">ValidationException.throwExceptionIfNeeded</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>optional transaction id to trace calls across components.</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the value to validate using this Schema&#39;s rules.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="withrule" class="tsd-anchor"></a>
+					<h3>with<wbr>Rule</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">with<wbr>Rule<span class="tsd-signature-symbol">(</span>rule<span class="tsd-signature-symbol">: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.schema.html" class="tsd-signature-type">Schema</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L107">validate/Schema.ts:107</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a validation rule to this Schema.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rule: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the validation rule to add to this Schema&#39;s rules.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/commands.html">commands</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/config.html">config</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/convert.html">convert</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/data.html">data</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/random.html">random</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/refer.html">refer</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/reflect.html">reflect</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/run.html">run</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/validate.html">validate</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/validate.validationresulttype.html" class="tsd-kind-icon">Validation<wbr>Result<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.andrule.html" class="tsd-kind-icon">And<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.arrayschema.html" class="tsd-kind-icon">Array<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.atleastoneexistsrule.html" class="tsd-kind-icon">At<wbr>Least<wbr>One<wbr>Exists<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.excludedrule.html" class="tsd-kind-icon">Excluded<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.filterparamsschema.html" class="tsd-kind-icon">Filter<wbr>Params<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.includedrule.html" class="tsd-kind-icon">Included<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.mapschema.html" class="tsd-kind-icon">Map<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.notrule.html" class="tsd-kind-icon">Not<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.objectcomparator.html" class="tsd-kind-icon">Object<wbr>Comparator</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.objectschema.html" class="tsd-kind-icon">Object<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.onlyoneexistsrule.html" class="tsd-kind-icon">Only<wbr>One<wbr>Exists<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.orrule.html" class="tsd-kind-icon">Or<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.pagingparamsschema.html" class="tsd-kind-icon">Paging<wbr>Params<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.projectionparamsschema.html" class="tsd-kind-icon">Projection<wbr>Params<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.propertiescomparisonrule.html" class="tsd-kind-icon">Properties<wbr>Comparison<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.propertyschema.html" class="tsd-kind-icon">Property<wbr>Schema</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.schema.html" class="tsd-kind-icon">Schema</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="validate.schema.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#getrules" class="tsd-kind-icon">get<wbr>Rules</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#isrequired" class="tsd-kind-icon">is<wbr>Required</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#makeoptional" class="tsd-kind-icon">make<wbr>Optional</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#makerequired" class="tsd-kind-icon">make<wbr>Required</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="validate.schema.html#performtypevalidation" class="tsd-kind-icon">perform<wbr>Type<wbr>Validation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="validate.schema.html#performvalidation" class="tsd-kind-icon">perform<wbr>Validation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#setrequired" class="tsd-kind-icon">set<wbr>Required</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#setrules" class="tsd-kind-icon">set<wbr>Rules</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#validate" class="tsd-kind-icon">validate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#validateandreturnexception" class="tsd-kind-icon">validate<wbr>And<wbr>Return<wbr>Exception</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#validateandthrowexception" class="tsd-kind-icon">validate<wbr>And<wbr>Throw<wbr>Exception</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="validate.schema.html#withrule" class="tsd-kind-icon">with<wbr>Rule</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.validationexception.html" class="tsd-kind-icon">Validation<wbr>Exception</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.validationresult.html" class="tsd-kind-icon">Validation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="validate.valuecomparisonrule.html" class="tsd-kind-icon">Value<wbr>Comparison<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/validate.ivalidationrule.html" class="tsd-kind-icon">IValidation<wbr>Rule</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

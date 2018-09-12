@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>pip-services-commons-node</title>
+	<title>NameResolver | pip-services-commons-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">pip-services-commons-node</a>
+					<a href="../index.html" class="title">pip-services-commons-node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,83 +51,171 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/config.html">config</a>
+				</li>
+				<li>
+					<a href="config.nameresolver.html">NameResolver</a>
 				</li>
 			</ul>
-			<h1> pip-services-commons-node</h1>
+			<h1>Class NameResolver</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Contains the static method <a href="config.nameresolver.html#resolve">resolve</a>, which can be used for resolving the name
+						of a ConfigParams configuration.</p>
+					</div>
+					<h3 id="examples">Examples</h3>
+					<p>Example usage of the static <code>resolve</code> method:</p>
+					<pre><code>public nameResolution : void {
+    let<span class="hljs-built_in"> config </span>= ConfigParams.fromTuples(<span class="hljs-string">"Id"</span>, <span class="hljs-string">"MyName"</span>);
+    let name = NameResolver.resolve(config);
+    <span class="hljs-built_in">..</span>.
+}
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">NameResolver</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>External modules</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-external-module"><a href="modules/commands.html" class="tsd-kind-icon">commands</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/config.html" class="tsd-kind-icon">config</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/convert.html" class="tsd-kind-icon">convert</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/data.html" class="tsd-kind-icon">data</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/errors.html" class="tsd-kind-icon">errors</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/index.html" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/random.html" class="tsd-kind-icon">random</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/refer.html" class="tsd-kind-icon">refer</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/reflect.html" class="tsd-kind-icon">reflect</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/run.html" class="tsd-kind-icon">run</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/validate.html" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="config.nameresolver.html#resolve" class="tsd-kind-icon">resolve</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="resolve" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> resolve</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a>, defaultName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/NameResolver.ts#L31">config/NameResolver.ts:31</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Static method for resolving the name of a ConfigParams object. The configuration&#39;s name is
+										searched for using the keys: &quot;name&quot;, &quot;id&quot;, or &quot;descriptor&quot;. In the case of
+										&quot;descriptor&quot;, the name of the <a href="refer.descriptor.html">Descriptor</a> object will be returned. If no name is found,
+									&#39;defaultName&#39; will be returned.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ConfigParams, whose name is to be resolved.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) value to be returned if no name is resolved. Defaults to null if omitted.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>resolved name or &#39;defaultName&#39;.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals current ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/commands.html">commands</a>
+						<a href="../modules/commands.html">commands</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/config.html">config</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/config.html">config</a>
+						<a href="../modules/convert.html">convert</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/convert.html">convert</a>
+						<a href="../modules/data.html">data</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/data.html">data</a>
+						<a href="../modules/errors.html">errors</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/errors.html">errors</a>
+						<a href="../modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/index.html">index</a>
+						<a href="../modules/random.html">random</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/random.html">random</a>
+						<a href="../modules/refer.html">refer</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/refer.html">refer</a>
+						<a href="../modules/reflect.html">reflect</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/reflect.html">reflect</a>
+						<a href="../modules/run.html">run</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/run.html">run</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/validate.html">validate</a>
+						<a href="../modules/validate.html">validate</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="config.configparams.html" class="tsd-kind-icon">Config<wbr>Params</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="config.nameresolver.html" class="tsd-kind-icon">Name<wbr>Resolver</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="config.nameresolver.html#resolve" class="tsd-kind-icon">resolve</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="config.optionresolver.html" class="tsd-kind-icon">Option<wbr>Resolver</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/config.iconfigurable.html" class="tsd-kind-icon">IConfigurable</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/config.ireconfigurable.html" class="tsd-kind-icon">IReconfigurable</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -196,7 +284,7 @@
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

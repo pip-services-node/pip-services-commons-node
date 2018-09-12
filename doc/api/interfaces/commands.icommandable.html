@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>pip-services-commons-node</title>
+	<title>ICommandable | pip-services-commons-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">pip-services-commons-node</a>
+					<a href="../index.html" class="title">pip-services-commons-node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,83 +51,183 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/commands.html">commands</a>
+				</li>
+				<li>
+					<a href="commands.icommandable.html">ICommandable</a>
 				</li>
 			</ul>
-			<h1> pip-services-commons-node</h1>
+			<h1>Interface ICommandable</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>An interface for commandable objects, which are part of the command design pattern.
+							The commandable object exposes its functonality as commands and events groupped
+						into a <a href="../classes/commands.commandset.html">CommandSet</a>.</p>
+					</div>
+					<p>This interface is typically implemented by controllers and is used to auto generate
+					external interfaces.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a></p>
+							<h3 id="example">Example</h3>
+							<p>export class MyDataController implements ICommandable, IMyDataController {
+							private _commandSet : MyDataCommandSet;</p>
+							<p>  public getCommandSet(): CommandSet {
+								if (this._commandSet == null)
+								this._commandSet = new MyDataCommandSet(this);
+								return this._commandSet;
+							}</p>
+							<p>  ...
+							}</p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a> examples</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ICommandable</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>External modules</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-external-module"><a href="modules/commands.html" class="tsd-kind-icon">commands</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/config.html" class="tsd-kind-icon">config</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/convert.html" class="tsd-kind-icon">convert</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/data.html" class="tsd-kind-icon">data</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/errors.html" class="tsd-kind-icon">errors</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/index.html" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/random.html" class="tsd-kind-icon">random</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/refer.html" class="tsd-kind-icon">refer</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/reflect.html" class="tsd-kind-icon">reflect</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/run.html" class="tsd-kind-icon">run</a></li>
-								<li class="tsd-kind-external-module"><a href="modules/validate.html" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="commands.icommandable.html#getcommandset" class="tsd-kind-icon">get<wbr>Command<wbr>Set</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getcommandset" class="tsd-anchor"></a>
+					<h3>get<wbr>Command<wbr>Set</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Command<wbr>Set<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/commands.commandset.html" class="tsd-signature-type">CommandSet</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/commands/ICommandable.ts#L38">commands/ICommandable.ts:38</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a command set with all supported commands and events.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../classes/commands.commandset.html">CommandSet</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/commands.commandset.html" class="tsd-signature-type">CommandSet</a></h4>
+							<p>a command set with commands and events.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals current ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/commands.html">commands</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/commands.html">commands</a>
+						<a href="../modules/config.html">config</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/config.html">config</a>
+						<a href="../modules/convert.html">convert</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/convert.html">convert</a>
+						<a href="../modules/data.html">data</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/data.html">data</a>
+						<a href="../modules/errors.html">errors</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/errors.html">errors</a>
+						<a href="../modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/index.html">index</a>
+						<a href="../modules/random.html">random</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/random.html">random</a>
+						<a href="../modules/refer.html">refer</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/refer.html">refer</a>
+						<a href="../modules/reflect.html">reflect</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/reflect.html">reflect</a>
+						<a href="../modules/run.html">run</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/run.html">run</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/validate.html">validate</a>
+						<a href="../modules/validate.html">validate</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/commands.command.html" class="tsd-kind-icon">Command</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/commands.commandset.html" class="tsd-kind-icon">Command<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/commands.event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/commands.interceptedcommand.html" class="tsd-kind-icon">Intercepted<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="commands.icommand.html" class="tsd-kind-icon">ICommand</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="commands.icommandinterceptor.html" class="tsd-kind-icon">ICommand<wbr>Interceptor</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="commands.icommandable.html" class="tsd-kind-icon">ICommandable</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="commands.icommandable.html#getcommandset" class="tsd-kind-icon">get<wbr>Command<wbr>Set</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="commands.ievent.html" class="tsd-kind-icon">IEvent</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="commands.ieventlistener.html" class="tsd-kind-icon">IEvent<wbr>Listener</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -196,7 +296,7 @@
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
