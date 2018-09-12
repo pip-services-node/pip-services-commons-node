@@ -3,30 +3,29 @@ import { ConfigParams } from './ConfigParams';
 import { Descriptor } from '../refer/Descriptor';
 
 /**
- * Contains the static method [[resolve]], which can be used for resolving the name 
- * of a ConfigParams configuration.
+ * A helper class that allows to extract component name from configuration parameters.
+ * The name can be defined in "id", "name" parameters or inside a component descriptor.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- * Example usage of the static <code>resolve</code> method:
+ * let config = ConfigParams.fromTuples(
+ *   "descriptor", "myservice:connector:aws:connector1:1.0",
+ *   "param1", "ABC",
+ *   "param2", 123
+ * );
  * 
- *     public nameResolution : void {
- *         let config = ConfigParams.fromTuples("Id", "MyName");
- *         let name = NameResolver.resolve(config);
- *         ...
- *     }
+ * let name = NameResolver.resolve(config); // Result: connector1
  */
 export class NameResolver {
 
     /**
-     * Static method for resolving the name of a ConfigParams object. The configuration's name is
-     * searched for using the keys: "name", "id", or "descriptor". In the case of 
-     * "descriptor", the name of the [[Descriptor]] object will be returned. If no name is found,
-     * 'defaultName' will be returned.
+     * Resolves a component name from configuration parameters.
+     * The name can be stored in "id", "name" fields or inside a component descriptor.
+     * If name cannot be determined it returns a defaultName.
      * 
-     * @param config        ConfigParams, whose name is to be resolved.
-     * @param defaultName   (optional) value to be returned if no name is resolved. Defaults to null if omitted.
-     * @returns             resolved name or 'defaultName'.
+     * @param config        configuration parameters that may contain a component name.
+     * @param defaultName   (optional) a default component name.
+     * @returns             resolved name or default name if the name cannot be determined.
      */
     static resolve(config: ConfigParams, defaultName: string = null): string {
         let name: string = config.getAsNullableString("name") || config.getAsNullableString("id");

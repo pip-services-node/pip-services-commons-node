@@ -2,30 +2,26 @@
 import { ConfigParams } from './ConfigParams';
 
 /**
- * Contains the static method [[resolve]], which can be used for resolving 
- * the options of a ConfigParams configuration.
+ * A helper class to parameters from "options" configuration section.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- * Example usage of the static <code>resolve</code> method:
+ * let config = ConfigParams.fromTuples(
+ *   ...
+ *   "options.param1", "ABC",
+ *   "options.param2", 123
+ * );
  * 
- *     public optionResolution : ConfigParams {
- *         let config = ConfigParams.fromTuples("Id", "MyConfig");
- *         return OptionResolver.resolve(config);
- *     }
+ * let options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123 
  */
 export class OptionResolver {
 
     /**
-     * Static method for resolving the options of a ConfigParams object. The configuration's options are 
-     * searched for in the section named "options" in the [[ConfigParams]] object. If no options are found
-     * and 'configAsDefault' is set to true, then 'config' will be returned.
+     * Resolves an "options" configuration section from component configuration parameters.
      * 
-     * @param config            ConfigParams, whose options are to be resolved.
-     * @param configAsDefault   (optional) Defines whether 'config' should be returned if no options are found. 
-     *                          Defaults to false if omitted.
-     * @returns                 resolved options or 'config' (if none were found and 'configAsDefault' 
-     *                          was set to true).
+     * @param config            configuration parameters
+     * @param configAsDefault   (optional) When set true the method returns the entire parameter set when "options" section is not found. Default: false
+     * @returns                 configuration parameters from "options" section
      */
     static resolve(config: ConfigParams, configAsDefault: boolean = false): ConfigParams {
         var options = config.getSection("options");
