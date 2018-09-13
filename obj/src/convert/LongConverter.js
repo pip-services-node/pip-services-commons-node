@@ -4,33 +4,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @hidden */
 var _ = require('lodash');
 /**
- * Provides methods for converting various values to the long data type.
+ * Converts arbitrary values into longs using extended conversion rules:
+ * - Strings are converted to floats, then to longs
+ * - DateTime: total number of milliseconds since unix epoсh
+ * - Boolean: 1 for true and 0 for false
  *
- * ### Examples ###
+ * ### Example ###
  *
- *     public MyMethod (value: any) {
- *         let longValue = LongConverter.toLong(value);
- *         ...
- *     }
+ * let value1 = LongConverter.toNullableLong("ABC"); // Result: null
+ * let value2 = LongConverter.toNullableLong("123.456"); // Result: 123
+ * let value3 = LongConverter.toNullableLong(true); // Result: 1
+ * let value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
  */
 var LongConverter = /** @class */ (function () {
     function LongConverter() {
     }
     /**
-     * Static method for converting values to nullable longs.
-     *
-     * Conversion cases:
-     * - if 'value' is null - null will be returned;
-     * - if 'value' is a number - the smallest integer greater than or equal to its numeric value will be returned;
-     * - if 'value' is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;
-     * - if 'value' is a boolean - true returns 1 and false returns 0;
-     * - if 'value' is a string - parseFloat(value) will be called, and if the result is a number, then the smallest integer
-     * greater than or equal to its numeric value will be returned;
-     * - otherwise - null will be returned.
+     * Converts value into long or returns null when conversion is not possible.
      *
      * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null or is not convertible - null
-     *                  will be returned.
+     * @returns         long value or null when conversion is not supported.
      */
     LongConverter.toNullableLong = function (value) {
         if (value == null)
@@ -45,10 +38,10 @@ var LongConverter = /** @class */ (function () {
         return isNaN(result) ? null : Math.ceil(result);
     };
     /**
-     * Static method for converting values to longs using [[toLongWithDefault]].
-     * 0 will be used as the default value for the conversion.
+     * Converts value into long or returns 0 when conversion is not possible.
      *
      * @param value     the value to convert.
+     * @returns         long value or 0 when conversion is not supported.
      *
      * @see [[toLongWithDefault]]
      */
@@ -56,12 +49,11 @@ var LongConverter = /** @class */ (function () {
         return LongConverter.toLongWithDefault(value, 0);
     };
     /**
-     * Static method for converting values to longs using [[toNullableLong]].
-     * If null is returned by the conversion, then this method will return the default
-     * value passed.
+     * Converts value into integer or returns default when conversion is not possible.
      *
      * @param value         the value to convert.
-     * @param defaultValue  the default value to return if the conversion returns null.
+     * @param defaultValue  the default value.
+     * @returns             long value or default when conversion is not supported
      *
      * @see [[toNullableLong]]
      */

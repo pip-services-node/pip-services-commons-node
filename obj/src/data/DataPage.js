@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * A data page contains a list of items that are of type T (the data), as well as
  * their total amount (the total).
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example DataPage class usage:
  *

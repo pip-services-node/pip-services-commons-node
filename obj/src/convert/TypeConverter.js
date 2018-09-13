@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 var TypeCode_1 = require("./TypeCode");
 var StringConverter_1 = require("./StringConverter");
+var BooleanConverter_1 = require("./BooleanConverter");
 var IntegerConverter_1 = require("./IntegerConverter");
 var LongConverter_1 = require("./LongConverter");
 var FloatConverter_1 = require("./FloatConverter");
@@ -13,28 +14,25 @@ var DateTimeConverter_1 = require("./DateTimeConverter");
 var ArrayConverter_1 = require("./ArrayConverter");
 var MapConverter_1 = require("./MapConverter");
 /**
- * Class that uses the converters available in this package to perform "soft" data conversions between various data types,
- * as well as resolve the [[TypeCode]] of an object.
- *
- * Soft data converters differ from the data conversion algorithms found in typical programming language, due to the fact
- * that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on).
+ * Converts arbitrary values into objects specific by TypeCodes.
+ * For each TypeCode this class calls corresponding converter which applies
+ * extended conversion rules to convert the values.
  *
  * @see [[TypeCode]]
  *
- * ### Examples ###
+ * ### Example ###
  *
- *     public MyMethod(TypeCode.Long, value: any) {
- *         let longValue = TypeConverter.toType(value);
- *         ...
- *     }
+ * let value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
+ * let value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: Date(123)
+ * let value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
  */
 var TypeConverter = /** @class */ (function () {
     function TypeConverter() {
     }
     /**
-     * Static method that resolves the TypeCode that corresponds to the passed object's type.
+     * Gets TypeCode for specific value.
      *
-     * @param value 	object whose TypeCode is to be resolved.
+     * @param value 	value whose TypeCode is to be resolved.
      * @returns			the TypeCode that corresponds to the passed object's type.
      */
     TypeConverter.toTypeCode = function (value) {
@@ -72,11 +70,11 @@ var TypeConverter = /** @class */ (function () {
         return TypeCode_1.TypeCode.Object;
     };
     /**
-     * Static method that converts the object passed as 'value' to a nullable object of type T.
+     * Converts value into an object type specified by Type Code or returns null when conversion is not possible.
      *
      * @param type 		the TypeCode for the data type into which 'value' is to be converted.
      * @param value 	the value to convert.
-     * @returns			'value' as an object of type T. If 'value' is null - null will be returned.
+     * @returns			object value of type corresponding to TypeCode, or null when conversion is not supported.
      *
      * @see [[toTypeCode]]
      */
@@ -86,6 +84,8 @@ var TypeConverter = /** @class */ (function () {
         // Convert to known types
         if (type == TypeCode_1.TypeCode.String)
             value = StringConverter_1.StringConverter.toNullableString(value);
+        else if (type == TypeCode_1.TypeCode.Boolean)
+            value = BooleanConverter_1.BooleanConverter.toNullableBoolean(value);
         else if (type == TypeCode_1.TypeCode.Integer)
             value = IntegerConverter_1.IntegerConverter.toNullableInteger(value);
         else if (type == TypeCode_1.TypeCode.Long)
@@ -103,13 +103,11 @@ var TypeConverter = /** @class */ (function () {
         return value;
     };
     /**
-     * Static method that converts the object passed as 'value' to an object of type T.
+     * Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
      *
      * @param type 		the TypeCode for the data type into which 'value' is to be converted.
      * @param value 	the value to convert.
-     * @returns			'value' as an object of type T. If the result of the conversion using
-     * 					TypeConverter.toNullableType<T>(type, value) is null, then a default
-     * 					value for the given type will be returned.
+     * @returns			object value of type corresponding to TypeCode, or type default when conversion is not supported.
      *
      * @see [[toNullableType]]
      * @see [[toTypeCode]]
@@ -141,14 +139,12 @@ var TypeConverter = /** @class */ (function () {
         return value;
     };
     /**
-     * Static method that converts the object passed as 'value' to an object of type T or returns
-     * a default value if the conversion is not possible (when null is returned).
+     * Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
      *
      * @param type 			the TypeCode for the data type into which 'value' is to be converted.
      * @param value 		the value to convert.
      * @param defaultValue	the default value to return if conversion is not possible (returns null).
-     * @returns				'value' as an object of type T or 'defaultValue' (if the result of the
-     * 						conversion using TypeConverter.toNullableType<T>(type, value) is null).
+     * @returns			object value of type corresponding to TypeCode, or default value when conversion is not supported.
      *
      * @see [[toNullableType]]
      * @see [[toTypeCode]]
@@ -158,7 +154,7 @@ var TypeConverter = /** @class */ (function () {
         return result != null ? result : defaultValue;
     };
     /**
-     * Static method that converts a TypeCode into its string name.
+     * Converts a TypeCode into its string name.
      *
      * @param type 	the TypeCode to convert into a string.
      * @returns		the name of the TypeCode passed as a string value.

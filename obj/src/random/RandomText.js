@@ -8,7 +8,7 @@ var RandomBoolean_1 = require("./RandomBoolean");
  * Provides methods that can be used for generating random strings, which can contain: colors, names (first + last, with/without prefixes/suffixes),
  * objects, adjectives, verbs, phrases (words separated by spaces), phone numbers, email addresses, sequences of words (CamelCase), or texts.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example usage:
  *

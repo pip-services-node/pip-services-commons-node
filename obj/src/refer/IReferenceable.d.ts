@@ -5,7 +5,7 @@ import { IReferences } from './IReferences';
  *
  * @see [[IReferences]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the IReferenceable interface:
  *

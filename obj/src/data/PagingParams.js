@@ -10,7 +10,7 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * Paging parameters contain information about how to retrieve
  * data pages from a data source.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example PagingParams object usage:
  *

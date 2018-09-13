@@ -7,7 +7,7 @@ import { StringValueMap } from './StringValueMap';
  *
  * @see [[StringValueMap]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * A FilterParams object can be created and used in the following way:
  *

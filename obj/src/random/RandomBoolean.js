@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Provides methods that can be used for generating random booleans using 'chance' and 'nextBoolean' methods.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example usage:
  *

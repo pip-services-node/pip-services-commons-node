@@ -22,7 +22,7 @@ var StringValueMap_1 = require("./StringValueMap");
  *
  * @see [[StringValueMap]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * A FilterParams object can be created and used in the following way:
  *

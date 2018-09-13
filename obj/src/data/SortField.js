@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Class that defines a field by which values can be sorted. A sort field contains a
  * string field 'name' and a boolean field 'ascending'.
  *
- * ### Examples ###
+ * ### Example ###
  *
  *     public MyMethod () {
  *         let sortField = new SortField("key1", true);

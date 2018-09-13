@@ -1,148 +1,125 @@
 import { StringValueMap } from '../data/StringValueMap';
 /**
- * ConfigParams represent a hierarchical map that contains configuration parameters and
- * uses complex keys with dot-notation to store simple string values.
+ * Contains a key-value map with configuration parameters.
+ * All values stored as strings and can be serialized as JSON or string forms.
+ * When retrieved the values can be automatically converted on read using GetAsXXX methods.
  *
- * Provides hierarchical organization of various configuration parameters using sections,
- * subsections, and keys.
+ * The keys are case-sensitive, so it is recommended to use consistent C-style as: "my_param"
  *
- * Examples of values, stored in configuration parameters:
+ * Configuration parameters can be broken into sections and subsections using dot notation as:
+ * "section1.subsection1.param1". Using GetSection method all parameters from specified section
+ * can be extracted from a ConfigMap.
  *
- * - Section-1.Subsection-1-1.Key-1-1-1=123
- * - Section-1.Subsection-1-2.Key-1-2-1="ABC"
- * - Section-2.Subsection-1.Key-2-1-1="2016-09-16T00:00:00.00Z"
+ * The ConfigParams supports serialization from/to plain strings as:
+ * "key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"
  *
- * Configuration parameters support getting and adding sections from the map.
- *
- * Also, configuration parameters may come in the form of a parameterized string:
- * Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z
- *
- * All keys stored in the map are case-insensitive.
- *
- * ConfigParams can be used to configure objects of classes that implement [[IConfigurable]].
+ * ConfigParams are used to pass configurations to [[IConfigurable]] objects.
+ * They also serve as a basis for more concrete configurations such as [[ConnectionParams]]
+ * or [[CredentialParams]].
  *
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
  *
- * ### Examples ###
+ * ### Example ###
  *
- * Example usage of the ConfigParams class and its methods:
+ * let config = ConfigParams.fromTuples(
+ *   "section1.key1", "AAA",
+ *   "section1.key2", 123,
+ *   "section2.key1", true
+ * );
  *
- *     public MyMethod () {
- *         let config = ConfigParams.fromTuples(
- *            "Section1.Key1", "Value1",
- *            "Section1.Key2", "Value2",
- *            "Section1.Key3", "Value3"
- *         );
+ * config.getAsString("section1.key1"); // Result: AAA
+ * config.getAsInteger("section1.key1"); // Result: 0
  *
- *         ...
+ * section1 = config.getSection("section1");
+ * section1.toString(); // Result: key1=AAA;key2=123
  *
- *         let value = config.get("Section1.Key1");
- *
- *         ...
- *
- *         MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(config);
- *         //or
- *         MyDataConfigClass myConfig = new MyDataConfigClass(config);
- *     }
  */
 export declare class ConfigParams extends StringValueMap {
     /**
-     * Creates a new ConfigParams object from an array of tuples, a parameterized string
-     * (Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"), or from an object with
-     * configuration parameters stored as properties.
+     * Creates a new ConfigParams and fills it with values.
      *
-     * @param values 	configuration parameters to store in this object. Defaults to null.
+     * @param values 	(optional) an object to be converted into key-value pairs to initialize this config map.
      *
      * @see [[StringValueMap.constructor]]
      */
     constructor(values?: any);
     /**
-     * @returns the names of all sections that are present in this object's complex keys.
+     * Gets a list with all 1st level section names.
      *
-     * Example key "Section-1.Subsection-1-1.Key-1-1-1" contains the section named "Section-1".
+     * @returns a list of section names stored in this ConfigMap.
      */
     getSectionNames(): string[];
     /**
+     * Gets parameters from specific section stored in this ConfigMap.
+     * The section name is removed from parameter keys.
+     *
      * @param section	name of the section to retrieve configuration parameters from.
      * @returns 		all configuration parameters that belong to the section named 'section'.
-     *
-     * Example key "Section-1.Subsection-1-1.Key-1-1-1" contains the section named "Section-1".
-     * Calling <code>getSection("Section-1")</code> would return a ConfigParams object containing
-     * the key "Subsection-1-1.Key-1-1-1"
      */
     getSection(section: string): ConfigParams;
     /**
-     * Adds 'sectionParams' to this ConfigParams object under the section named 'section'.
+     * Adds parameters into this ConfigParams under specified section.
+     * Keys for the new parameters are appended with section dot prefix.
      *
-     * @param section 			name of the section, under which 'sectionParams' is to be added.
-     * 							The keys of 'sectionParams' will be renamed to "(section).<key's name>",
-     * 							when added to this ConfigParams object.
-     * @param sectionParams 	ConfigParams that are to be added under the section named 'section'.
+     * @param section 			name of the section where add new parameters
+     * @param sectionParams 	new parameters to be added.
      */
     addSection(section: string, sectionParams: ConfigParams): void;
     /**
-     * Overrides the configuration parameters stored in this object with the ones in
-     * 'configParams'. If a configuration is already set in this ConfigParams object,
-     * it will be overwritten by the value in 'configParams' with the same key.
+     * Overrides parameters with new values from specified ConfigParams
+     * and returns a new ConfigParams object.
      *
-     * @param configParams		configuration parameters to override the
-     * 							parameters of this object with.
-     * @returns					ConfigParams object with overridden parameters.
+     * @param configParams		ConfigMap with parameters to override the current values.
+     * @returns					a new ConfigParams object.
      *
      * @see [[setDefaults]]
      */
     override(configParams: ConfigParams): ConfigParams;
     /**
-     * Sets the default configurations for this ConfigParams object, based on the
-     * default configuration parameters passed in 'defaultConfigParams'. If a
-     * configuration is already set in this ConfigParams object, it will not be
-     * overwritten by the default value in 'defaultConfigParams' with the same key.
+     * Set default values from specified ConfigParams and returns a new ConfigParams object.
      *
-     * @param defaultConfigParams	the default configuration parameters to use.
-     * @returns						this ConfigParams object with the newly set defaults.
+     * @param defaultConfigParams	ConfigMap with default parameter values.
+     * @returns						a new ConfigParams object.
      *
      * @see [[override]]
      */
     setDefaults(defaultConfigParams: ConfigParams): ConfigParams;
     /**
-     * Static method that creates a ConfigParams object based on the values that are stored
-     * in the 'value' object's properties.
+     * Creates a new ConfigParams object filled with key-value pairs from specified object.
      *
-     * @param value		configuration parameters in the form of an object with properties.
-     * @returns			generated ConfigParams.
+     * @param value		an object with key-value pairs used to initialize a new ConfigParams.
+     * @returns			a new ConfigParams object.
      *
      * @see [[RecursiveObjectReader.getProperties]]
      */
     static fromValue(value: any): ConfigParams;
     /**
-     * Static method that creates a ConfigParams object using the tuples passed to the method.
+     * Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+     * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
      *
-     * @param tuples	the tuples to convert to a ConfigParams object.
-     * @returns			the generated ConfigParams.
+     * @param tuples	the tuples to fill a new ConfigParams object.
+     * @returns			a new ConfigParams object.
      *
      * @see [[StringValueMap.fromTuplesArray]]
      */
     static fromTuples(...tuples: any[]): ConfigParams;
     /**
-     * Static method that creates a ConfigParams object from a parameterized string.
+     * Creates a new ConfigParams object filled with key-value pairs serialized as a string.
      *
-     * @param line 		configuration parameters in the form of a parameterized string.
+     * @param line 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."
      * 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
-     * @returns			generated ConfigParams.
+     * @returns			a new ConfigParams object.
      *
      * @see [[StringValueMap.fromString]]
      */
     static fromString(line: string): ConfigParams;
     /**
-     * Static method that can merge two or more ConfigParams into one.
+     * Merges two or more ConfigParams into one. The following ConfigParams override
+     * previously defined parameters.
      *
-     * @param configs 	the ConfigParams that are to be merged into one ConfigParams object.
-     * 					The order in which the ConfigParams are passed to this method is important,
-     * 					as it regulates which values to keep in the case of identical complex keys
-     * 					(the ConfigParams passed later/last override the values of other ConfigParams
-     * 					with the same key).
-     * @returns			merged ConfigParams.
+     * @param configs 	a list of ConfigParams objects to be merged.
+     * @returns			a new ConfigParams object.
      *
      * @see [[StringValueMap.fromMaps]]
      */

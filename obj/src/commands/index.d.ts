@@ -1,6 +1,9 @@
 /**
  * @module commands
  * @preferred
+ *
+ * Todo: Rewrite this description.
+ *
  * Contains implementation of Command design patterns, which can be used to implement various remote procedure calls (RPCs).
  * RPCs replace unique calls with universal "message transfer" calls, in which the message itself contains the called method's
  * signature, as well as the parameters to pass for execution.

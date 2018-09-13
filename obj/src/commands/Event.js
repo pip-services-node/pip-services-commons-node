@@ -2,15 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var InvocationException_1 = require("../errors/InvocationException");
 /**
- * Used to receive notifications about command execution results and failures.
- * Events consist of a name and a set of listeners. Listeners are notified whenever
- * the event is raised and can be added or removed as needed. Events can be used for
- * asynchronous method calling.
+ * Concrete implementation of [[IEvent IEvent]] interface.
+ * It allows to send asynchronous notifications to multiple subscribed listeners.
  *
  * @see [[IEvent]]
  * @see [[IEventListener]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * let event = new Event("my_event");
  *
@@ -24,7 +22,7 @@ var InvocationException_1 = require("../errors/InvocationException");
  */
 var Event = /** @class */ (function () {
     /**
-     * Initializes a new event object using the given event name.
+     * Creates a new event and assigns its name.
      *
      * @param name  the name of the event that is to be created.
      * @throws an Error if the name is null.
@@ -35,19 +33,23 @@ var Event = /** @class */ (function () {
         this._name = name;
     }
     /**
+     * Gets the name of the event.
+     *
      * @returns the name of this event.
      */
     Event.prototype.getName = function () {
         return this._name;
     };
     /**
-     * @returns the listeners that are to receive notifications for this event.
+     * Gets all listeners registred in this event.
+     *
+     * @returns a list of listeners.
      */
     Event.prototype.getListeners = function () {
         return this._listeners;
     };
     /**
-     * Adds a listener to receive notifications for this event.
+     * Adds a listener to receive notifications when this event is fired.
      *
      * @param listener the listener reference to add.
      */
@@ -65,8 +67,7 @@ var Event = /** @class */ (function () {
             this._listeners.splice(index, 1);
     };
     /**
-     * Raises this event and notifies the listeners referenced using the correlationId
-     * and [[Parameters parameters]] (arguments) given.
+     * Fires this event and notifies all registred listeners.
      *
      * @param correlationId     optional transaction id to trace calls across components.
      * @param args              the parameters to raise this event with.

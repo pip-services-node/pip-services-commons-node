@@ -20,7 +20,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * @see [[SortField]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  *     public MyMethod () {
  *         let sortParams = new SortParams();

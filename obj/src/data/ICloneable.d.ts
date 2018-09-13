@@ -2,7 +2,7 @@
 /**
  * Interface for data objects that are cloneable.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the ICloneable interface:
  *

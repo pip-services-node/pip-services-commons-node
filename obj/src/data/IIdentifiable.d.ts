@@ -2,7 +2,7 @@
 /**
  * Interface for data objects that can be identified by an id.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the IIdentifiable interface:
  *

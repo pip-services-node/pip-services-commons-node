@@ -3,7 +3,7 @@
  * Paging parameters contain information about how to retrieve
  * data pages from a data source.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example PagingParams object usage:
  *

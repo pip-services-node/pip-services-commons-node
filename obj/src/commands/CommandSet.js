@@ -7,16 +7,18 @@ var ValidationResult_1 = require("../validate/ValidationResult");
 var ValidationResultType_1 = require("../validate/ValidationResultType");
 var IdGenerator_1 = require("../data/IdGenerator");
 /**
- * Defines a set of commands and events supported by a [[ICommandable]] object.
- * The [[CommandSet]] allows to use command interceptors to extend and alter
- * the command execution pipeline.
+ * Contains a set of commands and events supported by a [[ICommandable commandable] object.
+ * The CommandSet supports command interceptors to extend and the command call chain.
+ *
+ * CommandSets can be used as alternative commandable interface to a business object.
+ * It can be used to auto generate multiple external services for the business object
+ * without writing much code.
  *
  * @see [[Command]]
+ * @see [[Event]]
  * @see [[ICommandable]]
  *
- * ### Examples ###
- *
- * Example CommandSet class implementation and usage:
+ * ### Example ###
  *
  * export class MyDataCommandSet extends CommandSet {
  *    private _controller: IMyDataController;
@@ -38,9 +40,6 @@ var IdGenerator_1 = require("../data/IdGenerator");
  *      );
  *    }
  * }
- *
- * @see [[CommandSet]]
- * @see [[Command]]
  */
 var CommandSet = /** @class */ (function () {
     /**
@@ -55,6 +54,7 @@ var CommandSet = /** @class */ (function () {
     }
     /**
      * Gets all commands registered in this command set.
+     *
      * @returns a list of commands.
      *
      * @see [[ICommand]]
@@ -64,6 +64,7 @@ var CommandSet = /** @class */ (function () {
     };
     /**
      * Gets all events registred in this command set.
+     *
      * @returns a list of events.
      *
      * @see [[IEvent]]
@@ -75,7 +76,6 @@ var CommandSet = /** @class */ (function () {
      * Searches for a command by its name.
      *
      * @param commandName the name of the command to search for.
-     *
      * @returns the command, whose name matches the provided name.
      *
      * @see [[ICommand]]
@@ -87,7 +87,6 @@ var CommandSet = /** @class */ (function () {
      * Searches for an event by its name in this command set.
      *
      * @param eventName the name of the event to search for.
-     *
      * @returns the event, whose name matches the provided name.
      *
      * @see [[IEvent]]
@@ -134,7 +133,6 @@ var CommandSet = /** @class */ (function () {
      * Adds an [[IEvent event]] to this command set.
      *
      * @param event the event to add.
-     *
      * @see [[IEvent]]
      */
     CommandSet.prototype.addEvent = function (event) {
@@ -153,8 +151,8 @@ var CommandSet = /** @class */ (function () {
             this.addEvent(events[i]);
     };
     /**
-     * Adds all of the commands and events registered in specified [[CommandSet command set]]
-     * to this one.
+     * Adds all of the commands and events from specified [[CommandSet command set]]
+     * into this one.
      *
      * @param commandSet the CommandSet to add.
      */
@@ -203,7 +201,6 @@ var CommandSet = /** @class */ (function () {
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error (for example: a ValidationException can be thrown).
-     * @throws a [[BadRequestException]] if no command exists with the given name.
      *
      * @see [[ICommand]]
      * @see [[Parameters]]

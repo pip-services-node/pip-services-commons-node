@@ -14,7 +14,7 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * Class that allows for usage of abstract, portable data types. Stores a value in its
  * 'value' field, which can be retrieved in various ways with the help of numerous converters.
  *
- * ### Examples ###
+ * ### Example ###
  *
  *     public MyMethod (value: any) {
  *         let anyValue = new AnyValue(value);

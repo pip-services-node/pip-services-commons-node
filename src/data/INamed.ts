@@ -2,7 +2,7 @@
 /**
  * Interface for data objects that have human-readable names.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  * Example implementation of the INamed interface:
  * 

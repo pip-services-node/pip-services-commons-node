@@ -8,7 +8,7 @@ import { SortField } from './SortField';
  * 
  * @see [[SortField]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  *     public MyMethod () {
  *         let sortParams = new SortParams();

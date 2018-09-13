@@ -7,7 +7,7 @@ var Descriptor_1 = require("./Descriptor");
 /**
  * Helper class for resolving component dependencies.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * A DependencyResolver object can be created and used in the following way:
  *

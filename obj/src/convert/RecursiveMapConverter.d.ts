@@ -1,85 +1,43 @@
 /**
- * Provides methods for converting nested maps using recursion.
+ * Converts arbitrary values into map objects using extended conversion rules.
+ * This class is similar to [[MapConverter]], but is recursively converts all values
+ * stored in objects and arrays.
  *
- * ### Examples ###
+ * ### Example ###
  *
- *     public MyMethod (value: any) {
- *         let map = RecursiveMapConverter.valueToMap(value);
- *         ...
- *
- *         let new_map = RecursiveMapConverter.mapToMap(map);
- *     }
+ * let value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
+ * let value2 = RecursiveMapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
+ * let value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1, { "0": 2, "1": 3 } }
  */
 export declare class RecursiveMapConverter {
-    /**
-     * Recursively converts the object passed into a map using [[valueToMap]].
-     *
-     * @param value the object to recursively convert into a map.
-     *
-     * @see [[valueToMap]]
-     */
     private static objectToMap;
-    /**
-     * Conversion cases:
-     * - if 'value' is null, then null will be returned;
-     * - if 'value' is a string or a primitive type, then it will be returned as is;
-     * - if 'value' is a map, then it will be passed to [[mapToMap]], and the result will be returned;
-     * - if 'value' is an array, then it will be passed to [[arrayToMap]], and the result will be returned;
-     * - otherwise 'value' will be passed to [[objectToMap]], and the result will be returned;
-     *
-     * @param value the value to convert to a map recursively.
-     *
-     * @see [[mapToMap]]
-     * @see [[arrayToMap]]
-     * @see [[objectToMap]]
-     */
     private static valueToMap;
-    /**
-     * Recursively converts the map passed using [[valueToMap]].
-     *
-     * @param value the map to recursively convert.
-     *
-     * @see [[valueToMap]]
-     */
     private static mapToMap;
-    /**
-     * Recursively converts the array passed into a map using [[valueToMap]].
-     *
-     * @param value the array to recursively convert into a map.
-     *
-     * @see [[valueToMap]]
-     */
     private static arrayToMap;
     /**
-     * Static method for recursively converting the value passed to a nullable map using [[valueToMap]].
+     * Converts value into map object or returns null when conversion is not possible.
      *
-     * @param value     the map to recursively convert.
-     * @returns         the converted map or null.
-     *
-     * @see [[valueToMap]]
+     * @param value     the value to convert.
+     * @returns         map object or null when conversion is not supported.
      */
     static toNullableMap(value: any): any;
     /**
-     * Static method for recursively converting the value passed to a map using [[toNullableMap]]
-     * (which uses [[valueToMap]]).
+     * Converts value into map object or returns empty map when conversion is not possible
      *
-     * @param value     the map to recursively convert.
-     * @returns         the converted map or an empty map (if the conversion returns null).
+     * @param value     the value to convert.
+     * @returns         map object or empty map when conversion is not supported.
      *
      * @see [[toNullableMap]]
-     * @see [[valueToMap]]
      */
     static toMap(value: any): any;
     /**
-     * Static method for recursively converting the value passed to a map using [[toNullableMap]]
-     * (which uses [[valueToMap]]).
+     * Converts value into map object or returns default when conversion is not possible
      *
-     * @param value         the map to recursively convert.
-     * @param defaultValue  the value to return if the conversion returns null.
-     * @returns             the converted map or the default value (if the conversion returns null).
+     * @param value         the value to convert.
+     * @param defaultValue  the default value.
+     * @returns             map object or emptu map when conversion is not supported.
      *
      * @see [[toNullableMap]]
-     * @see [[valueToMap]]
      */
     static toMapWithDefault(value: any, defaultValue: any): any;
 }

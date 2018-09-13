@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * by generating values in the range of 'original value' ±'delta/range'. The 'sequence' method allows
  * for variable length integer array generation.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example usage:
  *

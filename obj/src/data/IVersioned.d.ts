@@ -5,7 +5,7 @@
  * strings are higher (bigger) than the previous version string. When generated
  * automatically, the version is represented by a timestamp string.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the IVersioned interface:
  *

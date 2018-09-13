@@ -1,54 +1,36 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Class for [[ICommand commands]] that are intercepted by [[ICommandInterceptor command interceptors]]
- * in an execution chain(*). Intercepted commands are used as pattern decorators in the command design pattern.
- * They are represented as regular commands but run their own logic before calling the actual command.
- *
- * (*)An execution chain consists of [[ICommandInterceptor command interceptors]], through which a given
- * [[ICommand command]] is passed. Each command interceptor runs perpendicular logic (aspects, such as
- * logging, caching, blocking) before (or instead of) actually calling the command.
+ * Implements a [[ICommand command]] wrapped by an interceptor.
+ * It allows to build command call chains. The interceptor can alter execution
+ * and delegate calls to a next command, which can be intercepted or concrete.
  *
  * @see [[ICommand]]
  * @see [[ICommandInterceptor]]
  *
- * ### Examples ###
+ * ### Example ###
  *
- * Example InterceptedCommand class implementation and usage:
+ * export class CommandLogger implements ICommandInterceptor {
  *
- *     export class MyService implements IMyService, ICommandInterceptor
- *     {
- *         constructor() { }
+ *   public getName(command: ICommand): string {
+ *     return command.getName();
+ *   }
  *
- *         private getName(command: ICommand): string {
- *             return command.getName();
- *         }
+ *   public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
+ *     console.log("Executed command " + command.getName());
+ *     command.execute(correlationId, args, callback);
+ *   }
  *
- *         public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
- *             // Execute command here...
- *         }
+ *   private validate(command: ICommand, args: Parameters): ValidationResult[] {
+ *     return command.validate(args);
+ *   }
+ * }
  *
- *         private validate(command: ICommand, args: Parameters): ValidationResult[] {
- *             // Validate arguments here...
- *         }
- *     }
+ * let logger = new CommandLogger();
+ * let loggedCommand = new InterceptedCommand(logger, command);
  *
- *     export class MyService2 implements IMyService2
- *     {
- *         private _interceptedCommand: InterceptedCommand;
- *         private _command: ICommand;
- *         private _myService: IMyService;
+ * // Each called command will output: Executed command <command name>
  *
- *         constructor() {
- *             // Getting or creating _myService
- *             // Getting or creating _command
- *             _interceptedCommand = new InterceptedCommand(_myService, _command);
- *         }
- *
- *         private myFunction(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
- *             _interceptedCommand.execute(correlationId, args, callbak);
- *         }
- *     }
  */
 var InterceptedCommand = /** @class */ (function () {
     /**

@@ -18,7 +18,7 @@ var AnyValueArray_1 = require("./AnyValueArray");
  * Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved
  * in various ways with the help of numerous converters.
  *
- * ### Examples ###
+ * ### Example ###
  *     public MyMethod (values: any[]) {
  *         let map1 = AnyValueMap.fromTuples(
  *             "key1", 123,

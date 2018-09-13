@@ -1,29 +1,31 @@
 /** @module config */
 import { ConfigParams } from './ConfigParams';
 /**
- * Configurable interface that contains the [[configure]] method. If an object
- * needs to be configurable, it can implement this interface and parse the
- * ConfigParams that 'configure' receives as a parameter.
+ * An interface to set configuration parameters to an object.
+ *
+ * It can be added to any existing class by implementing a single Configure() method.
+ *
+ * If you need to emphasis the fact that Configure() method can be called multiple times
+ * to change object configuration in runtime, use [[IReconfigurable]] interface instead.
  *
  * @see [[ConfigParams]]
  *
- * ### Examples ###
+ * ### Example ###
  *
- * Example implementation of the IConfigurable interface:
+ * export class MyClass implements IConfigurable {
+ *    private _myParam: string = "default value";
  *
- *     export class MyClass implements IConfigurable {
- *         let myParam : string = "default value";
- *         public configure(config: ConfigParams) : void  {
- *             myParam = config.getAsStringWithDefault("options.param", myParam);
+ *    public configure(config: ConfigParams): void  {
+ *      this._myParam = config.getAsStringWithDefault("options.param", myParam);
  *             ...
- *         }
- *     }
+ *    }
+ * }
  */
 export interface IConfigurable {
     /**
-     * Abstract method for configuring objects using ConfigParams.
+     * Configures object by passing configuration parameters.
      *
-     * @param config    ConfigParams to use for object configuration.
+     * @param config    configuration parameters to be set.
      */
     configure(config: ConfigParams): void;
 }

@@ -1,7 +1,7 @@
 /**
  * Contains standard design patterns for generating GUIDs.
  *
- * ### Examples ###
+ * ### Example ###
  *
  *     public MyMethod () {
  *        let id1 = IdGenerator.nextShort();

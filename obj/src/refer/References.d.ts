@@ -6,7 +6,7 @@ import { IReferences } from './IReferences';
  *
  * @see [[IReferences]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example container that will contain a reference to a service once created:
  *     export class myContainer {

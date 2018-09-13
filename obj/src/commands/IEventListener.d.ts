@@ -2,48 +2,32 @@
 import { IEvent } from './IEvent';
 import { Parameters } from '../run/Parameters';
 /**
- * Listener for command events.
+ * An interface for listener objects that receive notifications on fired events.
  *
  * @see [[IEvent]]
  * @see [[Event]]
  *
- * ### Examples ###
+ * ### Example ###
  *
- * Example Event class implementation and usage (in combination with the IEventListener interface):
- *
- *     export class MyDataController implements IMyDataController, IEventListener
- *     {
- *         constructor() { ... }
- *
- *         private onEvent(correlationId: string, event: IEvent, args: Parameters): void
- *         {
- *             // Process event here...
- *         }
+ *  export class MyListener implements IEventListener {
+ *     private onEvent(correlationId: string, event: IEvent, args: Parameters): void {
+ *       console.log("Fired event " + event.getName());
  *     }
- *     ...
- *     export class MyService implements IMyService
- *     {
- *         private _controller: IMyDataController;
- *         private IEvent successEvent = new Event("success_on_process");
+ *  }
  *
- *         constructor() {
- *             // Getting or creating of controller
- *             successEvent.addListener(_controller);
- *         }
+ *  let event = new Event("myevent");
+ *  event.addListener(new MyListener());
+ *  event.notify("123", Parameters.fromTuples("param1", "ABC"));
  *
- *         private onSuccess(correlationId: string, args: Parameters)
- *         {
- *             successEvent.notify(correlationId, args || null);
- *         }
- *     }
+ *  // Console output: Fired event myevent
  */
 export interface IEventListener {
     /**
-     * Abstract method that will contain the logic for notifing the occurence of an event.
+     * A method called when events this listener is subscrubed to are fired.
      *
-     * @param event 			event reference.
+     * @param event 			a fired evemt
      * @param correlationId 	optional transaction id to trace calls across components.
-     * @param value 			event arguments.
+     * @param args 			    event arguments.
      */
     onEvent(correlationId: string, event: IEvent, args: Parameters): void;
 }

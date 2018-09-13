@@ -1,6 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module convert */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Codes for the data types that can be
  * converted using [[TypeConverter]].

@@ -7,7 +7,7 @@ import { IIdentifiable } from './IIdentifiable';
  * @see [[IIdentifiable]]
  * @see [[IdGenerator]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the IStringIdentifiable interface:
  *

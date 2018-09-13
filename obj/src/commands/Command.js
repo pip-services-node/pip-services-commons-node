@@ -8,7 +8,7 @@ var InvocationException_1 = require("../errors/InvocationException");
  * Concrete implementation of [[ICommand ICommand]] interface. Command allows to call a method
  * or function using Command pattern.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * let command = new Command("add", null, (correlationId, args, callback) => {
  *     let param1 = args.getAsFloat("param1");
@@ -19,7 +19,7 @@ var InvocationException_1 = require("../errors/InvocationException");
  *
  * command.execute(
  *   "123",
- *   Parameters.fromTyples(
+ *   Parameters.fromTuples(
  *     "param1", 2,
  *     "param2", 2
  *   ),
@@ -29,12 +29,15 @@ var InvocationException_1 = require("../errors/InvocationException");
  *   }
  * );
  *
+ * // Console output: 2 + 2 = 4
+ *
  * @see [[ICommand]]
  * @see [[CommandSet]]
  */
 var Command = /** @class */ (function () {
     /**
-     * Creates a new command object.
+     * Creates a new command object and assigns it's parameters.
+     *
      * @param name      the command name.
      * @param schema    the schema to validate command arguments.
      * @param func      the function to be executed by this command.

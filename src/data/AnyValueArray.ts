@@ -20,7 +20,7 @@ import { AnyValueMap } from './AnyValueMap';
  * Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved 
  * in various ways with the help of numerous converters.
  * 
- * ### Examples ###
+ * ### Example ###
  *     public MyMethod (values: any[]) {
  *         let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
  *         ...

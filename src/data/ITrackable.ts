@@ -6,7 +6,7 @@ import { IChangeable } from './IChangeable';
  * 
  * @see [[IChangeable]]
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  * Example implementation of the ITrackable interface:
  * 

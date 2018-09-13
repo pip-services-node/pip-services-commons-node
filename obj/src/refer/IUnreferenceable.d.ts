@@ -5,7 +5,7 @@
  * @see [[IReferences]]
  * @see [[IReferenceable]]
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example implementation of the IUnreferenceable interface:
  *

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * is the language in which the 'value' is written, and the 'value' is localized string
  * itself.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example MultiString object usage:
  *

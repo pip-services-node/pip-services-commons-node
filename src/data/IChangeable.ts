@@ -2,7 +2,7 @@
 /**
  * Interface for data objects that can track their changes.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  * Example implementation of the IChangeable interface:
  * 

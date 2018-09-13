@@ -12,7 +12,7 @@ import { ConfigException } from '../errors/ConfigException';
  * 
  * <code>*</code> can be used for any of the above sections to indicate 'any'.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
  * A Descriptor object can be created and used in the following way:
  * 

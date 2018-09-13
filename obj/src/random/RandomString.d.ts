@@ -1,7 +1,7 @@
 /**
  * Provides methods that can be used for generating random strings and chars, as well as picking at random strings/chars from a given set of strings/chars.
  *
- * ### Examples ###
+ * ### Example ###
  *
  * Example usage:
  *
