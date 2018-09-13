@@ -3,28 +3,27 @@
 let _ = require('lodash');
 
 /**
- * Provides methods for converting various values to the string data type.
+ * Converts arbitrary values into strings using extended conversion rules:
+ * - Numbers: are converted with '.' as decimal point
+ * - DateTime: using ISO format
+ * - Boolean: "true" for true and "false" for false
+ * - Arrays: as comma-separated list
+ * - Other objects: using toString() method
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     public MyMethod (value: any) {
- *         let stringValue = StringConverter.toString(value);
- *         ...
- *     }
+ * let value1 = StringConverter.ToString(123.456); // Result: "123.456"
+ * let value2 = StringConverter.ToString(true); // Result: "true"
+ * let value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
+ * let value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
  */
 export class StringConverter {
 
     /**
-     * Static method for converting values to nullable strings.
-     * 
-     * Conversion cases:
-     * - if 'value' is null - null will be returned,
-     * - if 'value' is already a string - it will be returned as is,
-     * - if 'value' is a Date - its ISO string will be returned (for example: "2011-10-05T14:48:00.000Z"),
-     * - otherwise - the result of value.toString() will be returned.
+     * Converts value into string or returns null when value is null.
      * 
      * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null, null will be returned.
+     * @returns         string value or null when value is null.
      */
     public static toNullableString(value: any): string {
         if (value == null) return null;
@@ -34,10 +33,10 @@ export class StringConverter {
     }
 
     /**
-     * Static method for converting values to strings using [[toStringWithDefault]]. 
-     * An empty string ("") will be used as the default value for the conversion.
+     * Converts value into string or returns "" when value is null.
      * 
      * @param value     the value to convert.
+     * @returns         string value or "" when value is null.
      * 
      * @see [[toStringWithDefault]]
      */
@@ -46,12 +45,11 @@ export class StringConverter {
     }
 
     /**
-     * Static method for converting values to strings using [[toNullableString]]. 
-     * If null is returned by the conversion, then this method will return the default 
-     * value passed.
+     * Converts value into string or returns default when value is null.
      * 
      * @param value         the value to convert.
-     * @param defaultValue  the default value to return if the conversion returns null.
+     * @param defaultValue  the default value.
+     * @returns             string value or default when value is null.
      * 
      * @see [[toNullableString]]
      */

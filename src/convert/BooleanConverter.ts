@@ -3,31 +3,25 @@
 let _ = require('lodash');
 
 /**
- * Provides methods for converting various values to the boolean data type.
+ * Converts arbitrary values to boolean values using extended conversion rules:
+ * - Numbers: <>0 are true, =0 are false
+ * - Strings: "true", "yes", "T", "Y", "1" are true, "false", "no", "F", "N" are false
+ * - DateTime: <>0 total milliseconds are true, =0 are false
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     public MyMethod (value: any) {
- *         let boolValue = BooleanConverter.toBoolean(value);
- *         ...
- *     }
+ * let value1 = BooleanConverter.toNullableBoolean(true); // true
+ * let value2 = BooleanConverter.toNullableBoolean("yes"); // true
+ * let value3 = BooleanConverter.toNullableBoolean(123); // true
+ * let value4 = BooleanConverter.toNullableBoolean({}); // null
  */
 export class BooleanConverter {
 
     /**
-     * Static method for converting values to nullable booleans.
-     * 
-     * Conversion cases:
-     * - if 'value' is null - null will be returned;
-     * - if 'value' is already a boolean - it will be returned as is;
-     * - if 'value' is a number - 0 is false, all other numbers are true;
-     * - if value.toString().toLowerCase() is comparable to "1", "true", "t", "yes", "y"; 
-     * or "0", "false", "f", "no", "n" - the corresponding boolean value will be returned;
-     * - otherwise - null will be returned.
+     * Converts value into boolean or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null or is not convertible - null 
-     *                  will be returned.
+     * @returns         boolean value or null when convertion is not supported.
      */
     public static toNullableBoolean(value: any): boolean {
         if (value == null) return null;
@@ -46,10 +40,10 @@ export class BooleanConverter {
     }
 
     /**
-     * Static method for converting values to booleans using [[toBooleanWithDefault]]. 
-     * False will be used as the default value for the conversion.
+     * Converts value into boolean or returns false when conversion is not possible.
      * 
      * @param value     the value to convert.
+     * @returns         boolean value or false when conversion is not supported.
      * 
      * @see [[toBooleanWithDefault]]
      */
@@ -58,13 +52,11 @@ export class BooleanConverter {
     }
 
     /**
-     * Static method for converting values to booleans using [[toNullableBoolean]]. 
-     * If null is returned by the conversion, then this method will return the default 
-     * value passed.
+     * Converts value into boolean or returns default value when conversion is not possible
      * 
      * @param value         the value to convert.
-     * @param defaultValue  the default value to return if the conversion returns null.
-     *                      Defaults to false if omitted.
+     * @param defaultValue  the default value
+     * @returns             boolean value or default when conversion is not supported.
      * 
      * @see [[toNullableBoolean]]
      */

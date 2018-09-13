@@ -3,28 +3,22 @@
 let _ = require('lodash');
 
 /**
- * Provides methods for converting various values to arrays.
+ * Converts arbitrary values into array objects.
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     public MyMethod (value: any) {
- *         let array = ArrayConverter.toArray(value);
- *         ...
- *     }
+ * let value1 = ArrayConverter.toArray([1, 2]); // Result: [1, 2]
+ * let value2 = ArrayConverter.toArray(1);		// Result: [1]
+ * let value2 = ArrayConverter.listToArray("1,2,3"); // Result: ["1", "2", "3"]
  */
 export class ArrayConverter {
 
 	/**
-     * Static method for converting values to nullable arrays.
-     * 
-     * Conversion cases:
-     * - if 'value' is null - null will be returned;
-     * - if 'value' is a list - it will be cast to an array and returned;
-     * - if 'value' is an object (map) - its values will be copied to the array that will be returned; 
-     * - otherwise - an array containing 'value' will be returned.
-     * 
-     * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null - null will be returned.
+     * Converts value into array object.
+	 * Single values are converted into arrays with a single element.
+	 * 
+	 * @param value     the value to convert.
+     * @returns         array object or null when value is null.
      */
 	public static toNullableArray(value: any): any[] {
 		// Return null when nothing found
@@ -46,10 +40,11 @@ export class ArrayConverter {
 	}
 
 	/**
-     * Static method for converting values to arrays using [[toNullableArray]]. 
-     * An empty array will be used as the default value for the conversion.
+     * Converts value into array object with empty array as default.
+	 * Single values are converted into arrays with single element.
      * 
      * @param value     the value to convert.
+	 * @returns			array object or empty array when value is null.
      * 
      * @see [[toNullableArray]]
      */
@@ -59,12 +54,12 @@ export class ArrayConverter {
 	}
 
 	/**
-     * Static method for converting values to arrays using [[toNullableArray]]. 
-     * If null is returned by the conversion, then this method will return the default 
-     * value passed.
+     * Converts value into array object with specified default.
+	 * Single values are converted into arrays with single element.
      * 
      * @param value         the value to convert.
-     * @param defaultValue  the default value to return if the conversion returns null.
+     * @param defaultValue  default array object.
+	 * @returns				array object or default array when value is null.
      * 
      * @see [[toNullableArray]]
      */
@@ -74,15 +69,11 @@ export class ArrayConverter {
 	}
 
 	/**
-	 * Static method for converting lists to arrays using [[toArray]].
-	 * 
-	 * Conversion cases:
-	 * - if the list passed as 'value' is null - an empty array will be returned;
-	 * - if the list passed as 'value' is a string - it will be parsed as a set of 
-	 * comma-separated values, which will be returned as an array;
-	 * - otherwise - the result of toArray(value) will be returned.
+	 * Converts value into array object with empty array as default.
+	 * Strings with comma-delimited values are split into array of strings.
 	 * 
 	 * @param value 	the list to convert.
+	 * @returns			array object or empty array when value is null
 	 * 
 	 * @see [[toArray]]
 	 */

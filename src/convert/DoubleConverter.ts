@@ -3,31 +3,25 @@
 let _ = require('lodash');
 
 /**
- * Provides methods for converting various values to the double data type.
+ * Converts arbitrary values into double using extended conversion rules:
+ * - Strings are converted to double values
+ * - DateTime: total number of milliseconds since unix epoсh
+ * - Boolean: 1 for true and 0 for false
  * 
- * ### Examples ###
+ * ### Example ###
  * 
- *     public MyMethod (value: any) {
- *         let doubleValue = DoubleConverter.toDouble(value);
- *         ...
- *     }
+ * let value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
+ * let value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
+ * let value3 = DoubleConverter.toNullableDouble(true); // Result: 1
+ * let value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
  */
 export class DoubleConverter {
 
     /**
-     * Static method for converting values to nullable doubles.
-     * 
-     * Conversion cases:
-     * - if 'value' is null - null will be returned;
-     * - if 'value' is a number - it will be returned as a double;
-     * - if 'value' is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;
-     * - if 'value' is a boolean - true returns 1 and false returns 0; 
-     * - if 'value' is a string - parseFloat(value) will be called, and if the result is a number, then it will be returned; 
-     * - otherwise - null will be returned.
+     * Converts value into doubles or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
-     * @returns         the result of the conversion. If 'value' was null or is not convertible - null 
-     *                  will be returned.
+     * @returns         double value or null when conversion is not supported.
      */
     public static toNullableDouble(value: any): number {
         if (value == null) return null;
@@ -40,10 +34,10 @@ export class DoubleConverter {
     }
 
     /**
-     * Static method for converting values to doubles using [[toDoubleWithDefault]]. 
-     * 0 will be used as the default value for the conversion.
+     * Converts value into doubles or returns 0 when conversion is not possible.
      * 
      * @param value     the value to convert.
+     * @returns         double value or 0 when conversion is not supported.
      * 
      * @see [[toDoubleWithDefault]]
      */
@@ -52,13 +46,11 @@ export class DoubleConverter {
     }
 
     /**
-     * Static method for converting values to doubles using [[toNullableDouble]]. 
-     * If null is returned by the conversion, then this method will return the default 
-     * value passed.
+     * Converts value into integer or returns default value when conversion is not possible.
      * 
      * @param value         the value to convert.
-     * @param defaultValue  the default value to return if the conversion returns null. 
-     *                      Defaults to 0 if omitted.
+     * @param defaultValue  the default value.
+     * @returns             double value or default when conversion is not supported.
      * 
      * @see [[toNullableDouble]]
      */
