@@ -32,7 +32,7 @@ var AnyValueMap_1 = require("./AnyValueMap");
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  *
- * ### Example ###
+ * ### Examples ###
  *
  * Example StringValueMap object usage:
  *

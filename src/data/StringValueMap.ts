@@ -33,7 +33,7 @@ import { AnyValueMap } from './AnyValueMap';
  * @see [[FloatConverter]]
  * @see [[DateTimeConverter]]
  * 
- * ### Example ###
+ * ### Examples ###
  * 
  * Example StringValueMap object usage:
  * 

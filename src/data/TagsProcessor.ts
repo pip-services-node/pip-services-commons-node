@@ -3,7 +3,9 @@
 let _ = require('lodash');
 
 /**
- * Class that provides methods for extracting and processing search tags from objects.
+ * Helper class to extract and process search tags from objects.
+ * The search tags can be kept individually or embedded as hash tags inside text
+ * like "This text has #hash_tag that can be used for search."
  */
 export class TagsProcessor {
     private static NORMALIZE_REGEX = /(_|#)+/g;
@@ -12,7 +14,8 @@ export class TagsProcessor {
     private static HASHTAG_REGEX = /#\w+/g;
 
     /**
-     * Normalize a tag by replacing _ and # with spaces
+     * Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
+     * When tags are normalized then can be presented to user in similar shape and form.
      *
      * @param tag   the tag to normalize.
      * @return      a normalized tag.
@@ -24,7 +27,9 @@ export class TagsProcessor {
     }
 
     /**
-     * Compress a tag by removing spaces, _ and # and converting to lower case
+     * Compress a tag by removing special symbols like spaces, '_' and '#'
+     * and converting the tag to lower case.
+     * When tags are compressed they can be matched in search queries.
      *
      * @param tag   the tag to compress.
      * @return      a compressed tag.
@@ -36,7 +41,7 @@ export class TagsProcessor {
     }
 
     /**
-     * Determines if two tags are equal, based on their length and the characters contained.
+     * Compares two tags using their compressed form.
      *
      * @param tag1  the first tag.
      * @param tag2  the second tag.
@@ -51,20 +56,20 @@ export class TagsProcessor {
     }
 
     /**
-     * Normalizes the tags contained in the passed String array using [[normalizeTag]].
+     * Normalizes a list of tags.
      *
      * @param tags  the tags to normalize.
-     * @return      a String array of normalized tags.
+     * @return      a list with normalized tags.
      */
     public static normalizeTags(tags: string[]): string[] {
         return _.map(tags, (tag) => TagsProcessor.normalizeTag(tag));
     }
 
     /**
-     * Normalizes the tags contained in the passed String using [[normalizeTag]].
+     * Normalizes a comma-separated list of tags.
      *
-     * @param tagList  the list of tags to normalize.
-     * @return      a String array of normalized tags.
+     * @param tagList  a comma-separated list of tags to normalize.
+     * @return      a list with normalized tags.
      */
     public static normalizeTagList(tagList: string): string[] {
         let tags = tagList.split(this.SPLIT_REGEX);
@@ -75,20 +80,20 @@ export class TagsProcessor {
     }
 
     /**
-     * Compresses the tags contained in the passed String using [[compressTag]].
+     * Compresses a list of tags.
      *
      * @param tags  the tags to compress.
-     * @return      a String array of compressed tags.
+     * @return      a list with normalized tags.
      */
     public static compressTags(tags: string[]): string[] {
         return _.map(tags, (tag) => TagsProcessor.compressTag(tag));
     }
 
     /**
-     * Compresses the tags contained in the passed String array using [[compressTag]].
+     * Compresses a comma-separated list of tags.
      *
-     * @param tagList  the tags to compress.
-     * @return      a String array of compressed tags.
+     * @param tagList  a comma-separated list of tags to compress.
+     * @return      a list with compressed tags.
      */
     public static compressTagList(tagList: string): string[] {
         let tags = tagList.split(this.SPLIT_REGEX);
@@ -99,10 +104,10 @@ export class TagsProcessor {
     }
 
     /**
-     * Extracts hash tags from text.
+     * Extracts hash tags from a text.
      *
-     * @param text    text to parse
-     * @return              a String array of compressed tags.
+     * @param text    a text that contains hash tags
+     * @return        a list with extracted and compressed tags.
      */
     public static extractHashTags(text: string): string[] {
         let tags: string[];
@@ -128,12 +133,11 @@ export class TagsProcessor {
     }
 
     /**
-     * Extracts hash tags from a JSON object with the help of user-defined tag search fields.
+     * Extracts hash tags from selected fields in an object.
      *
-     * @param jsonObject    the JSON object to parse.
-     * @param searchFields  the user-defined tag search fields.
-     * @return              a String array of compressed tags, based on the user-defined 
-     *                      tag search fields.
+     * @param obj           an object which contains hash tags.
+     * @param searchFields  a list of fields in the objects where to extract tags
+     * @return              a list of extracted and compressed tags.
      */
     public static extractHashTagsFromValue(obj: any, ...searchFields: string[]): string[] {
         // Todo: Use recursive
