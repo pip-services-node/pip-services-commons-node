@@ -11,15 +11,16 @@ var DateTimeConverter_1 = require("../convert/DateTimeConverter");
 var AnyValueArray_1 = require("./AnyValueArray");
 var AnyValueMap_1 = require("./AnyValueMap");
 /**
- * Class that allows for usage of abstract, portable data types. Stores a value in its
- * 'value' field, which can be retrieved in various ways with the help of numerous converters.
+ * Cross-language implementation of dynamic object what can hold value of any type.
+ * The stored value can be converted to different types using variety of accessor methods.
  *
  * ### Example ###
  *
- *     public MyMethod (value: any) {
- *         let anyValue = new AnyValue(value);
- *         ...
- *     }
+ * let value1 = new AnyValue("123.456");
+ *
+ * value1.getAsInteger();   // Result: 123
+ * value1.getAsString();    // Result: "123.456"
+ * value1.getAsFloat();     // Result: 123.456
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
@@ -33,13 +34,9 @@ var AnyValueMap_1 = require("./AnyValueMap");
  */
 var AnyValue = /** @class */ (function () {
     /**
-     * Creates a new object and sets its 'value' field to the value passed
-     * as a parameter. If 'value' is omitted, it can be set later on using
-     * [[setAsObject]].
+     * Creates a new instance of the object and assigns its value.
      *
-     * @param value     value to store in this object's 'value' field. If this
-     *                  parameter is an instance of AnyValue, its 'value' field will
-     *                  be stored instead.
+     * @param value     (optional) value to initialize this object.
      */
     function AnyValue(value) {
         if (value === void 0) { value = null; }
@@ -49,27 +46,27 @@ var AnyValue = /** @class */ (function () {
             this.value = value;
     }
     /**
-     * Converts this object's 'value' field into a TypeCode object using
-     * [[TypeConverter.toTypeCode]] and returns it.
+     * Gets type code for the value stored in this object.
      *
-     * @returns this object's 'value' field as a TypeCode.
+     * @returns type code of the object value.
      *
      * @see [[TypeConverter.toTypeCode]]
      */
     AnyValue.prototype.getTypeCode = function () {
         return TypeConverter_1.TypeConverter.toTypeCode(this.value);
     };
-    /** @returns this object's 'value' field without any conversions. */
+    /**
+     * Gets the value stored in this object without any conversions
+     *
+     * @returns the object value.
+     */
     AnyValue.prototype.getAsObject = function () {
         return this.value;
     };
     /**
-     * Sets this object's 'value' field. If the given value is an instance of AnyValue,
-     * its 'value' field will be set instead.
+     * Sets a new value for this object
      *
-     * @param value     the value to store in this object's 'value' field. If this
-     *                  parameter is an instance of AnyValue, its 'value' field will
-     *                  be stored instead.
+     * @param value     the new object value.
      */
     AnyValue.prototype.setAsObject = function (value) {
         if (value instanceof AnyValue)
@@ -78,10 +75,9 @@ var AnyValue = /** @class */ (function () {
             this.value = value;
     };
     /**
-     * Converts this object's 'value' field into a nullable string object using
-     * [[StringConverter.toNullableString]] and returns it.
+     * Converts object value into a string or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable string.
+     * @returns string value or null if conversion is not supported.
      *
      * @see [[StringConverter.toNullableString]]
      */
@@ -89,11 +85,9 @@ var AnyValue = /** @class */ (function () {
         return StringConverter_1.StringConverter.toNullableString(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable string object using
-     * [[AnyValue.getAsStringWithDefault]] and returns the converted value
-     * (or null as the default).
+     * Converts object value into a string or returns "" if conversion is not possible.
      *
-     * @returns this object's 'value' field as a string (or null as the default).
+     * @returns string value or "" if conversion is not supported.
      *
      * @see [[getAsStringWithDefault]]
      */
@@ -101,13 +95,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsStringWithDefault(null);
     };
     /**
-     * Converts this object's 'value' field into a defaultable string object using
-     * [[StringConverter.toStringWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a string or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a string or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns string value or default if conversion is not supported.
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -115,10 +106,9 @@ var AnyValue = /** @class */ (function () {
         return StringConverter_1.StringConverter.toStringWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable boolean object using
-     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     * Converts object value into a boolean or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable boolean.
+     * @returns boolean value or null if conversion is not supported.
      *
      * @see [[BooleanConverter.toNullableBoolean]]
      */
@@ -126,11 +116,9 @@ var AnyValue = /** @class */ (function () {
         return BooleanConverter_1.BooleanConverter.toNullableBoolean(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable boolean object using
-     * [[AnyValue.getAsBooleanWithDefault]] and returns the converted value
-     * (or false as the default).
+     * Converts object value into a boolean or returns false if conversion is not possible.
      *
-     * @returns this object's 'value' field as a boolean (or false as the default).
+     * @returns string value or false if conversion is not supported.
      *
      * @see [[getAsBooleanWithDefault]]
      */
@@ -138,13 +126,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsBooleanWithDefault(false);
     };
     /**
-     * Converts this object's 'value' field into a defaultable boolean object using
-     * [[BooleanConverter.toBooleanWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a boolean or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a boolean or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns boolean value or default if conversion is not supported.
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -152,10 +137,9 @@ var AnyValue = /** @class */ (function () {
         return BooleanConverter_1.BooleanConverter.toBooleanWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable integer object using
-     * [[IntegerConverter.toNullableInteger]] and returns it.
+     * Converts object value into an integer or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable integer.
+     * @returns integer value or null if conversion is not supported.
      *
      * @see [[IntegerConverter.toNullableInteger]]
      */
@@ -163,11 +147,9 @@ var AnyValue = /** @class */ (function () {
         return IntegerConverter_1.IntegerConverter.toNullableInteger(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable integer object using
-     * [[AnyValue.getAsIntegerWithDefault]] and returns the converted value
-     * (or 0 as the default).
+     * Converts object value into an integer or returns 0 if conversion is not possible.
      *
-     * @returns this object's 'value' field as an integer (or 0 as the default).
+     * @returns integer value or 0 if conversion is not supported.
      *
      * @see [[getAsIntegerWithDefault]]
      */
@@ -175,13 +157,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsIntegerWithDefault(0);
     };
     /**
-     * Converts this object's 'value' field into a defaultable integer object using
-     * [[IntegerConverter.toIntegerWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a integer or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as an integer or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns integer value or default if conversion is not supported.
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -189,10 +168,9 @@ var AnyValue = /** @class */ (function () {
         return IntegerConverter_1.IntegerConverter.toIntegerWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable long object using
-     * [[LongConverter.toNullableLong]] and returns it.
+     * Converts object value into a long or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable long.
+     * @returns long value or null if conversion is not supported.
      *
      * @see [[LongConverter.toNullableLong]]
      */
@@ -200,11 +178,9 @@ var AnyValue = /** @class */ (function () {
         return LongConverter_1.LongConverter.toNullableLong(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable long object using
-     * [[AnyValue.getAsLongWithDefault]] and returns the converted value
-     * (or 0 as the default).
+     * Converts object value into a long or returns 0 if conversion is not possible.
      *
-     * @returns this object's 'value' field as a long (or 0 as the default).
+     * @returns string value or 0 if conversion is not supported.
      *
      * @see [[getAsLongWithDefault]]
      */
@@ -212,13 +188,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsLongWithDefault(0);
     };
     /**
-     * Converts this object's 'value' field into a defaultable long object using
-     * [[LongConverter.toLongWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a long or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a long or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns long value or default if conversion is not supported.
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -226,10 +199,9 @@ var AnyValue = /** @class */ (function () {
         return LongConverter_1.LongConverter.toLongWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable float object using
-     * [[FloatConverter.toNullableFloat]] and returns it.
+     * Converts object value into a float or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable float.
+     * @returns float value or null if conversion is not supported.
      *
      * @see [[FloatConverter.toNullableFloat]]
      */
@@ -237,11 +209,9 @@ var AnyValue = /** @class */ (function () {
         return FloatConverter_1.FloatConverter.toNullableFloat(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable float object using
-     * [[AnyValue.getAsFloatWithDefault]] and returns the converted value
-     * (or 0 as the default).
+     * Converts object value into a float or returns 0 if conversion is not possible.
      *
-     * @returns this object's 'value' field as a float (or 0 as the default).
+     * @returns float value or 0 if conversion is not supported.
      *
      * @see [[getAsFloatWithDefault]]
      */
@@ -249,13 +219,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsFloatWithDefault(0);
     };
     /**
-     * Converts this object's 'value' field into a defaultable float object using
-     * [[FloatConverter.toFloatWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a float or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a float or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns float value or default if conversion is not supported.
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -263,10 +230,9 @@ var AnyValue = /** @class */ (function () {
         return FloatConverter_1.FloatConverter.toFloatWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable double object using
-     * [[DoubleConverter.toNullableDouble]] and returns it.
+     * Converts object value into a double or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable double.
+     * @returns double value or null if conversion is not supported.
      *
      * @see [[DoubleConverter.toNullableDouble]]
      */
@@ -274,11 +240,9 @@ var AnyValue = /** @class */ (function () {
         return DoubleConverter_1.DoubleConverter.toNullableDouble(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable double object using
-     * [[AnyValue.getAsDoubleWithDefault]] and returns the converted value
-     * (or 0 as the default).
+     * Converts object value into a double or returns 0 if conversion is not possible.
      *
-     * @returns this object's 'value' field as a double (or 0 as the default).
+     * @returns double value or 0 if conversion is not supported.
      *
      * @see [[getAsDoubleWithDefault]]
      */
@@ -286,13 +250,10 @@ var AnyValue = /** @class */ (function () {
         return this.getAsDoubleWithDefault(0);
     };
     /**
-     * Converts this object's 'value' field into a defaultable double object using
-     * [[DoubleConverter.toDoubleWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a double or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a double or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns double value or default if conversion is not supported.
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -300,10 +261,9 @@ var AnyValue = /** @class */ (function () {
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable Datetime object using
-     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     * Converts object value into a Date or returns null if conversion is not possible.
      *
-     * @returns this object's 'value' field as a nullable Datetime.
+     * @returns Date value or null if conversion is not supported.
      *
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -311,25 +271,20 @@ var AnyValue = /** @class */ (function () {
         return DateTimeConverter_1.DateTimeConverter.toNullableDateTime(this.value);
     };
     /**
-     * Converts this object's 'value' field into a defaultable Datetime object using
-     * [[AnyValue.getAsDateTimeWithDefault]] and returns the converted value
-     * (or null as the default).
+     * Converts object value into a Date or returns current date if conversion is not possible.
      *
-     * @returns this object's 'value' field as a Datetime (or null as the default).
+     * @returns Date value or current date if conversion is not supported.
      *
      * @see [[getAsDateTimeWithDefault]]
      */
     AnyValue.prototype.getAsDateTime = function () {
-        return this.getAsDateTimeWithDefault(null);
+        return this.getAsDateTimeWithDefault(new Date());
     };
     /**
-     * Converts this object's 'value' field into a defaultable Datetime object using
-     * [[DateTimeConverter.toDateTimeWithDefault]] and returns the converted value
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a Date or returns default value if conversion is not possible.
      *
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a Datetime or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns Date value or default if conversion is not supported.
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -337,11 +292,11 @@ var AnyValue = /** @class */ (function () {
         return DateTimeConverter_1.DateTimeConverter.toDateTimeWithDefault(this.value, defaultValue);
     };
     /**
-     * Converts this object's 'value' field into a nullable object of type 'type' using
-     * [[TypeConverter.toNullableType]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns null.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
-     * @returns this object's 'value' field as a nullable object of type 'type'.
+     * @param type      the TypeCode that defined the type of the result
+     * @returns value defined by the typecode or null if conversion is not supported.
      *
      * @see [[TypeConverter.toNullableType]]
      */
@@ -349,35 +304,34 @@ var AnyValue = /** @class */ (function () {
         return TypeConverter_1.TypeConverter.toNullableType(type, this.value);
     };
     /**
-     * Converts this object's 'value' field into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns default value for the specified type.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
-     * @returns this object's 'value' field as an object of type 'type' (or null as the default).
+     * @param typeCode    the TypeCode that defined the type of the result
+     * @returns value defined by the typecode or type default value if conversion is not supported.
      *
      * @see [[getAsTypeWithDefault]]
      */
-    AnyValue.prototype.getAsType = function (type) {
-        return this.getAsTypeWithDefault(type, null);
+    AnyValue.prototype.getAsType = function (typeCode) {
+        return this.getAsTypeWithDefault(typeCode, null);
     };
     /**
-     * Converts this object's 'value' field into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns default value.
      *
-     * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as an object of type 'type' or the defaultValue,
-     *                          if conversion is not possible.
+     * @param typeCode      the TypeCode that defined the type of the result
+     * @param defaultValue  the default value
+     * @returns value defined by the typecode or type default value if conversion is not supported.
      *
      * @see [[TypeConverter.toTypeWithDefault]]
      */
-    AnyValue.prototype.getAsTypeWithDefault = function (type, defaultValue) {
-        return TypeConverter_1.TypeConverter.toTypeWithDefault(type, this.value, defaultValue);
+    AnyValue.prototype.getAsTypeWithDefault = function (typeCode, defaultValue) {
+        return TypeConverter_1.TypeConverter.toTypeWithDefault(typeCode, this.value, defaultValue);
     };
     /**
-     * Returns this object's 'value' field as an AnyValueArray.
+     * Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.
      *
-     * @returns this object's 'value' field as an AnyValueArray.
+     * @returns AnyArray value or empty AnyArray if conversion is not supported.
      *
      * @see [[AnyValueArray.fromValue]]
      */
@@ -385,9 +339,9 @@ var AnyValue = /** @class */ (function () {
         return AnyValueArray_1.AnyValueArray.fromValue(this.value);
     };
     /**
-     * Returns this object's 'value' field as an AnyValueMap.
+     * Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.
      *
-     * @returns this object's 'value' field as an AnyValueMap.
+     * @returns AnyMap value or empty AnyMap if conversion is not supported.
      *
      * @see [[AnyValueMap.fromValue]]
      */
@@ -395,13 +349,12 @@ var AnyValue = /** @class */ (function () {
         return AnyValueMap_1.AnyValueMap.fromValue(this.value);
     };
     /**
-     * Checks whether or not the parameter passed as 'obj' is equal to this object's
-     * 'value' field.
+     * Compares this object value to specified specified value.
+     * When direct comparison gives negative results it tries
+     * to compare values as strings.
      *
-     * @param obj   the object to check against this object's 'value' field. If 'obj'
-     *              is an instance of AnyValue, its 'value' field will be used.
-     * @returns     whether or not this object's 'value' field and 'obj' are equal.
-     *              If both items are null, true will be returned.
+     * @param obj   the value to be compared with.
+     * @returns     true when objects are equal and false otherwise.
      */
     AnyValue.prototype.equals = function (obj) {
         if (obj == null && this.value == null)
@@ -419,17 +372,12 @@ var AnyValue = /** @class */ (function () {
         return strThisValue == strValue;
     };
     /**
-     * Checks whether or not the parameter passed as 'obj' is equal to this object's
-     * 'value' field after both are converted to the type passed as 'type' using
-     * [[TypeConverter.toType]].
+     * Compares this object value to specified specified value.
+     * When direct comparison gives negative results it converts
+     * values to type specified by type code and compare them again.
      *
-     * @param type  the TypeCode to use in TypeConverter.toType<T>(TypeCode, value).
-     * @param obj   the object to check against this object's 'value' field after
-     *              conversion. If 'obj' is an instance of AnyValue, then its 'value'
-     *              field will be used.
-     * @returns     whether or not this object's 'value' field and 'obj' are equal
-     *              as objects of type 'type'. If both items (or their converted versions)
-     *              are null, true will be returned.
+     * @param obj   the value to be compared with.
+     * @returns     true when objects are equal and false otherwise.
      *
      * @see [[TypeConverter.toType]]
      */
@@ -448,19 +396,29 @@ var AnyValue = /** @class */ (function () {
             return false;
         return typedThisValue == typedValue;
     };
-    /** @returns a clone of this object. */
+    /**
+     * Creates a binary clone of this object.
+     *
+     * @returns a clone of this object.
+     */
     AnyValue.prototype.clone = function () {
         return new AnyValue(this.value);
     };
     /**
-     * @returns this object's 'value' field as a string value using [[StringConverter.toString]].
+     * Gets a string representation of the object.
+     *
+     * @returns a string representation of the object.
      *
      * @see [[StringConverter.toString]]
      */
     AnyValue.prototype.toString = function () {
         return StringConverter_1.StringConverter.toString(this.value);
     };
-    /** @returns the hash code of this object's 'value' field. 0 is returned if the 'value' field is null. */
+    /**
+     * Gets an object hash code which can be used to optimize storing and searching.
+     *
+     * @returns an object hash code.
+     */
     AnyValue.prototype.hashCode = function () {
         return this.value != null ? this.value.hashCode() : 0;
     };

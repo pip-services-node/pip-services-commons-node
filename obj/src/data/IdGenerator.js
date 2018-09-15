@@ -10,22 +10,28 @@ for (var i = 0; i < 256; i++) {
     byteToHex[i] = (i + 0x100).toString(16).substr(1);
 }
 /**
- * Contains standard design patterns for generating GUIDs.
+ * Helper class to generate unique object IDs.
+ * It supports two types of IDs: long and short.
+ *
+ * Long IDs are string GUIDs. They are globally unique and 32-character long.
+ *
+ * ShortIDs are just 9-digit random numbers. They are not guaranteed be unique.
  *
  * ### Example ###
  *
- *     public MyMethod () {
- *        let id1 = IdGenerator.nextShort();
- *        ...
+ * IdGenerator.nextLong();      // Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
+ * IdGenerator.nextShort();     // Possible result: "23495247"
  *
- *        let id2 = IdGenerator.nextLong();
- *     }
  */
 var IdGenerator = /** @class */ (function () {
     function IdGenerator() {
     }
     /**
-     * Generates a new short (9-digit number) id using Math.random().
+     * Generates a random 9-digit random ID (code).
+     *
+     * Remember: The returned value is not guaranteed to be unique.
+     *
+     * @returns a generated random 9-digit code
      */
     IdGenerator.nextShort = function () {
         return Math.ceil(100000000 + Math.random() * 899999999).toString();
@@ -41,7 +47,10 @@ var IdGenerator = /** @class */ (function () {
             + byteToHex[buffer[14]] + byteToHex[buffer[15]];
     };
     /**
-     * Generates a new long (16-digit hex) id using UUID.
+     * Generates a globally unique 32-digit object ID.
+     * The value is a string representation of a GUID value.
+     *
+     * @returns a generated 32-digit object ID
      */
     IdGenerator.nextLong = function () {
         var buffer = new Array(16);

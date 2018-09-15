@@ -15,20 +15,17 @@ var MapConverter_1 = require("../convert/MapConverter");
 var AnyValue_1 = require("./AnyValue");
 var AnyValueArray_1 = require("./AnyValueArray");
 /**
- * Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved
- * in various ways with the help of numerous converters.
+ * Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
+ * The stored values can be converted to different types using variety of accessor methods.
  *
  * ### Example ###
- *     public MyMethod (values: any[]) {
- *         let map1 = AnyValueMap.fromTuples(
- *             "key1", 123,
- *             "key2", "ABC"
- *         );
- *         ...
  *
- *         let map2 = new AnyValueMap(values);
- *         ...
- *     }
+ * let value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" });
+ *
+ * value1.getAsBoolean("key1");   // Result: true
+ * value1.getAsInteger("key2");   // Result: 123
+ * value1.getAsFloat("key2");     // Result: 123.456
+ * value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
@@ -42,29 +39,27 @@ var AnyValueArray_1 = require("./AnyValueArray");
  */
 var AnyValueMap = /** @class */ (function () {
     /**
-     * Creates a new object and sets its values to the 'values' passed
-     * as a parameter. If 'values' are omitted, they can be set later on using
-     * [[setAsObject]] or [[append]].
+     * Creates a new instance of the map and assigns its value.
      *
-     * @param values    the values to store in this AnyValueMap.
+     * @param value     (optional) values to initialize this map.
      */
     function AnyValueMap(values) {
         if (values === void 0) { values = null; }
         this.append(values);
     }
     /**
-     * Returns the item stored by the given key.
+     * Gets a map element specified by its key.
      *
-     * @param key       key of the item to retrieve from this AnyValueMap.
-     * @returns         the item stored by the given key.
+     * @param key     a key of the element to get.
+     * @returns       the value of the map element.
      */
     AnyValueMap.prototype.get = function (key) {
         return this[key] || null;
     };
     /**
-     * Returns this AnyValueMap's keyset as a list of strings.
+     * Gets keys of all elements stored in this map.
      *
-     * @returns all of the keys that are contained in this AnyValueMap as a list of strings.
+     * @returns a list with all map keys.
      */
     AnyValueMap.prototype.getKeys = function () {
         var keys = [];
@@ -76,26 +71,26 @@ var AnyValueMap = /** @class */ (function () {
         return keys;
     };
     /**
-     * Puts a value into this AnyValueMap by the given key.
+     * Puts a new value into map element specified by its key.
      *
-     * @param key       the key by which to insert the given value.
-     * @param value     the value to insert into this AnyValueMap by the given key.
+     * @param key       a key of the element to put.
+     * @param value     a new value for map element.
      */
     AnyValueMap.prototype.put = function (key, value) {
         this[key] = value;
     };
     /**
-     * Removes an item by its key from this AnyValueMap.
+     * Removes a map element specified by its key
      *
-     * @param key       key of the item to remove.
+     * @param key     a key of the element to remove.
      */
     AnyValueMap.prototype.remove = function (key) {
         delete this[key];
     };
     /**
-     * Appends a map of items to this AnyValueMap.
+     * Appends new elements to this map.
      *
-     * @param map   the map of items to append to this AnyValueMap.
+     * @param map  a map with elements to be added.
      */
     AnyValueMap.prototype.append = function (map) {
         if (map == null)
@@ -106,7 +101,9 @@ var AnyValueMap = /** @class */ (function () {
                 this[key] = value;
         }
     };
-    /** Removes all values from this AnyValueMap. */
+    /**
+     * Clears this map by removing all its elements.
+     */
     AnyValueMap.prototype.clear = function () {
         for (var key in this) {
             var value = this[key];
@@ -114,11 +111,10 @@ var AnyValueMap = /** @class */ (function () {
                 delete this[key];
         }
     };
-    //TODO: key-value "mappings" or "pairs"?
     /**
-     * Returns the number of key-value mappings present in this map.
+     * Gets a number of elements stored in this map.
      *
-     * @returns the number of key-value pairs stored in this AnyValueMap.
+     * @returns the number of elements in this map.
      */
     AnyValueMap.prototype.length = function () {
         var count = 0;
@@ -130,9 +126,11 @@ var AnyValueMap = /** @class */ (function () {
         return count;
     };
     /**
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key without any conversions or
-     *                  all items (if 'key' is undefined or omitted).
+     * Gets the value stored in map element without any conversions.
+     * When element key is not defined it returns the entire map value.
+     *
+     * @param key       (optional) a key of the element to get
+     * @returns the element value or value of the map when index is not defined.
      */
     AnyValueMap.prototype.getAsObject = function (key) {
         if (key === void 0) { key = undefined; }
@@ -150,11 +148,12 @@ var AnyValueMap = /** @class */ (function () {
         }
     };
     /**
-     * @param key       the key by which to set the 'value' passed.
-     * @param value     the value to set in this AnyValueMap at the given 'key'.
-     *                  If 'key' is omitted, then this AnyValueMap will be set (cleared and
-     *                  filled anew) using 'value'. In this case 'value' will be converted to
-     *                  a map using "MapConverter.toMap(value)" and set to this AnyValueMap.
+     * Sets a new value to map element specified by its index.
+     * When the index is not defined, it resets the entire map value.
+     * This method has double purpose because method overrides are not supported in JavaScript.
+     *
+     * @param key       (optional) a key of the element to set
+     * @param value     a new element or map value.
      *
      * @see [[MapConverter.toMap]]
      */
@@ -171,11 +170,10 @@ var AnyValueMap = /** @class */ (function () {
         }
     };
     /**
-     * Converts the item at the given key into a nullable string object using
-     * [[StringConverter.toNullableString]] and returns it.
+     * Converts map element into a string or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable string.
+     * @param key       a key of element to get.
+     * @returns string value of the element or null if conversion is not supported.
      *
      * @see [[StringConverter.toNullableString]]
      */
@@ -184,11 +182,10 @@ var AnyValueMap = /** @class */ (function () {
         return StringConverter_1.StringConverter.toNullableString(value);
     };
     /**
-     * Converts the item at the given key into a defaultable string object using
-     * [[AnyValueMap.getAsStringWithDefault]] and returns it.
+     * Converts map element into a string or returns "" if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a string (or null as the default).
+     * @param key       a key of element to get.
+     * @returns string value of the element or "" if conversion is not supported.
      *
      * @see [[getAsStringWithDefault]]
      */
@@ -196,13 +193,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsStringWithDefault(key, null);
     };
     /**
-     * Converts the item at the given key into a defaultable string object using
-     * [[StringConverter.toStringWithDefault]] and returns it.
+     * Converts map element into a string or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a string or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns string value of the element or default value if conversion is not supported.
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -211,11 +206,10 @@ var AnyValueMap = /** @class */ (function () {
         return StringConverter_1.StringConverter.toStringWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable boolean object using
-     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     * Converts map element into a boolean or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable boolean.
+     * @param key       a key of element to get.
+     * @returns boolean value of the element or null if conversion is not supported.
      *
      * @see [[BooleanConverter.toNullableBoolean]]
      */
@@ -224,11 +218,10 @@ var AnyValueMap = /** @class */ (function () {
         return BooleanConverter_1.BooleanConverter.toNullableBoolean(value);
     };
     /**
-     * Converts the item at the given key into a defaultable boolean object using
-     * [[AnyValueMap.getAsBooleanWithDefault]] and returns it.
+     * Converts map element into a boolean or returns false if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a boolean (or false as the default).
+     * @param key       a key of element to get.
+     * @returns boolean value of the element or false if conversion is not supported.
      *
      * @see [[getAsBooleanWithDefault]]
      */
@@ -236,13 +229,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsBooleanWithDefault(key, false);
     };
     /**
-     * Converts the item at the given key into a defaultable boolean object using
-     * [[BooleanConverter.toBooleanWithDefault]] and returns it.
+     * Converts map element into a boolean or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a boolean or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns boolean value of the element or default value if conversion is not supported.
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -251,11 +242,10 @@ var AnyValueMap = /** @class */ (function () {
         return BooleanConverter_1.BooleanConverter.toBooleanWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable integer object using
-     * [[IntegerConverter.toNullableInteger]] and returns it.
+     * Converts map element into an integer or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable integer.
+     * @param key       a key of element to get.
+     * @returns integer value of the element or null if conversion is not supported.
      *
      * @see [[IntegerConverter.toNullableInteger]]
      */
@@ -264,11 +254,10 @@ var AnyValueMap = /** @class */ (function () {
         return IntegerConverter_1.IntegerConverter.toNullableInteger(value);
     };
     /**
-     * Converts the item at the given key into a defaultable integer object using
-     * [[AnyValueMap.getAsIntegerWithDefault]] and returns it.
+     * Converts map element into an integer or returns 0 if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as an integer (or 0 as the default).
+     * @param key       a key of element to get.
+     * @returns integer value of the element or 0 if conversion is not supported.
      *
      * @see [[getAsIntegerWithDefault]]
      */
@@ -276,13 +265,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsIntegerWithDefault(key, 0);
     };
     /**
-     * Converts the item at the given key into a defaultable integer object using
-     * [[IntegerConverter.toIntegerWithDefault]] and returns it.
+     * Converts map element into an integer or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as an integer or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns integer value of the element or default value if conversion is not supported.
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -291,11 +278,10 @@ var AnyValueMap = /** @class */ (function () {
         return IntegerConverter_1.IntegerConverter.toIntegerWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable long object using
-     * [[LongConverter.toNullableLong]] and returns it.
+     * Converts map element into a long or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable long.
+     * @param key       a key of element to get.
+     * @returns long value of the element or null if conversion is not supported.
      *
      * @see [[LongConverter.toNullableLong]]
      */
@@ -304,11 +290,10 @@ var AnyValueMap = /** @class */ (function () {
         return LongConverter_1.LongConverter.toNullableLong(value);
     };
     /**
-     * Converts the item at the given key into a defaultable long object using
-     * [[AnyValueMap.getAsLongWithDefault]] and returns it.
+     * Converts map element into a long or returns 0 if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a long (or 0 as the default).
+     * @param key       a key of element to get.
+     * @returns long value of the element or 0 if conversion is not supported.
      *
      * @see [[getAsLongWithDefault]]
      */
@@ -316,13 +301,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsLongWithDefault(key, 0);
     };
     /**
-     * Converts the item at the given key into a defaultable long object using
-     * [[LongConverter.toLongWithDefault]] and returns it.
+     * Converts map element into a long or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a long or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns long value of the element or default value if conversion is not supported.
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -331,11 +314,10 @@ var AnyValueMap = /** @class */ (function () {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable float object using
-     * [[FloatConverter.toNullableFloat]] and returns it.
+     * Converts map element into a float or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable float.
+     * @param key       a key of element to get.
+     * @returns float value of the element or null if conversion is not supported.
      *
      * @see [[FloatConverter.toNullableFloat]]
      */
@@ -344,11 +326,10 @@ var AnyValueMap = /** @class */ (function () {
         return FloatConverter_1.FloatConverter.toNullableFloat(value);
     };
     /**
-     * Converts the item at the given key into a defaultable float object using
-     * [[AnyValueMap.getAsFloatWithDefault]] and returns it.
+     * Converts map element into a float or returns 0 if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a float (or 0 as the default).
+     * @param key       a key of element to get.
+     * @returns float value of the element or 0 if conversion is not supported.
      *
      * @see [[getAsFloatWithDefault]]
      */
@@ -356,13 +337,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsFloatWithDefault(key, 0);
     };
     /**
-     * Converts the item at the given key into a defaultable float object using
-     * [[FloatConverter.toFloatWithDefault]] and returns it.
+     * Converts map element into a flot or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a float or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns flot value of the element or default value if conversion is not supported.
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -371,11 +350,10 @@ var AnyValueMap = /** @class */ (function () {
         return FloatConverter_1.FloatConverter.toFloatWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable double object using
-     * [[DoubleConverter.toNullableDouble]] and returns it.
+     * Converts map element into a double or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable double.
+     * @param key       a key of element to get.
+     * @returns double value of the element or null if conversion is not supported.
      *
      * @see [[DoubleConverter.toNullableDouble]]
      */
@@ -384,11 +362,10 @@ var AnyValueMap = /** @class */ (function () {
         return DoubleConverter_1.DoubleConverter.toNullableDouble(value);
     };
     /**
-     * Converts the item at the given key into a defaultable double object using
-     * [[AnyValueMap.getAsDoubleWithDefault]] and returns it.
+     * Converts map element into a double or returns 0 if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a double (or 0 as the default).
+     * @param key       a key of element to get.
+     * @returns double value of the element or 0 if conversion is not supported.
      *
      * @see [[getAsDoubleWithDefault]]
      */
@@ -396,13 +373,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsDoubleWithDefault(key, 0);
     };
     /**
-     * Converts the item at the given key into a defaultable double object using
-     * [[DoubleConverter.toDoubleWithDefault]] and returns it.
+     * Converts map element into a double or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a double or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns double value of the element or default value if conversion is not supported.
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -411,11 +386,10 @@ var AnyValueMap = /** @class */ (function () {
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable Datetime object using
-     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     * Converts map element into a Date or returns null if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a nullable Datetime.
+     * @param key       a key of element to get.
+     * @returns Date value of the element or null if conversion is not supported.
      *
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -424,11 +398,10 @@ var AnyValueMap = /** @class */ (function () {
         return DateTimeConverter_1.DateTimeConverter.toNullableDateTime(value);
     };
     /**
-     * Converts the item at the given key into a defaultable Datetime object using
-     * [[AnyValueMap.getAsDateTimeWithDefault]] and returns it.
+     * Converts map element into a Date or returns the current date if conversion is not possible.
      *
-     * @param key   key of the item to retrieve.
-     * @returns     the item at the given key as a Datetime (or null as the default).
+     * @param key       a key of element to get.
+     * @returns Date value of the element or the current date if conversion is not supported.
      *
      * @see [[getAsDateTimeWithDefault]]
      */
@@ -436,13 +409,11 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsDateTimeWithDefault(key, null);
     };
     /**
-     * Converts the item at the given key into a defaultable Datetime object using
-     * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
+     * Converts map element into a Date or returns default value if conversion is not possible.
      *
-     * @param key               key of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as a Datetime or the
-     *                          defaultValue (if conversion is not possible).
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns Date value of the element or default value if conversion is not supported.
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -451,12 +422,12 @@ var AnyValueMap = /** @class */ (function () {
         return DateTimeConverter_1.DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given key into a nullable object of type 'type' using
-     * [[TypeConverter.toNullableType]] and returns it.
+     * Converts map element into a value defined by specied typecode.
+     * If conversion is not possible it returns null.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as a nullable object of type 'type'.
+     * @param type      the TypeCode that defined the type of the result
+     * @param key       a key of element to get.
+     * @returns element value defined by the typecode or null if conversion is not supported.
      *
      * @see [[TypeConverter.toNullableType]]
      */
@@ -465,12 +436,12 @@ var AnyValueMap = /** @class */ (function () {
         return TypeConverter_1.TypeConverter.toNullableType(type, value);
     };
     /**
-     * Converts the item at the given key into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts map element into a value defined by specied typecode.
+     * If conversion is not possible it returns default value for the specified type.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as an object of type 'type' (or null as the default).
+     * @param type      the TypeCode that defined the type of the result
+     * @param key       a key of element to get.
+     * @returns element value defined by the typecode or default if conversion is not supported.
      *
      * @see [[getAsTypeWithDefault]]
      */
@@ -478,13 +449,13 @@ var AnyValueMap = /** @class */ (function () {
         return this.getAsTypeWithDefault(type, key, null);
     };
     /**
-     * Converts the item at the given key into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts map element into a value defined by specied typecode.
+     * If conversion is not possible it returns default value.
      *
-     * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given key as an object of type 'type' or the defaultValue,
-     *                          if conversion is not possible.
+     * @param type          the TypeCode that defined the type of the result
+     * @param key       a key of element to get.
+     * @param defaultValue  the default value
+     * @returns element value defined by the typecode or default value if conversion is not supported.
      *
      * @see [[TypeConverter.toTypeWithDefault]]
      */
@@ -493,10 +464,10 @@ var AnyValueMap = /** @class */ (function () {
         return TypeConverter_1.TypeConverter.toTypeWithDefault(type, value, defaultValue);
     };
     /**
-     * Returns the item at the given key as an AnyValue object.
+     * Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      *
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as an AnyValue object.
+     * @param key       a key of element to get.
+     * @returns AnyValue value of the element or empty AnyValue if conversion is not supported.
      *
      * @see [[AnyValue]]
      * @see [[AnyValue.constructor]]
@@ -506,11 +477,10 @@ var AnyValueMap = /** @class */ (function () {
         return new AnyValue_1.AnyValue(value);
     };
     /**
-     * Returns the item at the given key as a nullable AnyValueArray object.
+     * Converts map element into an AnyValueArray or returns null if conversion is not possible.
      *
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as a nullable AnyValueArray object (returns
-     *                  null if the item at the given key is null).
+     * @param key       a key of element to get.
+     * @returns AnyValueArray value of the element or null if conversion is not supported.
      *
      * @see [[AnyValueArray]]
      * @see [[AnyValueArray.fromValue]]
@@ -520,10 +490,10 @@ var AnyValueMap = /** @class */ (function () {
         return value != null ? AnyValueArray_1.AnyValueArray.fromValue(value) : null;
     };
     /**
-     * Returns the item at the given key as an AnyValueArray object.
+     * Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      *
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as an AnyValueArray object.
+     * @param key       a key of element to get.
+     * @returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
      *
      * @see [[AnyValueArray]]
      * @see [[AnyValueArray.fromValue]]
@@ -533,14 +503,11 @@ var AnyValueMap = /** @class */ (function () {
         return AnyValueArray_1.AnyValueArray.fromValue(value);
     };
     /**
-     * Returns the item at the given key as an AnyValueArray object
-     * (or 'defaultValue' if conversion is not possible).
+     * Converts map element into an AnyValueArray or returns default value if conversion is not possible.
      *
-     * @param key           key of the item to retrieve.
-     * @param defaultValue  value to use if the item at the given key cannot be converted
-     *                      into an AnyValueArray.
-     * @returns             the item at the given key as an AnyValueArray object or 'defaultValue'
-     *                      (if conversion is not possible).
+     * @param key       a key of element to get.
+     * @param defaultValue  the default value
+     * @returns AnyValueArray value of the element or default value if conversion is not supported.
      *
      * @see [[AnyValueArray]]
      * @see [[getAsNullableArray]]
@@ -550,11 +517,10 @@ var AnyValueMap = /** @class */ (function () {
         return result != null ? result : defaultValue;
     };
     /**
-     * Returns the item at the given key as a nullable AnyValueMap object.
+     * Converts map element into an AnyValueMap or returns null if conversion is not possible.
      *
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as a nullable AnyValueMap object (returns
-     *                  null if the item at the given key is null).
+     * @param key       a key of element to get.
+     * @returns AnyValueMap value of the element or null if conversion is not supported.
      *
      * @see [[fromValue]]
      */
@@ -563,10 +529,10 @@ var AnyValueMap = /** @class */ (function () {
         return value != null ? AnyValueMap.fromValue(value) : null;
     };
     /**
-     * Returns the item at the given key as an AnyValueMap object.
+     * Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      *
-     * @param key       key of the item to retrieve.
-     * @returns         the item at the given key as an AnyValueMap object.
+     * @param key       a key of element to get.
+     * @returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
      *
      * @see [[fromValue]]
      */
@@ -575,14 +541,11 @@ var AnyValueMap = /** @class */ (function () {
         return AnyValueMap.fromValue(value);
     };
     /**
-     * Returns the item at the given key as an AnyValueMap object
-     * (or 'defaultValue' if conversion is not possible).
+     * Converts map element into an AnyValueMap or returns default value if conversion is not possible.
      *
-     * @param key           key of the item to retrieve.
-     * @param defaultValue  value to use if the item at the given key cannot be converted
-     *                      into an AnyValueMap.
-     * @returns             the item at the given key as an AnyValueMap object or 'defaultValue'
-     *                      (if conversion is not possible).
+     * @param key       a key of element to get.
+     * @param defaultValue  the default value
+     * @returns AnyValueMap value of the element or default value if conversion is not supported.
      *
      * @see [[getAsNullableMap]]
      */
@@ -591,9 +554,11 @@ var AnyValueMap = /** @class */ (function () {
         return result != null ? result : defaultValue;
     };
     /**
-     * @returns this AnyValueMap as a semicolon-separated values string.
+     * Gets a string representation of the object.
+     * The result is a semicolon-separated list of key-value pairs as
+     * "key1=value1;key2=value2;key=value3"
      *
-     * Example: "key1=value1;key2;key3=value3".
+     * @returns a string representation of the object.
      */
     AnyValueMap.prototype.toString = function () {
         var builder = '';
@@ -611,15 +576,19 @@ var AnyValueMap = /** @class */ (function () {
         }
         return builder;
     };
-    /** @returns a clone of this object. */
+    /**
+     * Creates a binary clone of this object.
+     *
+     * @returns a clone of this object.
+     */
     AnyValueMap.prototype.clone = function () {
         return new AnyValueMap(this);
     };
     /**
-     * Static method for creating an AnyValueMap from a value using [[setAsObject]].
+     * Converts specified value into AnyValueMap.
      *
-     * @param value     the value to set in the new AnyValueMap.
-     * @returns         the AnyValueMap that was created and set to 'value'.
+     * @param value     value to be converted
+     * @returns         a newly created AnyValueMap.
      *
      * @see [[setAsObject]]
      */
@@ -629,10 +598,10 @@ var AnyValueMap = /** @class */ (function () {
         return result;
     };
     /**
-     * Static method for creating an AnyValueMap from the tuples that are passed as parameters.
+     * Creates a new AnyValueMap from a list of key-value pairs called tuples.
      *
-     * @param tuples    the key-value tuple parameters to initialize the new AnyValueMap with.
-     * @returns         the AnyValueMap created and filled by the tuples provided.
+     * @param tuples    a list of values where odd elements are keys and the following even elements are values
+     * @returns         a newly created AnyValueArray.
      *
      * @see [[fromTuplesArray]]
      */
@@ -644,10 +613,11 @@ var AnyValueMap = /** @class */ (function () {
         return AnyValueMap.fromTuplesArray(tuples);
     };
     /**
-     * Static method for creating an AnyValueMap from an array of tuples.
+     * Creates a new AnyValueMap from a list of key-value pairs called tuples.
+     * The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
      *
-     * @param tuples    the key-value tuples array to initialize the new AnyValueMap with.
-     * @returns         the AnyValueMap created and filled by the 'tuples' array provided.
+     * @param tuples    a list of values where odd elements are keys and the following even elements are values
+     * @returns         a newly created AnyValueArray.
      */
     AnyValueMap.fromTuplesArray = function (tuples) {
         var result = new AnyValueMap();
@@ -663,10 +633,11 @@ var AnyValueMap = /** @class */ (function () {
         return result;
     };
     /**
-     * Static method for creating an AnyValueMap using the maps passed as parameters.
+     * Creates a new AnyValueMap by merging two or more maps.
+     * Maps defined later in the list override values from previously defined maps.
      *
-     * @param maps  the maps passed to this method to create an AnyValueMap with.
-     * @returns     the AnyValueMap created.
+     * @param maps  an array of maps to be merged
+     * @returns     a newly created AnyValueMap.
      */
     AnyValueMap.fromMaps = function () {
         var maps = [];

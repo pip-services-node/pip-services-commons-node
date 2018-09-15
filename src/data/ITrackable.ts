@@ -8,14 +8,15 @@ import { IChangeable } from './IChangeable';
  * 
  * ### Example ###
  * 
- * Example implementation of the ITrackable interface:
- * 
- *     export class MyData implements ITrackable {
- *         public change_time: Date;
- *         public create_time: Date;
- *         public deleted: boolean;
- *         ...
- *     }
+ *  export class MyData implements IStringIdentifiable, ITrackable {
+ *    public id: string;
+ *    public field1: string;
+ *    public field2: number;
+ *    ...
+ *    public change_time: Date;
+ *    public create_time: Date;
+ *    public deleted: boolean;
+ *  }
  */
 export interface ITrackable extends IChangeable {
 	/** The UTC time at which the object was created. */
@@ -24,6 +25,6 @@ export interface ITrackable extends IChangeable {
 	/** The UTC time at which the object was last changed (created, updated, or deleted). */
 	change_time: Date;
 
-	/** The logical deletion flag. */
-	deleted: boolean;
+	/** The logical deletion flag. True when object is deleted and null or false otherwise */
+	deleted?: boolean;
 }

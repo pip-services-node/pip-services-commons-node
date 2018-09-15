@@ -1,42 +1,53 @@
 /**
- * Class that includes standard design patterns for data projection. Projection parameters
- * contain information about what data to retrieve from a data source.
+ * Defines projection parameters with list if fields to include into query results.
+ *
+ * The parameters support two formats: dot format and nested format.
+ *
+ * The dot format is the standard way to define included fields and subfields using
+ * dot object notation: "field1,field2.field21,field2.field22.field221"
+ *
+ * As alternative the nested format offers a more compact representation:
+ * "field1,field2(field21,field22(field221))"
  *
  * ### Example ###
  *
- * Example ProjectionParams object usage:
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
+ * let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
  *
- *     let params: ProjectionParams;
- *
- *     params = new ProjectionParams(["data1(attr1)"]); // To get attribute named attr1 in data type data1
+ * myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
  *
  */
 export declare class ProjectionParams extends Array<string> {
     /**
-     * @param values    the projection parameters to initialize this ProjectionParams object with.
+     * Creates a new instance of the projection parameters and assigns its value.
+     *
+     * @param value     (optional) values to initialize this object.
      */
     constructor(values?: any[]);
     /**
-     * @returns these ProjectionParams as a comma-separated values string.
+     * Gets a string representation of the object.
+     * The result is a comma-separated list of projection fields
+     * "field1,field2.field21,field2.field22.field221"
+     *
+     * @returns a string representation of the object.
      */
     toString(): string;
+    private static parseValue;
     /**
-     * Static method that creates a ProjectionParams object using the given value.
+     * Converts specified value into ProjectionParams.
      *
-     * @param value     the value to initialize the new ProjectionParams with. If it is
-     *                  not an array, [[AnyValueArray.fromValue]] used for conversion.
-     * @returns the ProjectionParams object that was generated using 'value'.
+     * @param value     value to be converted
+     * @returns         a newly created ProjectionParams.
      *
      * @see [[AnyValueArray.fromValue]]
      */
     static fromValue(value: any): ProjectionParams;
     /**
-     * Static method for creating new ProjectionParams objects using the values
-     * passed as projection parameters.
+     * Parses comma-separated list of projection fields.
      *
-     * @param values    the projection parameters to initialize the new ProjectionParams object with.
-     * @returns         the ProjectionParams created.
+     * @param values    one or more comma-separated lists of projection fields
+     * @returns         a newly created ProjectionParams.
      */
-    static parse(...values: string[]): ProjectionParams;
-    private static parseValue;
+    static fromString(...values: string[]): ProjectionParams;
 }

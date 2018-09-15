@@ -1,25 +1,23 @@
 /** @module data */
 import { SortField } from './SortField';
 /**
- * Class that includes standard design patterns for data sorting.
- * Sorting parameters contain information about how to sort the
- * data from a data source, using the fields available.
+ * Defines a field name and order used to sort query results.
  *
  * @see [[SortField]]
  *
  * ### Example ###
  *
- *     public MyMethod () {
- *         let sortParams = new SortParams();
- *         sortParams.add(new SortField("key", false));
- *         ...
- *     }
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
+ * let sorting = new SortingParams(new SortField("create_time", true));
+ *
+ * myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 export declare class SortParams extends Array<SortField> {
     /**
-     * @param fields    the SortFields to use when sorting data using these SortParams.
+     * Creates a new instance and initializes it with specified sort fields.
      *
-     * @see [[SortField]]
+     * @param fields    a list of fields to sort by.
      */
-    constructor(fields?: SortField[]);
+    constructor(...fields: SortField[]);
 }

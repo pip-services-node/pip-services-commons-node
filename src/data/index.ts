@@ -2,6 +2,8 @@
  * @module data 
  * @preferred
  * 
+ * Todo: Rewrite this description
+ * 
  * Abstract, portable data types. For example – anytype, anyvalues, anyarrays, anymaps, stringmaps 
  * (on which many serializable objects are based on – configmap, filtermaps, connectionparams – all 
  * extend stringvaluemap). Includes standard design patterns for working with data (data paging, 

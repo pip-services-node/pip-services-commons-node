@@ -1,15 +1,17 @@
 /** @module data */
 /**
- * Interface for data objects that can be identified by an id.
+ * Generic interface for data objects that can be uniquely identified by an id.
+ *
+ * The type specified in the interface defines the type of id field.
  *
  * ### Example ###
  *
- * Example implementation of the IIdentifiable interface:
- *
- *     export class MyData implements IIdentifiable<string> {
- *         public id: string;
- *         ...
- *     }
+ *  export class MyData implements IIdentifiable<string> {
+ *    public id: string;
+ *    public field1: string;
+ *    public field2: number;
+ *    ...
+ *  }
  */
 export interface IIdentifiable<K> {
     /** The unique object identifier of type K. */

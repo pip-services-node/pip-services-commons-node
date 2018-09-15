@@ -4,26 +4,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var IntegerConverter_1 = require("../convert/IntegerConverter");
 var BooleanConverter_1 = require("../convert/BooleanConverter");
 var AnyValueMap_1 = require("./AnyValueMap");
-//TODO: add to the example a method call that accept PagingParams. 
 /**
- * Class that includes standard design patterns for data paging.
- * Paging parameters contain information about how to retrieve
- * data pages from a data source.
+ * Data transfer object to pass paging parameters for queries.
+ * The page is defined by two parameters.
+ * The Skip parameter defines number of items to skip.
+ * The Paging parameter sets how many items to return in a page.
+ * And the optional Total parameter tells to return total number of items in the query.
+ *
+ * Remember: not all implementations support Total parameter
+ * because its generation may lead to severe performance implications.
  *
  * ### Example ###
  *
- * Example PagingParams object usage:
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
  *
- *     let params: PagingParams;
- *
- *     params = new PagingParams(0, 100, true); // To get first 100 elements and takes total elements count
- *
+ * myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 var PagingParams = /** @class */ (function () {
     /**
-     * @param skip 		the number of result to skip.
-     * @param take 		the number of result to take.
-     * @param total 	limits the result's length to 'total' results.
+     * Creates a new instance and sets its values.
+     *
+     * @param skip 		the number of items to skip.
+     * @param take 		the number of items to return.
+     * @param total 	true to return the total number of items.
      */
     function PagingParams(skip, take, total) {
         if (skip === void 0) { skip = null; }
@@ -34,9 +38,10 @@ var PagingParams = /** @class */ (function () {
         this.total = BooleanConverter_1.BooleanConverter.toBooleanWithDefault(total, false);
     }
     /**
-     * @param minSkip 	the minimum value to return.
-     * @returns 		the number of result to skip or 'minSkip',
-     * 					if the 'skip' field is less than 'minSkip'.
+     * Gets the number of items to skip.
+     *
+     * @param minSkip 	the minimum number of items to skip.
+     * @returns 		the number of items to skip.
      */
     PagingParams.prototype.getSkip = function (minSkip) {
         if (this.skip == null)
@@ -46,9 +51,10 @@ var PagingParams = /** @class */ (function () {
         return this.skip;
     };
     /**
-     * @param maxTake 	the maximum value to return.
-     * @returns 		the number of result to take or 'maxTake',
-     * 					if the 'take' field is more than 'maxTake'.
+     * Gets the number of items to return in a page.
+     *
+     * @param maxTake 	the maximum number of items to return.
+     * @returns 		the number of items to return.
      */
     PagingParams.prototype.getTake = function (maxTake) {
         if (this.take == null)
@@ -60,16 +66,10 @@ var PagingParams = /** @class */ (function () {
         return this.take;
     };
     /**
-     * Static method for converting a value into a PagingParams object. If
-     * 'value' is an instance of PagingParams then it will be returned. Otherwise,
-     * [[AnyValueMap.fromValue]] will be used to create a map, which the PagingParams
-     * can be initialized with (using [[fromMap]]).
+     * Converts specified value into PagingParams.
      *
-     * @param value		the value to convert into a PagingParams object.
-     * @returns			the PagingParams created.
-     *
-     * @see [[AnyValueMap.fromValue]]
-     * @see [[fromMap]]
+     * @param value     value to be converted
+     * @returns         a newly created PagingParams.
      */
     PagingParams.fromValue = function (value) {
         if (value instanceof PagingParams)
@@ -78,15 +78,10 @@ var PagingParams = /** @class */ (function () {
         return PagingParams.fromMap(map);
     };
     /**
-     * Static method for converting the tuples passed as parameters into a PagingParams object.
-     * [[AnyValueMap.fromTuplesArray]] will be used to create a map, which the PagingParams
-     * can be initialized with (using [[fromMap]]).
+     * Creates a new PagingParams from a list of key-value pairs called tuples.
      *
-     * @param tuples	the tuples to convert into a PagingParams object.
-     * @returns			the PagingParams created.
-     *
-     * @see [[AnyValueMap.fromTuplesArray]]
-     * @see [[fromMap]]
+     * @param tuples    a list of values where odd elements are keys and the following even elements are values
+     * @returns         a newly created PagingParams.
      */
     PagingParams.fromTuples = function () {
         var tuples = [];
@@ -97,11 +92,10 @@ var PagingParams = /** @class */ (function () {
         return PagingParams.fromMap(map);
     };
     /**
-     * Static method for converting a map into a PagingParams object.
+     * Creates a new PagingParams and sets it parameters from the specified map
      *
-     * @param map 	a map that contains the keys "skip", "take", "total", whose
-     * 				values will be used to initialize the new PagingParams object.
-     * @returns		the PagingParams created.
+     * @param map    	a AnyValueMap or StringValueMap to initialize this PagingParams
+     * @returns         a newly created PagingParams.
      */
     PagingParams.fromMap = function (map) {
         var skip = map.getAsNullableInteger("skip");

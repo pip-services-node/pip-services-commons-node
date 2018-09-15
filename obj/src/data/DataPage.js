@@ -1,30 +1,44 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module data */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Class that is used by standard design patterns, which work with data paging.
- * A data page contains a list of items that are of type T (the data), as well as
- * their total amount (the total).
+ * Data transfer object that is used to pass results of paginated queries.
+ * It contains items of retrieved page and optional total number of items.
+ *
+ * Most often this object type is used to send responses to paginated queries.
+ * Pagination parameters are defined by [[PagingParams]] object.
+ * The Skip parameter in the PagingParams there means how many items to skip.
+ * The Takes parameter sets number of items to return in the page.
+ * And the optional Total parameter tells to return total number of items in the query.
+ *
+ * Remember: not all implementations support Total parameter
+ * because its generation may lead to severe performance implications.
+ *
+ * @see [[PagingParams]]
  *
  * ### Example ###
  *
- * Example DataPage class usage:
- *
- *     let dataPage: DataPage<string> = new DataPage<string>(["Hello, Pip.User!"], 1);
- *
- *     dataPage.data.push("Hello, World!");
- *     dataPage.total = 2;
+ * myDataClient.getDataByFilter(
+ *   "123",
+ *   FilterParams.fromTuples("completed": true),
+ *   new PagingParams(0, 100, true),
+ *   (err: any, page: DataPage<MyData>) => {
+ *     if (err == null) {
+ *       console.log("Items: ");
+ *       for (let item of page.Data) {
+ *         console.log(item);
+ *       }
+ *       console.log("Total items: " + page.total);
+ *     }
+ *   };
+ * );
  */
 var DataPage = /** @class */ (function () {
     /**
-     * Creates a new DataPage object with 'total' items of type T in its 'data' field.
-     * If 'data' and/or 'total' are omitted, they can be set using:
+     * Creates a new instance of data page and assigns its values.
      *
-     *     thisDataPage.data = ...;
-     *     thisDataPage.total = ...;
-     *
-     * @param data      the list of items of type T to include in this data page.
-     * @param total     the total amount of items in this data page's data.
+     * @param data      a list of items from the retrieved page.
+     * @param total     (optional) .
      */
     function DataPage(data, total) {
         if (data === void 0) { data = null; }

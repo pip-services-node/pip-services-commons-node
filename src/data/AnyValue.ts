@@ -13,15 +13,16 @@ import { AnyValueArray } from './AnyValueArray';
 import { AnyValueMap } from './AnyValueMap';
 
 /**
- * Class that allows for usage of abstract, portable data types. Stores a value in its
- * 'value' field, which can be retrieved in various ways with the help of numerous converters.
+ * Cross-language implementation of dynamic object what can hold value of any type.
+ * The stored value can be converted to different types using variety of accessor methods.
  * 
  * ### Example ###
  * 
- *     public MyMethod (value: any) {
- *         let anyValue = new AnyValue(value);
- *         ...
- *     }
+ * let value1 = new AnyValue("123.456");
+ * 
+ * value1.getAsInteger();   // Result: 123
+ * value1.getAsString();    // Result: "123.456"
+ * value1.getAsFloat();     // Result: 123.456
  * 
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
@@ -38,13 +39,9 @@ export class AnyValue implements ICloneable {
 	public value: any;
 
     /**
-     * Creates a new object and sets its 'value' field to the value passed
-     * as a parameter. If 'value' is omitted, it can be set later on using 
-     * [[setAsObject]].
+     * Creates a new instance of the object and assigns its value.
      * 
-     * @param value     value to store in this object's 'value' field. If this 
-     *                  parameter is an instance of AnyValue, its 'value' field will
-     *                  be stored instead.
+     * @param value     (optional) value to initialize this object.
      */
     public constructor(value: any = null) {
     	if (value instanceof AnyValue)
@@ -54,10 +51,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a TypeCode object using
-     * [[TypeConverter.toTypeCode]] and returns it.
+     * Gets type code for the value stored in this object.
      * 
-     * @returns this object's 'value' field as a TypeCode. 
+     * @returns type code of the object value. 
      * 
      * @see [[TypeConverter.toTypeCode]]
      */
@@ -65,20 +61,21 @@ export class AnyValue implements ICloneable {
     	return TypeConverter.toTypeCode(this.value);
     }
     
-    /** @returns this object's 'value' field without any conversions. */
+    /** 
+     * Gets the value stored in this object without any conversions
+     * 
+     * @returns the object value. 
+     */
     public getAsObject(): any {
         return this.value;
     }
 
     /** 
-     * Sets this object's 'value' field. If the given value is an instance of AnyValue, 
-     * its 'value' field will be set instead.
+     * Sets a new value for this object
      * 
-     * @param value     the value to store in this object's 'value' field. If this 
-     *                  parameter is an instance of AnyValue, its 'value' field will
-     *                  be stored instead.
+     * @param value     the new object value.
      */
-    public setAsObject(value: any): any {
+    public setAsObject(value: any): void {
         if (value instanceof AnyValue)
             this.value = (<AnyValue>value).value;
         else
@@ -86,10 +83,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable string object using
-     * [[StringConverter.toNullableString]] and returns it.
+     * Converts object value into a string or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable string. 
+     * @returns string value or null if conversion is not supported. 
      * 
      * @see [[StringConverter.toNullableString]]
      */
@@ -98,11 +94,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable string object using
-     * [[AnyValue.getAsStringWithDefault]] and returns the converted value 
-     * (or null as the default).
+     * Converts object value into a string or returns "" if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a string (or null as the default). 
+     * @returns string value or "" if conversion is not supported. 
      * 
      * @see [[getAsStringWithDefault]]
      */
@@ -111,13 +105,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable string object using
-     * [[StringConverter.toStringWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a string or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a string or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns string value or default if conversion is not supported. 
      * 
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -126,10 +117,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable boolean object using
-     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     * Converts object value into a boolean or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable boolean. 
+     * @returns boolean value or null if conversion is not supported. 
      * 
      * @see [[BooleanConverter.toNullableBoolean]]
      */
@@ -138,11 +128,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable boolean object using
-     * [[AnyValue.getAsBooleanWithDefault]] and returns the converted value  
-     * (or false as the default).
+     * Converts object value into a boolean or returns false if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a boolean (or false as the default). 
+     * @returns string value or false if conversion is not supported. 
      * 
      * @see [[getAsBooleanWithDefault]]
      */
@@ -151,13 +139,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable boolean object using
-     * [[BooleanConverter.toBooleanWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a boolean or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a boolean or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns boolean value or default if conversion is not supported. 
      * 
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -166,10 +151,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable integer object using
-     * [[IntegerConverter.toNullableInteger]] and returns it.
+     * Converts object value into an integer or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable integer. 
+     * @returns integer value or null if conversion is not supported. 
      * 
      * @see [[IntegerConverter.toNullableInteger]]
      */
@@ -178,11 +162,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable integer object using
-     * [[AnyValue.getAsIntegerWithDefault]] and returns the converted value 
-     * (or 0 as the default).
+     * Converts object value into an integer or returns 0 if conversion is not possible.
      * 
-     * @returns this object's 'value' field as an integer (or 0 as the default). 
+     * @returns integer value or 0 if conversion is not supported. 
      * 
      * @see [[getAsIntegerWithDefault]]
      */
@@ -191,13 +173,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable integer object using
-     * [[IntegerConverter.toIntegerWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a integer or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as an integer or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns integer value or default if conversion is not supported. 
      * 
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -206,10 +185,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable long object using
-     * [[LongConverter.toNullableLong]] and returns it.
+     * Converts object value into a long or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable long. 
+     * @returns long value or null if conversion is not supported. 
      * 
      * @see [[LongConverter.toNullableLong]]
      */
@@ -218,11 +196,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable long object using
-     * [[AnyValue.getAsLongWithDefault]] and returns the converted value 
-     * (or 0 as the default).
+     * Converts object value into a long or returns 0 if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a long (or 0 as the default). 
+     * @returns string value or 0 if conversion is not supported. 
      * 
      * @see [[getAsLongWithDefault]]
      */
@@ -231,13 +207,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable long object using
-     * [[LongConverter.toLongWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a long or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a long or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns long value or default if conversion is not supported. 
      * 
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -246,10 +219,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable float object using
-     * [[FloatConverter.toNullableFloat]] and returns it.
+     * Converts object value into a float or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable float. 
+     * @returns float value or null if conversion is not supported. 
      * 
      * @see [[FloatConverter.toNullableFloat]]
      */
@@ -258,11 +230,9 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable float object using
-     * [[AnyValue.getAsFloatWithDefault]] and returns the converted value 
-     * (or 0 as the default).
-     *  
-     * @returns this object's 'value' field as a float (or 0 as the default). 
+     * Converts object value into a float or returns 0 if conversion is not possible.
+     * 
+     * @returns float value or 0 if conversion is not supported. 
      * 
      * @see [[getAsFloatWithDefault]]
      */
@@ -271,13 +241,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable float object using
-     * [[FloatConverter.toFloatWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a float or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a float or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns float value or default if conversion is not supported. 
      * 
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -286,10 +253,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable double object using
-     * [[DoubleConverter.toNullableDouble]] and returns it.
+     * Converts object value into a double or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable double. 
+     * @returns double value or null if conversion is not supported. 
      * 
      * @see [[DoubleConverter.toNullableDouble]]
      */
@@ -298,11 +264,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable double object using
-     * [[AnyValue.getAsDoubleWithDefault]] and returns the converted value 
-     * (or 0 as the default).
+     * Converts object value into a double or returns 0 if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a double (or 0 as the default). 
+     * @returns double value or 0 if conversion is not supported. 
      * 
      * @see [[getAsDoubleWithDefault]]
      */
@@ -311,13 +275,10 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable double object using
-     * [[DoubleConverter.toDoubleWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a double or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a double or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns double value or default if conversion is not supported. 
      * 
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -326,10 +287,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable Datetime object using
-     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     * Converts object value into a Date or returns null if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a nullable Datetime. 
+     * @returns Date value or null if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -338,26 +298,21 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a defaultable Datetime object using
-     * [[AnyValue.getAsDateTimeWithDefault]] and returns the converted value 
-     * (or null as the default).
+     * Converts object value into a Date or returns current date if conversion is not possible.
      * 
-     * @returns this object's 'value' field as a Datetime (or null as the default). 
+     * @returns Date value or current date if conversion is not supported. 
      * 
      * @see [[getAsDateTimeWithDefault]]
      */
     public getAsDateTime(): Date {
-        return this.getAsDateTimeWithDefault(null);
+        return this.getAsDateTimeWithDefault(new Date());
     }
 
     /**
-     * Converts this object's 'value' field into a defaultable Datetime object using
-     * [[DateTimeConverter.toDateTimeWithDefault]] and returns the converted value 
-     * (or the provided defaultValue if conversion is not possible).
+     * Converts object value into a Date or returns default value if conversion is not possible.
      * 
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as a Datetime or the
-     *                          defaultValue (if conversion is not possible).
+     * @param defaultValue      the default value.
+     * @returns Date value or default if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -366,11 +321,11 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into a nullable object of type 'type' using
-     * [[TypeConverter.toNullableType]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns null.
      * 
-     * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
-     * @returns this object's 'value' field as a nullable object of type 'type'. 
+     * @param type      the TypeCode that defined the type of the result
+     * @returns value defined by the typecode or null if conversion is not supported. 
      * 
      * @see [[TypeConverter.toNullableType]]
      */
@@ -379,37 +334,36 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Converts this object's 'value' field into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns default value for the specified type.
      * 
-     * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
-     * @returns this object's 'value' field as an object of type 'type' (or null as the default). 
+     * @param typeCode    the TypeCode that defined the type of the result
+     * @returns value defined by the typecode or type default value if conversion is not supported. 
      * 
      * @see [[getAsTypeWithDefault]]
      */
-    public getAsType<T>(type: TypeCode): T {
-        return this.getAsTypeWithDefault<T>(type, null);
+    public getAsType<T>(typeCode: TypeCode): T {
+        return this.getAsTypeWithDefault<T>(typeCode, null);
     }
 
     /**
-     * Converts this object's 'value' field into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts object value into a value defined by specied typecode.
+     * If conversion is not possible it returns default value.
      * 
-     * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 this object's 'value' field as an object of type 'type' or the defaultValue, 
-     *                          if conversion is not possible.
+     * @param typeCode      the TypeCode that defined the type of the result
+     * @param defaultValue  the default value
+     * @returns value defined by the typecode or type default value if conversion is not supported. 
      * 
      * @see [[TypeConverter.toTypeWithDefault]]
      */
-    public getAsTypeWithDefault<T>(type: TypeCode, defaultValue: T): T {
-        return TypeConverter.toTypeWithDefault<T>(type, this.value, defaultValue);
+    public getAsTypeWithDefault<T>(typeCode: TypeCode, defaultValue: T): T {
+        return TypeConverter.toTypeWithDefault<T>(typeCode, this.value, defaultValue);
     }
 
     /** 
-     * Returns this object's 'value' field as an AnyValueArray.
+     * Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.
      * 
-     * @returns this object's 'value' field as an AnyValueArray. 
+     * @returns AnyArray value or empty AnyArray if conversion is not supported. 
      * 
      * @see [[AnyValueArray.fromValue]]
      */
@@ -418,9 +372,9 @@ export class AnyValue implements ICloneable {
     }
 
     /** 
-     * Returns this object's 'value' field as an AnyValueMap.
+     * Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.
      * 
-     * @returns this object's 'value' field as an AnyValueMap. 
+     * @returns AnyMap value or empty AnyMap if conversion is not supported. 
      * 
      * @see [[AnyValueMap.fromValue]]
      */
@@ -429,13 +383,12 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Checks whether or not the parameter passed as 'obj' is equal to this object's
-     * 'value' field.
+     * Compares this object value to specified specified value.
+     * When direct comparison gives negative results it tries
+     * to compare values as strings.
      * 
-     * @param obj   the object to check against this object's 'value' field. If 'obj'
-     *              is an instance of AnyValue, its 'value' field will be used.
-     * @returns     whether or not this object's 'value' field and 'obj' are equal. 
-     *              If both items are null, true will be returned.
+     * @param obj   the value to be compared with.
+     * @returns     true when objects are equal and false otherwise.
      */
     public equals(obj: any): boolean {
         if (obj == null && this.value == null) return true;
@@ -453,17 +406,12 @@ export class AnyValue implements ICloneable {
     }
 
     /**
-     * Checks whether or not the parameter passed as 'obj' is equal to this object's
-     * 'value' field after both are converted to the type passed as 'type' using 
-     * [[TypeConverter.toType]].
+     * Compares this object value to specified specified value.
+     * When direct comparison gives negative results it converts 
+     * values to type specified by type code and compare them again.
      * 
-     * @param type  the TypeCode to use in TypeConverter.toType<T>(TypeCode, value).
-     * @param obj   the object to check against this object's 'value' field after 
-     *              conversion. If 'obj' is an instance of AnyValue, then its 'value' 
-     *              field will be used.
-     * @returns     whether or not this object's 'value' field and 'obj' are equal 
-     *              as objects of type 'type'. If both items (or their converted versions) 
-     *              are null, true will be returned.
+     * @param obj   the value to be compared with.
+     * @returns     true when objects are equal and false otherwise.
      * 
      * @see [[TypeConverter.toType]]
      */
@@ -482,13 +430,19 @@ export class AnyValue implements ICloneable {
         return typedThisValue == typedValue;
     }
 
-    /** @returns a clone of this object. */
+    /** 
+     * Creates a binary clone of this object.
+     * 
+     * @returns a clone of this object.
+     */
     public clone(): any {
     	return new AnyValue(this.value);
     }
     
     /** 
-     * @returns this object's 'value' field as a string value using [[StringConverter.toString]].
+     * Gets a string representation of the object.
+     * 
+     * @returns a string representation of the object.
      *
      * @see [[StringConverter.toString]]
      */
@@ -496,7 +450,11 @@ export class AnyValue implements ICloneable {
         return StringConverter.toString(this.value);
     }
 
-    /** @returns the hash code of this object's 'value' field. 0 is returned if the 'value' field is null. */
+    /**
+     * Gets an object hash code which can be used to optimize storing and searching.
+     * 
+     * @returns an object hash code. 
+     */
     public hashCode(): number {
         return this.value != null ? this.value.hashCode(): 0;
     }

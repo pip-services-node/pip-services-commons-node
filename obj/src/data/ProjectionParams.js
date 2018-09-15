@@ -17,24 +17,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var AnyValueArray_1 = require("./AnyValueArray");
 /** @hidden */
 var _ = require('lodash');
-//TODO: add to the example a method call that accept ProjectionParams. 
 /**
- * Class that includes standard design patterns for data projection. Projection parameters
- * contain information about what data to retrieve from a data source.
+ * Defines projection parameters with list if fields to include into query results.
+ *
+ * The parameters support two formats: dot format and nested format.
+ *
+ * The dot format is the standard way to define included fields and subfields using
+ * dot object notation: "field1,field2.field21,field2.field22.field221"
+ *
+ * As alternative the nested format offers a more compact representation:
+ * "field1,field2(field21,field22(field221))"
  *
  * ### Example ###
  *
- * Example ProjectionParams object usage:
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
+ * let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
  *
- *     let params: ProjectionParams;
- *
- *     params = new ProjectionParams(["data1(attr1)"]); // To get attribute named attr1 in data type data1
+ * myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
  *
  */
 var ProjectionParams = /** @class */ (function (_super) {
     __extends(ProjectionParams, _super);
     /**
-     * @param values    the projection parameters to initialize this ProjectionParams object with.
+     * Creates a new instance of the projection parameters and assigns its value.
+     *
+     * @param value     (optional) values to initialize this object.
      */
     function ProjectionParams(values) {
         if (values === void 0) { values = null; }
@@ -51,7 +59,11 @@ var ProjectionParams = /** @class */ (function (_super) {
         return _this;
     }
     /**
-     * @returns these ProjectionParams as a comma-separated values string.
+     * Gets a string representation of the object.
+     * The result is a comma-separated list of projection fields
+     * "field1,field2.field21,field2.field22.field221"
+     *
+     * @returns a string representation of the object.
      */
     ProjectionParams.prototype.toString = function () {
         var builder = "";
@@ -62,39 +74,6 @@ var ProjectionParams = /** @class */ (function (_super) {
             builder += _super.prototype[index];
         }
         return builder;
-    };
-    /**
-     * Static method that creates a ProjectionParams object using the given value.
-     *
-     * @param value     the value to initialize the new ProjectionParams with. If it is
-     *                  not an array, [[AnyValueArray.fromValue]] used for conversion.
-     * @returns the ProjectionParams object that was generated using 'value'.
-     *
-     * @see [[AnyValueArray.fromValue]]
-     */
-    ProjectionParams.fromValue = function (value) {
-        if (!_.isArray(value))
-            value = AnyValueArray_1.AnyValueArray.fromValue(value);
-        return new ProjectionParams(value);
-    };
-    /**
-     * Static method for creating new ProjectionParams objects using the values
-     * passed as projection parameters.
-     *
-     * @param values    the projection parameters to initialize the new ProjectionParams object with.
-     * @returns         the ProjectionParams created.
-     */
-    ProjectionParams.parse = function () {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
-        var result = new ProjectionParams();
-        for (var _a = 0, values_2 = values; _a < values_2.length; _a++) {
-            var value = values_2[_a];
-            this.parseValue("", result, value);
-        }
-        return result;
     };
     ProjectionParams.parseValue = function (prefix, result, value) {
         value = value.trim();
@@ -163,6 +142,37 @@ var ProjectionParams = /** @class */ (function (_super) {
                 result.push(value);
             }
         }
+    };
+    /**
+     * Converts specified value into ProjectionParams.
+     *
+     * @param value     value to be converted
+     * @returns         a newly created ProjectionParams.
+     *
+     * @see [[AnyValueArray.fromValue]]
+     */
+    ProjectionParams.fromValue = function (value) {
+        if (!_.isArray(value))
+            value = AnyValueArray_1.AnyValueArray.fromValue(value);
+        return new ProjectionParams(value);
+    };
+    /**
+     * Parses comma-separated list of projection fields.
+     *
+     * @param values    one or more comma-separated lists of projection fields
+     * @returns         a newly created ProjectionParams.
+     */
+    ProjectionParams.fromString = function () {
+        var values = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            values[_i] = arguments[_i];
+        }
+        var result = new ProjectionParams();
+        for (var _a = 0, values_2 = values; _a < values_2.length; _a++) {
+            var value = values_2[_a];
+            this.parseValue("", result, value);
+        }
+        return result;
     };
     return ProjectionParams;
 }(Array));

@@ -28,17 +28,17 @@ var ArrayConverter_1 = require("../convert/ArrayConverter");
 var AnyValue_1 = require("./AnyValue");
 var AnyValueMap_1 = require("./AnyValueMap");
 /**
- * Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved
- * in various ways with the help of numerous converters.
+ * Cross-language implementation of dynamic object array what can hold values of any type.
+ * The stored values can be converted to different types using variety of accessor methods.
  *
  * ### Example ###
- *     public MyMethod (values: any[]) {
- *         let array1 = AnyValueArray.fromString("MyData1,Error,Example,", ",");
- *         ...
  *
- *         let array2 = new AnyValueArray(values);
- *         ...
- *     }
+ * let value1 = new AnyValueArray([1, "123.456", "2018-01-01"]);
+ *
+ * value1.getAsBoolean(0);   // Result: true
+ * value1.getAsInteger(1);   // Result: 123
+ * value1.getAsFloat(1);     // Result: 123.456
+ * value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]
@@ -53,11 +53,9 @@ var AnyValueMap_1 = require("./AnyValueMap");
 var AnyValueArray = /** @class */ (function (_super) {
     __extends(AnyValueArray, _super);
     /**
-     * Creates a new object and sets its values to the 'values' passed
-     * as a parameter. If 'values' are omitted, they can be set later on using
-     * [[setAsObject]] or [[append]].
+     * Creates a new instance of the array and assigns its value.
      *
-     * @param values    the values to store in this AnyValueArray.
+     * @param value     (optional) values to initialize this array.
      */
     function AnyValueArray(values) {
         if (values === void 0) { values = null; }
@@ -69,35 +67,35 @@ var AnyValueArray = /** @class */ (function (_super) {
         return _this;
     }
     /**
-     * Returns the item that is located at the given index.
+     * Gets an array element specified by its index.
      *
-     * @param index     index of the item to retrieve from this AnyValueArray.
-     * @returns         the item that is located at the given index.
+     * @param index     an index of the element to get.
+     * @returns         the value of the array element.
      */
     AnyValueArray.prototype.get = function (index) {
         return this[index];
     };
     /**
-     * Puts a value into this AnyValueArray at the given index.
+     * Puts a new value into array element specified by its index.
      *
-     * @param index     the index at which to insert the given value.
-     * @param value     the value to insert into this AnyValueArray at the given index.
+     * @param index     an index of the element to put.
+     * @param value     a new value for array element.
      */
     AnyValueArray.prototype.put = function (index, value) {
         this[index] = value;
     };
     /**
-     * Removes an item by its index from this AnyValueArray.
+     * Removes an array element specified by its index
      *
-     * @param index     index of the item to remove.
+     * @param index     an index of the element to remove.
      */
     AnyValueArray.prototype.remove = function (index) {
         this.splice(index, 1);
     };
     /**
-     * Appends items to this AnyValueArray.
+     * Appends new elements to this array.
      *
-     * @param elements  items to append to this AnyValueArray.
+     * @param elements  a list of elements to be added.
      */
     AnyValueArray.prototype.append = function (elements) {
         if (elements != null) {
@@ -105,14 +103,18 @@ var AnyValueArray = /** @class */ (function (_super) {
                 this.push(elements[index]);
         }
     };
-    /** Removes all items from this AnyValueArray. */
+    /**
+     * Clears this array by removing all its elements.
+    */
     AnyValueArray.prototype.clear = function () {
         this.splice(0, this.length);
     };
     /**
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index without any conversions or
-     *                  all items (if 'index' is undefined or omitted).
+     * Gets the value stored in array element without any conversions.
+     * When element index is not defined it returns the entire array value.
+     *
+     * @param index     (optional) an index of the element to get
+     * @returns the element value or value of the array when index is not defined.
      */
     AnyValueArray.prototype.getAsObject = function (index) {
         if (index === void 0) { index = undefined; }
@@ -127,11 +129,12 @@ var AnyValueArray = /** @class */ (function (_super) {
         }
     };
     /**
-     * @param index     the position in this AnyValueArray to set the value at.
-     * @param value     the value to set in this AnyValueArray at the given 'index'.
-     *                  If 'index' is omitted, then this AnyValueArray will be set (cleared and
-     *                  filled anew) using 'value'. In this case 'value' will be converted to
-     *                  an array using "ArrayConverter.toArray(value)" and set to this AnyValueArray.
+     * Sets a new value to array element specified by its index.
+     * When the index is not defined, it resets the entire array value.
+     * This method has double purpose because method overrides are not supported in JavaScript.
+     *
+     * @param index     (optional) an index of the element to set
+     * @param value     a new element or array value.
      *
      * @see [[ArrayConverter.toArray]]
      */
@@ -148,11 +151,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         }
     };
     /**
-     * Converts the item at the given index into a nullable string object using
-     * [[StringConverter.toNullableString]] and returns it.
+     * Converts array element into a string or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable string.
+     * @param index     an index of element to get.
+     * @returns string value of the element or null if conversion is not supported.
      *
      * @see [[StringConverter.toNullableString]]
      */
@@ -161,11 +163,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return StringConverter_1.StringConverter.toNullableString(value);
     };
     /**
-     * Converts the item at the given index into a defaultable string object using
-     * [[AnyValueArray.getAsStringWithDefault]] and returns it.
+     * Converts array element into a string or returns "" if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a string (or null as the default).
+     * @param index     an index of element to get.
+     * @returns string value ot the element or "" if conversion is not supported.
      *
      * @see [[getAsStringWithDefault]]
      */
@@ -173,13 +174,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsStringWithDefault(index, null);
     };
     /**
-     * Converts the item at the given index into a defaultable string object using
-     * [[StringConverter.toStringWithDefault]] and returns it.
+     * Converts array element into a string or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a string or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns string value ot the element or default value if conversion is not supported.
      *
      * @see [[StringConverter.toStringWithDefault]]
      */
@@ -188,11 +187,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return StringConverter_1.StringConverter.toStringWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable boolean object using
-     * [[BooleanConverter.toNullableBoolean]] and returns it.
+     * Converts array element into a boolean or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable boolean.
+     * @param index     an index of element to get.
+     * @returns boolean value of the element or null if conversion is not supported.
      *
      * @see [[BooleanConverter.toNullableBoolean]]
      */
@@ -201,11 +199,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return BooleanConverter_1.BooleanConverter.toNullableBoolean(value);
     };
     /**
-     * Converts the item at the given index into a defaultable boolean object using
-     * [[AnyValueArray.getAsBooleanWithDefault]] and returns it.
+     * Converts array element into a boolean or returns false if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a boolean (or false as the default).
+     * @param index     an index of element to get.
+     * @returns boolean value ot the element or false if conversion is not supported.
      *
      * @see [[getAsBooleanWithDefault]]
      */
@@ -213,13 +210,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsBooleanWithDefault(index, false);
     };
     /**
-     * Converts the item at the given index into a defaultable boolean object using
-     * [[BooleanConverter.toBooleanWithDefault]] and returns it.
+     * Converts array element into a boolean or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a boolean or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns boolean value ot the element or default value if conversion is not supported.
      *
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
@@ -228,11 +223,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return BooleanConverter_1.BooleanConverter.toBooleanWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable integer object using
-     * [[IntegerConverter.toNullableInteger]] and returns it.
+     * Converts array element into an integer or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable integer.
+     * @param index     an index of element to get.
+     * @returns integer value of the element or null if conversion is not supported.
      *
      * @see [[IntegerConverter.toNullableInteger]]
      */
@@ -241,11 +235,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return IntegerConverter_1.IntegerConverter.toNullableInteger(value);
     };
     /**
-     * Converts the item at the given index into a defaultable integer object using
-     * [[AnyValueArray.getAsIntegerWithDefault]] and returns it.
+     * Converts array element into an integer or returns 0 if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as an integer (or 0 as the default).
+     * @param index     an index of element to get.
+     * @returns integer value ot the element or 0 if conversion is not supported.
      *
      * @see [[getAsIntegerWithDefault]]
      */
@@ -253,13 +246,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsIntegerWithDefault(index, 0);
     };
     /**
-     * Converts the item at the given index into a defaultable integer object using
-     * [[IntegerConverter.toIntegerWithDefault]] and returns it.
+     * Converts array element into an integer or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as an integer or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns integer value ot the element or default value if conversion is not supported.
      *
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
@@ -268,11 +259,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return IntegerConverter_1.IntegerConverter.toIntegerWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable long object using
-     * [[LongConverter.toNullableLong]] and returns it.
+     * Converts array element into a long or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable long.
+     * @param index     an index of element to get.
+     * @returns long value of the element or null if conversion is not supported.
      *
      * @see [[LongConverter.toNullableLong]]
      */
@@ -281,11 +271,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return LongConverter_1.LongConverter.toNullableLong(value);
     };
     /**
-     * Converts the item at the given index into a defaultable long object using
-     * [[AnyValueArray.getAsLongWithDefault]] and returns it.
+     * Converts array element into a long or returns 0 if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a long (or 0 as the default).
+     * @param index     an index of element to get.
+     * @returns long value ot the element or 0 if conversion is not supported.
      *
      * @see [[getAsLongWithDefault]]
      */
@@ -293,13 +282,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsLongWithDefault(index, 0);
     };
     /**
-     * Converts the item at the given index into a defaultable long object using
-     * [[LongConverter.toLongWithDefault]] and returns it.
+     * Converts array element into a long or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a long or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns long value ot the element or default value if conversion is not supported.
      *
      * @see [[LongConverter.toLongWithDefault]]
      */
@@ -308,11 +295,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return LongConverter_1.LongConverter.toLongWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable float object using
-     * [[FloatConverter.toNullableFloat]] and returns it.
+     * Converts array element into a float or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable float.
+     * @param index     an index of element to get.
+     * @returns float value of the element or null if conversion is not supported.
      *
      * @see [[FloatConverter.toNullableFloat]]
      */
@@ -321,11 +307,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return FloatConverter_1.FloatConverter.toNullableFloat(value);
     };
     /**
-     * Converts the item at the given index into a defaultable float object using
-     * [[AnyValueArray.getAsFloatWithDefault]] and returns it.
+     * Converts array element into a float or returns 0 if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a float (or 0 as the default).
+     * @param index     an index of element to get.
+     * @returns float value ot the element or 0 if conversion is not supported.
      *
      * @see [[getAsFloatWithDefault]]
      */
@@ -333,13 +318,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsFloatWithDefault(index, 0);
     };
     /**
-     * Converts the item at the given index into a defaultable float object using
-     * [[FloatConverter.toFloatWithDefault]] and returns it.
+     * Converts array element into a float or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a float or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns float value ot the element or default value if conversion is not supported.
      *
      * @see [[FloatConverter.toFloatWithDefault]]
      */
@@ -348,11 +331,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return FloatConverter_1.FloatConverter.toFloatWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable double object using
-     * [[DoubleConverter.toNullableDouble]] and returns it.
+     * Converts array element into a double or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable double.
+     * @param index     an index of element to get.
+     * @returns double value of the element or null if conversion is not supported.
      *
      * @see [[DoubleConverter.toNullableDouble]]
      */
@@ -361,11 +343,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DoubleConverter_1.DoubleConverter.toNullableDouble(value);
     };
     /**
-     * Converts the item at the given index into a defaultable double object using
-     * [[AnyValueArray.getAsDoubleWithDefault]] and returns it.
+     * Converts array element into a double or returns 0 if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a double (or 0 as the default).
+     * @param index     an index of element to get.
+     * @returns double value ot the element or 0 if conversion is not supported.
      *
      * @see [[getAsDoubleWithDefault]]
      */
@@ -373,13 +354,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsDoubleWithDefault(index, 0);
     };
     /**
-     * Converts the item at the given index into a defaultable double object using
-     * [[DoubleConverter.toDoubleWithDefault]] and returns it.
+     * Converts array element into a double or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a double or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns double value ot the element or default value if conversion is not supported.
      *
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
@@ -388,11 +367,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DoubleConverter_1.DoubleConverter.toDoubleWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable Datetime object using
-     * [[DateTimeConverter.toNullableDateTime]] and returns it.
+     * Converts array element into a Date or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable Datetime.
+     * @param index     an index of element to get.
+     * @returns Date value of the element or null if conversion is not supported.
      *
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -401,25 +379,22 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DateTimeConverter_1.DateTimeConverter.toNullableDateTime(value);
     };
     /**
-     * Converts the item at the given index into a defaultable Datetime object using
-     * [[AnyValueArray.getAsDateTimeWithDefault]] and returns it.
+     * Converts array element into a Date or returns the current date if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a Datetime (or null as the default).
+     * @param index     an index of element to get.
+     * @returns Date value ot the element or the current date if conversion is not supported.
      *
      * @see [[getAsDateTimeWithDefault]]
      */
     AnyValueArray.prototype.getAsDateTime = function (index) {
-        return this.getAsDateTimeWithDefault(index, null);
+        return this.getAsDateTimeWithDefault(index, new Date());
     };
     /**
-     * Converts the item at the given index into a defaultable Datetime object using
-     * [[DateTimeConverter.toDateTimeWithDefault]] and returns it.
+     * Converts array element into a Date or returns default value if conversion is not possible.
      *
-     * @param index             index of the item to retrieve.
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as a Datetime or the
-     *                          defaultValue (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns Date value ot the element or default value if conversion is not supported.
      *
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
@@ -428,12 +403,12 @@ var AnyValueArray = /** @class */ (function (_super) {
         return DateTimeConverter_1.DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
     };
     /**
-     * Converts the item at the given index into a nullable object of type 'type' using
-     * [[TypeConverter.toNullableType]] and returns it.
+     * Converts array element into a value defined by specied typecode.
+     * If conversion is not possible it returns null.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable object of type 'type'.
+     * @param type      the TypeCode that defined the type of the result
+     * @param index     an index of element to get.
+     * @returns element value defined by the typecode or null if conversion is not supported.
      *
      * @see [[TypeConverter.toNullableType]]
      */
@@ -442,12 +417,12 @@ var AnyValueArray = /** @class */ (function (_super) {
         return TypeConverter_1.TypeConverter.toNullableType(type, value);
     };
     /**
-     * Converts the item at the given index into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts array element into a value defined by specied typecode.
+     * If conversion is not possible it returns default value for the specified type.
      *
-     * @param type      the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as an object of type 'type' (or null as the default).
+     * @param type      the TypeCode that defined the type of the result
+     * @param index     an index of element to get.
+     * @returns element value defined by the typecode or default if conversion is not supported.
      *
      * @see [[getAsTypeWithDefault]]
      */
@@ -455,13 +430,13 @@ var AnyValueArray = /** @class */ (function (_super) {
         return this.getAsTypeWithDefault(type, index, null);
     };
     /**
-     * Converts the item at the given index into an object of type 'type' using
-     * [[TypeConverter.toTypeWithDefault]] and returns it.
+     * Converts array element into a value defined by specied typecode.
+     * If conversion is not possible it returns default value.
      *
-     * @param type              the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);
-     * @param defaultValue      value to return if conversion is not possible.
-     * @returns                 the item at the given index as an object of type 'type' or the defaultValue,
-     *                          if conversion is not possible.
+     * @param type          the TypeCode that defined the type of the result
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns element value defined by the typecode or default value if conversion is not supported.
      *
      * @see [[TypeConverter.toTypeWithDefault]]
      */
@@ -470,10 +445,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return TypeConverter_1.TypeConverter.toTypeWithDefault(type, value, defaultValue);
     };
     /**
-     * Returns the item at the given index as an AnyValue object.
+     * Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as an AnyValue object.
+     * @param index     an index of element to get.
+     * @returns AnyValue value of the element or empty AnyValue if conversion is not supported.
      *
      * @see [[AnyValue]]
      * @see [[AnyValue.constructor]]
@@ -483,11 +458,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return new AnyValue_1.AnyValue(value);
     };
     /**
-     * Returns the item at the given index as a nullable AnyValueArray object.
+     * Converts array element into an AnyValueArray or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable AnyValueArray object (returns
-     *                  null if the item at the given index is null).
+     * @param index     an index of element to get.
+     * @returns AnyValueArray value of the element or null if conversion is not supported.
      *
      * @see [[fromValue]]
      */
@@ -496,10 +470,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return value != null ? AnyValueArray.fromValue(value) : null;
     };
     /**
-     * Returns the item at the given index as an AnyValueArray object.
+     * Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as an AnyValueArray object.
+     * @param index     an index of element to get.
+     * @returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.
      *
      * @see [[fromValue]]
      */
@@ -508,14 +482,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return AnyValueArray.fromValue(value);
     };
     /**
-     * Returns the item at the given index as an AnyValueArray object
-     * (or 'defaultValue' if conversion is not possible).
+     * Converts array element into an AnyValueArray or returns default value if conversion is not possible.
      *
-     * @param index         index of the item to retrieve.
-     * @param defaultValue  value to use if the item at the given index cannot be converted
-     *                      into an AnyValueArray.
-     * @returns             the item at the given index as an AnyValueArray object or 'defaultValue'
-     *                      (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns AnyValueArray value of the element or default value if conversion is not supported.
      *
      * @see [[getAsNullableArray]]
      */
@@ -524,11 +495,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return result != null ? result : defaultValue;
     };
     /**
-     * Returns the item at the given index as a nullable AnyValueMap object.
+     * Converts array element into an AnyValueMap or returns null if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as a nullable AnyValueMap object (returns
-     *                  null if the item at the given index is null).
+     * @param index     an index of element to get.
+     * @returns AnyValueMap value of the element or null if conversion is not supported.
      *
      * @see [[AnyValueMap]]
      * @see [[AnyValueMap.fromValue]]
@@ -538,10 +508,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return value != null ? AnyValueMap_1.AnyValueMap.fromValue(value) : null;
     };
     /**
-     * Returns the item at the given index as an AnyValueMap object.
+     * Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      *
-     * @param index     index of the item to retrieve.
-     * @returns         the item at the given index as an AnyValueMap object.
+     * @param index     an index of element to get.
+     * @returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.
      *
      * @see [[AnyValueMap]]
      * @see [[AnyValueMap.fromValue]]
@@ -551,14 +521,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return AnyValueMap_1.AnyValueMap.fromValue(value);
     };
     /**
-     * Returns the item at the given index as an AnyValueMap object
-     * (or 'defaultValue' if conversion is not possible).
+     * Converts array element into an AnyValueMap or returns default value if conversion is not possible.
      *
-     * @param index         index of the item to retrieve.
-     * @param defaultValue  value to use if the item at the given index cannot be converted
-     *                      into an AnyValueMap.
-     * @returns             the item at the given index as an AnyValueMap object or 'defaultValue'
-     *                      (if conversion is not possible).
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns AnyValueMap value of the element or default value if conversion is not supported.
      *
      * @see [[getAsNullableMap]]
      */
@@ -567,10 +534,11 @@ var AnyValueArray = /** @class */ (function (_super) {
         return result != null ? AnyValueMap_1.AnyValueMap.fromValue(result) : defaultValue;
     };
     /**
-     * Verifies that this AnyValueArray contains the given value.
+     * Checks if this array contains a value.
+     * The check uses direct comparison between elements and the specified value.
      *
-     * @param value     value to search for in this AnyValueArray.
-     * @returns         whether or not this AnyValueArray contains the given value.
+     * @param value     a value to be checked
+     * @returns         true if this array contains the value or false otherwise.
      */
     AnyValueArray.prototype.contains = function (value) {
         for (var index = 0; index < this.length; index++) {
@@ -585,24 +553,20 @@ var AnyValueArray = /** @class */ (function (_super) {
         return false;
     };
     /**
-     * Verifies that this AnyValueArray contains a certain value as an object of type 'type'.
-     * The value passed will be converted using [[TypeConverter.toType]], where as this AnyValueArray's
-     * values will be converted using [[TypeConverter.toNullableType]]. After conversion, the value is searched
-     * for amongst the AnyValueArray's converted values.
+     * Checks if this array contains a value.
+     * The check before comparison converts elements and the value to type specified by type code.
      *
-     * @param type      the TypeCode to use for converting 'value' into an object of type 'type' using the
-     *                  TypeConverter class.
-     * @param value     the value to search for amongst this AnyValueArray's values after conversion.
-     * @returns         whether or not this AnyValueArray contains the given value as an object of type
-     *                  'type'. If both converted values are null, true will be returned.
+     * @param typeCode  a type code that defines a type to convert values before comparison
+     * @param value     a value to be checked
+     * @returns         true if this array contains the value or false otherwise.
      *
      * @see [[TypeConverter.toType]]
      * @see [[TypeConverter.toNullableType]]
      */
-    AnyValueArray.prototype.containsAsType = function (type, value) {
-        var typedValue = TypeConverter_1.TypeConverter.toType(type, value);
+    AnyValueArray.prototype.containsAsType = function (typeCode, value) {
+        var typedValue = TypeConverter_1.TypeConverter.toType(typeCode, value);
         for (var index = 0; index < this.length; index++) {
-            var thisTypedValue = TypeConverter_1.TypeConverter.toNullableType(type, this[index]);
+            var thisTypedValue = TypeConverter_1.TypeConverter.toNullableType(typeCode, this[index]);
             if (typedValue == null && thisTypedValue == null)
                 return true;
             if (typedValue == null || thisTypedValue == null)
@@ -612,14 +576,22 @@ var AnyValueArray = /** @class */ (function (_super) {
         }
         return false;
     };
-    /** @returns a clone of this object. */
+    /**
+     * Creates a binary clone of this object.
+     *
+     * @returns a clone of this object.
+     */
     AnyValueArray.prototype.clone = function () {
         return new AnyValueArray(this);
     };
     /**
-     * @returns this AnyValueArray as a comma-separated values string.
+     * Gets a string representation of the object.
+     * The result is a comma-separated list of string representations of individual elements as
+     * "value1,value2,value3"
      *
-     * Example: "value1,,value3".
+     * @returns a string representation of the object.
+     *
+     * @see [[StringConverter.toString]]
      */
     AnyValueArray.prototype.toString = function () {
         var builder = '';
@@ -631,10 +603,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return builder;
     };
     /**
-     * Static method for creating an AnyValueArray from the values passed as parameters.
+     * Creates a new AnyValueArray from a list of values
      *
-     * @param values    the values to initialize the AnyValueArray with, which are passed as parameters.
-     * @returns         the AnyValueArray created and filled by the values provided.
+     * @param values    a list of values to initialize the created AnyValueArray
+     * @returns         a newly created AnyValueArray.
      */
     AnyValueArray.fromValues = function () {
         var values = [];
@@ -644,10 +616,10 @@ var AnyValueArray = /** @class */ (function (_super) {
         return new AnyValueArray(values);
     };
     /**
-     * Static method for creating an AnyValueArray from a value using [[ArrayConverter.toNullableArray]].
+     * Converts specified value into AnyValueArray.
      *
-     * @param value     value to convert to a nullable array and initialize the new AnyValueArray with.
-     * @returns         the AnyValueArray that was created and filled by 'value'.
+     * @param value     value to be converted
+     * @returns         a newly created AnyValueArray.
      *
      * @see [[ArrayConverter.toNullableArray]]
      */
@@ -656,13 +628,13 @@ var AnyValueArray = /** @class */ (function (_super) {
         return new AnyValueArray(values);
     };
     /**
-     * Static method for creating an AnyValueArray from a string of 'values', separated using the char passed as
-     * 'separator'.
+     * Splits specified string into elements using a separator and assigns
+     * the elements to a newly created AnyValueArray.
      *
-     * @param values            string of values, separated by the char passed as 'separator'
-     * @param separator         char that is used to separate the values in the string passed as 'values'.
-     * @param removeDuplicates  (optional) boolean that defines whether or not duplicate items should be removed.
-     * @returns                 the AnyValueArray that was created and filled by 'values'.
+     * @param values            a string value to be split and assigned to AnyValueArray
+     * @param separator         a separator to split the string
+     * @param removeDuplicates  (optional) true to remove duplicated elements
+     * @returns                 a newly created AnyValueArray.
      */
     AnyValueArray.fromString = function (values, separator, removeDuplicates) {
         if (removeDuplicates === void 0) { removeDuplicates = false; }

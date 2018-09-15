@@ -1,23 +1,29 @@
 /** @module data */
+
 /**
- * Class that defines a field by which values can be sorted. A sort field contains a
- * string field 'name' and a boolean field 'ascending'.
+ * Defines a field name and order used to sort query results.
+ * 
+ * @see [[SortParams]]
  * 
  * ### Example ###
  * 
- *     public MyMethod () {
- *         let sortField = new SortField("key1", true);
- *         ...	
- *     }
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
+ * let sorting = new SortingParams(new SortField("create_time", true));
+ * 
+ * myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 export class SortField {	
-	private name: string;
-	private ascending: boolean;
+	/** The field name to sort by */
+	public name: string;
+	/** The flag to define sorting order. True to sort ascending, false to sort descending */
+	public ascending: boolean;
 
 	/**
+	 * Creates a new instance and assigns its values.
+	 * 
 	 * @param name 			the name of the field to sort by.
-	 * @param ascending 	boolean value indicating whether the values should
-	 * 						be sorted in ascending (true) or descending (false) order 
+	 * @param ascending 	true to sort in ascending order, and false to sort in descending order. 
 	 */
 	public constructor(name: string = null, ascending: boolean = true) {
 		this.name = name;

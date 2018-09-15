@@ -14,29 +14,30 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Class that includes standard design patterns for data sorting.
- * Sorting parameters contain information about how to sort the
- * data from a data source, using the fields available.
+ * Defines a field name and order used to sort query results.
  *
  * @see [[SortField]]
  *
  * ### Example ###
  *
- *     public MyMethod () {
- *         let sortParams = new SortParams();
- *         sortParams.add(new SortField("key", false));
- *         ...
- *     }
+ * let filter = FilterParams.fromTuples("type", "Type1");
+ * let paging = new PagingParams(0, 100);
+ * let sorting = new SortingParams(new SortField("create_time", true));
+ *
+ * myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 var SortParams = /** @class */ (function (_super) {
     __extends(SortParams, _super);
     /**
-     * @param fields    the SortFields to use when sorting data using these SortParams.
+     * Creates a new instance and initializes it with specified sort fields.
      *
-     * @see [[SortField]]
+     * @param fields    a list of fields to sort by.
      */
-    function SortParams(fields) {
-        if (fields === void 0) { fields = null; }
+    function SortParams() {
+        var fields = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            fields[_i] = arguments[_i];
+        }
         var _this = _super.call(this) || this;
         // Set the prototype explicitly.
         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work

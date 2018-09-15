@@ -1,6 +1,6 @@
 /** @module data */
 /** @hidden */ 
-let uuid = require('uuid');
+const uuid = require('uuid');
 
 // Maps for number <-> hex string conversion
 /** @hidden */ 
@@ -10,21 +10,27 @@ for (let i = 0; i < 256; i++) {
 }
 
 /**
- * Contains standard design patterns for generating GUIDs.
+ * Helper class to generate unique object IDs.
+ * It supports two types of IDs: long and short.
+ * 
+ * Long IDs are string GUIDs. They are globally unique and 32-character long.
+ * 
+ * ShortIDs are just 9-digit random numbers. They are not guaranteed be unique.
  * 
  * ### Example ###
  * 
- *     public MyMethod () {
- *        let id1 = IdGenerator.nextShort();
- *        ...
- *        
- *        let id2 = IdGenerator.nextLong();	
- *     }
+ * IdGenerator.nextLong();      // Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
+ * IdGenerator.nextShort();     // Possible result: "23495247"
+ * 
  */
 export class IdGenerator {
     
     /**
-     * Generates a new short (9-digit number) id using Math.random().
+     * Generates a random 9-digit random ID (code).
+     * 
+     * Remember: The returned value is not guaranteed to be unique.
+     * 
+     * @returns a generated random 9-digit code
      */
     public static nextShort(): string {
         return Math.ceil(100000000 + Math.random() * 899999999).toString();
@@ -42,7 +48,10 @@ export class IdGenerator {
     }
 
     /**
-     * Generates a new long (16-digit hex) id using UUID.
+     * Generates a globally unique 32-digit object ID.
+     * The value is a string representation of a GUID value.
+     * 
+     * @returns a generated 32-digit object ID
      */
     public static nextLong(): string {
         var buffer = new Array(16);

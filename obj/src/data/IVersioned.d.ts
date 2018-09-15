@@ -1,18 +1,31 @@
 /** @module data */
 /**
- * Interface for versioned data objects with optimistic concurrency resolution.
- * The version can be any string, with the only requirement that newer versions
- * strings are higher (bigger) than the previous version string. When generated
- * automatically, the version is represented by a timestamp string.
+ * Interface for data objects that can be versioned.
+ *
+ * Versioning is often used as optimistic concurrency mechanism.
+ *
+ * The version doesn't have to be a number, but it is recommended to use sequential
+ * values to determine if one object has newer or older version than another one.
+ *
+ * It is a common pattern to use the time of change as the object version.
  *
  * ### Example ###
  *
- * Example implementation of the IVersioned interface:
+ *  export class MyData implements IStringIdentifiable, IVersioned {
+ *    public id: string;
+ *    public field1: string;
+ *    public field2: number;
+ *    public version: string;
+ *    ...
+ *  }
  *
- *     export class MyData implements IVersioned {
- *         public version: string;
- *         ...
- *     }
+ * public updateData(correlationId: string, item: MyData): void {
+ *  ...
+ *  if (item.version < oldItem.version) {
+ *    throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");
+ *  }
+ *  ...
+ * }
  */
 export interface IVersioned {
     /** The object's version. */
