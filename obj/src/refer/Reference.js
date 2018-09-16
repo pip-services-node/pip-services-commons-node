@@ -3,15 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
 var Descriptor_1 = require("./Descriptor");
 /**
- * A placeholder that stores component references.
+ * Contains a reference to a component and locator to find it.
+ * It is used by [[References]] to store registered component references.
  */
 var Reference = /** @class */ (function () {
     /**
-     * Create a new Reference object and initializes it using the locator and reference given.
+     * Create a new instance of the reference object and assigns its values.
      *
-     * @param locator 		the component locator for the reference. It can be a standard Descriptor
-     * 						or anything else.
-     * @param reference 	the component reference.
+     * @param locator 		a locator to find the reference.
+     * @param reference 	a reference to component.
      */
     function Reference(locator, component) {
         if (component == null)
@@ -20,12 +20,13 @@ var Reference = /** @class */ (function () {
         this._component = component;
     }
     /**
-     * Checks if a locator matches this Reference object. A match is considered to be made if the locator
-     * matches this Reference's component or its locator.
+     * Matches locator to this reference locator.
      *
+     * Descriptors are matched using equal method.
+     * All other locator types are matched using direct comparison.
      *
-     * @param locator 	the locator to match against this Reference.
-     * @return <code>true</code>, if this reference matches the locator, and <code>false</code> - otherwise.
+     * @param locator 	the locator to match.
+     * @return true if locators are matching and false it they don't.
      *
      * @see [[Descriptor]]
      */
@@ -43,15 +44,15 @@ var Reference = /** @class */ (function () {
             return false;
     };
     /**
-     * Gets the component stored in this Reference object.
+     * Gets the stored component reference.
      *
-     * @return the component stored.
+     * @return the component's references.
      */
     Reference.prototype.getComponent = function () {
         return this._component;
     };
     /**
-     * Gets the locator of the component that is stored in this Reference object.
+     * Gets the stored component locator.
      *
      * @return the component's locator.
      */

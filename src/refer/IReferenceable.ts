@@ -2,35 +2,32 @@
 import { IReferences } from './IReferences';
 
 /**
- * Interface for components that require referencing other components. 
+ * Interface for components that depends on other components. 
+ * 
+ * If component requires explicit notification to unset references
+ * it shall additionally implement [[IUnreferenceable]] interface.
  * 
  * @see [[IReferences]]
+ * @see [[IUnreferenceable]]
  * 
  * ### Example ###
  * 
- * Example implementation of the IReferenceable interface:
- * 
- *     export class MyReferenceClass implements IReferenceable {
- *         public _references: IReferences;
- *         
- *         constructor(references: IReferences) {	
- *             setReferences(references)
- *         }
- *         
- *         public setReferences(references: IReferences): void {
- *             this._references = references;
- *         }
- *         
- *         ...
- *         
+ *  export class MyController implements IReferenceable {
+ *     public _persistence: IMyPersistence;
+ *     ...    
+ *     public setReferences(references: IReferences): void {
+ *       this._persistence = references.getOneRequired<IMyPersistence>(
+ *         new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *       );
  *     }
+ *     ...
+ *  }
  */
 export interface IReferenceable {
 	/**
-	 * Sets references to other components. After references are set, 
-	 * required dependencies can be found using component locators.
+	 * Sets references to dependent components.
 	 * 
-	 * @param references 	the component references required by this component.
+	 * @param references 	references to locate the component dependencies. 
 	 * @see [[IReferences]]
 	 */
 	setReferences(references: IReferences): void;

@@ -2,18 +2,18 @@
 import { Descriptor } from './Descriptor';
 
 /**
- * A placeholder that stores component references.
+ * Contains a reference to a component and locator to find it.
+ * It is used by [[References]] to store registered component references.
  */
 export class Reference {
 	private _locator: any;
 	private _component: any;
 
 	/**
-	 * Create a new Reference object and initializes it using the locator and reference given.
+	 * Create a new instance of the reference object and assigns its values.
 	 * 
-	 * @param locator 		the component locator for the reference. It can be a standard Descriptor 
-	 * 						or anything else.
-	 * @param reference 	the component reference.
+	 * @param locator 		a locator to find the reference.
+	 * @param reference 	a reference to component.
 	 */
 	public constructor(locator: any, component: any) {
 		if (component == null)
@@ -24,12 +24,13 @@ export class Reference {
 	}
 	
 	/**
-	 * Checks if a locator matches this Reference object. A match is considered to be made if the locator 
-	 * matches this Reference's component or its locator.
-	 *
+	 * Matches locator to this reference locator.
 	 * 
-	 * @param locator 	the locator to match against this Reference. 
-	 * @return <code>true</code>, if this reference matches the locator, and <code>false</code> - otherwise.
+	 * Descriptors are matched using equal method.
+	 * All other locator types are matched using direct comparison.
+	 * 
+	 * @param locator 	the locator to match. 
+	 * @return true if locators are matching and false it they don't.
 	 * 
 	 * @see [[Descriptor]]
 	 */
@@ -48,16 +49,16 @@ export class Reference {
 	}
 	
 	/**
-	 * Gets the component stored in this Reference object.
+	 * Gets the stored component reference.
 	 * 
-	 * @return the component stored.
+	 * @return the component's references.
 	 */
 	public getComponent(): any { 
 		return this._component; 
 	}
 
 	/**
-	 * Gets the locator of the component that is stored in this Reference object.
+	 * Gets the stored component locator.
 	 * 
 	 * @return the component's locator.
 	 */

@@ -1,36 +1,30 @@
 /** @module refer */
 /**
- * Interface for components that require clearing of their references to other components.
+ * Interface for components that require explicit clearing of references to dependent components.
  *
  * @see [[IReferences]]
  * @see [[IReferenceable]]
  *
  * ### Example ###
  *
- * Example implementation of the IUnreferenceable interface:
- *
- *     export class MyUnReferenceableClass implements IReferenceable, IUnreferenceable {
- *         public _references: IReferences;
- *
- *         constructor(references: IReferences) {
- *             setReferences(references)
- *         }
- *
- *         public setReferences(references: IReferences): void {
- *             this._references = references;
- *         }
- *
- *         public unsetReferences (): void {
- *             this._references = null;
- *         }
- *
- *         ...
- *
+ *  export class MyController implements IReferenceable, IUnreferenceable {
+ *     public _persistence: IMyPersistence;
+ *     ...
+ *     public setReferences(references: IReferences): void {
+ *       this._persistence = references.getOneRequired<IMyPersistence>(
+ *         new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *       );
  *     }
+ *
+ *     public unsetReferences(): void {
+ *       this._persistence = null;
+ *     }
+ *     ...
+ *  }
  */
 export interface IUnreferenceable {
     /**
-     * Unsets (clears) previously set references to other components.
+     * Unsets (clears) previously set references to dependent components.
      */
     unsetReferences(): void;
 }

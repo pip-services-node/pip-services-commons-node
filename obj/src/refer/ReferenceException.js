@@ -16,16 +16,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module refer */
 var InternalException_1 = require("../errors/InternalException");
 /**
- * Thrown, when the required component is not found in the references that are set.
+ * Error when required component dependency cannot be found.
  */
 var ReferenceException = /** @class */ (function (_super) {
     __extends(ReferenceException, _super);
     /**
-     * Creates a new ReferenceException, containing information about the exception's
-     * correlation id and locator.
+     * Creates an error instance and assigns its values.
      *
-     * @param correlationId 	(optional) transaction id to trace execution through call chain.
-     * @param locator 			the locator by which no components were found.
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param locator 			the locator to find reference to dependent component.
      */
     function ReferenceException(correlationId, locator) {
         var _this = _super.call(this, correlationId, "REF_ERROR", "Failed to obtain reference to " + locator) || this;

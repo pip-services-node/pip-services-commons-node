@@ -1,127 +1,123 @@
 /**
- * Interface for creating sets of component references, which have the ability to add new references,
- * find reference using locators, or remove reference from the set.
+ * Interface for a map that holds component references and passes them to components
+ * to establish dependencies with each other.
  *
- * Used as part of the inversion of control design pattern, specifically - inversion of dependency.
+ * Together with [[IReferenceable]] and [[IUnreferenceable]] interfaces it implements
+ * a Locator pattern that is used by PipServices toolkit for Inversion of Control
+ * to assign external dependencies to components.
  *
- * In PipServices, the "location design pattern” is used, which is much simpler than dependency injection.
- * It is simple to implement and portable between languages. Used for building various containers, as well as
- * for testing objects.
+ * The IReferences object is a simple map, where keys are locators
+ * and values are component references. It allows to add, remove and find components
+ * by their locators. Locators can be any values like integers, strings or component types.
+ * But most often PipServices toolkit uses [[Descriptor]] as locators that match
+ * by 5 fields: group, type, kind, name and version.
  *
+ * @see [[Descriptor]]
  * @see [[References]]
  *
  * ### Example ###
  *
- * Example container that will contain a reference to a service once created:
- *     export class myContainer {
- *         private _references: IReferences;
- *
- *         constructor() {
- *             _references = References.fromTuples("myservice.v1", new MyServiceV1(), ...);
- *             ...
- *         }
+ *  export class MyController implements IReferenceable {
+ *     public _persistence: IMyPersistence;
+ *     ...
+ *     public setReferences(references: IReferences): void {
+ *       this._persistence = references.getOneRequired<IMyPersistence>(
+ *         new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *       );
  *     }
+ *     ...
+ *  }
  *
- * Retrieving the service from the container's reference:
- *     export class myController implements IMyController, IReferenceable {
- *         private _service: IMyServiceV1;
+ *  let persistence = new MyMongoDbPersistence();
  *
- *         constructor() {
+ *  let controller = new MyController();
  *
- *         }
- *
- *         setReferences(references: IReferences) {
- *             _service = references.getOneRequired<IMyServiceV1>("myservice.v1");
- *         }
- *     }
+ *  let references = References.fromTuples(
+ *    new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
+ *    new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+ *  );
+ *  controller.setReferences(references);
  *
  */
 export interface IReferences {
     /**
-     * Abstract method that will contain the logic for putting a new component reference into
-     * the set using an explicit locator.
+     * Puts a new reference into this reference map.
      *
-     * @param locator 	the locator to find the reference by.
-     * @param component the component reference that is to be added.
+     * @param locator 	a locator to find the reference by.
+     * @param component a component reference to be added.
      */
     put(locator: any, component: any): any;
     /**
-     * Abstract method that will contain the logic for removing a component reference from the set.
-     * Removes only the last reference.
+     * Removes a previously added reference that matches specified locator.
+     * If many references match the locator, it removes only the first one.
+     * When all references shall be removed, use [[removeAll]] method instead.
      *
-     * @param locator 	the locator of the reference that is to be removed.
-     * @returns the removed reference.
+     * @param locator 	a locator to remove reference
+     * @returns the removed component reference.
      *
      * @see [[removeAll]]
      */
     remove(locator: any): any;
     /**
-     * Abstract method that will contain the logic for removing all component references with the
-     * given locator from the set.
+     * Removes all component references that match the specified locator.
      *
      * @param locator 	the locator to remove references by.
      * @returns a list, containing all removed references.
      */
     removeAll(locator: any): any[];
     /**
-     * Abstract method that will contain the logic for getting all stored component locators.
+     * Gets locators for all registered component references in this reference map.
      *
-     * @returns a list, containing the locators for all of the components stored in the set.
+     * @returns a list with component locators.
      */
     getAllLocators(): any[];
     /**
-     * Abstract method that will contain the logic for getting all stored component references.
+     * Gets all component references registered in this reference map.
      *
-     * @returns a list, containing all component references stored in the set.
+     * @returns a list with component references.
      */
     getAll(): any[];
     /**
-     * Abstract method that will contain the logic for getting a list of component references
-     * that match the provided locator and the specified type.
+     * Gets all component references that match specified locator.
      *
      * @param locator 	the locator to find references by.
-     * @returns a list, containing all component references found.
+     * @returns a list with matching component references or empty list if nothing was found.
      */
     getOptional<T>(locator: any): T[];
     /**
-     * Abstract method that will contain the logic for getting a list of component references
-     * that match the provided locator and the specified type. If no references are found,
-     * an exception will be thrown.
+     * Gets all component references that match specified locator.
+     * At least one component reference must be present.
+     * If it doesn't the method throws an error.
      *
      * @param locator 	the locator to find references by.
-     * @returns a list, containing all component references found.
+     * @returns a list with matching component references.
      *
-     * @throws a [[ReferenceException]] if no component references are found by the given locator and type.
+     * @throws a [[ReferenceException]] when no references found.
      */
     getRequired<T>(locator: any): T[];
     /**
-     * Abstract method that will contain the logic for getting the component reference that matches
-     * the provided locator and the specified type. The search is performed, starting from the
-     * last-added references.
+     * Gets an optional component reference that matches specified locator.
      *
-     * @param locator 	the locator to find a reference by.
-     * @returns the component reference found or <code>null</code> (if none were found).
+     * @param locator 	the locator to find references by.
+     * @returns a matching component reference or null if nothing was found.
      */
     getOneOptional<T>(locator: any): T;
     /**
-     * Abstract method that will contain the logic for getting the component reference that
-     * matches the provided locator and the specified type.
-     * The search is performed, starting from the last-added references.
+     * Gets a required component reference that matches specified locator.
      *
      * @param locator 	the locator to find a reference by.
-     * @returns the component reference found.
-     * @throws a [[ReferenceException]] if the requested component was not found.
+     * @returns a matching component reference.
+     * @throws a [[ReferenceException]] when no references found.
      */
     getOneRequired<T>(locator: any): T;
     /**
-     * Abstract method that will contain the logic for finding all references that match
-     * the specified query criteria and the specified type.
+     * Gets all component references that match specified locator.
      *
      * @param locator 	the locator to find a reference by.
      * @param required 	forces to raise an exception if no reference is found.
-     * @returns a list of found references.
+     * @returns a list with matching component references.
      *
-     * @throws a [[ReferenceException]] if the requested component was not found.
+     * @throws a [[ReferenceException]] when required is set to true but no references found.
      */
     find<T>(locator: any, required: boolean): T[];
 }

@@ -10,18 +10,55 @@ import { Descriptor } from './Descriptor';
 /**
  * Helper class for resolving component dependencies.
  * 
+ * The resolver is configured to resolve named dependencies by specific locator.
+ * During deployment the dependency locator can be changed.
+ * 
+ * This mechanism can be used to clarify specific dependency among several alternatives.
+ * Typically components are configured to retrieve the first dependency that matches
+ * logical group, type and version. But if container contains more than one instance
+ * and resolution has to be specific about those instances, they can be given a unique
+ * name and dependency resolvers can be reconfigured to retrieve dependencies by their name.
+ * 
+ * Configuration parameters:
+ *   dependencies:
+ *     [dependency name 1]: [dependency 1 locator (descriptor)]
+ *     ...
+ *     [dependency name N]: [dependency N locator (descriptor)]
+ * 
+ * References:
+ *   [references that match configured dependencies]
+ * 
  * ### Example ###
  * 
- * A DependencyResolver object can be created and used in the following way:
+ * class MyComponent: IConfigurable, IReferenceable {
+ *   private _dependencyResolver: DependencyResolver = new DependencyResolver();
+ *   private _persistence: IMyPersistence;
+ *   ...
  * 
- *     public MyMethod(IReferences references){ 
- *         let _dependencyResolver = new DependencyResolver(ConfigParams.fromTuples("Dependency", "Value"));
- *         ...
- *         
- *         _dependencyResolver.setReferences(references);
- *         ...
- *         
- *     }
+ *   public constructor() {
+ *     this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
+ * 	 }
+ * 
+ *   public configure(config: ConfigParams): void {
+ *     this._dependencyResolver.configure(config);
+ *   }  
+ * 
+ *   public setReferences(references: IReferences): void {
+ *     this._dependencyResolver.setReferences(references);
+ *     this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>("persistence");
+ *   }
+ * }
+ * 
+ * // Create mycomponent and set specific dependency out of many
+ * let component = new MyComponent();
+ * component.configure(ConfigParams.fromTuples(
+ *   "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" // Override default persistence dependency
+ * ));
+ * component.setReferences(References.fromTuples(
+ *   new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
+ *   new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  // This dependency shall be set
+ * ));
+ * 
  * @see [[IReferences]]
  */
 export class DependencyResolver implements IReferenceable, IReconfigurable {
@@ -29,12 +66,10 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	private _references: IReferences;
 	
 	/**
-	 * Creates a new DependencyResolver object.
+	 * Creates a new instance of the dependency resolver.
 	 * 
-	 * @param config		(optional) the configuration parameters (dependencies) to configure this 
-	 * 						object with. If omitted, then they can be set later on using [[configure]].
-	 * @param references 	(optional) the component references to set for this object.
-	 * 						If omitted, then they can be set later on using [[setReferences]].
+	 * @param config		(optional) default configuration where key is dependency name and value is locator (descriptor)
+	 * @param references	(optional) default component references
 	 * 
 	 * @see [[ConfigParams]]
 	 * @see [[configure]]
@@ -49,11 +84,9 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Configures this object using the given [[ConfigParams]]. This method looks for a section 
-	 * named "dependencies", which should contain locators (or [[Descriptor Descriptors]]) to 
-	 * dependencies.
+	 * Configures the component with specified parameters.
 	 * 
-	 * @param config 	the dependencies to configure this object with.
+	 * @param config 	configuration parameters to set.
 	 * 
 	 * @see [[ConfigParams]]
 	 */
@@ -78,16 +111,16 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Sets this object's component references.
+	 * Sets the component references
 	 * 
-	 * @param references 	the component references to set.
+	 * @param references 	references to set.
 	 */
 	public setReferences(references: IReferences): void {
 		this._references = references;
 	}
 
 	/**
-	 * Places a new dependency into this DependencyResolver object.
+	 * Adds a new dependency into this resolver.
 	 * 
 	 * @param name 		the dependency's name.
 	 * @param locator 	the locator to find the dependency by.
@@ -97,12 +130,10 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Locates the dependency with the given name.
+	 * Gets a dependency locator by its name.
 	 * 
 	 * @param name 	the name of the dependency to locate.
-	 * @returns the locator of the dependency that was located.
-	 * 
-	 * @throws an Error if 'name' is null or no references are set. 
+	 * @returns the dependency locator or null if locator was not configured.
 	 */
 	private locate(name: string): any {
 		if (name == null)
@@ -114,11 +145,10 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 	
     /**
-	 * Gets a list of component references that match the locator stored by the given name 
-	 * in the dependencies that are set.
+	 * Gets all optional dependencies by their name.
 	 * 
-	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @returns a list, containing all component references found.
+	 * @param name 		the dependency name to locate.
+	 * @returns a list with found dependencies or empty list of no dependencies was found.
 	 */
 	public getOptional<T>(name: string): T[] {
 		let locator = this.locate(name);		
@@ -126,13 +156,14 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Gets a list of component references that match the locator stored by the given name 
-	 * in the dependencies that are set. If no references are found, an exception will be thrown.
+	 * Gets all required dependencies by their name.
+	 * At least one dependency must present.
+	 * If no dependencies was found it throws a [[ReferenceException]]
 	 * 
-	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @returns a list, containing all component references found.
+	 * @param name 		the dependency name to locate.
+	 * @returns a list with found dependencies.
 	 * 
-	 * @throws a [[ReferenceException]] if no dependencies (locators) are found by the given name.
+	 * @throws a [[ReferenceException]] if no dependencies were found.
 	 */
 	public getRequired<T>(name: string): T[] {
 		let locator = this.locate(name);
@@ -143,12 +174,10 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
     /**
-	 * Gets a component reference that matches the locator stored by the given name 
-	 * in the dependencies that are set. The search is performed, starting from the 
-	 * last-added references.
+	 * Gets one optional dependency by its name.
 	 * 
-	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @returns the component references found or <code>null</code> (if none were found).
+	 * @param name 		the dependency name to locate.
+	 * @returns a dependency reference or null of the dependency was not found
 	 */
 	public getOneOptional<T>(name: string): T {
 		let locator = this.locate(name);
@@ -156,16 +185,14 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Gets a component reference that matches the locator stored by the given name 
-	 * in the dependencies that are set. The search is performed, starting from the 
-	 * last-added references.
+	 * Gets one required dependency by its name.
+	 * At least one dependency must present.
+	 * If the dependency was found it throws a [[ReferenceException]]
 	 * 
-	 * If no dependencies are found by the given name, an exception will be thrown.
+	 * @param name 		the dependency name to locate.
+	 * @returns a dependency reference
 	 * 
-	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @returns the component reference found.
-	 * 
-	 * @throws a [[ReferenceException]] if no dependencies (locators) are found by the given name.
+	 * @throws a [[ReferenceException]] if dependency was not found.
 	 */
 	public getOneRequired<T>(name: string): T {
 		let locator = this.locate(name);
@@ -176,15 +203,13 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Finds all references that match the specified query criteria and the specified type.
+	 * Finds all matching dependencies by their name.
 	 * 
-	 * @param name 		the name of the dependency that stores the component's locator.
-	 * @param required 	forces to raise an exception if no reference is found.
-	 * @returns a list of found references.
+	 * @param name 		the dependency name to locate.
+	 * @param required 	true to raise an exception when no dependencies are found.
+	 * @returns a list of found dependencies
 	 * 
-	 * @throws an Error if the name is <code>null</code>.
-	 * @throws a [[ReferenceException]] if required was set to <code>true</code>
-     *          and nothing was found.
+	 * @throws a [[ReferenceException]] of required is true and no dependencies found.
 	 */
 	public find<T>(name: string, required: boolean): T[] {
 		if (name == null)
@@ -201,11 +226,13 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 	
 	/**
-     * Static method that creates a new DependencyResolver object using the tuples arrays that are passed as parameters.
+     * Creates a new DependencyResolver from a list of key-value pairs called tuples
+	 * where key is dependency name and value the depedency locator (descriptor).
      * 
-     * @param tuples    the tuples arrays to initialize the new References object with. 
-     *                  A tuples array contains index-based pairs, such as [key1,value1,key2,value2].
-     * @returns the DependencyResolver object that was generated using the given tuples arrays,
+     * @param tuples    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)
+     * @returns         a newly created DependencyResolver.
+     * 
+     * @see [[fromTuplesArray]]
      */
 	public static fromTuples(...tuples: any[]): DependencyResolver {
 		let result = new DependencyResolver();
@@ -220,7 +247,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 
             result.put(name, locator);
         }
-        
+         
         return result;
 	}
 }

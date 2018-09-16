@@ -1,15 +1,14 @@
 /** @module refer */
 import { InternalException } from '../errors/InternalException';
 /**
- * Thrown, when the required component is not found in the references that are set.
+ * Error when required component dependency cannot be found.
  */
 export declare class ReferenceException extends InternalException {
     /**
-     * Creates a new ReferenceException, containing information about the exception's
-     * correlation id and locator.
+     * Creates an error instance and assigns its values.
      *
-     * @param correlationId 	(optional) transaction id to trace execution through call chain.
-     * @param locator 			the locator by which no components were found.
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param locator 			the locator to find reference to dependent component.
      */
     constructor(correlationId: string, locator: any);
 }

@@ -2,26 +2,29 @@
 import { ConfigException } from '../errors/ConfigException';
 
 /**
- * Component descriptor that is used to find a component by its descriptive elements. Contains 5 sections:
+ * Locator type that most often used in PipServices toolkit.
+ * It locates components using several fields:
+ * - Group: a package or just named group of components like "pip-services"
+ * - Type: logical component type that defines it's contract like "persistence"
+ * - Kind: physical implementation type like "mongodb"
+ * - Name: unique component name like "default"
+ * - Version: version of the component contract like "1.0"
  * 
- * - **logical group:** the package or other logical group of a component, for example: 'pip-services-storage-blocks'
- * - **component type:** identifies a component's interface, for example: 'persistence', 'controller', 'services', or 'cache'
- * - **component kind:** identifies a component's implementation, for example: 'memory', 'file', or 'mongodb'
- * - **component name:** identifies a component's internal content
- * - **implementation version:** for example: '1.0', '1.5', or '10.4'
- * 
- * <code>*</code> can be used for any of the above sections to indicate 'any'.
+ * The locator matching can be done by all or only few selected fields. 
+ * The fields that shall be excluded from the matching must be set to "*" or null.
+ * That approach allows to implement many interesting scenarios. For instance:
+ * - Locate all loggers (match by type and version)
+ * - Locate persistence components for a microservice (match by group and type)
+ * - Locate specific component by its name (match by name)
  * 
  * ### Example ###
  * 
- * A Descriptor object can be created and used in the following way:
+ * let locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
+ * let locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
  * 
- *     public MyMethod(){
- *         let descriptor = new Descriptor("Group name", "Type of process", "Kind of process", "Name of process", "Version");
- *         ...
- *         
- *         registerAsType(descriptor, MyDataProcessClass); // pip-services-components-node.Build.Factory
- *     }
+ * locator1.match(locator2);		// Result: true
+ * locator1.equal(locator2);		// Result: true
+ * locator1.exactMatch(locator2);	// Result: false
  */
 export class Descriptor {
 	private _group: string;
@@ -31,13 +34,13 @@ export class Descriptor {
 	private _version: string;
 	
 	/**
-	 * Creates a component descriptor object.
+	 * Creates a new instance of the descriptor.
 	 * 
-	 * @param group 	the logical group (examples: 'pip-services-runtime', 'pip-services-logging', '*').
-	 * @param type 		the logical type (examples: 'persistence', 'controller', 'cache', '*').
-	 * @param kind 		the implementation (examples: 'memory', 'mongodb', '*').
-	 * @param name		the internal content
-	 * @param version 	implementation version (examples: '1.0', '1.5', '10.4', '*').
+	 * @param group 	a logical component group
+	 * @param type 		a logical component type or contract
+	 * @param kind 		a component implementation type
+	 * @param name		a unique component name
+	 * @param version 	a component implementation version
 	 */
 	public constructor(group: string, type: string, kind: string, name: string, version: string) {
 		if ("*" == group) group = null;
@@ -54,16 +57,16 @@ export class Descriptor {
 	}
 
 	/**
-	 * Gets this component descriptor's logical group section.
+	 * Gets the component's logical group.
 	 * 
-	 * @returns the component's logical group.
+	 * @returns the component's logical group
 	 */
 	public getGroup(): string { 
 		return this._group; 
 	}
 	
 	/**
-	 * Gets this component descriptor's logical type section.
+	 * Gets the component's logical type.
 	 * 
 	 * @returns the component's logical type.
 	 */
@@ -72,25 +75,25 @@ export class Descriptor {
 	}
 	
 	/**
-	 * Gets this component descriptor's implementation section.
+	 * Gets the component's implementation type.
 	 * 
-	 * @returns the component's implementation.
+	 * @returns the component's implementation type.
 	 */
 	public getKind(): string { 
 		return this._kind; 
 	}
 
 	/**
-	 * Gets this component descriptor's name section.
+	 * Gets the unique component's name.
 	 * 
-	 * @returns the component's name.
+	 * @returns the unique component's name.
 	 */
 	public getName(): string { 
 		return this._name; 
 	}
 	
 	/**
-	 * Gets this component descriptor's implementation version section.
+	 * Gets the component's implementation version.
 	 * 
 	 * @returns the component's implementation version.
 	 */
@@ -105,12 +108,11 @@ export class Descriptor {
 	}
 
 	/**
-	 * Matches this descriptor to another descriptor.
-	 * All <code>*</code> or <code>null</code> descriptor elements match to any other value.
-	 * Specific values must match exactly.
+	 * Partially matches this descriptor to another descriptor.
+	 * Fields that contain "*" or null are excluded from the match.
 	 * 
 	 * @param descriptor 	the descriptor to match this one against.
-	 * @returns <code>true</code>, if the descriptors match, and <code>false</code> - otherwise. 
+	 * @returns true if descriptors match and false otherwise 
 	 * 
 	 * @see [[exactMatch]]
 	 */
@@ -131,14 +133,11 @@ export class Descriptor {
 	}
 	
 	/**
-	 * Matches this descriptor to another descriptor.
-	 * All <code>*</code> or <code>null</code> descriptor elements match ONLY to <code>*</code> 
-	 * or <code>null</code> values (as oppossed to [[match]]).
-	 * 
-	 * Specific values must match exactly.
+	 * Matches this descriptor to another descriptor by all fields.
+	 * No exceptions are made.
 	 * 
 	 * @param descriptor 	the descriptor to match this one against.
-	 * @returns <code>true</code>, if the descriptors match, and <code>false</code> - otherwise. 
+	 * @returns true if descriptors match and false otherwise. 
 	 * 
 	 * @see [[match]]
 	 */
@@ -151,11 +150,10 @@ export class Descriptor {
 	}
 	
 	/**
-	 * Checks whether or not a descriptor contains <code>*</code> or <code>null</code>
-	 * elements in any of its sections.
+	 * Checks whether all descriptor fields are set.
+	 * If descriptor has at least one "*" or null field it is considered "incomplete",
 	 * 
-	 * @returns <code>true</code>, if no <code>*</code>s or <code>null</code>s are found. Otherwise, 
-	 * 			<code>false</code> is returned.
+	 * @returns true if all descriptor fields are defined and false otherwise.
 	 */
 	public isComplete(): boolean {
 		return this._group != null && this._type != null && this._kind != null
@@ -166,8 +164,7 @@ export class Descriptor {
 	 * Matches this descriptor to the value that was passed.
 	 * 
 	 * @param value 	the value to match against this descriptor.
-	 * @returns <code>true</code> if value is an instance of Descriptor and matches this descriptor.
-	 * 			Otherwise, <code>false</code> is returned.
+	 * @returns true if the value is matching descriptor and false otherwise.
 	 * 
 	 * @see [[match]]
 	 */
@@ -178,10 +175,11 @@ export class Descriptor {
 	}
 	
 	/**
-	 * Converts this descriptor to a string by substituting any <code>null</code>s with <code>*</code>s, 
-	 * and by separating its 5 sections with colons.
-	 * 
-	 * @returns this descriptor as a string. Example result: "pip-services-logging:persistence:memory:*:1.0".
+     * Gets a string representation of the object.
+     * The result is a colon-separated list of descriptor fields as
+     * "mygroup:connector:aws:default:1.0"
+     * 
+     * @returns a string representation of the object.
 	 */
 	public toString(): string {
 		return (this._group || "*")
@@ -192,11 +190,10 @@ export class Descriptor {
 	}
 	
 	/**
-	 * Static method that can convert a colon-separated descriptor string into a Descriptor object.
-	 * 
-	 * @param value 	a colon-separated descriptor string. Example string: 
-	 * 					"pip-services-logging:persistence:memory:*:1.0".
-	 * @returns the Descriptor that was parsed from the string.
+     * Parses colon-separated list of descriptor fields and returns them as a Descriptor.
+     * 
+     * @param value      colon-separated descriptor fields to initialize Descriptor.
+     * @returns         a newly created Descriptor.
 	 * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
 	 */
 	public static fromString(value: String): Descriptor {
