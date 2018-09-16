@@ -27,7 +27,7 @@ export interface IEventListener {
 	 * A method called when events this listener is subscrubed to are fired.
 	 * 
 	 * @param event 			a fired evemt
-	 * @param correlationId 	optional transaction id to trace calls across components.
+	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
 	 * @param args 			    event arguments.
 	 */
     onEvent(correlationId: string, event: IEvent, args: Parameters): void;

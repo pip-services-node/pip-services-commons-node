@@ -12,7 +12,7 @@ export interface ICleanable {
     /**
      * Abstract method that will contain the logic for cleaning a component's data.
      *
-     * @param correlationId 	optional transaction id to trace calls across components.
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param callback 			the function to call when the clearing process is complete. It will
      * 							be called with an error if one is raised.
      */

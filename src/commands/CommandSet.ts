@@ -220,7 +220,7 @@ export class CommandSet {
     /**
      * Executes a [[ICommand command]] specificed by its name.
      * 
-     * @param correlationId optional transaction id to trace calls across components.
+     * @param correlationId (optional) transaction id to trace execution through call chain.
      * @param commandName   the name of that command that is to be executed.
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
@@ -295,7 +295,7 @@ export class CommandSet {
      * Fires event specified by its name and notifies all registered
      * [[IEventListener listeners]]
      * 
-     * @param correlationId     optional transaction id to trace calls across components.
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
      * @param eventName         the name of the event that is to be fired.
      * @param args              the event arguments (parameters).
      */

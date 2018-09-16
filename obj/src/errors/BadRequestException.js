@@ -24,10 +24,12 @@ var ApplicationException_1 = require("./ApplicationException");
 var BadRequestException = /** @class */ (function (_super) {
     __extends(BadRequestException, _super);
     /**
-     * Call ApplicationException's constructor with the category parameter set to
-     * ErrorCategory.BadRequest and set the status to 400.
+     * Creates an error instance and assigns its values.
      *
-     * @see [[ApplicationException.constructor]]
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param code              (optional) a unique error code. Default: "UNKNOWN"
+     * @param message           (optional) a human-readable description of the error.
+     *
      * @see [[ErrorCategory]]
      */
     function BadRequestException(correlation_id, code, message) {

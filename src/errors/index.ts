@@ -1,6 +1,9 @@
 /** 
  * @module errors 
  * @preferred
+ * 
+ * Todo: Rewrite this description
+ * 
  * Portable and localizable Exceptions classes. Each Exception, in addition to a description 
  * and stack trace has a unique string code, details array (which can be used for creating 
  * localized strings). 

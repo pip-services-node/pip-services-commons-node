@@ -9,10 +9,12 @@ import { ApplicationException } from './ApplicationException';
 export class ConnectionException extends ApplicationException {
 
 	/**
-	 * Call ApplicationException's constructor with the category parameter set to 
-	 * ErrorCategory.NoResponse and set the status to 500.
+	 * Creates an error instance and assigns its values.
 	 * 
-	 * @see [[ApplicationException.constructor]]
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param code              (optional) a unique error code. Default: "UNKNOWN"
+     * @param message           (optional) a human-readable description of the error.
+	 * 
 	 * @see [[ErrorCategory]]
 	 */
 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {

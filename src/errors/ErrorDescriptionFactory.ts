@@ -4,7 +4,12 @@ import { ErrorDescription } from './ErrorDescription';
 import { ApplicationException } from './ApplicationException';
 
 /**
- * Contains the static method 'create', which converts ApplicationExceptions and specific (unknown) errors into ErrorDescriptions.
+ * Factory to create serializeable [[ErrorDescription]] from [[ApplicationException]]
+ * or from arbitrary errors.
+ * 
+ * The ErrorDescriptions are used to pass errors through the wire between microservices
+ * implemented in different languages. They allow to restore exceptions on the receiving side
+ * close to the original type and preserve additional information.
  * 
  * @see [[ErrorDescription]]
  * @see [[ApplicationException]]
@@ -12,11 +17,10 @@ import { ApplicationException } from './ApplicationException';
 export class ErrorDescriptionFactory {
 
 	/**
-	 * @param error  	a child classs of ApplicationException (in which case it is simply converted into an ErrorDescription), 
-     *                  or a specific (unknown) error, which contain error.name (set to ErrorDescription's type), error.message (error.toString(), 
-     *                  if not available), and error.stack. In the second case, the ErrorDescription's 
-     *                  status will be 500, and its code (and category) will be 'UNKNOWN' (ErrorCategory.Unknown).
-	 * @returns       	An ErrorDescription, containing all available information about the error.
+     * Creates a serializable ErrorDescription from error object.
+     * 
+	 * @param error  	an error object
+	 * @returns a serializeable ErrorDescription object that describes the error.
 	 */
 	public static create(error: any): ErrorDescription {        
         let description = new ErrorDescription();

@@ -1,8 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module errors */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Defines broad categories of application errors.
+ * Defines standard error categories to application exceptions
+ * supported by PipServices toolkit.
  */
 var ErrorCategory = /** @class */ (function () {
     function ErrorCategory() {
@@ -20,29 +21,27 @@ var ErrorCategory = /** @class */ (function () {
      */
     ErrorCategory.Misconfiguration = "Misconfiguration";
     /**
-     * Errors related to calling operations, which require the component
-     * to be in a specific state.
+     * Errors caused by incorrect object state..
      *
      * For example: business calls when the component is not ready.
      */
     ErrorCategory.InvalidState = "InvalidState";
     /**
-     * Errors that occur during connections to remote services.
-     * They can be related to misconfiguration, network issues,
-     * or the remote service itself.
+     * Errors caused by remote calls timeouted and not returning results.
+     * It allows to clearly separate communication related problems
+     * from other application errors.
      */
     ErrorCategory.NoResponse = "NoResponse";
     /**
-     * Errors returned by remote services or by the network
-     * during call attempts.
+     * Errors caused by remote calls failed due to unidenfied reasons.
      */
     ErrorCategory.FailedInvocation = "FailedInvocation";
     /**
-     * Errors in read/write file operations.
+     * Errors in read/write local disk operations.
      */
     ErrorCategory.FileError = "FileError";
     /**
-     * Errors due to improper user requests.
+     * Errors due to incorrectly specified invocation parameters.
      *
      * For example: missing or incorrect parameters.
      */
@@ -62,8 +61,7 @@ var ErrorCategory = /** @class */ (function () {
      */
     ErrorCategory.Conflict = "Conflict";
     /**
-     * Errors caused by calls to unsupported
-     * or not yet implemented functionality.
+     * Errors caused by calls to unsupported or not yet implemented functionality.
      */
     ErrorCategory.Unsupported = "Unsupported";
     return ErrorCategory;

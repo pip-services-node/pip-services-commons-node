@@ -54,7 +54,7 @@ export declare class Command implements ICommand {
      * the defined schema. The command execution intercepts exceptions raised
      * by the called function and returns them as an error in callback.
      *
-     * @param correlationId optional transaction id to trace calls across components.
+     * @param correlationId (optional) transaction id to trace execution through call chain.
      * @param args          the parameters (arguments) to pass to this command for execution.
      * @param callback      function to be called when command is complete
      *

@@ -30,7 +30,7 @@ export interface ICommandInterceptor {
      * The interceptor can use this method to intercept and alter the command execution.
      * Otherwise it shall just delete the call to the wrapped command.
      * 
-     * @param correlationId optional transaction id to trace calls across components.
+     * @param correlationId (optional) transaction id to trace execution through call chain.
      * @param command       the next command in the call chain that is to be executed.
      * @param args          the parameters (arguments) to pass to the command for execution.
      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then

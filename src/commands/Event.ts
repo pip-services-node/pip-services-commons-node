@@ -82,7 +82,7 @@ export class Event implements IEvent {
     /**
      * Fires this event and notifies all registred listeners.
      * 
-     * @param correlationId     optional transaction id to trace calls across components.
+     * @param correlationId     (optional) transaction id to trace execution through call chain.
      * @param args              the parameters to raise this event with.
      * @throws an [[InvocationException]] if the event fails to be raised.  
      */

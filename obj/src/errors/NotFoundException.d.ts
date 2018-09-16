@@ -4,10 +4,12 @@ import { ApplicationException } from './ApplicationException';
  */
 export declare class NotFoundException extends ApplicationException {
     /**
-     * Call ApplicationException's constructor with the category parameter set to
-     * ErrorCategory.NotFound and set the status to 404.
+     * Creates an error instance and assigns its values.
      *
-     * @see [[ApplicationException.constructor]]
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param code              (optional) a unique error code. Default: "UNKNOWN"
+     * @param message           (optional) a human-readable description of the error.
+     *
      * @see [[ErrorCategory]]
      */
     constructor(correlation_id?: string, code?: string, message?: string);

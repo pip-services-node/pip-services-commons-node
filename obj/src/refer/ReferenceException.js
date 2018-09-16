@@ -24,7 +24,7 @@ var ReferenceException = /** @class */ (function (_super) {
      * Creates a new ReferenceException, containing information about the exception's
      * correlation id and locator.
      *
-     * @param correlationId 	optional transaction id to trace calls across components.
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param locator 			the locator by which no components were found.
      */
     function ReferenceException(correlationId, locator) {

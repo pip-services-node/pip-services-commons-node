@@ -8,7 +8,7 @@ export declare class Notifier {
      * implement the [[INotifiable]] interface. This method calls INotifiable's [[INotifiable.notify notify]]
      * method to notify the component passed.
      *
-     * @param correlationId 	optional transaction id to trace calls across components.
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param component 		the component that is to be notified.
      * @param args              the parameters (arguments) to pass to the component.
      *
@@ -20,7 +20,7 @@ export declare class Notifier {
      * it must implement the [[INotifiable]] interface. This method calls the static [[notifyOne]] method
      * for each of the components passed.
      *
-     * @param correlationId 	optional transaction id to trace calls across components.
+     * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param components 		the list of components that are to be notified.
      * @param args              the parameters (arguments) to pass to the components.
      *

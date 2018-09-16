@@ -1,6 +1,7 @@
 /** @module errors */
 /**
- * Defines broad categories of application errors.
+ * Defines standard error categories to application exceptions
+ * supported by PipServices toolkit.
  */
 export declare class ErrorCategory {
     /**
@@ -16,29 +17,27 @@ export declare class ErrorCategory {
      */
     static readonly Misconfiguration: string;
     /**
-     * Errors related to calling operations, which require the component
-     * to be in a specific state.
+     * Errors caused by incorrect object state..
      *
      * For example: business calls when the component is not ready.
      */
     static readonly InvalidState: string;
     /**
-     * Errors that occur during connections to remote services.
-     * They can be related to misconfiguration, network issues,
-     * or the remote service itself.
+     * Errors caused by remote calls timeouted and not returning results.
+     * It allows to clearly separate communication related problems
+     * from other application errors.
      */
     static readonly NoResponse: string;
     /**
-     * Errors returned by remote services or by the network
-     * during call attempts.
+     * Errors caused by remote calls failed due to unidenfied reasons.
      */
     static readonly FailedInvocation: string;
     /**
-     * Errors in read/write file operations.
+     * Errors in read/write local disk operations.
      */
     static readonly FileError: string;
     /**
-     * Errors due to improper user requests.
+     * Errors due to incorrectly specified invocation parameters.
      *
      * For example: missing or incorrect parameters.
      */
@@ -58,8 +57,7 @@ export declare class ErrorCategory {
      */
     static readonly Conflict: string;
     /**
-     * Errors caused by calls to unsupported
-     * or not yet implemented functionality.
+     * Errors caused by calls to unsupported or not yet implemented functionality.
      */
     static readonly Unsupported: string;
 }

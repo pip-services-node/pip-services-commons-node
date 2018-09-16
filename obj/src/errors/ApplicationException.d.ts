@@ -1,158 +1,186 @@
 import { StringValueMap } from '../data/StringValueMap';
 /**
- * This class provides cross-language (portable) and language-independent (localizable) standardization of exceptions.
+ * Defines a base class to defive various application exceptions.
  *
- * ApplicationException contains a strict structure and methods that help structurize free-form exception messages.
- * While ApplicationExceptions themselves are not serializable, they can be converted to [[ErrorDescription ErrorDescriptions]],
- * which are serializable. Serialization of ErrorDescriptions is necessary for sending exceptions over the REST interface
- * back to "caller" microservices (cross-language error propagation).
+ * Most languages have own definition of base exception (error) types.
+ * However, this class is implemented symmetrically in all languages
+ * supported by PipServices toolkit. It allows to create portable implementations
+ * and support proper error propagation in microservices calls.
  *
- * An ApplicationException contains enough information in its fields to create detailed localized strings for practically
- * any exception. It uniquely defines the type of exception (via the 'code' field) and links exceptions to business
- * transactions (via 'correlation_id').
+ * Error propagation means that when microservice implemented in one language
+ * calls microservice(s) implemented in a different language(s), errors are returned
+ * throught the entire call chain and restored in their original (or close) type.
  *
- * ApplicationException serves as a parent class for all other (Category)Exception classes.
+ * Since number of potential exception types is endless, PipServices toolkit
+ * supports only 12 standard categories of exceptions defined in [[ErrorCategory]].
+ * This [[ApplicationException]] class acts as a basis for
+ * all other 12 standard exception types.
  *
- * Usage:
- * - The classes included in this package (which already extend ApplicationException) can be used "as is".
- * - Developers can use this class to create their own application exceptions (from the ground up).
- * - Exceptions can be wrapped around one another (new exceptions can be wrapped around existing exceptions).
- * - PipService's microservices automatically intercept common exceptions and try to convert them to the closest available
-    * type of ApplicationException.
- * - ApplicationExceptions can be converted to [[ErrorDescription ErrorDescriptions]], which can then be sent back to 'caller'
-    * microservices, even if they are written in a different language. When the microservice on the other end
-    * receives the ErrorDescription, it can use it to restore the ApplicationException and propagate the exception to
-    * the place from where the call was made.
+ * Most exceptions have just free-form message that describes occured error.
+ * That may not be sufficient to create meaninful error descriptions.
+ * The [[ApplicationException]] class proposes an extended error definition
+ * that has more standard fields:
  *
- * Defaults:
- * - status = 500
- * - code = 'UNKNOWN'
- * - category = ErrorCategory.Unknown
- * - message = 'Unknown error'
+ * - message: is a humand readable error description
+ * - category: one of 12 standard error categories of errors
+ * - status: numeric HTTP status code for REST invocations
+ * - code: a unique error code, usually defined as "MY_ERROR_CODE"
+ * - correlation_id: a unique transaction id to trace execution through a call chain
+ * - details: map with error parameters that can help to recreate meaningful error description in other languages
+ * - stack_trace: a stack trace
+ * - cause: original error that is wrapped by this exception
  *
+ * ApplicationException class is not serializable. To pass errors through the wire
+ * it is converted into [[ErrorDescription]] object and restored on receiving end into
+ * identical exception type.
+ *
+ * @see [[ErrorCategory]]
  * @see [[ErrorDescription]]
  */
 export declare class ApplicationException extends Error {
-    /**This field stores the message or description that was contained in the original error.
-     * Errors' messages are always in English. However, using this class's 'code' and 'details'
-     * fields, we can create localized versions of the error's message and use them instead in the UI. */
+    /** A human-readable error description (usually written in English) */
     message: string;
-    /** Defines what category of exceptions this exception belongs to. */
+    /** Standard error category */
     category: string;
-    /** Used when sending over the REST interface, so that we know what HTTP status code to raise. */
+    /** HTTP status code associated with this error type */
     status: number;
-    /** Every error needs a unique code by which it can be identified. Using this code,
-     *  we can select which localized error messages to use and what to display in the UI.*/
+    /** A unique error code */
     code: string;
-    /**This field is used to add additional information to localized error message strings.
-     *
-     * For example, if we received an ObjectNotFoundException (general error) when searching for an
-     * object via its id, the id by which the object was not found can be added as a detail. This allows
-     * us to add additional details to localized error messages.
-     * Resulting error message format: “(Localized error's text) - id: (id)” */
+    /** A map with additional details that can be used to restore error description in other languages */
     details: StringValueMap;
-    /** Unique business transaction id to trace calls across components. Important field for microservices,
-     * as it allows us to tie an exception to a specific business transaction.  */
+    /** A unique transaction id to trace execution throug call chain */
     correlation_id: string;
-    /** Stack trace of the exception. */
+    /** Stack trace of the exception */
     stack_trace: string;
-    /** Additional information about the cause of the exception. */
+    /** Original error wrapped by this exception */
     cause: string;
     /**
-     * @param category          category that this exception belongs to.
-     * @param correlation_id    optional transaction id to trace calls across components.
-     * @param code              unique code that can be used to identify the error.
-     * @param message           the message that was contained in the original error.
+     * Creates a new instance of application exception and assigns its values.
+     *
+     * @param category          (optional) a standard error category. Default: Unknown
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param code              (optional) a unique error code. Default: "UNKNOWN"
+     * @param message           (optional) a human-readable description of the error.
      */
     constructor(category?: string, correlation_id?: string, code?: string, message?: string);
     /**
-     * Returns additional information about the cause of the exception.
+     * Gets original error wrapped by this exception as a string message.
+     *
+     * @returns an original error message.
      */
     getCauseString(): string;
     /**
-     * Sets additional information about the cause of the exception.
+     * Sets original error wrapped by this exception as a string message.
+     *
+     * @param value an original error message.
      */
     setCauseString(value: string): void;
     /**
-     * Returns the stack trace of the exception.
+     * Gets a stack trace where this exception occured.
+     *
+     * @returns a stack trace as a string.
      */
     getStackTraceString(): string;
     /**
-     * Sets the stack trace of the exception.
+     * Sets a stack trace where this exception occured.
+     *
+     * @param value a stack trace as a string
      */
     setStackTraceString(value: string): void;
     /**
-     * Sets the code of the exception and returns the resulting ApplicationException.
-     * Every error needs a unique code by which it can be identified. Using this code,
-     * we can select which localized error messages to use and what to display in the UI.
-     * */
+     * Sets a unique error code.
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param code a unique error code
+     * @returns this exception object
+     */
     withCode(code: string): ApplicationException;
     /**
-     * Sets the cause of the exception and returns the resulting ApplicationException.
-     * The 'cause' field contains additional information about the cause of the exception.
+     * Sets a original error wrapped by this exception
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param cause original error object
+     * @returns this exception object
      */
     withCause(cause: Error): ApplicationException;
     /**
-     * Sets the status of the exception and returns the resulting ApplicationException.
-     * The 'status' field is used when sending exceptions over the REST interface,
-     * so that we know what HTTP status code to raise.
+     * Sets a HTTP status code which shall be returned by REST calls.
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param status an HTTP error code.
+     * @returns this exception object
      */
     withStatus(status: number): ApplicationException;
     /**
-     * Sets the details of the exception and returns the resulting ApplicationException.
-     * Details are used to add additional information to localized error message strings.
+     * Sets a parameter for additional error details.
+     * This details can be used to restore error description in other languages.
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param key a details parameter name
+     * @param value a details parameter name
+     * @returns this exception object
      */
     withDetails(key: string, value: any): ApplicationException;
     /**
-     * Sets the correlation ID of the exception and returns the resulting ApplicationException.
-     * The correlation ID ties an exception to a specific business transaction.
+     * Sets a correlation id which can be used to trace this error through a call chain.
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param correlationId a unique transaction id to trace error through call chain
+     * @returns this exception object
      */
-    withCorrelationId(correlation_id: string): ApplicationException;
+    withCorrelationId(correlationId: string): ApplicationException;
     /**
-     * Sets the stack trace of the exception and returns the resulting ApplicationException.
+     * Sets a stack trace for this error.
+     *
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param stackTrace a stack trace where this error occured
+     * @returns this exception object
      */
     withStackTrace(stackTrace: string): ApplicationException;
     /**
-     * Wrapping allows us to transform general exceptions into ApplicationExceptions.
+     * Wraps another exception into an application exception object.
      *
-     * This method does the following:
-     * - attempts to unwrap Seneca and restify exceptions from the parameter 'cause' using the
-     * static method [[unwrapError]] (if they are present).
-     * - checks whether 'cause' is an ApplicationException (if it is, then no additional wrapping is done).
-     * - if the 'cause' parameter contains an unknown exception, then the cause field of this
-     * ApplicationException object is set to the original exception (the 'cause' parameter's 'message' field).
+     * If original exception is of ApplicationException type it is returned without changes.
+     * Otherwise a new ApplicationException is created and original error is set as its cause.
      *
-     * The third point of this list is used in the following way: when an unknown exception is raised, the
-     * exception's type can be determined, a category of ApplicationExceptions that is closest to the exception's
-     * type can be chosen from the ones available, after which the unknown exception can be wrapped around the
-     * chosen type of ApplicationException. This is done for unifying exceptions, as it is challenging to process
-     * a wide variety of unknown exceptions. Wrapping unknown exceptions around existing ones allows us to categorize
-     * them and be "in the ballpark".
-     *
-     * @param cause     the exception that is to be wrapped around this ApplicationException object.
-     * @returns         the 'cause' parameter as an ApplicationException (if it is one) or this ApplicationException
-     *                  object with 'this.cause' set to the 'cause' parameter's 'message' field.
-     *
-     * @see [[unwrapError]]
+     * @param cause     an original error object
+     * @returns an original or newly created ApplicationException
      */
     wrap(cause: any): ApplicationException;
     /**
-     * Static method that is identical to the non-static method [[wrap]]. Wraps 'cause' around
-     * the ApplicationException passed as 'error', instead of itself (this).
+     * Wraps another exception into specified application exception object.
      *
-     * @param error     ApplicationException that has been chosen for wrapping.
-     * @param cause     the exception that is to be wrapped around the 'error' parameter.
-     * @returns         the 'cause' parameter as an ApplicationException (if it is one) or the parameter
-     *                  'error' with its 'cause' field set to the 'cause' parameter's 'message' field.
+     * If original exception is of ApplicationException type it is returned without changes.
+     * Otherwise the original error is set as a cause to specified ApplicationException object.
+     *
+     * @param error         an ApplicationException object to wrap the cause
+     * @param cause         an original error object
+     * @returns an original or newly created ApplicationException
      *
      * @see [[wrap]]
      */
     static wrapError(error: ApplicationException, cause: any): ApplicationException;
     /**
-     * Used to unwrap Seneca exceptions and restify exceptions.
+     * Unwraps original exception through wrapped exception objects.
      *
-     * @param error     error that may contain Seneca or restify exceptions.
-     * @returns         For Seneca exceptions: error.orig. For restify exceptions: error.body.
+     * Many frameworks like Seneca or restify wrap original exception.
+     * That may result in propagating less specific errors and can hide
+     * causes of the errors.
+     *
+     * @param error     an error object
+     * @returns         an original error object
      */
     static unwrapError(error: any): any;
 }
