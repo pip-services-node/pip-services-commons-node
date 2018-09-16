@@ -1,21 +1,16 @@
 /**
- * Allows for picking items at random from an array of type T.
+ * Random generator for array objects.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(values: T[]) {
- *         let value = RandomArray.pick(values);
- *         ...
- *     }
+ * let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
  */
 export declare class RandomArray {
     /**
-     * Picks an item at random from the array 'values'.
+     * Picks a random element from specified array.
      *
-     * @param values    array of items to pick from.
-     * @returns         picked item.
+     * @param values    an array of any type
+     * @returns         a randomly picked item.
      */
     static pick<T>(values: T[]): T;
 }

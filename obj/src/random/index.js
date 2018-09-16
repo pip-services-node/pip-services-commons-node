@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @module random
  * @preferred
+ *
+ * Todo: Rewrite this description
+ *
  * Contains implementation of random value generators that are used for
  * functional as well as non-functional testing. Used to generate random
  * objects and fill databases with unique objects.

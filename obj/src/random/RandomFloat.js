@@ -1,18 +1,14 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Provides methods that can be used for generating random floats, as well as updating existing floats
- * by generating a value in the range of 'original value' ±'delta/range'.
+ * Random generator for float values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(min: number, max: number ) {
- *         let floatValue = RandomFloat.nextFloat(min, max);
- *         ...
- *     }
+ * let value1 = RandomFloat.nextFloat(5, 10);     // Possible result: 7.3
+ * let value2 = RandomFloat.nextFloat(10);        // Possible result: 3.7
+ * let value3 = RandomFloat.updateFloat(10, 3);   // Possible result: 9.2
  */
 var RandomFloat = /** @class */ (function () {
     function RandomFloat() {
@@ -36,13 +32,10 @@ var RandomFloat = /** @class */ (function () {
         return min + Math.random() * (max - min);
     };
     /**
-     * Generates a new float that will differ from 'value' by a maximum of ±'range'. If range is omitted,
-     * then the generated value will differ from 'value' by a maximum of ±10%.
+     * Updates (drifts) a float value within specified range defined
      *
-     * @param value     float to update.
-     * @param range     (optional) defines the maximum amount by which the new float can differ from 'value'.
-     *                  Defaults to 10% of 'value' if omitted.
-     * @returns         updated float value.
+     * @param value     a float value to drift.
+     * @param range     (optional) a range. Default: 10% of the value
      */
     RandomFloat.updateFloat = function (value, range) {
         if (range === void 0) { range = null; }

@@ -4,25 +4,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var RandomInteger_1 = require("./RandomInteger");
 var RandomBoolean_1 = require("./RandomBoolean");
 /**
- * Provides methods that can be used for generating random strings and chars, as well as picking at random strings/chars from a given set of strings/chars.
+ * Random generator for string values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(minLength: number, maxLength: number ) {
- *         let stringValue = RandomString.nextString(minLength, maxLength);
- *         ...
- *     }
+ * let value1 = RandomString.pickChar("ABC");     // Possible result: "C"
+ * let value2 = RandomString.pick(["A","B","C"]); // Possible result: "gBW"
  */
 var RandomString = /** @class */ (function () {
     function RandomString() {
     }
     /**
-     * Picks a char at random from the string passed as 'values'
+     * Picks a random character from a string.
      *
-     * @param values    chars to pick from.
-     * @returns         randomly picked char.
+     * @param values    a string to pick a char from
+     * @returns         a randomly picked char.
      */
     RandomString.pickChar = function (values) {
         if (values == null || values.length == 0)
@@ -31,10 +27,10 @@ var RandomString = /** @class */ (function () {
         return values.charAt(index);
     };
     /**
-     * Picks a string at random from the string array passed as 'values'
+     * Picks a random string from an array of string.
      *
      * @param values    strings to pick from.
-     * @returns         randomly picked string.
+     * @returns         a randomly picked string.
      */
     RandomString.pick = function (values) {
         if (values == null || values.length == 0)
@@ -43,12 +39,10 @@ var RandomString = /** @class */ (function () {
         return values[index];
     };
     /**
-     * Distorts the string passed as 'value' by making it lower case and by
-     * either adding a symbol ("_,.:-/.[].{},#-!,$=%.+^.&*-() ") to the end of the string,
-     * or capitalizing the first letter of the string.
+     * Distorts a string by randomly replacing characters in it.
      *
-     * @param value    string to distort.
-     * @returns        initial string with only the first letter capitalized or with a symbol added to the end.
+     * @param value    a string to distort.
+     * @returns        a distored string.
      */
     RandomString.distort = function (value) {
         value = value.toLowerCase();
@@ -61,21 +55,21 @@ var RandomString = /** @class */ (function () {
         return value;
     };
     /**
-     * Randomly generates a letter of the English alphabet.
+     * Generates random alpha characted [A-Za-z]
      *
-     * @returns a random letter of the English alphabet. Returned letter can be upper or lower case).
+     * @returns a random characted.
      */
     RandomString.nextAlphaChar = function () {
         var index = RandomInteger_1.RandomInteger.nextInteger(RandomString._alpha.length);
         return RandomString._alpha.charAt(index);
     };
     /**
-     * Randomly generates a string, consisting of upper and lower case letters (of the English alphabet),
+     * Generates a random string, consisting of upper and lower case letters (of the English alphabet),
      * digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
      *
-     * @param minLength     minimum length of the string to be returned.
-     * @param maxLength     maximum length of the string to be returned.
-     * @returns             randomly generated string.
+     * @param minLength     (optional) minimum string length.
+     * @param maxLength     maximum string length.
+     * @returns             a random string.
      */
     RandomString.nextString = function (minLength, maxLength) {
         var result = '';

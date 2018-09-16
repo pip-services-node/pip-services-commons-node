@@ -3,31 +3,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
 var RandomInteger_1 = require("./RandomInteger");
 /**
- * Provides methods that can be used for generating random Dates/DateTimes, as well as updating existing DateTimes
- * by generating values in the range of 'original DateTime' ±'delta/range'.
+ * Random generator for Date time values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(min: Date, max: Date ) {
- *         let dateValue = RandomDateTime.nextDate(min, max);
- *         ...
- *
- *         let dateTimeValue = RandomDateTime.nextDateTime(min, max);
- *         ...
- *     }
+ * let value1 = RandomDateTime.nextDate(new Date(2010,0,1));    // Possible result: 2008-01-03
+ * let value2 = RandomDateTime.nextDateTime(new Date(2017,0.1));// Possible result: 2007-03-11 11:20:32
+ * let value3 = RandomDateTime.updateDateTime(new Date(2010,1,2));// Possible result: 2010-02-05 11:33:23
  */
 var RandomDateTime = /** @class */ (function () {
     function RandomDateTime() {
     }
     /**
-     * Generates a Date in the range ['minYear', 'maxYear'].
+     * Generates a random Date in the range ['minYear', 'maxYear'].
+     * This method generate dates without time (or time set to 00:00:00)
      *
-     * @param min   minimum Date that will be generated.
-     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
-     * @param max   (optional) maximum Date that will be generated. Defaults to 'min' if omitted.
-     * @returns         generated random Date.
+     * @param min   (optional) minimum range value
+     * @param max   max range value
+     * @returns     a random Date value.
      */
     RandomDateTime.nextDate = function (min, max) {
         if (max === void 0) { max = null; }
@@ -43,12 +36,12 @@ var RandomDateTime = /** @class */ (function () {
         return new Date(date.getFullYear(), date.getMonth(), date.getDay());
     };
     /**
-     * Generates a Date and time in the range ['minYear', 'maxYear'].
+     * Generates a random Date and time in the range ['minYear', 'maxYear'].
+     * This method generate dates without time (or time set to 00:00:00)
      *
-     * @param min   minimum Date and time that will be generated.
-     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 2000-01-01.
-     * @param max   (optional) maximum Date and time that will be generated. Defaults to 'min' if omitted.
-     * @returns         generated random Date and time.
+     * @param min   (optional) minimum range value
+     * @param max   max range value
+     * @returns     a random Date and time value.
      */
     RandomDateTime.nextDateTime = function (min, max) {
         if (max === void 0) { max = null; }
@@ -63,21 +56,16 @@ var RandomDateTime = /** @class */ (function () {
         return new Date(time);
     };
     /**
-     * Generates a new DateTime that will differ from 'value' by a maximum of ±'range'.
-     * If 'range' is omitted (or 0), then the generated DateTime will differ from 'value' by ±10 days.
+     * Updates (drifts) a Date value within specified range defined
      *
-     * @param value     DateTime to update.
-     * @param range     (optional) defines the maximum amount of milliseconds by which the new DateTime can differ from 'value'. If range is a negative number,
-     *                  'value' will be returned. Defaults to 10 days if omitted or zero.
-     * @returns         updated DateTime.
+     * @param value     a Date value to drift.
+     * @param range     (optional) a range in milliseconds. Default: 10 days
      */
     RandomDateTime.updateDateTime = function (value, range) {
         if (range === void 0) { range = null; }
         range = range != 0 && range != null ? range : 10 * 24 * 3600000;
         if (range < 0)
             return value;
-        // Days to milliseconds
-        range = range;
         var time = value.valueOf() + RandomInteger_1.RandomInteger.nextInteger(-range, range);
         return new Date(time);
     };

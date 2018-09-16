@@ -1,29 +1,24 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Provides methods that can be used for generating random doubles, as well as updating existing doubles
- * by generating values in the range of 'original value' ±'delta/range'.
+ * Random generator for double values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(min: number, max: number ) {
- *         let doubleValue = RandomDouble.nextDouble(min, max);
- *         ...
- *     }
+ * let value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
+ * let value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
+ * let value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
  */
 var RandomDouble = /** @class */ (function () {
     function RandomDouble() {
     }
     /**
-     * Generates a double in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
+     * Generates a random double value in the range ['minYear', 'maxYear'].
      *
-     * @param min   minimum value of the double that will be generated.
-     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-     * @param max   (optional) maximum value of the double that will be generated. Defaults to 'min' if omitted.
-     * @returns     generated random double value.
+     * @param min   (optional) minimum range value
+     * @param max   max range value
+     * @returns     a random double value.
      */
     RandomDouble.nextDouble = function (min, max) {
         if (max === void 0) { max = null; }
@@ -36,13 +31,10 @@ var RandomDouble = /** @class */ (function () {
         return min + Math.random() * (max - min);
     };
     /**
-     * Generates a new double that will differ from 'value' by a maximum of ±'range'. If range is omitted,
-     * then the generated value will differ from 'value' by a maximum of ±10%.
+     * Updates (drifts) a double value within specified range defined
      *
-     * @param value     double to update.
-     * @param range     (optional) defines the maximum amount by which the new double can differ from 'value'.
-     *                  Defaults to 10% of 'value' if omitted.
-     * @returns         updated double value.
+     * @param value     a double value to drift.
+     * @param range     (optional) a range. Default: 10% of the value
      */
     RandomDouble.updateDouble = function (value, range) {
         if (range === void 0) { range = null; }

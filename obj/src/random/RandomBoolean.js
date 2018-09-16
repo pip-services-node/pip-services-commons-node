@@ -1,48 +1,37 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @module random */
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Provides methods that can be used for generating random booleans using 'chance' and 'nextBoolean' methods.
+ * Random generator for boolean values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(chances: number, maxChances: number) {
- *         let boolValue1 = RandomBoolean.chance(chances, maxChances);
- *         ...
- *
- *         let boolValue2 = RandomBoolean.nextBoolean();
- *         ...
- *     }
+ * let value1 = RandomBoolean.nextBoolean();    // Possible result: true
+ * let value2 = RandomBoolean.chance(1,3);      // Possible result: false
  */
 var RandomBoolean = /** @class */ (function () {
     function RandomBoolean() {
     }
     /**
-     * Generates a random boolean that has a 'chance'/'maxChances' chance of being true.
+     * Calculates "chance" out of "max chances".
+     * Example: 1 chance out of 3 chances (or 33.3%)
      *
-     * The parameter 'maxChances' defines the length of the 'number line' to be used in the algorithm,
-     * and 'chances' defines the length of the 'true' section, which is centered on the 'number line'.
-     * A hit (a point on the 'number line') is chosen at random, and if the hit is in the 'true'
-     * section - true is returned. Otherwise, the hit is considered to be a 'miss', and false is returned.
-     *
-     * @param chances       the chance of the hit being in the 'true' section.
-     * @param maxChances    the overall length of the 'number line'.
+     * @param chance       a chance proportional to maxChances.
+     * @param maxChances   a maximum number of chances
      */
-    RandomBoolean.chance = function (chances, maxChances) {
-        chances = chances >= 0 ? chances : 0;
+    RandomBoolean.chance = function (chance, maxChances) {
+        chance = chance >= 0 ? chance : 0;
         maxChances = maxChances >= 0 ? maxChances : 0;
-        if (chances == 0 && maxChances == 0)
+        if (chance == 0 && maxChances == 0)
             return false;
-        maxChances = Math.max(maxChances, chances);
-        var start = (maxChances - chances) / 2;
-        var end = start + chances;
+        maxChances = Math.max(maxChances, chance);
+        var start = (maxChances - chance) / 2;
+        var end = start + chance;
         var hit = Math.random() * maxChances;
         return hit >= start && hit <= end;
     };
     /**
-     * Generates a boolean that has a 50/50 chance of being true.
+     * Generates a random boolean value.
      *
      * @returns a random boolean.
      */

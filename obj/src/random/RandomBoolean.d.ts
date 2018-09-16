@@ -1,34 +1,23 @@
 /** @module random */
 /**
- * Provides methods that can be used for generating random booleans using 'chance' and 'nextBoolean' methods.
+ * Random generator for boolean values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(chances: number, maxChances: number) {
- *         let boolValue1 = RandomBoolean.chance(chances, maxChances);
- *         ...
- *
- *         let boolValue2 = RandomBoolean.nextBoolean();
- *         ...
- *     }
+ * let value1 = RandomBoolean.nextBoolean();    // Possible result: true
+ * let value2 = RandomBoolean.chance(1,3);      // Possible result: false
  */
 export declare class RandomBoolean {
     /**
-     * Generates a random boolean that has a 'chance'/'maxChances' chance of being true.
+     * Calculates "chance" out of "max chances".
+     * Example: 1 chance out of 3 chances (or 33.3%)
      *
-     * The parameter 'maxChances' defines the length of the 'number line' to be used in the algorithm,
-     * and 'chances' defines the length of the 'true' section, which is centered on the 'number line'.
-     * A hit (a point on the 'number line') is chosen at random, and if the hit is in the 'true'
-     * section - true is returned. Otherwise, the hit is considered to be a 'miss', and false is returned.
-     *
-     * @param chances       the chance of the hit being in the 'true' section.
-     * @param maxChances    the overall length of the 'number line'.
+     * @param chance       a chance proportional to maxChances.
+     * @param maxChances   a maximum number of chances
      */
-    static chance(chances: number, maxChances: number): boolean;
+    static chance(chance: number, maxChances: number): boolean;
     /**
-     * Generates a boolean that has a 50/50 chance of being true.
+     * Generates a random boolean value.
      *
      * @returns a random boolean.
      */

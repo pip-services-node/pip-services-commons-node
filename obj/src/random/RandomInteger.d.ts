@@ -1,17 +1,12 @@
 /** @module random */
 /**
- * Provides methods that can be used for generating random integers, as well as updating existing integers
- * by generating values in the range of 'original value' ±'delta/range'. The 'sequence' method allows
- * for variable length integer array generation.
+ * Random generator for integer values.
  *
  * ### Example ###
  *
- * Example usage:
- *
- *     public MyMethod(min: number, max: number ) {
- *         let intValue = RandomInteger.nextInteger(min, max);
- *         ...
- *     }
+ * let value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
+ * let value2 = RandomInteger.nextInteger(10);        // Possible result: 3
+ * let value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
  */
 export declare class RandomInteger {
     /**
@@ -19,26 +14,23 @@ export declare class RandomInteger {
      *
      * @param min   minimum value of the integer that will be generated.
      *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-     * @param max   (optional) maximum value of the integer that will be generated. Defaults to 'min' if omitted.
+     * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
      * @returns     generated random integer value.
      */
     static nextInteger(min: number, max?: number): number;
     /**
-     * Generates a new integer that will differ from 'value' by a maximum of ±'range'. If range is omitted,
-     * then the generated value will differ from 'value' by a maximum of ±10%.
+     * Updates (drifts) a integer value within specified range defined
      *
-     * @param value     integer to update.
-     * @param range     (optional) defines the maximum amount by which the new integer can differ from 'value'.
-     *                  Defaults to 10% of 'value' (floored) if omitted.
-     * @returns         updated integer value.
+     * @param value     a integer value to drift.
+     * @param range     (optional) a range. Default: 10% of the value
      */
     static updateInteger(value: number, range?: number): number;
     /**
-     * Generates an array of integers, whose values are identical to their indexes. The length of the array is randomly chosen from the range ['min', 'max'].
-     * If 'max' is omitted, then the the array's length will be 'min'.
+     * Generates a random sequence of integers starting from 0 like: [0,1,2,3...??]
      *
-     * @param min   minimum length of the array that will be generated. If 'max' is omitted, then 'min' defines the array's length .
-     * @param max   (optional) maximum length of the array that will be generated.
+     * @param min   minimum value of the integer that will be generated.
+     *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
+     * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
      * @returns     generated array of integers.
      */
     static sequence(min: number, max?: number): number[];
