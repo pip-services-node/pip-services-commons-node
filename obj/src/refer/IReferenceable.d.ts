@@ -8,6 +8,7 @@ import { IReferences } from './IReferences';
  *
  * @see [[IReferences]]
  * @see [[IUnreferenceable]]
+ * @see [[Referencer]]
  *
  * ### Example ###
  *

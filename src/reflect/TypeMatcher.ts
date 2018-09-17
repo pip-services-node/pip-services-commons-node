@@ -6,27 +6,23 @@ import { TypeCode } from '../convert/TypeCode';
 import { TypeConverter } from '../convert/TypeConverter';
 
 /**
- * Helper class that contains methods for matching [[TypeCode data types]].
+ * Helper class matches value types for equality.
+ * 
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
  * 
  * @see [[TypeCode]]
  */
 export class TypeMatcher {
     
     /**
-     * Static method that checks whether or not the value passed as 'actualValue' is of 
-     * the same [[TypeCode data type]] as 'expectedType'. The data type of 'actualValue' 
-     * is determined using [[TypeConverter.toTypeCode]]. Type matching is done using this 
-     * class's [[matchType]] method.
+     * Matches expected type to a type of a value.
+     * The expected type can be specified by a type, type name or [[TypeCode]].
      * 
-     * @param expectedType      the [[TypeCode data type]] that is expected. If set to 
-     *                          <code>null</code> - <code>true</code> will always be returned.
-     * @param actualValue       the value, whose type is to be checked. Cannot be null.
-     * @returns whether or not the actual value is of the expected type.
+     * @param expectedType      an expected type to match.
+     * @param actualValue       a value to match its type to the expected one.
+     * @returns true if types are matching and false if they don't.
      * 
-     * @throws an Error if 'actualValue' is null.
-     * 
-     * @see [[TypeCode]]
-     * @see [[TypeConverter.toTypeCode]]
      * @see [[matchType]]
      * @see [[matchValueTypeByName]] (for matching by types' string names)
      */
@@ -40,19 +36,13 @@ export class TypeMatcher {
     }
 
     /**
-     * Static method that checks whether or not the two given [[TypeCode data types]] match. 
-     * If the expected type is in the format of a string - this class's [[matchTypeByName]] 
-     * method will be called and its result will be returned.
+     * Matches expected type to an actual type.
+     * The types can be specified as types, type names or [[TypeCode]].
      * 
-     * @param expectedType  the data type that is expected. If set to 
-     *                      <code>null</code> - <code>true</code> 
-     *                      will always be returned.
-     * @param actualType    the actual data type. Cannot be null.
-     * @returns whether or not the actual and expected data types match.
+     * @param expectedType  an expected type to match.
+     * @param actualType    an actual type to match.
+     * @returns true if types are matching and false if they don't.
      * 
-     * @throws an Error if 'actualType' is null.
-     * 
-     * @see [[TypeCode]]
      * @see [[matchTypeByName]]
      * @see [[matchTypeByName]] (for matching by types' string names)
      */
@@ -85,21 +75,11 @@ export class TypeMatcher {
     }
 
     /**
-     * Static method that checks whether or not the value passed as 'actualValue' is of 
-     * the data type, whose name is represented as a string in 'expectedType'. The data type of 
-     * 'actualValue' is determined using [[TypeConverter.toTypeCode]]. Type matching is done 
-     * using this class's [[matchTypeByName]] method.
+     * Matches expected type to a type of a value.
      * 
-     * @param expectedType      the data type (as a string) that is expected. If set to 
-     *                          <code>null</code> - <code>true</code> will always be returned.
-     * @param actualValue       the value, whose type is to be checked. Cannot be null.
-     * @returns whether or not the actual value is of the expected type.
-     * 
-     * @throws an Error if 'actualValue' is null.
-     * 
-     * @see [[TypeConverter.toTypeCode]]
-     * @see [[matchTypeByName]]
-     * @see [[matchValueType]] (for matching by [[TypeCode]])
+     * @param expectedType  an expected type name to match.
+     * @param actualValue       a value to match its type to the expected one.
+     * @returns true if types are matching and false if they don't.
      */
     public static matchValueTypeByName(expectedType: string, actualValue: any): boolean {
         if (expectedType == null) 
@@ -111,19 +91,11 @@ export class TypeMatcher {
     }
 
     /**
-     * Static method that checks whether or not the two given data type names ([[TypeCode]] strings) 
-     * match. 
+     * Matches expected type to an actual type.
      * 
-     * @param expectedType  the data type (as a string) that is expected. If set to 
-     *                      <code>null</code> or "object" - <code>true</code> will 
-     *                      always be returned.
-     * @param actualType    the actual data type (as a string). Cannot be null.
-     * @returns whether or not the actual and expected data types names match.
-     * 
-     * @throws an Error if 'actualType' is null.
-     * 
-     * @see [[TypeConverter.toString]] (for a list of TypeCode strings)
-     * @see [[matchType]] (for matching by [[TypeCode]])
+     * @param expectedType  an expected type name to match.
+     * @param actualType    an actual type to match defined by type code.
+     * @returns true if types are matching and false if they don't.
      */
     public static matchTypeByName(expectedType: string, actualType: TypeCode): boolean {
         if (expectedType == null)

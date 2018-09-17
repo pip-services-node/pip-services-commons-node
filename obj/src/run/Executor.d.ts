@@ -1,33 +1,35 @@
 import { Parameters } from './Parameters';
 /**
- * Helper class that can be used to trigger execution of components.
+ * Helper class that executes components.
+ *
+ * [[IExecutable]]
  */
 export declare class Executor {
     /**
-     * Static method for triggering the execution of a component. For a component to be executed, it must
-     * implement the [[IExecutable]] interface. This method calls IExecutable's [[IExecutable.execute execute]]
-     * method to execute the component passed as 'component', using the [[Parameters]] passed as 'args'.
+     * Executes specific component.
+     *
+     * To be executed components must implement [[IExecutable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param component 		the component that is to be executed.
-     * @param args              the parameters (arguments) to pass to the component for its execution.
-     * @param callback 			the function to call when execution is complete. It will be called with
-     *                          the result of the execution or with an error (if one is raised).
+     * @param args              execution arguments.
+     * @param callback 			callback function that receives execution result or error.
      *
      * @see [[IExecutable]]
      * @see [[Parameters]]
      */
     static executeOne(correlationId: string, component: any, args: Parameters, callback: (err: any, result: any) => void): any;
     /**
-     * Static method for triggering the execution of multiple components. For a component to be executed,
-     * it must implement the [[IExecutable]] interface. This method calls the static [[executeOne]] method
-     * for each of the components passed, using the [[Parameters]] passed as 'args'.
+     * Executes multiple components.
+     *
+     * To be executed components must implement [[IExecutable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
-     * @param components 		the list of components that are to be executed.
-     * @param args              the parameters (arguments) to pass to the components for their execution.
-     * @param callback 			the function to call when execution is complete. It will be called with
-     *                          the results of all executions or with an error (if one is raised).
+     * @param components 		a list of components that are to be executed.
+     * @param args              execution arguments.
+     * @param callback 			callback function that receives execution result or error.
      *
      * @see [[executeOne]]
      * @see [[IExecutable]]

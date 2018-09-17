@@ -6,16 +6,18 @@ import { TypeCode } from '../convert/TypeCode';
 import { TypeConverter } from '../convert/TypeConverter';
 import { ObjectReader } from './ObjectReader';
 
-//TODO - private methods?
 /**
- * Helper class that contains methods for reading nested object properties recursively.
+ * Helper class to perform property introspection and dynamic reading.
+ * 
+ * It is similar to [[ObjectReader]] but reads properties recursively
+ * through the entire object graph. Nested property names are defined
+ * using dot notation as "object.subobject.property"
+ *
+ * @see [[PropertyReflector]]
+ * @see [[ObjectReader]]
  */
 export class RecursiveObjectReader {
 
-	/**
-	 * Private static method that recursively check whether or not the given object contains a property, 
-	 * whose nested name correspond to 'names'. The 'nameIndex' is used to track the depth of recursion.
-	 */
     private static performHasProperty(obj: any, names: string[], nameIndex: number): boolean {
 		if (nameIndex < names.length - 1) {
 			let value  = ObjectReader.getProperty(obj, names[nameIndex]);
@@ -28,14 +30,15 @@ export class RecursiveObjectReader {
 	}
 
 	/**
-	 * Static method that checks whether or not an object contains a nested property with the given 
-	 * name (in dot-notation).
+	 * Checks recursively if object or its subobjects has a property with specified name.
+     * 
+     * The object can be a user defined object, map or array.
+     * The property name correspondently must be object property,
+     * map key or array index.
 	 * 
-	 * @param obj 	the object to search for a property in.
-	 * @param name 	the name of the property (in dot-notation) to search for. 
-	 * 				Example property name: "data.sampleData.sample1".
-	 * @returns whether or not the object has a property with the given name. If 'obj' or 'name' 
-	 * 			are <code>null</code> - <code>false</code> will be returned.
+	 * @param obj 	an object to introspect.
+	 * @param name 	a name of the property to check.
+	 * @returns true if the object has the property and false if it doesn't.
 	 */
 	public static hasProperty(obj: any, name: string): boolean {
         if (obj == null || name == null) return false;
@@ -47,7 +50,6 @@ export class RecursiveObjectReader {
         return RecursiveObjectReader.performHasProperty(obj, names, 0);
 	}
 
-	/** @see [[performHasProperty]] */
     private static performGetProperty(obj: any, names: string[], nameIndex: number): any {
 		if (nameIndex < names.length - 1) {
 			let value = ObjectReader.getProperty(obj, names[nameIndex]);
@@ -59,14 +61,16 @@ export class RecursiveObjectReader {
 			return ObjectReader.getProperty(obj, names[nameIndex]);
 	}
 
-	/**
-     * Static method that retrieves the value stored in the passed object by the given property name.
-     * If 'obj' or 'name' are <code>null</code> - <code>null</code> will be returned.
+    /**
+	 * Recursively gets value of object or its subobjects property specified by its name.
+	 * 
+     * The object can be a user defined object, map or array.
+     * The property name correspondently must be object property,
+     * map key or array index.
      * 
-     * @param obj   the object to read a property from.
-     * @param name  the name of the property (in dot-notation) to retrieve. 
-	 * 				Example property name: "data.sampleData.sample1".
-     * @returns the value stored by the given property name or null (if the property cannot be read).
+	 * @param obj 	an object to read property from.
+	 * @param name 	a name of the property to get.
+	 * @returns the property value or null if property doesn't exist or introspection failed.
      */
 	public static getProperty(obj: any, name: string): any {
         if (obj == null || name == null) return null;
@@ -78,21 +82,11 @@ export class RecursiveObjectReader {
         return RecursiveObjectReader.performGetProperty(obj, names, 0);
 	}
 
-	/** Checks whether or not value is of a primative type (not an array, map, or object). Primative types do not 
-	 * need to use recursive calls. */
 	private static isSimpleValue(value: any): boolean {
 		let code = TypeConverter.toTypeCode(value);
 		return code != TypeCode.Array && code != TypeCode.Map && code != TypeCode.Object;
 	}
 	
-	/** 
-	 * Private static method that recursively retrieves the property names of the object that was passed. 
-	 * 
-	 * @param obj			the object to get nested property names from.
-	 * @param path			the path to the nested property that is being processed in the current  recursive call.
-	 * @param result		the string array to which full property names are added to, once resolved.
-	 * @param cycleDetect	used to detect (and stop) recursive cycling.
-	*/
 	private static performGetPropertyNames(obj: any, path: string, result: string[], cycleDetect: any): void {
 		let map = ObjectReader.getProperties(obj);
 		
@@ -126,13 +120,15 @@ export class RecursiveObjectReader {
 		}
 	}
 
-	/**
-     * Static method that retrieves the names of an object's properties, including all nested property names. 
-	 * Nested properties' names represent the path to the property and are formatted using dot-notation.
+    /**
+     * Recursively gets names of all properties implemented in specified object and its subobjects.
      * 
-     * @param obj   the object, whose property names are to be retrieved.
-     * @returns a string array, containing the names of the object's properties. Nested properties are formatted 
-	 * 			using dot-notation. Example nested property name: "data.sampleData.sample1".
+     * The object can be a user defined object, map or array.
+     * Returned property name correspondently are object properties,
+     * map keys or array indexes.
+     * 
+     * @param obj   an objec to introspect.
+     * @returns a list with property names.
      */
 	public static getPropertyNames(obj: any): string[] {
         let propertyNames: string[] = [];
@@ -146,7 +142,6 @@ export class RecursiveObjectReader {
         }
 	}
 
-	/** @see [[performGetPropertyNames]] */
 	private static performGetProperties(obj: any, path: string, result: any, cycleDetect: any[]): void {
 		let map = ObjectReader.getProperties(obj);
 		
@@ -180,13 +175,16 @@ export class RecursiveObjectReader {
 		}
 	}
 
-	/**
-     * Static method that retrieves an object's properties as a map. Nested properties'  
-	 * keys represent the path to the property and are set as dot-notation formatted strings.
+    /**
+     * Get values of all properties in specified object and its subobjects
+	 * and returns them as a map.
      * 
-     * @param obj   the object to get a map of properties from.
-     * @returns a map, containing property names and their values. Nested properties' keys are formatted 
-	 * 			using dot-notation. Example nested property key: "data.sampleData.sample1".
+     * The object can be a user defined object, map or array.
+     * Returned properties correspondently are object properties,
+     * map key-pairs or array elements with their indexes.
+     * 
+     * @param obj   an object to get properties from.
+     * @returns a map, containing the names of the object's properties and their values.
      */
 	public static getProperties(obj: any): any {
         let properties: any = {};

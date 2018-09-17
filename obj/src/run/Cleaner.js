@@ -6,7 +6,7 @@ var _ = require('lodash');
 /** @hidden */
 var async = require('async');
 /**
- * Helper class that can be used to clean the data of components.
+ * Helper class that cleans stored object state.
  *
  * @see [[ICleanable]]
  */
@@ -14,14 +14,14 @@ var Cleaner = /** @class */ (function () {
     function Cleaner() {
     }
     /**
-     * Static method for cleaning a component. For a component to be cleaned, it must implement
-     * the [[ICleanable]] interface. This method calls ICleanable's [[ICleanable.clear clear]] method
-     * to clear the component passed.
+     * Clears state of specific component.
+     *
+     * To be cleaned state components must implement [[ICleanable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param component 		the component that is to be cleaned.
-     * @param callback 			the function to call when the clearing process is complete. It will
-     * 							be called with an error if one is raised.
+     * @param callback 			callback function that returns error or null no errors occured.
      *
      * @see [[ICleanable]]
      */
@@ -41,14 +41,14 @@ var Cleaner = /** @class */ (function () {
             callback(null);
     };
     /**
-     * Static method for cleaning multiple components. For a component to be cleaned, it must implement
-     * the [[ICleanable]] interface. This method calls the static [[clearOne]] method for each of the
-     * components passed.
+     * Clears state of multiple components.
+     *
+     * To be cleaned state components must implement [[ICleanable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param components 		the list of components that are to be cleaned.
-     * @param callback 			the function to call when the clearing process is complete. It will
-     * 							be called with an error if one is raised.
+     * @param callback 			callback function that returns error or null no errors occured.
      *
      * @see [[clearOne]]
      * @see [[ICleanable]]

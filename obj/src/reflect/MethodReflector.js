@@ -4,12 +4,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @hidden */
 var _ = require('lodash');
 /**
- * Helper class that contains methods for working with an object's methods.
+ * Helper class to perform method introspection and dynamic invocation.
+ *
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ *
+ * Because all languages have different casing and case sensitivity rules,
+ * this MethodReflector treats all method names as case insensitive.
+ *
+ * ### Example ###
+ *
+ * let myObj = new MyObject();
+ *
+ * let methods = MethodReflector.getMethodNames();
+ * MethodReflector.hasMethod(myObj, "myMethod");
+ * MethodReflector.invokeMethod(myObj, "myMethod", 123);
  */
 var MethodReflector = /** @class */ (function () {
     function MethodReflector() {
     }
-    /** Used to identify methods by their names and verify that they are indeed methods. */
     MethodReflector.matchMethod = function (methodName, methodValue, expectedName) {
         if (!_.isFunction(methodValue))
             return false;
@@ -20,13 +33,11 @@ var MethodReflector = /** @class */ (function () {
         return methodName.toLowerCase() == expectedName;
     };
     /**
-     * Static method that checks whether or not an object has a method with the given name.
+     * Checks if object has a method with specified name..
      *
-     * @param obj 	the object to search for the given method in. Cannot be <code>null</code>.
-     * @param name 	the name of the method to search for. Cannot be <code>null</code>.
-     * @returns whether or not a method with the given name was found in the object.
-     *
-     * @throws an Error if 'obj' or 'name' are <code>null</code>.
+     * @param obj 	an object to introspect.
+     * @param name 	a name of the method to check.
+     * @returns true if the object has the method and false if it doesn't.
      */
     MethodReflector.hasMethod = function (obj, name) {
         if (obj == null)
@@ -42,14 +53,12 @@ var MethodReflector = /** @class */ (function () {
         return false;
     };
     /**
-     * Static method that invokes an object's method using the method's name.
+     * Invokes an object method by its name with specified parameters.
      *
-     * @param obj 	the object, whose method is to be invoked. Cannot be <code>null</code>.
-     * @param name 	the name of the method that is to be invoked. Cannot be <code>null</code>.
-     * @param args 	the arguments that should be passed to the method.
-     * @returns the value that is returned by the invoked method.
-     *
-     * @throws an Error if 'obj' or 'name' are <code>null</code>.
+     * @param obj 	an object to invoke.
+     * @param name 	a name of the method to invoke.
+     * @param args 	a list of method arguments.
+     * @returns the result of the method invocation or null if method returns void.
      */
     MethodReflector.invokeMethod = function (obj, name) {
         var args = [];
@@ -74,10 +83,10 @@ var MethodReflector = /** @class */ (function () {
         return null;
     };
     /**
-     * Static method that retrieves the names of an object's methods.
+     * Gets names of all methods implemented in specified object.
      *
-     * @param obj   the object, whose method names are to be retrieved.
-     * @returns a string array, containing the names of the object's methods.
+     * @param obj   an objec to introspect.
+     * @returns a list with method names.
      */
     MethodReflector.getMethodNames = function (obj) {
         var methods = [];

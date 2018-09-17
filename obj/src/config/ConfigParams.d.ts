@@ -90,8 +90,6 @@ export declare class ConfigParams extends StringValueMap {
      *
      * @param value		an object with key-value pairs used to initialize a new ConfigParams.
      * @returns			a new ConfigParams object.
-     *
-     * @see [[RecursiveObjectReader.getProperties]]
      */
     static fromValue(value: any): ConfigParams;
     /**

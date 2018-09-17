@@ -99,7 +99,9 @@ export declare class Descriptor {
      */
     isComplete(): boolean;
     /**
-     * Matches this descriptor to the value that was passed.
+     * Compares this descriptor to a value.
+     * If value is a Descriptor it tries to match them,
+     * otherwise the method returns false.
      *
      * @param value 	the value to match against this descriptor.
      * @returns true if the value is matching descriptor and false otherwise.

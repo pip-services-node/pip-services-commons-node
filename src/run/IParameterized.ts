@@ -2,14 +2,15 @@
 import { Parameters } from './Parameters';
 
 /**
- * Interface for components that require parameters.
+ * Interface for components that require execution parameters.
+ * 
+ * @see [[IConfigurable]]
  */
 export interface IParameterized {
 	/**
-	 * Abstract method that will contain the logic for setting a component's configuration parameters.
+	 * Sets execution parameters.
 	 * 
-	 * @param parameters 	the configuration parameters to set.
-	 * @throws a [[ConfigException]] if the configuration is wrong and cannot be set.
+	 * @param parameters 	execution parameters.
 	 */
 	setParameters(parameters: Parameters): void;
 }

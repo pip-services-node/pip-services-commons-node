@@ -176,8 +176,6 @@ export class ConfigParams extends StringValueMap {
 	 * 
 	 * @param value		an object with key-value pairs used to initialize a new ConfigParams.
 	 * @returns			a new ConfigParams object.
-	 * 
-	 * @see [[RecursiveObjectReader.getProperties]]
 	 */
 	public static fromValue(value: any): ConfigParams {
 		let map = RecursiveObjectReader.getProperties(value);

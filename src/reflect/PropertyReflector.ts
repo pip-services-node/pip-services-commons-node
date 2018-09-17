@@ -3,10 +3,24 @@
 let _ = require('lodash');
 
 /**
- * Helper class that contains methods for working with an object's properties.
+ * Helper class to perform property introspection and dynamic reading and writing.
+ * 
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ * 
+ * Because all languages have different casing and case sensitivity rules,
+ * this PropertyReflector treats all property names as case insensitive.
+ * 
+ * ### Example ###
+ * 
+ * let myObj = new MyObject();
+ * 
+ * let properties = PropertyReflector.getPropertyNames();
+ * PropertyReflector.hasProperty(myObj, "myProperty");
+ * let value = PropertyReflector.getProperty(myObj, "myProperty");
+ * PropertyReflector.setProperty(myObj, "myProperty", 123);
  */
 export class PropertyReflector {
-	/** Used to identify properties by their names and verify that they are indeed properties. */
 	private static matchField(fieldName: string, fieldValue: any, expectedName: string): boolean {
         if (_.isFunction(fieldValue)) return false;
         if (_.startsWith(fieldName, '_')) return false;
@@ -15,13 +29,11 @@ export class PropertyReflector {
 	}
 
 	/**
-	 * Static method that checks whether or not an object has a property with the given name.
+	 * Checks if object has a property with specified name..
 	 * 
-	 * @param obj 	the object to search for the given property in. Cannot be <code>null</code>.
-	 * @param name 	the name of the property to search for. Cannot be <code>null</code>.
-	 * @returns whether or not a property with the given name was found in the object.
-	 * 
-	 * @throws an Error if 'obj' or 'name' are <code>null</code>.
+	 * @param obj 	an object to introspect.
+	 * @param name 	a name of the property to check.
+	 * @returns true if the object has the property and false if it doesn't.
 	 */
 	public static hasProperty(obj: any, name: string): boolean {
 		if (obj == null)
@@ -40,13 +52,11 @@ export class PropertyReflector {
 	}
 
 	/**
-	 * Static method that retrieves the value of an object's property using the property's name.
+	 * Gets value of object property specified by its name.
 	 * 
-	 * @param obj 	the object, whose property is to be retrieved. Cannot be <code>null</code>.
-	 * @param name 	the name of the property that is to be retrieved. Cannot be <code>null</code>.
-	 * @returns the value that is retrieved.
-	 * 
-	 * @throws an Error if 'obj' or 'name' are <code>null</code>.
+	 * @param obj 	an object to read property from.
+	 * @param name 	a name of the property to get.
+	 * @returns the property value or null if property doesn't exist or introspection failed.
 	 */
 	public static getProperty(obj: any, name: string): any {
 		if (obj == null)
@@ -69,10 +79,10 @@ export class PropertyReflector {
 	}
 	
 	/**
-     * Static method that retrieves the names of an object's properties.
+     * Gets names of all properties implemented in specified object.
      * 
-     * @param obj   the object, whose property names are to be retrieved.
-     * @returns a string array, containing the names of the object's properties.
+     * @param obj   an objec to introspect.
+     * @returns a list with property names.
      */
 	public static getPropertyNames(obj: any): string[] {
         let properties: string[] = [];
@@ -87,9 +97,10 @@ export class PropertyReflector {
 	}
 
 	/**
-     * Static method that retrieves the properties of an object as a map.
+     * Get values of all properties in specified object
+	 * and returns them as a map.
      * 
-     * @param obj   the object, whose properties are to be retrieved.
+     * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
 	public static getProperties(obj: any): any {
@@ -109,15 +120,14 @@ export class PropertyReflector {
 	}
 	
 	/**
-     * Static method that sets an object's property to the given value. If no properties 
-	 * are found by the given name, then the value will be set directly in the object using 
-	 * the provided name (if supported).
-     * 
-     * @param obj   the object, whose property is to be set. Cannot be <code>null</code>.
-	 * @param name	the name of the property to set. Cannot be <code>null</code>.
-	 * @param value the value to set the object's property to.
-	 *
-	 * @throws an Error if 'obj' or 'name' are <code>null</code>.
+	 * Sets value of object property specified by its name.
+	 * 
+	 * If the property does not exist or introspection fails
+	 * this method doesn't do anything and doesn't any throw errors.
+	 * 
+	 * @param obj 	an object to write property to.
+	 * @param name 	a name of the property to set.
+	 * @param value a new value for the property to set.
      */
 	public static setProperty(obj: any, name: string, value: any): void {
 		if (obj == null)
@@ -143,12 +153,13 @@ export class PropertyReflector {
 	}
 	
 	/**
-	 * Static method that sets multiple object properties at once. Uses this class's 
-	 * static [[setProperty]] method for each value that is to be set. 
+	 * Sets values of some (all) object properties.
 	 * 
-	 * @param obj 		the object, whose properties are to be set.
-	 * @param values 	a map, containing property names as map keys and the values that are to be 
-	 * 					set as map values.
+	 * If some properties do not exist or introspection fails
+	 * they are just silently skipped and no errors thrown.
+	 * 
+	 * @param obj 		 an object to write properties to.
+	 * @param values 	a map, containing property names and their values.
 	 * 
 	 * @see [[setProperty]]
 	 */

@@ -4,12 +4,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @hidden */
 var _ = require('lodash');
 /**
- * Helper class that contains methods for working with an object's properties.
+ * Helper class to perform property introspection and dynamic reading and writing.
+ *
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ *
+ * Because all languages have different casing and case sensitivity rules,
+ * this PropertyReflector treats all property names as case insensitive.
+ *
+ * ### Example ###
+ *
+ * let myObj = new MyObject();
+ *
+ * let properties = PropertyReflector.getPropertyNames();
+ * PropertyReflector.hasProperty(myObj, "myProperty");
+ * let value = PropertyReflector.getProperty(myObj, "myProperty");
+ * PropertyReflector.setProperty(myObj, "myProperty", 123);
  */
 var PropertyReflector = /** @class */ (function () {
     function PropertyReflector() {
     }
-    /** Used to identify properties by their names and verify that they are indeed properties. */
     PropertyReflector.matchField = function (fieldName, fieldValue, expectedName) {
         if (_.isFunction(fieldValue))
             return false;
@@ -20,13 +34,11 @@ var PropertyReflector = /** @class */ (function () {
         return fieldName.toLowerCase() == expectedName;
     };
     /**
-     * Static method that checks whether or not an object has a property with the given name.
+     * Checks if object has a property with specified name..
      *
-     * @param obj 	the object to search for the given property in. Cannot be <code>null</code>.
-     * @param name 	the name of the property to search for. Cannot be <code>null</code>.
-     * @returns whether or not a property with the given name was found in the object.
-     *
-     * @throws an Error if 'obj' or 'name' are <code>null</code>.
+     * @param obj 	an object to introspect.
+     * @param name 	a name of the property to check.
+     * @returns true if the object has the property and false if it doesn't.
      */
     PropertyReflector.hasProperty = function (obj, name) {
         if (obj == null)
@@ -42,13 +54,11 @@ var PropertyReflector = /** @class */ (function () {
         return false;
     };
     /**
-     * Static method that retrieves the value of an object's property using the property's name.
+     * Gets value of object property specified by its name.
      *
-     * @param obj 	the object, whose property is to be retrieved. Cannot be <code>null</code>.
-     * @param name 	the name of the property that is to be retrieved. Cannot be <code>null</code>.
-     * @returns the value that is retrieved.
-     *
-     * @throws an Error if 'obj' or 'name' are <code>null</code>.
+     * @param obj 	an object to read property from.
+     * @param name 	a name of the property to get.
+     * @returns the property value or null if property doesn't exist or introspection failed.
      */
     PropertyReflector.getProperty = function (obj, name) {
         if (obj == null)
@@ -69,10 +79,10 @@ var PropertyReflector = /** @class */ (function () {
         return null;
     };
     /**
-     * Static method that retrieves the names of an object's properties.
+     * Gets names of all properties implemented in specified object.
      *
-     * @param obj   the object, whose property names are to be retrieved.
-     * @returns a string array, containing the names of the object's properties.
+     * @param obj   an objec to introspect.
+     * @returns a list with property names.
      */
     PropertyReflector.getPropertyNames = function (obj) {
         var properties = [];
@@ -84,9 +94,10 @@ var PropertyReflector = /** @class */ (function () {
         return properties;
     };
     /**
-     * Static method that retrieves the properties of an object as a map.
+     * Get values of all properties in specified object
+     * and returns them as a map.
      *
-     * @param obj   the object, whose properties are to be retrieved.
+     * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
     PropertyReflector.getProperties = function (obj) {
@@ -104,15 +115,14 @@ var PropertyReflector = /** @class */ (function () {
         return map;
     };
     /**
-     * Static method that sets an object's property to the given value. If no properties
-     * are found by the given name, then the value will be set directly in the object using
-     * the provided name (if supported).
+     * Sets value of object property specified by its name.
      *
-     * @param obj   the object, whose property is to be set. Cannot be <code>null</code>.
-     * @param name	the name of the property to set. Cannot be <code>null</code>.
-     * @param value the value to set the object's property to.
+     * If the property does not exist or introspection fails
+     * this method doesn't do anything and doesn't any throw errors.
      *
-     * @throws an Error if 'obj' or 'name' are <code>null</code>.
+     * @param obj 	an object to write property to.
+     * @param name 	a name of the property to set.
+     * @param value a new value for the property to set.
      */
     PropertyReflector.setProperty = function (obj, name, value) {
         if (obj == null)
@@ -136,12 +146,13 @@ var PropertyReflector = /** @class */ (function () {
         obj[name] = value;
     };
     /**
-     * Static method that sets multiple object properties at once. Uses this class's
-     * static [[setProperty]] method for each value that is to be set.
+     * Sets values of some (all) object properties.
      *
-     * @param obj 		the object, whose properties are to be set.
-     * @param values 	a map, containing property names as map keys and the values that are to be
-     * 					set as map values.
+     * If some properties do not exist or introspection fails
+     * they are just silently skipped and no errors thrown.
+     *
+     * @param obj 		 an object to write properties to.
+     * @param values 	a map, containing property names and their values.
      *
      * @see [[setProperty]]
      */

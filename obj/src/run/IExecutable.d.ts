@@ -1,38 +1,37 @@
 /** @module run */
 import { Parameters } from './Parameters';
 /**
- * Interface for active components that can be called to execute work.
+ * Interface for components that can be called to execute work.
  *
- * Implementation example:
+ * @see [[Executor]]
+ * @see [[INotifiable]]
+ * @see [[Parameters]]
  *
- *     // Define command
- *     class MyCommand implements IExecutable {
- *     …
- *     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any)): void {
- *         // Extract arguments
- *         let item = args.Get(‘item’);
- *         // Call controller
- *         this.controller.DoSomething(correlationId, item, callback);
- *     }
- *     …
- *     }
+ * ### Example ###
  *
- * Example of calling the command:
+ * class EchoComponent implements IExecutable {
+ *   ...
+ *   public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
+ *     let result = args.getAsObject("message");
+ *     callback(null, result);
+ *   }
+ * }
  *
- *     // Calling command
- *     var args = Parameters.fromTuples(‘item’, item);
- *     command.execute(correlationId, args, (err, result) => {
- *     …
- *     });
+ * let echo = new EchoComponent();
+ * let message = "Test";
+ * echo.execute("123", Parameters.fromTuples("message", message),
+ *   (err, result) => {
+ *     console.log("Request: " + message + " Response: " + result);
+ *   }
+ * );
  */
 export interface IExecutable {
     /**
-     * Abstract method that will contain the logic for executing a unit of work.
+     * Executes component with arguments and receives execution result.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
-     * @param args 				the set of parameters (arguments) for execution.
-     * @param callback 			the callback function that will be called with the result
-     * 							of the execution or with an error (if one is raised).
+     * @param args 				execution arguments.
+     * @param callback 			callback function that receives execution result or error.
      */
     execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void;
 }

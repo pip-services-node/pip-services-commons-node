@@ -7,18 +7,15 @@ import { ObjectWriter } from '../reflect/ObjectWriter';
 import { ConfigParams } from '../config/ConfigParams';
 
 /**
- * Parameters represent a hierarchical map that uses complex keys with dot-notation 
- * to store and access various data.
+ * Contains map with execution parameters.
  * 
- * Examples of key that can be used to store parameters:
+ * In general, this map may contain non-serializable values.
+ * And in contrast with other maps, its getters and setters
+ * support dot notation and able to access properties
+ * in the entire object graph.
  * 
- * - Parameter-group-1.Sub-param-group-1-1.Param-1-1-1
- * - Parameter-group-1.Sub-param-group-1-2.Param-1-2-1
- * - Parameter-group-2.Sub-param-group-1.Param-2-1-1
- * 
- * All keys stored in the map are case-insensitive.
- * 
- * Parameters can be used to with classes that implement [[IParameterized]].
+ * This class is often use to pass execution and notification
+ * arguments, and parameterize classes before execution.
  * 
  * @see [[IParameterized]]
  * @see [[AnyValueMap]]
@@ -26,25 +23,22 @@ import { ConfigParams } from '../config/ConfigParams';
 export class Parameters extends AnyValueMap {
 
 	/**
-	 * Creates a new Parameters object from the map passed.
-	 * 
-	 * @param map 	parameters to store in this object. Defaults to null.
-	 * 
-	 * @see [[AnyValueMap.constructor]]
+     * Creates a new instance of the map and assigns its value.
+     * 
+     * @param value     (optional) values to initialize this map.
 	 */
 	public constructor(map: any = null) {
 		super(map);
 	}
 
 	/**
-	 * @param key 	the complex key of the parameter that is to be retrieved. 
-	 * 				The key can be complex with dot-notation, for example 
-	 * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this 
-	 * 				case, RecursiveObjectReader's [[RecursiveObjectReader.getProperty getProperty]]
-	 * 				method will be used.
-	 * @returns		the parameter stored by the given key.
+     * Gets a map element specified by its key.
 	 * 
-	 * @see [[RecursiveObjectReader.getProperty]]
+	 * The key can be defined using dot notation
+	 * and allows to recursively access elements of elements.
+	 * 
+     * @param key     a key of the element to get.
+     * @returns       the value of the map element.
 	 */
 	public get(key: string): any {
 		if (key == null)
@@ -56,15 +50,13 @@ export class Parameters extends AnyValueMap {
 	}
 
 	/**
-	 * @param key 	the complex key of the parameter that is to be stored. 
-	 * 				The key can be complex with dot-notation, for example 
-	 * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this 
-	 * 				case, RecursiveObjectWriter's [[RecursiveObjectWriter.setProperty setProperty]]
-	 * 				method will be used.
-	 * @param value	
-	 * @returns		the value that was stored by the given key.
+     * Puts a new value into map element specified by its key.
+     * 
+	 * The key can be defined using dot notation
+	 * and allows to recursively access elements of elements.
 	 * 
-	 * @see [[RecursiveObjectWriter.setProperty]]
+     * @param key       a key of the element to put.
+     * @param value     a new value for map element.
 	 */
 	public put(key: string, value: any): any {
 		if (key == null)
@@ -77,11 +69,10 @@ export class Parameters extends AnyValueMap {
     }
 
 	/** 
-     * @param key   key of the parameter to retrieve.
-     * @returns     the parameter with the given key as a nullable Parameters object.
-	 * 				Null is returned if no parameters are found by the given key. 
+     * Converts map element into an Parameters or returns null if conversion is not possible.
      * 
-     * @see [[AnyValueMap.getAsNullableMap]]
+     * @param key       a key of element to get.
+     * @returns Parameters value of the element or null if conversion is not supported. 
      */
     public getAsNullableParameters(key: string): Parameters {
         let value = this.getAsNullableMap(key);
@@ -89,10 +80,10 @@ export class Parameters extends AnyValueMap {
     }
 
 	/** 
-     * @param key   key of the parameter to retrieve.
-     * @returns     the parameter with the given key as a Parameters object. 
+     * Converts map element into an Parameters or returns empty Parameters if conversion is not possible.
      * 
-     * @see [[AnyValueMap.getAsMap]]
+     * @param key       a key of element to get.
+     * @returns Parameters value of the element or empty Parameters if conversion is not supported. 
      */
     public getAsParameters(key: string): Parameters {
         let value = this.getAsMap(key);
@@ -100,13 +91,11 @@ export class Parameters extends AnyValueMap {
     }
 
 	/**
-     * @param key               key of the parameter to retrieve.
-     * @param defaultValue      the value to return if no parameters are found by the given key.
-     * @returns                 the parameter with the given key or the
-     *                          defaultValue (if no parameters are found by the given key 
-	 * 							and null is returned by [[getAsNullableParameters]]).
+     * Converts map element into an Parameters or returns default value if conversion is not possible.
      * 
-     * @see [[getAsNullableParameters]]
+     * @param key       a key of element to get.
+     * @param defaultValue  the default value
+     * @returns Parameters value of the element or default value if conversion is not supported. 
      */
     public getAsParametersWithDefault(key: string, defaultValue: Parameters): Parameters {
         let result = this.getAsNullableParameters(key);
@@ -114,29 +103,25 @@ export class Parameters extends AnyValueMap {
     }
 
 	/**
-	 * Checks whether or not this Parameter's object contains a parameter with the given key.
+     * Checks if this map contains an element with specified key.
+     * 
+	 * The key can be defined using dot notation
+	 * and allows to recursively access elements of elements.
 	 * 
-	 * @param key 	the complex key of the parameter that is to be searched for. 
-	 * 				The key can be complex with dot-notation, for example 
-	 * 				"Parameter-group-1.Sub-param-group-1-1.Param-1-1-1". In this 
-	 * 				case, RecursiveObjectReader's [[RecursiveObjectReader.hasProperty hasProperty]]
-	 * 				method will be used.
-	 * 
-	 * @see [[RecursiveObjectReader.hasProperty hasProperty]]
+     * @param key     a key to be checked
+     * @returns       true if this map contains the key or false otherwise.
 	 */
 	public containsKey(key: string): boolean {
 		return RecursiveObjectReader.hasProperty(this, key.toString());
 	}
 	
 	/**
-	 * Overrides the parameters stored in this object with the ones in 
-	 * 'parameters'. If a parameter is already set in this Parameters object, 
-	 * it will be overwritten by the value in 'parameters' with the same key.
+	 * Overrides parameters with new values from specified Parameters
+	 * and returns a new Parameters object.
 	 * 
-	 * @param parameters		the parameters to override the parameters of this object with.
-	 * @param recursive			whether or not the parameters need to be set recursively. 
-	 * 							Defaults to false.
-	 * @returns					this Parameters object with overridden parameters.
+	 * @param parameters		Parameters with parameters to override the current values.
+	 * @param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
+	 * @returns					a new Parameters object.
 	 * 
 	 * @see [[setDefaults]]
 	 */
@@ -153,15 +138,11 @@ export class Parameters extends AnyValueMap {
     }
 
 	/**
-	 * Sets the defaults for this Parameters object, based on the
-	 * default parameters passed in 'defaultParameters'. If a 
-	 * parameter is already set in this Parameters object, it will not be
-	 * overwritten by the default value in 'defaultParameters' with the same key.
+	 * Set default values from specified Parameters and returns a new Parameters object.
 	 * 
-	 * @param defaultParameters		the default parameters to use.
-	 * @param recursive				whether or not the defaults need to be set recursively. 
-	 * 								Defaults to false.
-	 * @returns						this Parameters object with the newly set defaults.
+	 * @param defaultParameters	Parameters with default parameter values.
+	 * @param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
+	 * @returns						a new Parameters object.
 	 * 
 	 * @see [[override]]
 	 */
@@ -178,16 +159,9 @@ export class Parameters extends AnyValueMap {
 	}
 
 	/**
-	 * Copies the parameters passed in 'value' to this Parameters object using 
-	 * [[RecursiveObjectWriter.copyProperties]]. Parameters are read from 'value'
-	 * using [[ObjectReader.getProperties]] recursively (for maps), which means 
-	 * that they can be in the form of a map or an array.
+	 * Assigns (copies over) properties from the specified value to this map.
 	 * 
-	 * @param value 	the parameters to copy to this Parameters object.
-	 * 
-	 * @see [[RecursiveObjectWriter.copyProperties]]
-	 * @see [[RecursiveObjectReader.performGetProperties]]
-	 * @see [[ObjectReader.getProperties]]
+	 * @param value 	value whose properties shall be copied over.
 	 */
     public assignTo(value: any): void {
         if (value == null) return;        
@@ -195,12 +169,10 @@ export class Parameters extends AnyValueMap {
     }
 	
 	/**
-	 * Picks select parameters from this Parameters object using the keys passed as 'paths'.
+	 * Picks select parameters from this Parameters and returns them as a new Parameters object.
 	 * 
-	 * @param paths 	the keys passed to this method, whose data must be included in the
-	 * 					Parameters object that will be returned.
-	 * 
-	 * @returns a Parameters object that contains only the selected parameters.
+	 * @param paths 	keys to be picked and copied over to new Parameters.
+	 * @returns a new Parameters object.
 	 */
     public pick(...paths: string[]): Parameters {
     	let result = new Parameters();
@@ -213,12 +185,10 @@ export class Parameters extends AnyValueMap {
     }
 
 	/**
-	 * Omits select parameters from this Parameters object using the keys passed as 'paths'.
+	 * Omits selected parameters from this Parameters and returns the rest as a new Parameters object.
 	 * 
-	 * @param paths 	the keys passed to this method, whose data must be excluded from the
-	 * 					Parameters object that will be returned.
-	 * 
-	 * @returns this Parameters object's parameters with the given parameters omitted.
+	 * @param paths 	keys to be omitted from copying over to new Parameters.
+	 * @returns a new Parameters object.
 	 */
     public omit(...paths: string[]): Parameters {
     	let result = new Parameters(this);        
@@ -230,34 +200,30 @@ export class Parameters extends AnyValueMap {
     }
 	
 	/**
-	 * Convert this Parameters object into a JSON string using [[JsonConverter.toJson]].
+	 * Converts this map to JSON object.
 	 * 
-	 * @returns		this Parameters object as a JSON string.
-	 * 
-	 * @see [[JsonConverter.toJson]]
+	 * @returns	a JSON representation of this map.
 	 */
 	public toJson(): string {
 		return JsonConverter.toJson(this);
 	}
 	
 	/**
-	 * Static method that creates a Parameters object based on the values that are stored 
-	 * in the map passed as 'value'.
+	 * Creates a new Parameters object filled with key-value pairs from specified object.
 	 * 
-	 * @param value		parameters in the form of a map.
-	 * @returns			generated Parameters.
-	 * 
-	 * @see [[AnyValueMap.constructor]]
+	 * @param value		an object with key-value pairs used to initialize a new Parameters.
+	 * @returns			a new Parameters object.
 	 */
     public static fromValue(value: any): Parameters {
         return new Parameters(value);
     }
 	
 	/**
-	 * Static method that creates a Parameters object using the tuples passed to the method.
+	 * Creates a new Parameters object filled with provided key-value pairs called tuples.
+	 * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
 	 * 
-	 * @param tuples	the tuples to convert to a Parameters object.
-	 * @returns			the generated Parameters.
+	 * @param tuples	the tuples to fill a new Parameters object.
+	 * @returns			a new Parameters object.
 	 * 
 	 * @see [[AnyValueMap.fromTuplesArray]]
 	 */
@@ -267,14 +233,11 @@ export class Parameters extends AnyValueMap {
 	}
 		
 	/**
-	 * Static method that can merge two or more Parameters into one.
+	 * Merges two or more Parameters into one. The following Parameters override
+	 * previously defined parameters.
 	 * 
-	 * @param configs 	the Parameters that are to be merged into one Parameters object. 
-	 * 					The order in which the Parameters are passed to this method is important, 
-	 * 					as it regulates which values to keep in the case of identical complex keys 
-	 * 					(the Parameters passed later/last override the values of other Parameters 
-	 * 					with the same key).
-	 * @returns			merged Parameters.
+	 * @param configs 	a list of Parameters objects to be merged.
+	 * @returns			a new Parameters object.
 	 * 
 	 * @see [[AnyValueMap.fromMaps]]
 	 */
@@ -284,11 +247,10 @@ export class Parameters extends AnyValueMap {
 	}
 	
 	/**
-	 * Static method that can convert a JSON string to a Parameters object using 
-	 * [[JsonConverter.toNullableMap]].
+	 * Creates new Parameters from JSON object.
 	 * 
-	 * @param json 	the JSON string containing parameters.
-	 * @returns		the Parameters generated.
+	 * @param json 	a JSON string containing parameters.
+	 * @returns a new Parameters object.
 	 * 
 	 * @see [[JsonConverter.toNullableMap]]
 	 */
@@ -298,10 +260,10 @@ export class Parameters extends AnyValueMap {
 	}
 	
 	/**
-	 * Static method that can convert a ConfigParams object into a Parameters object.
+	 * Creates new Parameters from ConfigMap object.
 	 * 
-	 * @param config 	the ConfigParams that contain parameters.
-	 * @returns			the Parameters generated.
+	 * @param config 	a ConfigParams that contain parameters.
+	 * @returns			a new Parameters object.
 	 * 
 	 * @see [[ConfigParams]]
 	 */

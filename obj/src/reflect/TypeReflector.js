@@ -9,22 +9,34 @@ var NotFoundException_1 = require("../errors/NotFoundException");
 var TypeCode_1 = require("../convert/TypeCode");
 var TypeConverter_1 = require("../convert/TypeConverter");
 /**
- * Helper class that contains methods for working with [[TypeDescriptor TypeDescriptors]].
+ * Helper class to perform object type introspection and object instantiation.
+ *
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ *
+ * Because all languages have different casing and case sensitivity rules,
+ * this TypeReflector treats all type names as case insensitive.
  *
  * @see [[TypeDescriptor]]
+ *
+ * ### Example ###
+ *
+ * let descriptor = new TypeDescriptor("MyObject", "mylibrary");
+ * Typeeflector.getTypeByDescriptor(descriptor);
+ * let myObj = TypeReflector.createInstanceByDescriptor(descriptor);
+ *
+ * TypeDescriptor.isPrimitive(myObject); 		// Result: false
+ * TypeDescriptor.isPrimitive(123);				// Result: true
  */
 var TypeReflector = /** @class */ (function () {
     function TypeReflector() {
     }
     /**
-     * Static method that loads modules to resolve exported types using the provided
-     * 'name' and 'library' parameters. Once a type has been found, its constructor is
-     * returned as 'type'.
+     * Gets object type by its name and library where it is defined.
      *
-     * @param name 		the type's name.
-     * @param library 	the library that contains the type.
-     * @returns the constructor for the type that was found or <code>null</code>
-     * 			(if none were found).
+     * @param name 		an object type name.
+     * @param library 	a library where the type is defined
+     * @returns the object type or null is the type wasn't found.
      */
     TypeReflector.getType = function (name, library) {
         try {
@@ -47,32 +59,25 @@ var TypeReflector = /** @class */ (function () {
         }
     };
     /**
-     * Static method that retrieves the constructor for the type that correspondes to the provided
-     * [[TypeDescriptor]].
+     * Gets object type by type descriptor.
      *
-     * @param type 	the TypeDescriptor to find the type by. Cannot be <code>null</code>.
-     * @returns the constructor for the type that was found or <code>null</code>
-     * 			(if none were found).
-     *
-     * @throws an Error if 'type' is <code>null</code>.
+     * @param descriptor 	a type descriptor that points to an object type
+     * @returns the object type or null is the type wasn't found.
      *
      * @see [[getType]]
      * @see [[TypeDescriptor]]
      */
-    TypeReflector.getTypeByDescriptor = function (type) {
-        if (type == null)
+    TypeReflector.getTypeByDescriptor = function (descriptor) {
+        if (descriptor == null)
             throw new Error("Type descriptor cannot be null");
-        return TypeReflector.getType(type.getName(), type.getLibrary());
+        return TypeReflector.getType(descriptor.getName(), descriptor.getLibrary());
     };
     /**
-     * Static method that creates an instance (object) of the given type.
+     * Creates an instance of an object type.
      *
-     * @param type 		the type's constructor to create an instance with.
-     * @param args		the arguments to pass to the constructor.
-     * @returns the created instance (object).
-     *
-     * @throws an Error if 'type' is <code>null</code>.
-     * @throws an Error if 'type' is not a constructor.
+     * @param type 		an object type (factory function) to create.
+     * @param args		arguments for the object constructor.
+     * @returns the created object instance.
      */
     TypeReflector.createInstanceByType = function (type) {
         var args = [];
@@ -86,15 +91,13 @@ var TypeReflector = /** @class */ (function () {
         return new (type.bind.apply(type, [void 0].concat(args)))();
     };
     /**
-     * Static method that resolves the type that corresponds to the provided 'name' and 'library'
-     * parameters and creates an instance (object) of the type that was found.
+     * Creates an instance of an object type specified by its name
+     * and library where it is defined.
      *
-     * @param name 		the type's name.
-     * @param library 	the library that contains the type.
-     * @param args		the arguments to pass to the constructor.
-     * @returns the created instance (object).
-     *
-     * @throws a [[NotFoundException]] if no type is found by the given name/library.
+     * @param name 		an object type name.
+     * @param library 	a library (module) where object type is defined.
+     * @param args		arguments for the object constructor.
+     * @returns the created object instance.
      *
      * @see [[getType]]
      * @see [[createInstanceByType]]
@@ -111,36 +114,32 @@ var TypeReflector = /** @class */ (function () {
         return TypeReflector.createInstanceByType.apply(TypeReflector, [type].concat(args));
     };
     /**
-     * Static method that resolves the type that corresponds to the provided
-     * [[TypeDescriptor]] and creates an instance (object) of the type that was found.
+     * Creates an instance of an object type specified by type descriptor.
      *
-     * @param type 	the TypeDescriptor to find the type by. Cannot be <code>null</code>.
-     * @param args	the arguments to pass to the constructor.
-     * @returns the created instance (object).
-     *
-     * @throws an Error if 'type' is <code>null</code>.
+     * @param descriptor 	a type descriptor that points to an object type
+     * @param args		arguments for the object constructor.
+     * @returns the created object instance.
      *
      * @see [[createInstance]]
      * @see [[TypeDescriptor]]
      */
-    TypeReflector.createInstanceByDescriptor = function (type) {
+    TypeReflector.createInstanceByDescriptor = function (descriptor) {
         var args = [];
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        if (type == null)
+        if (descriptor == null)
             throw new Error("Type descriptor cannot be null");
-        return TypeReflector.createInstance.apply(TypeReflector, [type.getName(), type.getLibrary()].concat(args));
+        return TypeReflector.createInstance.apply(TypeReflector, [descriptor.getName(), descriptor.getLibrary()].concat(args));
     };
     /**
-     * Static method that checks whether or not a value is of a primitive type.
-     * Uses [[TypeConverter.toTypeCode]] to identify the given value's type.
+     * Checks if value has primitive type.
      *
-     * The following [[TypeCode types]] are considered to be primitive: String,
-     * Enum, Boolean, Integer, Long, Float, Double, DateTime, Duration.
+     * Primitive types are: numbers, strings, booleans, date and time.
+     * Complex (non-primitive types are): objects, maps and arrays
      *
-     * @param value 	the value to check.
-     * @returns whether or not the value is a primitive type.
+     * @param value 	a value to check
+     * @returns true if the value has primitive type and false if value type is complex.
      *
      * @see [[TypeConverter.toTypeCode]]
      * @see [[TypeCode]]

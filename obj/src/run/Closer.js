@@ -6,20 +6,22 @@ var _ = require('lodash');
 /** @hidden */
 var async = require('async');
 /**
- * Helper class that can be used to close components.
+ * Helper class that closes previously opened components.
+ *
+ * [[ICloseable]]
  */
 var Closer = /** @class */ (function () {
     function Closer() {
     }
     /**
-     * Static method for closing a component. For a component to be closed, it must implement
-     * the [[IClosable]] interface. This method calls ICloseable's [[IClosable.close close]] method
-     * to close the component passed.
+     * Closes specific component.
+     *
+     * To be closed components must implement [[ICloseable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param component 		the component that is to be closed.
-     * @param callback 			the function to call when the closing process is complete. It will
-     * 							be called with an error if one is raised.
+     * @param callback 			callback function that receives error or null no errors occured.
      *
      * @see [[IClosable]]
      */
@@ -39,14 +41,14 @@ var Closer = /** @class */ (function () {
             callback(null);
     };
     /**
-     * Static method for closing multiple components. For a component to be closed, it must implement
-     * the [[IClosable]] interface. This method calls the static [[closeOne]] method for each of the
-     * components passed.
+     * Closes multiple components.
+     *
+     * To be closed components must implement [[ICloseable]] interface.
+     * If they don't the call to this method has no effect.
      *
      * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param components 		the list of components that are to be closed.
-     * @param callback 			the function to call when the closing process is complete. It will
-     * 							be called with an error if one is raised.
+     * @param callback 			callback function that receives error or null no errors occured.
      *
      * @see [[closeOne]]
      * @see [[IClosable]]

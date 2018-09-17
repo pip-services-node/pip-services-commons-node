@@ -1,20 +1,30 @@
 /** @module run */
+
 /**
- * Interface for components that can clean their data.
+ * Interface for components that should clean their state.
  * 
- * Such components are typically used during testing, when a database or queue is used and needs to be 
- * quickly cleaned (or truncated) once the test has finished. This is done to remove any garbage that 
- * might have been left-over by a test, as this data can interfere with future tests. To ensure that all  
- * tests run as clean as possible, the database/queue should be returned/reverted back to its initial state. 
- * This interface's [[clear]] method allows for such cleaning to be performed.
+ * Cleaning state most often is used during testing. 
+ * But there may be situations when it can be done in production.
+ * 
+ * @see [[Cleaner]]
+ * 
+ * ### Example ###
+ * 
+ * class MyObjectWithState implements ICleanable {
+ *   private _state: any = {};
+ *   ...
+ *   public clear(correlationId: string): void {
+ *     this._state = {};
+ *   }
+ * }
+ * 
  */
 export interface ICleanable {
 	/**
-	 * Abstract method that will contain the logic for cleaning a component's data.
+	 * Clears component state.
 	 * 
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param callback 			the function to call when the clearing process is complete. It will 
-	 * 							be called with an error if one is raised.
+     * @param callback 			callback function that receives error or null no errors occured.
 	 */
 	clear(correlationId: string, callback?: (err: any) => void): void;
 }

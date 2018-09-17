@@ -6,6 +6,9 @@ import { IReferences } from './IReferences';
 
 /**
  * Helper class that sets and unsets references to components.
+ * 
+ * @see [[IReferenceable]]
+ * @see [[IUnreferenceable]]
  */
 export class Referencer {
 	/**

@@ -5,6 +5,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 /**
  * Helper class that sets and unsets references to components.
+ *
+ * @see [[IReferenceable]]
+ * @see [[IUnreferenceable]]
  */
 var Referencer = /** @class */ (function () {
     function Referencer() {

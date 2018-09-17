@@ -3,43 +3,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
 var ConfigException_1 = require("../errors/ConfigException");
 /**
- * Class that stores information about an object's type, specifically - the type's name
- * and the library it can be found in.
+ * Descriptor that points to specific object type by it's name
+ * and optional library (or module) where this type is defined.
+ *
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
  */
 var TypeDescriptor = /** @class */ (function () {
     /**
-     * Creates a new TypeDescriptor object using the values provided.
+     * Creates a new instance of the type descriptor and sets its values.
      *
-     * @param name 		the name of the data type.
-     * @param library 	the library in which the data type can be found.
+     * @param name 		a name of the object type.
+     * @param library 	a library or module where this object type is implemented.
      */
     function TypeDescriptor(name, library) {
         this._name = name;
         this._library = library;
     }
     /**
-     * @returns the name of the data type that is stored in this TypeDescriptor object.
+     * Get the name of the object type.
+     *
+     * @returns the name of the object type.
      */
     TypeDescriptor.prototype.getName = function () {
         return this._name;
     };
     /**
-     * @returns the library in which this TypeDescriptor's type can be found.
+     * Gets the name of the library or module where the object type is defined.
+     *
+     * @returns the name of the library or module.
      */
     TypeDescriptor.prototype.getLibrary = function () {
         return this._library;
     };
     /**
-     * Checks whether or not the object passed is an instance of TypeDescriptor and
-     * equals this current TypeDescriptor object.
+     * Compares this descriptor to a value.
+     * If the value is also a TypeDescriptor it compares their name and library fields.
+     * Otherwise this method returns false.
      *
-     * @param obj	the TypeDescriptor to check.
-     * @returns whether or not the passed TypeDescriptor and this TypeDescriptor object
-     * 			are equal.
+     * @param value		a value to compare.
+     * @returns true if value is identical TypeDescriptor and false otherwise.
      */
-    TypeDescriptor.prototype.equals = function (obj) {
-        if (obj instanceof TypeDescriptor) {
-            var otherType = obj;
+    TypeDescriptor.prototype.equals = function (value) {
+        if (value instanceof TypeDescriptor) {
+            var otherType = value;
             if (this.getName() == null || otherType.getName() == null)
                 return false;
             if (this.getName() != otherType.getName())
@@ -51,10 +58,10 @@ var TypeDescriptor = /** @class */ (function () {
         return false;
     };
     /**
-     * Converts this TypeDescriptor object to a string.
+     * Gets a string representation of the object.
+     * The result has format name[,library]
      *
-     * @returns this TypeDescriptor as a string. Example
-     * 			result: "typesName,library".
+     * @returns a string representation of the object.
      *
      * @see [[fromString]]
      */
@@ -65,14 +72,12 @@ var TypeDescriptor = /** @class */ (function () {
         return builder.toString();
     };
     /**
-     * Static method that generates a TypeDescriptor object using the string provided.
+     * Parses a string to get descriptor fields and returns them as a Descriptor.
+     * The string must have format name[,library]
      *
-     * @param value 	the string to use to generate a TypeDescriptor object.
-     * 					Example strings: "typesName,library", "typesNameOnly".
-     * @returns the generated TypeDescriptor. If value is <code>null</code> or an
-     * 			empty string - <code>null</code> will be returned.
-     *
-     * @throws a [[ConfigException]] if the type descriptor string is not formatted correctly.
+     * @param value     a string to parse.
+     * @returns         a newly created Descriptor.
+     * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
      *
      * @see [[toString]]
      */

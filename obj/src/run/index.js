@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @module run
  * @preferred
+ *
+ * Todo: Rewrite this description.
+ *
  * Contains design patterns for the standard lifecycle of objects (opened,
  * closed, openable, closable, runnable). Helper classes for lifecycle provisioning.
  */

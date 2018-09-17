@@ -1,8 +1,36 @@
 import { IClosable } from './IClosable';
 import { INotifiable } from './INotifiable';
 /**
- * Helper class that provides methods for starting tasks/callbacks with a timer,
- * delaying their starts, and stopping them as well.
+ * Timer that is triggered in equal time intervals.
+ *
+ * It has summetric cross-language implementation
+ * and is often used by Pip.Services toolkit to
+ * perform periodic processing and cleanup in microservices.
+ *
+ * @see [[INotifiable]]
+ *
+ * ### Example ###
+ *
+ * class MyComponent {
+ *   private timer: FixedRateTimer = new FixedRateTimer(() => { this.cleanup }, 60000);
+ *   ...
+ *   public open(correlationId: string, callback: (err: any) => void): void {
+ *     ...
+ *     timer.start();
+ *     ...
+ *   }
+ *
+ *   public open(correlationId: string, callback: (err: any) => void): void {
+ *     ...
+ *     timer.stop();
+ *     ...
+ *   }
+ *
+ *   private cleanup(): void {
+ *     ...
+ *   }
+ *   ...
+ * }
  */
 export declare class FixedRateTimer implements IClosable {
     private _task;
@@ -12,15 +40,11 @@ export declare class FixedRateTimer implements IClosable {
     private _timer;
     private _timeout;
     /**
-     * Creates an object that is capable of starting a timer to call a task or a callback after
-     * the time set in 'interval' has passed. The timer can be delayed by setting a 'delay'.
+     * Creates new instance of the timer and sets its values.
      *
-     * All parameters default to null and can be set later on using [[setTask]]/[[setCallback]],
-     * [[setInterval]], and [[setDelay]].
-     *
-     * @param taskOrCallback    the task or callback to initialize this object with.
-     * @param interval          the interval of time after which the task or callback must be called.
-     * @param delay             the delay to introduce before starting the timer.
+     * @param taskOrCallback    (optional) a Notifiable object or callback function to call when timer is triggered.
+     * @param interval          (optional) an interval to trigger timer in milliseconds.
+     * @param delay             (optional) a delay before the first triggering in milliseconds.
      *
      * @see [[setTask]]
      * @see [[setCallback]]
@@ -28,60 +52,83 @@ export declare class FixedRateTimer implements IClosable {
      * @see [[setDelay]]
      */
     constructor(taskOrCallback?: any, interval?: number, delay?: number);
-    /** @returns the task that is to be called once the set interval times out. */
+    /**
+     * Gets the INotifiable object that receives notifications from this timer.
+     *
+     * @returns the INotifiable object or null if it is not set.
+     */
     getTask(): INotifiable;
-    /** @param value the task to call once the set interval times out. */
+    /**
+     * Sets a new INotifiable object to receive notifications from this timer.
+     *
+     * @param value a INotifiable object to be triggered.
+     */
     setTask(value: INotifiable): void;
-    /** @returns the callback function that is to be called once the set interval times out. */
+    /**
+     * Gets the callback function that is called when this timer is triggered.
+     *
+     * @returns the callback function or null if it is not set.
+     */
     getCallback(): () => void;
-    /** @param value the callback function to call once the set interval times out. */
+    /**
+     * Sets the callback function that is called when this timer is triggered.
+     *
+     * @param value the callback function to be called.
+     */
     setCallback(value: () => void): void;
-    /** @returns the delay that will be introduced before starting this object's timer. */
+    /**
+     * Gets initial delay before the timer is triggered for the first time.
+     *
+     * @returns the delay in milliseconds.
+     */
     getDelay(): number;
     /**
-     * @param value the delay to introduce before starting this object's timer.
+     * Sets initial delay before the timer is triggered for the first time.
      *
-     * Note: the delay to use is calculated as "delay - interval".
+     * @param value a delay in milliseconds.
      */
     setDelay(value: number): void;
-    /** @returns the amount of time that must pass before the set task or callback function is called. */
+    /**
+     * Gets periodic timer triggering interval.
+     *
+     * @returns the interval in milliseconds
+     */
     getInterval(): number;
-    /** @param value the amount of time that must pass before the set task or callback function is called. */
+    /**
+     * Sets periodic timer triggering interval.
+     *
+     * @param value an interval in milliseconds.
+     */
     setInterval(value: number): void;
     /**
-     * Checks whether or not this object's timer has started counting down from the
-     * interval that was set. When using a delay, the timer is considered to have started
-     * only after the delay has passed. If the set delay has not yet passed, false
-     * will be returned.
+     * Checks if the timer is started.
+     *
+     * @returns true if the timer is started and false if it is stopped.
      */
     isStarted(): boolean;
     /**
-     * Starts a timer to call this object's 'callback' function as soon as the time set in
-     * 'interval' has passed.
+     * Starts the timer.
      *
-     * If a 'delay' is set, then a delay of "delay - interval" will be introduced. Otherwise,
-     * the timer will start without a delay.
-     *
-     * Both the delay and the timeout can be stopped using this class's [[stop]] method.
-     *
-     * If a timer is already set by this object it will be [[stop stopped]].
-     * The method will exit if 'interval' is not defined.
+     * Initially the timer is triggered after delay.
+     * After that it is triggered after interval until it is stopped.
      *
      * @see [[stop]]
      */
     start(): void;
     /**
-     * Stops this objects timer by clearing any timeouts (delays)
-     * or timers (intervals) that were set using [[start]].
+     * Stops the timer.
      *
      * @see [[start]]
      */
     stop(): void;
     /**
-     * Stops this objects timer using [[stop]] and closes it.
+     * Closes the timer.
+     *
+     * This is required by [[ICloseable]] interface,
+     * but besides that it is identical to stop().
      *
      * @param correlationId     (optional) transaction id to trace execution through call chain.
-     * @param callback          the function to call once the closing process is complete.
+     * @param callback 			callback function that receives error or null no errors occured.
      *
      * @see [[stop]]
      */

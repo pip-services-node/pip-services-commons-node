@@ -1,38 +1,54 @@
 /**
- * Helper class that contains methods for writing nested object properties recursively.
+ * Helper class to perform property introspection and dynamic writing.
+ *
+ * It is similar to [[ObjectWriter]] but writes properties recursively
+ * through the entire object graph. Nested property names are defined
+ * using dot notation as "object.subobject.property"
+ *
+ * @see [[PropertyReflector]]
+ * @see [[ObjectWriter]]
  */
 export declare class RecursiveObjectWriter {
-    /**
-     * Private static method that recursively create a nested property,
-     * whose nested name correspond to 'names'. The 'nameIndex' is used to track the depth of recursion.
-     */
     private static createProperty;
-    /** @see [[createProperty]] */
     private static performSetProperty;
     /**
-     * Static method that sets an object's nested property to the value that is passed.
+     * Recursively sets value of object and its subobjects property specified by its name.
      *
-     * @param obj 		the object to set a property in.
-     * @param name		the name of the property (in dot-notation) to set.
-     * 					Example property name: "data.sampleData.sample1".
-     * @param value		the value to set in the object's given property.
+     * The object can be a user defined object, map or array.
+     * The property name correspondently must be object property,
+     * map key or array index.
+     *
+     * If the property does not exist or introspection fails
+     * this method doesn't do anything and doesn't any throw errors.
+     *
+     * @param obj 	an object to write property to.
+     * @param name 	a name of the property to set.
+     * @param value a new value for the property to set.
      */
     static setProperty(obj: any, name: string, value: any): void;
     /**
-     * Static method that sets multiple object properties at once.
+     * Recursively sets values of some (all) object and its subobjects properties.
      *
-     * @param obj 		the object to set properties in.
-     * @param values 	a map, containing property names (in dot-notation) and the
-     * 					values to set. Example property name: "data.sampleData.sample1".
+     * The object can be a user defined object, map or array.
+     * Property values correspondently are object properties,
+     * map key-pairs or array elements with their indexes.
+     *
+     * If some properties do not exist or introspection fails
+     * they are just silently skipped and no errors thrown.
+     *
+     * @param obj 		 an object to write properties to.
+     * @param values 	a map, containing property names and their values.
+     *
+     * @see [[setProperty]]
      */
     static setProperties(obj: any, values: any): void;
     /**
-     * Copies object properties from a source to the given destination. Calls
-     * [[RecursiveObjectReader.getProperties]] to retrieve properties from the source
-     * and [[RecursiveObjectWriter.setProperties]] to set them in the destination.
+     * Copies content of one object to another object
+     * by recursively reading all properties from source object
+     * and then recursively writing them to destination object.
      *
-     * @param dest 	the destination to which the properties are to be copied.
-     * @param src 	the source from which the properties are to be copied.
+     * @param dest 	a destination object to write properties to.
+     * @param src 	a source object to read properties from
      */
     static copyProperties(dest: any, src: any): void;
 }

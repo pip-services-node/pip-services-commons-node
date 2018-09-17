@@ -173,8 +173,6 @@ var ConfigParams = /** @class */ (function (_super) {
      *
      * @param value		an object with key-value pairs used to initialize a new ConfigParams.
      * @returns			a new ConfigParams object.
-     *
-     * @see [[RecursiveObjectReader.getProperties]]
      */
     ConfigParams.fromValue = function (value) {
         var map = RecursiveObjectReader_1.RecursiveObjectReader.getProperties(value);
