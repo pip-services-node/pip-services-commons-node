@@ -54,7 +54,7 @@
         "@types/chai": "*",
         "@types/lodash": "^4.0.0",
         "@types/mocha": "*",
-        "@types/node": "*",
+        "@types/node": "^8.0.0",
         "chai": "*",
         "mocha": "*",
         "typedoc": "^0.11.1",
