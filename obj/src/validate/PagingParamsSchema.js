@@ -17,20 +17,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCode_1 = require("../convert/TypeCode");
 var ObjectSchema_1 = require("./ObjectSchema");
 /**
- * Schema for validating PagingParams objects.
+ * Schema to validate [[PagingParams]].
+ *
+ * @see [[PagingParams]]
  */
 var PagingParamsSchema = /** @class */ (function (_super) {
     __extends(PagingParamsSchema, _super);
     /**
-     * Calls [[ObjectSchema.constructor ObjectSchema's constructor]] and
-     * adds the following (optional) properties:
-     * - "skip" as TypeCode.Long;
-     * - "take" as TypeCode.Long;
-     * - "total" as TypeCode.Long;
-     *
-     * @see [[ObjectSchema]]
-     * @see [[PagingParams]]
-     * @see [[TypeCode]]
+     * Creates a new instance of validation schema.
      */
     function PagingParamsSchema() {
         var _this = _super.call(this) || this;

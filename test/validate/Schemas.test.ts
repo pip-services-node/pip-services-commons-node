@@ -136,7 +136,7 @@ suite('SchemasTest', ()=> {
             .withOptionalProperty("nullProperty", TypeCode.Object)
             .withRequiredProperty("intArrayProperty", new ArraySchema(TypeCode.Long))
             .withRequiredProperty("stringListProperty", new ArraySchema(TypeCode.String))
-            .withRequiredProperty("mapProperty", new MapSchema(null, null, TypeCode.String, TypeCode.Long))
+            .withRequiredProperty("mapProperty", new MapSchema(TypeCode.String, TypeCode.Long))
             .withRequiredProperty("subObjectProperty", sunSchema)
             .withRequiredProperty("subArrayProperty", TypeCode.Array);
 

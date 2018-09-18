@@ -19,14 +19,16 @@ import { Descriptor } from './Descriptor';
  * and resolution has to be specific about those instances, they can be given a unique
  * name and dependency resolvers can be reconfigured to retrieve dependencies by their name.
  * 
- * Configuration parameters:
- *   dependencies:
- *     [dependency name 1]: [dependency 1 locator (descriptor)]
- *     ...
- *     [dependency name N]: [dependency N locator (descriptor)]
+ * ### Configuration parameters ###
  * 
- * References:
- *   [references that match configured dependencies]
+ * dependencies:
+ *   [dependency name 1]: Dependency 1 locator (descriptor)
+ *   ...
+ *   [dependency name N]: Dependency N locator (descriptor)
+ * 
+ * ### References ###
+ * 
+ * References must match configured dependencies.
  * 
  * ### Example ###
  * 

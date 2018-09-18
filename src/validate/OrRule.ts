@@ -4,30 +4,43 @@ import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 
 /**
- * Validation rule that requires any of the set rules to pass for validation to pass.
+ * Validation rule to combine rules with OR logical operation.
+ * When one of rules returns no errors, than this rule also returns no errors.
+ * When all rules return errors, than the rule returns all errors.
+ * 
+ * @see [[IValidationRule]]
+ * 
+ * ### Example ###
+ * 
+ * let schema = new Schema()
+ *      .withRule(new OrRule(
+ *          new ValueComparisonRule("LT", 1),
+ *          new ValueComparisonRule("GT", 10)
+ *      ));
+ * 
+ * schema.validate(0);          // Result: no error
+ * schema.validate(5);          // Result: 5 must be less than 1 or 5 must be more than 10
+ * schema.validate(20);         // Result: no error
  */
 export class OrRule implements IValidationRule {
     private readonly _rules: IValidationRule[];
 
     /**
-     * Creates a new OrRule object and initializes it using the rules passed.
+     * Creates a new validation rule and sets its values.
      * 
-     * @param rules     the [[IValidationRule rules]] to initialize the new OrRule object with.
-     * 
-     * @see IValidationRule
+     * @param rules     a list of rules to join with OR operator
      */
     public constructor(...rules: IValidationRule[]) {
         this._rules = rules;
     }
 
     /**
-     * Validates the given value by calling the [[IValidationRule.validate validate]] method for 
-     * each rule that is set in this OrRule object, until at least one validation passes successfully.
+     * Validates a given value against this rule.
      * 
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    the schema to use for validation.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         if (!this._rules || this._rules.length == 0) return;

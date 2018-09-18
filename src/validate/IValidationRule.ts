@@ -3,22 +3,24 @@ import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 
 /**
- * Interface for creating validation rules. 
+ * Interface for validation rules.
  * 
- * Various validation frameworks exist for various languages, but they are all different and not portable. 
- * PipServices' validation rules provide identical implementation across various languages. This is key, 
- * since validation is one of the underlying functions that is incorporated into (various) other packages, 
- * making it vital for it to be in a portable format.
+ * Validation rule can validate one or multiple values
+ * against complex rules like: value is in range,
+ * one property is less than another property,
+ * enforce enumerated values and more.
+ * 
+ * This interface allows to implement custom rules.
  */
 export interface IValidationRule {
 
     /**
-     * Abstract method that will contain the logic for validating a value using the given schema.
+     * Validates a given value against this rule.
      * 
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    the schema to use for validation.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void;
 }

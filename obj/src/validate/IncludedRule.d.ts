@@ -3,24 +3,33 @@ import { IValidationRule } from './IValidationRule';
 import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 /**
- * Validation rule that requires at least one of the set values to be present for validation to pass.
+ * Validation rule to check that value is included into the list of constants.
+ *
+ * @see [[IValidationRule]]
+ *
+ * ### Example ###
+ *
+ * let schema = new Schema()
+ *      .withRule(new IncludedRule(1, 2, 3));
+ *
+ * schema.validate(2);      // Result: no errors
+ * schema.validate(10);     // Result: 10 must be one of 1, 2, 3
  */
 export declare class IncludedRule implements IValidationRule {
     private readonly _values;
     /**
-     * Creates a new IncludedRule object and initializes it using the values passed.
+     * Creates a new validation rule and sets its values.
      *
-     * @param values    the values to initialize the new IncludedRule object with.
+     * @param values    a list of constants that value must be included to
      */
     constructor(...values: any[]);
     /**
-     * Validates the given value, which must be found amongst the values set in this IncludedRule object
-     * for validation to pass.
+     * Validates a given value against this rule.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    (not used in this implementation).
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void;
 }

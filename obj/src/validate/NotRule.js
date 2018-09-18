@@ -3,26 +3,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");
 /**
- * Validation rule that requires the set rule to fail for validation to pass.
+ * Validation rule negate another rule.
+ * When embedded rule returns no errors, than this rule return an error.
+ * When embedded rule return errors, than the rule returns no errors.
+ *
+ * @see [[IValidationRule]]
+ *
+ * ### Example ###
+ *
+ * let schema = new Schema()
+ *      .withRule(new NotRule(
+ *          new ValueComparisonRule("EQ", 1)
+ *      ));
+ *
+ * schema.validate(1);          // Result: error
+ * schema.validate(5);          // Result: no error
  */
 var NotRule = /** @class */ (function () {
     /**
-     * Creates a new NotRule object and initializes it using the rule passed.
+     * Creates a new validation rule and sets its values
      *
-     * @param rule     the "not" rule to initialize the new NotRule object with.
+     * @param rule     a rule to be negated.
      */
     function NotRule(rule) {
         this._rule = rule;
     }
     /**
-     * Validates the given value by calling the [[IValidationRule.validate validate]] method of
-     * the "not" rule that is set in this NotRule object. Validation fails if validation of the
-     * "not" rule passes.
+     * Validates a given value against this rule.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    the schema to use for validation.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     NotRule.prototype.validate = function (path, schema, value, results) {
         if (!this._rule)

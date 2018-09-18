@@ -6,22 +6,23 @@ import { DoubleConverter } from '../convert/DoubleConverter';
 import { StringConverter } from '../convert/StringConverter';
 
 /**
- * Helper class for comparing various objects.
+ * Helper class to perform comparison operations over arbitrary values.
+ * 
+ * ### Example ###
+ * 
+ * ObjectComparator.compare(2, "GT", 1);        // Result: true
+ * ObjectComparator.areEqual("A", "B");         // Result: false
  */
 export class ObjectComparator {
     
     /**
-     * Static method that compares a set of values using the given operation.
+     * Perform comparison operation over two arguments.
+     * The operation can be performed over values of any type.
      * 
-     * @param value1        the first value in the pair.
-     * @param operation     the operation to apply to the pair of values. Supported operations:
-     *                      "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" 
-     *                      ("LE"/"GE"); "LIKE".
-     * @param value2        the second value in the pair.
-     * 
-     * @see [[areEqual]]/[[areNotEqual]] (operation - "=="/"!=")
-     * @see [[isLess]]/[[isGreater]] (operation - "<"/">")
-     * @see [[match]] (operation - "LIKE")
+     * @param value1        the first argument to compare
+     * @param operation     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * @param value2        the second argument to compare
+     * @returns result of the comparison operation
      */
     public static compare(value1: any, operation: string, value2: any): boolean {
         operation = operation.toUpperCase();
@@ -45,8 +46,12 @@ export class ObjectComparator {
     }
 
     /**
-     * Static method that checks whether or not a pair of values are equal. If both values are 
-     * null - they are considered to be equal.
+     * Checks if two values are equal.
+     * The operation can be performed over values of any type.
+     * 
+     * @param value1    the first value to compare
+     * @param value2    the second value to compare
+     * @returns true if values are equal and false otherwise
      */
     public static areEqual(value1: any, value2: any): boolean {
         if (value1 == null && value2 == null)
@@ -57,18 +62,24 @@ export class ObjectComparator {
     }
 
     /**
-     * Static method that checks whether or not a pair of values are not equal by inverting the 
-     * result of [[areEqual]].
+     * Checks if two values are NOT equal
+     * The operation can be performed over values of any type.
      * 
-     * @see [[areEqual]]
+     * @param value1    the first value to compare
+     * @param value2    the second value to compare
+     * @returns true if values are NOT equal and false otherwise
      */
     public static areNotEqual(value1: any, value2: any): boolean {
         return !ObjectComparator.areEqual(value1, value2);
     }
 
     /**
-     * Static method that checks whether or not the first parameter is less than the second one 
-     * (value1 < value2). If either value is null - <code>false</code> will be returned.
+     * Checks if first value is less than the second one.
+     * The operation can be performed over numbers or strings.
+     * 
+     * @param value1    the first value to compare
+     * @param value2    the second value to compare
+     * @returns true if the first value is less than second and false otherwise.
      */
     public static isLess(value1: any, value2: any): boolean {
         var number1 = DoubleConverter.toNullableDouble(value1);
@@ -81,8 +92,12 @@ export class ObjectComparator {
     }
 
     /**
-     * Static method that checks whether or not the first parameter is greater than the second one 
-     * (value1 > value2). If either value is null - <code>false</code> will be returned.
+     * Checks if first value is greater than the second one.
+     * The operation can be performed over numbers or strings.
+     * 
+     * @param value1    the first value to compare
+     * @param value2    the second value to compare
+     * @returns true if the first value is greater than second and false otherwise.
      */
     public static isGreater(value1: any, value2: any): boolean {
         var number1 = DoubleConverter.toNullableDouble(value1);
@@ -95,18 +110,20 @@ export class ObjectComparator {
     }
 
     /**
-     * Static method that checks whether or not a pair of values match. The values are converted to 
-     * strings using [[StringConverter.toString StringConverter's toString]] method to see if they 
-     * match. If both values are null - they are considered to match. 
+     * Checks if string matches a regular expression
+     * 
+     * @param value     a string value to match
+     * @param regexp    a regular expression string
+     * @returns true if the value matches regular expression and false otherwise.
      */
-    public static match(value1: any, value2: any): boolean {
-        if (value1 == null && value2 == null)
+    public static match(value: any, regexp: any): boolean {
+        if (value == null && regexp == null)
             return true;
-        if (value1 == null || value2 == null)
+        if (value == null || regexp == null)
             return false;
 
-        let str1: string = StringConverter.toString(value1);
-        let str2: string = StringConverter.toString(value2);
+        let str1: string = StringConverter.toString(value);
+        let str2: string = StringConverter.toString(regexp);
         
         return !!str1.match(str2);
     }

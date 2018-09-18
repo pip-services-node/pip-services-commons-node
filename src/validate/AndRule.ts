@@ -4,30 +4,43 @@ import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 
 /**
- * Validation rule that requires all set rules to pass for validation to pass.
+ * Validation rule to combine rules with AND logical operation.
+ * When all rules returns no errors, than this rule also returns no errors.
+ * When one of the rules return errors, than the rules returns all errors.
+ * 
+ * @see [[IValidationRule]]
+ * 
+ * ### Example ###
+ * 
+ * let schema = new Schema()
+ *      .withRule(new AndRule(
+ *          new ValueComparisonRule("GTE", 1),
+ *          new ValueComparisonRule("LTE", 10)
+ *      ));
+ * 
+ * schema.validate(0);          // Result: 0 must be greater or equal to 1
+ * schema.validate(5);          // Result: no error
+ * schema.validate(20);         // Result: 20 must be letter or equal 10
  */
 export class AndRule implements IValidationRule {
     private readonly _rules: IValidationRule[];
 
     /**
-     * Creates a new AndRule object and initializes it using the rules passed.
+     * Creates a new validation rule and sets its values.
      * 
-     * @param rules     the [[IValidationRule rules]] to initialize the new AndRule object with.
-     * 
-     * @see [[IValidationRule]]
+     * @param rules     a list of rules to join with AND operator
      */
     public constructor(...rules: IValidationRule[]) {
         this._rules = rules;
     }
 
     /**
-     * Validates the given value by calling the [[IValidationRule.validate validate]] method for 
-     * each rule that is set in this AndRule object.
+     * Validates a given value against this rule.
      * 
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    the schema to use for validation.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         if (!this._rules) return;

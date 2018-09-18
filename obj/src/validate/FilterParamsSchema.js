@@ -17,20 +17,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCode_1 = require("../convert/TypeCode");
 var MapSchema_1 = require("./MapSchema");
 /**
- * Schema for validating FilterParams objects.
+ * Schema to validate [[FilterParams]].
+ *
+ * @see [[FilterParams]]
  */
 var FilterParamsSchema = /** @class */ (function (_super) {
     __extends(FilterParamsSchema, _super);
     /**
-     * Calls [[MapSchema.constructor MapSchema's constructor]] with 'keyType' set to
-     * 'TypeCode.String'.
-     *
-     * @see [[MapSchema]]
-     * @see [[FilterParams]]
-     * @see [[TypeCode]]
+     * Creates a new instance of validation schema.
      */
     function FilterParamsSchema() {
-        return _super.call(this, null, null, TypeCode_1.TypeCode.String, null) || this;
+        return _super.call(this, TypeCode_1.TypeCode.String, null) || this;
     }
     return FilterParamsSchema;
 }(MapSchema_1.MapSchema));

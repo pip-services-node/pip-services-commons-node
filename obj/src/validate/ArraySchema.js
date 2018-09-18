@@ -23,42 +23,56 @@ var ObjectReader_1 = require("../reflect/ObjectReader");
 var TypeCode_1 = require("../convert/TypeCode");
 var TypeConverter_1 = require("../convert/TypeConverter");
 /**
- * Used to validate arrays, as well as their values' data types.
+ * Schema to validate arrays.
+ *
+ * ### Example ###
+ *
+ * let schema = new ArraySchema(TypeCode.String);
+ *
+ * schema.validate(["A", "B", "C"]);    // Result: no errors
+ * schema.validate([1, 2, 3]);          // Result: element type mismatch
+ * schema.validate("A");                // Result: type mismatch
  */
 var ArraySchema = /** @class */ (function (_super) {
     __extends(ArraySchema, _super);
     /**
-     * Creates a new ArraySchema, which can be used to validate arrays that contain
-     * values of the data type 'valueType'.
+     * Creates a new instance of validation schema and sets its values.
      *
-     * @param valueType     the [[TypeCode data type]] to check for when validating an array's values.
+     * @param valueType     a type of array elements. Null means that elements may have any type.
+     * @param required      (optional) true to always require non-null values.
+     * @param rules         (optional) a list with validation rules.
      *
      * @see [[TypeCode]]
      */
-    function ArraySchema(valueType) {
-        var _this = _super.call(this) || this;
+    function ArraySchema(valueType, required, rules) {
+        var _this = _super.call(this, required, rules) || this;
         _this._valueType = valueType;
         return _this;
     }
     /**
-     * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
+     * Gets the type of array elements.
+     * Null means that elements may have any type.
+     *
+     * @returns the type of array elements.
      */
     ArraySchema.prototype.getValueType = function () {
         return this._valueType;
     };
     /**
-     * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is an array,
-     * additionally validates that all values stored are objects of the data type
-     * [[valueType that is set]] in this ArraySchema object.
+     * Sets the type of array elements.
+     * Null means that elements may have any type.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If 'value' is not an array - the
-     *                  results will contain a [[ValidationResultType.Error validation error]].
+     * @param value     a type of array elements.
+     */
+    ArraySchema.prototype.setValueType = function (value) {
+        this._valueType = value;
+    };
+    /**
+     * Validates a given value against the schema and configured validation rules.
      *
-     * @see [[Schema.performValidation]]
-     * @see [[valueType]]
-     * @see [[ValidationResultType.Error]]
+     * @param path      a dot notation path to the value.
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     ArraySchema.prototype.performValidation = function (path, value, results) {
         var name = path || "value";

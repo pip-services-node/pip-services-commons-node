@@ -3,39 +3,40 @@ import { IValidationRule } from './IValidationRule';
 import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 /**
- * Validation rule that requires an object's properties to be in a certain relation for validation to pass successfully.
+ * Validation rule that compares two object properties.
+ *
+ * @see [[IValidationRule]]
+ *
+ * ### Example ###
+ *
+ * let schema = new ObjectSchema()
+ *      .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
+ *
+ * schema.validate({ field1: 1, field2: 2 });       // Result: no errors
+ * schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
+ * schema.validate({});                             // Result: no errors
  */
 export declare class PropertiesComparisonRule implements IValidationRule {
     private readonly _property1;
     private readonly _property2;
     private readonly _operation;
     /**
-     * Creates a new PropertiesComparisonRule object and initializes it using the passed pair of properties.
+     * Creates a new validation rule and sets its arguments.
      *
-     * @param property1     the first property in the pair.
-     * @param operation     the operation to apply to the pair of properties.
-     *                      For example: the operation ">=" validates that "property1 >= property2".
-     * @param property2     the second property in the pair.
+     * @param property1    a name of the first property to compare.
+     * @param operation    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * @param property2    a name of the second property to compare.
      *
      * @see [[ObjectComparator.compare]]
      */
     constructor(property1: string, operation: string, property2: string);
     /**
-     * Validates that the set properties of 'value' are in a certain relation to one another. The 'operation' that is set
-     * in this object must pass upon being applied to the passed value's 'property1' and 'property2' for validation to pass.
-     * For example: if the operation ">=" is set, it will validate that "value.property1 >= value.property2".
+     * Validates a given value against this rule.
      *
-     * Properties are retrieved from the value using [[ObjectReader.getProperty]], and comparison is done using
-     * [[ObjectComparator.compare]].
-     *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    (not used in this implementation).
-     * @param value     the value, whose properties are to be validated.
-     * @param results   the results of the validation.
-     *
-     * @see [[constructor]]
-     * @see [[ObjectReader.getProperty]]
-     * @see [[ObjectComparator.compare]]
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void;
 }

@@ -1,36 +1,49 @@
 import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
+import { IValidationRule } from './IValidationRule';
 /**
- * Used to validate arrays, as well as their values' data types.
+ * Schema to validate arrays.
+ *
+ * ### Example ###
+ *
+ * let schema = new ArraySchema(TypeCode.String);
+ *
+ * schema.validate(["A", "B", "C"]);    // Result: no errors
+ * schema.validate([1, 2, 3]);          // Result: element type mismatch
+ * schema.validate("A");                // Result: type mismatch
  */
 export declare class ArraySchema extends Schema {
     private _valueType;
     /**
-     * Creates a new ArraySchema, which can be used to validate arrays that contain
-     * values of the data type 'valueType'.
+     * Creates a new instance of validation schema and sets its values.
      *
-     * @param valueType     the [[TypeCode data type]] to check for when validating an array's values.
+     * @param valueType     a type of array elements. Null means that elements may have any type.
+     * @param required      (optional) true to always require non-null values.
+     * @param rules         (optional) a list with validation rules.
      *
      * @see [[TypeCode]]
      */
-    constructor(valueType: any);
+    constructor(valueType?: any, required?: boolean, rules?: IValidationRule[]);
     /**
-     * @returns the [[TypeCode data type]] for which this Schema checks when validating an array's values.
+     * Gets the type of array elements.
+     * Null means that elements may have any type.
+     *
+     * @returns the type of array elements.
      */
     getValueType(): any;
     /**
-     * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is an array,
-     * additionally validates that all values stored are objects of the data type
-     * [[valueType that is set]] in this ArraySchema object.
+     * Sets the type of array elements.
+     * Null means that elements may have any type.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If 'value' is not an array - the
-     *                  results will contain a [[ValidationResultType.Error validation error]].
+     * @param value     a type of array elements.
+     */
+    setValueType(value: any): void;
+    /**
+     * Validates a given value against the schema and configured validation rules.
      *
-     * @see [[Schema.performValidation]]
-     * @see [[valueType]]
-     * @see [[ValidationResultType.Error]]
+     * @param path      a dot notation path to the value.
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     protected performValidation(path: string, value: any, results: ValidationResult[]): void;
 }

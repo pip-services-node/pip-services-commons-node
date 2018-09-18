@@ -6,15 +6,25 @@ import { ValidationResultType } from './ValidationResultType';
 import { ObjectComparator } from './ObjectComparator';
 
 /**
- * Validation rule that requires the values that are set to be absent for validation to pass.
+ * Validation rule to check that value is excluded from the list of constants.
+ * 
+ * @see [[IValidationRule]]
+ * 
+ * ### Example ###
+ * 
+ * let schema = new Schema()
+ *      .withRule(new ExcludedRule(1, 2, 3));
+ * 
+ * schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
+ * schema.validate(10);     // Result: no errors
  */
 export class ExcludedRule implements IValidationRule {
     private readonly _values: any[];
 
     /**
-     * Creates a new ExcludedRule object and initializes it using the values passed.
+     * Creates a new validation rule and sets its values.
      * 
-     * @param values    the values to initialize the new ExcludedRule object with.
+     * @param values    a list of constants that value must be excluded from
      */
     public constructor(...values: any[]) {
         this._values = values;

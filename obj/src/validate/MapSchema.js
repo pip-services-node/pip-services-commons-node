@@ -24,67 +24,77 @@ var TypeCode_1 = require("../convert/TypeCode");
 var TypeConverter_1 = require("../convert/TypeConverter");
 var StringConverter_1 = require("../convert/StringConverter");
 /**
- * Used to validate maps, as well as the data type of their keys and values.
+ * Schema to validate maps.
+ *
+ * ### Example ###
+ *
+ * let schema = new MapSchema(TypeCode.String, TypeCode.Integer);
+ *
+ * schema.validate({ "key1": "A", "key2": "B" });       // Result: no errors
+ * schema.validate({ "key1": 1, "key2": 2 });           // Result: element type mismatch
+ * schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch
  */
 var MapSchema = /** @class */ (function (_super) {
     __extends(MapSchema, _super);
     /**
-     * Creates a new MapSchema object which can validate map objects using the
-     * set rules. The keys' and values' data types will also be validated if
-     * their [[TypeCode types]] are set.
+     * Creates a new instance of validation schema and sets its values.
      *
-     * @param required      defines whether or not values that are not maps
-     *                      should cause validation to fail (as a
-     *                      [[ValidationResultType.Error validation error]]).
-     * @param rules         the [[IValidationRule rules]] to set for this Schema.
-     * @param keyType       the [[TypeCode data type]] to check for when validating a map's keys.
-     *                      Can be set later on using [[setKeyType]].
-     * @param valueType     the [[TypeCode data type]] to check for when validating a map's values.
-     *                      Can be set later on using [[setValueType]].
+     * @param keyType       a type of map keys. Null means that keys may have any type.
+     * @param valueType     a type of map values. Null means that values may have any type.
+     * @param required      (optional) true to always require non-null values.
+     * @param rules         (optional) a list with validation rules.
      *
      * @see [[IValidationRule]]
      * @see [[TypeCode]]
      */
-    function MapSchema(required, rules, keyType, valueType) {
+    function MapSchema(keyType, valueType, required, rules) {
         var _this = _super.call(this, required, rules) || this;
         _this._keyType = keyType;
         _this._valueType = valueType;
         return _this;
     }
     /**
-     * @returns the [[TypeCode data type]] that this MapSchema will check for when validating keys.
+     * Gets the type of map keys.
+     * Null means that keys may have any type.
+     *
+     * @returns the type of map keys.
      */
     MapSchema.prototype.getKeyType = function () {
         return this._keyType;
     };
     /**
-     * @param value     the [[TypeCode data type]] that this MapSchema should check for when validating keys.
+     * Sets the type of map keys.
+     * Null means that keys may have any type.
+     *
+     * @param value     a type of map keys.
      */
     MapSchema.prototype.setKeyType = function (value) {
         this._keyType = value;
     };
     /**
-     * @returns the [[TypeCode data type]] that this MapSchema will check for when validating values.
+     * Gets the type of map values.
+     * Null means that values may have any type.
+     *
+     * @returns the type of map values.
      */
     MapSchema.prototype.getValueType = function () {
         return this._valueType;
     };
     /**
-     * @param value     the [[TypeCode data type]] that this MapSchema should check for when validating values.
+     * Sets the type of map values.
+     * Null means that values may have any type.
+     *
+     * @param value     a type of map values.
      */
     MapSchema.prototype.setValueType = function (value) {
         this._valueType = value;
     };
     /**
-     * Validates the given 'value' using [[Schema.performValidation]] and, if 'value' is a map,
-     * additionally validates that all keys and values are of the data types [[getKeyType keyType]]
-     * and [[getValueType valueType]], respectively.
+     * Validates a given value against the schema and configured validation rules.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If 'value' is not a map and this schema is
-     *                  set as 'required', then the results will contain a
-     *                  [[ValidationResultType.Error validation error]].
+     * @param path      a dot notation path to the value.
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     MapSchema.prototype.performValidation = function (path, value, results) {
         value = ObjectReader_1.ObjectReader.getValue(value);

@@ -3,20 +3,17 @@ import { TypeCode } from '../convert/TypeCode';
 import { MapSchema } from './MapSchema';
 
 /**
- * Schema for validating FilterParams objects.
+ * Schema to validate [[FilterParams]].
+ * 
+ * @see [[FilterParams]]
  */
 export class FilterParamsSchema extends MapSchema {
 
     /**
-     * Calls [[MapSchema.constructor MapSchema's constructor]] with 'keyType' set to 
-     * 'TypeCode.String'.
-     * 
-     * @see [[MapSchema]]
-     * @see [[FilterParams]]
-     * @see [[TypeCode]]
+     * Creates a new instance of validation schema.
      */
     public constructor() {
-        super(null, null, TypeCode.String, null);
+        super(TypeCode.String, null);
     }
 
 }

@@ -4,102 +4,104 @@ import { ValidationResult } from './ValidationResult';
 import { Schema } from './Schema';
 import { PropertySchema } from './PropertySchema';
 /**
- * Used to validate objects, as well as their properties.
+ * Schema to validate user defined objects.
+ *
+ * ### Example ###
+ *
+ * let schema = new ObjectSchema(false)
+ *      .withOptionalProperty("id", TypeCode.String)
+ *      .withRequiredProperty("name", TypeCode.String);
+ *
+ * schema.validate({ id: "1", name: "ABC" });       // Result: no errors
+ * schema.validate({ name: "ABC" });                // Result: no errors
+ * schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+ * schema.validate({ id: 1, _name: "ABC" });        // Result: name is missing, unexpected _name
+ * schema.validate("ABC");                          // Result: type mismatch
  */
 export declare class ObjectSchema extends Schema {
     private _properties;
     private _allowUndefined;
     /**
-     * Creates a new ObjectSchema, which can be used to validate objects using the given rules.
-     * Object properties can be validated as well if [[PropertySchema PropertySchemas]] are added to
-     * this ObjectSchema.
+     * Creates a new validation schema and sets its values.
      *
-     * @param allowUndefined      defines whether or not validation results should contain
-     *                                  a [[ValidationResultType.Warning Warning]], when extra
-     *                                  properties are detected.
-     * @param required                  defines whether or not <code>null</code> object
-     *                                  properties should cause validation to fail (as
-     *                                  a [[ValidationResultType.Error validation error]]).
-     * @param rules                     the [[IValidationRule rules]] to set for this Schema.
+     * @param allowUndefined    true to allow properties undefines in the schema
+     * @param required          (optional) true to always require non-null values.
+     * @param rules             (optional) a list with validation rules.
      *
      * @see [[IValidationRule]]
      */
     constructor(allowUndefined?: boolean, required?: boolean, rules?: IValidationRule[]);
     /**
-     * @returns the array of PropertySchemas, which are to be used for object validation.
+     * Gets validation schemas for object properties.
+     *
+     * @returns the list of property validation schemas.
      *
      * @see [[PropertySchema]]
      */
     getProperties(): PropertySchema[];
     /**
-     * @param value     the array of PropertySchemas to use for object validation.
+     * Sets validation schemas for object properties.
+     *
+     * @param value     a list of property validation schemas.
      *
      * @see [[PropertySchema]]
      */
     setProperties(value: PropertySchema[]): void;
     /**
-     * @returns whether or not undefined properties are allowed to pass validation.
+     * Gets flag to allow undefined properties
+     *
+     * @returns true to allow undefined properties and false to disallow.
      */
     /**
-    * @param value     whether or not undefined properties should be allowed to pass validation.
+    * Sets flag to allow undefined properties
+    *
+    * @param value     true to allow undefined properties and false to disallow.
     */
     isUndefinedAllowed: boolean;
     /**
-     * Sets 'isUndefinedAllowed' to the given 'value' and returns the modified ObjectSchema.
+     * Sets flag to allow undefined properties
      *
-     * @param value     whether or not undefined properties should be allowed to pass validation.
-     * @returns this ObjectSchema with 'isUndefinedAllowed' set to the value that was passed.
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param value     true to allow undefined properties and false to disallow.
+     * @returns this validation schema.
      */
     allowUndefined(value: boolean): ObjectSchema;
     /**
-     * Adds a [[PropertySchema]] to this ObjectSchema object, which will be used for validating
-     * objects' properties.
+     * Adds a validation schema for an object property.
      *
-     * @param schema    the PropertySchema to add to this ObjectSchema.
-     * @returns this ObjectSchema with the new PropertySchema added to its list of properties.
+     * This method returns reference to this exception to implement Builder pattern
+     * to chain additional calls.
+     *
+     * @param schema    a property validation schema to be added.
+     * @returns this validation schema.
      *
      * @see [[PropertySchema]]
      */
     withProperty(schema: PropertySchema): ObjectSchema;
     /**
-     * Adds a new [[PropertySchema]] to this ObjectSchema using the given parameters and makes it
-     * required. When a Schema is required, <code>null</code> values cause validation to fail (as
-     * a [[ValidationResultType.Error validation error]]).
+     * Adds a validation schema for a required object property.
      *
-     * @param name      the name of the property that is to be validated.
-     * @param type      the [[TypeCode data type]] to check for when validating an object's property.
-     * @param rules     the [[IValidationRule rules]] to set for the property's schema.
-     *
-     * @see [[PropertySchema]]
-     * @see [[TypeCode]]
-     * @see [[IValidationRule]]
+     * @param name      a property name.
+     * @param type      (optional) a property schema or type.
+     * @param rules     (optional) a list of property validation rules.
      */
     withRequiredProperty(name: string, type?: any, ...rules: IValidationRule[]): ObjectSchema;
     /**
-     * Adds a new [[PropertySchema]] to this ObjectSchema using the given parameters and makes it
-     * optional. When a Schema is optional, <code>null</code> values pass validation.
+     * Adds a validation schema for an optional object property.
      *
-     * @param name      the name of the property that is to be validated.
-     * @param type      the [[TypeCode data type]] to check for when validating an object's property.
-     * @param rules     the [[IValidationRule rules]] to set for the property's schema.
-     *
-     * @see [[PropertySchema]]
-     * @see [[TypeCode]]
-     * @see [[IValidationRule]]
+     * @param name      a property name.
+     * @param type      (optional) a property schema or type.
+     * @param rules     (optional) a list of property validation rules.
      */
     withOptionalProperty(name: string, type?: any, ...rules: IValidationRule[]): ObjectSchema;
     /**
-     * Validates the given 'value' using [[Schema.performValidation]] and, if
-     * [[PropertySchema PropertySchemas]] were set, additionally validates value's properties.
-     * If extra properties are not allowed and are detected - the validation results will
-     * contain a [[ValidationResultType.Warning Warning]].
+     * Validates a given value against the schema and configured validation rules.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation. If extra properties are not allowed and
-     *                  are detected, then the results will contain a [[ValidationResultType.Warning Warning]].
-     *
-     * @see [[PropertySchema]]
+     * @param path      a dot notation path to the value.
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     protected performValidation(path: string, value: any, results: ValidationResult[]): void;
 }

@@ -15,66 +15,77 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Schema_1 = require("./Schema");
 /**
- * Used to validate object properties, as well as their type. Using in [[ObjectSchema ObjectSchemas]].
+ * Schema to validate object properties
  *
  * @see [[ObjectSchema]]
+ *
+ * ### Example ###
+ *
+ * let schema = new ObjectSchema()
+ *      .withProperty(new PropertySchema("id", TypeCode.String));
+ *
+ * schema.validate({ id: "1", name: "ABC" });       // Result: no errors
+ * schema.validate({ name: "ABC" });                // Result: no errors
+ * schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
  */
 var PropertySchema = /** @class */ (function (_super) {
     __extends(PropertySchema, _super);
     /**
-     * Creates a new PropertySchema object which can validate an object's property using the
-     * set rules. The data type of the property will also be validated if a [[TypeCode type]] is set.
+     * Creates a new validation schema and sets its values.
      *
-     * @param required      defines whether or not <code>null</code> values
-     *                      should cause validation to fail (as
-     *                      a [[ValidationResultType.Error validation error]]).
-     * @param rules         the [[IValidationRule rules]] to set for this Schema.
-     * @param name          the name of the property that is to be validated.
-     *                      Can be set later on using [[setName]].
-     * @param type          the [[TypeCode data type]] to check for when validating an object's property.
-     *                      Can be set later on using [[setType]].
+     * @param name          (optional) a property name
+     * @param type          (optional) a property type
+     * @param required      (optional) true to always require non-null values.
+     * @param rules         (optional) a list with validation rules.
      *
      * @see [[IValidationRule]]
      * @see [[TypeCode]]
      */
-    function PropertySchema(required, rules, name, type) {
+    function PropertySchema(name, type, required, rules) {
         var _this = _super.call(this, required, rules) || this;
         _this._name = name;
         _this._type = type;
         return _this;
     }
     /**
-     * @returns the name of the property that this PropertySchema validates.
+     * Gets the property name.
+     *
+     * @returns the property name.
      */
     PropertySchema.prototype.getName = function () {
         return this._name;
     };
     /**
-     * @param value     the name of the property that this PropertySchema should validate.
+     * Sets the property name.
+     *
+     * @param value     a new property name.
      */
     PropertySchema.prototype.setName = function (value) {
         this._name = value;
     };
     /**
-     * @returns the [[TypeCode data type]] that this PropertySchema checks for when validating a property.
+     * Gets the property type.
+     *
+     * @returns the property type.
      */
     PropertySchema.prototype.getType = function () {
         return this._type;
     };
     /**
-     * @param value     the [[TypeCode data type]] that this PropertySchema should check for when
-     * validating a property.
+     * Sets a new property type.
+     * The type can be defined as type, type name or [[TypeCode]]
+     *
+     * @param value     a new property type.
      */
     PropertySchema.prototype.setType = function (value) {
         this._type = value;
     };
     /**
-     * Validates the given 'value' using [[Schema.performValidation]] and, if a [[getType type]] is a set,
-     * additionally validates that the passed value (property) is of the correct data type.
+     * Validates a given value against the schema and configured validation rules.
      *
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
+     * @param path      a dot notation path to the value.
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     PropertySchema.prototype.performValidation = function (path, value, results) {
         path = path != "" ? path + "." + this.getName() : this.getName();

@@ -17,17 +17,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var TypeCode_1 = require("../convert/TypeCode");
 var ArraySchema_1 = require("./ArraySchema");
 /**
- * Schema for validating ProjectionParams objects.
+ * Schema to validate [[ProjectionParams]]
+ *
+ * @see [[ProjectionParams]]
  */
 var ProjectionParamsSchema = /** @class */ (function (_super) {
     __extends(ProjectionParamsSchema, _super);
     /**
-     * Calls [[ArraySchema.constructor ArraySchema's constructor]] with
-     * 'valueType' set to 'TypeCode.String'.
-     *
-     * @see [[ArraySchema]]
-     * @see [[ProjectionParams]]
-     * @see [[TypeCode]]
+     * Creates a new instance of validation schema.
      */
     function ProjectionParamsSchema() {
         return _super.call(this, TypeCode_1.TypeCode.String) || this;

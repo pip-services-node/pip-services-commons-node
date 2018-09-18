@@ -4,21 +4,29 @@ import { Schema } from './Schema';
 import { ValidationResult } from './ValidationResult';
 import { ObjectComparator } from './ObjectComparator';
 import { ValidationResultType } from './ValidationResultType';
-import { ObjectReader } from '../reflect/ObjectReader';
 
 /**
- * Validation rule that requires values to be in a certain relation to the value that is set in the rule.
+ * Validation rule that compares value to a constant.
+ * 
+ * @see [[IValidationRule]]
+ * 
+ * ### Example ###
+ * 
+ * let schema = new Schema()
+ *      .withRule(new ValueComparisonRule("EQ", 1));
+ * 
+ * schema.validate(1);          // Result: no errors
+ * schema.validate(2);          // Result: 2 is not equal to 1
  */
 export class ValueComparisonRule implements IValidationRule {
     private readonly _value: any;
     private readonly _operation: string;
 
     /**
-     * Creates a new ValueComparisonRule object and initializes it using the passed operation and value.
+     * Creates a new validation rule and sets its values.
      * 
-     * @param operation     the operation to use for comparing values. For example: the operation ">=" 
-     *                      validates that "someValue >= value".
-     * @param value         the value to validate other values with, using the set operation.
+     * @param operation    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * @param value        a constant value to compare to
      */
     public constructor(operation: string, value: any) {
         this._operation = operation;
@@ -26,17 +34,12 @@ export class ValueComparisonRule implements IValidationRule {
     }
 
     /**
-     * Validates that the value passed is in a certain relation to the value that is set in this ValueComparisonRule object. 
-     * For example: if the operation ">=" is set, it will validate that "value >= this.value".
+     * Validates a given value against this rule.
      * 
-     * Comparison is done using ObjectComparator's [[ObjectComparator.compare compare]] method.
-     * 
-     * @param path      the dot notation path to the value that is to be validated.
-     * @param schema    (not used in this implementation).
-     * @param value     the value that is to be validated.
-     * @param results   the results of the validation.
-     * 
-     * @see [[ObjectComparator.compare]]
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
      */
     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
         let name = path || "value";
