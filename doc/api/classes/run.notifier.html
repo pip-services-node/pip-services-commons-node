@@ -70,8 +70,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that can be used to trigger notifications for components.</p>
+						<p>Helper class that notifies components.</p>
 					</div>
+					<p><a href="../interfaces/run.inotifiable.html">INotifiable</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,15 +109,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/Notifier.ts#L39">run/Notifier.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/Notifier.ts#L43">run/Notifier.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for triggering notifications for multiple components. For a component to be notified,
-										it must implement the <a href="../interfaces/run.inotifiable.html">INotifiable</a> interface. This method calls the static <a href="run.notifier.html#notifyone">notifyOne</a> method
-									for each of the components passed.</p>
+									<p>Notifies multiple components.</p>
 								</div>
+								<p>To be notified components must implement <a href="../interfaces/run.inotifiable.html">INotifiable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.notifier.html#notifyone">notifyOne</a></p>
@@ -137,13 +138,13 @@
 								<li>
 									<h5>components: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the list of components that are to be notified.</p>
+										<p>a list of components that are to be notified.</p>
 									</div>
 								</li>
 								<li>
 									<h5>args: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the parameters (arguments) to pass to the components.</p>
+										<p>notification arguments.</p>
 									</div>
 								</li>
 							</ul>
@@ -161,15 +162,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/Notifier.ts#L22">run/Notifier.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/Notifier.ts#L25">run/Notifier.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for triggering notifications for a component. For a component to be notified, it must
-										implement the <a href="../interfaces/run.inotifiable.html">INotifiable</a> interface. This method calls INotifiable&#39;s <a href="../interfaces/run.inotifiable.html#notify">notify</a>
-									method to notify the component passed.</p>
+									<p>Notifies specific component.</p>
 								</div>
+								<p>To be notiied components must implement <a href="../interfaces/run.inotifiable.html">INotifiable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/run.inotifiable.html">INotifiable</a></p>
@@ -193,7 +194,7 @@
 								<li>
 									<h5>args: <a href="run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the parameters (arguments) to pass to the component.</p>
+										<p>notifiation arguments.</p>
 									</div>
 								</li>
 							</ul>

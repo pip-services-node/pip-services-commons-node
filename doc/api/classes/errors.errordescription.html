@@ -70,23 +70,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>This class allows us to represent <a href="errors.applicationexception.html">ApplicationExceptions</a> in a serializable form.</p>
+						<p>Serializeable error description. It is use to pass information about errors
+							between microservices implemented in different languages. On the receiving side
+							<a href="errors.errordescription.html">ErrorDescription</a> is used to recreate exception object close to its original type
+						without missing additional details.</p>
 					</div>
-					<p>When an exception is raised, the <a href="errors.applicationexception.html">ApplicationException</a> class (or its child)
-						can be used to structurize the exception. Afterwards, the ApplicationException can be
-						transformed it into an ErrorDescription using the <a href="errors.errordescriptionfactory.html">ErrorDescriptionFactory</a>, serialized
-					in one language, transferred to the receiving side, and deserialized in another language.</p>
-					<p>After deserialization, one of the following is done:</p>
-					<ul>
-						<li><p>if the exception was initally a child of ApplicationException, the exception&#39;s class can be
-							restored using the <a href="errors.applicationexceptionfactory.html">ApplicationExceptionFactory</a>.</p>
-						</li>
-						<li><p>if a specific exception was raised and transferred between microservices that are written
-								in different languages, then the exception type that is closest to the original exception&#39;s
-								type can be chosen from the exceptions available in the target language.
-							This provides cross-language error propagation via serialization.</p>
-						</li>
-					</ul>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="errors.applicationexception.html">ApplicationException</a></p>
@@ -134,12 +122,12 @@
 					<div class="tsd-signature tsd-kind-icon">category<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L27">errors/ErrorDescription.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L16">errors/ErrorDescription.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Defines what category of errors this error belongs to.</p>
+							<p>Standard error category</p>
 						</div>
 					</div>
 				</section>
@@ -149,12 +137,12 @@
 					<div class="tsd-signature tsd-kind-icon">cause<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L48">errors/ErrorDescription.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L28">errors/ErrorDescription.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Additional information about the cause of the exception.</p>
+							<p>Original error wrapped by this exception</p>
 						</div>
 					</div>
 				</section>
@@ -164,13 +152,12 @@
 					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L32">errors/ErrorDescription.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L20">errors/ErrorDescription.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Every error needs a unique code by which it can be identified. Using this code,
-							we can select which localized error messages to use and what to display in the UI.</p>
+							<p>A unique error code</p>
 						</div>
 					</div>
 				</section>
@@ -180,13 +167,12 @@
 					<div class="tsd-signature tsd-kind-icon">correlation_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L46">errors/ErrorDescription.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L26">errors/ErrorDescription.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unique business transaction id to trace calls across components. Important field for microservices,
-							as it allows us to tie an exception to a specific business transaction.</p>
+							<p>A unique transaction id to trace execution throug call chain</p>
 						</div>
 					</div>
 				</section>
@@ -196,17 +182,13 @@
 					<div class="tsd-signature tsd-kind-icon">details<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L43">errors/ErrorDescription.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L24">errors/ErrorDescription.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This field is used to add additional information to localized error message strings.</p>
+							<p>A map with additional details that can be used to restore error description in other languages</p>
 						</div>
-						<p>For example, if we received an ObjectNotFoundException (general error) when searching for an
-							object via its id, the id by which the object was not found can be added as a detail. This allows
-							us to add additional details to localized error messages.
-						Resulting error message format: “(Localized error&#39;s text) - id: (id)”</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -215,14 +197,12 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L36">errors/ErrorDescription.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L22">errors/ErrorDescription.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This field stores the message or description that was contained in the original error.
-								Errors&#39; messages are always in English. However, using this class&#39;s &#39;code&#39; and &#39;details&#39;
-							fields, we can create localized versions of the error&#39;s message and use them instead in the UI.</p>
+							<p>A human-readable error description (usually written in English)</p>
 						</div>
 					</div>
 				</section>
@@ -232,12 +212,12 @@
 					<div class="tsd-signature tsd-kind-icon">stack_<wbr>trace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L50">errors/ErrorDescription.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L30">errors/ErrorDescription.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Stack trace of the exception.</p>
+							<p>Stack trace of the exception</p>
 						</div>
 					</div>
 				</section>
@@ -247,12 +227,12 @@
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L29">errors/ErrorDescription.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L18">errors/ErrorDescription.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Used when sending over the REST interface, so that we know what HTTP status code to raise.</p>
+							<p>HTTP status code associated with this error type</p>
 						</div>
 					</div>
 				</section>
@@ -262,12 +242,12 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ErrorDescription.ts#L25">errors/ErrorDescription.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ErrorDescription.ts#L14">errors/ErrorDescription.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Defines the error&#39;s type.</p>
+							<p>Data type of the original error</p>
 						</div>
 					</div>
 				</section>

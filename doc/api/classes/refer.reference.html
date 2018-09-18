@@ -70,7 +70,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A placeholder that stores component references.</p>
+						<p>Contains a reference to a component and locator to find it.
+						It is used by <a href="refer.references.html">References</a> to store registered component references.</p>
 					</div>
 				</div>
 			</section>
@@ -115,12 +116,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Reference.ts#L9">refer/Reference.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Reference.ts#L10">refer/Reference.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a new Reference object and initializes it using the locator and reference given.</p>
+									<p>Create a new instance of the reference object and assigns its values.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,8 +130,7 @@
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the component locator for the reference. It can be a standard Descriptor
-											or anything else.</p>
+											<p>a locator to find the reference.</p>
 										</div>
 									</div>
 								</li>
@@ -155,16 +155,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Reference.ts#L55">refer/Reference.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Reference.ts#L56">refer/Reference.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the component stored in this Reference object.</p>
+									<p>Gets the stored component reference.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the component stored.</p>
+							<p>the component&#39;s references.</p>
 						</li>
 					</ul>
 				</section>
@@ -178,12 +178,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Reference.ts#L64">refer/Reference.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Reference.ts#L65">refer/Reference.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the locator of the component that is stored in this Reference object.</p>
+									<p>Gets the stored component locator.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -201,14 +201,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Reference.ts#L36">refer/Reference.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Reference.ts#L37">refer/Reference.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if a locator matches this Reference object. A match is considered to be made if the locator
-									matches this Reference&#39;s component or its locator.</p>
+									<p>Matches locator to this reference locator.</p>
 								</div>
+								<p>Descriptors are matched using equal method.
+								All other locator types are matched using direct comparison.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="refer.descriptor.html">Descriptor</a></p>
@@ -220,12 +221,12 @@
 								<li>
 									<h5>locator: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the locator to match against this Reference.</p>
+										<p>the locator to match.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p><code>true</code>, if this reference matches the locator, and <code>false</code> - otherwise.</p>
+							<p>true if locators are matching and false it they don&#39;t.</p>
 						</li>
 					</ul>
 				</section>

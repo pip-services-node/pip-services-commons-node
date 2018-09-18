@@ -70,14 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting various values to the integer data type.</p>
+						<p>Converts arbitrary values into integers using extended conversion rules:</p>
+						<ul>
+							<li>Strings are converted to floats, then to integers</li>
+							<li>DateTime: total number of milliseconds since unix epoсh</li>
+							<li>Boolean: 1 for true and 0 for false</li>
+						</ul>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> intValue = IntegerConverter.toInteger(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = IntegerConverter.toNullableInteger(&quot;ABC&quot;); // Result: null
+						let value2 = IntegerConverter.toNullableInteger(&quot;123.456&quot;); // Result: 123
+						let value3 = IntegerConverter.toNullableInteger(true); // Result: 1
+					let value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,13 +119,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/IntegerConverter.ts#L50">convert/IntegerConverter.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/IntegerConverter.ts#L43">convert/IntegerConverter.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to integers using <a href="convert.longconverter.html#tolong">LongConverter.toLong</a> (which uses
-									<a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a>). 0 will be used as the default value for the conversion.</p>
+									<p>Converts value into integer or returns 0 when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -142,6 +145,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>integer value or 0 when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -155,14 +159,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/IntegerConverter.ts#L65">convert/IntegerConverter.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/IntegerConverter.ts#L57">convert/IntegerConverter.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to integers using <a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a>
-										(which uses <a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a>). If null is returned by the conversion,
-									then this method will return the default value passed.</p>
+									<p>Converts value into integer or returns default value when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -184,11 +186,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>integer value or default when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -202,23 +205,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/IntegerConverter.ts#L37">convert/IntegerConverter.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/IntegerConverter.ts#L30">convert/IntegerConverter.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to nullable integers.</p>
+									<p>Converts value into integer or returns null when conversion is not possible.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if &#39;value&#39; is null - null will be returned;</li>
-									<li>if &#39;value&#39; is a number - the smallest integer greater than or equal to its numeric value will be returned;</li>
-									<li>if &#39;value&#39; is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;</li>
-									<li>if &#39;value&#39; is a boolean - true returns 1 and false returns 0;</li>
-									<li>if &#39;value&#39; is a string - parseFloat(value) will be called, and if the result is a number, then the smallest integer
-									greater than or equal to its numeric value will be returned;</li>
-									<li>otherwise - null will be returned.</li>
-								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a></p>
@@ -235,8 +228,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
-							will be returned.</p>
+							<p>integer value or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,15 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that includes standard design patterns for data projection. Projection parameters
-						contain information about what data to retrieve from a data source.</p>
+						<p>Defines projection parameters with list if fields to include into query results.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example ProjectionParams object usage:</p>
-					<pre><code>let <span class="hljs-keyword">params</span>: ProjectionParams;
-
-<span class="hljs-keyword">params</span> = new ProjectionParams([<span class="hljs-string">"data1(attr1)"</span>]); // To get <span class="hljs-keyword">attribute</span> named attr1 <span class="hljs-keyword">in</span> data <span class="hljs-keyword">type</span> data1
-</code></pre>
+					<p>The parameters support two formats: dot format and nested format.</p>
+					<p>The dot format is the standard way to define included fields and subfields using
+					dot object notation: &quot;field1,field2.field21,field2.field22.field221&quot;</p>
+					<p>As alternative the nested format offers a more compact representation:
+					&quot;field1,field2(field21,field22(field221))&quot;</p>
+					<h3 id="example">Example</h3>
+					<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
+						let paging = new PagingParams(0, 100);
+					let projection = ProjectionParams.fromString(&quot;field1,field2(field21,field22)&quot;)</p>
+					<p>myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...});</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -99,15 +102,18 @@
 				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></div>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that includes standard design patterns for data projection. Projection parameters
-						contain information about what data to retrieve from a data source.</p>
+						<p>Defines projection parameters with list if fields to include into query results.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example ProjectionParams object usage:</p>
-					<pre><code>let <span class="hljs-keyword">params</span>: ProjectionParams;
-
-<span class="hljs-keyword">params</span> = new ProjectionParams([<span class="hljs-string">"data1(attr1)"</span>]); // To get <span class="hljs-keyword">attribute</span> named attr1 <span class="hljs-keyword">in</span> data <span class="hljs-keyword">type</span> data1
-</code></pre>
+					<p>The parameters support two formats: dot format and nested format.</p>
+					<p>The dot format is the standard way to define included fields and subfields using
+					dot object notation: &quot;field1,field2.field21,field2.field22.field221&quot;</p>
+					<p>As alternative the nested format offers a more compact representation:
+					&quot;field1,field2(field21,field22(field221))&quot;</p>
+					<h3 id="example">Example</h3>
+					<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
+						let paging = new PagingParams(0, 100);
+					let projection = ProjectionParams.fromString(&quot;field1,field2(field21,field22)&quot;)</p>
+					<p>myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...});</p>
 				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -135,12 +141,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#every" class="tsd-kind-icon">every</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#filter" class="tsd-kind-icon">filter</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="data.projectionparams.html#fromstring" class="tsd-kind-icon">from<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="data.projectionparams.html#fromvalue" class="tsd-kind-icon">from<wbr>Value</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#join" class="tsd-kind-icon">join</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#lastindexof" class="tsd-kind-icon">last<wbr>Index<wbr>Of</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#map" class="tsd-kind-icon">map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="data.projectionparams.html#parse" class="tsd-kind-icon">parse</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#pop" class="tsd-kind-icon">pop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#push" class="tsd-kind-icon">push</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="data.projectionparams.html#reduce" class="tsd-kind-icon">reduce</a></li>
@@ -171,20 +177,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ProjectionParams.ts#L20">data/ProjectionParams.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ProjectionParams.ts#L26">data/ProjectionParams.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance of the projection parameters and assigns its value.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the projection parameters to initialize this ProjectionParams object with.</p>
-										</div>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></h4>
@@ -200,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ArrayConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +215,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Array.length</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -233,13 +237,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ProjectionParams.ts#L41">data/ProjectionParams.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ProjectionParams.ts#L53">data/ProjectionParams.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a string representation of the object.
+										The result is a comma-separated list of projection fields
+									&quot;field1,field2.field21,field2.field22.field221&quot;</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>these ProjectionParams as a comma-separated values string.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>
@@ -255,7 +264,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -278,7 +287,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -310,7 +319,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.every</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +382,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +441,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +503,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.forEach</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,6 +555,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromstring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ProjectionParams.ts#L168">data/ProjectionParams.ts:168</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parses comma-separated list of projection fields.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>one or more comma-separated lists of projection fields</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></h4>
+							<p>a newly created ProjectionParams.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="fromvalue" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Value</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -555,12 +596,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ProjectionParams.ts#L64">data/ProjectionParams.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ProjectionParams.ts#L155">data/ProjectionParams.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that creates a ProjectionParams object using the given value.</p>
+									<p>Converts specified value into ProjectionParams.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -573,13 +614,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to initialize the new ProjectionParams with. If it is
-										not an array, <a href="data.anyvaluearray.html#fromvalue">AnyValueArray.fromValue</a> used for conversion.</p>
+										<p>value to be converted</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></h4>
-							<p>the ProjectionParams object that was generated using &#39;value&#39;.</p>
+							<p>a newly created ProjectionParams.</p>
 						</li>
 					</ul>
 				</section>
@@ -594,7 +634,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.indexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -632,7 +672,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.join</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -664,7 +704,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.lastIndexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +742,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.map</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -759,39 +799,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="parse" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> parse</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">parse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ProjectionParams.ts#L78">data/ProjectionParams.ts:78</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Static method for creating new ProjectionParams objects using the values
-									passed as projection parameters.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the projection parameters to initialize the new ProjectionParams object with.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="data.projectionparams.html" class="tsd-signature-type">ProjectionParams</a></h4>
-							<p>the ProjectionParams created.</p>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="pop" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> pop</h3>
@@ -803,7 +810,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.pop</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -829,7 +836,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.push</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -863,7 +870,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -913,7 +920,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -958,7 +965,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1031,7 +1038,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1081,7 +1088,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1126,7 +1133,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1197,7 +1204,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reverse</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1220,7 +1227,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.shift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1246,7 +1253,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.slice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1284,7 +1291,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.some</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1346,7 +1353,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.sort</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1400,7 +1407,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1429,7 +1436,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1473,7 +1480,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toLocaleString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1496,7 +1503,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1519,7 +1526,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.unshift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1639,6 +1646,9 @@
 								<a href="data.projectionparams.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="data.projectionparams.html#fromstring" class="tsd-kind-icon">from<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="data.projectionparams.html#fromvalue" class="tsd-kind-icon">from<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
@@ -1652,9 +1662,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
 								<a href="data.projectionparams.html#map" class="tsd-kind-icon">map</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="data.projectionparams.html#parse" class="tsd-kind-icon">parse</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="data.projectionparams.html#pop" class="tsd-kind-icon">pop</a>

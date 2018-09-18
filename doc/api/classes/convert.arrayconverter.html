@@ -70,14 +70,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting various values to arrays.</p>
+						<p>Converts arbitrary values into array objects.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code>public MyMethod (value: any) {
-    let<span class="hljs-built_in"> array </span>= ArrayConverter.toArray(value);
-<span class="hljs-keyword">    .</span>..
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = ArrayConverter.toArray([1, 2]); // Result: [1, 2]
+						let value2 = ArrayConverter.toArray(1);        // Result: [1]
+					let value2 = ArrayConverter.listToArray(&quot;1,2,3&quot;); // Result: [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -116,20 +114,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/ArrayConverter.ts#L89">convert/ArrayConverter.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/ArrayConverter.ts#L80">convert/ArrayConverter.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting lists to arrays using <a href="convert.arrayconverter.html#toarray">toArray</a>.</p>
+									<p>Converts value into array object with empty array as default.
+									Strings with comma-delimited values are split into array of strings.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if the list passed as &#39;value&#39; is null - an empty array will be returned;</li>
-									<li>if the list passed as &#39;value&#39; is a string - it will be parsed as a set of
-									comma-separated values, which will be returned as an array;</li>
-									<li>otherwise - the result of toArray(value) will be returned.</li>
-								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.arrayconverter.html#toarray">toArray</a></p>
@@ -146,6 +138,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>array object or empty array when value is null</p>
 						</li>
 					</ul>
 				</section>
@@ -159,13 +152,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/ArrayConverter.ts#L56">convert/ArrayConverter.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/ArrayConverter.ts#L51">convert/ArrayConverter.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to arrays using <a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a>.
-									An empty array will be used as the default value for the conversion.</p>
+									<p>Converts value into array object with empty array as default.
+									Single values are converted into arrays with single element.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -183,6 +176,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>array object or empty array when value is null.</p>
 						</li>
 					</ul>
 				</section>
@@ -196,14 +190,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/ArrayConverter.ts#L71">convert/ArrayConverter.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/ArrayConverter.ts#L66">convert/ArrayConverter.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to arrays using <a href="convert.arrayconverter.html#tonullablearray">toNullableArray</a>.
-										If null is returned by the conversion, then this method will return the default
-									value passed.</p>
+									<p>Converts value into array object with specified default.
+									Single values are converted into arrays with single element.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -222,11 +215,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
+										<p>default array object.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>array object or default array when value is null.</p>
 						</li>
 					</ul>
 				</section>
@@ -240,20 +234,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/ArrayConverter.ts#L29">convert/ArrayConverter.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/ArrayConverter.ts#L23">convert/ArrayConverter.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to nullable arrays.</p>
+									<p>Converts value into array object.
+									Single values are converted into arrays with a single element.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if &#39;value&#39; is null - null will be returned;</li>
-									<li>if &#39;value&#39; is a list - it will be cast to an array and returned;</li>
-									<li>if &#39;value&#39; is an object (map) - its values will be copied to the array that will be returned;</li>
-									<li>otherwise - an array containing &#39;value&#39; will be returned.</li>
-								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -265,7 +253,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null - null will be returned.</p>
+							<p>array object or null when value is null.</p>
 						</li>
 					</ul>
 				</section>

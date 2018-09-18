@@ -70,9 +70,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that stores information about an object&#39;s type, specifically - the type&#39;s name
-						and the library it can be found in.</p>
+						<p>Descriptor that points to specific object type by it&#39;s name
+						and optional library (or module) where this type is defined.</p>
 					</div>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -118,12 +120,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L10">reflect/TypeDescriptor.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L13">reflect/TypeDescriptor.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new TypeDescriptor object using the values provided.</p>
+									<p>Creates a new instance of the type descriptor and sets its values.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,7 +134,7 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the name of the data type.</p>
+											<p>a name of the object type.</p>
 										</div>
 									</div>
 								</li>
@@ -140,7 +142,7 @@
 									<h5>library: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the library in which the data type can be found.</p>
+											<p>a library or module where this object type is implemented.</p>
 										</div>
 									</div>
 								</li>
@@ -156,33 +158,33 @@
 					<a name="equals" class="tsd-anchor"></a>
 					<h3>equals</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">equals<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L45">reflect/TypeDescriptor.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L52">reflect/TypeDescriptor.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks whether or not the object passed is an instance of TypeDescriptor and
-									equals this current TypeDescriptor object.</p>
+									<p>Compares this descriptor to a value.
+										If the value is also a TypeDescriptor it compares their name and library fields.
+									Otherwise this method returns false.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeDescriptor to check.</p>
+										<p>a value to compare.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the passed TypeDescriptor and this TypeDescriptor object
-							are equal.</p>
+							<p>true if value is identical TypeDescriptor and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -196,13 +198,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L33">reflect/TypeDescriptor.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L40">reflect/TypeDescriptor.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the name of the library or module where the object type is defined.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the library in which this TypeDescriptor&#39;s type can be found.</p>
+							<p>the name of the library or module.</p>
 						</li>
 					</ul>
 				</section>
@@ -216,13 +221,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L26">reflect/TypeDescriptor.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L31">reflect/TypeDescriptor.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the name of the object type.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the name of the data type that is stored in this TypeDescriptor object.</p>
+							<p>the name of the object type.</p>
 						</li>
 					</ul>
 				</section>
@@ -236,12 +244,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L68">reflect/TypeDescriptor.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L75">reflect/TypeDescriptor.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this TypeDescriptor object to a string.</p>
+									<p>Gets a string representation of the object.
+									The result has format name[,library]</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -250,8 +259,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this TypeDescriptor as a string. Example
-							result: &quot;typesName,library&quot;.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>
@@ -265,16 +273,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeDescriptor.ts#L87">reflect/TypeDescriptor.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeDescriptor.ts#L92">reflect/TypeDescriptor.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that generates a TypeDescriptor object using the string provided.</p>
+									<p>Parses a string to get descriptor fields and returns them as a Descriptor.
+									The string must have format name[,library]</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a <a href="errors.configexception.html">ConfigException</a> if the type descriptor string is not formatted correctly.</p>
+									<dd><p>a <a href="errors.configexception.html">ConfigException</a> if the descriptor string is of a wrong format.</p>
 									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typedescriptor.html#tostring">toString</a></p>
@@ -286,14 +295,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the string to use to generate a TypeDescriptor object.
-										Example strings: &quot;typesName,library&quot;, &quot;typesNameOnly&quot;.</p>
+										<p>a string to parse.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a></h4>
-							<p>the generated TypeDescriptor. If value is <code>null</code> or an
-							empty string - <code>null</code> will be returned.</p>
+							<p>a newly created Descriptor.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,14 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting various values to the datetime data type.</p>
+						<p>Converts arbitrary values into Date values using extended conversion rules:</p>
+						<ul>
+							<li>Strings: converted using ISO time format</li>
+							<li>Numbers: converted using milliseconds since unix epoch</li>
+						</ul>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> dateTimeValue = DateTimeConverter.toDateTime(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = DateTimeConverter.toNullableDateTime(&quot;ABC&quot;); // Result: null
+						let value2 = DateTimeConverter.toNullableDateTime(&quot;2018-01-01T11:30:00.0&quot;); // Result: Date(2018,0,1,11,30)
+					let value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,13 +117,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/DateTimeConverter.ts#L50">convert/DateTimeConverter.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/DateTimeConverter.ts#L41">convert/DateTimeConverter.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to datetimes using <a href="convert.datetimeconverter.html#todatetimewithdefault">toDateTimeWithDefault</a>.
-									An empty date (new Date()) will be used as the default value for the conversion.</p>
+									<p>Converts value into Date or returns current date when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -139,6 +140,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>Date value or current date when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -152,14 +154,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/DateTimeConverter.ts#L65">convert/DateTimeConverter.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/DateTimeConverter.ts#L54">convert/DateTimeConverter.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to datetimes using <a href="convert.datetimeconverter.html#tonullabledatetime">toNullableDateTime</a>.
-										If null is returned by the conversion, then this method will return the default
-									value passed.</p>
+									<p>Converts value into Date or returns default when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -178,12 +178,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultValue: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.
-										Defaults to null if omitted.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>Date value or default when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -197,23 +197,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/DateTimeConverter.ts#L33">convert/DateTimeConverter.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/DateTimeConverter.ts#L24">convert/DateTimeConverter.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to nullable datetimes.</p>
+									<p>Converts value into Date or returns null when conversion is not possible.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if &#39;value&#39; is null - null will be returned;</li>
-									<li>if &#39;value&#39; is a date - it will be returned as is;</li>
-									<li>if &#39;value&#39; is a number - a new Date will be created and returned (using the value&#39;s number as the number of milliseconds passed
-									since Jan 1, 1970, 00:00:00.000 GMT);</li>
-									<li>if &#39;value&#39; is a string - Date.parse(value) will be called, and if the result is a number, then a Date object will be created
-									(using the numeric result) and returned;</li>
-									<li>otherwise - null will be returned.</li>
-								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -225,8 +215,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
-							will be returned.</p>
+							<p>Date value or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

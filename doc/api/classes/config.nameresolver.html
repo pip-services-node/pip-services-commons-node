@@ -70,17 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Contains the static method <a href="config.nameresolver.html#resolve">resolve</a>, which can be used for resolving the name
-						of a ConfigParams configuration.</p>
+						<p>A helper class that allows to extract component name from configuration parameters.
+						The name can be defined in &quot;id&quot;, &quot;name&quot; parameters or inside a component descriptor.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example usage of the static <code>resolve</code> method:</p>
-					<pre><code>public nameResolution : void {
-    let<span class="hljs-built_in"> config </span>= ConfigParams.fromTuples(<span class="hljs-string">"Id"</span>, <span class="hljs-string">"MyName"</span>);
-    let name = NameResolver.resolve(config);
-    <span class="hljs-built_in">..</span>.
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let config = ConfigParams.fromTuples(
+						&quot;descriptor&quot;, &quot;myservice:connector:aws:connector1:1.0&quot;,
+						&quot;param1&quot;, &quot;ABC&quot;,
+						&quot;param2&quot;, 123
+					);</p>
+					<p>let name = NameResolver.resolve(config); // Result: connector1</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -116,15 +115,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/NameResolver.ts#L31">config/NameResolver.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/NameResolver.ts#L30">config/NameResolver.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for resolving the name of a ConfigParams object. The configuration&#39;s name is
-										searched for using the keys: &quot;name&quot;, &quot;id&quot;, or &quot;descriptor&quot;. In the case of
-										&quot;descriptor&quot;, the name of the <a href="refer.descriptor.html">Descriptor</a> object will be returned. If no name is found,
-									&#39;defaultName&#39; will be returned.</p>
+									<p>Resolves a component name from configuration parameters.
+										The name can be stored in &quot;id&quot;, &quot;name&quot; fields or inside a component descriptor.
+									If name cannot be determined it returns a defaultName.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,18 +130,18 @@
 								<li>
 									<h5>config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ConfigParams, whose name is to be resolved.</p>
+										<p>configuration parameters that may contain a component name.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) value to be returned if no name is resolved. Defaults to null if omitted.</p>
+										<p>(optional) a default component name.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>resolved name or &#39;defaultName&#39;.</p>
+							<p>resolved name or default name if the name cannot be determined.</p>
 						</li>
 					</ul>
 				</section>

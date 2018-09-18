@@ -70,16 +70,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting nested maps using recursion.</p>
+						<p>Converts arbitrary values into map objects using extended conversion rules.
+							This class is similar to <a href="convert.mapconverter.html">MapConverter</a>, but is recursively converts all values
+						stored in objects and arrays.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> map = RecursiveMapConverter.valueToMap(<span class="hljs-keyword">value</span>);
-    ...
-
-    <span class="hljs-keyword">let</span> new_map = RecursiveMapConverter.mapToMap(map);
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = RecursiveMapConverted.toNullableMap(&quot;ABC&quot;); // Result: null
+						let value2 = RecursiveMapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
+					let value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { &quot;0&quot;: 1, { &quot;0&quot;: 2, &quot;1&quot;: 3 } }</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -117,20 +115,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/RecursiveMapConverter.ts#L135">convert/RecursiveMapConverter.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/RecursiveMapConverter.ts#L95">convert/RecursiveMapConverter.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for recursively converting the value passed to a map using <a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a>
-									(which uses [[valueToMap]]).</p>
+									<p>Converts value into map object or returns empty map when conversion is not possible</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>[[valueToMap]]</p>
 									</dd>
 								</dl>
 							</div>
@@ -139,12 +133,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the map to recursively convert.</p>
+										<p>the value to convert.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the converted map or an empty map (if the conversion returns null).</p>
+							<p>map object or empty map when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -158,20 +152,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/RecursiveMapConverter.ts#L150">convert/RecursiveMapConverter.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/RecursiveMapConverter.ts#L108">convert/RecursiveMapConverter.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for recursively converting the value passed to a map using <a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a>
-									(which uses [[valueToMap]]).</p>
+									<p>Converts value into map object or returns default when conversion is not possible</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.recursivemapconverter.html#tonullablemap">toNullableMap</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p>[[valueToMap]]</p>
 									</dd>
 								</dl>
 							</div>
@@ -180,18 +170,18 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the map to recursively convert.</p>
+										<p>the value to convert.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to return if the conversion returns null.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the converted map or the default value (if the conversion returns null).</p>
+							<p>map object or emptu map when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -205,30 +195,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/RecursiveMapConverter.ts#L121">convert/RecursiveMapConverter.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/RecursiveMapConverter.ts#L83">convert/RecursiveMapConverter.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for recursively converting the value passed to a nullable map using [[valueToMap]].</p>
+									<p>Converts value into map object or returns null when conversion is not possible.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p>[[valueToMap]]</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the map to recursively convert.</p>
+										<p>the value to convert.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the converted map or null.</p>
+							<p>map object or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

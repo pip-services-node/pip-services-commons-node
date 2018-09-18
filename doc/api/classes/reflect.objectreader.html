@@ -70,8 +70,32 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for reading the properties of objects.</p>
+						<p>Helper class to perform property introspection and dynamic reading.</p>
 					</div>
+					<p>In contrast to <a href="reflect.propertyreflector.html">PropertyReflector</a> which only introspects regular objects,
+						this ObjectReader is also able to handle maps and arrays.
+						For maps properties are key-pairs identified by string keys,
+					For arrays properties are elements identified by integer index.</p>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
+					<p>Because all languages have different casing and case sensitivity rules,
+					this ObjectReader treats all property names as case insensitive.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="reflect.propertyreflector.html">PropertyReflector</a></p>
+							<h3 id="example">Example</h3>
+							<p>let myObj = new MyObject();</p>
+							<p>let properties = ObjectReader.getPropertyNames();
+								ObjectReader.hasProperty(myObj, &quot;myProperty&quot;);
+							let value = PropertyReflector.getProperty(myObj, &quot;myProperty&quot;);</p>
+							<p>let myMap = { key1: 123, key2: &quot;ABC&quot; };
+								ObjectReader.hasProperty(myMap, &quot;key1&quot;);
+							let value = ObjectReader.getProperty(myMap, &quot;key1&quot;);</p>
+							<p>let myArray = [1, 2, 3]
+								ObjectReader.hasProperty(myArrat, &quot;0&quot;);
+							let value = ObjectReader.getProperty(myArray, &quot;0&quot;);</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -111,25 +135,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectReader.ts#L95">reflect/ObjectReader.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectReader.ts#L142">reflect/ObjectReader.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves an object&#39;s properties as a map.</p>
+									<p>Get values of all properties in specified object
+									and returns them as a map.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Returned properties correspondently are object properties,
+								map key-pairs or array elements with their indexes.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to get a map of properties from.</p>
+										<p>an object to get properties from.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a map, containing property names and their values.</p>
+							<p>a map, containing the names of the object&#39;s properties and their values.</p>
 						</li>
 					</ul>
 				</section>
@@ -143,32 +171,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectReader.ts#L52">reflect/ObjectReader.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectReader.ts#L90">reflect/ObjectReader.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the value stored in the passed object by the given property name.
-									If &#39;obj&#39; or &#39;name&#39; are <code>null</code> - <code>null</code> will be returned.</p>
+									<p>Gets value of object property specified by its name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to read a property from.</p>
+										<p>an object to read property from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property to retrieve.</p>
+										<p>a name of the property to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the value stored by the given property name or null (if the property cannot be read).</p>
+							<p>the property value or null if property doesn&#39;t exist or introspection failed.</p>
 						</li>
 					</ul>
 				</section>
@@ -182,25 +212,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectReader.ts#L71">reflect/ObjectReader.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectReader.ts#L113">reflect/ObjectReader.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the names of an object&#39;s properties.</p>
+									<p>Gets names of all properties implemented in specified object.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Returned property name correspondently are object properties,
+								map keys or array indexes.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose property names are to be retrieved.</p>
+										<p>an objec to introspect.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a string array, containing the names of the object&#39;s properties.</p>
+							<p>a list with property names.</p>
 						</li>
 					</ul>
 				</section>
@@ -214,12 +247,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectReader.ts#L18">reflect/ObjectReader.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectReader.ts#L50">reflect/ObjectReader.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that gets the value of an object.</p>
+									<p>Gets a real object value.
+										If object is a wrapper, it unwraps the value behind it.
+									Otherwise it returns the same object value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -227,11 +262,12 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose value is to be retrieved.</p>
+										<p>an object to unwrap..</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>an actual (unwrapped) object value.</p>
 						</li>
 					</ul>
 				</section>
@@ -245,32 +281,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectReader.ts#L31">reflect/ObjectReader.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectReader.ts#L66">reflect/ObjectReader.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not an object has a property with the given name.
-									If &#39;obj&#39; or &#39;name&#39; are <code>null</code> -  <code>false</code> will be returned.</p>
+									<p>Checks if object has a property with specified name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to search in.</p>
+										<p>an object to introspect.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property to search for.</p>
+										<p>a name of the property to check.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not a property with the given name was found in the given object.</p>
+							<p>true if the object has the property and false if it doesn&#39;t.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,8 +70,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Used to validate maps, as well as the data type of their keys and values.</p>
+						<p>Schema to validate maps.</p>
 					</div>
+					<h3 id="example">Example</h3>
+					<p>let schema = new MapSchema(TypeCode.String, TypeCode.Integer);</p>
+					<p>schema.validate({ &quot;key1&quot;: &quot;A&quot;, &quot;key2&quot;: &quot;B&quot; });       // Result: no errors
+						schema.validate({ &quot;key1&quot;: 1, &quot;key2&quot;: 2 });           // Result: element type mismatch
+					schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -132,21 +137,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Map<wbr>Schema<span class="tsd-signature-symbol">(</span>required<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, rules<span class="tsd-signature-symbol">?: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span>, keyType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, valueType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.mapschema.html" class="tsd-signature-type">MapSchema</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Map<wbr>Schema<span class="tsd-signature-symbol">(</span>keyType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, valueType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, required<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, rules<span class="tsd-signature-symbol">?: </span><a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validate.mapschema.html" class="tsd-signature-type">MapSchema</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L19">validate/MapSchema.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L27">validate/MapSchema.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new MapSchema object which can validate map objects using the
-										set rules. The keys&#39; and values&#39; data types will also be validated if
-									their <a href="../enums/convert.typecode.html">types</a> are set.</p>
+									<p>Creates a new instance of validation schema and sets its values.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -160,29 +163,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> required: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>defines whether or not values that are not maps
-												should cause validation to fail (as a
-											<a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rules: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the <a href="../interfaces/validate.ivalidationrule.html">rules</a> to set for this Schema.</p>
-										</div>
-									</div>
-								</li>
-								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyType: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the <a href="../enums/convert.typecode.html">data type</a> to check for when validating a map&#39;s keys.
-											Can be set later on using <a href="validate.mapschema.html#setkeytype">setKeyType</a>.</p>
+											<p>a type of map keys. Null means that keys may have any type.</p>
 										</div>
 									</div>
 								</li>
@@ -190,8 +174,23 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> valueType: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the <a href="../enums/convert.typecode.html">data type</a> to check for when validating a map&#39;s values.
-											Can be set later on using <a href="validate.mapschema.html#setvaluetype">setValueType</a>.</p>
+											<p>a type of map values. Null means that values may have any type.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> required: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) true to always require non-null values.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rules: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) a list with validation rules.</p>
 										</div>
 									</div>
 								</li>
@@ -213,13 +212,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L48">validate/MapSchema.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L53">validate/MapSchema.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the type of map keys.
+									Null means that keys may have any type.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the <a href="../enums/convert.typecode.html">data type</a> that this MapSchema will check for when validating keys.</p>
+							<p>the type of map keys.</p>
 						</li>
 					</ul>
 				</section>
@@ -234,13 +237,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#getrules">getRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L60">validate/Schema.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L66">validate/Schema.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets validation rules to check values against.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h4>
-							<p>an array, containing the validation rules that are included in this Schema.</p>
+							<p>a list with validation rules.</p>
 						</li>
 					</ul>
 				</section>
@@ -254,13 +260,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L62">validate/MapSchema.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L73">validate/MapSchema.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the type of map values.
+									Null means that values may have any type.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the <a href="../enums/convert.typecode.html">data type</a> that this MapSchema will check for when validating values.</p>
+							<p>the type of map values.</p>
 						</li>
 					</ul>
 				</section>
@@ -275,14 +285,17 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#isrequired">isRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L43">validate/Schema.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L48">validate/Schema.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a flag that always requires non-null values.
+									For null values it raises a validation error.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not <code>null</code> values will cause validation to fail
-							(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+							<p>true to always require non-null values and false to allow null values.</p>
 						</li>
 					</ul>
 				</section>
@@ -297,14 +310,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makeoptional">makeOptional</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L97">validate/Schema.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L106">validate/Schema.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Makes this Schema optional (required = false) and returns it.</p>
+									<p>Makes validated values optional.
+									Validation for null values will be skipped.</p>
 								</div>
-								<p>When a Schema is optional, <code>null</code> values pass validation.</p>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="validate.mapschema.html#makerequired">makeRequired</a></p>
@@ -312,7 +327,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
-							<p>this Schema object as an optional Schema.</p>
+							<p>this validation schema</p>
 						</li>
 					</ul>
 				</section>
@@ -327,15 +342,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makerequired">makeRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L83">validate/Schema.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L90">validate/Schema.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Makes this Schema required (required = true) and returns it.</p>
+									<p>Makes validated values always required (non-null).
+									For null values the schema will raise errors.</p>
 								</div>
-								<p>When a Schema is required, <code>null</code> values cause
-								validation to fail (as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="validate.mapschema.html#makeoptional">makeOptional</a></p>
@@ -343,7 +359,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
-							<p>this Schema object as a required Schema.</p>
+							<p>this validation schema</p>
 						</li>
 					</ul>
 				</section>
@@ -358,25 +374,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performtypevalidation">performTypeValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L171">validate/Schema.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L180">validate/Schema.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates that the passed &#39;value&#39; is an object of the given &#39;type&#39;. If &#39;type&#39; is an instance of
-										Schema - &#39;value&#39; will be validated using the Schema&#39;s <a href="validate.mapschema.html#performvalidation">performValidation</a> method. The type
-										of &#39;value&#39; is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> and is compared to &#39;type&#39; using
-									<a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
+									<p>Validates a given value to match specified type.
+										The type can be defined as a Schema, type, a type name or <a href="../enums/convert.typecode.html">TypeCode</a>
+									When type is a Schema, it executes validation recursively against that Schema.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="validate.mapschema.html#performvalidation">performValidation</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="reflect.typematcher.html#matchtype">TypeMatcher.matchType</a></p>
 									</dd>
 								</dl>
 							</div>
@@ -385,25 +394,25 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the dot notation path to the value that is to be validated.</p>
+										<p>a dot notation path to the value.</p>
 									</div>
 								</li>
 								<li>
 									<h5>type: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the type to validate against.</p>
+										<p>a type to match the value type</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value that is to be validated.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the results of the validation.</p>
+										<p>a list with validation results to add new results.</p>
 									</div>
 								</li>
 							</ul>
@@ -422,14 +431,12 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performvalidation">performValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L84">validate/MapSchema.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L94">validate/MapSchema.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the given &#39;value&#39; using <a href="validate.schema.html#performvalidation">Schema.performValidation</a> and, if &#39;value&#39; is a map,
-										additionally validates that all keys and values are of the data types <a href="validate.mapschema.html#getkeytype">keyType</a>
-									and <a href="validate.mapschema.html#getvaluetype">valueType</a>, respectively.</p>
+									<p>Validates a given value against the schema and configured validation rules.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -437,21 +444,19 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the dot notation path to the value that is to be validated.</p>
+										<p>a dot notation path to the value.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value that is to be validated.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the results of the validation. If &#39;value&#39; is not a map and this schema is
-											set as &#39;required&#39;, then the results will contain a
-										<a href="../enums/validate.validationresulttype.html#error">validation error</a>.</p>
+										<p>a list with validation results to add new results.</p>
 									</div>
 								</li>
 							</ul>
@@ -469,17 +474,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L55">validate/MapSchema.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L63">validate/MapSchema.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the type of map keys.
+									Null means that keys may have any type.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the <a href="../enums/convert.typecode.html">data type</a> that this MapSchema should check for when validating keys.</p>
+										<p>a type of map keys.</p>
 									</div>
 								</li>
 							</ul>
@@ -498,13 +507,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrequired">setRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L53">validate/Schema.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L57">validate/Schema.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Changes whether or not <code>null</code> values should cause validation to fail
-									(as a <a href="../enums/validate.validationresulttype.html#error">validation error</a>).</p>
+									<p>Sets a flag that always requires non-null values.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -512,7 +520,7 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>defines whether or not this Schema is required.</p>
+										<p>true to always require non-null values and false to allow null values.</p>
 									</div>
 								</li>
 							</ul>
@@ -531,12 +539,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrules">setRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L69">validate/Schema.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L75">validate/Schema.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Changes this Schema&#39;s validation rules to the ones passed.</p>
+									<p>Sets validation rules to check values against.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -544,7 +552,7 @@
 								<li>
 									<h5>value: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the array of validation rules to include in this Schema.</p>
+										<p>a list with validation rules.</p>
 									</div>
 								</li>
 							</ul>
@@ -562,17 +570,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/MapSchema.ts#L69">validate/MapSchema.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/MapSchema.ts#L83">validate/MapSchema.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the type of map values.
+									Null means that values may have any type.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the <a href="../enums/convert.typecode.html">data type</a> that this MapSchema should check for when validating values.</p>
+										<p>a type of map values.</p>
 									</div>
 								</li>
 							</ul>
@@ -591,12 +603,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L213">validate/Schema.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L222">validate/Schema.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the given value using this class&#39;s <a href="validate.mapschema.html#performvalidation">performValidation</a> method.</p>
+									<p>Validates the given value and results validation results.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -609,12 +621,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to validate using this Schema&#39;s rules.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h4>
-							<p>an array of ValidationResults</p>
+							<p>a list with validation results.</p>
 						</li>
 					</ul>
 				</section>
@@ -629,12 +641,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandreturnexception">validateAndReturnException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L226">validate/Schema.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L235">validate/Schema.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the given value and returns any exceptions that were raised.</p>
+									<p>Validates the given value and returns a <a href="validate.validationexception.html">ValidationException</a> if errors were found.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -648,13 +660,13 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to validate using this Schema&#39;s rules.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
+										<p>true to treat warnings as errors.</p>
 									</div>
 								</li>
 							</ul>
@@ -673,13 +685,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandthrowexception">validateAndThrowException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L241">validate/Schema.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L249">validate/Schema.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the given value and, if an exception was raised, throws the exception using
-									<a href="validate.validationexception.html#throwexceptionifneeded">ValidationException.throwExceptionIfNeeded</a>.</p>
+									<p>Validates the given value and throws a <a href="validate.validationexception.html">ValidationException</a> if errors were found.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -698,13 +709,13 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to validate using this Schema&#39;s rules.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> strict: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>defines whether or not &quot;Warnings&quot; should raise exceptions.</p>
+										<p>true to treat warnings as errors.</p>
 									</div>
 								</li>
 							</ul>
@@ -723,24 +734,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#withrule">withRule</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/Schema.ts#L107">validate/Schema.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L120">validate/Schema.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a validation rule to this Schema.</p>
+									<p>Adds validation rule to this schema.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>rule: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the validation rule to add to this Schema&#39;s rules.</p>
+										<p>a validation rule to be added.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h4>
+							<p>this validation schema.</p>
 						</li>
 					</ul>
 				</section>

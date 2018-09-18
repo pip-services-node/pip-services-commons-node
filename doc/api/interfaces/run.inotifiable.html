@@ -70,8 +70,27 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for active components that can be notified (called without expecting a result).</p>
+						<p>Interface for components that can be asynchronously notified.
+							The notification may include optional argument that describe
+						the occured event.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/run.notifier.html">Notifier</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="run.iexecutable.html">IExecutable</a></p>
+							<h3 id="example">Example</h3>
+							<p>class MyComponent implements INotifable {
+								...
+								public notify(correlationId: string, args: Parameters): void {
+								console.log(&quot;Occured event &quot; + args.getAsString(&quot;event&quot;));
+								}
+							}</p>
+							<p>let myComponent = new MyComponent();</p>
+							<p>myComponent.notify(&quot;123&quot;, Parameters.fromTuples(&quot;event&quot;, &quot;Test Event&quot;));</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -112,12 +131,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/INotifiable.ts#L14">run/INotifiable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/INotifiable.ts#L32">run/INotifiable.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for executing a unit of work.</p>
+									<p>Notifies the component about occured event.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -131,7 +150,7 @@
 								<li>
 									<h5>args: <a href="../classes/run.parameters.html" class="tsd-signature-type">Parameters</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the set of parameters (arguments) for execution.</p>
+										<p>notification arguments.</p>
 									</div>
 								</li>
 							</ul>

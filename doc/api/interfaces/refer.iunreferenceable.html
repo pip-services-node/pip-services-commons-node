@@ -70,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for components that require clearing of their references to other components.</p>
+						<p>Interface for components that require explicit clearing of references to dependent components.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
@@ -78,27 +78,21 @@
 						</dd>
 						<dt>see</dt>
 						<dd><p><a href="refer.ireferenceable.html">IReferenceable</a></p>
-							<h3 id="examples">Examples</h3>
-							<p>Example implementation of the IUnreferenceable interface:</p>
-							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyUnReferenceableClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IReferenceable</span>, <span class="hljs-title">IUnreferenceable</span> {</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-string">_references:</span> IReferences;
-
-    constructor(<span class="hljs-string">references:</span> IReferences) {
-        setReferences(references)
-    }
-
-    <span class="hljs-keyword">public</span> setReferences(<span class="hljs-string">references:</span> IReferences): <span class="hljs-keyword">void</span> {
-        <span class="hljs-keyword">this</span>._references = references;
-    }
-
-    <span class="hljs-keyword">public</span> unsetReferences (): <span class="hljs-keyword">void</span> {
-        <span class="hljs-keyword">this</span>._references = <span class="hljs-literal">null</span>;
-    }
-
-    ...
-
+							<h3 id="example">Example</h3>
+							<p> export class MyController implements IReferenceable, IUnreferenceable {
+								public _persistence: IMyPersistence;
+								...
+								public setReferences(references: IReferences): void {
+								this._persistence = references.getOneRequired<IMyPersistence>(
+									new Descriptor(&quot;mygroup&quot;, &quot;persistence&quot;, &quot;<em>&quot;, &quot;</em>&quot;, &quot;1.0&quot;)
+									);
+							}</p>
+							<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">unsetReferences</span>(<span class="hljs-params"></span>): <span class="hljs-keyword">void</span> </span>{
+  <span class="hljs-keyword">this</span>._persistence = <span class="hljs-literal">null</span>;
 }
-</code></pre></dd>
+...
+</code></pre><p> }</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -135,12 +129,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/IUnreferenceable.ts#L35">refer/IUnreferenceable.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/IUnreferenceable.ts#L30">refer/IUnreferenceable.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Unsets (clears) previously set references to other components.</p>
+									<p>Unsets (clears) previously set references to dependent components.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

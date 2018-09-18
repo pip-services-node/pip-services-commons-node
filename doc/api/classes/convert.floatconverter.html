@@ -70,14 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting various values to the float data type.</p>
+						<p>Converts arbitrary values into float using extended conversion rules:</p>
+						<ul>
+							<li>Strings are converted to float values</li>
+							<li>DateTime: total number of milliseconds since unix epoсh</li>
+							<li>Boolean: 1 for true and 0 for false</li>
+						</ul>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> floatValue = FloatConverter.toFloat(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = FloatConverter.toNullableFloat(&quot;ABC&quot;); // Result: null
+						let value2 = FloatConverter.toNullableFloat(&quot;123.456&quot;); // Result: 123.456
+						let value3 = FloatConverter.toNullableFloat(true); // Result: 1
+					let value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,13 +119,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/FloatConverter.ts#L49">convert/FloatConverter.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/FloatConverter.ts#L43">convert/FloatConverter.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to floats using <a href="convert.doubleconverter.html#todouble">DoubleConverter.toDouble</a> (which uses
-									<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a>). 0 will be used as the default value for the conversion.</p>
+									<p>Converts value into float or returns 0 when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -142,6 +145,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>float value or 0 when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -155,14 +159,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/FloatConverter.ts#L64">convert/FloatConverter.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/FloatConverter.ts#L57">convert/FloatConverter.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to floats using <a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a>
-										(which uses <a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a>). If null is returned by the conversion,
-									then this method will return the default value passed.</p>
+									<p>Converts value into float or returns default when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -184,11 +186,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>float value or default value when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -202,22 +205,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/FloatConverter.ts#L36">convert/FloatConverter.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/FloatConverter.ts#L30">convert/FloatConverter.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to nullable floats.</p>
+									<p>Converts value into float or returns null when conversion is not possible.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if &#39;value&#39; is null - null will be returned;</li>
-									<li>if &#39;value&#39; is a number - it will be returned as a float;</li>
-									<li>if &#39;value&#39; is a date - the number of milliseconds passed since Jan 1, 1970, 00:00:00.000 GMT will be returned;</li>
-									<li>if &#39;value&#39; is a boolean - true returns 1 and false returns 0;</li>
-									<li>if &#39;value&#39; is a string - parseFloat(value) will be called, and if the result is a number, then it will be returned;</li>
-									<li>otherwise - null will be returned.</li>
-								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a></p>
@@ -234,8 +228,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
-							will be returned.</p>
+							<p>float value or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

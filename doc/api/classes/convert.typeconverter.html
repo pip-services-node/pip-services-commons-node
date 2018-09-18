@@ -70,20 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that uses the converters available in this package to perform &quot;soft&quot; data conversions between various data types,
-						as well as resolve the <a href="../enums/convert.typecode.html">TypeCode</a> of an object.</p>
+						<p>Converts arbitrary values into objects specific by TypeCodes.
+							For each TypeCode this class calls corresponding converter which applies
+						extended conversion rules to convert the values.</p>
 					</div>
-					<p>Soft data converters differ from the data conversion algorithms found in typical programming language, due to the fact
-					that they support rare conversions between various data types (such as integer to timespan, timespan to string, and so on).</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
-							<h3 id="examples">Examples</h3>
-							<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span>(<span class="hljs-params">TypeCode.Long, <span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> longValue = TypeConverter.toType(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre></dd>
+							<h3 id="example">Example</h3>
+							<p>let value1 = TypeConverter.toType(TypeCode.Integer, &quot;123.456&quot;); // Result: 123
+								let value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: Date(123)
+							let value3 = TypeConverter.toType(TypeCode.Boolean, &quot;F&quot;); // Result: false</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -124,12 +122,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/TypeConverter.ts#L88">convert/TypeConverter.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/TypeConverter.ts#L85">convert/TypeConverter.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that converts the object passed as &#39;value&#39; to a nullable object of type T.</p>
+									<p>Converts value into an object type specified by Type Code or returns null when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -159,7 +157,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>&#39;value&#39; as an object of type T. If &#39;value&#39; is null - null will be returned.</p>
+							<p>object value of type corresponding to TypeCode, or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -173,12 +171,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/TypeConverter.ts#L176">convert/TypeConverter.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/TypeConverter.ts#L171">convert/TypeConverter.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that converts a TypeCode into its string name.</p>
+									<p>Converts a TypeCode into its string name.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,12 +203,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/TypeConverter.ts#L124">convert/TypeConverter.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/TypeConverter.ts#L121">convert/TypeConverter.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that converts the object passed as &#39;value&#39; to an object of type T.</p>
+									<p>Converts value into an object type specified by Type Code or returns type default when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -243,9 +241,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>&#39;value&#39; as an object of type T. If the result of the conversion using
-								TypeConverter.toNullableType<T>(type, value) is null, then a default
-							value for the given type will be returned.</p>
+							<p>object value of type corresponding to TypeCode, or type default when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -259,12 +255,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/TypeConverter.ts#L40">convert/TypeConverter.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/TypeConverter.ts#L37">convert/TypeConverter.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that resolves the TypeCode that corresponds to the passed object&#39;s type.</p>
+									<p>Gets TypeCode for specific value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,7 +268,7 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>object whose TypeCode is to be resolved.</p>
+										<p>value whose TypeCode is to be resolved.</p>
 									</div>
 								</li>
 							</ul>
@@ -291,13 +287,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/TypeConverter.ts#L165">convert/TypeConverter.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/TypeConverter.ts#L160">convert/TypeConverter.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that converts the object passed as &#39;value&#39; to an object of type T or returns
-									a default value if the conversion is not possible (when null is returned).</p>
+									<p>Converts value into an object type specified by Type Code or returns default value when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -336,8 +331,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>&#39;value&#39; as an object of type T or &#39;defaultValue&#39; (if the result of the
-							conversion using TypeConverter.toNullableType<T>(type, value) is null).</p>
+							<p>object value of type corresponding to TypeCode, or default value when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

@@ -75,15 +75,17 @@
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="data.ichangeable.html">IChangeable</a></p>
-							<h3 id="examples">Examples</h3>
-							<p>Example implementation of the ITrackable interface:</p>
-							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ITrackable</span> {</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-string">change_time:</span> Date;
-    <span class="hljs-keyword">public</span> <span class="hljs-string">create_time:</span> Date;
-    <span class="hljs-keyword">public</span> <span class="hljs-string">deleted:</span> <span class="hljs-keyword">boolean</span>;
-    ...
-}
-</code></pre></dd>
+							<h3 id="example">Example</h3>
+							<p> export class MyData implements IStringIdentifiable, ITrackable {
+								public id: string;
+								public field1: string;
+								public field2: number;
+								...
+								public change_time: Date;
+								public create_time: Date;
+								public deleted: boolean;
+							}</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -124,7 +126,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="data.ichangeable.html">IChangeable</a>.<a href="data.ichangeable.html#change_time">change_time</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ITrackable.ts#L25">data/ITrackable.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ITrackable.ts#L26">data/ITrackable.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -139,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">create_<wbr>time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ITrackable.ts#L22">data/ITrackable.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ITrackable.ts#L23">data/ITrackable.ts:23</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -150,16 +152,16 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="deleted" class="tsd-anchor"></a>
-					<h3>deleted</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> deleted</h3>
 					<div class="tsd-signature tsd-kind-icon">deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/ITrackable.ts#L28">data/ITrackable.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ITrackable.ts#L29">data/ITrackable.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The logical deletion flag.</p>
+							<p>The logical deletion flag. True when object is deleted and null or false otherwise</p>
 						</div>
 					</div>
 				</section>

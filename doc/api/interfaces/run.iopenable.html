@@ -70,8 +70,41 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for components that require explicit opening.</p>
+						<p>Interface for components that require explicit opening and closing.</p>
 					</div>
+					<p>For components that perform opening on demand consider using
+					[[ICloseable]] interface instead.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="run.iopenable.html">IOpenable</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/run.opener.html">Opener</a></p>
+							<h3 id="example">Example</h3>
+							<p>class MyPersistence implements IOpenable {
+								private _client: any;
+								...
+								public isOpen(): boolean {
+								return this._client != null;
+							}</p>
+							<p>  public open(correlationId: string, callback: (err: any) =&gt; void): void {
+								if (this.isOpen()) {
+								callback(null);
+								return;
+								}
+								...
+							}</p>
+							<p>  public close(correlationId: string, callback: (err: any) =&gt; void): void {
+								if (this._client != null) {
+								this._client.close();
+								this._client = null;
+								}
+								callback(null);
+							}</p>
+							<p>  ...
+							}</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,13 +148,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iclosable.html">IClosable</a>.<a href="run.iclosable.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/IClosable.ts#L14">run/IClosable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IClosable.ts#L36">run/IClosable.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for closing a component, disconnecting it from other
-									services, and disposing resources.</p>
+									<p>Closes component and frees used resources.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,8 +167,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the closing process is complete. It will
-										be called with an error if one is raised.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -172,13 +203,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/IOpenable.ts#L14">run/IOpenable.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IOpenable.ts#L47">run/IOpenable.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for checking whether or not
-									a component has been opened.</p>
+									<p>Checks if the component is opened.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -196,13 +226,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/IOpenable.ts#L24">run/IOpenable.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IOpenable.ts#L55">run/IOpenable.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for opening a component and establishing
-									connections to other services.</p>
+									<p>Opens the component.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -216,8 +245,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the opening process is complete. It will
-										be called with an error if one is raised.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">

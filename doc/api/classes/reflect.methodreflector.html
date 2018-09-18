@@ -70,8 +70,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for working with an object&#39;s methods.</p>
+						<p>Helper class to perform method introspection and dynamic invocation.</p>
 					</div>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
+					<p>Because all languages have different casing and case sensitivity rules,
+					this MethodReflector treats all method names as case insensitive.</p>
+					<h3 id="example">Example</h3>
+					<p>let myObj = new MyObject();</p>
+					<p>let methods = MethodReflector.getMethodNames();
+						MethodReflector.hasMethod(myObj, &quot;myMethod&quot;);
+					MethodReflector.invokeMethod(myObj, &quot;myMethod&quot;, 123);</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -109,12 +118,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/MethodReflector.ts#L78">reflect/MethodReflector.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/MethodReflector.ts#L87">reflect/MethodReflector.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the names of an object&#39;s methods.</p>
+									<p>Gets names of all methods implemented in specified object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -122,12 +131,12 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose method names are to be retrieved.</p>
+										<p>an objec to introspect.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a string array, containing the names of the object&#39;s methods.</p>
+							<p>a list with method names.</p>
 						</li>
 					</ul>
 				</section>
@@ -141,36 +150,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/MethodReflector.ts#L26">reflect/MethodReflector.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/MethodReflector.ts#L37">reflect/MethodReflector.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not an object has a method with the given name.</p>
+									<p>Checks if object has a method with specified name..</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;obj&#39; or &#39;name&#39; are <code>null</code>.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to search for the given method in. Cannot be <code>null</code>.</p>
+										<p>an object to introspect.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the method to search for. Cannot be <code>null</code>.</p>
+										<p>a name of the method to check.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not a method with the given name was found in the object.</p>
+							<p>true if the object has the method and false if it doesn&#39;t.</p>
 						</li>
 					</ul>
 				</section>
@@ -184,42 +188,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/MethodReflector.ts#L52">reflect/MethodReflector.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/MethodReflector.ts#L61">reflect/MethodReflector.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that invokes an object&#39;s method using the method&#39;s name.</p>
+									<p>Invokes an object method by its name with specified parameters.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;obj&#39; or &#39;name&#39; are <code>null</code>.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose method is to be invoked. Cannot be <code>null</code>.</p>
+										<p>an object to invoke.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the method that is to be invoked. Cannot be <code>null</code>.</p>
+										<p>a name of the method to invoke.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the arguments that should be passed to the method.</p>
+										<p>a list of method arguments.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the value that is returned by the invoked method.</p>
+							<p>the result of the method invocation or null if method returns void.</p>
 						</li>
 					</ul>
 				</section>

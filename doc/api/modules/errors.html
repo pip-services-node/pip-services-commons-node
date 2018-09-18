@@ -64,6 +64,27 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<p>Todo: Rewrite this description</p>
+					<p>Portable and localizable Exceptions classes. Each Exception, in addition to a description
+						and stack trace has a unique string code, details array (which can be used for creating
+					localized strings).</p>
+					<p>Way to use:</p>
+					<ul>
+						<li>An existing exception class can be used.</li>
+						<li>A child class that extends ApplicationException can we written.</li>
+						<li>A exception can be wrapped around (into?) an existing application exception.</li>
+					</ul>
+					<p>Exceptions are serializable. The exception classes themselves are not serializable, but
+						they can be converted to ErrorDescriptions, which are serializable in one language, transferred
+						to the receiving side, and deserialized in another language. After deserialization, the initial
+					exception class can be restored.</p>
+					<p>Additionally: when transferring an exception from one language to another, the exception type
+						that is closest to the initial exception type is chosen from the exceptions available in the
+					target language.</p>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">

@@ -70,11 +70,21 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for working with <a href="reflect.typedescriptor.html">TypeDescriptors</a>.</p>
+						<p>Helper class to perform object type introspection and object instantiation.</p>
 					</div>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
+					<p>Because all languages have different casing and case sensitivity rules,
+					this TypeReflector treats all type names as case insensitive.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="reflect.typedescriptor.html">TypeDescriptor</a></p>
+							<h3 id="example">Example</h3>
+							<p>let descriptor = new TypeDescriptor(&quot;MyObject&quot;, &quot;mylibrary&quot;);
+								Typeeflector.getTypeByDescriptor(descriptor);
+							let myObj = TypeReflector.createInstanceByDescriptor(descriptor);</p>
+							<p>TypeDescriptor.isPrimitive(myObject);         // Result: false
+							TypeDescriptor.isPrimitive(123);                // Result: true</p>
 						</dd>
 					</dl>
 				</div>
@@ -117,18 +127,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L106">reflect/TypeReflector.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L109">reflect/TypeReflector.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that resolves the type that corresponds to the provided &#39;name&#39; and &#39;library&#39;
-									parameters and creates an instance (object) of the type that was found.</p>
+									<p>Creates an instance of an object type specified by its name
+									and library where it is defined.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>a <a href="errors.notfoundexception.html">NotFoundException</a> if no type is found by the given name/library.</p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typereflector.html#gettype">getType</a></p>
 									</dd>
@@ -142,24 +149,24 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the type&#39;s name.</p>
+										<p>an object type name.</p>
 									</div>
 								</li>
 								<li>
 									<h5>library: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the library that contains the type.</p>
+										<p>a library (module) where object type is defined.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the arguments to pass to the constructor.</p>
+										<p>arguments for the object constructor.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the created instance (object).</p>
+							<p>the created object instance.</p>
 						</li>
 					</ul>
 				</section>
@@ -167,24 +174,20 @@
 					<a name="createinstancebydescriptor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> create<wbr>Instance<wbr>ByDescriptor</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Instance<wbr>ByDescriptor<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Instance<wbr>ByDescriptor<span class="tsd-signature-symbol">(</span>descriptor<span class="tsd-signature-symbol">: </span><a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L128">reflect/TypeReflector.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L128">reflect/TypeReflector.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that resolves the type that corresponds to the provided
-									<a href="reflect.typedescriptor.html">TypeDescriptor</a> and creates an instance (object) of the type that was found.</p>
+									<p>Creates an instance of an object type specified by type descriptor.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;type&#39; is <code>null</code>.</p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typereflector.html#createinstance">createInstance</a></p>
 									</dd>
@@ -196,20 +199,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a></h5>
+									<h5>descriptor: <a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeDescriptor to find the type by. Cannot be <code>null</code>.</p>
+										<p>a type descriptor that points to an object type</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the arguments to pass to the constructor.</p>
+										<p>arguments for the object constructor.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the created instance (object).</p>
+							<p>the created object instance.</p>
 						</li>
 					</ul>
 				</section>
@@ -223,39 +226,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L83">reflect/TypeReflector.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L88">reflect/TypeReflector.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that creates an instance (object) of the given type.</p>
+									<p>Creates an instance of an object type.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;type&#39; is <code>null</code>.</p>
-									</dd>
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;type&#39; is not a constructor.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>type: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the type&#39;s constructor to create an instance with.</p>
+										<p>an object type (factory function) to create.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the arguments to pass to the constructor.</p>
+										<p>arguments for the object constructor.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the created instance (object).</p>
+							<p>the created object instance.</p>
 						</li>
 					</ul>
 				</section>
@@ -269,14 +264,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L30">reflect/TypeReflector.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L42">reflect/TypeReflector.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that loads modules to resolve exported types using the provided
-										&#39;name&#39; and &#39;library&#39; parameters. Once a type has been found, its constructor is
-									returned as &#39;type&#39;.</p>
+									<p>Gets object type by its name and library where it is defined.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -284,19 +277,18 @@
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the type&#39;s name.</p>
+										<p>an object type name.</p>
 									</div>
 								</li>
 								<li>
 									<h5>library: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the library that contains the type.</p>
+										<p>a library where the type is defined</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the constructor for the type that was found or <code>null</code>
-							(if none were found).</p>
+							<p>the object type or null is the type wasn&#39;t found.</p>
 						</li>
 					</ul>
 				</section>
@@ -304,24 +296,20 @@
 					<a name="gettypebydescriptor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Type<wbr>ByDescriptor</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<wbr>ByDescriptor<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<wbr>ByDescriptor<span class="tsd-signature-symbol">(</span>descriptor<span class="tsd-signature-symbol">: </span><a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L66">reflect/TypeReflector.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L74">reflect/TypeReflector.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the constructor for the type that correspondes to the provided
-									<a href="reflect.typedescriptor.html">TypeDescriptor</a>.</p>
+									<p>Gets object type by type descriptor.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;type&#39; is <code>null</code>.</p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typereflector.html#gettype">getType</a></p>
 									</dd>
@@ -333,15 +321,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a></h5>
+									<h5>descriptor: <a href="reflect.typedescriptor.html" class="tsd-signature-type">TypeDescriptor</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeDescriptor to find the type by. Cannot be <code>null</code>.</p>
+										<p>a type descriptor that points to an object type</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the constructor for the type that was found or <code>null</code>
-							(if none were found).</p>
+							<p>the object type or null is the type wasn&#39;t found.</p>
 						</li>
 					</ul>
 				</section>
@@ -355,16 +342,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeReflector.ts#L148">reflect/TypeReflector.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeReflector.ts#L147">reflect/TypeReflector.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not a value is of a primitive type.
-									Uses <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> to identify the given value&#39;s type.</p>
+									<p>Checks if value has primitive type.</p>
 								</div>
-								<p>The following <a href="../enums/convert.typecode.html">types</a> are considered to be primitive: String,
-								Enum, Boolean, Integer, Long, Float, Double, DateTime, Duration.</p>
+								<p>Primitive types are: numbers, strings, booleans, date and time.
+								Complex (non-primitive types are): objects, maps and arrays</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
@@ -379,12 +365,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to check.</p>
+										<p>a value to check</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the value is a primitive type.</p>
+							<p>true if the value has primitive type and false if value type is complex.</p>
 						</li>
 					</ul>
 				</section>

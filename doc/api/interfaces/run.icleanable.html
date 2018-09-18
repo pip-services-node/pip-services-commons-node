@@ -70,13 +70,23 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for components that can clean their data.</p>
+						<p>Interface for components that should clean their state.</p>
 					</div>
-					<p>Such components are typically used during testing, when a database or queue is used and needs to be
-						quickly cleaned (or truncated) once the test has finished. This is done to remove any garbage that
-						might have been left-over by a test, as this data can interfere with future tests. To ensure that all
-						tests run as clean as possible, the database/queue should be returned/reverted back to its initial state.
-					This interface&#39;s <a href="run.icleanable.html#clear">clear</a> method allows for such cleaning to be performed.</p>
+					<p>Cleaning state most often is used during testing.
+					But there may be situations when it can be done in production.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../classes/run.cleaner.html">Cleaner</a></p>
+							<h3 id="example">Example</h3>
+							<p>class MyObjectWithState implements ICleanable {
+								private _state: any = {};
+								...
+								public clear(correlationId: string): void {
+								this._state = {};
+								}
+							}</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -112,12 +122,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/ICleanable.ts#L19">run/ICleanable.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/ICleanable.ts#L29">run/ICleanable.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for cleaning a component&#39;s data.</p>
+									<p>Clears component state.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -131,8 +141,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the clearing process is complete. It will
-										be called with an error if one is raised.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">

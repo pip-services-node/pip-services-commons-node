@@ -70,8 +70,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for matching <a href="../enums/convert.typecode.html">data types</a>.</p>
+						<p>Helper class matches value types for equality.</p>
 					</div>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
@@ -115,22 +117,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeMatcher.ts#L59">reflect/TypeMatcher.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeMatcher.ts#L49">reflect/TypeMatcher.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not the two given <a href="../enums/convert.typecode.html">data types</a> match.
-										If the expected type is in the format of a string - this class&#39;s <a href="reflect.typematcher.html#matchtypebyname">matchTypeByName</a>
-									method will be called and its result will be returned.</p>
+									<p>Matches expected type to an actual type.
+									The types can be specified as types, type names or <a href="../enums/convert.typecode.html">TypeCode</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;actualType&#39; is null.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typematcher.html#matchtypebyname">matchTypeByName</a></p>
 									</dd>
@@ -144,20 +139,18 @@
 								<li>
 									<h5>expectedType: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the data type that is expected. If set to
-											<code>null</code> - <code>true</code>
-										will always be returned.</p>
+										<p>an expected type to match.</p>
 									</div>
 								</li>
 								<li>
 									<h5>actualType: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the actual data type. Cannot be null.</p>
+										<p>an actual type to match.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the actual and expected data types match.</p>
+							<p>true if types are matching and false if they don&#39;t.</p>
 						</li>
 					</ul>
 				</section>
@@ -171,45 +164,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeMatcher.ts#L128">reflect/TypeMatcher.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeMatcher.ts#L100">reflect/TypeMatcher.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not the two given data type names (<a href="../enums/convert.typecode.html">TypeCode</a> strings)
-									match.</p>
+									<p>Matches expected type to an actual type.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;actualType&#39; is null.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.typeconverter.html#tostring">TypeConverter.toString</a> (for a list of TypeCode strings)</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="reflect.typematcher.html#matchtype">matchType</a> (for matching by <a href="../enums/convert.typecode.html">TypeCode</a>)</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>expectedType: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the data type (as a string) that is expected. If set to
-											<code>null</code> or &quot;object&quot; - <code>true</code> will
-										always be returned.</p>
+										<p>an expected type name to match.</p>
 									</div>
 								</li>
 								<li>
 									<h5>actualType: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the actual data type (as a string). Cannot be null.</p>
+										<p>an actual type to match defined by type code.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the actual and expected data types names match.</p>
+							<p>true if types are matching and false if they don&#39;t.</p>
 						</li>
 					</ul>
 				</section>
@@ -223,26 +202,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeMatcher.ts#L33">reflect/TypeMatcher.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeMatcher.ts#L29">reflect/TypeMatcher.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not the value passed as &#39;actualValue&#39; is of
-										the same <a href="../enums/convert.typecode.html">data type</a> as &#39;expectedType&#39;. The data type of &#39;actualValue&#39;
-										is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a>. Type matching is done using this
-									class&#39;s <a href="reflect.typematcher.html#matchtype">matchType</a> method.</p>
+									<p>Matches expected type to a type of a value.
+									The expected type can be specified by a type, type name or <a href="../enums/convert.typecode.html">TypeCode</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;actualValue&#39; is null.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="reflect.typematcher.html#matchtype">matchType</a></p>
 									</dd>
@@ -256,19 +224,18 @@
 								<li>
 									<h5>expectedType: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the <a href="../enums/convert.typecode.html">data type</a> that is expected. If set to
-										<code>null</code> - <code>true</code> will always be returned.</p>
+										<p>an expected type to match.</p>
 									</div>
 								</li>
 								<li>
 									<h5>actualValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value, whose type is to be checked. Cannot be null.</p>
+										<p>a value to match its type to the expected one.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the actual value is of the expected type.</p>
+							<p>true if types are matching and false if they don&#39;t.</p>
 						</li>
 					</ul>
 				</section>
@@ -282,49 +249,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/TypeMatcher.ts#L104">reflect/TypeMatcher.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/TypeMatcher.ts#L84">reflect/TypeMatcher.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not the value passed as &#39;actualValue&#39; is of
-										the data type, whose name is represented as a string in &#39;expectedType&#39;. The data type of
-										&#39;actualValue&#39; is determined using <a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a>. Type matching is done
-									using this class&#39;s <a href="reflect.typematcher.html#matchtypebyname">matchTypeByName</a> method.</p>
+									<p>Matches expected type to a type of a value.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;actualValue&#39; is null.</p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="reflect.typematcher.html#matchtypebyname">matchTypeByName</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="reflect.typematcher.html#matchvaluetype">matchValueType</a> (for matching by <a href="../enums/convert.typecode.html">TypeCode</a>)</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>expectedType: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the data type (as a string) that is expected. If set to
-										<code>null</code> - <code>true</code> will always be returned.</p>
+										<p>an expected type name to match.</p>
 									</div>
 								</li>
 								<li>
 									<h5>actualValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value, whose type is to be checked. Cannot be null.</p>
+										<p>a value to match its type to the expected one.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the actual value is of the expected type.</p>
+							<p>true if types are matching and false if they don&#39;t.</p>
 						</li>
 					</ul>
 				</section>

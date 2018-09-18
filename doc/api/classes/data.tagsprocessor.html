@@ -70,7 +70,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that provides methods for extracting and processing search tags from objects.</p>
+						<p>Helper class to extract and process search tags from objects.
+							The search tags can be kept individually or embedded as hash tags inside text
+						like &quot;This text has #hash_tag that can be used for search.&quot;</p>
 					</div>
 				</div>
 			</section>
@@ -115,12 +117,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L32">data/TagsProcessor.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L37">data/TagsProcessor.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Compress a tag by removing spaces, _ and # and converting to lower case</p>
+									<p>Compress a tag by removing special symbols like spaces, &#39;_&#39; and &#39;#&#39;
+										and converting the tag to lower case.
+									When tags are compressed they can be matched in search queries.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,12 +151,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L93">data/TagsProcessor.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L98">data/TagsProcessor.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Compresses the tags contained in the passed String array using <a href="data.tagsprocessor.html#compresstag">compressTag</a>.</p>
+									<p>Compresses a comma-separated list of tags.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -160,12 +164,12 @@
 								<li>
 									<h5>tagList: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the tags to compress.</p>
+										<p>a comma-separated list of tags to compress.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of compressed tags.</p>
+							<p>a list with compressed tags.</p>
 						</li>
 					</ul>
 				</section>
@@ -179,12 +183,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L83">data/TagsProcessor.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L88">data/TagsProcessor.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Compresses the tags contained in the passed String using <a href="data.tagsprocessor.html#compresstag">compressTag</a>.</p>
+									<p>Compresses a list of tags.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +201,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of compressed tags.</p>
+							<p>a list with normalized tags.</p>
 						</li>
 					</ul>
 				</section>
@@ -211,12 +215,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L45">data/TagsProcessor.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L50">data/TagsProcessor.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Determines if two tags are equal, based on their length and the characters contained.</p>
+									<p>Compares two tags using their compressed form.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -249,12 +253,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L107">data/TagsProcessor.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L112">data/TagsProcessor.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extracts hash tags from text.</p>
+									<p>Extracts hash tags from a text.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,12 +266,12 @@
 								<li>
 									<h5>text: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>text to parse</p>
+										<p>a text that contains hash tags</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of compressed tags.</p>
+							<p>a list with extracted and compressed tags.</p>
 						</li>
 					</ul>
 				</section>
@@ -281,29 +285,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L138">data/TagsProcessor.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L142">data/TagsProcessor.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extracts hash tags from a JSON object with the help of user-defined tag search fields.</p>
+									<p>Extracts hash tags from selected fields in an object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an object which contains hash tags.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>searchFields: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the user-defined tag search fields.</p>
+										<p>a list of fields in the objects where to extract tags</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of compressed tags, based on the user-defined
-							tag search fields.</p>
+							<p>a list of extracted and compressed tags.</p>
 						</li>
 					</ul>
 				</section>
@@ -317,12 +323,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L20">data/TagsProcessor.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L23">data/TagsProcessor.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Normalize a tag by replacing _ and # with spaces</p>
+									<p>Normalizes a tag by replacing special symbols like &#39;_&#39; and &#39;#&#39; with spaces.
+									When tags are normalized then can be presented to user in similar shape and form.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -349,12 +356,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L69">data/TagsProcessor.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L74">data/TagsProcessor.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Normalizes the tags contained in the passed String using <a href="data.tagsprocessor.html#normalizetag">normalizeTag</a>.</p>
+									<p>Normalizes a comma-separated list of tags.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -362,12 +369,12 @@
 								<li>
 									<h5>tagList: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the list of tags to normalize.</p>
+										<p>a comma-separated list of tags to normalize.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of normalized tags.</p>
+							<p>a list with normalized tags.</p>
 						</li>
 					</ul>
 				</section>
@@ -381,12 +388,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/TagsProcessor.ts#L59">data/TagsProcessor.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/TagsProcessor.ts#L64">data/TagsProcessor.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Normalizes the tags contained in the passed String array using <a href="data.tagsprocessor.html#normalizetag">normalizeTag</a>.</p>
+									<p>Normalizes a list of tags.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -399,7 +406,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a String array of normalized tags.</p>
+							<p>a list with normalized tags.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,9 +70,35 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that provides methods for starting tasks/callbacks with a timer,
-						delaying their starts, and stopping them as well.</p>
+						<p>Timer that is triggered in equal time intervals.</p>
 					</div>
+					<p>It has summetric cross-language implementation
+						and is often used by Pip.Services toolkit to
+					perform periodic processing and cleanup in microservices.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/run.inotifiable.html">INotifiable</a></p>
+							<h3 id="example">Example</h3>
+							<p>class MyComponent {
+								private timer: FixedRateTimer = new FixedRateTimer(() =&gt; { this.cleanup }, 60000);
+								...
+								public open(correlationId: string, callback: (err: any) =&gt; void): void {
+								...
+								timer.start();
+								...
+							}</p>
+							<p>  public open(correlationId: string, callback: (err: any) =&gt; void): void {
+								...
+								timer.stop();
+								...
+							}</p>
+							<p>  private cleanup(): void {
+								...
+								}
+								...
+							}</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -131,16 +157,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L19">run/FixedRateTimer.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L47">run/FixedRateTimer.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates an object that is capable of starting a timer to call a task or a callback after
-									the time set in &#39;interval&#39; has passed. The timer can be delayed by setting a &#39;delay&#39;.</p>
+									<p>Creates new instance of the timer and sets its values.</p>
 								</div>
-								<p>All parameters default to null and can be set later on using <a href="run.fixedratetimer.html#settask">setTask</a>/<a href="run.fixedratetimer.html#setcallback">setCallback</a>,
-								<a href="run.fixedratetimer.html#setinterval">setInterval</a>, and <a href="run.fixedratetimer.html#setdelay">setDelay</a>.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.fixedratetimer.html#settask">setTask</a></p>
@@ -162,7 +185,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> taskOrCallback: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the task or callback to initialize this object with.</p>
+											<p>(optional) a Notifiable object or callback function to call when timer is triggered.</p>
 										</div>
 									</div>
 								</li>
@@ -170,7 +193,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> interval: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the interval of time after which the task or callback must be called.</p>
+											<p>(optional) an interval to trigger timer in milliseconds.</p>
 										</div>
 									</div>
 								</li>
@@ -178,7 +201,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> delay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the delay to introduce before starting the timer.</p>
+											<p>(optional) a delay before the first triggering in milliseconds.</p>
 										</div>
 									</div>
 								</li>
@@ -200,13 +223,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L151">run/FixedRateTimer.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L203">run/FixedRateTimer.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Stops this objects timer using <a href="run.fixedratetimer.html#stop">stop</a> and closes it.</p>
+									<p>Closes the timer.</p>
 								</div>
+								<p>This is required by [[ICloseable]] interface,
+								but besides that it is identical to stop().</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.fixedratetimer.html#stop">stop</a></p>
@@ -224,7 +249,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call once the closing process is complete.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -260,13 +285,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L58">run/FixedRateTimer.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L95">run/FixedRateTimer.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the callback function that is called when this timer is triggered.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
-							<p>the callback function that is to be called once the set interval times out.</p>
+							<p>the callback function or null if it is not set.</p>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-siganture">
 									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -292,13 +320,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L66">run/FixedRateTimer.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L112">run/FixedRateTimer.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets initial delay before the timer is triggered for the first time.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the delay that will be introduced before starting this object&#39;s timer.</p>
+							<p>the delay in milliseconds.</p>
 						</li>
 					</ul>
 				</section>
@@ -312,13 +343,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L75">run/FixedRateTimer.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L126">run/FixedRateTimer.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets periodic timer triggering interval.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the amount of time that must pass before the set task or callback function is called.</p>
+							<p>the interval in milliseconds</p>
 						</li>
 					</ul>
 				</section>
@@ -332,13 +366,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L48">run/FixedRateTimer.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L76">run/FixedRateTimer.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the INotifiable object that receives notifications from this timer.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/run.inotifiable.html" class="tsd-signature-type">INotifiable</a></h4>
-							<p>the task that is to be called once the set interval times out.</p>
+							<p>the INotifiable object or null if it is not set.</p>
 						</li>
 					</ul>
 				</section>
@@ -352,18 +389,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L85">run/FixedRateTimer.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L141">run/FixedRateTimer.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks whether or not this object&#39;s timer has started counting down from the
-										interval that was set. When using a delay, the timer is considered to have started
-										only after the delay has passed. If the set delay has not yet passed, false
-									will be returned.</p>
+									<p>Checks if the timer is started.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>true if the timer is started and false if it is stopped.</p>
 						</li>
 					</ul>
 				</section>
@@ -377,17 +412,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L60">run/FixedRateTimer.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L102">run/FixedRateTimer.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the callback function that is called when this timer is triggered.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the callback function to call once the set interval times out.</p>
+										<p>the callback function to be called.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -417,18 +455,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L72">run/FixedRateTimer.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L119">run/FixedRateTimer.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets initial delay before the timer is triggered for the first time.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the delay to introduce before starting this object&#39;s timer.</p>
-										<p>Note: the delay to use is calculated as &quot;delay - interval&quot;.</p>
+										<p>a delay in milliseconds.</p>
 									</div>
 								</li>
 							</ul>
@@ -446,17 +486,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L77">run/FixedRateTimer.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L134">run/FixedRateTimer.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets periodic timer triggering interval.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the amount of time that must pass before the set task or callback function is called.</p>
+										<p>an interval in milliseconds.</p>
 									</div>
 								</li>
 							</ul>
@@ -474,17 +517,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L50">run/FixedRateTimer.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L83">run/FixedRateTimer.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a new INotifiable object to receive notifications from this timer.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="../interfaces/run.inotifiable.html" class="tsd-signature-type">INotifiable</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the task to call once the set interval times out.</p>
+										<p>a INotifiable object to be triggered.</p>
 									</div>
 								</li>
 							</ul>
@@ -502,19 +548,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L101">run/FixedRateTimer.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L151">run/FixedRateTimer.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Starts a timer to call this object&#39;s &#39;callback&#39; function as soon as the time set in
-									&#39;interval&#39; has passed.</p>
+									<p>Starts the timer.</p>
 								</div>
-								<p>If a &#39;delay&#39; is set, then a delay of &quot;delay - interval&quot; will be introduced. Otherwise,
-								the timer will start without a delay.</p>
-								<p>Both the delay and the timeout can be stopped using this class&#39;s <a href="run.fixedratetimer.html#stop">stop</a> method.</p>
-								<p>If a timer is already set by this object it will be <a href="run.fixedratetimer.html#stop">stopped</a>.
-								The method will exit if &#39;interval&#39; is not defined.</p>
+								<p>Initially the timer is triggered after delay.
+								After that it is triggered after interval until it is stopped.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.fixedratetimer.html#stop">stop</a></p>
@@ -535,13 +577,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/FixedRateTimer.ts#L131">run/FixedRateTimer.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L180">run/FixedRateTimer.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Stops this objects timer by clearing any timeouts (delays)
-									or timers (intervals) that were set using <a href="run.fixedratetimer.html#start">start</a>.</p>
+									<p>Stops the timer.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>

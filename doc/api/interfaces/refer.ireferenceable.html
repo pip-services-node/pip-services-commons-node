@@ -70,28 +70,31 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for components that require referencing other components.</p>
+						<p>Interface for components that depends on other components.</p>
 					</div>
+					<p>If component requires explicit notification to unset references
+					it shall additionally implement <a href="refer.iunreferenceable.html">IUnreferenceable</a> interface.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="refer.ireferences.html">IReferences</a></p>
-							<h3 id="examples">Examples</h3>
-							<p>Example implementation of the IReferenceable interface:</p>
-							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyReferenceClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IReferenceable</span> {</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-string">_references:</span> IReferences;
-
-    constructor(<span class="hljs-string">references:</span> IReferences) {
-        setReferences(references)
-    }
-
-    <span class="hljs-keyword">public</span> setReferences(<span class="hljs-string">references:</span> IReferences): <span class="hljs-keyword">void</span> {
-        <span class="hljs-keyword">this</span>._references = references;
-    }
-
-    ...
-
-}
-</code></pre></dd>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="refer.iunreferenceable.html">IUnreferenceable</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../classes/refer.referencer.html">Referencer</a></p>
+							<h3 id="example">Example</h3>
+							<p> export class MyController implements IReferenceable {
+								public _persistence: IMyPersistence;
+								...
+								public setReferences(references: IReferences): void {
+								this._persistence = references.getOneRequired<IMyPersistence>(
+									new Descriptor(&quot;mygroup&quot;, &quot;persistence&quot;, &quot;<em>&quot;, &quot;</em>&quot;, &quot;1.0&quot;)
+									);
+									}
+									...
+							}</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -134,13 +137,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/IReferenceable.ts#L36">refer/IReferenceable.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/IReferenceable.ts#L34">refer/IReferenceable.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets references to other components. After references are set,
-									required dependencies can be found using component locators.</p>
+									<p>Sets references to dependent components.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -153,7 +155,7 @@
 								<li>
 									<h5>references: <a href="refer.ireferences.html" class="tsd-signature-type">IReferences</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the component references required by this component.</p>
+										<p>references to locate the component dependencies.</p>
 									</div>
 								</li>
 							</ul>

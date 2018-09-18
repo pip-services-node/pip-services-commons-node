@@ -70,18 +70,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved
-						in various ways with the help of numerous converters.</p>
+						<p>Cross-language implementation of dynamic object array what can hold values of any type.
+						The stored values can be converted to different types using variety of accessor methods.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params">values: any[]</span>) </span>{
-    <span class="hljs-keyword">let</span> array1 = AnyValueArray.fromString(<span class="hljs-string">"MyData1,Error,Example,"</span>, <span class="hljs-string">","</span>);
-    ...
-
-    <span class="hljs-keyword">let</span> array2 = <span class="hljs-keyword">new</span> AnyValueArray(values);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = new AnyValueArray([1, &quot;123.456&quot;, &quot;2018-01-01&quot;]);</p>
+					<p>value1.getAsBoolean(0);   // Result: true
+						value1.getAsInteger(1);   // Result: 123
+						value1.getAsFloat(1);     // Result: 123.456
+					value1.getAsDateTime(2);  // Result: new Date(2018,0,1)</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="convert.stringconverter.html">StringConverter</a></p>
@@ -137,18 +134,15 @@
 				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that allows for usage of abstract, portable arrays. Stores a set of values, which can be retrieved
-						in various ways with the help of numerous converters.</p>
+						<p>Cross-language implementation of dynamic object array what can hold values of any type.
+						The stored values can be converted to different types using variety of accessor methods.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params">values: any[]</span>) </span>{
-    <span class="hljs-keyword">let</span> array1 = AnyValueArray.fromString(<span class="hljs-string">"MyData1,Error,Example,"</span>, <span class="hljs-string">","</span>);
-    ...
-
-    <span class="hljs-keyword">let</span> array2 = <span class="hljs-keyword">new</span> AnyValueArray(values);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = new AnyValueArray([1, &quot;123.456&quot;, &quot;2018-01-01&quot;]);</p>
+					<p>value1.getAsBoolean(0);   // Result: true
+						value1.getAsInteger(1);   // Result: 123
+						value1.getAsFloat(1);     // Result: 123.456
+					value1.getAsDateTime(2);  // Result: new Date(2018,0,1)</p>
 				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -254,25 +248,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L42">data/AnyValueArray.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L42">data/AnyValueArray.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new object and sets its values to the &#39;values&#39; passed
-										as a parameter. If &#39;values&#39; are omitted, they can be set later on using
-									<a href="data.anyvaluearray.html#setasobject">setAsObject</a> or <a href="data.anyvaluearray.html#append">append</a>.</p>
+									<p>Creates a new instance of the array and assigns its value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the values to store in this AnyValueArray.</p>
-										</div>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
@@ -288,7 +275,7 @@
 					<div class="tsd-signature tsd-kind-icon">Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ArrayConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +286,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Array.length</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,12 +308,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L95">data/AnyValueArray.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L93">data/AnyValueArray.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends items to this AnyValueArray.</p>
+									<p>Appends new elements to this array.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -334,7 +321,7 @@
 								<li>
 									<h5>elements: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>items to append to this AnyValueArray.</p>
+										<p>a list of elements to be added.</p>
 									</div>
 								</li>
 							</ul>
@@ -352,12 +339,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L103">data/AnyValueArray.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L103">data/AnyValueArray.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes all items from this AnyValueArray.</p>
+									<p>Clears this array by removing all its elements.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -375,10 +362,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/data.icloneable.html">ICloneable</a>.<a href="../interfaces/data.icloneable.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L647">data/AnyValueArray.ts:647</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L615">data/AnyValueArray.ts:615</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a binary clone of this object.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 							<p>a clone of this object.</p>
@@ -395,12 +385,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L599">data/AnyValueArray.ts:599</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L567">data/AnyValueArray.ts:567</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Verifies that this AnyValueArray contains the given value.</p>
+									<p>Checks if this array contains a value.
+									The check uses direct comparison between elements and the specified value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -408,12 +399,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to search for in this AnyValueArray.</p>
+										<p>a value to be checked</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this AnyValueArray contains the given value.</p>
+							<p>true if this array contains the value or false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -421,21 +412,19 @@
 					<a name="containsastype" class="tsd-anchor"></a>
 					<h3>contains<wbr>AsType</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">contains<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">contains<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>typeCode<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L629">data/AnyValueArray.ts:629</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L593">data/AnyValueArray.ts:593</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Verifies that this AnyValueArray contains a certain value as an object of type &#39;type&#39;.
-										The value passed will be converted using <a href="convert.typeconverter.html#totype">TypeConverter.toType</a>, where as this AnyValueArray&#39;s
-										values will be converted using <a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a>. After conversion, the value is searched
-									for amongst the AnyValueArray&#39;s converted values.</p>
+									<p>Checks if this array contains a value.
+									The check before comparison converts elements and the value to type specified by type code.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -455,22 +444,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<h5>typeCode: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to use for converting &#39;value&#39; into an object of type &#39;type&#39; using the
-										TypeConverter class.</p>
+										<p>a type code that defines a type to convert values before comparison</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to search for amongst this AnyValueArray&#39;s values after conversion.</p>
+										<p>a value to be checked</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this AnyValueArray contains the given value as an object of type
-							&#39;type&#39;. If both converted values are null, true will be returned.</p>
+							<p>true if this array contains the value or false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -484,12 +471,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L67">data/AnyValueArray.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L65">data/AnyValueArray.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item that is located at the given index.</p>
+									<p>Gets an array element specified by its index.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -497,12 +484,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve from this AnyValueArray.</p>
+										<p>an index of the element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the item that is located at the given index.</p>
+							<p>the value of the array element.</p>
 						</li>
 					</ul>
 				</section>
@@ -516,12 +503,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L525">data/AnyValueArray.ts:525</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L499">data/AnyValueArray.ts:499</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as an AnyValueArray object.</p>
+									<p>Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -534,12 +521,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given index as an AnyValueArray object.</p>
+							<p>AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -553,13 +540,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L542">data/AnyValueArray.ts:542</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L513">data/AnyValueArray.ts:513</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as an AnyValueArray object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts array element into an AnyValueArray or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -572,20 +558,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given index cannot be converted
-										into an AnyValueArray.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given index as an AnyValueArray object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueArray value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -599,13 +583,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L209">data/AnyValueArray.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L206">data/AnyValueArray.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable boolean object using
-									<a href="data.anyvaluearray.html#getasbooleanwithdefault">AnyValueArray.getAsBooleanWithDefault</a> and returns it.</p>
+									<p>Converts array element into a boolean or returns false if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -618,12 +601,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given index as a boolean (or false as the default).</p>
+							<p>boolean value ot the element or false if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -637,13 +620,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L224">data/AnyValueArray.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L219">data/AnyValueArray.ts:219</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable boolean object using
-									<a href="convert.booleanconverter.html#tobooleanwithdefault">BooleanConverter.toBooleanWithDefault</a> and returns it.</p>
+									<p>Converts array element into a boolean or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -656,19 +638,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given index as a boolean or the
-							defaultValue (if conversion is not possible).</p>
+							<p>boolean value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -682,13 +663,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L424">data/AnyValueArray.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L401">data/AnyValueArray.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable Datetime object using
-									<a href="data.anyvaluearray.html#getasdatetimewithdefault">AnyValueArray.getAsDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts array element into a Date or returns the current date if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -701,12 +681,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given index as a Datetime (or null as the default).</p>
+							<p>Date value ot the element or the current date if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -720,13 +700,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L439">data/AnyValueArray.ts:439</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L414">data/AnyValueArray.ts:414</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable Datetime object using
-									<a href="convert.datetimeconverter.html#todatetimewithdefault">DateTimeConverter.toDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts array element into a Date or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -739,19 +718,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given index as a Datetime or the
-							defaultValue (if conversion is not possible).</p>
+							<p>Date value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -765,13 +743,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L381">data/AnyValueArray.ts:381</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L362">data/AnyValueArray.ts:362</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable double object using
-									<a href="data.anyvaluearray.html#getasdoublewithdefault">AnyValueArray.getAsDoubleWithDefault</a> and returns it.</p>
+									<p>Converts array element into a double or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -784,12 +761,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a double (or 0 as the default).</p>
+							<p>double value ot the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -803,13 +780,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L396">data/AnyValueArray.ts:396</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L375">data/AnyValueArray.ts:375</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable double object using
-									<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a> and returns it.</p>
+									<p>Converts array element into a double or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -822,19 +798,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a double or the
-							defaultValue (if conversion is not possible).</p>
+							<p>double value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -848,13 +823,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L338">data/AnyValueArray.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L323">data/AnyValueArray.ts:323</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable float object using
-									<a href="data.anyvaluearray.html#getasfloatwithdefault">AnyValueArray.getAsFloatWithDefault</a> and returns it.</p>
+									<p>Converts array element into a float or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -867,12 +841,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a float (or 0 as the default).</p>
+							<p>float value ot the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -886,13 +860,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L353">data/AnyValueArray.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L336">data/AnyValueArray.ts:336</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable float object using
-									<a href="convert.floatconverter.html#tofloatwithdefault">FloatConverter.toFloatWithDefault</a> and returns it.</p>
+									<p>Converts array element into a float or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -905,19 +878,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a float or the
-							defaultValue (if conversion is not possible).</p>
+							<p>float value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -931,13 +903,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L252">data/AnyValueArray.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L245">data/AnyValueArray.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable integer object using
-									<a href="data.anyvaluearray.html#getasintegerwithdefault">AnyValueArray.getAsIntegerWithDefault</a> and returns it.</p>
+									<p>Converts array element into an integer or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -950,12 +921,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as an integer (or 0 as the default).</p>
+							<p>integer value ot the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -969,13 +940,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L267">data/AnyValueArray.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L258">data/AnyValueArray.ts:258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable integer object using
-									<a href="convert.integerconverter.html#tointegerwithdefault">IntegerConverter.toIntegerWithDefault</a> and returns it.</p>
+									<p>Converts array element into an integer or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -988,19 +958,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as an integer or the
-							defaultValue (if conversion is not possible).</p>
+							<p>integer value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1014,13 +983,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L295">data/AnyValueArray.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L284">data/AnyValueArray.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable long object using
-									<a href="data.anyvaluearray.html#getaslongwithdefault">AnyValueArray.getAsLongWithDefault</a> and returns it.</p>
+									<p>Converts array element into a long or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1033,12 +1001,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a long (or 0 as the default).</p>
+							<p>long value ot the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1052,13 +1020,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L310">data/AnyValueArray.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L297">data/AnyValueArray.ts:297</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable long object using
-									<a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a> and returns it.</p>
+									<p>Converts array element into a long or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1071,19 +1038,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a long or the
-							defaultValue (if conversion is not possible).</p>
+							<p>long value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1097,12 +1063,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L571">data/AnyValueArray.ts:571</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L541">data/AnyValueArray.ts:541</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as an AnyValueMap object.</p>
+									<p>Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1118,12 +1084,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given index as an AnyValueMap object.</p>
+							<p>AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1137,13 +1103,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L588">data/AnyValueArray.ts:588</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L555">data/AnyValueArray.ts:555</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as an AnyValueMap object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts array element into an AnyValueMap or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1156,20 +1121,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given index cannot be converted
-										into an AnyValueMap.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given index as an AnyValueMap object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueMap value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1183,12 +1146,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L512">data/AnyValueArray.ts:512</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L486">data/AnyValueArray.ts:486</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as a nullable AnyValueArray object.</p>
+									<p>Converts array element into an AnyValueArray or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1201,13 +1164,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given index as a nullable AnyValueArray object (returns
-							null if the item at the given index is null).</p>
+							<p>AnyValueArray value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1221,13 +1183,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L195">data/AnyValueArray.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L193">data/AnyValueArray.ts:193</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable boolean object using
-									<a href="convert.booleanconverter.html#tonullableboolean">BooleanConverter.toNullableBoolean</a> and returns it.</p>
+									<p>Converts array element into a boolean or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1240,12 +1201,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given index as a nullable boolean.</p>
+							<p>boolean value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1259,13 +1220,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L410">data/AnyValueArray.ts:410</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L388">data/AnyValueArray.ts:388</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable Datetime object using
-									<a href="convert.datetimeconverter.html#tonullabledatetime">DateTimeConverter.toNullableDateTime</a> and returns it.</p>
+									<p>Converts array element into a Date or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1278,12 +1238,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given index as a nullable Datetime.</p>
+							<p>Date value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1297,13 +1257,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L367">data/AnyValueArray.ts:367</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L349">data/AnyValueArray.ts:349</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable double object using
-									<a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a> and returns it.</p>
+									<p>Converts array element into a double or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1316,12 +1275,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a nullable double.</p>
+							<p>double value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1335,13 +1294,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L324">data/AnyValueArray.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L310">data/AnyValueArray.ts:310</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable float object using
-									<a href="convert.floatconverter.html#tonullablefloat">FloatConverter.toNullableFloat</a> and returns it.</p>
+									<p>Converts array element into a float or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1354,12 +1312,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a nullable float.</p>
+							<p>float value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1373,13 +1331,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L238">data/AnyValueArray.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L232">data/AnyValueArray.ts:232</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable integer object using
-									<a href="convert.integerconverter.html#tonullableinteger">IntegerConverter.toNullableInteger</a> and returns it.</p>
+									<p>Converts array element into an integer or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1392,12 +1349,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a nullable integer.</p>
+							<p>integer value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1411,13 +1368,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L281">data/AnyValueArray.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L271">data/AnyValueArray.ts:271</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable long object using
-									<a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a> and returns it.</p>
+									<p>Converts array element into a long or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1430,12 +1386,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given index as a nullable long.</p>
+							<p>long value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1449,12 +1405,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L557">data/AnyValueArray.ts:557</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L527">data/AnyValueArray.ts:527</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as a nullable AnyValueMap object.</p>
+									<p>Converts array element into an AnyValueMap or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1470,13 +1426,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given index as a nullable AnyValueMap object (returns
-							null if the item at the given index is null).</p>
+							<p>AnyValueMap value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1490,13 +1445,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L152">data/AnyValueArray.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L154">data/AnyValueArray.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable string object using
-									<a href="convert.stringconverter.html#tonullablestring">StringConverter.toNullableString</a> and returns it.</p>
+									<p>Converts array element into a string or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1509,12 +1463,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given index as a nullable string.</p>
+							<p>string value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1528,13 +1482,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L454">data/AnyValueArray.ts:454</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L429">data/AnyValueArray.ts:429</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a nullable object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a> and returns it.</p>
+									<p>Converts array element into a value defined by specied typecode.
+									If conversion is not possible it returns null.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1553,18 +1507,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given index as a nullable object of type &#39;type&#39;.</p>
+							<p>element value defined by the typecode or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1578,23 +1532,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L112">data/AnyValueArray.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L114">data/AnyValueArray.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value stored in array element without any conversions.
+									When element index is not defined it returns the entire array value.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>(optional) an index of the element to get</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the item at the given index without any conversions or
-							all items (if &#39;index&#39; is undefined or omitted).</p>
+							<p>the element value or value of the array when index is not defined.</p>
 						</li>
 					</ul>
 				</section>
@@ -1608,13 +1565,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L166">data/AnyValueArray.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L167">data/AnyValueArray.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable string object using
-									<a href="data.anyvaluearray.html#getasstringwithdefault">AnyValueArray.getAsStringWithDefault</a> and returns it.</p>
+									<p>Converts array element into a string or returns &quot;&quot; if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1627,12 +1583,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given index as a string (or null as the default).</p>
+							<p>string value ot the element or &quot;&quot; if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1646,13 +1602,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L181">data/AnyValueArray.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L180">data/AnyValueArray.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into a defaultable string object using
-									<a href="convert.stringconverter.html#tostringwithdefault">StringConverter.toStringWithDefault</a> and returns it.</p>
+									<p>Converts array element into a string or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1665,19 +1620,18 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given index as a string or the
-							defaultValue (if conversion is not possible).</p>
+							<p>string value ot the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1691,13 +1645,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L469">data/AnyValueArray.ts:469</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L444">data/AnyValueArray.ts:444</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts array element into a value defined by specied typecode.
+									If conversion is not possible it returns default value for the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1716,18 +1670,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given index as an object of type &#39;type&#39; (or null as the default).</p>
+							<p>element value defined by the typecode or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1741,13 +1695,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L484">data/AnyValueArray.ts:484</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L459">data/AnyValueArray.ts:459</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given index into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts array element into a value defined by specied typecode.
+									If conversion is not possible it returns default value.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1766,22 +1720,24 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an index of element to get.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given index as an object of type &#39;type&#39; or the defaultValue,
-							if conversion is not possible.</p>
+							<p>element value defined by the typecode or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1795,12 +1751,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L498">data/AnyValueArray.ts:498</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L473">data/AnyValueArray.ts:473</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given index as an AnyValue object.</p>
+									<p>Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1816,12 +1772,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to retrieve.</p>
+										<p>an index of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvalue.html" class="tsd-signature-type">AnyValue</a></h4>
-							<p>the item at the given index as an AnyValue object.</p>
+							<p>AnyValue value of the element or empty AnyValue if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1835,12 +1791,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L77">data/AnyValueArray.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L75">data/AnyValueArray.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Puts a value into this AnyValueArray at the given index.</p>
+									<p>Puts a new value into array element specified by its index.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1848,13 +1804,13 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the index at which to insert the given value.</p>
+										<p>an index of the element to put.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to insert into this AnyValueArray at the given index.</p>
+										<p>a new value for array element.</p>
 									</div>
 								</li>
 							</ul>
@@ -1872,12 +1828,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L86">data/AnyValueArray.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L84">data/AnyValueArray.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes an item by its index from this AnyValueArray.</p>
+									<p>Removes an array element specified by its index</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1885,7 +1841,7 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>index of the item to remove.</p>
+										<p>an index of the element to remove.</p>
 									</div>
 								</li>
 							</ul>
@@ -1903,10 +1859,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L132">data/AnyValueArray.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L135">data/AnyValueArray.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a new value to array element specified by its index.
+										When the index is not defined, it resets the entire array value.
+									This method has double purpose because method overrides are not supported in JavaScript.</p>
+								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.arrayconverter.html#toarray">ArrayConverter.toArray</a></p>
@@ -1918,16 +1879,13 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the position in this AnyValueArray to set the value at.</p>
+										<p>(optional) an index of the element to set</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in this AnyValueArray at the given &#39;index&#39;.
-											If &#39;index&#39; is omitted, then this AnyValueArray will be set (cleared and
-											filled anew) using &#39;value&#39;. In this case &#39;value&#39; will be converted to
-										an array using &quot;ArrayConverter.toArray(value)&quot; and set to this AnyValueArray.</p>
+										<p>a new element or array value.</p>
 									</div>
 								</li>
 							</ul>
@@ -1945,14 +1903,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L656">data/AnyValueArray.ts:656</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L628">data/AnyValueArray.ts:628</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a string representation of the object.
+										The result is a comma-separated list of string representations of individual elements as
+									&quot;value1,value2,value3&quot;</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="convert.stringconverter.html#tostring">StringConverter.toString</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this AnyValueArray as a comma-separated values string.</p>
-							<p>Example: &quot;value1,,value3&quot;.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>
@@ -1968,7 +1935,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1991,7 +1958,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2023,7 +1990,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.every</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2086,7 +2053,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2145,7 +2112,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2207,7 +2174,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.forEach</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2268,13 +2235,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L698">data/AnyValueArray.ts:698</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L670">data/AnyValueArray.ts:670</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueArray from a string of &#39;values&#39;, separated using the char passed as
-									&#39;separator&#39;.</p>
+									<p>Splits specified string into elements using a separator and assigns
+									the elements to a newly created AnyValueArray.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2282,24 +2249,24 @@
 								<li>
 									<h5>values: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>string of values, separated by the char passed as &#39;separator&#39;</p>
+										<p>a string value to be split and assigned to AnyValueArray</p>
 									</div>
 								</li>
 								<li>
 									<h5>separator: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>char that is used to separate the values in the string passed as &#39;values&#39;.</p>
+										<p>a separator to split the string</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> removeDuplicates: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) boolean that defines whether or not duplicate items should be removed.</p>
+										<p>(optional) true to remove duplicated elements</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the AnyValueArray that was created and filled by &#39;values&#39;.</p>
+							<p>a newly created AnyValueArray.</p>
 						</li>
 					</ul>
 				</section>
@@ -2313,12 +2280,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L684">data/AnyValueArray.ts:684</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L656">data/AnyValueArray.ts:656</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueArray from a value using <a href="convert.arrayconverter.html#tonullablearray">ArrayConverter.toNullableArray</a>.</p>
+									<p>Converts specified value into AnyValueArray.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -2331,12 +2298,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to convert to a nullable array and initialize the new AnyValueArray with.</p>
+										<p>value to be converted</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the AnyValueArray that was created and filled by &#39;value&#39;.</p>
+							<p>a newly created AnyValueArray.</p>
 						</li>
 					</ul>
 				</section>
@@ -2350,12 +2317,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueArray.ts#L672">data/AnyValueArray.ts:672</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueArray.ts#L644">data/AnyValueArray.ts:644</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueArray from the values passed as parameters.</p>
+									<p>Creates a new AnyValueArray from a list of values</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2363,12 +2330,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the values to initialize the AnyValueArray with, which are passed as parameters.</p>
+										<p>a list of values to initialize the created AnyValueArray</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the AnyValueArray created and filled by the values provided.</p>
+							<p>a newly created AnyValueArray.</p>
 						</li>
 					</ul>
 				</section>
@@ -2383,7 +2350,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.indexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2421,7 +2388,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.join</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2453,7 +2420,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.lastIndexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2491,7 +2458,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.map</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2559,7 +2526,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.pop</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2585,7 +2552,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.push</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2619,7 +2586,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2669,7 +2636,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2714,7 +2681,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2787,7 +2754,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2837,7 +2804,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2882,7 +2849,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2953,7 +2920,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reverse</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2976,7 +2943,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.shift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3002,7 +2969,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.slice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3040,7 +3007,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.some</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3102,7 +3069,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.sort</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3156,7 +3123,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3185,7 +3152,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3229,7 +3196,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toLocaleString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3252,7 +3219,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3275,7 +3242,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.unshift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

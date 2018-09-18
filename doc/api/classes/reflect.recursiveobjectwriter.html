@@ -70,8 +70,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for writing nested object properties recursively.</p>
+						<p>Helper class to perform property introspection and dynamic writing.</p>
 					</div>
+					<p>It is similar to <a href="reflect.objectwriter.html">ObjectWriter</a> but writes properties recursively
+						through the entire object graph. Nested property names are defined
+					using dot notation as &quot;object.subobject.property&quot;</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="reflect.propertyreflector.html">PropertyReflector</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="reflect.objectwriter.html">ObjectWriter</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -109,14 +120,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectWriter.ts#L92">reflect/RecursiveObjectWriter.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectWriter.ts#L105">reflect/RecursiveObjectWriter.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Copies object properties from a source to the given destination. Calls
-										<a href="reflect.recursiveobjectreader.html#getproperties">RecursiveObjectReader.getProperties</a> to retrieve properties from the source
-									and <a href="reflect.recursiveobjectwriter.html#setproperties">RecursiveObjectWriter.setProperties</a> to set them in the destination.</p>
+									<p>Copies content of one object to another object
+										by recursively reading all properties from source object
+									and then recursively writing them to destination object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -124,13 +135,13 @@
 								<li>
 									<h5>dest: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the destination to which the properties are to be copied.</p>
+										<p>a destination object to write properties to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>src: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the source from which the properties are to be copied.</p>
+										<p>a source object to read properties from</p>
 									</div>
 								</li>
 							</ul>
@@ -148,27 +159,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectWriter.ts#L75">reflect/RecursiveObjectWriter.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectWriter.ts#L88">reflect/RecursiveObjectWriter.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets multiple object properties at once.</p>
+									<p>Recursively sets values of some (all) object and its subobjects properties.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Property values correspondently are object properties,
+								map key-pairs or array elements with their indexes.</p>
+								<p>If some properties do not exist or introspection fails
+								they are just silently skipped and no errors thrown.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.recursiveobjectwriter.html#setproperty">setProperty</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to set properties in.</p>
+										<p>an object to write properties to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>values: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a map, containing property names (in dot-notation) and the
-										values to set. Example property name: &quot;data.sampleData.sample1&quot;.</p>
+										<p>a map, containing property names and their values.</p>
 									</div>
 								</li>
 							</ul>
@@ -186,33 +206,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectWriter.ts#L58">reflect/RecursiveObjectWriter.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectWriter.ts#L63">reflect/RecursiveObjectWriter.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets an object&#39;s nested property to the value that is passed.</p>
+									<p>Recursively sets value of object and its subobjects property specified by its name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
+								<p>If the property does not exist or introspection fails
+								this method doesn&#39;t do anything and doesn&#39;t any throw errors.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to set a property in.</p>
+										<p>an object to write property to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property (in dot-notation) to set.
-										Example property name: &quot;data.sampleData.sample1&quot;.</p>
+										<p>a name of the property to set.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in the object&#39;s given property.</p>
+										<p>a new value for the property to set.</p>
 									</div>
 								</li>
 							</ul>

@@ -70,8 +70,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that can be used to close components.</p>
+						<p>Helper class that closes previously opened components.</p>
 					</div>
+					<p>[[ICloseable]]</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,15 +109,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/Closer.ts#L48">run/Closer.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/Closer.ts#L50">run/Closer.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for closing multiple components. For a component to be closed, it must implement
-										the <a href="../interfaces/run.iclosable.html">IClosable</a> interface. This method calls the static <a href="run.closer.html#closeone">closeOne</a> method for each of the
-									components passed.</p>
+									<p>Closes multiple components.</p>
 								</div>
+								<p>To be closed components must implement [[ICloseable]] interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="run.closer.html#closeone">closeOne</a></p>
@@ -143,8 +144,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the closing process is complete. It will
-										be called with an error if one is raised.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
@@ -180,15 +180,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/run/Closer.ts#L23">run/Closer.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/Closer.ts#L25">run/Closer.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for closing a component. For a component to be closed, it must implement
-										the <a href="../interfaces/run.iclosable.html">IClosable</a> interface. This method calls ICloseable&#39;s <a href="../interfaces/run.iclosable.html#close">close</a> method
-									to close the component passed.</p>
+									<p>Closes specific component.</p>
 								</div>
+								<p>To be closed components must implement [[ICloseable]] interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/run.iclosable.html">IClosable</a></p>
@@ -212,8 +212,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function to call when the closing process is complete. It will
-										be called with an error if one is raised.</p>
+										<p>callback function that receives error or null no errors occured.</p>
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">

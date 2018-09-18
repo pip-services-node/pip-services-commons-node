@@ -70,20 +70,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that includes standard design patterns for data sorting.
-							Sorting parameters contain information about how to sort the
-						data from a data source, using the fields available.</p>
+						<p>Defines a field name and order used to sort query results.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="data.sortfield.html">SortField</a></p>
-							<h3 id="examples">Examples</h3>
-							<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">let</span> sortParams = <span class="hljs-keyword">new</span> SortParams();
-    sortParams.<span class="hljs-keyword">add</span>(<span class="hljs-keyword">new</span> SortField(<span class="hljs-string">"key"</span>, <span class="hljs-literal">false</span>));
-    ...
-}
-</code></pre></dd>
+							<h3 id="example">Example</h3>
+							<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
+								let paging = new PagingParams(0, 100);
+							let sorting = new SortingParams(new SortField(&quot;create_time&quot;, true));</p>
+							<p>myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -105,9 +102,7 @@
 				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><a href="data.sortfield.html" class="tsd-signature-type">SortField</a></div>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that includes standard design patterns for data sorting.
-							Sorting parameters contain information about how to sort the
-						data from a data source, using the fields available.</p>
+						<p>Defines a field name and order used to sort query results.</p>
 					</div>
 				</div>
 			</section>
@@ -163,29 +158,27 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Sort<wbr>Params<span class="tsd-signature-symbol">(</span>fields<span class="tsd-signature-symbol">?: </span><a href="data.sortfield.html" class="tsd-signature-type">SortField</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.sortparams.html" class="tsd-signature-type">SortParams</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Sort<wbr>Params<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>fields<span class="tsd-signature-symbol">: </span><a href="data.sortfield.html" class="tsd-signature-type">SortField</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="data.sortparams.html" class="tsd-signature-type">SortParams</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/SortParams.ts#L19">data/SortParams.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/SortParams.ts#L17">data/SortParams.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="data.sortfield.html">SortField</a></p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>Creates a new instance and initializes it with specified sort fields.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fields: <a href="data.sortfield.html" class="tsd-signature-type">SortField</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>fields: <a href="data.sortfield.html" class="tsd-signature-type">SortField</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the SortFields to use when sorting data using these SortParams.</p>
+											<p>a list of fields to sort by.</p>
 										</div>
 									</div>
 								</li>
@@ -203,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ArrayConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1280</li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +207,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Array.length</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1121</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -238,7 +231,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1143</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -261,7 +254,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.concat</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +286,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.every</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1208</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -356,7 +349,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1232</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +408,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.filter</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +470,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.forEach</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +532,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.indexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1196</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,7 +570,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.join</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1153</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -609,7 +602,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.lastIndexOf</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -647,7 +640,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.map</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1226</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -715,7 +708,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.pop</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1138</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -741,7 +734,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.push</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1134</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -775,7 +768,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1244</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -825,7 +818,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1245</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -870,7 +863,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduce</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1251</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -943,7 +936,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1257</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -993,7 +986,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1258</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1038,7 +1031,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reduceRight</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1264</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1109,7 +1102,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.reverse</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1132,7 +1125,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.shift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1161</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1158,7 +1151,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.slice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1167</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1196,7 +1189,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.some</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1214</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1258,7 +1251,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.sort</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1172</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1312,7 +1305,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1178</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1341,7 +1334,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.splice</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1185</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1385,7 +1378,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toLocaleString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1129</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1408,7 +1401,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.toString</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1125</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1431,7 +1424,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Array.unshift</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:1190</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

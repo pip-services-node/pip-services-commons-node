@@ -70,8 +70,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for reading nested object properties recursively.</p>
+						<p>Helper class to perform property introspection and dynamic reading.</p>
 					</div>
+					<p>It is similar to <a href="reflect.objectreader.html">ObjectReader</a> but reads properties recursively
+						through the entire object graph. Nested property names are defined
+					using dot notation as &quot;object.subobject.property&quot;</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="reflect.propertyreflector.html">PropertyReflector</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="reflect.objectreader.html">ObjectReader</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -110,27 +121,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectReader.ts#L191">reflect/RecursiveObjectReader.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectReader.ts#L189">reflect/RecursiveObjectReader.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves an object&#39;s properties as a map. Nested properties&#39;
-									keys represent the path to the property and are set as dot-notation formatted strings.</p>
+									<p>Get values of all properties in specified object and its subobjects
+									and returns them as a map.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Returned properties correspondently are object properties,
+								map key-pairs or array elements with their indexes.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to get a map of properties from.</p>
+										<p>an object to get properties from.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>a map, containing property names and their values. Nested properties&#39; keys are formatted
-							using dot-notation. Example nested property key: &quot;data.sampleData.sample1&quot;.</p>
+							<p>a map, containing the names of the object&#39;s properties and their values.</p>
 						</li>
 					</ul>
 				</section>
@@ -144,33 +157,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectReader.ts#L71">reflect/RecursiveObjectReader.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectReader.ts#L75">reflect/RecursiveObjectReader.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the value stored in the passed object by the given property name.
-									If &#39;obj&#39; or &#39;name&#39; are <code>null</code> - <code>null</code> will be returned.</p>
+									<p>Recursively gets value of object or its subobjects property specified by its name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to read a property from.</p>
+										<p>an object to read property from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property (in dot-notation) to retrieve.
-										Example property name: &quot;data.sampleData.sample1&quot;.</p>
+										<p>a name of the property to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the value stored by the given property name or null (if the property cannot be read).</p>
+							<p>the property value or null if property doesn&#39;t exist or introspection failed.</p>
 						</li>
 					</ul>
 				</section>
@@ -184,27 +198,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectReader.ts#L137">reflect/RecursiveObjectReader.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectReader.ts#L133">reflect/RecursiveObjectReader.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the names of an object&#39;s properties, including all nested property names.
-									Nested properties&#39; names represent the path to the property and are formatted using dot-notation.</p>
+									<p>Recursively gets names of all properties implemented in specified object and its subobjects.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Returned property name correspondently are object properties,
+								map keys or array indexes.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose property names are to be retrieved.</p>
+										<p>an objec to introspect.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a string array, containing the names of the object&#39;s properties. Nested properties are formatted
-							using dot-notation. Example nested property name: &quot;data.sampleData.sample1&quot;.</p>
+							<p>a list with property names.</p>
 						</li>
 					</ul>
 				</section>
@@ -218,34 +233,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/RecursiveObjectReader.ts#L40">reflect/RecursiveObjectReader.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/RecursiveObjectReader.ts#L43">reflect/RecursiveObjectReader.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not an object contains a nested property with the given
-									name (in dot-notation).</p>
+									<p>Checks recursively if object or its subobjects has a property with specified name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to search for a property in.</p>
+										<p>an object to introspect.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property (in dot-notation) to search for.
-										Example property name: &quot;data.sampleData.sample1&quot;.</p>
+										<p>a name of the property to check.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not the object has a property with the given name. If &#39;obj&#39; or &#39;name&#39;
-							are <code>null</code> - <code>false</code> will be returned.</p>
+							<p>true if the object has the property and false if it doesn&#39;t.</p>
 						</li>
 					</ul>
 				</section>

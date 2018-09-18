@@ -70,48 +70,36 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>ConfigParams represent a hierarchical map that contains configuration parameters and
-						uses complex keys with dot-notation to store simple string values.</p>
+						<p>Contains a key-value map with configuration parameters.
+							All values stored as strings and can be serialized as JSON or string forms.
+						When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
 					</div>
-					<p>Provides hierarchical organization of various configuration parameters using sections,
-					subsections, and keys.</p>
-					<p>Examples of values, stored in configuration parameters:</p>
-					<ul>
-						<li>Section-1.Subsection-1-1.Key-1-1-1=123</li>
-						<li>Section-1.Subsection-1-2.Key-1-2-1=&quot;ABC&quot;</li>
-						<li>Section-2.Subsection-1.Key-2-1-1=&quot;2016-09-16T00:00:00.00Z&quot;</li>
-					</ul>
-					<p>Configuration parameters support getting and adding sections from the map.</p>
-					<p>Also, configuration parameters may come in the form of a parameterized string:
-					Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z</p>
-					<p>All keys stored in the map are case-insensitive.</p>
-					<p>ConfigParams can be used to configure objects of classes that implement <a href="../interfaces/config.iconfigurable.html">IConfigurable</a>.</p>
+					<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: &quot;my_param&quot;</p>
+					<p>Configuration parameters can be broken into sections and subsections using dot notation as:
+						&quot;section1.subsection1.param1&quot;. Using GetSection method all parameters from specified section
+					can be extracted from a ConfigMap.</p>
+					<p>The ConfigParams supports serialization from/to plain strings as:
+					&quot;key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z&quot;</p>
+					<p>ConfigParams are used to pass configurations to <a href="../interfaces/config.iconfigurable.html">IConfigurable</a> objects.
+						They also serve as a basis for more concrete configurations such as [[ConnectionParams]]
+					or [[CredentialParams]].</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/config.iconfigurable.html">IConfigurable</a></p>
 						</dd>
 						<dt>see</dt>
 						<dd><p><a href="data.stringvaluemap.html">StringValueMap</a></p>
-							<h3 id="examples">Examples</h3>
-							<p>Example usage of the ConfigParams class and its methods:</p>
-							<pre><code><span class="hljs-keyword">public</span> MyMethod () {
-    let <span class="hljs-built_in">config</span> = ConfigParams.fromTuples(
-       <span class="hljs-string">"Section1.Key1"</span>, <span class="hljs-string">"Value1"</span>,
-       <span class="hljs-string">"Section1.Key2"</span>, <span class="hljs-string">"Value2"</span>,
-       <span class="hljs-string">"Section1.Key3"</span>, <span class="hljs-string">"Value3"</span>
-    );
-
-    ...
-
-    let value = <span class="hljs-built_in">config</span>.<span class="hljs-built_in">get</span>(<span class="hljs-string">"Section1.Key1"</span>);
-
-    ...
-
-    MyDataConfigClass myConfig = MyDataConfigClass.fromConfig(<span class="hljs-built_in">config</span>);
-    <span class="hljs-comment">//or</span>
-    MyDataConfigClass myConfig = <span class="hljs-keyword">new</span> MyDataConfigClass(<span class="hljs-built_in">config</span>);
-}
-</code></pre></dd>
+							<h3 id="example">Example</h3>
+							<p>let config = ConfigParams.fromTuples(
+								&quot;section1.key1&quot;, &quot;AAA&quot;,
+								&quot;section1.key2&quot;, 123,
+								&quot;section2.key1&quot;, true
+							);</p>
+							<p>config.getAsString(&quot;section1.key1&quot;); // Result: AAA
+							config.getAsInteger(&quot;section1.key1&quot;); // Result: 0</p>
+							<p>section1 = config.getSection(&quot;section1&quot;);
+							section1.toString(); // Result: key1=AAA;key2=123</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -212,14 +200,12 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L55">config/ConfigParams.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L44">config/ConfigParams.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new ConfigParams object from an array of tuples, a parameterized string
-										(Example: &quot;Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z&quot;), or from an object with
-									configuration parameters stored as properties.</p>
+									<p>Creates a new ConfigParams and fills it with values.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -233,7 +219,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>configuration parameters to store in this object. Defaults to null.</p>
+											<p>(optional) an object to be converted into key-value pairs to initialize this config map.</p>
 										</div>
 									</div>
 								</li>
@@ -255,12 +241,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L140">config/ConfigParams.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L125">config/ConfigParams.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds &#39;sectionParams&#39; to this ConfigParams object under the section named &#39;section&#39;.</p>
+									<p>Adds parameters into this ConfigParams under specified section.
+									Keys for the new parameters are appended with section dot prefix.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -268,15 +255,13 @@
 								<li>
 									<h5>section: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>name of the section, under which &#39;sectionParams&#39; is to be added.
-											The keys of &#39;sectionParams&#39; will be renamed to &quot;(section).&lt;key&#39;s name&gt;&quot;,
-										when added to this ConfigParams object.</p>
+										<p>name of the section where add new parameters</p>
 									</div>
 								</li>
 								<li>
 									<h5>sectionParams: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ConfigParams that are to be added under the section named &#39;section&#39;.</p>
+										<p>new parameters to be added.</p>
 									</div>
 								</li>
 							</ul>
@@ -295,12 +280,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#append">append</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L116">data/StringValueMap.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L111">data/StringValueMap.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends a map of items to this StringValueMap.</p>
+									<p>Appends new elements to this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -308,7 +293,7 @@
 								<li>
 									<h5>map: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the map of items to append to this StringValueMap.</p>
+										<p>a map with elements to be added.</p>
 									</div>
 								</li>
 							</ul>
@@ -327,12 +312,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L127">data/StringValueMap.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L124">data/StringValueMap.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes all values from this StringValueMap.</p>
+									<p>Clears this map by removing all its elements.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -350,10 +335,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L667">data/StringValueMap.ts:667</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L636">data/StringValueMap.ts:636</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a binary clone of this object.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 							<p>a clone of this object.</p>
@@ -371,12 +359,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L71">data/StringValueMap.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L66">data/StringValueMap.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item stored by the given key.</p>
+									<p>Gets a map element specified by its key.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -384,12 +372,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve from this StringValueMap.</p>
+										<p>a key of the element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item stored by the given key.</p>
+							<p>the value of the map element.</p>
 						</li>
 					</ul>
 				</section>
@@ -404,12 +392,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasarray">getAsArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L573">data/StringValueMap.ts:573</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L543">data/StringValueMap.ts:543</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueArray object.</p>
+									<p>Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -425,12 +413,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as an AnyValueArray object.</p>
+							<p>AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -445,13 +433,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasarraywithdefault">getAsArrayWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L591">data/StringValueMap.ts:591</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L558">data/StringValueMap.ts:558</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueArray object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts map element into an AnyValueArray or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -467,20 +454,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given key cannot be converted
-										into an AnyValueArray.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as an AnyValueArray object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueArray value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -495,13 +480,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasboolean">getAsBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L255">data/StringValueMap.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L248">data/StringValueMap.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable boolean object using
-									<a href="data.stringvaluemap.html#getasbooleanwithdefault">StringValueMap.getAsBooleanWithDefault</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns false if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -514,12 +498,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a boolean (or false as the default).</p>
+							<p>boolean value of the element or false if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -534,13 +518,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasbooleanwithdefault">getAsBooleanWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L270">data/StringValueMap.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L261">data/StringValueMap.ts:261</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable boolean object using
-									<a href="convert.booleanconverter.html#tobooleanwithdefault">BooleanConverter.toBooleanWithDefault</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -553,19 +536,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a boolean or the
-							defaultValue (if conversion is not possible).</p>
+							<p>boolean value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -580,13 +562,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdatetime">getAsDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L470">data/StringValueMap.ts:470</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L443">data/StringValueMap.ts:443</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable Datetime object using
-									<a href="data.stringvaluemap.html#getasdatetimewithdefault">StringValueMap.getAsDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a Date or returns the current date if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -599,12 +580,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a Datetime (or null as the default).</p>
+							<p>Date value of the element or the current date if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -619,13 +600,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdatetimewithdefault">getAsDateTimeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L485">data/StringValueMap.ts:485</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L456">data/StringValueMap.ts:456</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable Datetime object using
-									<a href="convert.datetimeconverter.html#todatetimewithdefault">DateTimeConverter.toDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a Date or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -638,19 +618,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a Datetime or the
-							defaultValue (if conversion is not possible).</p>
+							<p>Date value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -665,13 +644,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdouble">getAsDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L427">data/StringValueMap.ts:427</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L404">data/StringValueMap.ts:404</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable double object using
-									<a href="data.stringvaluemap.html#getasdoublewithdefault">StringValueMap.getAsDoubleWithDefault</a> and returns it.</p>
+									<p>Converts map element into a double or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -684,12 +662,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a double (or 0 as the default).</p>
+							<p>double value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -704,13 +682,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdoublewithdefault">getAsDoubleWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L442">data/StringValueMap.ts:442</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L417">data/StringValueMap.ts:417</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable double object using
-									<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a> and returns it.</p>
+									<p>Converts map element into a double or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -723,19 +700,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a double or the
-							defaultValue (if conversion is not possible).</p>
+							<p>double value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -750,13 +726,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasfloat">getAsFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L384">data/StringValueMap.ts:384</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L365">data/StringValueMap.ts:365</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable float object using
-									<a href="data.stringvaluemap.html#getasfloatwithdefault">StringValueMap.getAsFloatWithDefault</a> and returns it.</p>
+									<p>Converts map element into a float or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -769,12 +744,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a float (or 0 as the default).</p>
+							<p>float value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -789,13 +764,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasfloatwithdefault">getAsFloatWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L399">data/StringValueMap.ts:399</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L378">data/StringValueMap.ts:378</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable float object using
-									<a href="convert.floatconverter.html#tofloatwithdefault">FloatConverter.toFloatWithDefault</a> and returns it.</p>
+									<p>Converts map element into a flot or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -808,19 +782,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a float or the
-							defaultValue (if conversion is not possible).</p>
+							<p>flot value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -835,13 +808,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasinteger">getAsInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L298">data/StringValueMap.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L287">data/StringValueMap.ts:287</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable integer object using
-									<a href="data.stringvaluemap.html#getasintegerwithdefault">StringValueMap.getAsIntegerWithDefault</a> and returns it.</p>
+									<p>Converts map element into an integer or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -854,12 +826,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as an integer (or 0 as the default).</p>
+							<p>integer value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -874,13 +846,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasintegerwithdefault">getAsIntegerWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L313">data/StringValueMap.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L300">data/StringValueMap.ts:300</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable integer object using
-									<a href="convert.integerconverter.html#tointegerwithdefault">IntegerConverter.toIntegerWithDefault</a> and returns it.</p>
+									<p>Converts map element into an integer or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -893,19 +864,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as an integer or the
-							defaultValue (if conversion is not possible).</p>
+							<p>integer value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -920,13 +890,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getaslong">getAsLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L341">data/StringValueMap.ts:341</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L326">data/StringValueMap.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable long object using
-									<a href="data.stringvaluemap.html#getaslongwithdefault">StringValueMap.getAsLongWithDefault</a> and returns it.</p>
+									<p>Converts map element into a long or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -939,12 +908,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a long (or 0 as the default).</p>
+							<p>long value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -959,13 +928,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getaslongwithdefault">getAsLongWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L356">data/StringValueMap.ts:356</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L339">data/StringValueMap.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable long object using
-									<a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a> and returns it.</p>
+									<p>Converts map element into a long or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -978,19 +946,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a long or the
-							defaultValue (if conversion is not possible).</p>
+							<p>long value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1005,12 +972,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasmap">getAsMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L618">data/StringValueMap.ts:618</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L584">data/StringValueMap.ts:584</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueMap object.</p>
+									<p>Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1023,12 +990,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as an AnyValueMap object.</p>
+							<p>AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1043,13 +1010,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasmapwithdefault">getAsMapWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L635">data/StringValueMap.ts:635</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L598">data/StringValueMap.ts:598</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueMap object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts map element into an AnyValueMap or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1062,20 +1028,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given key cannot be converted
-										into an AnyValueMap.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as an AnyValueMap object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueMap value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1090,12 +1054,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablearray">getAsNullableArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L559">data/StringValueMap.ts:559</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L529">data/StringValueMap.ts:529</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as a nullable AnyValueArray object.</p>
+									<p>Converts map element into an AnyValueArray or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1111,13 +1075,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as a nullable AnyValueArray object (returns
-							null if the item at the given key is null).</p>
+							<p>AnyValueArray value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1132,13 +1095,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullableboolean">getAsNullableBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L241">data/StringValueMap.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L235">data/StringValueMap.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable boolean object using
-									<a href="convert.booleanconverter.html#tonullableboolean">BooleanConverter.toNullableBoolean</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1151,12 +1113,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a nullable boolean.</p>
+							<p>boolean value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1171,13 +1133,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabledatetime">getAsNullableDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L456">data/StringValueMap.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L430">data/StringValueMap.ts:430</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable Datetime object using
-									<a href="convert.datetimeconverter.html#tonullabledatetime">DateTimeConverter.toNullableDateTime</a> and returns it.</p>
+									<p>Converts map element into a Date or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1190,12 +1151,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a nullable Datetime.</p>
+							<p>Date value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1210,13 +1171,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabledouble">getAsNullableDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L413">data/StringValueMap.ts:413</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L391">data/StringValueMap.ts:391</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable double object using
-									<a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a> and returns it.</p>
+									<p>Converts map element into a double or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1229,12 +1189,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable double.</p>
+							<p>double value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1249,13 +1209,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablefloat">getAsNullableFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L370">data/StringValueMap.ts:370</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L352">data/StringValueMap.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable float object using
-									<a href="convert.floatconverter.html#tonullablefloat">FloatConverter.toNullableFloat</a> and returns it.</p>
+									<p>Converts map element into a float or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1268,12 +1227,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable float.</p>
+							<p>float value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1288,13 +1247,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullableinteger">getAsNullableInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L284">data/StringValueMap.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L274">data/StringValueMap.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable integer object using
-									<a href="convert.integerconverter.html#tonullableinteger">IntegerConverter.toNullableInteger</a> and returns it.</p>
+									<p>Converts map element into an integer or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1307,12 +1265,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable integer.</p>
+							<p>integer value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1327,13 +1285,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablelong">getAsNullableLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L327">data/StringValueMap.ts:327</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L313">data/StringValueMap.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable long object using
-									<a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a> and returns it.</p>
+									<p>Converts map element into a long or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1346,12 +1303,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable long.</p>
+							<p>long value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1366,12 +1323,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablemap">getAsNullableMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L605">data/StringValueMap.ts:605</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L571">data/StringValueMap.ts:571</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as a nullable AnyValueMap object.</p>
+									<p>Converts map element into an AnyValueMap or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1384,13 +1341,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as a nullable AnyValueMap object (returns
-							null if the item at the given key is null).</p>
+							<p>AnyValueMap value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1405,13 +1361,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablestring">getAsNullableString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L198">data/StringValueMap.ts:198</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L196">data/StringValueMap.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable string object using
-									<a href="convert.stringconverter.html#tonullablestring">StringConverter.toNullableString</a> and returns it.</p>
+									<p>Converts map element into a string or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1424,12 +1379,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a nullable string.</p>
+							<p>string value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1444,13 +1399,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabletype">getAsNullableType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L500">data/StringValueMap.ts:500</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L471">data/StringValueMap.ts:471</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns null.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1469,18 +1424,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as a nullable object of type &#39;type&#39;.</p>
+							<p>element value defined by the typecode or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1495,23 +1450,26 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasobject">getAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L155">data/StringValueMap.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L153">data/StringValueMap.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value stored in map element without any conversions.
+									When element key is not defined it returns the entire map value.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>(optional) a key of the element to get</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the item at the given key without any conversions or
-							all items (if &#39;key&#39; is undefined or omitted).</p>
+							<p>the element value or value of the map when index is not defined.</p>
 						</li>
 					</ul>
 				</section>
@@ -1526,13 +1484,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasstring">getAsString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L212">data/StringValueMap.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L209">data/StringValueMap.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable string object using
-									<a href="data.stringvaluemap.html#getasstringwithdefault">StringValueMap.getAsStringWithDefault</a> and returns it.</p>
+									<p>Converts map element into a string or returns &quot;&quot; if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1545,12 +1502,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a string (or null as the default).</p>
+							<p>string value of the element or &quot;&quot; if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1565,13 +1522,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasstringwithdefault">getAsStringWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L227">data/StringValueMap.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L222">data/StringValueMap.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable string object using
-									<a href="convert.stringconverter.html#tostringwithdefault">StringConverter.toStringWithDefault</a> and returns it.</p>
+									<p>Converts map element into a string or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1584,19 +1540,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a string or the
-							defaultValue (if conversion is not possible).</p>
+							<p>string value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1611,13 +1566,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getastype">getAsType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L515">data/StringValueMap.ts:515</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L486">data/StringValueMap.ts:486</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns default value for the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1636,18 +1591,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as an object of type &#39;type&#39; (or null as the default).</p>
+							<p>element value defined by the typecode or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1662,13 +1617,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getastypewithdefault">getAsTypeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L530">data/StringValueMap.ts:530</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L501">data/StringValueMap.ts:501</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns default value.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1687,22 +1642,24 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a key of element to get.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as an object of type &#39;type&#39; or the defaultValue,
-							if conversion is not possible.</p>
+							<p>element value defined by the typecode or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1717,12 +1674,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasvalue">getAsValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L544">data/StringValueMap.ts:544</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L515">data/StringValueMap.ts:515</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValue object.</p>
+									<p>Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1738,12 +1695,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvalue.html" class="tsd-signature-type">AnyValue</a></h4>
-							<p>the item at the given key as an AnyValue object.</p>
+							<p>AnyValue value of the element or empty AnyValue if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1758,16 +1715,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getkeys">getKeys</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L80">data/StringValueMap.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L75">data/StringValueMap.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns this StringValueMap&#39;s keyset as a list of strings.</p>
+									<p>Gets keys of all elements stored in this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>all of the keys that are contained in this StringValueMap as a list of strings.</p>
+							<p>a list with all map keys.</p>
 						</li>
 					</ul>
 				</section>
@@ -1781,10 +1738,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L110">config/ConfigParams.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L96">config/ConfigParams.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets parameters from specific section stored in this ConfigMap.
+									The section name is removed from parameter keys.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1797,9 +1758,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
 							<p>all configuration parameters that belong to the section named &#39;section&#39;.</p>
-							<p>Example key &quot;Section-1.Subsection-1-1.Key-1-1-1&quot; contains the section named &quot;Section-1&quot;.
-								Calling <code>getSection(&quot;Section-1&quot;)</code> would return a ConfigParams object containing
-							the key &quot;Subsection-1-1.Key-1-1-1&quot;</p>
 						</li>
 					</ul>
 				</section>
@@ -1813,14 +1771,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L75">config/ConfigParams.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L62">config/ConfigParams.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list with all 1st level section names.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>the names of all sections that are present in this object&#39;s complex keys.</p>
-							<p>Example key &quot;Section-1.Subsection-1-1.Key-1-1-1&quot; contains the section named &quot;Section-1&quot;.</p>
+							<p>a list of section names stored in this ConfigMap.</p>
 						</li>
 					</ul>
 				</section>
@@ -1835,16 +1795,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#length">length</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L141">data/StringValueMap.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L137">data/StringValueMap.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of key-value mappings present in this map.</p>
+									<p>Gets a number of elements stored in this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the number of key-value pairs stored in this StringValueMap.</p>
+							<p>the number of elements in this map.</p>
 						</li>
 					</ul>
 				</section>
@@ -1858,14 +1818,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L173">config/ConfigParams.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L156">config/ConfigParams.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Overrides the configuration parameters stored in this object with the ones in
-										&#39;configParams&#39;. If a configuration is already set in this ConfigParams object,
-									it will be overwritten by the value in &#39;configParams&#39; with the same key.</p>
+									<p>Overrides parameters with new values from specified ConfigParams
+									and returns a new ConfigParams object.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1878,13 +1837,12 @@
 								<li>
 									<h5>configParams: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>configuration parameters to override the
-										parameters of this object with.</p>
+										<p>ConfigMap with parameters to override the current values.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>ConfigParams object with overridden parameters.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>
@@ -1899,12 +1857,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L98">data/StringValueMap.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L93">data/StringValueMap.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Puts a value into this StringValueMap by the given key.</p>
+									<p>Puts a new value into map element specified by its key.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1912,13 +1870,13 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key by which to insert the given value.</p>
+										<p>a key of the element to put.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to insert into this StringValueMap by the given key.</p>
+										<p>a new value for map element.</p>
 									</div>
 								</li>
 							</ul>
@@ -1937,12 +1895,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L107">data/StringValueMap.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L102">data/StringValueMap.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes an item by its key from this StringValueMap.</p>
+									<p>Removes a map element specified by its key</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1950,7 +1908,7 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key of the item to remove.</p>
+										<p>a key of the element to remove.</p>
 									</div>
 								</li>
 							</ul>
@@ -1969,10 +1927,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#setasobject">setAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L178">data/StringValueMap.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L177">data/StringValueMap.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a new value to map element specified by its index.
+										When the index is not defined, it resets the entire map value.
+									This method has double purpose because method overrides are not supported in JavaScript.</p>
+								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.mapconverter.html#tomap">MapConverter.toMap</a></p>
@@ -1984,16 +1947,13 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key by which to set the &#39;value&#39; passed.</p>
+										<p>(optional) a key of the element to set</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in this StringValueMap at the given &#39;key&#39;.
-											If &#39;key&#39; is omitted, then this StringValueMap will be set (cleared and
-											filled anew) using &#39;value&#39;. In this case &#39;value&#39; will be converted to
-										a map using &quot;MapConverter.toMap(value)&quot; and set to this StringValueMap.</p>
+										<p>a new element or map value.</p>
 									</div>
 								</li>
 							</ul>
@@ -2011,15 +1971,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L189">config/ConfigParams.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L169">config/ConfigParams.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the default configurations for this ConfigParams object, based on the
-										default configuration parameters passed in &#39;defaultConfigParams&#39;. If a
-										configuration is already set in this ConfigParams object, it will not be
-									overwritten by the default value in &#39;defaultConfigParams&#39; with the same key.</p>
+									<p>Set default values from specified ConfigParams and returns a new ConfigParams object.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -2032,12 +1989,12 @@
 								<li>
 									<h5>defaultConfigParams: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default configuration parameters to use.</p>
+										<p>ConfigMap with default parameter values.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>this ConfigParams object with the newly set defaults.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>
@@ -2052,14 +2009,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L645">data/StringValueMap.ts:645</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L610">data/StringValueMap.ts:610</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a string representation of the object.
+										The result is a semicolon-separated list of key-value pairs as
+									&quot;key1=value1;key2=value2;key=value3&quot;</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this StringValueMap as a semicolon-separated values string.</p>
-							<p>Example: &quot;key1=value1;key2;key3=value3&quot;.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>
@@ -2074,12 +2035,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#frommaps">fromMaps</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L751">data/StringValueMap.ts:751</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L721">data/StringValueMap.ts:721</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating a StringValueMap using the maps passed as parameters.</p>
+									<p>Creates a new AnyValueMap by merging two or more maps.
+									Maps defined later in the list override values from previously defined maps.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2087,12 +2049,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>maps: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the maps passed to this method to create a StringValueMap with.</p>
+										<p>an array of maps to be merged</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.stringvaluemap.html" class="tsd-signature-type">StringValueMap</a></h4>
-							<p>the StringValueMap created.</p>
+							<p>a newly created AnyValueMap.</p>
 						</li>
 					</ul>
 				</section>
@@ -2107,12 +2069,12 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromstring">fromString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L230">config/ConfigParams.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L208">config/ConfigParams.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that creates a ConfigParams object from a parameterized string.</p>
+									<p>Creates a new ConfigParams object filled with key-value pairs serialized as a string.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -2125,13 +2087,13 @@
 								<li>
 									<h5>line: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>configuration parameters in the form of a parameterized string.
+										<p>a string with serialized key-value pairs as &quot;key1=value1;key2=value2;...&quot;
 										Example: &quot;Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z&quot;</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>generated ConfigParams.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>
@@ -2146,12 +2108,13 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromtuples">fromTuples</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L216">config/ConfigParams.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L194">config/ConfigParams.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that creates a ConfigParams object using the tuples passed to the method.</p>
+									<p>Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+									Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -2164,12 +2127,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the tuples to convert to a ConfigParams object.</p>
+										<p>the tuples to fill a new ConfigParams object.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>the generated ConfigParams.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>
@@ -2184,12 +2147,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromtuplesarray">fromTuplesArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/StringValueMap.ts#L701">data/StringValueMap.ts:701</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L671">data/StringValueMap.ts:671</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating a StringValueMap from an array of tuples.</p>
+									<p>Creates a new StringValueMap from a list of key-value pairs called tuples.
+									The method is similar to <a href="config.configparams.html#fromtuples">fromTuples</a> but tuples are passed as array instead of parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2197,12 +2161,12 @@
 								<li>
 									<h5>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key-value tuples array to initialize the new StringValueMap with.</p>
+										<p>a list of values where odd elements are keys and the following even elements are values</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.stringvaluemap.html" class="tsd-signature-type">StringValueMap</a></h4>
-							<p>the StringValueMap created and filled by the &#39;tuples&#39; array provided.</p>
+							<p>a newly created StringValueMap.</p>
 						</li>
 					</ul>
 				</section>
@@ -2217,31 +2181,25 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromvalue">fromValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L203">config/ConfigParams.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L180">config/ConfigParams.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that creates a ConfigParams object based on the values that are stored
-									in the &#39;value&#39; object&#39;s properties.</p>
+									<p>Creates a new ConfigParams object filled with key-value pairs from specified object.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="reflect.recursiveobjectreader.html#getproperties">RecursiveObjectReader.getProperties</a></p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>configuration parameters in the form of an object with properties.</p>
+										<p>an object with key-value pairs used to initialize a new ConfigParams.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>generated ConfigParams.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>
@@ -2255,12 +2213,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/ConfigParams.ts#L247">config/ConfigParams.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L222">config/ConfigParams.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that can merge two or more ConfigParams into one.</p>
+									<p>Merges two or more ConfigParams into one. The following ConfigParams override
+									previously defined parameters.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -2273,16 +2232,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>configs: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the ConfigParams that are to be merged into one ConfigParams object.
-											The order in which the ConfigParams are passed to this method is important,
-											as it regulates which values to keep in the case of identical complex keys
-											(the ConfigParams passed later/last override the values of other ConfigParams
-										with the same key).</p>
+										<p>a list of ConfigParams objects to be merged.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>merged ConfigParams.</p>
+							<p>a new ConfigParams object.</p>
 						</li>
 					</ul>
 				</section>

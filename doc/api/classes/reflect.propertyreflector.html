@@ -70,8 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for working with an object&#39;s properties.</p>
+						<p>Helper class to perform property introspection and dynamic reading and writing.</p>
 					</div>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
+					<p>Because all languages have different casing and case sensitivity rules,
+					this PropertyReflector treats all property names as case insensitive.</p>
+					<h3 id="example">Example</h3>
+					<p>let myObj = new MyObject();</p>
+					<p>let properties = PropertyReflector.getPropertyNames();
+						PropertyReflector.hasProperty(myObj, &quot;myProperty&quot;);
+						let value = PropertyReflector.getProperty(myObj, &quot;myProperty&quot;);
+					PropertyReflector.setProperty(myObj, &quot;myProperty&quot;, 123);</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -112,12 +122,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L95">reflect/PropertyReflector.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L106">reflect/PropertyReflector.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the properties of an object as a map.</p>
+									<p>Get values of all properties in specified object
+									and returns them as a map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -125,7 +136,7 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose properties are to be retrieved.</p>
+										<p>an object to get properties from.</p>
 									</div>
 								</li>
 							</ul>
@@ -144,36 +155,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L51">reflect/PropertyReflector.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L61">reflect/PropertyReflector.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the value of an object&#39;s property using the property&#39;s name.</p>
+									<p>Gets value of object property specified by its name.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;obj&#39; or &#39;name&#39; are <code>null</code>.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose property is to be retrieved. Cannot be <code>null</code>.</p>
+										<p>an object to read property from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property that is to be retrieved. Cannot be <code>null</code>.</p>
+										<p>a name of the property to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the value that is retrieved.</p>
+							<p>the property value or null if property doesn&#39;t exist or introspection failed.</p>
 						</li>
 					</ul>
 				</section>
@@ -187,12 +193,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L77">reflect/PropertyReflector.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L87">reflect/PropertyReflector.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that retrieves the names of an object&#39;s properties.</p>
+									<p>Gets names of all properties implemented in specified object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -200,12 +206,12 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose property names are to be retrieved.</p>
+										<p>an objec to introspect.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>a string array, containing the names of the object&#39;s properties.</p>
+							<p>a list with property names.</p>
 						</li>
 					</ul>
 				</section>
@@ -219,36 +225,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L26">reflect/PropertyReflector.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L38">reflect/PropertyReflector.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that checks whether or not an object has a property with the given name.</p>
+									<p>Checks if object has a property with specified name..</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;obj&#39; or &#39;name&#39; are <code>null</code>.</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to search for the given property in. Cannot be <code>null</code>.</p>
+										<p>an object to introspect.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property to search for. Cannot be <code>null</code>.</p>
+										<p>a name of the property to check.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not a property with the given name was found in the object.</p>
+							<p>true if the object has the property and false if it doesn&#39;t.</p>
 						</li>
 					</ul>
 				</section>
@@ -262,14 +263,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L155">reflect/PropertyReflector.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L166">reflect/PropertyReflector.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets multiple object properties at once. Uses this class&#39;s
-									static <a href="reflect.propertyreflector.html#setproperty">setProperty</a> method for each value that is to be set.</p>
+									<p>Sets values of some (all) object properties.</p>
 								</div>
+								<p>If some properties do not exist or introspection fails
+								they are just silently skipped and no errors thrown.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="reflect.propertyreflector.html#setproperty">setProperty</a></p>
@@ -281,14 +283,13 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose properties are to be set.</p>
+										<p>an object to write properties to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>values: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a map, containing property names as map keys and the values that are to be
-										set as map values.</p>
+										<p>a map, containing property names and their values.</p>
 									</div>
 								</li>
 							</ul>
@@ -306,39 +307,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/PropertyReflector.ts#L122">reflect/PropertyReflector.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/PropertyReflector.ts#L132">reflect/PropertyReflector.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets an object&#39;s property to the given value. If no properties
-										are found by the given name, then the value will be set directly in the object using
-									the provided name (if supported).</p>
+									<p>Sets value of object property specified by its name.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>an Error if &#39;obj&#39; or &#39;name&#39; are <code>null</code>.</p>
-									</dd>
-								</dl>
+								<p>If the property does not exist or introspection fails
+								this method doesn&#39;t do anything and doesn&#39;t any throw errors.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object, whose property is to be set. Cannot be <code>null</code>.</p>
+										<p>an object to write property to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property to set. Cannot be <code>null</code>.</p>
+										<p>a name of the property to set.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set the object&#39;s property to.</p>
+										<p>a new value for the property to set.</p>
 									</div>
 								</li>
 							</ul>

@@ -70,16 +70,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Contains the static method <a href="config.optionresolver.html#resolve">resolve</a>, which can be used for resolving
-						the options of a ConfigParams configuration.</p>
+						<p>A helper class to parameters from &quot;options&quot; configuration section.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example usage of the static <code>resolve</code> method:</p>
-					<pre><code>public optionResolution : ConfigParams {
-    let<span class="hljs-built_in"> config </span>= ConfigParams.fromTuples(<span class="hljs-string">"Id"</span>, <span class="hljs-string">"MyConfig"</span>);
-    return OptionResolver.resolve(config);
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let config = ConfigParams.fromTuples(
+						...
+						&quot;options.param1&quot;, &quot;ABC&quot;,
+						&quot;options.param2&quot;, 123
+					);</p>
+					<p>let options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,14 +114,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/OptionResolver.ts#L30">config/OptionResolver.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/OptionResolver.ts#L26">config/OptionResolver.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for resolving the options of a ConfigParams object. The configuration&#39;s options are
-										searched for in the section named &quot;options&quot; in the <a href="config.configparams.html">ConfigParams</a> object. If no options are found
-									and &#39;configAsDefault&#39; is set to true, then &#39;config&#39; will be returned.</p>
+									<p>Resolves an &quot;options&quot; configuration section from component configuration parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -130,20 +127,18 @@
 								<li>
 									<h5>config: <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ConfigParams, whose options are to be resolved.</p>
+										<p>configuration parameters</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> configAsDefault: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) Defines whether &#39;config&#39; should be returned if no options are found.
-										Defaults to false if omitted.</p>
+										<p>(optional) When set true the method returns the entire parameter set when &quot;options&quot; section is not found. Default: false</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="config.configparams.html" class="tsd-signature-type">ConfigParams</a></h4>
-							<p>resolved options or &#39;config&#39; (if none were found and &#39;configAsDefault&#39;
-							was set to true).</p>
+							<p>configuration parameters from &quot;options&quot; section</p>
 						</li>
 					</ul>
 				</section>

@@ -70,15 +70,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that allows for usage of abstract, portable data types. Stores a value in its
-						&#39;value&#39; field, which can be retrieved in various ways with the help of numerous converters.</p>
+						<p>Cross-language implementation of dynamic object what can hold value of any type.
+						The stored value can be converted to different types using variety of accessor methods.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> anyValue = <span class="hljs-keyword">new</span> AnyValue(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = new AnyValue(&quot;123.456&quot;);</p>
+					<p>value1.getAsInteger();   // Result: 123
+						value1.getAsString();    // Result: &quot;123.456&quot;
+					value1.getAsFloat();     // Result: 123.456</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="convert.stringconverter.html">StringConverter</a></p>
@@ -194,14 +193,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L38">data/AnyValue.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L39">data/AnyValue.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new object and sets its &#39;value&#39; field to the value passed
-										as a parameter. If &#39;value&#39; is omitted, it can be set later on using
-									<a href="data.anyvalue.html#setasobject">setAsObject</a>.</p>
+									<p>Creates a new instance of the object and assigns its value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -210,9 +207,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>value to store in this object&#39;s &#39;value&#39; field. If this
-												parameter is an instance of AnyValue, its &#39;value&#39; field will
-											be stored instead.</p>
+											<p>(optional) value to initialize this object.</p>
 										</div>
 									</div>
 								</li>
@@ -230,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L38">data/AnyValue.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L39">data/AnyValue.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -253,10 +248,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/data.icloneable.html">ICloneable</a>.<a href="../interfaces/data.icloneable.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L486">data/AnyValue.ts:486</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L438">data/AnyValue.ts:438</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a binary clone of this object.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 							<p>a clone of this object.</p>
@@ -273,13 +271,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L440">data/AnyValue.ts:440</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L393">data/AnyValue.ts:393</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks whether or not the parameter passed as &#39;obj&#39; is equal to this object&#39;s
-									&#39;value&#39; field.</p>
+									<p>Compares this object value to specified specified value.
+										When direct comparison gives negative results it tries
+									to compare values as strings.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,14 +286,12 @@
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to check against this object&#39;s &#39;value&#39; field. If &#39;obj&#39;
-										is an instance of AnyValue, its &#39;value&#39; field will be used.</p>
+										<p>the value to be compared with.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this object&#39;s &#39;value&#39; field and &#39;obj&#39; are equal.
-							If both items are null, true will be returned.</p>
+							<p>true when objects are equal and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -308,14 +305,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L470">data/AnyValue.ts:470</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L418">data/AnyValue.ts:418</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks whether or not the parameter passed as &#39;obj&#39; is equal to this object&#39;s
-										&#39;value&#39; field after both are converted to the type passed as &#39;type&#39; using
-									<a href="convert.typeconverter.html#totype">TypeConverter.toType</a>.</p>
+									<p>Compares this object value to specified specified value.
+										When direct comparison gives negative results it converts
+									values to type specified by type code and compare them again.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -333,23 +330,16 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to use in TypeConverter.toType<T>(TypeCode, value).</p>
-									</div>
 								</li>
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to check against this object&#39;s &#39;value&#39; field after
-											conversion. If &#39;obj&#39; is an instance of AnyValue, then its &#39;value&#39;
-										field will be used.</p>
+										<p>the value to be compared with.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>whether or not this object&#39;s &#39;value&#39; field and &#39;obj&#39; are equal
-								as objects of type &#39;type&#39;. If both items (or their converted versions)
-							are null, true will be returned.</p>
+							<p>true when objects are equal and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -363,12 +353,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L416">data/AnyValue.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L370">data/AnyValue.ts:370</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns this object&#39;s &#39;value&#39; field as an AnyValueArray.</p>
+									<p>Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -377,7 +367,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>this object&#39;s &#39;value&#39; field as an AnyValueArray.</p>
+							<p>AnyArray value or empty AnyArray if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -391,14 +381,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L149">data/AnyValue.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L137">data/AnyValue.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable boolean object using
-										<a href="data.anyvalue.html#getasbooleanwithdefault">AnyValue.getAsBooleanWithDefault</a> and returns the converted value
-									(or false as the default).</p>
+									<p>Converts object value into a boolean or returns false if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -407,7 +395,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a boolean (or false as the default).</p>
+							<p>string value or false if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -421,14 +409,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L164">data/AnyValue.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L149">data/AnyValue.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable boolean object using
-										<a href="convert.booleanconverter.html#tobooleanwithdefault">BooleanConverter.toBooleanWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a boolean or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -441,13 +427,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a boolean or the
-							defaultValue (if conversion is not possible).</p>
+							<p>boolean value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -461,14 +446,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L349">data/AnyValue.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L307">data/AnyValue.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable Datetime object using
-										<a href="data.anyvalue.html#getasdatetimewithdefault">AnyValue.getAsDateTimeWithDefault</a> and returns the converted value
-									(or null as the default).</p>
+									<p>Converts object value into a Date or returns current date if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -477,7 +460,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a Datetime (or null as the default).</p>
+							<p>Date value or current date if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -491,14 +474,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L364">data/AnyValue.ts:364</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L319">data/AnyValue.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable Datetime object using
-										<a href="convert.datetimeconverter.html#todatetimewithdefault">DateTimeConverter.toDateTimeWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a Date or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -511,13 +492,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a Datetime or the
-							defaultValue (if conversion is not possible).</p>
+							<p>Date value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -531,14 +511,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L309">data/AnyValue.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L273">data/AnyValue.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable double object using
-										<a href="data.anyvalue.html#getasdoublewithdefault">AnyValue.getAsDoubleWithDefault</a> and returns the converted value
-									(or 0 as the default).</p>
+									<p>Converts object value into a double or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -547,7 +525,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a double (or 0 as the default).</p>
+							<p>double value or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -561,14 +539,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L324">data/AnyValue.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L285">data/AnyValue.ts:285</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable double object using
-										<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a double or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -581,13 +557,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a double or the
-							defaultValue (if conversion is not possible).</p>
+							<p>double value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -601,14 +576,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L269">data/AnyValue.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L239">data/AnyValue.ts:239</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable float object using
-										<a href="data.anyvalue.html#getasfloatwithdefault">AnyValue.getAsFloatWithDefault</a> and returns the converted value
-									(or 0 as the default).</p>
+									<p>Converts object value into a float or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -617,7 +590,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a float (or 0 as the default).</p>
+							<p>float value or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -631,14 +604,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L284">data/AnyValue.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L251">data/AnyValue.ts:251</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable float object using
-										<a href="convert.floatconverter.html#tofloatwithdefault">FloatConverter.toFloatWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a float or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -651,13 +622,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a float or the
-							defaultValue (if conversion is not possible).</p>
+							<p>float value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -671,14 +641,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L189">data/AnyValue.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L171">data/AnyValue.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable integer object using
-										<a href="data.anyvalue.html#getasintegerwithdefault">AnyValue.getAsIntegerWithDefault</a> and returns the converted value
-									(or 0 as the default).</p>
+									<p>Converts object value into an integer or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -687,7 +655,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as an integer (or 0 as the default).</p>
+							<p>integer value or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -701,14 +669,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L204">data/AnyValue.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L183">data/AnyValue.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable integer object using
-										<a href="convert.integerconverter.html#tointegerwithdefault">IntegerConverter.toIntegerWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a integer or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -721,13 +687,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as an integer or the
-							defaultValue (if conversion is not possible).</p>
+							<p>integer value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -741,14 +706,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L229">data/AnyValue.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L205">data/AnyValue.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable long object using
-										<a href="data.anyvalue.html#getaslongwithdefault">AnyValue.getAsLongWithDefault</a> and returns the converted value
-									(or 0 as the default).</p>
+									<p>Converts object value into a long or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -757,7 +720,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a long (or 0 as the default).</p>
+							<p>string value or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -771,14 +734,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L244">data/AnyValue.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L217">data/AnyValue.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable long object using
-										<a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a long or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -791,13 +752,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a long or the
-							defaultValue (if conversion is not possible).</p>
+							<p>long value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -811,12 +771,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L427">data/AnyValue.ts:427</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L381">data/AnyValue.ts:381</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns this object&#39;s &#39;value&#39; field as an AnyValueMap.</p>
+									<p>Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -825,7 +785,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>this object&#39;s &#39;value&#39; field as an AnyValueMap.</p>
+							<p>AnyMap value or empty AnyMap if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -839,13 +799,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L136">data/AnyValue.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L126">data/AnyValue.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable boolean object using
-									<a href="convert.booleanconverter.html#tonullableboolean">BooleanConverter.toNullableBoolean</a> and returns it.</p>
+									<p>Converts object value into a boolean or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -854,7 +813,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable boolean.</p>
+							<p>boolean value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -868,13 +827,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L336">data/AnyValue.ts:336</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L296">data/AnyValue.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable Datetime object using
-									<a href="convert.datetimeconverter.html#tonullabledatetime">DateTimeConverter.toNullableDateTime</a> and returns it.</p>
+									<p>Converts object value into a Date or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -883,7 +841,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable Datetime.</p>
+							<p>Date value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -897,13 +855,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L296">data/AnyValue.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L262">data/AnyValue.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable double object using
-									<a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a> and returns it.</p>
+									<p>Converts object value into a double or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -912,7 +869,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable double.</p>
+							<p>double value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -926,13 +883,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L256">data/AnyValue.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L228">data/AnyValue.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable float object using
-									<a href="convert.floatconverter.html#tonullablefloat">FloatConverter.toNullableFloat</a> and returns it.</p>
+									<p>Converts object value into a float or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -941,7 +897,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable float.</p>
+							<p>float value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -955,13 +911,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L176">data/AnyValue.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L160">data/AnyValue.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable integer object using
-									<a href="convert.integerconverter.html#tonullableinteger">IntegerConverter.toNullableInteger</a> and returns it.</p>
+									<p>Converts object value into an integer or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -970,7 +925,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable integer.</p>
+							<p>integer value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -984,13 +939,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L216">data/AnyValue.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L194">data/AnyValue.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable long object using
-									<a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a> and returns it.</p>
+									<p>Converts object value into a long or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -999,7 +953,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable long.</p>
+							<p>long value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1013,13 +967,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L96">data/AnyValue.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L92">data/AnyValue.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable string object using
-									<a href="convert.stringconverter.html#tonullablestring">StringConverter.toNullableString</a> and returns it.</p>
+									<p>Converts object value into a string or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1028,7 +981,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable string.</p>
+							<p>string value or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1042,13 +995,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L377">data/AnyValue.ts:377</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L332">data/AnyValue.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a nullable object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a> and returns it.</p>
+									<p>Converts object value into a value defined by specied typecode.
+									If conversion is not possible it returns null.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1067,12 +1020,12 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a nullable object of type &#39;type&#39;.</p>
+							<p>value defined by the typecode or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1086,13 +1039,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L69">data/AnyValue.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L69">data/AnyValue.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value stored in this object without any conversions</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>this object&#39;s &#39;value&#39; field without any conversions.</p>
+							<p>the object value.</p>
 						</li>
 					</ul>
 				</section>
@@ -1106,14 +1062,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L109">data/AnyValue.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L103">data/AnyValue.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable string object using
-										<a href="data.anyvalue.html#getasstringwithdefault">AnyValue.getAsStringWithDefault</a> and returns the converted value
-									(or null as the default).</p>
+									<p>Converts object value into a string or returns &quot;&quot; if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1122,7 +1076,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a string (or null as the default).</p>
+							<p>string value or &quot;&quot; if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1136,14 +1090,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L124">data/AnyValue.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L115">data/AnyValue.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a defaultable string object using
-										<a href="convert.stringconverter.html#tostringwithdefault">StringConverter.toStringWithDefault</a> and returns the converted value
-									(or the provided defaultValue if conversion is not possible).</p>
+									<p>Converts object value into a string or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1156,13 +1108,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a string or the
-							defaultValue (if conversion is not possible).</p>
+							<p>string value or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1170,19 +1121,19 @@
 					<a name="getastype" class="tsd-anchor"></a>
 					<h3>get<wbr>AsType</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType&lt;T&gt;<span class="tsd-signature-symbol">(</span>typeCode<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L390">data/AnyValue.ts:390</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L345">data/AnyValue.ts:345</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts object value into a value defined by specied typecode.
+									If conversion is not possible it returns default value for the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1199,14 +1150,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<h5>typeCode: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as an object of type &#39;type&#39; (or null as the default).</p>
+							<p>value defined by the typecode or type default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1214,19 +1165,19 @@
 					<a name="getastypewithdefault" class="tsd-anchor"></a>
 					<h3>get<wbr>AsType<wbr>With<wbr>Default</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType<wbr>With<wbr>Default&lt;T&gt;<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AsType<wbr>With<wbr>Default&lt;T&gt;<span class="tsd-signature-symbol">(</span>typeCode<span class="tsd-signature-symbol">: </span><a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a>, defaultValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L405">data/AnyValue.ts:405</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L359">data/AnyValue.ts:359</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts object value into a value defined by specied typecode.
+									If conversion is not possible it returns default value.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1243,21 +1194,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
+									<h5>typeCode: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as an object of type &#39;type&#39; or the defaultValue,
-							if conversion is not possible.</p>
+							<p>value defined by the typecode or type default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1271,13 +1221,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L64">data/AnyValue.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L60">data/AnyValue.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts this object&#39;s &#39;value&#39; field into a TypeCode object using
-									<a href="convert.typeconverter.html#totypecode">TypeConverter.toTypeCode</a> and returns it.</p>
+									<p>Gets type code for the value stored in this object.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1286,7 +1235,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h4>
-							<p>this object&#39;s &#39;value&#39; field as a TypeCode.</p>
+							<p>type code of the object value.</p>
 						</li>
 					</ul>
 				</section>
@@ -1300,13 +1249,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L500">data/AnyValue.ts:500</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L458">data/AnyValue.ts:458</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets an object hash code which can be used to optimize storing and searching.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the hash code of this object&#39;s &#39;value&#39; field. 0 is returned if the &#39;value&#39; field is null.</p>
+							<p>an object hash code.</p>
 						</li>
 					</ul>
 				</section>
@@ -1314,19 +1266,18 @@
 					<a name="setasobject" class="tsd-anchor"></a>
 					<h3>set<wbr>AsObject</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>AsObject<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>AsObject<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L81">data/AnyValue.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L78">data/AnyValue.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets this object&#39;s &#39;value&#39; field. If the given value is an instance of AnyValue,
-									its &#39;value&#39; field will be set instead.</p>
+									<p>Sets a new value for this object</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1334,13 +1285,11 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to store in this object&#39;s &#39;value&#39; field. If this
-											parameter is an instance of AnyValue, its &#39;value&#39; field will
-										be stored instead.</p>
+										<p>the new object value.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1354,10 +1303,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValue.ts#L495">data/AnyValue.ts:495</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValue.ts#L449">data/AnyValue.ts:449</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a string representation of the object.</p>
+								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.stringconverter.html#tostring">StringConverter.toString</a></p>
@@ -1365,7 +1317,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>this object&#39;s &#39;value&#39; field as a string value using <a href="convert.stringconverter.html#tostring">StringConverter.toString</a>.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>

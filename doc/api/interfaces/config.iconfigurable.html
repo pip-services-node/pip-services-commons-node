@@ -70,23 +70,23 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Configurable interface that contains the <a href="config.iconfigurable.html#configure">configure</a> method. If an object
-							needs to be configurable, it can implement this interface and parse the
-						ConfigParams that &#39;configure&#39; receives as a parameter.</p>
+						<p>An interface to set configuration parameters to an object.</p>
 					</div>
+					<p>It can be added to any existing class by implementing a single Configure() method.</p>
+					<p>If you need to emphasis the fact that Configure() method can be called multiple times
+					to change object configuration in runtime, use <a href="config.ireconfigurable.html">IReconfigurable</a> interface instead.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../classes/config.configparams.html">ConfigParams</a></p>
-							<h3 id="examples">Examples</h3>
-							<p>Example implementation of the IConfigurable interface:</p>
-							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IConfigurable</span> {</span>
-    let <span class="hljs-string">myParam :</span> string = <span class="hljs-string">"default value"</span>;
-    <span class="hljs-keyword">public</span> configure(<span class="hljs-string">config:</span> ConfigParams) : <span class="hljs-keyword">void</span>  {
-        myParam = config.getAsStringWithDefault(<span class="hljs-string">"options.param"</span>, myParam);
-        ...
-    }
-}
-</code></pre></dd>
+							<h3 id="example">Example</h3>
+							<p>export class MyClass implements IConfigurable {
+							private _myParam: string = &quot;default value&quot;;</p>
+							<p>   public configure(config: ConfigParams): void  {
+								this._myParam = config.getAsStringWithDefault(&quot;options.param&quot;, myParam);
+								...
+								}
+							}</p>
+						</dd>
 					</dl>
 				</div>
 			</section>
@@ -128,12 +128,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/config/IConfigurable.ts#L30">config/IConfigurable.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/IConfigurable.ts#L31">config/IConfigurable.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method for configuring objects using ConfigParams.</p>
+									<p>Configures object by passing configuration parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,7 +141,7 @@
 								<li>
 									<h5>config: <a href="../classes/config.configparams.html" class="tsd-signature-type">ConfigParams</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ConfigParams to use for object configuration.</p>
+										<p>configuration parameters to be set.</p>
 									</div>
 								</li>
 							</ul>

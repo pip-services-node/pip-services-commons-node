@@ -70,12 +70,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for creating validation rules.</p>
+						<p>Interface for validation rules.</p>
 					</div>
-					<p>Various validation frameworks exist for various languages, but they are all different and not portable.
-						PipServices&#39; validation rules provide identical implementation across various languages. This is key,
-						since validation is one of the underlying functions that is incorporated into (various) other packages,
-					making it vital for it to be in a portable format.</p>
+					<p>Validation rule can validate one or multiple values
+						against complex rules like: value is in range,
+						one property is less than another property,
+					enforce enumerated values and more.</p>
+					<p>This interface allows to implement custom rules.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -125,12 +126,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/IValidationRule.ts#L23">validate/IValidationRule.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/IValidationRule.ts#L25">validate/IValidationRule.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Abstract method that will contain the logic for validating a value using the given schema.</p>
+									<p>Validates a given value against this rule.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -138,25 +139,25 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the dot notation path to the value that is to be validated.</p>
+										<p>a dot notation path to the value.</p>
 									</div>
 								</li>
 								<li>
 									<h5>schema: <a href="../classes/validate.schema.html" class="tsd-signature-type">Schema</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the schema to use for validation.</p>
+										<p>a schema this rule is called from</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value that is to be validated.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5>results: <a href="../classes/validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the results of the validation.</p>
+										<p>a list with validation results to add new results.</p>
 									</div>
 								</li>
 							</ul>

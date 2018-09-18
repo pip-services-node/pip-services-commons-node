@@ -70,16 +70,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Contains standard design patterns for generating GUIDs.</p>
+						<p>Helper class to generate unique object IDs.
+						It supports two types of IDs: long and short.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"></span>) </span>{
-   <span class="hljs-keyword">let</span> id1 = IdGenerator.nextShort();
-   ...
-
-   <span class="hljs-keyword">let</span> id2 = IdGenerator.nextLong();
-}
-</code></pre>
+					<p>Long IDs are string GUIDs. They are globally unique and 32-character long.</p>
+					<p>ShortIDs are just 9-digit random numbers. They are not guaranteed be unique.</p>
+					<h3 id="example">Example</h3>
+					<p>IdGenerator.nextLong();      // Possible result: &quot;234ab342c56a2b49c2ab42bf23ff991ac&quot;
+					IdGenerator.nextShort();     // Possible result: &quot;23495247&quot;</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -116,15 +114,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/IdGenerator.ts#L47">data/IdGenerator.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/IdGenerator.ts#L56">data/IdGenerator.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates a new long (16-digit hex) id using UUID.</p>
+									<p>Generates a globally unique 32-digit object ID.
+									The value is a string representation of a GUID value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a generated 32-digit object ID</p>
 						</li>
 					</ul>
 				</section>
@@ -138,15 +138,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/IdGenerator.ts#L29">data/IdGenerator.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/IdGenerator.ts#L35">data/IdGenerator.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates a new short (9-digit number) id using Math.random().</p>
+									<p>Generates a random 9-digit random ID (code).</p>
 								</div>
+								<p>Remember: The returned value is not guaranteed to be unique.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a generated random 9-digit code</p>
 						</li>
 					</ul>
 				</section>

@@ -70,16 +70,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods that can be used for generating random doubles, as well as updating existing doubles
-						by generating values in the range of &#39;original value&#39; ±&#39;delta/range&#39;.</p>
+						<p>Random generator for double values.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example usage:</p>
-					<pre><code><span class="hljs-keyword">public</span> MyMethod(<span class="hljs-built_in">min</span>: <span class="hljs-keyword">number</span>, <span class="hljs-built_in">max</span>: <span class="hljs-keyword">number</span> ) {
-    let doubleValue = RandomDouble.nextDouble(<span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
+						let value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
+					let value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -116,12 +112,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomDouble.ts#L25">random/RandomDouble.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomDouble.ts#L21">random/RandomDouble.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates a double in the range [&#39;min&#39;, &#39;max&#39;]. If &#39;max&#39; is omitted, then the range will be set to [0, &#39;min&#39;].</p>
+									<p>Generates a random double value in the range [&#39;minYear&#39;, &#39;maxYear&#39;].</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,19 +125,18 @@
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>minimum value of the double that will be generated.
-										If &#39;max&#39; is omitted, then &#39;max&#39; is set to &#39;min&#39; and &#39;min&#39; is set to 0.</p>
+										<p>(optional) minimum range value</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) maximum value of the double that will be generated. Defaults to &#39;min&#39; if omitted.</p>
+										<p>max range value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>generated random double value.</p>
+							<p>a random double value.</p>
 						</li>
 					</ul>
 				</section>
@@ -155,13 +150,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomDouble.ts#L46">random/RandomDouble.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomDouble.ts#L39">random/RandomDouble.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates a new double that will differ from &#39;value&#39; by a maximum of ±&#39;range&#39;. If range is omitted,
-									then the generated value will differ from &#39;value&#39; by a maximum of ±10%.</p>
+									<p>Updates (drifts) a double value within specified range defined</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -169,19 +163,17 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>double to update.</p>
+										<p>a double value to drift.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> range: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) defines the maximum amount by which the new double can differ from &#39;value&#39;.
-										Defaults to 10% of &#39;value&#39; if omitted.</p>
+										<p>(optional) a range. Default: 10% of the value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>updated double value.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,14 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for converting various values to maps.</p>
+						<p>Converts arbitrary values into map objects using extended conversion rules:</p>
+						<ul>
+							<li>Objects: property names as keys, property values as values</li>
+							<li>Arrays: element indexes as keys, elements as values</li>
+						</ul>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"><span class="hljs-keyword">value</span>: any</span>) </span>{
-    <span class="hljs-keyword">let</span> map = MapConverter.toMap(<span class="hljs-keyword">value</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = MapConverted.toNullableMap(&quot;ABC&quot;); // Result: null
+						let value2 = MapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
+					let value3 = MapConverted.toNullableMap([1,2,3]); // Result: { &quot;0&quot;: 1, &quot;1&quot;: 2, &quot;2&quot;: 3 }</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,13 +117,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/MapConverter.ts#L52">convert/MapConverter.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/MapConverter.ts#L45">convert/MapConverter.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to maps using <a href="convert.mapconverter.html#tonullablemap">toNullableMap</a>.
-									An empty map will be used as the default value for the conversion.</p>
+									<p>Converts value into map object or returns empty map when conversion is not possible</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -139,6 +140,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>map object or empty map when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -152,14 +154,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/MapConverter.ts#L66">convert/MapConverter.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/MapConverter.ts#L58">convert/MapConverter.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to maps using <a href="convert.mapconverter.html#tonullablemap">toNullableMap</a>.
-										If null is returned by the conversion, then this method will return the default
-									value passed.</p>
+									<p>Converts value into map object or returns default when conversion is not possible</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -178,11 +178,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>map object or emptu map when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -196,21 +197,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/MapConverter.ts#L31">convert/MapConverter.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/MapConverter.ts#L24">convert/MapConverter.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting values to nullable maps.</p>
+									<p>Converts value into map object or returns null when conversion is not possible.</p>
 								</div>
-								<p>Conversion cases:</p>
-								<ul>
-									<li>if &#39;value&#39; is null - null will be returned;</li>
-									<li>if &#39;value&#39; is an array - it will be converted to a map, whose keys are the array&#39;s indexes (as strings) and whose values
-									correspond to the values at the given indexes;</li>
-									<li>if &#39;value&#39; is an object (map) - it will be returned as is;</li>
-									<li>otherwise - null will be returned.</li>
-								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -222,8 +215,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the result of the conversion. If &#39;value&#39; was null or is not convertible - null
-							will be returned.</p>
+							<p>map object or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

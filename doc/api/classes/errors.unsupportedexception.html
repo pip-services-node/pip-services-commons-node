@@ -147,18 +147,14 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/UnsupportedException.ts#L8">errors/UnsupportedException.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/UnsupportedException.ts#L8">errors/UnsupportedException.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Call ApplicationException&#39;s constructor with the category parameter set to
-									ErrorCategory.Unsupported and set the status to 500.</p>
+									<p>Creates an error instance and assigns its values.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="errors.applicationexception.html#constructor">ApplicationException.constructor</a></p>
-									</dd>
 									<dt>see</dt>
 									<dd><p><a href="errors.errorcategory.html">ErrorCategory</a></p>
 									</dd>
@@ -168,12 +164,27 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> correlation_id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) a unique transaction id to trace execution through call chain.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> code: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) a unique error code. Default: &quot;UNKNOWN&quot;</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> message: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>(optional) a human-readable description of the error.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.unsupportedexception.html" class="tsd-signature-type">UnsupportedException</a></h4>
@@ -190,12 +201,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#category">category</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L47">errors/ApplicationException.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L50">errors/ApplicationException.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Defines what category of exceptions this exception belongs to.</p>
+							<p>Standard error category</p>
 						</div>
 					</div>
 				</section>
@@ -206,12 +217,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#cause">cause</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L66">errors/ApplicationException.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L62">errors/ApplicationException.ts:62</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Additional information about the cause of the exception.</p>
+							<p>Original error wrapped by this exception</p>
 						</div>
 					</div>
 				</section>
@@ -222,13 +233,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#code">code</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L52">errors/ApplicationException.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L54">errors/ApplicationException.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Every error needs a unique code by which it can be identified. Using this code,
-							we can select which localized error messages to use and what to display in the UI.</p>
+							<p>A unique error code</p>
 						</div>
 					</div>
 				</section>
@@ -239,13 +249,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#correlation_id">correlation_id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L62">errors/ApplicationException.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L58">errors/ApplicationException.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unique business transaction id to trace calls across components. Important field for microservices,
-							as it allows us to tie an exception to a specific business transaction.</p>
+							<p>A unique transaction id to trace execution throug call chain</p>
 						</div>
 					</div>
 				</section>
@@ -256,17 +265,13 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#details">details</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L59">errors/ApplicationException.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L56">errors/ApplicationException.ts:56</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This field is used to add additional information to localized error message strings.</p>
+							<p>A map with additional details that can be used to restore error description in other languages</p>
 						</div>
-						<p>For example, if we received an ObjectNotFoundException (general error) when searching for an
-							object via its id, the id by which the object was not found can be added as a detail. This allows
-							us to add additional details to localized error messages.
-						Resulting error message format: “(Localized error&#39;s text) - id: (id)”</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -276,14 +281,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#message">message</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L45">errors/ApplicationException.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L48">errors/ApplicationException.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>This field stores the message or description that was contained in the original error.
-								Errors&#39; messages are always in English. However, using this class&#39;s &#39;code&#39; and &#39;details&#39;
-							fields, we can create localized versions of the error&#39;s message and use them instead in the UI.</p>
+							<p>A human-readable error description (usually written in English)</p>
 						</div>
 					</div>
 				</section>
@@ -294,12 +297,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#stack_trace">stack_trace</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L64">errors/ApplicationException.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L60">errors/ApplicationException.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Stack trace of the exception.</p>
+							<p>Stack trace of the exception</p>
 						</div>
 					</div>
 				</section>
@@ -310,12 +313,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#status">status</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L49">errors/ApplicationException.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L52">errors/ApplicationException.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Used when sending over the REST interface, so that we know what HTTP status code to raise.</p>
+							<p>HTTP status code associated with this error type</p>
 						</div>
 					</div>
 				</section>
@@ -326,7 +329,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:886</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:886</li>
 						</ul>
 					</aside>
 				</section>
@@ -337,7 +340,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Error.name</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:885</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:885</li>
 						</ul>
 					</aside>
 				</section>
@@ -349,7 +352,7 @@
 						<p>Inherited from Error.stack</p>
 						<p>Overrides Error.stack</p>
 						<ul>
-							<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:887</li>
+							<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-commons-node/node_modules/typescript/lib/lib.d.ts:887</li>
 						</ul>
 					</aside>
 				</section>
@@ -367,15 +370,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#getcausestring">getCauseString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L91">errors/ApplicationException.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L91">errors/ApplicationException.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns additional information about the cause of the exception.</p>
+									<p>Gets original error wrapped by this exception as a string message.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>an original error message.</p>
 						</li>
 					</ul>
 				</section>
@@ -390,15 +394,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#getstacktracestring">getStackTraceString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L105">errors/ApplicationException.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L109">errors/ApplicationException.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the stack trace of the exception.</p>
+									<p>Gets a stack trace where this exception occured.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a stack trace as a string.</p>
 						</li>
 					</ul>
 				</section>
@@ -413,18 +418,21 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#setcausestring">setCauseString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L98">errors/ApplicationException.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L100">errors/ApplicationException.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets additional information about the cause of the exception.</p>
+									<p>Sets original error wrapped by this exception as a string message.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an original error message.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -442,18 +450,21 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#setstacktracestring">setStackTraceString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L112">errors/ApplicationException.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L118">errors/ApplicationException.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the stack trace of the exception.</p>
+									<p>Sets a stack trace where this exception occured.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a stack trace as a string</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -471,22 +482,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcause">withCause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L131">errors/ApplicationException.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L146">errors/ApplicationException.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the cause of the exception and returns the resulting ApplicationException.
-									The &#39;cause&#39; field contains additional information about the cause of the exception.</p>
+									<p>Sets a original error wrapped by this exception</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>cause: <span class="tsd-signature-type">Error</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>original error object</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -501,23 +517,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcode">withCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L121">errors/ApplicationException.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L131">errors/ApplicationException.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the code of the exception and returns the resulting ApplicationException.
-										Every error needs a unique code by which it can be identified. Using this code,
-									we can select which localized error messages to use and what to display in the UI.</p>
+									<p>Sets a unique error code.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>code: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique error code</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -525,29 +545,34 @@
 					<a name="withcorrelationid" class="tsd-anchor"></a>
 					<h3>with<wbr>Correlation<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">with<wbr>Correlation<wbr>Id<span class="tsd-signature-symbol">(</span>correlation_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></li>
+						<li class="tsd-signature tsd-kind-icon">with<wbr>Correlation<wbr>Id<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withcorrelationid">withCorrelationId</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L161">errors/ApplicationException.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L192">errors/ApplicationException.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the correlation ID of the exception and returns the resulting ApplicationException.
-									The correlation ID ties an exception to a specific business transaction.</p>
+									<p>Sets a correlation id which can be used to trace this error through a call chain.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>correlation_id: <span class="tsd-signature-type">string</span></h5>
+									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique transaction id to trace error through call chain</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -562,25 +587,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withdetails">withDetails</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L151">errors/ApplicationException.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L177">errors/ApplicationException.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the details of the exception and returns the resulting ApplicationException.
-									Details are used to add additional information to localized error message strings.</p>
+									<p>Sets a parameter for additional error details.
+									This details can be used to restore error description in other languages.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a details parameter name</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a details parameter name</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -595,21 +629,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withstacktrace">withStackTrace</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L169">errors/ApplicationException.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L206">errors/ApplicationException.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the stack trace of the exception and returns the resulting ApplicationException.</p>
+									<p>Sets a stack trace for this error.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>stackTrace: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a stack trace where this error occured</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -624,23 +664,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#withstatus">withStatus</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L142">errors/ApplicationException.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L161">errors/ApplicationException.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the status of the exception and returns the resulting ApplicationException.
-										The &#39;status&#39; field is used when sending exceptions over the REST interface,
-									so that we know what HTTP status code to raise.</p>
+									<p>Sets a HTTP status code which shall be returned by REST calls.</p>
 								</div>
+								<p>This method returns reference to this exception to implement Builder pattern
+								to chain additional calls.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>status: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an HTTP error code.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
+							<p>this exception object</p>
 						</li>
 					</ul>
 				</section>
@@ -655,45 +699,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#wrap">wrap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L197">errors/ApplicationException.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L220">errors/ApplicationException.ts:220</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Wrapping allows us to transform general exceptions into ApplicationExceptions.</p>
+									<p>Wraps another exception into an application exception object.</p>
 								</div>
-								<p>This method does the following:</p>
-								<ul>
-									<li>attempts to unwrap Seneca and restify exceptions from the parameter &#39;cause&#39; using the
-									static method <a href="errors.unsupportedexception.html#unwraperror">unwrapError</a> (if they are present).</li>
-									<li>checks whether &#39;cause&#39; is an ApplicationException (if it is, then no additional wrapping is done).</li>
-									<li>if the &#39;cause&#39; parameter contains an unknown exception, then the cause field of this
-									ApplicationException object is set to the original exception (the &#39;cause&#39; parameter&#39;s &#39;message&#39; field).</li>
-								</ul>
-								<p>The third point of this list is used in the following way: when an unknown exception is raised, the
-									exception&#39;s type can be determined, a category of ApplicationExceptions that is closest to the exception&#39;s
-									type can be chosen from the ones available, after which the unknown exception can be wrapped around the
-									chosen type of ApplicationException. This is done for unifying exceptions, as it is challenging to process
-									a wide variety of unknown exceptions. Wrapping unknown exceptions around existing ones allows us to categorize
-								them and be &quot;in the ballpark&quot;.</p>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="errors.unsupportedexception.html#unwraperror">unwrapError</a></p>
-									</dd>
-								</dl>
+								<p>If original exception is of ApplicationException type it is returned without changes.
+								Otherwise a new ApplicationException is created and original error is set as its cause.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>cause: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the exception that is to be wrapped around this ApplicationException object.</p>
+										<p>an original error object</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
-							<p>the &#39;cause&#39; parameter as an ApplicationException (if it is one) or this ApplicationException
-							object with &#39;this.cause&#39; set to the &#39;cause&#39; parameter&#39;s &#39;message&#39; field.</p>
+							<p>an original or newly created ApplicationException</p>
 						</li>
 					</ul>
 				</section>
@@ -708,25 +734,28 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#unwraperror">unwrapError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L234">errors/ApplicationException.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L262">errors/ApplicationException.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Used to unwrap Seneca exceptions and restify exceptions.</p>
+									<p>Unwraps original exception through wrapped exception objects.</p>
 								</div>
+								<p>Many frameworks like Seneca or restify wrap original exception.
+									That may result in propagating less specific errors and can hide
+								causes of the errors.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>error: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>error that may contain Seneca or restify exceptions.</p>
+										<p>an error object</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>For Seneca exceptions: error.orig. For restify exceptions: error.body.</p>
+							<p>an original error object</p>
 						</li>
 					</ul>
 				</section>
@@ -741,14 +770,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="errors.applicationexception.html">ApplicationException</a>.<a href="errors.applicationexception.html#wraperror">wrapError</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/errors/ApplicationException.ts#L218">errors/ApplicationException.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/errors/ApplicationException.ts#L242">errors/ApplicationException.ts:242</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that is identical to the non-static method <a href="errors.unsupportedexception.html#wrap">wrap</a>. Wraps &#39;cause&#39; around
-									the ApplicationException passed as &#39;error&#39;, instead of itself (this).</p>
+									<p>Wraps another exception into specified application exception object.</p>
 								</div>
+								<p>If original exception is of ApplicationException type it is returned without changes.
+								Otherwise the original error is set as a cause to specified ApplicationException object.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="errors.unsupportedexception.html#wrap">wrap</a></p>
@@ -760,19 +790,18 @@
 								<li>
 									<h5>error: <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ApplicationException that has been chosen for wrapping.</p>
+										<p>an ApplicationException object to wrap the cause</p>
 									</div>
 								</li>
 								<li>
 									<h5>cause: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the exception that is to be wrapped around the &#39;error&#39; parameter.</p>
+										<p>an original error object</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="errors.applicationexception.html" class="tsd-signature-type">ApplicationException</a></h4>
-							<p>the &#39;cause&#39; parameter as an ApplicationException (if it is one) or the parameter
-							&#39;error&#39; with its &#39;cause&#39; field set to the &#39;cause&#39; parameter&#39;s &#39;message&#39; field.</p>
+							<p>an original or newly created ApplicationException</p>
 						</li>
 					</ul>
 				</section>

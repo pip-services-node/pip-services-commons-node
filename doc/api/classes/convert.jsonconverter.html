@@ -70,16 +70,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods for conversion between various data types and Javascript&#39;s object notation.</p>
+						<p>Converts arbitrary values from and to JSON (JavaScript Object Notation) strings.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code>public MyMethod (<span class="hljs-keyword">value</span>: any) {
-    <span class="hljs-keyword">let</span> jsonValue = JsonConverter.toJson(<span class="hljs-keyword">value</span>);
-    ...
-
-    <span class="hljs-keyword">let</span> <span class="hljs-keyword">new</span><span class="hljs-number">_</span><span class="hljs-keyword">value</span> = JsonConverter.fromJson(TypeCode.String, jsonValue);
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = JsonConverter.fromJson(&quot;{\&quot;key\&quot;:123}&quot;); // Result: { key: 123 }
+					let value2 = JsonConverter.toMap({ key: 123}); // Result: &quot;{\&quot;key\&quot;:123}&quot;</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../enums/convert.typecode.html">TypeCode</a></p>
@@ -124,12 +119,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/JsonConverter.ts#L28">convert/JsonConverter.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/JsonConverter.ts#L25">convert/JsonConverter.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting JSON strings to nullable objects of type T.</p>
+									<p>Converts JSON string into a value of type specified by a TypeCode.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -154,7 +149,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>&#39;value&#39; as an object of type T. If &#39;value&#39; was null - null will be returned .</p>
+							<p>converted object value or null when value is null.</p>
 						</li>
 					</ul>
 				</section>
@@ -168,12 +163,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/JsonConverter.ts#L40">convert/JsonConverter.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/JsonConverter.ts#L37">convert/JsonConverter.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting objects in to JSON strings.</p>
+									<p>Converts value into JSON string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -186,7 +181,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the string generated using the standard JSON stringify method.</p>
+							<p>JSON string or null when value is null.</p>
 						</li>
 					</ul>
 				</section>
@@ -200,13 +195,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/JsonConverter.ts#L74">convert/JsonConverter.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/JsonConverter.ts#L69">convert/JsonConverter.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting JSON strings to maps using <a href="convert.jsonconverter.html#tonullablemap">toNullableMap</a>.
-									An empty map will be used as the default value for the conversion.</p>
+									<p>Converts JSON string into map object or returns empty map when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -224,6 +218,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Map object value or empty object when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -237,14 +232,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/JsonConverter.ts#L89">convert/JsonConverter.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/JsonConverter.ts#L83">convert/JsonConverter.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting JSON strings to maps using <a href="convert.jsonconverter.html#tonullablemap">toNullableMap</a>.
-										If null is returned by the conversion, then this method will return the default
-									value passed.</p>
+									<p>Converts JSON string into map object or returns default value when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -263,11 +256,12 @@
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the default value to return if the conversion returns null.</p>
+										<p>the default value.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Map object value or default when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -281,13 +275,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/convert/JsonConverter.ts#L55">convert/JsonConverter.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/JsonConverter.ts#L50">convert/JsonConverter.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting JSON strings to nullable maps. Uses
-									the standard JSON parse method and <a href="convert.mapconverter.html#tonullablemap">MapConverter.toNullableMap</a>.</p>
+									<p>Converts JSON string into map object or returns null when conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -305,8 +298,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the map created. If &#39;value&#39; is null or the conversion
-							fails - null will be returned.</p>
+							<p>Map object value or null when conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>

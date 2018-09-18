@@ -70,16 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that includes standard design patterns for data paging.
-							Paging parameters contain information about how to retrieve
-						data pages from a data source.</p>
+						<p>Data transfer object to pass paging parameters for queries.
+							The page is defined by two parameters.
+							The Skip parameter defines number of items to skip.
+							The Paging parameter sets how many items to return in a page.
+						And the optional Total parameter tells to return total number of items in the query.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example PagingParams object usage:</p>
-					<pre><code><span class="hljs-keyword">let</span> <span class="hljs-keyword">params</span>: PagingParams;
-
-<span class="hljs-keyword">params</span> = <span class="hljs-keyword">new</span> PagingParams(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// To get first 100 elements and takes total elements count</span>
-</code></pre>
+					<p>Remember: not all implementations support Total parameter
+					because its generation may lead to severe performance implications.</p>
+					<h3 id="example">Example</h3>
+					<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
+					let paging = new PagingParams(0, 100);</p>
+					<p>myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -133,10 +135,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L27">data/PagingParams.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L29">data/PagingParams.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance and sets its values.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -144,7 +149,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> skip: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the number of result to skip.</p>
+											<p>the number of items to skip.</p>
 										</div>
 									</div>
 								</li>
@@ -152,7 +157,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> take: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the number of result to take.</p>
+											<p>the number of items to return.</p>
 										</div>
 									</div>
 								</li>
@@ -160,7 +165,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> total: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>limits the result&#39;s length to &#39;total&#39; results.</p>
+											<p>true to return the total number of items.</p>
 										</div>
 									</div>
 								</li>
@@ -178,12 +183,12 @@
 					<div class="tsd-signature tsd-kind-icon">skip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L23">data/PagingParams.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L25">data/PagingParams.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>the number of result to skip.</p>
+							<p>The number of items to skip.</p>
 						</div>
 					</div>
 				</section>
@@ -193,12 +198,12 @@
 					<div class="tsd-signature tsd-kind-icon">take<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L25">data/PagingParams.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L27">data/PagingParams.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>the number of result to take.</p>
+							<p>The number of items to return.</p>
 						</div>
 					</div>
 				</section>
@@ -208,12 +213,12 @@
 					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L27">data/PagingParams.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L29">data/PagingParams.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>limits the result&#39;s length.</p>
+							<p>The flag to return the total number of items.</p>
 						</div>
 					</div>
 				</section>
@@ -230,23 +235,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L45">data/PagingParams.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L50">data/PagingParams.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the number of items to skip.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>minSkip: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the minimum value to return.</p>
+										<p>the minimum number of items to skip.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the number of result to skip or &#39;minSkip&#39;,
-							if the &#39;skip&#39; field is less than &#39;minSkip&#39;.</p>
+							<p>the number of items to skip.</p>
 						</li>
 					</ul>
 				</section>
@@ -260,23 +267,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L56">data/PagingParams.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L62">data/PagingParams.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the number of items to return in a page.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>maxTake: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the maximum value to return.</p>
+										<p>the maximum number of items to return.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the number of result to take or &#39;maxTake&#39;,
-							if the &#39;take&#39; field is more than &#39;maxTake&#39;.</p>
+							<p>the number of items to return.</p>
 						</li>
 					</ul>
 				</section>
@@ -290,12 +299,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L106">data/PagingParams.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L100">data/PagingParams.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting a map into a PagingParams object.</p>
+									<p>Creates a new PagingParams and sets it parameters from the specified map</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -303,13 +312,12 @@
 								<li>
 									<h5>map: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a map that contains the keys &quot;skip&quot;, &quot;take&quot;, &quot;total&quot;, whose
-										values will be used to initialize the new PagingParams object.</p>
+										<p>a AnyValueMap or StringValueMap to initialize this PagingParams</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.pagingparams.html" class="tsd-signature-type">PagingParams</a></h4>
-							<p>the PagingParams created.</p>
+							<p>a newly created PagingParams.</p>
 						</li>
 					</ul>
 				</section>
@@ -323,35 +331,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L94">data/PagingParams.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L89">data/PagingParams.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting the tuples passed as parameters into a PagingParams object.
-										<a href="data.anyvaluemap.html#fromtuplesarray">AnyValueMap.fromTuplesArray</a> will be used to create a map, which the PagingParams
-									can be initialized with (using <a href="data.pagingparams.html#frommap">fromMap</a>).</p>
+									<p>Creates a new PagingParams from a list of key-value pairs called tuples.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="data.anyvaluemap.html#fromtuplesarray">AnyValueMap.fromTuplesArray</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="data.pagingparams.html#frommap">fromMap</a></p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the tuples to convert into a PagingParams object.</p>
+										<p>a list of values where odd elements are keys and the following even elements are values</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.pagingparams.html" class="tsd-signature-type">PagingParams</a></h4>
-							<p>the PagingParams created.</p>
+							<p>a newly created PagingParams.</p>
 						</li>
 					</ul>
 				</section>
@@ -365,36 +363,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/PagingParams.ts#L75">data/PagingParams.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L75">data/PagingParams.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for converting a value into a PagingParams object. If
-										&#39;value&#39; is an instance of PagingParams then it will be returned. Otherwise,
-										<a href="data.anyvaluemap.html#fromvalue">AnyValueMap.fromValue</a> will be used to create a map, which the PagingParams
-									can be initialized with (using <a href="data.pagingparams.html#frommap">fromMap</a>).</p>
+									<p>Converts specified value into PagingParams.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>see</dt>
-									<dd><p><a href="data.anyvaluemap.html#fromvalue">AnyValueMap.fromValue</a></p>
-									</dd>
-									<dt>see</dt>
-									<dd><p><a href="data.pagingparams.html#frommap">fromMap</a></p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to convert into a PagingParams object.</p>
+										<p>value to be converted</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.pagingparams.html" class="tsd-signature-type">PagingParams</a></h4>
-							<p>the PagingParams created.</p>
+							<p>a newly created PagingParams.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,15 +70,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that defines a field by which values can be sorted. A sort field contains a
-						string field &#39;name&#39; and a boolean field &#39;ascending&#39;.</p>
+						<p>Defines a field name and order used to sort query results.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">let</span> sortField = <span class="hljs-keyword">new</span> SortField(<span class="hljs-string">"key1"</span>, <span class="hljs-literal">true</span>);
-    ...
-}
-</code></pre>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="data.sortparams.html">SortParams</a></p>
+							<h3 id="example">Example</h3>
+							<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
+								let paging = new PagingParams(0, 100);
+							let sorting = new SortingParams(new SortField(&quot;create_time&quot;, true));</p>
+							<p>myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -99,6 +102,13 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="data.sortfield.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="data.sortfield.html#ascending" class="tsd-kind-icon">ascending</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="data.sortfield.html#name" class="tsd-kind-icon">name</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -114,10 +124,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/SortField.ts#L15">data/SortField.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/SortField.ts#L20">data/SortField.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance and assigns its values.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -133,8 +146,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> ascending: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>boolean value indicating whether the values should
-											be sorted in ascending (true) or descending (false) order</p>
+											<p>true to sort in ascending order, and false to sort in descending order.</p>
 										</div>
 									</div>
 								</li>
@@ -142,6 +154,39 @@
 							<h4 class="tsd-returns-title">Returns <a href="data.sortfield.html" class="tsd-signature-type">SortField</a></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="ascending" class="tsd-anchor"></a>
+					<h3>ascending</h3>
+					<div class="tsd-signature tsd-kind-icon">ascending<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/SortField.ts#L20">data/SortField.ts:20</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The flag to define sorting order. True to sort ascending, false to sort descending</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/SortField.ts#L18">data/SortField.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The field name to sort by</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -222,6 +267,12 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="data.sortfield.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="data.sortfield.html#ascending" class="tsd-kind-icon">ascending</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="data.sortfield.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>

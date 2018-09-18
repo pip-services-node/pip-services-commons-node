@@ -70,8 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that assigns references to components.</p>
+						<p>Helper class that sets and unsets references to components.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/refer.ireferenceable.html">IReferenceable</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a></p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -110,14 +118,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Referencer.ts#L35">refer/Referencer.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Referencer.ts#L41">refer/Referencer.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Assigns references to multiple components at once. For references to be assigned, all
-									component must implement the <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a> interface.</p>
+									<p>Sets references to multiple components.</p>
 								</div>
+								<p>To set references components must implement <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/refer.ireferenceable.html">IReferenceable</a></p>
@@ -129,13 +138,13 @@
 								<li>
 									<h5>references: <a href="../interfaces/refer.ireferences.html" class="tsd-signature-type">IReferences</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the references to be assigned.</p>
+										<p>the references to be set.</p>
 									</div>
 								</li>
 								<li>
 									<h5>components: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a list of components to assign the references to.</p>
+										<p>a list of components to set the references to.</p>
 									</div>
 								</li>
 							</ul>
@@ -153,14 +162,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Referencer.ts#L21">refer/Referencer.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Referencer.ts#L25">refer/Referencer.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Assigns references to a component. For references to be assigned, the component must
-									implement the <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a> interface.</p>
+									<p>Sets references to specific component.</p>
 								</div>
+								<p>To set references components must implement <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/refer.ireferenceable.html">IReferenceable</a></p>
@@ -172,13 +182,13 @@
 								<li>
 									<h5>references: <a href="../interfaces/refer.ireferences.html" class="tsd-signature-type">IReferences</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the references to be assigned.</p>
+										<p>the references to be set.</p>
 									</div>
 								</li>
 								<li>
 									<h5>component: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the component to assign the references to.</p>
+										<p>the component to set references to.</p>
 									</div>
 								</li>
 							</ul>
@@ -196,14 +206,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Referencer.ts#L61">refer/Referencer.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Referencer.ts#L71">refer/Referencer.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Clears the references of multiple components at once. For references to be unset, the component must
-									implement the <a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a> interface.</p>
+									<p>Unsets references in multiple components.</p>
 								</div>
+								<p>To unset references components must implement <a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a></p>
@@ -233,14 +244,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/refer/Referencer.ts#L48">refer/Referencer.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Referencer.ts#L56">refer/Referencer.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Clears the references of a component. For references to be unset, the component must
-									implement the <a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a> interface.</p>
+									<p>Unsets references in specific component.</p>
 								</div>
+								<p>To unset references components must implement <a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a> interface.
+								If they don&#39;t the call to this method has no effect.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="../interfaces/refer.iunreferenceable.html">IUnreferenceable</a></p>
@@ -252,7 +264,7 @@
 								<li>
 									<h5>component: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the component, whose references must be cleared.</p>
+										<p>the component to unset references.</p>
 									</div>
 								</li>
 							</ul>

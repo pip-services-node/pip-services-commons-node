@@ -70,15 +70,11 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods that can be used for generating random strings and chars, as well as picking at random strings/chars from a given set of strings/chars.</p>
+						<p>Random generator for string values.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example usage:</p>
-					<pre><code>public MyMethod(<span class="hljs-keyword">min</span>Length: number, <span class="hljs-keyword">max</span>Length: number ) {
-    let stringValue = RandomString.nextString(<span class="hljs-keyword">min</span>Length, <span class="hljs-keyword">max</span>Length);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = RandomString.pickChar(&quot;ABC&quot;);     // Possible result: &quot;C&quot;
+					let value2 = RandomString.pick([&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]); // Possible result: &quot;gBW&quot;</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -118,14 +114,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomString.ts#L61">random/RandomString.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomString.ts#L55">random/RandomString.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Distorts the string passed as &#39;value&#39; by making it lower case and by
-										either adding a symbol (&quot;_,.:-/.[].{},#-!,$=%.+^.&amp;*-() &quot;) to the end of the string,
-									or capitalizing the first letter of the string.</p>
+									<p>Distorts a string by randomly replacing characters in it.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,12 +127,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>string to distort.</p>
+										<p>a string to distort.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>initial string with only the first letter capitalized or with a symbol added to the end.</p>
+							<p>a distored string.</p>
 						</li>
 					</ul>
 				</section>
@@ -152,16 +146,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomString.ts#L80">random/RandomString.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomString.ts#L74">random/RandomString.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Randomly generates a letter of the English alphabet.</p>
+									<p>Generates random alpha characted [A-Za-z]</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>a random letter of the English alphabet. Returned letter can be upper or lower case).</p>
+							<p>a random characted.</p>
 						</li>
 					</ul>
 				</section>
@@ -175,12 +169,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomString.ts#L93">random/RandomString.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomString.ts#L87">random/RandomString.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Randomly generates a string, consisting of upper and lower case letters (of the English alphabet),
+									<p>Generates a random string, consisting of upper and lower case letters (of the English alphabet),
 									digits (0-9), and symbols (&quot;_,.:-/.[].{},#-!,$=%.+^.&amp;*-() &quot;).</p>
 								</div>
 							</div>
@@ -189,18 +183,18 @@
 								<li>
 									<h5>minLength: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>minimum length of the string to be returned.</p>
+										<p>(optional) minimum string length.</p>
 									</div>
 								</li>
 								<li>
 									<h5>maxLength: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>maximum length of the string to be returned.</p>
+										<p>maximum string length.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>randomly generated string.</p>
+							<p>a random string.</p>
 						</li>
 					</ul>
 				</section>
@@ -214,12 +208,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomString.ts#L45">random/RandomString.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomString.ts#L41">random/RandomString.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Picks a string at random from the string array passed as &#39;values&#39;</p>
+									<p>Picks a random string from an array of string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -232,7 +226,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>randomly picked string.</p>
+							<p>a randomly picked string.</p>
 						</li>
 					</ul>
 				</section>
@@ -246,12 +240,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomString.ts#L31">random/RandomString.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomString.ts#L27">random/RandomString.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Picks a char at random from the string passed as &#39;values&#39;</p>
+									<p>Picks a random character from a string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -259,12 +253,12 @@
 								<li>
 									<h5>values: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>chars to pick from.</p>
+										<p>a string to pick a char from</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>randomly picked char.</p>
+							<p>a randomly picked char.</p>
 						</li>
 					</ul>
 				</section>

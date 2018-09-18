@@ -70,21 +70,15 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Class that allows for usage of abstract, portable maps. Stores a set of key-value pairs, which can be retrieved
-						in various ways with the help of numerous converters.</p>
+						<p>Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
+						The stored values can be converted to different types using variety of accessor methods.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<pre><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyMethod</span> (<span class="hljs-params">values: any[]</span>) </span>{
-    <span class="hljs-keyword">let</span> map1 = AnyValueMap.fromTuples(
-        <span class="hljs-string">"key1"</span>, <span class="hljs-number">123</span>,
-        <span class="hljs-string">"key2"</span>, <span class="hljs-string">"ABC"</span>
-    );
-    ...
-
-    <span class="hljs-keyword">let</span> map2 = <span class="hljs-keyword">new</span> AnyValueMap(values);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = new AnyValueMap({ key1: 1, key2: &quot;123.456&quot;, key3: &quot;2018-01-01&quot; });</p>
+					<p>value1.getAsBoolean(&quot;key1&quot;);   // Result: true
+						value1.getAsInteger(&quot;key2&quot;);   // Result: 123
+						value1.getAsFloat(&quot;key2&quot;);     // Result: 123.456
+					value1.getAsDateTime(&quot;key3&quot;);  // Result: new Date(2018,0,1)</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="convert.stringconverter.html">StringConverter</a></p>
@@ -211,25 +205,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L45">data/AnyValueMap.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L42">data/AnyValueMap.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new object and sets its values to the &#39;values&#39; passed
-										as a parameter. If &#39;values&#39; are omitted, they can be set later on using
-									<a href="data.anyvaluemap.html#setasobject">setAsObject</a> or <a href="data.anyvaluemap.html#append">append</a>.</p>
+									<p>Creates a new instance of the map and assigns its value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> values: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the values to store in this AnyValueMap.</p>
-										</div>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
@@ -249,12 +236,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L109">data/AnyValueMap.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L104">data/AnyValueMap.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends a map of items to this AnyValueMap.</p>
+									<p>Appends new elements to this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,7 +249,7 @@
 								<li>
 									<h5>map: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the map of items to append to this AnyValueMap.</p>
+										<p>a map with elements to be added.</p>
 									</div>
 								</li>
 							</ul>
@@ -280,12 +267,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L120">data/AnyValueMap.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L117">data/AnyValueMap.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes all values from this AnyValueMap.</p>
+									<p>Clears this map by removing all its elements.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -303,10 +290,13 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/data.icloneable.html">ICloneable</a>.<a href="../interfaces/data.icloneable.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L661">data/AnyValueMap.ts:661</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L630">data/AnyValueMap.ts:630</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a binary clone of this object.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 							<p>a clone of this object.</p>
@@ -323,12 +313,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L64">data/AnyValueMap.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L59">data/AnyValueMap.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item stored by the given key.</p>
+									<p>Gets a map element specified by its key.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -336,12 +326,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve from this AnyValueMap.</p>
+										<p>a key of the element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the item stored by the given key.</p>
+							<p>the value of the map element.</p>
 						</li>
 					</ul>
 				</section>
@@ -355,12 +345,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L567">data/AnyValueMap.ts:567</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L537">data/AnyValueMap.ts:537</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueArray object.</p>
+									<p>Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -376,12 +366,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as an AnyValueArray object.</p>
+							<p>AnyValueArray value of the element or empty AnyValueArray if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -395,13 +385,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L585">data/AnyValueMap.ts:585</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L552">data/AnyValueMap.ts:552</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueArray object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts map element into an AnyValueArray or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -417,20 +406,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given key cannot be converted
-										into an AnyValueArray.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as an AnyValueArray object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueArray value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -444,13 +431,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L249">data/AnyValueMap.ts:249</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L242">data/AnyValueMap.ts:242</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable boolean object using
-									<a href="data.anyvaluemap.html#getasbooleanwithdefault">AnyValueMap.getAsBooleanWithDefault</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns false if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -463,12 +449,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a boolean (or false as the default).</p>
+							<p>boolean value of the element or false if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -482,13 +468,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L264">data/AnyValueMap.ts:264</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L255">data/AnyValueMap.ts:255</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable boolean object using
-									<a href="convert.booleanconverter.html#tobooleanwithdefault">BooleanConverter.toBooleanWithDefault</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -501,19 +486,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a boolean or the
-							defaultValue (if conversion is not possible).</p>
+							<p>boolean value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -527,13 +511,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L464">data/AnyValueMap.ts:464</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L437">data/AnyValueMap.ts:437</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable Datetime object using
-									<a href="data.anyvaluemap.html#getasdatetimewithdefault">AnyValueMap.getAsDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a Date or returns the current date if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -546,12 +529,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a Datetime (or null as the default).</p>
+							<p>Date value of the element or the current date if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -565,13 +548,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L479">data/AnyValueMap.ts:479</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L450">data/AnyValueMap.ts:450</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable Datetime object using
-									<a href="convert.datetimeconverter.html#todatetimewithdefault">DateTimeConverter.toDateTimeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a Date or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -584,19 +566,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a Datetime or the
-							defaultValue (if conversion is not possible).</p>
+							<p>Date value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -610,13 +591,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L421">data/AnyValueMap.ts:421</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L398">data/AnyValueMap.ts:398</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable double object using
-									<a href="data.anyvaluemap.html#getasdoublewithdefault">AnyValueMap.getAsDoubleWithDefault</a> and returns it.</p>
+									<p>Converts map element into a double or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -629,12 +609,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a double (or 0 as the default).</p>
+							<p>double value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -648,13 +628,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L436">data/AnyValueMap.ts:436</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L411">data/AnyValueMap.ts:411</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable double object using
-									<a href="convert.doubleconverter.html#todoublewithdefault">DoubleConverter.toDoubleWithDefault</a> and returns it.</p>
+									<p>Converts map element into a double or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -667,19 +646,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a double or the
-							defaultValue (if conversion is not possible).</p>
+							<p>double value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -693,13 +671,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L378">data/AnyValueMap.ts:378</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L359">data/AnyValueMap.ts:359</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable float object using
-									<a href="data.anyvaluemap.html#getasfloatwithdefault">AnyValueMap.getAsFloatWithDefault</a> and returns it.</p>
+									<p>Converts map element into a float or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -712,12 +689,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a float (or 0 as the default).</p>
+							<p>float value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -731,13 +708,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L393">data/AnyValueMap.ts:393</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L372">data/AnyValueMap.ts:372</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable float object using
-									<a href="convert.floatconverter.html#tofloatwithdefault">FloatConverter.toFloatWithDefault</a> and returns it.</p>
+									<p>Converts map element into a flot or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -750,19 +726,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a float or the
-							defaultValue (if conversion is not possible).</p>
+							<p>flot value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -776,13 +751,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L292">data/AnyValueMap.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L281">data/AnyValueMap.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable integer object using
-									<a href="data.anyvaluemap.html#getasintegerwithdefault">AnyValueMap.getAsIntegerWithDefault</a> and returns it.</p>
+									<p>Converts map element into an integer or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -795,12 +769,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as an integer (or 0 as the default).</p>
+							<p>integer value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -814,13 +788,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L307">data/AnyValueMap.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L294">data/AnyValueMap.ts:294</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable integer object using
-									<a href="convert.integerconverter.html#tointegerwithdefault">IntegerConverter.toIntegerWithDefault</a> and returns it.</p>
+									<p>Converts map element into an integer or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -833,19 +806,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as an integer or the
-							defaultValue (if conversion is not possible).</p>
+							<p>integer value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -859,13 +831,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L335">data/AnyValueMap.ts:335</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L320">data/AnyValueMap.ts:320</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable long object using
-									<a href="data.anyvaluemap.html#getaslongwithdefault">AnyValueMap.getAsLongWithDefault</a> and returns it.</p>
+									<p>Converts map element into a long or returns 0 if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -878,12 +849,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a long (or 0 as the default).</p>
+							<p>long value of the element or 0 if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -897,13 +868,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L350">data/AnyValueMap.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L333">data/AnyValueMap.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable long object using
-									<a href="convert.longconverter.html#tolongwithdefault">LongConverter.toLongWithDefault</a> and returns it.</p>
+									<p>Converts map element into a long or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -916,19 +886,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a long or the
-							defaultValue (if conversion is not possible).</p>
+							<p>long value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -942,12 +911,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L612">data/AnyValueMap.ts:612</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L578">data/AnyValueMap.ts:578</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueMap object.</p>
+									<p>Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -960,12 +929,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as an AnyValueMap object.</p>
+							<p>AnyValueMap value of the element or empty AnyValueMap if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -979,13 +948,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L629">data/AnyValueMap.ts:629</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L592">data/AnyValueMap.ts:592</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValueMap object
-									(or &#39;defaultValue&#39; if conversion is not possible).</p>
+									<p>Converts map element into an AnyValueMap or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -998,20 +966,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to use if the item at the given key cannot be converted
-										into an AnyValueMap.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as an AnyValueMap object or &#39;defaultValue&#39;
-							(if conversion is not possible).</p>
+							<p>AnyValueMap value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1025,12 +991,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L553">data/AnyValueMap.ts:553</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L523">data/AnyValueMap.ts:523</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as a nullable AnyValueArray object.</p>
+									<p>Converts map element into an AnyValueArray or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1046,13 +1012,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluearray.html" class="tsd-signature-type">AnyValueArray</a></h4>
-							<p>the item at the given key as a nullable AnyValueArray object (returns
-							null if the item at the given key is null).</p>
+							<p>AnyValueArray value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1066,13 +1031,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L235">data/AnyValueMap.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L229">data/AnyValueMap.ts:229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable boolean object using
-									<a href="convert.booleanconverter.html#tonullableboolean">BooleanConverter.toNullableBoolean</a> and returns it.</p>
+									<p>Converts map element into a boolean or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1085,12 +1049,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>the item at the given key as a nullable boolean.</p>
+							<p>boolean value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1104,13 +1068,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L450">data/AnyValueMap.ts:450</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L424">data/AnyValueMap.ts:424</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable Datetime object using
-									<a href="convert.datetimeconverter.html#tonullabledatetime">DateTimeConverter.toNullableDateTime</a> and returns it.</p>
+									<p>Converts map element into a Date or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1123,12 +1086,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
-							<p>the item at the given key as a nullable Datetime.</p>
+							<p>Date value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1142,13 +1105,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L407">data/AnyValueMap.ts:407</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L385">data/AnyValueMap.ts:385</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable double object using
-									<a href="convert.doubleconverter.html#tonullabledouble">DoubleConverter.toNullableDouble</a> and returns it.</p>
+									<p>Converts map element into a double or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1161,12 +1123,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable double.</p>
+							<p>double value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1180,13 +1142,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L364">data/AnyValueMap.ts:364</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L346">data/AnyValueMap.ts:346</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable float object using
-									<a href="convert.floatconverter.html#tonullablefloat">FloatConverter.toNullableFloat</a> and returns it.</p>
+									<p>Converts map element into a float or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1199,12 +1160,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable float.</p>
+							<p>float value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1218,13 +1179,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L278">data/AnyValueMap.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L268">data/AnyValueMap.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable integer object using
-									<a href="convert.integerconverter.html#tonullableinteger">IntegerConverter.toNullableInteger</a> and returns it.</p>
+									<p>Converts map element into an integer or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1237,12 +1197,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable integer.</p>
+							<p>integer value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1256,13 +1216,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L321">data/AnyValueMap.ts:321</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L307">data/AnyValueMap.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable long object using
-									<a href="convert.longconverter.html#tonullablelong">LongConverter.toNullableLong</a> and returns it.</p>
+									<p>Converts map element into a long or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1275,12 +1234,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the item at the given key as a nullable long.</p>
+							<p>long value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1294,12 +1253,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L599">data/AnyValueMap.ts:599</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L565">data/AnyValueMap.ts:565</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as a nullable AnyValueMap object.</p>
+									<p>Converts map element into an AnyValueMap or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1312,13 +1271,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the item at the given key as a nullable AnyValueMap object (returns
-							null if the item at the given key is null).</p>
+							<p>AnyValueMap value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1332,13 +1290,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L192">data/AnyValueMap.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L190">data/AnyValueMap.ts:190</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable string object using
-									<a href="convert.stringconverter.html#tonullablestring">StringConverter.toNullableString</a> and returns it.</p>
+									<p>Converts map element into a string or returns null if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1351,12 +1308,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a nullable string.</p>
+							<p>string value of the element or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1370,13 +1327,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L494">data/AnyValueMap.ts:494</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L465">data/AnyValueMap.ts:465</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a nullable object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#tonullabletype">TypeConverter.toNullableType</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns null.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1395,18 +1352,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toNullableType<T>(TypeCode, value);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as a nullable object of type &#39;type&#39;.</p>
+							<p>element value defined by the typecode or null if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1420,23 +1377,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L149">data/AnyValueMap.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L147">data/AnyValueMap.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value stored in map element without any conversions.
+									When element key is not defined it returns the entire map value.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>(optional) a key of the element to get</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-							<p>the item at the given key without any conversions or
-							all items (if &#39;key&#39; is undefined or omitted).</p>
+							<p>the element value or value of the map when index is not defined.</p>
 						</li>
 					</ul>
 				</section>
@@ -1450,13 +1410,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L206">data/AnyValueMap.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L203">data/AnyValueMap.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable string object using
-									<a href="data.anyvaluemap.html#getasstringwithdefault">AnyValueMap.getAsStringWithDefault</a> and returns it.</p>
+									<p>Converts map element into a string or returns &quot;&quot; if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1469,12 +1428,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a string (or null as the default).</p>
+							<p>string value of the element or &quot;&quot; if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1488,13 +1447,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L221">data/AnyValueMap.ts:221</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L216">data/AnyValueMap.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into a defaultable string object using
-									<a href="convert.stringconverter.html#tostringwithdefault">StringConverter.toStringWithDefault</a> and returns it.</p>
+									<p>Converts map element into a string or returns default value if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1507,19 +1465,18 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>the item at the given key as a string or the
-							defaultValue (if conversion is not possible).</p>
+							<p>string value of the element or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1533,13 +1490,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L509">data/AnyValueMap.ts:509</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L480">data/AnyValueMap.ts:480</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns default value for the specified type.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1558,18 +1515,18 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, null);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as an object of type &#39;type&#39; (or null as the default).</p>
+							<p>element value defined by the typecode or default if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1583,13 +1540,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L524">data/AnyValueMap.ts:524</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L495">data/AnyValueMap.ts:495</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the item at the given key into an object of type &#39;type&#39; using
-									<a href="convert.typeconverter.html#totypewithdefault">TypeConverter.toTypeWithDefault</a> and returns it.</p>
+									<p>Converts map element into a value defined by specied typecode.
+									If conversion is not possible it returns default value.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1608,22 +1565,24 @@
 								<li>
 									<h5>type: <a href="../enums/convert.typecode.html" class="tsd-signature-type">TypeCode</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the TypeCode to be used in TypeConverter.toTypeWithDefault<T>(TypeCode, value, defaultValue);</p>
+										<p>the TypeCode that defined the type of the result</p>
 									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a key of element to get.</p>
+									</div>
 								</li>
 								<li>
 									<h5>defaultValue: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>value to return if conversion is not possible.</p>
+										<p>the default value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-							<p>the item at the given key as an object of type &#39;type&#39; or the defaultValue,
-							if conversion is not possible.</p>
+							<p>element value defined by the typecode or default value if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1637,12 +1596,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L538">data/AnyValueMap.ts:538</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L509">data/AnyValueMap.ts:509</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the item at the given key as an AnyValue object.</p>
+									<p>Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1658,12 +1617,12 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to retrieve.</p>
+										<p>a key of element to get.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvalue.html" class="tsd-signature-type">AnyValue</a></h4>
-							<p>the item at the given key as an AnyValue object.</p>
+							<p>AnyValue value of the element or empty AnyValue if conversion is not supported.</p>
 						</li>
 					</ul>
 				</section>
@@ -1677,16 +1636,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L73">data/AnyValueMap.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L68">data/AnyValueMap.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns this AnyValueMap&#39;s keyset as a list of strings.</p>
+									<p>Gets keys of all elements stored in this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>all of the keys that are contained in this AnyValueMap as a list of strings.</p>
+							<p>a list with all map keys.</p>
 						</li>
 					</ul>
 				</section>
@@ -1700,16 +1659,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L134">data/AnyValueMap.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L130">data/AnyValueMap.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of key-value mappings present in this map.</p>
+									<p>Gets a number of elements stored in this map.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the number of key-value pairs stored in this AnyValueMap.</p>
+							<p>the number of elements in this map.</p>
 						</li>
 					</ul>
 				</section>
@@ -1723,12 +1682,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L91">data/AnyValueMap.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L86">data/AnyValueMap.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Puts a value into this AnyValueMap by the given key.</p>
+									<p>Puts a new value into map element specified by its key.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1736,13 +1695,13 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key by which to insert the given value.</p>
+										<p>a key of the element to put.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to insert into this AnyValueMap by the given key.</p>
+										<p>a new value for map element.</p>
 									</div>
 								</li>
 							</ul>
@@ -1760,12 +1719,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L100">data/AnyValueMap.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L95">data/AnyValueMap.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes an item by its key from this AnyValueMap.</p>
+									<p>Removes a map element specified by its key</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1773,7 +1732,7 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>key of the item to remove.</p>
+										<p>a key of the element to remove.</p>
 									</div>
 								</li>
 							</ul>
@@ -1791,10 +1750,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L172">data/AnyValueMap.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L171">data/AnyValueMap.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a new value to map element specified by its index.
+										When the index is not defined, it resets the entire map value.
+									This method has double purpose because method overrides are not supported in JavaScript.</p>
+								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
 									<dd><p><a href="convert.mapconverter.html#tomap">MapConverter.toMap</a></p>
@@ -1806,16 +1770,13 @@
 								<li>
 									<h5>key: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key by which to set the &#39;value&#39; passed.</p>
+										<p>(optional) a key of the element to set</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;undefined</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in this AnyValueMap at the given &#39;key&#39;.
-											If &#39;key&#39; is omitted, then this AnyValueMap will be set (cleared and
-											filled anew) using &#39;value&#39;. In this case &#39;value&#39; will be converted to
-										a map using &quot;MapConverter.toMap(value)&quot; and set to this AnyValueMap.</p>
+										<p>a new element or map value.</p>
 									</div>
 								</li>
 							</ul>
@@ -1833,14 +1794,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L639">data/AnyValueMap.ts:639</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L604">data/AnyValueMap.ts:604</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a string representation of the object.
+										The result is a semicolon-separated list of key-value pairs as
+									&quot;key1=value1;key2=value2;key=value3&quot;</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>this AnyValueMap as a semicolon-separated values string.</p>
-							<p>Example: &quot;key1=value1;key2;key3=value3&quot;.</p>
+							<p>a string representation of the object.</p>
 						</li>
 					</ul>
 				</section>
@@ -1854,12 +1819,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L720">data/AnyValueMap.ts:720</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L691">data/AnyValueMap.ts:691</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueMap using the maps passed as parameters.</p>
+									<p>Creates a new AnyValueMap by merging two or more maps.
+									Maps defined later in the list override values from previously defined maps.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1867,12 +1833,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>maps: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the maps passed to this method to create an AnyValueMap with.</p>
+										<p>an array of maps to be merged</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the AnyValueMap created.</p>
+							<p>a newly created AnyValueMap.</p>
 						</li>
 					</ul>
 				</section>
@@ -1886,12 +1852,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L687">data/AnyValueMap.ts:687</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L656">data/AnyValueMap.ts:656</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueMap from the tuples that are passed as parameters.</p>
+									<p>Creates a new AnyValueMap from a list of key-value pairs called tuples.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1904,12 +1870,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key-value tuple parameters to initialize the new AnyValueMap with.</p>
+										<p>a list of values where odd elements are keys and the following even elements are values</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the AnyValueMap created and filled by the tuples provided.</p>
+							<p>a newly created AnyValueArray.</p>
 						</li>
 					</ul>
 				</section>
@@ -1923,12 +1889,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L697">data/AnyValueMap.ts:697</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L667">data/AnyValueMap.ts:667</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueMap from an array of tuples.</p>
+									<p>Creates a new AnyValueMap from a list of key-value pairs called tuples.
+									The method is similar to <a href="data.anyvaluemap.html#fromtuples">fromTuples</a> but tuples are passed as array instead of parameters.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1936,12 +1903,12 @@
 								<li>
 									<h5>tuples: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the key-value tuples array to initialize the new AnyValueMap with.</p>
+										<p>a list of values where odd elements are keys and the following even elements are values</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the AnyValueMap created and filled by the &#39;tuples&#39; array provided.</p>
+							<p>a newly created AnyValueArray.</p>
 						</li>
 					</ul>
 				</section>
@@ -1955,12 +1922,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/AnyValueMap.ts#L673">data/AnyValueMap.ts:673</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/AnyValueMap.ts#L642">data/AnyValueMap.ts:642</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method for creating an AnyValueMap from a value using <a href="data.anyvaluemap.html#setasobject">setAsObject</a>.</p>
+									<p>Converts specified value into AnyValueMap.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -1973,12 +1940,12 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in the new AnyValueMap.</p>
+										<p>value to be converted</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="data.anyvaluemap.html" class="tsd-signature-type">AnyValueMap</a></h4>
-							<p>the AnyValueMap that was created and set to &#39;value&#39;.</p>
+							<p>a newly created AnyValueMap.</p>
 						</li>
 					</ul>
 				</section>

@@ -70,8 +70,22 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Validation rule that requires the set rule to fail for validation to pass.</p>
+						<p>Validation rule negate another rule.
+							When embedded rule returns no errors, than this rule return an error.
+						When embedded rule return errors, than the rule returns no errors.</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
+							<h3 id="example">Example</h3>
+							<p>let schema = new Schema()
+								.withRule(new NotRule(
+								new ValueComparisonRule(&quot;EQ&quot;, 1)
+							));</p>
+							<p>schema.validate(1);          // Result: error
+							schema.validate(5);          // Result: no error</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -119,12 +133,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/NotRule.ts#L11">validate/NotRule.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/NotRule.ts#L25">validate/NotRule.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new NotRule object and initializes it using the rule passed.</p>
+									<p>Creates a new validation rule and sets its values</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,7 +147,7 @@
 									<h5>rule: <a href="../interfaces/validate.ivalidationrule.html" class="tsd-signature-type">IValidationRule</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>the &quot;not&quot; rule to initialize the new NotRule object with.</p>
+											<p>a rule to be negated.</p>
 										</div>
 									</div>
 								</li>
@@ -156,14 +170,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/validate/NotRule.ts#L32">validate/NotRule.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/NotRule.ts#L44">validate/NotRule.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Validates the given value by calling the <a href="../interfaces/validate.ivalidationrule.html#validate">validate</a> method of
-										the &quot;not&quot; rule that is set in this NotRule object. Validation fails if validation of the
-									&quot;not&quot; rule passes.</p>
+									<p>Validates a given value against this rule.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,25 +183,25 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the dot notation path to the value that is to be validated.</p>
+										<p>a dot notation path to the value.</p>
 									</div>
 								</li>
 								<li>
 									<h5>schema: <a href="validate.schema.html" class="tsd-signature-type">Schema</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the schema to use for validation.</p>
+										<p>a schema this rule is called from</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value that is to be validated.</p>
+										<p>a value to be validated.</p>
 									</div>
 								</li>
 								<li>
 									<h5>results: <a href="validate.validationresult.html" class="tsd-signature-type">ValidationResult</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the results of the validation.</p>
+										<p>a list with validation results to add new results.</p>
 									</div>
 								</li>
 							</ul>

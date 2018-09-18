@@ -70,8 +70,28 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Helper class that contains methods for writing (setting) the properties of objects.</p>
+						<p>Helper class to perform property introspection and dynamic writing.</p>
 					</div>
+					<p>In contrast to <a href="reflect.propertyreflector.html">PropertyReflector</a> which only introspects regular objects,
+						this ObjectWriter is also able to handle maps and arrays.
+						For maps properties are key-pairs identified by string keys,
+					For arrays properties are elements identified by integer index.</p>
+					<p>This class has symmetric implementation across all languages supported
+					by Pip.Services toolkit and used to support dynamic data processing.</p>
+					<p>Because all languages have different casing and case sensitivity rules,
+					this ObjectWriter treats all property names as case insensitive.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="reflect.propertyreflector.html">PropertyReflector</a></p>
+							<h3 id="example">Example</h3>
+							<p>let myObj = new MyObject();</p>
+							<p>ObjectWriter.setProperty(myObj, &quot;myProperty&quot;, 123);</p>
+							<p>let myMap = { key1: 123, key2: &quot;ABC&quot; };
+							ObjectWriter.setProperty(myMap, &quot;key1&quot;, &quot;XYZ&quot;);</p>
+							<p>let myArray = [1, 2, 3]
+							ObjectWriter.setProperty(myArray, &quot;0&quot;, 123);</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -108,26 +128,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectWriter.ts#L43">reflect/ObjectWriter.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectWriter.ts#L84">reflect/ObjectWriter.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets multiple object properties at once.</p>
+									<p>Sets values of some (all) object properties.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									Property values correspondently are object properties,
+								map key-pairs or array elements with their indexes.</p>
+								<p>If some properties do not exist or introspection fails
+								they are just silently skipped and no errors thrown.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="reflect.objectwriter.html#setproperty">setProperty</a></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to set properties in.</p>
+										<p>an object to write properties to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>values: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a map, containing property names and the values to set.</p>
+										<p>a map, containing property names and their values.</p>
 									</div>
 								</li>
 							</ul>
@@ -145,32 +175,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/reflect/ObjectWriter.ts#L19">reflect/ObjectWriter.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/reflect/ObjectWriter.ts#L51">reflect/ObjectWriter.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Static method that sets an object&#39;s property to the value that is passed.</p>
+									<p>Sets value of object property specified by its name.</p>
 								</div>
+								<p>The object can be a user defined object, map or array.
+									The property name correspondently must be object property,
+								map key or array index.</p>
+								<p>If the property does not exist or introspection fails
+								this method doesn&#39;t do anything and doesn&#39;t any throw errors.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>obj: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object to set a property in.</p>
+										<p>an object to write property to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the name of the property to set.</p>
+										<p>a name of the property to set.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the value to set in the object&#39;s given property.</p>
+										<p>a new value for the property to set.</p>
 									</div>
 								</li>
 							</ul>

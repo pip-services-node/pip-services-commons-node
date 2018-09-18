@@ -70,15 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Interface for data objects that can track their changes.</p>
+						<p>Interface for data objects that contain their latest change time.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example implementation of the IChangeable interface:</p>
-					<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IChangeable</span> {</span>
-    <span class="hljs-keyword">public</span> <span class="hljs-string">change_time:</span> Date;
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p> export class MyData implements IStringIdentifiable, IChangeable {
+						public id: string;
+						public field1: string;
+						public field2: number;
+						public change_time: Date;
+						...
+					}</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,7 +116,7 @@
 					<div class="tsd-signature tsd-kind-icon">change_<wbr>time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/data/IChangeable.ts#L16">data/IChangeable.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/IChangeable.ts#L18">data/IChangeable.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

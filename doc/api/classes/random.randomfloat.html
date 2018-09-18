@@ -70,16 +70,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Provides methods that can be used for generating random floats, as well as updating existing floats
-						by generating a value in the range of &#39;original value&#39; ±&#39;delta/range&#39;.</p>
+						<p>Random generator for float values.</p>
 					</div>
-					<h3 id="examples">Examples</h3>
-					<p>Example usage:</p>
-					<pre><code><span class="hljs-keyword">public</span> MyMethod(<span class="hljs-built_in">min</span>: <span class="hljs-keyword">number</span>, <span class="hljs-built_in">max</span>: <span class="hljs-keyword">number</span> ) {
-    let floatValue = RandomFloat.nextFloat(<span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span>);
-    ...
-}
-</code></pre>
+					<h3 id="example">Example</h3>
+					<p>let value1 = RandomFloat.nextFloat(5, 10);     // Possible result: 7.3
+						let value2 = RandomFloat.nextFloat(10);        // Possible result: 3.7
+					let value3 = RandomFloat.updateFloat(10, 3);   // Possible result: 9.2</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -116,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomFloat.ts#L25">random/RandomFloat.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomFloat.ts#L22">random/RandomFloat.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -155,13 +151,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/4fc1965/src/random/RandomFloat.ts#L46">random/RandomFloat.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/random/RandomFloat.ts#L40">random/RandomFloat.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Generates a new float that will differ from &#39;value&#39; by a maximum of ±&#39;range&#39;. If range is omitted,
-									then the generated value will differ from &#39;value&#39; by a maximum of ±10%.</p>
+									<p>Updates (drifts) a float value within specified range defined</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -169,19 +164,17 @@
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>float to update.</p>
+										<p>a float value to drift.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> range: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>(optional) defines the maximum amount by which the new float can differ from &#39;value&#39;.
-										Defaults to 10% of &#39;value&#39; if omitted.</p>
+										<p>(optional) a range. Default: 10% of the value</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>updated float value.</p>
 						</li>
 					</ul>
 				</section>
