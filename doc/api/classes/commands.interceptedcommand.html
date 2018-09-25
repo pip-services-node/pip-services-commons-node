@@ -81,22 +81,27 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/commands.icommandinterceptor.html">ICommandInterceptor</a></p>
 							<h3 id="example">Example</h3>
-							<p>export class CommandLogger implements ICommandInterceptor {</p>
-							<p>  public getName(command: ICommand): string {
-								return command.getName();
-							}</p>
-							<p>  public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) =&gt; void): void {
-								console.log(&quot;Executed command &quot; + command.getName());
-								command.execute(correlationId, args, callback);
-							}</p>
-							<p>  private validate(command: ICommand, args: Parameters): ValidationResult[] {
-								return command.validate(args);
-								}
-							}</p>
-							<p>let logger = new CommandLogger();
-							let loggedCommand = new InterceptedCommand(logger, command);</p>
-							<p>// Each called command will output: Executed command <command name></p>
-						</dd>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommandLogger</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ICommandInterceptor</span> {</span>
+
+    <span class="hljs-keyword">public</span> getName(<span class="hljs-string">command:</span> ICommand): string {
+        <span class="hljs-keyword">return</span> command.getName();
+    }
+
+    <span class="hljs-keyword">public</span> execute(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">command:</span> ICommand, <span class="hljs-string">args:</span> Parameters, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any, <span class="hljs-string">result:</span> any) =&gt; <span class="hljs-keyword">void</span>): <span class="hljs-keyword">void</span> {
+        console.log(<span class="hljs-string">"Executed command "</span> + command.getName());
+        command.execute(correlationId, args, callback);
+    }
+
+    <span class="hljs-keyword">private</span> validate(<span class="hljs-string">command:</span> ICommand, <span class="hljs-string">args:</span> Parameters): ValidationResult[] {
+        <span class="hljs-keyword">return</span> command.validate(args);
+    }
+}
+
+let logger = <span class="hljs-keyword">new</span> CommandLogger();
+let loggedCommand = <span class="hljs-keyword">new</span> InterceptedCommand(logger, command);
+
+<span class="hljs-comment">// Each called command will output: Executed command &lt;command name&gt;</span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -147,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/InterceptedCommand.ts#L41">commands/InterceptedCommand.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/InterceptedCommand.ts#L41">commands/InterceptedCommand.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/InterceptedCommand.ts#L73">commands/InterceptedCommand.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/InterceptedCommand.ts#L73">commands/InterceptedCommand.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +268,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#getname">getName</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/InterceptedCommand.ts#L58">commands/InterceptedCommand.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/InterceptedCommand.ts#L58">commands/InterceptedCommand.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,7 +289,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/commands.icommand.html">ICommand</a>.<a href="../interfaces/commands.icommand.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/InterceptedCommand.ts#L87">commands/InterceptedCommand.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/InterceptedCommand.ts#L87">commands/InterceptedCommand.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -76,12 +76,13 @@
 						<dt>see</dt>
 						<dd><p><a href="validate.objectschema.html">ObjectSchema</a></p>
 							<h3 id="example">Example</h3>
-							<p>let schema = new ObjectSchema()
-							.withProperty(new PropertySchema(&quot;id&quot;, TypeCode.String));</p>
-							<p>schema.validate({ id: &quot;1&quot;, name: &quot;ABC&quot; });       // Result: no errors
-								schema.validate({ name: &quot;ABC&quot; });                // Result: no errors
-							schema.validate({ id: 1, name: &quot;ABC&quot; });         // Result: id type mismatch</p>
-						</dd>
+							<pre><code>let schema = <span class="hljs-keyword">new</span> ObjectSchema()
+    .withProperty(<span class="hljs-keyword">new</span> PropertySchema(<span class="hljs-string">"id"</span>, TypeCode.String));
+
+schema.validate({ <span class="hljs-string">id:</span> <span class="hljs-string">"1"</span>, <span class="hljs-string">name:</span> <span class="hljs-string">"ABC"</span> });       <span class="hljs-comment">// Result: no errors</span>
+schema.validate({ <span class="hljs-string">name:</span> <span class="hljs-string">"ABC"</span> });                <span class="hljs-comment">// Result: no errors</span>
+schema.validate({ <span class="hljs-string">id:</span> <span class="hljs-number">1</span>, <span class="hljs-string">name:</span> <span class="hljs-string">"ABC"</span> });         <span class="hljs-comment">// Result: id type mismatch</span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -145,7 +146,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L22">validate/PropertySchema.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L22">validate/PropertySchema.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +214,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L47">validate/PropertySchema.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L47">validate/PropertySchema.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,7 +238,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#getrules">getRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L66">validate/Schema.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L66">validate/Schema.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -260,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L65">validate/PropertySchema.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L65">validate/PropertySchema.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,7 +285,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#isrequired">isRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L48">validate/Schema.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L48">validate/Schema.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -309,7 +310,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makeoptional">makeOptional</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L106">validate/Schema.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L106">validate/Schema.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,7 +342,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#makerequired">makeRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L90">validate/Schema.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L90">validate/Schema.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +374,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performtypevalidation">performTypeValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L180">validate/Schema.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L180">validate/Schema.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -430,7 +431,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#performvalidation">performValidation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L86">validate/PropertySchema.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L86">validate/PropertySchema.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -473,7 +474,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L56">validate/PropertySchema.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L56">validate/PropertySchema.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -505,7 +506,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrequired">setRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L57">validate/Schema.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L57">validate/Schema.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -537,7 +538,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#setrules">setRules</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L75">validate/Schema.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L75">validate/Schema.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -568,7 +569,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertySchema.ts#L75">validate/PropertySchema.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertySchema.ts#L75">validate/PropertySchema.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -601,7 +602,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L222">validate/Schema.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L222">validate/Schema.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -639,7 +640,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandreturnexception">validateAndReturnException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L235">validate/Schema.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L235">validate/Schema.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -683,7 +684,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#validateandthrowexception">validateAndThrowException</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L249">validate/Schema.ts:249</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L249">validate/Schema.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -732,7 +733,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="validate.schema.html">Schema</a>.<a href="validate.schema.html#withrule">withRule</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/Schema.ts#L120">validate/Schema.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/Schema.ts#L120">validate/Schema.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

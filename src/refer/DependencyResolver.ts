@@ -88,12 +88,6 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	/**
 	 * Configures the component with specified parameters.
 	 * 
-	 * __Configuration parameters:__
-	 * dependencies:
-	 * - [dependency name 1]: Dependency 1 locator (descriptor)
-	 * - ...
-	 * - [dependency name N]: Dependency N locator (descriptor)
-	 * 
 	 * @param config 	configuration parameters to set.
 	 * 
 	 * @see [[ConfigParams]]

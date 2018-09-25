@@ -79,25 +79,27 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/run.inotifiable.html">INotifiable</a></p>
 							<h3 id="example">Example</h3>
-							<p>class MyComponent {
-								private timer: FixedRateTimer = new FixedRateTimer(() =&gt; { this.cleanup }, 60000);
-								...
-								public open(correlationId: string, callback: (err: any) =&gt; void): void {
-								...
-								timer.start();
-								...
-							}</p>
-							<p>  public open(correlationId: string, callback: (err: any) =&gt; void): void {
-								...
-								timer.stop();
-								...
-							}</p>
-							<p>  private cleanup(): void {
-								...
-								}
-								...
-							}</p>
-						</dd>
+							<pre><code><span class="hljs-keyword">class</span> MyComponent {
+    <span class="hljs-keyword">private</span> timer: FixedRateTimer = <span class="hljs-keyword">new</span> FixedRateTimer(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">this</span>.cleanup }, <span class="hljs-number">60000</span>);
+    ...
+    <span class="hljs-keyword">public</span> open(correlationId: <span class="hljs-built_in">string</span>, callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        ...
+        timer.start();
+        ...
+    }
+
+    <span class="hljs-keyword">public</span> open(correlationId: <span class="hljs-built_in">string</span>, callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        ...
+        timer.stop();
+        ...
+    }
+
+    <span class="hljs-keyword">private</span> cleanup(): <span class="hljs-built_in">void</span> {
+        ...
+    }
+    ...
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -157,7 +159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L47">run/FixedRateTimer.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L47">run/FixedRateTimer.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +225,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L203">run/FixedRateTimer.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L203">run/FixedRateTimer.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L95">run/FixedRateTimer.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L95">run/FixedRateTimer.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L112">run/FixedRateTimer.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L112">run/FixedRateTimer.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L126">run/FixedRateTimer.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L126">run/FixedRateTimer.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -366,7 +368,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L76">run/FixedRateTimer.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L76">run/FixedRateTimer.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -389,7 +391,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L141">run/FixedRateTimer.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L141">run/FixedRateTimer.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L102">run/FixedRateTimer.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L102">run/FixedRateTimer.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,7 +457,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L119">run/FixedRateTimer.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L119">run/FixedRateTimer.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -486,7 +488,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L134">run/FixedRateTimer.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L134">run/FixedRateTimer.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,7 +519,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L83">run/FixedRateTimer.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L83">run/FixedRateTimer.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -548,7 +550,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L151">run/FixedRateTimer.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L151">run/FixedRateTimer.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,7 +579,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/FixedRateTimer.ts#L180">run/FixedRateTimer.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/FixedRateTimer.ts#L180">run/FixedRateTimer.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

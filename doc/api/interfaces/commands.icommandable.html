@@ -80,16 +80,18 @@
 						<dt>see</dt>
 						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a></p>
 							<h3 id="example">Example</h3>
-							<p>export class MyDataController implements ICommandable, IMyDataController {
-							private _commandSet : MyDataCommandSet;</p>
-							<p>  public getCommandSet(): CommandSet {
-								if (this._commandSet == null)
-								this._commandSet = new MyDataCommandSet(this);
-								return this._commandSet;
-							}</p>
-							<p>  ...
-							}</p>
-						</dd>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDataController</span> <span class="hljs-title">implements</span> <span class="hljs-title">ICommandable</span>, <span class="hljs-type">IMyDataController {</span></span>
+  <span class="hljs-keyword">private</span> _commandSet : MyDataCommandSet;
+
+  <span class="hljs-keyword">public</span> getCommandSet(): CommandSet {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._commandSet == <span class="hljs-literal">null</span>)
+      <span class="hljs-keyword">this</span>._commandSet = new MyDataCommandSet(<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._commandSet;
+  }
+
+  ...
+}
+</code></pre></dd>
 						<dt>see</dt>
 						<dd><p><a href="../classes/commands.commandset.html">CommandSet</a> examples</p>
 						</dd>
@@ -129,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/ICommandable.ts#L38">commands/ICommandable.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/ICommandable.ts#L38">commands/ICommandable.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -82,21 +82,22 @@
 						<dt>see</dt>
 						<dd><p><a href="../classes/run.parameters.html">Parameters</a></p>
 							<h3 id="example">Example</h3>
-							<p>class EchoComponent implements IExecutable {
-								...
-								public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) =&gt; void): void {
-								let result = args.getAsObject(&quot;message&quot;);
-								callback(null, result);
-								}
-							}</p>
-							<p>let echo = new EchoComponent();
-								let message = &quot;Test&quot;;
-								echo.execute(&quot;123&quot;, Parameters.fromTuples(&quot;message&quot;, message),
-								(err, result) =&gt; {
-								console.log(&quot;Request: &quot; + message + &quot; Response: &quot; + result);
-								}
-							);</p>
-						</dd>
+							<pre><code><span class="hljs-keyword">class</span> EchoComponent <span class="hljs-keyword">implements</span> IExecutable {
+    ...
+    <span class="hljs-keyword">public</span> execute(correlationId: <span class="hljs-built_in">string</span>, args: Parameters, callback: <span class="hljs-function">(<span class="hljs-params">err: <span class="hljs-built_in">any</span>, result: <span class="hljs-built_in">any</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+        <span class="hljs-keyword">let</span> result = args.getAsObject(<span class="hljs-string">"message"</span>);
+        callback(<span class="hljs-literal">null</span>, result);
+    }
+}
+
+<span class="hljs-keyword">let</span> echo = <span class="hljs-keyword">new</span> EchoComponent();
+<span class="hljs-keyword">let</span> message = <span class="hljs-string">"Test"</span>;
+echo.execute(<span class="hljs-string">"123"</span>, Parameters.fromTuples(<span class="hljs-string">"message"</span>, message),
+    <span class="hljs-function">(<span class="hljs-params">err, result</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Request: "</span> + message + <span class="hljs-string">" Response: "</span> + result);
+    }
+);
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -138,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IExecutable.ts#L37">run/IExecutable.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/IExecutable.ts#L37">run/IExecutable.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

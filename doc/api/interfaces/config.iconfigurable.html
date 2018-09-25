@@ -72,21 +72,22 @@
 					<div class="lead">
 						<p>An interface to set configuration parameters to an object.</p>
 					</div>
-					<p>It can be added to any existing class by implementing a single Configure() method.</p>
-					<p>If you need to emphasis the fact that Configure() method can be called multiple times
+					<p>It can be added to any existing class by implementing a single <code>configure()</code> method.</p>
+					<p>If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
 					to change object configuration in runtime, use <a href="config.ireconfigurable.html">IReconfigurable</a> interface instead.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../classes/config.configparams.html">ConfigParams</a></p>
 							<h3 id="example">Example</h3>
-							<p>export class MyClass implements IConfigurable {
-							private _myParam: string = &quot;default value&quot;;</p>
-							<p>   public configure(config: ConfigParams): void  {
-								this._myParam = config.getAsStringWithDefault(&quot;options.param&quot;, myParam);
-								...
-								}
-							}</p>
-						</dd>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IConfigurable</span> {</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_myParam:</span> string = <span class="hljs-string">"default value"</span>;
+
+    <span class="hljs-keyword">public</span> configure(<span class="hljs-string">config:</span> ConfigParams): <span class="hljs-keyword">void</span>  {
+        <span class="hljs-keyword">this</span>._myParam = config.getAsStringWithDefault(<span class="hljs-string">"options.param"</span>, myParam);
+        ...
+    }
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -128,7 +129,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/IConfigurable.ts#L31">config/IConfigurable.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/IConfigurable.ts#L31">config/IConfigurable.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -74,15 +74,15 @@
 							All values stored as strings and can be serialized as JSON or string forms.
 						When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
 					</div>
-					<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: &quot;my_param&quot;</p>
+					<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>&quot;my_param&quot;</code></p>
 					<p>Configuration parameters can be broken into sections and subsections using dot notation as:
-						&quot;section1.subsection1.param1&quot;. Using GetSection method all parameters from specified section
+						<code>&quot;section1.subsection1.param1&quot;</code>. Using GetSection method all parameters from specified section
 					can be extracted from a ConfigMap.</p>
 					<p>The ConfigParams supports serialization from/to plain strings as:
-					&quot;key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z&quot;</p>
+					<code>&quot;key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z&quot;</code></p>
 					<p>ConfigParams are used to pass configurations to <a href="../interfaces/config.iconfigurable.html">IConfigurable</a> objects.
-						They also serve as a basis for more concrete configurations such as [[ConnectionParams]]
-					or [[CredentialParams]].</p>
+						They also serve as a basis for more concrete configurations such as <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html" class="external">ConnectionParams</a>
+					or <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html" class="external">CredentialParams</a> (in the Pip.Services components package).</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/config.iconfigurable.html">IConfigurable</a></p>
@@ -90,16 +90,18 @@
 						<dt>see</dt>
 						<dd><p><a href="data.stringvaluemap.html">StringValueMap</a></p>
 							<h3 id="example">Example</h3>
-							<p>let config = ConfigParams.fromTuples(
-								&quot;section1.key1&quot;, &quot;AAA&quot;,
-								&quot;section1.key2&quot;, 123,
-								&quot;section2.key1&quot;, true
-							);</p>
-							<p>config.getAsString(&quot;section1.key1&quot;); // Result: AAA
-							config.getAsInteger(&quot;section1.key1&quot;); // Result: 0</p>
-							<p>section1 = config.getSection(&quot;section1&quot;);
-							section1.toString(); // Result: key1=AAA;key2=123</p>
-						</dd>
+							<pre><code>let <span class="hljs-built_in">config</span> = ConfigParams.fromTuples(
+    <span class="hljs-string">"section1.key1"</span>, <span class="hljs-string">"AAA"</span>,
+    <span class="hljs-string">"section1.key2"</span>, <span class="hljs-number">123</span>,
+    <span class="hljs-string">"section2.key1"</span>, true
+)<span class="hljs-comment">;</span>
+
+<span class="hljs-built_in">config</span>.getAsString(<span class="hljs-string">"section1.key1"</span>)<span class="hljs-comment">; // Result: AAA</span>
+<span class="hljs-built_in">config</span>.getAsInteger(<span class="hljs-string">"section1.key1"</span>)<span class="hljs-comment">; // Result: 0</span>
+
+section1 = <span class="hljs-built_in">config</span>.getSection(<span class="hljs-string">"section1"</span>)<span class="hljs-comment">;</span>
+section1.toString()<span class="hljs-comment">; // Result: key1=AAA;key2=123</span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -200,7 +202,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L44">config/ConfigParams.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L44">config/ConfigParams.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L125">config/ConfigParams.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L125">config/ConfigParams.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +282,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#append">append</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L111">data/StringValueMap.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L111">data/StringValueMap.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,7 +314,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L124">data/StringValueMap.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L124">data/StringValueMap.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +337,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L636">data/StringValueMap.ts:636</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L636">data/StringValueMap.ts:636</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,7 +361,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L66">data/StringValueMap.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L66">data/StringValueMap.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -392,7 +394,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasarray">getAsArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L543">data/StringValueMap.ts:543</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L543">data/StringValueMap.ts:543</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +435,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasarraywithdefault">getAsArrayWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L558">data/StringValueMap.ts:558</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L558">data/StringValueMap.ts:558</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -480,7 +482,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasboolean">getAsBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L248">data/StringValueMap.ts:248</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L248">data/StringValueMap.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +520,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasbooleanwithdefault">getAsBooleanWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L261">data/StringValueMap.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L261">data/StringValueMap.ts:261</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +564,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdatetime">getAsDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L443">data/StringValueMap.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L443">data/StringValueMap.ts:443</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -600,7 +602,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdatetimewithdefault">getAsDateTimeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L456">data/StringValueMap.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L456">data/StringValueMap.ts:456</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +646,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdouble">getAsDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L404">data/StringValueMap.ts:404</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L404">data/StringValueMap.ts:404</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -682,7 +684,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasdoublewithdefault">getAsDoubleWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L417">data/StringValueMap.ts:417</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L417">data/StringValueMap.ts:417</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -726,7 +728,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasfloat">getAsFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L365">data/StringValueMap.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L365">data/StringValueMap.ts:365</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -764,7 +766,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasfloatwithdefault">getAsFloatWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L378">data/StringValueMap.ts:378</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L378">data/StringValueMap.ts:378</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -808,7 +810,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasinteger">getAsInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L287">data/StringValueMap.ts:287</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L287">data/StringValueMap.ts:287</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -846,7 +848,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasintegerwithdefault">getAsIntegerWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L300">data/StringValueMap.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L300">data/StringValueMap.ts:300</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -890,7 +892,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getaslong">getAsLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L326">data/StringValueMap.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L326">data/StringValueMap.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -928,7 +930,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getaslongwithdefault">getAsLongWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L339">data/StringValueMap.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L339">data/StringValueMap.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -972,7 +974,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasmap">getAsMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L584">data/StringValueMap.ts:584</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L584">data/StringValueMap.ts:584</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1010,7 +1012,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasmapwithdefault">getAsMapWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L598">data/StringValueMap.ts:598</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L598">data/StringValueMap.ts:598</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1054,7 +1056,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablearray">getAsNullableArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L529">data/StringValueMap.ts:529</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L529">data/StringValueMap.ts:529</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1095,7 +1097,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullableboolean">getAsNullableBoolean</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L235">data/StringValueMap.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L235">data/StringValueMap.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1133,7 +1135,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabledatetime">getAsNullableDateTime</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L430">data/StringValueMap.ts:430</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L430">data/StringValueMap.ts:430</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1171,7 +1173,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabledouble">getAsNullableDouble</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L391">data/StringValueMap.ts:391</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L391">data/StringValueMap.ts:391</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1209,7 +1211,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablefloat">getAsNullableFloat</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L352">data/StringValueMap.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L352">data/StringValueMap.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1247,7 +1249,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullableinteger">getAsNullableInteger</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L274">data/StringValueMap.ts:274</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L274">data/StringValueMap.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1285,7 +1287,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablelong">getAsNullableLong</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L313">data/StringValueMap.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L313">data/StringValueMap.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1323,7 +1325,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablemap">getAsNullableMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L571">data/StringValueMap.ts:571</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L571">data/StringValueMap.ts:571</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1361,7 +1363,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullablestring">getAsNullableString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L196">data/StringValueMap.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L196">data/StringValueMap.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1399,7 +1401,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasnullabletype">getAsNullableType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L471">data/StringValueMap.ts:471</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L471">data/StringValueMap.ts:471</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1450,7 +1452,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasobject">getAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L153">data/StringValueMap.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L153">data/StringValueMap.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1484,7 +1486,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasstring">getAsString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L209">data/StringValueMap.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L209">data/StringValueMap.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1522,7 +1524,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasstringwithdefault">getAsStringWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L222">data/StringValueMap.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L222">data/StringValueMap.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1566,7 +1568,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getastype">getAsType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L486">data/StringValueMap.ts:486</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L486">data/StringValueMap.ts:486</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1617,7 +1619,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getastypewithdefault">getAsTypeWithDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L501">data/StringValueMap.ts:501</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L501">data/StringValueMap.ts:501</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1674,7 +1676,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getasvalue">getAsValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L515">data/StringValueMap.ts:515</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L515">data/StringValueMap.ts:515</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1715,7 +1717,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#getkeys">getKeys</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L75">data/StringValueMap.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L75">data/StringValueMap.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1738,7 +1740,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L96">config/ConfigParams.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L96">config/ConfigParams.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1771,7 +1773,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L62">config/ConfigParams.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L62">config/ConfigParams.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1795,7 +1797,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#length">length</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L137">data/StringValueMap.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L137">data/StringValueMap.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1818,7 +1820,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L156">config/ConfigParams.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L156">config/ConfigParams.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1857,7 +1859,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L93">data/StringValueMap.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L93">data/StringValueMap.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1895,7 +1897,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L102">data/StringValueMap.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L102">data/StringValueMap.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1927,7 +1929,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#setasobject">setAsObject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L177">data/StringValueMap.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L177">data/StringValueMap.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1971,7 +1973,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L169">config/ConfigParams.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L169">config/ConfigParams.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2009,7 +2011,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L610">data/StringValueMap.ts:610</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L610">data/StringValueMap.ts:610</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2035,7 +2037,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#frommaps">fromMaps</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L721">data/StringValueMap.ts:721</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L721">data/StringValueMap.ts:721</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2069,7 +2071,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromstring">fromString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L208">config/ConfigParams.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L208">config/ConfigParams.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2108,7 +2110,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromtuples">fromTuples</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L194">config/ConfigParams.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L194">config/ConfigParams.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2147,7 +2149,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromtuplesarray">fromTuplesArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/StringValueMap.ts#L671">data/StringValueMap.ts:671</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/StringValueMap.ts#L671">data/StringValueMap.ts:671</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2181,7 +2183,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="data.stringvaluemap.html">StringValueMap</a>.<a href="data.stringvaluemap.html#fromvalue">fromValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L180">config/ConfigParams.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L180">config/ConfigParams.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2213,7 +2215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/ConfigParams.ts#L222">config/ConfigParams.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/ConfigParams.ts#L222">config/ConfigParams.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

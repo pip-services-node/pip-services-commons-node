@@ -76,24 +76,27 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/refer.ireferences.html">IReferences</a></p>
 							<h3 id="example">Example</h3>
-							<p> export class MyController implements IReferenceable {
-								public _persistence: IMyPersistence;
-								...
-								public setReferences(references: IReferences): void {
-								this._persistence = references.getOneRequired<IMyPersistence>(
-									new Descriptor(&quot;mygroup&quot;, &quot;persistence&quot;, &quot;<em>&quot;, &quot;</em>&quot;, &quot;1.0&quot;)
-									);
-									}
-									...
-							}</p>
-							<p> let persistence = new MyMongoDbPersistence();</p>
-							<p> let controller = new MyController();</p>
-							<p> let references = References.fromTuples(
-								new Descriptor(&quot;mygroup&quot;, &quot;persistence&quot;, &quot;mongodb&quot;, &quot;default&quot;, &quot;1.0&quot;), persistence,
-								new Descriptor(&quot;mygroup&quot;, &quot;controller&quot;, &quot;default&quot;, &quot;default&quot;, &quot;1.0&quot;), controller
-								);
-							controller.setReferences(references);</p>
-						</dd>
+							<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyController</span> <span class="hljs-keyword"><span class="hljs-keyword">implements</span> <span class="hljs-type">IReferenceable</span></span> </span>{
+    <span class="hljs-keyword">public</span> _persistence: <span class="hljs-type">IMyPersistence</span>;
+    ...
+    <span class="hljs-keyword">public</span> setReferences(references: <span class="hljs-type">IReferences</span>): <span class="hljs-type">void </span>{
+        <span class="hljs-built_in">this</span>._persistence = references.getOneRequired&lt;IMyPersistence&gt;(
+            <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>, <span class="hljs-string">"persistence"</span>, <span class="hljs-string">"*"</span>, <span class="hljs-string">"*"</span>, <span class="hljs-string">"1.0"</span>)
+        );
+    }
+    ...
+}
+
+let persistence = <span class="hljs-keyword">new</span> <span class="hljs-type">MyMongoDbPersistence</span>();
+
+let controller = <span class="hljs-keyword">new</span> <span class="hljs-type">MyController</span>();
+
+let references = References.fromTuples(
+    <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>, <span class="hljs-string">"persistence"</span>, <span class="hljs-string">"mongodb"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"1.0"</span>), persistence,
+    <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>, <span class="hljs-string">"controller"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"1.0"</span>), controller
+);
+controller.setReferences(references);
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -158,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L36">refer/References.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L36">refer/References.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">_references<span class="tsd-signature-symbol">:</span> <a href="refer.reference.html" class="tsd-signature-type">Reference</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L36">refer/References.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L36">refer/References.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +211,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#find">find</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L208">refer/References.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L208">refer/References.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,7 +261,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getall">getAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L133">refer/References.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L133">refer/References.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,7 +285,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getalllocators">getAllLocators</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L117">refer/References.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L117">refer/References.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -306,7 +309,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getoneoptional">getOneOptional</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L150">refer/References.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L150">refer/References.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +348,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getonerequired">getOneRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L166">refer/References.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L166">refer/References.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -389,7 +392,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getoptional">getOptional</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L177">refer/References.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L177">refer/References.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,7 +431,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#getrequired">getRequired</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L195">refer/References.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L195">refer/References.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -474,7 +477,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L59">refer/References.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L59">refer/References.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -512,7 +515,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L76">refer/References.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L76">refer/References.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +555,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferences.html">IReferences</a>.<a href="../interfaces/refer.ireferences.html#removeall">removeAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L96">refer/References.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L96">refer/References.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +587,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/References.ts#L237">refer/References.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/References.ts#L237">refer/References.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

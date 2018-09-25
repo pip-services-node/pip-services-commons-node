@@ -89,11 +89,13 @@
 						<li>Locate specific component by its name (match by name)</li>
 					</ul>
 					<h3 id="example">Example</h3>
-					<p>let locator1 = new Descriptor(&quot;mygroup&quot;, &quot;connector&quot;, &quot;aws&quot;, &quot;default&quot;, &quot;1.0&quot;);
-					let locator2 = Descriptor.fromString(&quot;mygroup:connector:<em>:</em>:1.0&quot;);</p>
-					<p>locator1.match(locator2);        // Result: true
-						locator1.equal(locator2);        // Result: true
-					locator1.exactMatch(locator2);    // Result: false</p>
+					<pre><code><span class="hljs-keyword">let</span> locator1 = <span class="hljs-keyword">new</span> Descriptor(<span class="hljs-string">"mygroup"</span>, <span class="hljs-string">"connector"</span>, <span class="hljs-string">"aws"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"1.0"</span>);
+<span class="hljs-keyword">let</span> locator2 = Descriptor.fromString(<span class="hljs-string">"mygroup:connector:*:*:1.0"</span>);
+
+locator1.<span class="hljs-keyword">match</span>(locator2);        <span class="hljs-comment">// Result: true</span>
+locator1.equal(locator2);        <span class="hljs-comment">// Result: true</span>
+locator1.exactMatch(locator2);    <span class="hljs-comment">// Result: false</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -145,7 +147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L34">refer/Descriptor.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L34">refer/Descriptor.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L173">refer/Descriptor.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L173">refer/Descriptor.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L144">refer/Descriptor.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L144">refer/Descriptor.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -290,7 +292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L64">refer/Descriptor.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L64">refer/Descriptor.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L82">refer/Descriptor.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L82">refer/Descriptor.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,7 +338,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L91">refer/Descriptor.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L91">refer/Descriptor.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L73">refer/Descriptor.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L73">refer/Descriptor.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -382,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L100">refer/Descriptor.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L100">refer/Descriptor.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L158">refer/Descriptor.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L158">refer/Descriptor.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -429,7 +431,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L119">refer/Descriptor.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L119">refer/Descriptor.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -467,7 +469,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L186">refer/Descriptor.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L186">refer/Descriptor.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -492,7 +494,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/refer/Descriptor.ts#L201">refer/Descriptor.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/Descriptor.ts#L201">refer/Descriptor.ts:201</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -12,7 +12,7 @@ import { Parameters } from '../run/Parameters';
 import { IdGenerator } from '../data/IdGenerator';
 
 /**
- * Contains a set of commands and events supported by a [[ICommandable commandable] object.
+ * Contains a set of commands and events supported by a [[ICommandable commandable]] object.
  * The CommandSet supports command interceptors to extend and the command call chain.
  * 
  * CommandSets can be used as alternative commandable interface to a business object.

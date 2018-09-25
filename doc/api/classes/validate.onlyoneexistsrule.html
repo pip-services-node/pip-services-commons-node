@@ -76,12 +76,13 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
 							<h3 id="example">Example</h3>
-							<p>let schema = new Schema()
-							.withRule(new OnlyOneExistsRule(&quot;field1&quot;, &quot;field2&quot;));</p>
-							<p>schema.validate({ field1: 1, field2: &quot;A&quot; });     // Result: only one of properties field1, field2 must exist
-								schema.validate({ field1: 1 });                  // Result: no errors
-							schema.validate({ });                            // Result: only one of properties field1, field2 must exist</p>
-						</dd>
+							<pre><code><span class="hljs-keyword">let</span> <span class="hljs-keyword">schema</span> = new Schema()
+    .withRule(new OnlyOneExistsRule(<span class="hljs-string">"field1"</span>, <span class="hljs-string">"field2"</span>));
+
+<span class="hljs-keyword">schema</span>.validate({ field1: <span class="hljs-number">1</span>, field2: <span class="hljs-string">"A"</span> });     // Result: <span class="hljs-keyword">only</span> one <span class="hljs-keyword">of</span> properties field1, field2 must exist
+<span class="hljs-keyword">schema</span>.validate({ field1: <span class="hljs-number">1</span> });                  // Result: no errors
+<span class="hljs-keyword">schema</span>.validate({ });                            // Result: <span class="hljs-keyword">only</span> one <span class="hljs-keyword">of</span> properties field1, field2 must exist
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -130,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/OnlyOneExistsRule.ts#L23">validate/OnlyOneExistsRule.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/OnlyOneExistsRule.ts#L23">validate/OnlyOneExistsRule.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -167,7 +168,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/OnlyOneExistsRule.ts#L42">validate/OnlyOneExistsRule.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/OnlyOneExistsRule.ts#L42">validate/OnlyOneExistsRule.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

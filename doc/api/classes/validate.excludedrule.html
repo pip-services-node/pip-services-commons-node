@@ -76,11 +76,12 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
 							<h3 id="example">Example</h3>
-							<p>let schema = new Schema()
-							.withRule(new ExcludedRule(1, 2, 3));</p>
-							<p>schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
-							schema.validate(10);     // Result: no errors</p>
-						</dd>
+							<pre><code><span class="hljs-keyword">let</span> schema = <span class="hljs-function"><span class="hljs-keyword">new</span> <span class="hljs-title">Schema</span>()
+    .<span class="hljs-title">withRule</span>(new <span class="hljs-type">ExcludedRule</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
+
+<span class="hljs-title">schema</span>.<span class="hljs-title">validate</span>(<span class="hljs-number">2</span>);      <span class="hljs-comment">// Result: 2 must not be one of 1, 2, 3</span>
+<span class="hljs-title">schema</span>.<span class="hljs-title">validate</span>(<span class="hljs-number">10</span>);     <span class="hljs-comment">// Result: no errors</span></span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -129,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/ExcludedRule.ts#L22">validate/ExcludedRule.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/ExcludedRule.ts#L22">validate/ExcludedRule.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -166,7 +167,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/ExcludedRule.ts#L42">validate/ExcludedRule.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/ExcludedRule.ts#L42">validate/ExcludedRule.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

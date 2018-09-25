@@ -76,11 +76,12 @@
 						<dt>see</dt>
 						<dd><p><a href="data.sortfield.html">SortField</a></p>
 							<h3 id="example">Example</h3>
-							<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
-								let paging = new PagingParams(0, 100);
-							let sorting = new SortingParams(new SortField(&quot;create_time&quot;, true));</p>
-							<p>myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});</p>
-						</dd>
+							<pre><code><span class="hljs-keyword">let</span> filter = <span class="hljs-type">FilterParams</span>.fromTuples(<span class="hljs-string">"type"</span>, <span class="hljs-string">"Type1"</span>);
+<span class="hljs-keyword">let</span> paging = new <span class="hljs-type">PagingParams</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+<span class="hljs-keyword">let</span> sorting = new <span class="hljs-type">SortingParams</span>(new <span class="hljs-type">SortField</span>(<span class="hljs-string">"create_time"</span>, <span class="hljs-literal">true</span>));
+
+myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; <span class="hljs-meta">{...}</span>);
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -164,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/SortParams.ts#L17">data/SortParams.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/SortParams.ts#L17">data/SortParams.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

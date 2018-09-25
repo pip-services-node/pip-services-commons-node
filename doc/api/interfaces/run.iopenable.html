@@ -81,29 +81,32 @@
 						<dt>see</dt>
 						<dd><p><a href="../classes/run.opener.html">Opener</a></p>
 							<h3 id="example">Example</h3>
-							<p>class MyPersistence implements IOpenable {
-								private _client: any;
-								...
-								public isOpen(): boolean {
-								return this._client != null;
-							}</p>
-							<p>  public open(correlationId: string, callback: (err: any) =&gt; void): void {
-								if (this.isOpen()) {
-								callback(null);
-								return;
-								}
-								...
-							}</p>
-							<p>  public close(correlationId: string, callback: (err: any) =&gt; void): void {
-								if (this._client != null) {
-								this._client.close();
-								this._client = null;
-								}
-								callback(null);
-							}</p>
-							<p>  ...
-							}</p>
-						</dd>
+							<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPersistence</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IOpenable</span> {</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-string">_client:</span> any;
+    ...
+    <span class="hljs-keyword">public</span> isOpen(): <span class="hljs-keyword">boolean</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._client != <span class="hljs-literal">null</span>;
+    }
+
+    <span class="hljs-keyword">public</span> open(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any) =&gt; <span class="hljs-keyword">void</span>): <span class="hljs-keyword">void</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isOpen()) {
+            callback(<span class="hljs-literal">null</span>);
+            <span class="hljs-keyword">return</span>;
+        }
+        ...
+    }
+
+    <span class="hljs-keyword">public</span> close(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">callback:</span> (<span class="hljs-string">err:</span> any) =&gt; <span class="hljs-keyword">void</span>): <span class="hljs-keyword">void</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._client != <span class="hljs-literal">null</span>) {
+            <span class="hljs-keyword">this</span>._client.close();
+            <span class="hljs-keyword">this</span>._client = <span class="hljs-literal">null</span>;
+        }
+        callback(<span class="hljs-literal">null</span>);
+    }
+
+    ...
+}
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -148,7 +151,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="run.iclosable.html">IClosable</a>.<a href="run.iclosable.html#close">close</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IClosable.ts#L36">run/IClosable.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/IClosable.ts#L36">run/IClosable.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +206,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IOpenable.ts#L47">run/IOpenable.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/IOpenable.ts#L47">run/IOpenable.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/IOpenable.ts#L55">run/IOpenable.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/IOpenable.ts#L55">run/IOpenable.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -73,12 +73,14 @@
 						<p>A helper class to parameters from &quot;options&quot; configuration section.</p>
 					</div>
 					<h3 id="example">Example</h3>
-					<p>let config = ConfigParams.fromTuples(
-						...
-						&quot;options.param1&quot;, &quot;ABC&quot;,
-						&quot;options.param2&quot;, 123
-					);</p>
-					<p>let options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123</p>
+					<pre><code><span class="hljs-keyword">let</span> <span class="hljs-attr">config</span> = ConfigParams.fromTuples(
+    ...
+    <span class="hljs-string">"options.param1"</span>, <span class="hljs-string">"ABC"</span>,
+    <span class="hljs-string">"options.param2"</span>, <span class="hljs-number">123</span>
+);
+
+<span class="hljs-keyword">let</span> <span class="hljs-attr">options</span> = OptionsResolver.resolve(config); // Result: <span class="hljs-attr">param1=ABC;param2=123</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -114,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/OptionResolver.ts#L26">config/OptionResolver.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/OptionResolver.ts#L26">config/OptionResolver.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

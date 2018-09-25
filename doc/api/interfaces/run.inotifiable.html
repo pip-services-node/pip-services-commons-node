@@ -81,15 +81,17 @@
 						<dt>see</dt>
 						<dd><p><a href="run.iexecutable.html">IExecutable</a></p>
 							<h3 id="example">Example</h3>
-							<p>class MyComponent implements INotifable {
-								...
-								public notify(correlationId: string, args: Parameters): void {
-								console.log(&quot;Occured event &quot; + args.getAsString(&quot;event&quot;));
-								}
-							}</p>
-							<p>let myComponent = new MyComponent();</p>
-							<p>myComponent.notify(&quot;123&quot;, Parameters.fromTuples(&quot;event&quot;, &quot;Test Event&quot;));</p>
-						</dd>
+							<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">INotifable</span> {</span>
+    ...
+    <span class="hljs-keyword">public</span> notify(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">args:</span> Parameters): <span class="hljs-keyword">void</span> {
+        console.log(<span class="hljs-string">"Occured event "</span> + args.getAsString(<span class="hljs-string">"event"</span>));
+    }
+}
+
+let myComponent = <span class="hljs-keyword">new</span> MyComponent();
+
+myComponent.notify(<span class="hljs-string">"123"</span>, Parameters.fromTuples(<span class="hljs-string">"event"</span>, <span class="hljs-string">"Test Event"</span>));
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -131,7 +133,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/run/INotifiable.ts#L32">run/INotifiable.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/run/INotifiable.ts#L32">run/INotifiable.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

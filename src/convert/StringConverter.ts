@@ -8,7 +8,7 @@ let _ = require('lodash');
  * - DateTime: using ISO format
  * - Boolean: "true" for true and "false" for false
  * - Arrays: as comma-separated list
- * - Other objects: using toString() method
+ * - Other objects: using <code>toString()</code> method
  * 
  * ### Example ###
  * 

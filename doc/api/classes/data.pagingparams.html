@@ -70,18 +70,22 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Data transfer object to pass paging parameters for queries.
-							The page is defined by two parameters.
-							The Skip parameter defines number of items to skip.
-							The Paging parameter sets how many items to return in a page.
-						And the optional Total parameter tells to return total number of items in the query.</p>
+						<p>Data transfer object to pass paging parameters for queries.</p>
 					</div>
-					<p>Remember: not all implementations support Total parameter
+					<p>The page is defined by two parameters:</p>
+					<ul>
+						<li>the <code>skip</code> parameter defines number of items to skip.</li>
+						<li>the <code>take</code> parameter sets how many items to return in a page.</li>
+						<li>additionally, the optional <code>total</code> parameter tells to return total number of items in the query.</li>
+					</ul>
+					<p>Remember: not all implementations support the <code>total</code> parameter
 					because its generation may lead to severe performance implications.</p>
 					<h3 id="example">Example</h3>
-					<p>let filter = FilterParams.fromTuples(&quot;type&quot;, &quot;Type1&quot;);
-					let paging = new PagingParams(0, 100);</p>
-					<p>myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});</p>
+					<pre><code><span class="hljs-keyword">let</span> filter = <span class="hljs-type">FilterParams</span>.fromTuples(<span class="hljs-string">"type"</span>, <span class="hljs-string">"Type1"</span>);
+<span class="hljs-keyword">let</span> paging = new <span class="hljs-type">PagingParams</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+
+myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; <span class="hljs-meta">{...}</span>);
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -135,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L29">data/PagingParams.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L30">data/PagingParams.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,7 +187,7 @@
 					<div class="tsd-signature tsd-kind-icon">skip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L25">data/PagingParams.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L26">data/PagingParams.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">take<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L27">data/PagingParams.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L28">data/PagingParams.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L29">data/PagingParams.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L30">data/PagingParams.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -235,7 +239,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L50">data/PagingParams.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L51">data/PagingParams.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -267,7 +271,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L62">data/PagingParams.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L63">data/PagingParams.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L100">data/PagingParams.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L101">data/PagingParams.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L89">data/PagingParams.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L90">data/PagingParams.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/PagingParams.ts#L75">data/PagingParams.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/PagingParams.ts#L76">data/PagingParams.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

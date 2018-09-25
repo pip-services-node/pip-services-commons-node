@@ -77,20 +77,22 @@
 					values to determine if one object has newer or older version than another one.</p>
 					<p>It is a common pattern to use the time of change as the object version.</p>
 					<h3 id="example">Example</h3>
-					<p> export class MyData implements IStringIdentifiable, IVersioned {
-						public id: string;
-						public field1: string;
-						public field2: number;
-						public version: string;
-						...
-					}</p>
-					<p>public updateData(correlationId: string, item: MyData): void {
-						...
-						if (item.version &lt; oldItem.version) {
-						throw new ConcurrencyException(null, &quot;VERSION_CONFLICT&quot;, &quot;The change has older version stored value&quot;);
-						}
-						...
-					}</p>
+					<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyData</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IStringIdentifiable</span>, <span class="hljs-title">IVersioned</span> {</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-string">id:</span> string;
+    <span class="hljs-keyword">public</span> <span class="hljs-string">field1:</span> string;
+    <span class="hljs-keyword">public</span> <span class="hljs-string">field2:</span> number;
+    <span class="hljs-keyword">public</span> <span class="hljs-string">version:</span> string;
+    ...
+}
+
+<span class="hljs-keyword">public</span> updateData(<span class="hljs-string">correlationId:</span> string, <span class="hljs-string">item:</span> MyData): <span class="hljs-keyword">void</span> {
+    ...
+    <span class="hljs-keyword">if</span> (item.version &lt; oldItem.version) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrencyException(<span class="hljs-literal">null</span>, <span class="hljs-string">"VERSION_CONFLICT"</span>, <span class="hljs-string">"The change has older version stored value"</span>);
+    }
+    ...
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -122,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/IVersioned.ts#L33">data/IVersioned.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/IVersioned.ts#L33">data/IVersioned.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

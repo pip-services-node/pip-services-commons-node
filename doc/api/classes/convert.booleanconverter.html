@@ -73,15 +73,16 @@
 						<p>Converts arbitrary values to boolean values using extended conversion rules:</p>
 						<ul>
 							<li>Numbers: &lt;&gt;0 are true, =0 are false</li>
-							<li>Strings: &quot;true&quot;, &quot;yes&quot;, &quot;T&quot;, &quot;Y&quot;, &quot;1&quot; are true, &quot;false&quot;, &quot;no&quot;, &quot;F&quot;, &quot;N&quot; are false</li>
+							<li>Strings: &quot;true&quot;, &quot;yes&quot;, &quot;T&quot;, &quot;Y&quot;, &quot;1&quot; are true; &quot;false&quot;, &quot;no&quot;, &quot;F&quot;, &quot;N&quot; are false</li>
 							<li>DateTime: &lt;&gt;0 total milliseconds are true, =0 are false</li>
 						</ul>
 					</div>
 					<h3 id="example">Example</h3>
-					<p>let value1 = BooleanConverter.toNullableBoolean(true); // true
-						let value2 = BooleanConverter.toNullableBoolean(&quot;yes&quot;); // true
-						let value3 = BooleanConverter.toNullableBoolean(123); // true
-					let value4 = BooleanConverter.toNullableBoolean({}); // null</p>
+					<pre><code><span class="hljs-keyword">let</span> <span class="hljs-attr">value1</span> = BooleanConverter.toNullableBoolean(<span class="hljs-literal">true</span>); // <span class="hljs-literal">true</span>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">value2</span> = BooleanConverter.toNullableBoolean(<span class="hljs-string">"yes"</span>); // <span class="hljs-literal">true</span>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">value3</span> = BooleanConverter.toNullableBoolean(<span class="hljs-number">123</span>); // <span class="hljs-literal">true</span>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">value4</span> = BooleanConverter.toNullableBoolean({}); // <span class="hljs-literal">null</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -119,7 +120,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/BooleanConverter.ts#L50">convert/BooleanConverter.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/convert/BooleanConverter.ts#L50">convert/BooleanConverter.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -156,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/BooleanConverter.ts#L63">convert/BooleanConverter.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/convert/BooleanConverter.ts#L63">convert/BooleanConverter.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -199,7 +200,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/convert/BooleanConverter.ts#L26">convert/BooleanConverter.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/convert/BooleanConverter.ts#L26">convert/BooleanConverter.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -74,12 +74,14 @@
 						The name can be defined in &quot;id&quot;, &quot;name&quot; parameters or inside a component descriptor.</p>
 					</div>
 					<h3 id="example">Example</h3>
-					<p>let config = ConfigParams.fromTuples(
-						&quot;descriptor&quot;, &quot;myservice:connector:aws:connector1:1.0&quot;,
-						&quot;param1&quot;, &quot;ABC&quot;,
-						&quot;param2&quot;, 123
-					);</p>
-					<p>let name = NameResolver.resolve(config); // Result: connector1</p>
+					<pre><code><span class="hljs-keyword">let</span> <span class="hljs-keyword">config</span> = ConfigParams<span class="hljs-variable">.fromTuples</span>(
+    <span class="hljs-string">"descriptor"</span>, <span class="hljs-string">"myservice:connector:aws:connector1:1.0"</span>,
+    <span class="hljs-string">"param1"</span>, <span class="hljs-string">"ABC"</span>,
+    <span class="hljs-string">"param2"</span>, <span class="hljs-number">123</span>
+);
+
+<span class="hljs-keyword">let</span> name = NameResolver<span class="hljs-variable">.resolve</span>(<span class="hljs-keyword">config</span>); <span class="hljs-comment">// Result: connector1</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -115,7 +117,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/config/NameResolver.ts#L30">config/NameResolver.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/config/NameResolver.ts#L30">config/NameResolver.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

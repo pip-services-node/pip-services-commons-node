@@ -78,27 +78,27 @@
 						The Skip parameter in the PagingParams there means how many items to skip.
 						The Takes parameter sets number of items to return in the page.
 					And the optional Total parameter tells to return total number of items in the query.</p>
-					<p>Remember: not all implementations support Total parameter
+					<p>Remember: not all implementations support the <code>Total</code> parameter
 					because its generation may lead to severe performance implications.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="data.pagingparams.html">PagingParams</a></p>
 							<h3 id="example">Example</h3>
-							<p>myDataClient.getDataByFilter(
-								&quot;123&quot;,
-								FilterParams.fromTuples(&quot;completed&quot;: true),
-								new PagingParams(0, 100, true),
-								(err: any, page: DataPage<MyData>) =&gt; {
-									if (err == null) {
-									console.log(&quot;Items: &quot;);
-									for (let item of page.Data) {
-									console.log(item);
-									}
-									console.log(&quot;Total items: &quot; + page.total);
-									}
-									};
-							);</p>
-						</dd>
+							<pre><code>myDataClient.getDataByFilter(
+    <span class="hljs-string">"123"</span>,
+    FilterParams.fromTuples(<span class="hljs-string">"completed"</span>: <span class="hljs-literal">true</span>),
+    <span class="hljs-keyword">new</span> PagingParams(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-literal">true</span>),
+    <span class="hljs-function"><span class="hljs-params">(err: any, page: DataPage&lt;MyData&gt;)</span> =&gt;</span> {
+        <span class="hljs-keyword">if</span> (err == <span class="hljs-literal">null</span>) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Items: "</span>);
+            <span class="hljs-keyword">for</span> (let item <span class="hljs-keyword">of</span> page.Data) {
+                <span class="hljs-built_in">console</span>.log(item);
+            }
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Total items: "</span> + page.total);
+        }
+    };
+);
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -150,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/DataPage.ts#L40">data/DataPage.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/DataPage.ts#L40">data/DataPage.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/DataPage.ts#L37">data/DataPage.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/DataPage.ts#L37">data/DataPage.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -205,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/DataPage.ts#L40">data/DataPage.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/DataPage.ts#L40">data/DataPage.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

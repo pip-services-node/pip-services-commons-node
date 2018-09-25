@@ -79,16 +79,18 @@
 						<dt>see</dt>
 						<dd><p><a href="../classes/commands.event.html">Event</a></p>
 							<h3 id="example">Example</h3>
-							<p> export class MyListener implements IEventListener {
-								private onEvent(correlationId: string, event: IEvent, args: Parameters): void {
-								console.log(&quot;Fired event &quot; + event.getName());
-								}
-							}</p>
-							<p> let event = new Event(&quot;myevent&quot;);
-								event.addListener(new MyListener());
-							event.notify(&quot;123&quot;, Parameters.fromTuples(&quot;param1&quot;, &quot;ABC&quot;));</p>
-							<p> // Console output: Fired event myevent</p>
-						</dd>
+							<pre><code>export <span class="hljs-keyword">class</span> <span class="hljs-title">MyListener</span> <span class="hljs-title">implements</span> <span class="hljs-title">IEventListener</span> {
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">onEvent</span>(<span class="hljs-params">correlationId: <span class="hljs-keyword">string</span>, <span class="hljs-keyword">event</span>: IEvent, args: Parameters</span>): <span class="hljs-keyword">void</span> </span>{
+        console.log(<span class="hljs-string">"Fired event "</span> + <span class="hljs-keyword">event</span>.getName());
+    }
+}
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">event</span> = <span class="hljs-keyword">new</span> Event(<span class="hljs-string">"myevent"</span>);
+<span class="hljs-keyword">event</span>.addListener(<span class="hljs-keyword">new</span> MyListener());
+<span class="hljs-keyword">event</span>.notify(<span class="hljs-string">"123"</span>, Parameters.fromTuples(<span class="hljs-string">"param1"</span>, <span class="hljs-string">"ABC"</span>));
+
+<span class="hljs-comment">// Console output: Fired event myevent</span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -125,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/commands/IEventListener.ts#L33">commands/IEventListener.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/commands/IEventListener.ts#L33">commands/IEventListener.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -76,12 +76,13 @@
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a></p>
 							<h3 id="example">Example</h3>
-							<p>let schema = new ObjectSchema()
-							.withRule(new PropertyComparisonRule(&quot;field1&quot;, &quot;NE&quot;, &quot;field2&quot;));</p>
-							<p>schema.validate({ field1: 1, field2: 2 });       // Result: no errors
-								schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
-							schema.validate({});                             // Result: no errors</p>
-						</dd>
+							<pre><code>let schema = <span class="hljs-keyword">new</span> ObjectSchema()
+    .withRule(<span class="hljs-keyword">new</span> PropertyComparisonRule(<span class="hljs-string">"field1"</span>, <span class="hljs-string">"NE"</span>, <span class="hljs-string">"field2"</span>));
+
+schema.validate({ <span class="hljs-string">field1:</span> <span class="hljs-number">1</span>, <span class="hljs-string">field2:</span> <span class="hljs-number">2</span> });       <span class="hljs-comment">// Result: no errors</span>
+schema.validate({ <span class="hljs-string">field1:</span> <span class="hljs-number">1</span>, <span class="hljs-string">field2:</span> <span class="hljs-number">1</span> });       <span class="hljs-comment">// Result: field1 shall not be equal to field2</span>
+schema.validate({});                             <span class="hljs-comment">// Result: no errors</span>
+</code></pre></dd>
 					</dl>
 				</div>
 			</section>
@@ -130,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertiesComparisonRule.ts#L26">validate/PropertiesComparisonRule.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertiesComparisonRule.ts#L26">validate/PropertiesComparisonRule.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -188,7 +189,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/validate.ivalidationrule.html">IValidationRule</a>.<a href="../interfaces/validate.ivalidationrule.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/validate/PropertiesComparisonRule.ts#L51">validate/PropertiesComparisonRule.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/validate/PropertiesComparisonRule.ts#L51">validate/PropertiesComparisonRule.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

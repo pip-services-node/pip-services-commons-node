@@ -73,16 +73,19 @@
 						<p>Interface for data objects that are able to create their full binary copy,.</p>
 					</div>
 					<h3 id="example">Example</h3>
-					<p> export class MyClass implements IMyClass, ICloneable {
-					constructor() { };</p>
-					<p>   public clone(): any {
-					var cloneObj = new (<any>this.constructor());</p>
-					<pre><code> // Copy <span class="hljs-keyword">every</span> <span class="hljs-literal">attribute</span> from this <span class="hljs-keyword">to</span> cloneObj here.
- ...
+					<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyClass <span class="hljs-keyword">implements</span> IMyClass, ICloneable {
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) { };
 
- <span class="hljs-keyword">return</span> cloneObj;
-</code></pre><p>   }
-					}</p>
+  <span class="hljs-keyword">public</span> clone(): <span class="hljs-built_in">any</span> {
+      <span class="hljs-keyword">var</span> cloneObj = <span class="hljs-keyword">new</span> (&lt;<span class="hljs-built_in">any</span>&gt;<span class="hljs-keyword">this</span>.constructor());
+
+      <span class="hljs-comment">// Copy every attribute from this to cloneObj here.</span>
+      ...
+
+      <span class="hljs-keyword">return</span> cloneObj;
+  }
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -127,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/7504d4e/src/data/ICloneable.ts#L27">data/ICloneable.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/data/ICloneable.ts#L27">data/ICloneable.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
