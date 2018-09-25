@@ -12,15 +12,15 @@ import { ObjectReader } from '../reflect/ObjectReader';
  * 
  * ### Example ###
  * 
- * let schema = new ObjectSchema(false)
- *      .withOptionalProperty("id", TypeCode.String)
- *      .withRequiredProperty("name", TypeCode.String);
- * 
- * schema.validate({ id: "1", name: "ABC" });       // Result: no errors
- * schema.validate({ name: "ABC" });                // Result: no errors
- * schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
- * schema.validate({ id: 1, _name: "ABC" });        // Result: name is missing, unexpected _name
- * schema.validate("ABC");                          // Result: type mismatch
+ *     let schema = new ObjectSchema(false)
+ *         .withOptionalProperty("id", TypeCode.String)
+ *         .withRequiredProperty("name", TypeCode.String);
+ *     
+ *     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
+ *     schema.validate({ name: "ABC" });                // Result: no errors
+ *     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+ *     schema.validate({ id: 1, _name: "ABC" });        // Result: name is missing, unexpected _name
+ *     schema.validate("ABC");                          // Result: type mismatch
  */
 export class ObjectSchema extends Schema {
     private _properties: PropertySchema[];

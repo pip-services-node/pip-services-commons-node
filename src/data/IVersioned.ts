@@ -12,21 +12,21 @@
  * 
  * ### Example ###
  * 
- *  export class MyData implements IStringIdentifiable, IVersioned {
- *    public id: string;
- *    public field1: string;
- *    public field2: number;
- *    public version: string;
- *    ...
- *  }
- * 
- * public updateData(correlationId: string, item: MyData): void {
- *  ...
- *  if (item.version < oldItem.version) {
- *    throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");
- *  }
- *  ...
- * }
+ *     export class MyData implements IStringIdentifiable, IVersioned {
+ *         public id: string;
+ *         public field1: string;
+ *         public field2: number;
+ *         public version: string;
+ *         ...
+ *     }
+ *     
+ *     public updateData(correlationId: string, item: MyData): void {
+ *         ...
+ *         if (item.version < oldItem.version) {
+ *             throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");
+ *         }
+ *         ...
+ *     }
  */
 export interface IVersioned {
 	/** The object's version. */

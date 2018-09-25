@@ -10,8 +10,8 @@ import { StringConverter } from '../convert/StringConverter';
  * 
  * ### Example ###
  * 
- * ObjectComparator.compare(2, "GT", 1);        // Result: true
- * ObjectComparator.areEqual("A", "B");         // Result: false
+ *     ObjectComparator.compare(2, "GT", 1);        // Result: true
+ *     ObjectComparator.areEqual("A", "B");         // Result: false
  */
 export class ObjectComparator {
     

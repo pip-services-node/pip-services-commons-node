@@ -10,12 +10,12 @@ import { Schema } from './Schema';
  * 
  * ### Example ###
  * 
- * let schema = new ObjectSchema()
- *      .withProperty(new PropertySchema("id", TypeCode.String));
- * 
- * schema.validate({ id: "1", name: "ABC" });       // Result: no errors
- * schema.validate({ name: "ABC" });                // Result: no errors
- * schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+ *     let schema = new ObjectSchema()
+ *         .withProperty(new PropertySchema("id", TypeCode.String));
+ *     
+ *     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
+ *     schema.validate({ name: "ABC" });                // Result: no errors
+ *     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
  */
 export class PropertySchema extends Schema {
     private _name: string;

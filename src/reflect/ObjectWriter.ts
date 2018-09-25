@@ -23,15 +23,15 @@ import { IntegerConverter } from '../convert/IntegerConverter';
  * 
  * ### Example ###
  * 
- * let myObj = new MyObject();
- * 
- * ObjectWriter.setProperty(myObj, "myProperty", 123);
- * 
- * let myMap = { key1: 123, key2: "ABC" };
- * ObjectWriter.setProperty(myMap, "key1", "XYZ");
- * 
- * let myArray = [1, 2, 3]
- * ObjectWriter.setProperty(myArray, "0", 123);
+ *     let myObj = new MyObject();
+ *     
+ *     ObjectWriter.setProperty(myObj, "myProperty", 123);
+ *     
+ *     let myMap = { key1: 123, key2: "ABC" };
+ *     ObjectWriter.setProperty(myMap, "key1", "XYZ");
+ *     
+ *     let myArray = [1, 2, 3]
+ *     ObjectWriter.setProperty(myArray, "0", 123);
  */
 export class ObjectWriter {
 	/**

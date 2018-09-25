@@ -13,12 +13,12 @@ import { ObjectReader } from '../reflect/ObjectReader';
  * 
  * ### Example ###
  * 
- * let schema = new ObjectSchema()
- *      .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
- * 
- * schema.validate({ field1: 1, field2: 2 });       // Result: no errors
- * schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
- * schema.validate({});                             // Result: no errors
+ *     let schema = new ObjectSchema()
+ *         .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
+ *     
+ *     schema.validate({ field1: 1, field2: 2 });       // Result: no errors
+ *     schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
+ *     schema.validate({});                             // Result: no errors
  */
 export class PropertiesComparisonRule implements IValidationRule {
     private readonly _property1: string;

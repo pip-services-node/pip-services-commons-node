@@ -12,10 +12,10 @@ import { DoubleConverter } from './DoubleConverter';
  * 
  * ### Example ###
  * 
- * let value1 = FloatConverter.toNullableFloat("ABC"); // Result: null
- * let value2 = FloatConverter.toNullableFloat("123.456"); // Result: 123.456
- * let value3 = FloatConverter.toNullableFloat(true); // Result: 1
- * let value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds
+ *     let value1 = FloatConverter.toNullableFloat("ABC"); // Result: null
+ *     let value2 = FloatConverter.toNullableFloat("123.456"); // Result: 123.456
+ *     let value3 = FloatConverter.toNullableFloat(true); // Result: 1
+ *     let value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds
  */
 export class FloatConverter {
 

@@ -5,13 +5,13 @@
  * 
  * ### Example ###
  * 
- *  export class MyData implements IStringIdentifiable, INamed {
- *    public id: string;
- *    public name: string;
- *    public field1: string;
- *    public field2: number;
- *    ...
- * }
+ *     export class MyData implements IStringIdentifiable, INamed {
+ *         public id: string;
+ *         public name: string;
+ *         public field1: string;
+ *         public field2: number;
+ *         ...
+ *     }
  */
 export interface INamed {
 	/** The object's humand-readable name. */

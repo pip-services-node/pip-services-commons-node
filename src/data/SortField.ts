@@ -7,11 +7,11 @@
  * 
  * ### Example ###
  * 
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
- * let sorting = new SortingParams(new SortField("create_time", true));
- * 
- * myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     let sorting = new SortingParams(new SortField("create_time", true));
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 export class SortField {	
 	/** The field name to sort by */

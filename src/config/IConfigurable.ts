@@ -13,14 +13,14 @@ import { ConfigParams } from './ConfigParams';
  * 
  * ### Example ###
  * 
- * export class MyClass implements IConfigurable {
- *    private _myParam: string = "default value";
- *         
- *    public configure(config: ConfigParams): void  {
- *      this._myParam = config.getAsStringWithDefault("options.param", myParam);
+ *     export class MyClass implements IConfigurable {
+ *         private _myParam: string = "default value";
+ *              
+ *         public configure(config: ConfigParams): void  {
+ *             this._myParam = config.getAsStringWithDefault("options.param", myParam);
  *             ...
- *    }
- * }
+ *         }
+ *     }
  */
 export interface IConfigurable {
     /**

@@ -5,9 +5,9 @@
  * 
  * ### Example ###
  * 
- * let value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
- * let value2 = RandomInteger.nextInteger(10);        // Possible result: 3
- * let value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
+ *     let value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
+ *     let value2 = RandomInteger.nextInteger(10);        // Possible result: 3
+ *     let value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
  */
 export class RandomInteger {
     

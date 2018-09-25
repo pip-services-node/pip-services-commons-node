@@ -17,26 +17,26 @@ import { Parameters } from './Parameters';
  * 
  * ### Example ###
  * 
- * class MyComponent {
- *   private timer: FixedRateTimer = new FixedRateTimer(() => { this.cleanup }, 60000);
- *   ...
- *   public open(correlationId: string, callback: (err: any) => void): void {
- *     ...
- *     timer.start();
- *     ...
- *   }
- * 
- *   public open(correlationId: string, callback: (err: any) => void): void {
- *     ...
- *     timer.stop();
- *     ...
- *   }
- * 
- *   private cleanup(): void {
- *     ...
- *   }
- *   ...
- * }
+ *     class MyComponent {
+ *         private timer: FixedRateTimer = new FixedRateTimer(() => { this.cleanup }, 60000);
+ *         ...
+ *         public open(correlationId: string, callback: (err: any) => void): void {
+ *             ...
+ *             timer.start();
+ *             ...
+ *         }
+ *         
+ *         public open(correlationId: string, callback: (err: any) => void): void {
+ *             ...
+ *             timer.stop();
+ *             ...
+ *         }
+ *         
+ *         private cleanup(): void {
+ *             ...
+ *         }
+ *         ...
+ *     }
  */
 export class FixedRateTimer implements IClosable {
     private _task: INotifiable;

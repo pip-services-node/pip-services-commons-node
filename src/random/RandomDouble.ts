@@ -5,9 +5,9 @@
  * 
  * ### Example ###
  * 
- * let value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
- * let value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
- * let value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
+ *     let value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
+ *     let value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
+ *     let value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
  */
 export class RandomDouble {
 

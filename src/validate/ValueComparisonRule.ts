@@ -12,11 +12,11 @@ import { ValidationResultType } from './ValidationResultType';
  * 
  * ### Example ###
  * 
- * let schema = new Schema()
- *      .withRule(new ValueComparisonRule("EQ", 1));
- * 
- * schema.validate(1);          // Result: no errors
- * schema.validate(2);          // Result: 2 is not equal to 1
+ *     let schema = new Schema()
+ *         .withRule(new ValueComparisonRule("EQ", 1));
+ *     
+ *     schema.validate(1);          // Result: no errors
+ *     schema.validate(2);          // Result: 2 is not equal to 1
  */
 export class ValueComparisonRule implements IValidationRule {
     private readonly _value: any;

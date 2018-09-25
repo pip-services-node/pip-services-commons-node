@@ -10,13 +10,13 @@ import { StringConverter } from '../convert/StringConverter';
  * 
  * ### Example ###
  * 
- * let values = MultiString.fromTuples(
- *   "en", "Hello World!",
- *   "ru", "Привет мир!"
- * );
- * 
- * let value1 = values.get('ru'); // Result: "Привет мир!"
- * let value2 = values.get('pt'); // Result: "Hello World!"
+ *     let values = MultiString.fromTuples(
+ *         "en", "Hello World!",
+ *         "ru", "Привет мир!"
+ *     );
+ *     
+ *     let value1 = values.get('ru'); // Result: "Привет мир!"
+ *     let value2 = values.get('pt'); // Result: "Hello World!"
  */
 export class MultiString {
     /**

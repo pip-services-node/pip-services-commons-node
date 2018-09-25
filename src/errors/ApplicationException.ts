@@ -27,7 +27,7 @@ import { StringValueMap } from '../data/StringValueMap';
  * The [[ApplicationException]] class proposes an extended error definition
  * that has more standard fields:
  * 
- * - message: is a humand readable error description
+ * - message: is a human-readable error description
  * - category: one of 12 standard error categories of errors
  * - status: numeric HTTP status code for REST invocations
  * - code: a unique error code, usually defined as "MY_ERROR_CODE"

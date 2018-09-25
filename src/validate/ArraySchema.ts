@@ -15,11 +15,11 @@ import { TypeConverter } from '../convert/TypeConverter';
  * 
  * ### Example ###
  * 
- * let schema = new ArraySchema(TypeCode.String);
- * 
- * schema.validate(["A", "B", "C"]);    // Result: no errors
- * schema.validate([1, 2, 3]);          // Result: element type mismatch
- * schema.validate("A");                // Result: type mismatch            
+ *     let schema = new ArraySchema(TypeCode.String);
+ *     
+ *     schema.validate(["A", "B", "C"]);    // Result: no errors
+ *     schema.validate([1, 2, 3]);          // Result: element type mismatch
+ *     schema.validate("A");                // Result: type mismatch            
  */
 export class ArraySchema extends Schema {
     private _valueType: any;

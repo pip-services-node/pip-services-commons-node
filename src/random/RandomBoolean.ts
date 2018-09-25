@@ -5,8 +5,8 @@
  * 
  * ### Example ###
  * 
- * let value1 = RandomBoolean.nextBoolean();    // Possible result: true
- * let value2 = RandomBoolean.chance(1,3);      // Possible result: false
+ *     let value1 = RandomBoolean.nextBoolean();    // Possible result: true
+ *     let value2 = RandomBoolean.chance(1,3);      // Possible result: false
  */
 export class RandomBoolean {
 

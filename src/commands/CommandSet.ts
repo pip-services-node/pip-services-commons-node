@@ -25,26 +25,26 @@ import { IdGenerator } from '../data/IdGenerator';
  * 
  * ### Example ###
  * 
- * export class MyDataCommandSet extends CommandSet {
- *    private _controller: IMyDataController;
- * 
- *    constructor(controller: IMyDataController) { // Any data controller interface
- *      super();
- *      this._controller = controller;
- *      this.addCommand(this.makeGetMyDataCommand());
- *    }   
- * 
- *    private makeGetMyDataCommand(): ICommand {
- *      return new Command(
- *        'get_mydata',
- *        null,
- *        (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
- *          let param = args.getAsString('param');
- *          this._controller.getMyData(correlationId, param, callback);
- *        }
- *      );
- *    }
- * }
+ *     export class MyDataCommandSet extends CommandSet {
+ *         private _controller: IMyDataController;
+ *      
+ *         constructor(controller: IMyDataController) { // Any data controller interface
+ *             super();
+ *             this._controller = controller;
+ *             this.addCommand(this.makeGetMyDataCommand());
+ *         }   
+ *      
+ *         private makeGetMyDataCommand(): ICommand {
+ *             return new Command(
+ *               'get_mydata',
+ *               null,
+ *               (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+ *                   let param = args.getAsString('param');
+ *                   this._controller.getMyData(correlationId, param, callback);
+ *               }
+ *             );
+ *         }
+ *     }
  */
 export class CommandSet {
     private readonly _commands: ICommand[] = [];

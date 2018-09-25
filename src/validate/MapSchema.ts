@@ -16,11 +16,11 @@ import { StringConverter } from '../convert/StringConverter';
  * 
  * ### Example ###
  * 
- * let schema = new MapSchema(TypeCode.String, TypeCode.Integer);
- * 
- * schema.validate({ "key1": "A", "key2": "B" });       // Result: no errors
- * schema.validate({ "key1": 1, "key2": 2 });           // Result: element type mismatch
- * schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch
+ *     let schema = new MapSchema(TypeCode.String, TypeCode.Integer);
+ *     
+ *     schema.validate({ "key1": "A", "key2": "B" });       // Result: no errors
+ *     schema.validate({ "key1": 1, "key2": 2 });           // Result: element type mismatch
+ *     schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch
  */
 export class MapSchema extends Schema {
     private _keyType: any;

@@ -6,9 +6,9 @@ import { RandomInteger } from './RandomInteger';
  * 
  * ### Example ###
  * 
- * let value1 = RandomDateTime.nextDate(new Date(2010,0,1));    // Possible result: 2008-01-03
- * let value2 = RandomDateTime.nextDateTime(new Date(2017,0.1));// Possible result: 2007-03-11 11:20:32
- * let value3 = RandomDateTime.updateDateTime(new Date(2010,1,2));// Possible result: 2010-02-05 11:33:23
+ *     let value1 = RandomDateTime.nextDate(new Date(2010,0,1));    // Possible result: 2008-01-03
+ *     let value2 = RandomDateTime.nextDateTime(new Date(2017,0.1));// Possible result: 2007-03-11 11:20:32
+ *     let value3 = RandomDateTime.updateDateTime(new Date(2010,1,2));// Possible result: 2010-02-05 11:33:23
  */
 export class RandomDateTime {
 

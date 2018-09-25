@@ -12,15 +12,15 @@ import { ValidationResult } from './ValidationResult';
  * 
  * ### Example ###
  * 
- * let schema = new Schema()
- *      .withRule(new OrRule(
- *          new ValueComparisonRule("LT", 1),
- *          new ValueComparisonRule("GT", 10)
- *      ));
- * 
- * schema.validate(0);          // Result: no error
- * schema.validate(5);          // Result: 5 must be less than 1 or 5 must be more than 10
- * schema.validate(20);         // Result: no error
+ *     let schema = new Schema()
+ *         .withRule(new OrRule(
+ *             new ValueComparisonRule("LT", 1),
+ *             new ValueComparisonRule("GT", 10)
+ *         ));
+ *     
+ *     schema.validate(0);          // Result: no error
+ *     schema.validate(5);          // Result: 5 must be less than 1 or 5 must be more than 10
+ *     schema.validate(20);         // Result: no error
  */
 export class OrRule implements IValidationRule {
     private readonly _rules: IValidationRule[];

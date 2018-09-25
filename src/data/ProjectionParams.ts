@@ -16,11 +16,11 @@ const _ = require('lodash');
  * 
  * ### Example ###
  * 
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
- * let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
- * 
- * myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
  * 
  */
 export class ProjectionParams extends Array<string> {

@@ -28,17 +28,17 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * 
  * ### Example ###
  * 
- * let config = ConfigParams.fromTuples(
- *   "section1.key1", "AAA",
- *   "section1.key2", 123,
- *   "section2.key1", true
- * );
- *         
- * config.getAsString("section1.key1"); // Result: AAA
- * config.getAsInteger("section1.key1"); // Result: 0
- * 
- * section1 = config.getSection("section1");
- * section1.toString(); // Result: key1=AAA;key2=123
+ *     let config = ConfigParams.fromTuples(
+ *         "section1.key1", "AAA",
+ *         "section1.key2", 123,
+ *         "section2.key1", true
+ *     );
+ *             
+ *     config.getAsString("section1.key1"); // Result: AAA
+ *     config.getAsInteger("section1.key1"); // Result: 0
+ *     
+ *     section1 = config.getSection("section1");
+ *     section1.toString(); // Result: key1=AAA;key2=123
  *  
  */
 export class ConfigParams extends StringValueMap {

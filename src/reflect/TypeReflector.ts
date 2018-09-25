@@ -23,12 +23,12 @@ import { TypeConverter } from '../convert/TypeConverter';
  * 
  * ### Example ###
  * 
- * let descriptor = new TypeDescriptor("MyObject", "mylibrary");
- * Typeeflector.getTypeByDescriptor(descriptor);
- * let myObj = TypeReflector.createInstanceByDescriptor(descriptor);
- * 
- * TypeDescriptor.isPrimitive(myObject); 		// Result: false
- * TypeDescriptor.isPrimitive(123);				// Result: true
+ *     let descriptor = new TypeDescriptor("MyObject", "mylibrary");
+ *     Typeeflector.getTypeByDescriptor(descriptor);
+ *     let myObj = TypeReflector.createInstanceByDescriptor(descriptor);
+ *     
+ *     TypeDescriptor.isPrimitive(myObject); 		// Result: false
+ *     TypeDescriptor.isPrimitive(123);				// Result: true
  */
 export class TypeReflector {
 

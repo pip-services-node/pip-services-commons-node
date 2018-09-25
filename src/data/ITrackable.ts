@@ -8,15 +8,15 @@ import { IChangeable } from './IChangeable';
  * 
  * ### Example ###
  * 
- *  export class MyData implements IStringIdentifiable, ITrackable {
- *    public id: string;
- *    public field1: string;
- *    public field2: number;
- *    ...
- *    public change_time: Date;
- *    public create_time: Date;
- *    public deleted: boolean;
- *  }
+ *     export class MyData implements IStringIdentifiable, ITrackable {
+ *         public id: string;
+ *         public field1: string;
+ *         public field2: number;
+ *         ...
+ *         public change_time: Date;
+ *         public create_time: Date;
+ *         public deleted: boolean;
+ *     }
  */
 export interface ITrackable extends IChangeable {
 	/** The UTC time at which the object was created. */

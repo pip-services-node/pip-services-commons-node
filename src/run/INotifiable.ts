@@ -11,16 +11,16 @@ import { Parameters } from './Parameters';
  * 
  * ### Example ###
  * 
- * class MyComponent implements INotifable {
- *   ...
- *   public notify(correlationId: string, args: Parameters): void {
- *     console.log("Occured event " + args.getAsString("event"));
- *   }
- * }
- * 
- * let myComponent = new MyComponent();
- * 
- * myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
+ *     class MyComponent implements INotifable {
+ *         ...
+ *         public notify(correlationId: string, args: Parameters): void {
+ *             console.log("Occured event " + args.getAsString("event"));
+ *         }
+ *     }
+ *     
+ *     let myComponent = new MyComponent();
+ *     
+ *     myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
  */
 export interface INotifiable {
 	/**

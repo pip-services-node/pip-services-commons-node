@@ -19,12 +19,12 @@ import { ConfigException } from '../errors/ConfigException';
  * 
  * ### Example ###
  * 
- * let locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
- * let locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
- * 
- * locator1.match(locator2);		// Result: true
- * locator1.equal(locator2);		// Result: true
- * locator1.exactMatch(locator2);	// Result: false
+ *     let locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
+ *     let locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
+ *     
+ *     locator1.match(locator2);		// Result: true
+ *     locator1.equal(locator2);		// Result: true
+ *     locator1.exactMatch(locator2);	// Result: false
  */
 export class Descriptor {
 	private _group: string;

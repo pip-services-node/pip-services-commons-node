@@ -22,9 +22,9 @@ import { Descriptor } from './Descriptor';
  * ### Configuration parameters ###
  * 
  * dependencies:
- *   [dependency name 1]: Dependency 1 locator (descriptor)
- *   ...
- *   [dependency name N]: Dependency N locator (descriptor)
+ * - [dependency name 1]: Dependency 1 locator (descriptor)
+ * - ...
+ * - [dependency name N]: Dependency N locator (descriptor)
  * 
  * ### References ###
  * 
@@ -32,34 +32,34 @@ import { Descriptor } from './Descriptor';
  * 
  * ### Example ###
  * 
- * class MyComponent: IConfigurable, IReferenceable {
- *   private _dependencyResolver: DependencyResolver = new DependencyResolver();
- *   private _persistence: IMyPersistence;
- *   ...
- * 
- *   public constructor() {
- *     this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
- * 	 }
- * 
- *   public configure(config: ConfigParams): void {
- *     this._dependencyResolver.configure(config);
- *   }  
- * 
- *   public setReferences(references: IReferences): void {
- *     this._dependencyResolver.setReferences(references);
- *     this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>("persistence");
- *   }
- * }
- * 
- * // Create mycomponent and set specific dependency out of many
- * let component = new MyComponent();
- * component.configure(ConfigParams.fromTuples(
- *   "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" // Override default persistence dependency
- * ));
- * component.setReferences(References.fromTuples(
- *   new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
- *   new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  // This dependency shall be set
- * ));
+ *     class MyComponent: IConfigurable, IReferenceable {
+ *         private _dependencyResolver: DependencyResolver = new DependencyResolver();
+ *         private _persistence: IMyPersistence;
+ *         ...
+ *         
+ *         public constructor() {
+ *             this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
+ *         }
+ *         
+ *         public configure(config: ConfigParams): void {
+ *             this._dependencyResolver.configure(config);
+ *         }  
+ *         
+ *         public setReferences(references: IReferences): void {
+ *             this._dependencyResolver.setReferences(references);
+ *             this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>("persistence");
+ *         }
+ *     }
+ *     
+ *     // Create mycomponent and set specific dependency out of many
+ *     let component = new MyComponent();
+ *     component.configure(ConfigParams.fromTuples(
+ *         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" // Override default persistence dependency
+ *     ));
+ *     component.setReferences(References.fromTuples(
+ *         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
+ *         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  // This dependency shall be set
+ *     ));
  * 
  * @see [[IReferences]]
  */
@@ -88,6 +88,12 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	/**
 	 * Configures the component with specified parameters.
 	 * 
+	 * __Configuration parameters:__
+	 * dependencies:
+	 * - [dependency name 1]: Dependency 1 locator (descriptor)
+	 * - ...
+	 * - [dependency name N]: Dependency N locator (descriptor)
+	 * 
 	 * @param config 	configuration parameters to set.
 	 * 
 	 * @see [[ConfigParams]]
@@ -113,7 +119,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 	}
 
 	/**
-	 * Sets the component references
+	 * Sets the component references. References must match configured dependencies.
 	 * 
 	 * @param references 	references to set.
 	 */
@@ -159,7 +165,7 @@ export class DependencyResolver implements IReferenceable, IReconfigurable {
 
 	/**
 	 * Gets all required dependencies by their name.
-	 * At least one dependency must present.
+	 * At least one dependency must be present.
 	 * If no dependencies was found it throws a [[ReferenceException]]
 	 * 
 	 * @param name 		the dependency name to locate.

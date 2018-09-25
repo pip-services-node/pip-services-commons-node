@@ -10,21 +10,21 @@ import { Parameters } from './Parameters';
  * 
  * ### Example ###
  * 
- * class EchoComponent implements IExecutable {
- *   ...
- *   public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
- *     let result = args.getAsObject("message");
- *     callback(null, result);
- *   }
- * }
- * 
- * let echo = new EchoComponent();
- * let message = "Test";
- * echo.execute("123", Parameters.fromTuples("message", message),
- *   (err, result) => {
- *     console.log("Request: " + message + " Response: " + result);
- *   }
- * );
+ *     class EchoComponent implements IExecutable {
+ *         ...
+ *         public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
+ *             let result = args.getAsObject("message");
+ *             callback(null, result);
+ *         }
+ *     }
+ *     
+ *     let echo = new EchoComponent();
+ *     let message = "Test";
+ *     echo.execute("123", Parameters.fromTuples("message", message),
+ *         (err, result) => {
+ *             console.log("Request: " + message + " Response: " + result);
+ *         }
+ *     );
  */
 export interface IExecutable {
 	/**

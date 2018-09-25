@@ -12,12 +12,12 @@ import { ObjectReader } from '../reflect/ObjectReader';
  * 
  * ### Example ###
  * 
- * let schema = new Schema()
- *      .withRule(new AtLeastOneExistsRule("field1", "field2"));
- * 
- * schema.validate({ field1: 1, field2: "A" });     // Result: no errors
- * schema.validate({ field1: 1 });                  // Result: no errors
- * schema.validate({ });                            // Result: at least one of properties field1, field2 must exist
+ *     let schema = new Schema()
+ *         .withRule(new AtLeastOneExistsRule("field1", "field2"));
+ *     
+ *     schema.validate({ field1: 1, field2: "A" });     // Result: no errors
+ *     schema.validate({ field1: 1 });                  // Result: no errors
+ *     schema.validate({ });                            // Result: at least one of properties field1, field2 must exist
  */
 export class AtLeastOneExistsRule implements IValidationRule {
     private readonly _properties: string[];

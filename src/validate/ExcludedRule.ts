@@ -12,11 +12,11 @@ import { ObjectComparator } from './ObjectComparator';
  * 
  * ### Example ###
  * 
- * let schema = new Schema()
- *      .withRule(new ExcludedRule(1, 2, 3));
- * 
- * schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
- * schema.validate(10);     // Result: no errors
+ *     let schema = new Schema()
+ *         .withRule(new ExcludedRule(1, 2, 3));
+ *     
+ *     schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
+ *     schema.validate(10);     // Result: no errors
  */
 export class ExcludedRule implements IValidationRule {
     private readonly _values: any[];

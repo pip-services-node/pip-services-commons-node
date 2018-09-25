@@ -11,19 +11,19 @@
  * 
  * ### Example ###
  * 
- * class MyConnector implements ICloseable {
- *   private _client: any = null;
- * 
- *   ... // The _client can be lazy created
- * 
- *   public close(correlationId: string, callback: (err: any) => void): void {
- *     if (this._client != null) {
- *       this._client.close();
- *       this._client = null;
+ *     class MyConnector implements ICloseable {
+ *         private _client: any = null;
+ *         
+ *         ... // The _client can be lazy created
+ *         
+ *         public close(correlationId: string, callback: (err: any) => void): void {
+ *             if (this._client != null) {
+ *                 this._client.close();
+ *                 this._client = null;
+ *             }
+ *             callback(null);
+ *         }
  *     }
- *     callback(null);
- *   }
- * }
  * 
  */
 export interface IClosable {

@@ -13,15 +13,14 @@ import { Parameters } from '../run/Parameters';
  * 
  * ### Example ###
  * 
- * let event = new Event("my_event");
- *  
- * event.addListener(myListener);
- * 
- * event.notify("123", Parameters.fromTuples(
- *   "param1", "ABC",
- *   "param2", 123
- * ));
- * 
+ *     let event = new Event("my_event");
+ *      
+ *     event.addListener(myListener);
+ *     
+ *     event.notify("123", Parameters.fromTuples(
+ *       "param1", "ABC",
+ *       "param2", 123
+ *     ));
  */
 export class Event implements IEvent {
     private _name: string;

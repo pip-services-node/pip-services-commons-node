@@ -10,15 +10,15 @@ import { AnyValueMap } from './AnyValueMap';
  * The Paging parameter sets how many items to return in a page.
  * And the optional Total parameter tells to return total number of items in the query.
  * 
- * Remember: not all implementations support Total parameter
+ * Remember: not all implementations support the <code>Total</code> parameter
  * because its generation may lead to severe performance implications.
  * 
  * ### Example ###
  * 
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
- * 
- * myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 export class PagingParams {	
 	/** The number of items to skip. */

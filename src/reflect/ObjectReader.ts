@@ -23,19 +23,19 @@ import { IntegerConverter } from '../convert/IntegerConverter';
  * 
  * ### Example ###
  * 
- * let myObj = new MyObject();
- * 
- * let properties = ObjectReader.getPropertyNames();
- * ObjectReader.hasProperty(myObj, "myProperty");
- * let value = PropertyReflector.getProperty(myObj, "myProperty");
- * 
- * let myMap = { key1: 123, key2: "ABC" };
- * ObjectReader.hasProperty(myMap, "key1");
- * let value = ObjectReader.getProperty(myMap, "key1");
- * 
- * let myArray = [1, 2, 3]
- * ObjectReader.hasProperty(myArrat, "0");
- * let value = ObjectReader.getProperty(myArray, "0");
+ *     let myObj = new MyObject();
+ *     
+ *     let properties = ObjectReader.getPropertyNames();
+ *     ObjectReader.hasProperty(myObj, "myProperty");
+ *     let value = PropertyReflector.getProperty(myObj, "myProperty");
+ *     
+ *     let myMap = { key1: 123, key2: "ABC" };
+ *     ObjectReader.hasProperty(myMap, "key1");
+ *     let value = ObjectReader.getProperty(myMap, "key1");
+ *     
+ *     let myArray = [1, 2, 3]
+ *     ObjectReader.hasProperty(myArrat, "0");
+ *     let value = ObjectReader.getProperty(myArray, "0");
  */
 export class ObjectReader {
     

@@ -13,11 +13,11 @@ let _ = require('lodash');
  * 
  * ### Example ###
  * 
- * let myObj = new MyObject();
- * 
- * let methods = MethodReflector.getMethodNames();
- * MethodReflector.hasMethod(myObj, "myMethod");
- * MethodReflector.invokeMethod(myObj, "myMethod", 123);
+ *     let myObj = new MyObject();
+ *     
+ *     let methods = MethodReflector.getMethodNames();
+ *     MethodReflector.hasMethod(myObj, "myMethod");
+ *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
  */
 export class MethodReflector {
    private static matchMethod(methodName: string, methodValue: any, expectedName: string): boolean {
