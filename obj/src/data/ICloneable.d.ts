@@ -4,18 +4,18 @@
  *
  * ### Example ###
  *
- *  export class MyClass implements IMyClass, ICloneable {
- *    constructor() { };
+ *     export class MyClass implements IMyClass, ICloneable {
+ *       constructor() { };
  *
- *    public clone(): any {
- *      var cloneObj = new (<any>this.constructor());
+ *       public clone(): any {
+ *           var cloneObj = new (<any>this.constructor());
  *
- *      // Copy every attribute from this to cloneObj here.
- *      ...
+ *           // Copy every attribute from this to cloneObj here.
+ *           ...
  *
- *      return cloneObj;
- *    }
- *  }
+ *           return cloneObj;
+ *       }
+ *     }
  */
 export interface ICloneable {
     /**

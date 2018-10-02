@@ -9,15 +9,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new AndRule(
- *          new ValueComparisonRule("GTE", 1),
- *          new ValueComparisonRule("LTE", 10)
- *      ));
+ *     let schema = new Schema()
+ *         .withRule(new AndRule(
+ *             new ValueComparisonRule("GTE", 1),
+ *             new ValueComparisonRule("LTE", 10)
+ *         ));
  *
- * schema.validate(0);          // Result: 0 must be greater or equal to 1
- * schema.validate(5);          // Result: no error
- * schema.validate(20);         // Result: 20 must be letter or equal 10
+ *     schema.validate(0);          // Result: 0 must be greater or equal to 1
+ *     schema.validate(5);          // Result: no error
+ *     schema.validate(20);         // Result: 20 must be letter or equal 10
  */
 var AndRule = /** @class */ (function () {
     /**

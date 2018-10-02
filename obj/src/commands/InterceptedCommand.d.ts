@@ -13,26 +13,26 @@ import { ValidationResult } from '../validate/ValidationResult';
  *
  * ### Example ###
  *
- * export class CommandLogger implements ICommandInterceptor {
+ *     export class CommandLogger implements ICommandInterceptor {
  *
- *   public getName(command: ICommand): string {
- *     return command.getName();
- *   }
+ *         public getName(command: ICommand): string {
+ *             return command.getName();
+ *         }
  *
- *   public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
- *     console.log("Executed command " + command.getName());
- *     command.execute(correlationId, args, callback);
- *   }
+ *         public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
+ *             console.log("Executed command " + command.getName());
+ *             command.execute(correlationId, args, callback);
+ *         }
  *
- *   private validate(command: ICommand, args: Parameters): ValidationResult[] {
- *     return command.validate(args);
- *   }
- * }
+ *         private validate(command: ICommand, args: Parameters): ValidationResult[] {
+ *             return command.validate(args);
+ *         }
+ *     }
  *
- * let logger = new CommandLogger();
- * let loggedCommand = new InterceptedCommand(logger, command);
+ *     let logger = new CommandLogger();
+ *     let loggedCommand = new InterceptedCommand(logger, command);
  *
- * // Each called command will output: Executed command <command name>
+ *     // Each called command will output: Executed command <command name>
  *
  */
 export declare class InterceptedCommand implements ICommand {

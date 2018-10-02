@@ -11,10 +11,10 @@ var _ = require('lodash');
  *
  * ### Example ###
  *
- * let value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
- * let value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
- * let value3 = DoubleConverter.toNullableDouble(true); // Result: 1
- * let value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
+ *     let value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
+ *     let value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
+ *     let value3 = DoubleConverter.toNullableDouble(true); // Result: 1
+ *     let value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
  */
 var DoubleConverter = /** @class */ (function () {
     function DoubleConverter() {

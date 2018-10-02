@@ -10,11 +10,11 @@ var ObjectComparator_1 = require("./ObjectComparator");
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new ExcludedRule(1, 2, 3));
+ *     let schema = new Schema()
+ *         .withRule(new ExcludedRule(1, 2, 3));
  *
- * schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
- * schema.validate(10);     // Result: no errors
+ *     schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
+ *     schema.validate(10);     // Result: no errors
  */
 var ExcludedRule = /** @class */ (function () {
     /**

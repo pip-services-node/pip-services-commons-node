@@ -10,9 +10,9 @@ var _ = require('lodash');
  *
  * ### Example ###
  *
- * let value1 = MapConverted.toNullableMap("ABC"); // Result: null
- * let value2 = MapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
- * let value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
+ *     let value1 = MapConverted.toNullableMap("ABC"); // Result: null
+ *     let value2 = MapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
+ *     let value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
  */
 var MapConverter = /** @class */ (function () {
     function MapConverter() {

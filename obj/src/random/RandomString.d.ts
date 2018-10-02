@@ -3,8 +3,8 @@
  *
  * ### Example ###
  *
- * let value1 = RandomString.pickChar("ABC");     // Possible result: "C"
- * let value2 = RandomString.pick(["A","B","C"]); // Possible result: "gBW"
+ *     let value1 = RandomString.pickChar("ABC");     // Possible result: "C"
+ *     let value2 = RandomString.pick(["A","B","C"]); // Possible result: "gBW"
  */
 export declare class RandomString {
     private static readonly _digits;

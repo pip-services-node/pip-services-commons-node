@@ -7,7 +7,7 @@ var RandomInteger_1 = require("./RandomInteger");
  *
  * ### Example ###
  *
- * let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
+ *     let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
  */
 var RandomArray = /** @class */ (function () {
     function RandomArray() {

@@ -6,11 +6,11 @@ import { IValidationRule } from './IValidationRule';
  *
  * ### Example ###
  *
- * let schema = new ArraySchema(TypeCode.String);
+ *     let schema = new ArraySchema(TypeCode.String);
  *
- * schema.validate(["A", "B", "C"]);    // Result: no errors
- * schema.validate([1, 2, 3]);          // Result: element type mismatch
- * schema.validate("A");                // Result: type mismatch
+ *     schema.validate(["A", "B", "C"]);    // Result: no errors
+ *     schema.validate([1, 2, 3]);          // Result: element type mismatch
+ *     schema.validate("A");                // Result: type mismatch
  */
 export declare class ArraySchema extends Schema {
     private _valueType;

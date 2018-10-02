@@ -5,8 +5,8 @@ import { TypeCode } from './TypeCode';
  *
  * ### Example ###
  *
- * let value1 = JsonConverter.fromJson("{\"key\":123}"); // Result: { key: 123 }
- * let value2 = JsonConverter.toMap({ key: 123}); // Result: "{\"key\":123}"
+ *     let value1 = JsonConverter.fromJson("{\"key\":123}"); // Result: { key: 123 }
+ *     let value2 = JsonConverter.toMap({ key: 123}); // Result: "{\"key\":123}"
  *
  * @see [[TypeCode]]
  */

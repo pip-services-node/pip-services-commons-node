@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @module reflect
- * @preferred
  *
  * Todo: Rewrite this descriptor
  *
+ * @preferred
  * Contains classes for data reflection. Reflects objects into parameters, methods.
  * Most programming languages contain reflections, but they are all implemented
  * differently. In the PipService framework, dynamic data types are often used. So as

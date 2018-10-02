@@ -11,31 +11,31 @@ import { IClosable } from './IClosable';
  *
  * ### Example ###
  *
- * class MyPersistence implements IOpenable {
- *   private _client: any;
- *   ...
- *   public isOpen(): boolean {
- *     return this._client != null;
- *   }
+ *     class MyPersistence implements IOpenable {
+ *         private _client: any;
+ *         ...
+ *         public isOpen(): boolean {
+ *             return this._client != null;
+ *         }
  *
- *   public open(correlationId: string, callback: (err: any) => void): void {
- *     if (this.isOpen()) {
- *       callback(null);
- *       return;
+ *         public open(correlationId: string, callback: (err: any) => void): void {
+ *             if (this.isOpen()) {
+ *                 callback(null);
+ *                 return;
+ *             }
+ *             ...
+ *         }
+ *
+ *         public close(correlationId: string, callback: (err: any) => void): void {
+ *             if (this._client != null) {
+ *                 this._client.close();
+ *                 this._client = null;
+ *             }
+ *             callback(null);
+ *         }
+ *
+ *         ...
  *     }
- *     ...
- *   }
- *
- *   public close(correlationId: string, callback: (err: any) => void): void {
- *     if (this._client != null) {
- *       this._client.close();
- *       this._client = null;
- *     }
- *     callback(null);
- *   }
- *
- *   ...
- * }
  */
 export interface IOpenable extends IClosable {
     /**

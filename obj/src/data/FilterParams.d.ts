@@ -7,16 +7,15 @@ import { StringValueMap } from './StringValueMap';
  *
  * ### Example ###
  *
- * let filter = FilterParams.fromTuples(
- *   "type", "Type1",
- *   "from_create_time", new Date(2000, 0, 1),
- *   "to_create_time", new Date(),
- *   "completed", true
- * );
- * let paging = new PagingParams(0, 100);
+ *     let filter = FilterParams.fromTuples(
+ *         "type", "Type1",
+ *         "from_create_time", new Date(2000, 0, 1),
+ *         "to_create_time", new Date(),
+ *         "completed", true
+ *     );
+ *     let paging = new PagingParams(0, 100);
  *
- * myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
- *
+ *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 export declare class FilterParams extends StringValueMap {
     /**

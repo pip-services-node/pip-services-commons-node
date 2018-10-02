@@ -9,9 +9,9 @@ var RandomBoolean_1 = require("./RandomBoolean");
  *
  * ### Example ###
  *
- * let value1 = RandomText.name();     // Possible result: "Segio"
- * let value2 = RandomText.verb();      // Possible result: "Run"
- * let value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
+ *     let value1 = RandomText.name();     // Possible result: "Segio"
+ *     let value2 = RandomText.verb();      // Possible result: "Run"
+ *     let value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
  */
 var RandomText = /** @class */ (function () {
     function RandomText() {

@@ -5,9 +5,9 @@
  *
  * ### Example ###
  *
- * let value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
- * let value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
- * let value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
+ *     let value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
+ *     let value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
+ *     let value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
  */
 export declare class DateTimeConverter {
     /**

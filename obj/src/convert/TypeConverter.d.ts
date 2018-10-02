@@ -8,9 +8,9 @@ import { TypeCode } from './TypeCode';
  *
  * ### Example ###
  *
- * let value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
- * let value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: Date(123)
- * let value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
+ *     let value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
+ *     let value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: Date(123)
+ *     let value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
  */
 export declare class TypeConverter {
     /**

@@ -1,9 +1,9 @@
 /**
  * @module convert
- * @preferred
  * 
  * Todo: Rewrite this description
  * 
+ * @preferred
  * Contains "soft" data converters. Soft data converters differ from the data conversion algorithms 
  * found in typical programming language, due to the fact that they support rare conversions between 
  * various data types (such as integer to timespan, timespan to string, and so on). 

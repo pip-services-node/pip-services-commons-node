@@ -9,13 +9,13 @@
  *
  * ### Example ###
  *
- * class MyObjectWithState implements ICleanable {
- *   private _state: any = {};
- *   ...
- *   public clear(correlationId: string): void {
- *     this._state = {};
- *   }
- * }
+ *     class MyObjectWithState implements ICleanable {
+ *         private _state: any = {};
+ *         ...
+ *         public clear(correlationId: string): void {
+ *             this._state = {};
+ *         }
+ *     }
  *
  */
 export interface ICleanable {

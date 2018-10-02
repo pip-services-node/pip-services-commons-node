@@ -5,9 +5,9 @@
  *
  * ### Example ###
  *
- * let value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
- * let value2 = RecursiveMapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
- * let value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1, { "0": 2, "1": 3 } }
+ *     let value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
+ *     let value2 = RecursiveMapConverted.toNullableMap({ key: 123 }); // Result: { key: 123 }
+ *     let value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1, { "0": 2, "1": 3 } }
  */
 export declare class RecursiveMapConverter {
     private static objectToMap;

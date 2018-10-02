@@ -7,13 +7,13 @@ var Descriptor_1 = require("../refer/Descriptor");
  *
  * ### Example ###
  *
- * let config = ConfigParams.fromTuples(
- *   "descriptor", "myservice:connector:aws:connector1:1.0",
- *   "param1", "ABC",
- *   "param2", 123
- * );
+ *     let config = ConfigParams.fromTuples(
+ *         "descriptor", "myservice:connector:aws:connector1:1.0",
+ *         "param1", "ABC",
+ *         "param2", 123
+ *     );
  *
- * let name = NameResolver.resolve(config); // Result: connector1
+ *     let name = NameResolver.resolve(config); // Result: connector1
  */
 var NameResolver = /** @class */ (function () {
     function NameResolver() {

@@ -7,11 +7,11 @@ import { SortField } from './SortField';
  *
  * ### Example ###
  *
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
- * let sorting = new SortingParams(new SortField("create_time", true));
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     let sorting = new SortingParams(new SortField("create_time", true));
  *
- * myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
+ *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 export declare class SortParams extends Array<SortField> {
     /**

@@ -1,9 +1,9 @@
 /** 
  * @module config
- * @preferred
  * 
  * Todo: Rewrite this description
  * 
+ * @preferred
  * Contains the implementation of the config design pattern. The [[IConfigurable configurable interface]] 
  * contains just one method - "configure", which takes ConfigParams as a parameter (extends 
  * StringValueMap class). If any object needs to be configurable, we implement this interface 

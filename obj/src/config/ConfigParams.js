@@ -23,35 +23,35 @@ var RecursiveObjectReader_1 = require("../reflect/RecursiveObjectReader");
  * All values stored as strings and can be serialized as JSON or string forms.
  * When retrieved the values can be automatically converted on read using GetAsXXX methods.
  *
- * The keys are case-sensitive, so it is recommended to use consistent C-style as: "my_param"
+ * The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>"my_param"</code>
  *
  * Configuration parameters can be broken into sections and subsections using dot notation as:
- * "section1.subsection1.param1". Using GetSection method all parameters from specified section
+ * <code>"section1.subsection1.param1"</code>. Using GetSection method all parameters from specified section
  * can be extracted from a ConfigMap.
  *
  * The ConfigParams supports serialization from/to plain strings as:
- * "key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"
+ * <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code>
  *
  * ConfigParams are used to pass configurations to [[IConfigurable]] objects.
- * They also serve as a basis for more concrete configurations such as [[ConnectionParams]]
- * or [[CredentialParams]].
+ * They also serve as a basis for more concrete configurations such as [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]]
+ * or [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams]] (in the Pip.Services components package).
  *
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
  *
  * ### Example ###
  *
- * let config = ConfigParams.fromTuples(
- *   "section1.key1", "AAA",
- *   "section1.key2", 123,
- *   "section2.key1", true
- * );
+ *     let config = ConfigParams.fromTuples(
+ *         "section1.key1", "AAA",
+ *         "section1.key2", 123,
+ *         "section2.key1", true
+ *     );
  *
- * config.getAsString("section1.key1"); // Result: AAA
- * config.getAsInteger("section1.key1"); // Result: 0
+ *     config.getAsString("section1.key1"); // Result: AAA
+ *     config.getAsInteger("section1.key1"); // Result: 0
  *
- * section1 = config.getSection("section1");
- * section1.toString(); // Result: key1=AAA;key2=123
+ *     section1 = config.getSection("section1");
+ *     section1.toString(); // Result: key1=AAA;key2=123
  *
  */
 var ConfigParams = /** @class */ (function (_super) {

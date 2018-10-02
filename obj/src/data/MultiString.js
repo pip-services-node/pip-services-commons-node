@@ -10,13 +10,13 @@ var StringConverter_1 = require("../convert/StringConverter");
  *
  * ### Example ###
  *
- * let values = MultiString.fromTuples(
- *   "en", "Hello World!",
- *   "ru", "Привет мир!"
- * );
+ *     let values = MultiString.fromTuples(
+ *         "en", "Hello World!",
+ *         "ru", "Привет мир!"
+ *     );
  *
- * let value1 = values.get('ru'); // Result: "Привет мир!"
- * let value2 = values.get('pt'); // Result: "Hello World!"
+ *     let value1 = values.get('ru'); // Result: "Привет мир!"
+ *     let value2 = values.get('pt'); // Result: "Hello World!"
  */
 var MultiString = /** @class */ (function () {
     /**

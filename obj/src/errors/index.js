@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @module errors
- * @preferred
  *
  * Todo: Rewrite this description
  *
+ * @preferred
  * Portable and localizable Exceptions classes. Each Exception, in addition to a description
  * and stack trace has a unique string code, details array (which can be used for creating
  * localized strings).

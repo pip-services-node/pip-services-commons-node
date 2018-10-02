@@ -9,17 +9,17 @@ import { Parameters } from '../run/Parameters';
  *
  * ### Example ###
  *
- *  export class MyListener implements IEventListener {
- *     private onEvent(correlationId: string, event: IEvent, args: Parameters): void {
- *       console.log("Fired event " + event.getName());
+ *     export class MyListener implements IEventListener {
+ *         private onEvent(correlationId: string, event: IEvent, args: Parameters): void {
+ *             console.log("Fired event " + event.getName());
+ *         }
  *     }
- *  }
  *
- *  let event = new Event("myevent");
- *  event.addListener(new MyListener());
- *  event.notify("123", Parameters.fromTuples("param1", "ABC"));
+ *     let event = new Event("myevent");
+ *     event.addListener(new MyListener());
+ *     event.notify("123", Parameters.fromTuples("param1", "ABC"));
  *
- *  // Console output: Fired event myevent
+ *     // Console output: Fired event myevent
  */
 export interface IEventListener {
     /**

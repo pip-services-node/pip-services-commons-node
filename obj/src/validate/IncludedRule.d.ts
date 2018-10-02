@@ -9,11 +9,11 @@ import { ValidationResult } from './ValidationResult';
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new IncludedRule(1, 2, 3));
+ *     let schema = new Schema()
+ *         .withRule(new IncludedRule(1, 2, 3));
  *
- * schema.validate(2);      // Result: no errors
- * schema.validate(10);     // Result: 10 must be one of 1, 2, 3
+ *     schema.validate(2);      // Result: no errors
+ *     schema.validate(10);     // Result: 10 must be one of 1, 2, 3
  */
 export declare class IncludedRule implements IValidationRule {
     private readonly _values;

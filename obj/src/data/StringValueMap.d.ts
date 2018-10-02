@@ -10,16 +10,17 @@ import { AnyValueMap } from './AnyValueMap';
  * sent over the wire.
  *
  * This class is widely used in Pip.Services as a basis for variety of classes, such as
- * [[ConfigParams]], [[ConnectionParams]], [[CredentialParams]] and others.
+ * [[ConfigParams]], [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]],
+ * [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams]] and others.
  *
  * ### Example ###
  *
- * let value1 = StringValueMap.fromString("key1=1;key2=123.456;key3=2018-01-01");
+ *     let value1 = StringValueMap.fromString("key1=1;key2=123.456;key3=2018-01-01");
  *
- * value1.getAsBoolean("key1");   // Result: true
- * value1.getAsInteger("key2");   // Result: 123
- * value1.getAsFloat("key2");     // Result: 123.456
- * value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
+ *     value1.getAsBoolean("key1");   // Result: true
+ *     value1.getAsInteger("key2");   // Result: 123
+ *     value1.getAsFloat("key2");     // Result: 123.456
+ *     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]

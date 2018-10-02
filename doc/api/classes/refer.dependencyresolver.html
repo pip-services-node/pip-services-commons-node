@@ -111,11 +111,13 @@
 <span class="hljs-comment">// Create mycomponent and set specific dependency out of many</span>
 let component = <span class="hljs-keyword">new</span> <span class="hljs-type">MyComponent</span>();
 component.configure(ConfigParams.fromTuples(
-    <span class="hljs-string">"dependencies.persistence"</span>, <span class="hljs-string">"mygroup:persistence:*:persistence2:1.0"</span> <span class="hljs-comment">// Override default persistence dependency</span>
+    <span class="hljs-string">"dependencies.persistence"</span>, <span class="hljs-string">"mygroup:persistence:*:persistence2:1.0"</span>
+<span class="hljs-comment">// Override default persistence dependency</span>
 ));
 component.setReferences(References.fromTuples(
     <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>,<span class="hljs-string">"persistence"</span>,<span class="hljs-string">"*"</span>,<span class="hljs-string">"persistence1"</span>,<span class="hljs-string">"1.0"</span>), <span class="hljs-keyword">new</span> <span class="hljs-type">MyPersistence</span>(),
-    <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>,<span class="hljs-string">"persistence"</span>,<span class="hljs-string">"*"</span>,<span class="hljs-string">"persistence2"</span>,<span class="hljs-string">"1.0"</span>), <span class="hljs-keyword">new</span> <span class="hljs-type">MyPersistence</span>()  <span class="hljs-comment">// This dependency shall be set</span>
+    <span class="hljs-keyword">new</span> <span class="hljs-type">Descriptor</span>(<span class="hljs-string">"mygroup"</span>,<span class="hljs-string">"persistence"</span>,<span class="hljs-string">"*"</span>,<span class="hljs-string">"persistence2"</span>,<span class="hljs-string">"1.0"</span>), <span class="hljs-keyword">new</span> <span class="hljs-type">MyPersistence</span>()
+<span class="hljs-comment">// This dependency shall be set</span>
 ));
 </code></pre>
 					<dl class="tsd-comment-tags">
@@ -179,7 +181,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L68">refer/DependencyResolver.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L70">refer/DependencyResolver.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -238,7 +240,7 @@ component.setReferences(References.fromTuples(
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/config.ireconfigurable.html">IReconfigurable</a>.<a href="../interfaces/config.ireconfigurable.html#configure">configure</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L95">refer/DependencyResolver.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L97">refer/DependencyResolver.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -274,7 +276,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L216">refer/DependencyResolver.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L218">refer/DependencyResolver.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -323,7 +325,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L184">refer/DependencyResolver.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L186">refer/DependencyResolver.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -361,7 +363,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L199">refer/DependencyResolver.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L201">refer/DependencyResolver.ts:201</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -406,7 +408,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L155">refer/DependencyResolver.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L157">refer/DependencyResolver.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -444,7 +446,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L170">refer/DependencyResolver.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L172">refer/DependencyResolver.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -489,7 +491,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L130">refer/DependencyResolver.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L132">refer/DependencyResolver.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -527,7 +529,7 @@ component.setReferences(References.fromTuples(
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/refer.ireferenceable.html">IReferenceable</a>.<a href="../interfaces/refer.ireferenceable.html#setreferences">setReferences</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L120">refer/DependencyResolver.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L122">refer/DependencyResolver.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,7 +560,7 @@ component.setReferences(References.fromTuples(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/b3a3e15/src/refer/DependencyResolver.ts#L239">refer/DependencyResolver.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-commons-node/blob/3cbde2d/src/refer/DependencyResolver.ts#L241">refer/DependencyResolver.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

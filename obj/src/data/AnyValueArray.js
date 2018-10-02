@@ -33,12 +33,12 @@ var AnyValueMap_1 = require("./AnyValueMap");
  *
  * ### Example ###
  *
- * let value1 = new AnyValueArray([1, "123.456", "2018-01-01"]);
+ *     let value1 = new AnyValueArray([1, "123.456", "2018-01-01"]);
  *
- * value1.getAsBoolean(0);   // Result: true
- * value1.getAsInteger(1);   // Result: 123
- * value1.getAsFloat(1);     // Result: 123.456
- * value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
+ *     value1.getAsBoolean(0);   // Result: true
+ *     value1.getAsInteger(1);   // Result: 123
+ *     value1.getAsFloat(1);     // Result: 123.456
+ *     value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]

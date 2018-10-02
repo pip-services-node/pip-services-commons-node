@@ -12,17 +12,17 @@ import { CommandSet } from './CommandSet';
  *
  * ### Example ###
  *
- * export class MyDataController implements ICommandable, IMyDataController {
- *   private _commandSet : MyDataCommandSet;
+ *     export class MyDataController implements ICommandable, IMyDataController {
+ *       private _commandSet : MyDataCommandSet;
  *
- *   public getCommandSet(): CommandSet {
- *     if (this._commandSet == null)
- *       this._commandSet = new MyDataCommandSet(this);
- *     return this._commandSet;
- *   }
+ *       public getCommandSet(): CommandSet {
+ *         if (this._commandSet == null)
+ *           this._commandSet = new MyDataCommandSet(this);
+ *         return this._commandSet;
+ *       }
  *
- *   ...
- * }
+ *       ...
+ *     }
  *
  * @see [[CommandSet]] examples
  */

@@ -10,26 +10,26 @@ var InvocationException_1 = require("../errors/InvocationException");
  *
  * ### Example ###
  *
- * let command = new Command("add", null, (correlationId, args, callback) => {
- *     let param1 = args.getAsFloat("param1");
- *     let param2 = args.getAsFloat("param2");
- *     let result = param1 + param2;
- *     callback(null, result);
- * });
+ *     let command = new Command("add", null, (correlationId, args, callback) => {
+ *         let param1 = args.getAsFloat("param1");
+ *         let param2 = args.getAsFloat("param2");
+ *         let result = param1 + param2;
+ *         callback(null, result);
+ *     });
  *
- * command.execute(
- *   "123",
- *   Parameters.fromTuples(
- *     "param1", 2,
- *     "param2", 2
- *   ),
- *   (err, result) => {
- *     if (err) console.error(err);
- *     else console.log("2 + 2 = " + result);
- *   }
- * );
+ *     command.execute(
+ *       "123",
+ *       Parameters.fromTuples(
+ *         "param1", 2,
+ *         "param2", 2
+ *       ),
+ *       (err, result) => {
+ *         if (err) console.error(err);
+ *         else console.log("2 + 2 = " + result);
+ *       }
+ *     );
  *
- * // Console output: 2 + 2 = 4
+ *     // Console output: 2 + 2 = 4
  *
  * @see [[ICommand]]
  * @see [[CommandSet]]
@@ -64,7 +64,7 @@ var Command = /** @class */ (function () {
         return this._name;
     };
     /**
-     * Executes the command. Before execution is validates [[Parameters args]] using
+     * Executes the command. Before execution it validates [[Parameters args]] using
      * the defined schema. The command execution intercepts exceptions raised
      * by the called function and returns them as an error in callback.
      *

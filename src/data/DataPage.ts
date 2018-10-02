@@ -10,7 +10,7 @@
  * The Takes parameter sets number of items to return in the page.
  * And the optional Total parameter tells to return total number of items in the query.
  * 
- * Remember: not all implementations support the <code>Total</code> parameter
+ * Remember: not all implementations support the <code>total</code> parameter
  * because its generation may lead to severe performance implications.
  * 
  * @see [[PagingParams]]

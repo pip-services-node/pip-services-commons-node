@@ -27,11 +27,11 @@ var TypeConverter_1 = require("../convert/TypeConverter");
  *
  * ### Example ###
  *
- * let schema = new ArraySchema(TypeCode.String);
+ *     let schema = new ArraySchema(TypeCode.String);
  *
- * schema.validate(["A", "B", "C"]);    // Result: no errors
- * schema.validate([1, 2, 3]);          // Result: element type mismatch
- * schema.validate("A");                // Result: type mismatch
+ *     schema.validate(["A", "B", "C"]);    // Result: no errors
+ *     schema.validate([1, 2, 3]);          // Result: element type mismatch
+ *     schema.validate("A");                // Result: type mismatch
  */
 var ArraySchema = /** @class */ (function (_super) {
     __extends(ArraySchema, _super);

@@ -12,12 +12,12 @@ import { IIdentifiable } from './IIdentifiable';
  *
  * ### Example ###
  *
- *  export class MyData implements IStringIdentifiable {
- *    public id: string;
- *    public field1: string;
- *    public field2: number;
- *    ...
- *  }
+ *     export class MyData implements IStringIdentifiable {
+ *         public id: string;
+ *         public field1: string;
+ *         public field2: number;
+ *         ...
+ *     }
  */
 export interface IStringIdentifiable extends IIdentifiable<string> {
     /** The object's unique string id. */

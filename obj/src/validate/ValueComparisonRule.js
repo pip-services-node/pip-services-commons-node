@@ -10,11 +10,11 @@ var ValidationResultType_1 = require("./ValidationResultType");
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new ValueComparisonRule("EQ", 1));
+ *     let schema = new Schema()
+ *         .withRule(new ValueComparisonRule("EQ", 1));
  *
- * schema.validate(1);          // Result: no errors
- * schema.validate(2);          // Result: 2 is not equal to 1
+ *     schema.validate(1);          // Result: no errors
+ *     schema.validate(2);          // Result: 2 is not equal to 1
  */
 var ValueComparisonRule = /** @class */ (function () {
     /**

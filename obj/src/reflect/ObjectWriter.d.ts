@@ -16,15 +16,15 @@
  *
  * ### Example ###
  *
- * let myObj = new MyObject();
+ *     let myObj = new MyObject();
  *
- * ObjectWriter.setProperty(myObj, "myProperty", 123);
+ *     ObjectWriter.setProperty(myObj, "myProperty", 123);
  *
- * let myMap = { key1: 123, key2: "ABC" };
- * ObjectWriter.setProperty(myMap, "key1", "XYZ");
+ *     let myMap = { key1: 123, key2: "ABC" };
+ *     ObjectWriter.setProperty(myMap, "key1", "XYZ");
  *
- * let myArray = [1, 2, 3]
- * ObjectWriter.setProperty(myArray, "0", 123);
+ *     let myArray = [1, 2, 3]
+ *     ObjectWriter.setProperty(myArray, "0", 123);
  */
 export declare class ObjectWriter {
     /**

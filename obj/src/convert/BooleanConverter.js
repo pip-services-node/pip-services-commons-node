@@ -6,15 +6,15 @@ var _ = require('lodash');
 /**
  * Converts arbitrary values to boolean values using extended conversion rules:
  * - Numbers: <>0 are true, =0 are false
- * - Strings: "true", "yes", "T", "Y", "1" are true, "false", "no", "F", "N" are false
+ * - Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false
  * - DateTime: <>0 total milliseconds are true, =0 are false
  *
  * ### Example ###
  *
- * let value1 = BooleanConverter.toNullableBoolean(true); // true
- * let value2 = BooleanConverter.toNullableBoolean("yes"); // true
- * let value3 = BooleanConverter.toNullableBoolean(123); // true
- * let value4 = BooleanConverter.toNullableBoolean({}); // null
+ *     let value1 = BooleanConverter.toNullableBoolean(true); // true
+ *     let value2 = BooleanConverter.toNullableBoolean("yes"); // true
+ *     let value3 = BooleanConverter.toNullableBoolean(123); // true
+ *     let value4 = BooleanConverter.toNullableBoolean({}); // null
  */
 var BooleanConverter = /** @class */ (function () {
     function BooleanConverter() {

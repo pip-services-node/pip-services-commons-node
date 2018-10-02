@@ -24,7 +24,8 @@ import { AnyValueMap } from './AnyValueMap';
  * sent over the wire.
  * 
  * This class is widely used in Pip.Services as a basis for variety of classes, such as
- * [[ConfigParams]], [[ConnectionParams]], [[CredentialParams]] and others.
+ * [[ConfigParams]], [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]], 
+ * [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams]] and others.
  * 
  * ### Example ###
  * 

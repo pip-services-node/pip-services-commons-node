@@ -1,19 +1,20 @@
 /**
  * Data transfer object to pass paging parameters for queries.
- * The page is defined by two parameters.
- * The Skip parameter defines number of items to skip.
- * The Paging parameter sets how many items to return in a page.
- * And the optional Total parameter tells to return total number of items in the query.
  *
- * Remember: not all implementations support Total parameter
+ * The page is defined by two parameters:
+ * - the <code>skip</code> parameter defines number of items to skip.
+ * - the <code>take</code> parameter sets how many items to return in a page.
+ * - additionally, the optional <code>total</code> parameter tells to return total number of items in the query.
+ *
+ * Remember: not all implementations support the <code>total</code> parameter
  * because its generation may lead to severe performance implications.
  *
  * ### Example ###
  *
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
  *
- * myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
+ *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 export declare class PagingParams {
     /** The number of items to skip. */

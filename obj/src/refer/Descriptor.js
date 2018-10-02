@@ -12,7 +12,7 @@ var ConfigException_1 = require("../errors/ConfigException");
  * - Version: version of the component contract like "1.0"
  *
  * The locator matching can be done by all or only few selected fields.
- * The fields that shall be excluded from the matching must be set to "*" or null.
+ * The fields that shall be excluded from the matching must be set to <code>"*"</code> or <code>null</code>.
  * That approach allows to implement many interesting scenarios. For instance:
  * - Locate all loggers (match by type and version)
  * - Locate persistence components for a microservice (match by group and type)
@@ -20,12 +20,12 @@ var ConfigException_1 = require("../errors/ConfigException");
  *
  * ### Example ###
  *
- * let locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
- * let locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
+ *     let locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
+ *     let locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
  *
- * locator1.match(locator2);		// Result: true
- * locator1.equal(locator2);		// Result: true
- * locator1.exactMatch(locator2);	// Result: false
+ *     locator1.match(locator2);		// Result: true
+ *     locator1.equal(locator2);		// Result: true
+ *     locator1.exactMatch(locator2);	// Result: false
  */
 var Descriptor = /** @class */ (function () {
     /**

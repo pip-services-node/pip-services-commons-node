@@ -12,10 +12,10 @@ var LongConverter_1 = require("./LongConverter");
  *
  * ### Example ###
  *
- * let value1 = IntegerConverter.toNullableInteger("ABC"); // Result: null
- * let value2 = IntegerConverter.toNullableInteger("123.456"); // Result: 123
- * let value3 = IntegerConverter.toNullableInteger(true); // Result: 1
- * let value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds
+ *     let value1 = IntegerConverter.toNullableInteger("ABC"); // Result: null
+ *     let value2 = IntegerConverter.toNullableInteger("123.456"); // Result: 123
+ *     let value3 = IntegerConverter.toNullableInteger(true); // Result: 1
+ *     let value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds
  */
 var IntegerConverter = /** @class */ (function () {
     function IntegerConverter() {

@@ -16,11 +16,11 @@ var AnyValueMap_1 = require("./AnyValueMap");
  *
  * ### Example ###
  *
- * let value1 = new AnyValue("123.456");
+ *     let value1 = new AnyValue("123.456");
  *
- * value1.getAsInteger();   // Result: 123
- * value1.getAsString();    // Result: "123.456"
- * value1.getAsFloat();     // Result: 123.456
+ *     value1.getAsInteger();   // Result: 123
+ *     value1.getAsString();    // Result: "123.456"
+ *     value1.getAsFloat();     // Result: 123.456
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]

@@ -10,15 +10,14 @@ var InvocationException_1 = require("../errors/InvocationException");
  *
  * ### Example ###
  *
- * let event = new Event("my_event");
+ *     let event = new Event("my_event");
  *
- * event.addListener(myListener);
+ *     event.addListener(myListener);
  *
- * event.notify("123", Parameters.fromTuples(
- *   "param1", "ABC",
- *   "param2", 123
- * ));
- *
+ *     event.notify("123", Parameters.fromTuples(
+ *       "param1", "ABC",
+ *       "param2", 123
+ *     ));
  */
 var Event = /** @class */ (function () {
     /**

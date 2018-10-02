@@ -10,8 +10,8 @@ var StringConverter_1 = require("../convert/StringConverter");
  *
  * ### Example ###
  *
- * ObjectComparator.compare(2, "GT", 1);        // Result: true
- * ObjectComparator.areEqual("A", "B");         // Result: false
+ *     ObjectComparator.compare(2, "GT", 1);        // Result: true
+ *     ObjectComparator.areEqual("A", "B");         // Result: false
  */
 var ObjectComparator = /** @class */ (function () {
     function ObjectComparator() {

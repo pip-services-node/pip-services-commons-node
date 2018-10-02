@@ -11,13 +11,13 @@ import { ValidationResult } from './ValidationResult';
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new NotRule(
- *          new ValueComparisonRule("EQ", 1)
- *      ));
+ *     let schema = new Schema()
+ *         .withRule(new NotRule(
+ *             new ValueComparisonRule("EQ", 1)
+ *         ));
  *
- * schema.validate(1);          // Result: error
- * schema.validate(5);          // Result: no error
+ *     schema.validate(1);          // Result: error
+ *     schema.validate(5);          // Result: no error
  */
 export declare class NotRule implements IValidationRule {
     private readonly _rule;

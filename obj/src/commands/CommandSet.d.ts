@@ -6,7 +6,7 @@ import { ICommandInterceptor } from './ICommandInterceptor';
 import { ValidationResult } from '../validate/ValidationResult';
 import { Parameters } from '../run/Parameters';
 /**
- * Contains a set of commands and events supported by a [[ICommandable commandable] object.
+ * Contains a set of commands and events supported by a [[ICommandable commandable]] object.
  * The CommandSet supports command interceptors to extend and the command call chain.
  *
  * CommandSets can be used as alternative commandable interface to a business object.
@@ -19,26 +19,26 @@ import { Parameters } from '../run/Parameters';
  *
  * ### Example ###
  *
- * export class MyDataCommandSet extends CommandSet {
- *    private _controller: IMyDataController;
+ *     export class MyDataCommandSet extends CommandSet {
+ *         private _controller: IMyDataController;
  *
- *    constructor(controller: IMyDataController) { // Any data controller interface
- *      super();
- *      this._controller = controller;
- *      this.addCommand(this.makeGetMyDataCommand());
- *    }
+ *         constructor(controller: IMyDataController) { // Any data controller interface
+ *             super();
+ *             this._controller = controller;
+ *             this.addCommand(this.makeGetMyDataCommand());
+ *         }
  *
- *    private makeGetMyDataCommand(): ICommand {
- *      return new Command(
- *        'get_mydata',
- *        null,
- *        (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
- *          let param = args.getAsString('param');
- *          this._controller.getMyData(correlationId, param, callback);
- *        }
- *      );
- *    }
- * }
+ *         private makeGetMyDataCommand(): ICommand {
+ *             return new Command(
+ *               'get_mydata',
+ *               null,
+ *               (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+ *                   let param = args.getAsString('param');
+ *                   this._controller.getMyData(correlationId, param, callback);
+ *               }
+ *             );
+ *         }
+ *     }
  */
 export declare class CommandSet {
     private readonly _commands;

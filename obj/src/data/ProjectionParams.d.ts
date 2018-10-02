@@ -11,11 +11,11 @@
  *
  * ### Example ###
  *
- * let filter = FilterParams.fromTuples("type", "Type1");
- * let paging = new PagingParams(0, 100);
- * let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
  *
- * myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
+ *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
  *
  */
 export declare class ProjectionParams extends Array<string> {

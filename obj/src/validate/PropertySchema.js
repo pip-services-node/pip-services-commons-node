@@ -21,12 +21,12 @@ var Schema_1 = require("./Schema");
  *
  * ### Example ###
  *
- * let schema = new ObjectSchema()
- *      .withProperty(new PropertySchema("id", TypeCode.String));
+ *     let schema = new ObjectSchema()
+ *         .withProperty(new PropertySchema("id", TypeCode.String));
  *
- * schema.validate({ id: "1", name: "ABC" });       // Result: no errors
- * schema.validate({ name: "ABC" });                // Result: no errors
- * schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+ *     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
+ *     schema.validate({ name: "ABC" });                // Result: no errors
+ *     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
  */
 var PropertySchema = /** @class */ (function (_super) {
     __extends(PropertySchema, _super);

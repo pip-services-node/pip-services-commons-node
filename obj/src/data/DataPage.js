@@ -11,27 +11,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * The Takes parameter sets number of items to return in the page.
  * And the optional Total parameter tells to return total number of items in the query.
  *
- * Remember: not all implementations support Total parameter
+ * Remember: not all implementations support the <code>total</code> parameter
  * because its generation may lead to severe performance implications.
  *
  * @see [[PagingParams]]
  *
  * ### Example ###
  *
- * myDataClient.getDataByFilter(
- *   "123",
- *   FilterParams.fromTuples("completed": true),
- *   new PagingParams(0, 100, true),
- *   (err: any, page: DataPage<MyData>) => {
- *     if (err == null) {
- *       console.log("Items: ");
- *       for (let item of page.Data) {
- *         console.log(item);
- *       }
- *       console.log("Total items: " + page.total);
- *     }
- *   };
- * );
+ *     myDataClient.getDataByFilter(
+ *         "123",
+ *         FilterParams.fromTuples("completed": true),
+ *         new PagingParams(0, 100, true),
+ *         (err: any, page: DataPage<MyData>) => {
+ *             if (err == null) {
+ *                 console.log("Items: ");
+ *                 for (let item of page.Data) {
+ *                     console.log(item);
+ *                 }
+ *                 console.log("Total items: " + page.total);
+ *             }
+ *         };
+ *     );
  */
 var DataPage = /** @class */ (function () {
     /**

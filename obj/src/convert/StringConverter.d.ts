@@ -4,14 +4,14 @@
  * - DateTime: using ISO format
  * - Boolean: "true" for true and "false" for false
  * - Arrays: as comma-separated list
- * - Other objects: using toString() method
+ * - Other objects: using <code>toString()</code> method
  *
  * ### Example ###
  *
- * let value1 = StringConverter.ToString(123.456); // Result: "123.456"
- * let value2 = StringConverter.ToString(true); // Result: "true"
- * let value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
- * let value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
+ *     let value1 = StringConverter.ToString(123.456); // Result: "123.456"
+ *     let value2 = StringConverter.ToString(true); // Result: "true"
+ *     let value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
+ *     let value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
  */
 export declare class StringConverter {
     /**

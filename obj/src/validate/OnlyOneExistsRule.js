@@ -10,12 +10,12 @@ var ObjectReader_1 = require("../reflect/ObjectReader");
  *
  * ### Example ###
  *
- * let schema = new Schema()
- *      .withRule(new OnlyOneExistsRule("field1", "field2"));
+ *     let schema = new Schema()
+ *         .withRule(new OnlyOneExistsRule("field1", "field2"));
  *
- * schema.validate({ field1: 1, field2: "A" });     // Result: only one of properties field1, field2 must exist
- * schema.validate({ field1: 1 });                  // Result: no errors
- * schema.validate({ });                            // Result: only one of properties field1, field2 must exist
+ *     schema.validate({ field1: 1, field2: "A" });     // Result: only one of properties field1, field2 must exist
+ *     schema.validate({ field1: 1 });                  // Result: no errors
+ *     schema.validate({ });                            // Result: only one of properties field1, field2 must exist
  */
 var OnlyOneExistsRule = /** @class */ (function () {
     /**

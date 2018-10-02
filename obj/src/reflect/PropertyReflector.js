@@ -14,12 +14,12 @@ var _ = require('lodash');
  *
  * ### Example ###
  *
- * let myObj = new MyObject();
+ *     let myObj = new MyObject();
  *
- * let properties = PropertyReflector.getPropertyNames();
- * PropertyReflector.hasProperty(myObj, "myProperty");
- * let value = PropertyReflector.getProperty(myObj, "myProperty");
- * PropertyReflector.setProperty(myObj, "myProperty", 123);
+ *     let properties = PropertyReflector.getPropertyNames();
+ *     PropertyReflector.hasProperty(myObj, "myProperty");
+ *     let value = PropertyReflector.getProperty(myObj, "myProperty");
+ *     PropertyReflector.setProperty(myObj, "myProperty", 123);
  */
 var PropertyReflector = /** @class */ (function () {
     function PropertyReflector() {

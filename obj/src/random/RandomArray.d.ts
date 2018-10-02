@@ -3,7 +3,7 @@
  *
  * ### Example ###
  *
- * let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
+ *     let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
  */
 export declare class RandomArray {
     /**

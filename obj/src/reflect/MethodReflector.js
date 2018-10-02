@@ -14,11 +14,11 @@ var _ = require('lodash');
  *
  * ### Example ###
  *
- * let myObj = new MyObject();
+ *     let myObj = new MyObject();
  *
- * let methods = MethodReflector.getMethodNames();
- * MethodReflector.hasMethod(myObj, "myMethod");
- * MethodReflector.invokeMethod(myObj, "myMethod", 123);
+ *     let methods = MethodReflector.getMethodNames();
+ *     MethodReflector.hasMethod(myObj, "myMethod");
+ *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
  */
 var MethodReflector = /** @class */ (function () {
     function MethodReflector() {

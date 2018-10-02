@@ -8,26 +8,26 @@ import { IReferences } from './IReferences';
  *
  * ### Example ###
  *
- *  export class MyController implements IReferenceable {
- *     public _persistence: IMyPersistence;
- *     ...
- *     public setReferences(references: IReferences): void {
- *       this._persistence = references.getOneRequired<IMyPersistence>(
- *         new Descriptor("mygroup", "persistence", "*", "*", "1.0")
- *       );
+ *     export class MyController implements IReferenceable {
+ *         public _persistence: IMyPersistence;
+ *         ...
+ *         public setReferences(references: IReferences): void {
+ *             this._persistence = references.getOneRequired<IMyPersistence>(
+ *                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *             );
+ *         }
+ *         ...
  *     }
- *     ...
- *  }
  *
- *  let persistence = new MyMongoDbPersistence();
+ *     let persistence = new MyMongoDbPersistence();
  *
- *  let controller = new MyController();
+ *     let controller = new MyController();
  *
- *  let references = References.fromTuples(
- *    new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
- *    new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
- *  );
- *  controller.setReferences(references);
+ *     let references = References.fromTuples(
+ *         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
+ *         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+ *     );
+ *     controller.setReferences(references);
  */
 export declare class References implements IReferences {
     protected _references: Reference[];

@@ -21,12 +21,12 @@ var TypeConverter_1 = require("../convert/TypeConverter");
  *
  * ### Example ###
  *
- * let descriptor = new TypeDescriptor("MyObject", "mylibrary");
- * Typeeflector.getTypeByDescriptor(descriptor);
- * let myObj = TypeReflector.createInstanceByDescriptor(descriptor);
+ *     let descriptor = new TypeDescriptor("MyObject", "mylibrary");
+ *     Typeeflector.getTypeByDescriptor(descriptor);
+ *     let myObj = TypeReflector.createInstanceByDescriptor(descriptor);
  *
- * TypeDescriptor.isPrimitive(myObject); 		// Result: false
- * TypeDescriptor.isPrimitive(123);				// Result: true
+ *     TypeDescriptor.isPrimitive(myObject); 		// Result: false
+ *     TypeDescriptor.isPrimitive(123);				// Result: true
  */
 var TypeReflector = /** @class */ (function () {
     function TypeReflector() {

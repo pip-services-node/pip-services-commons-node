@@ -54,11 +54,13 @@ import { Descriptor } from './Descriptor';
  *     // Create mycomponent and set specific dependency out of many
  *     let component = new MyComponent();
  *     component.configure(ConfigParams.fromTuples(
- *         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" // Override default persistence dependency
+ *         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
+ *     // Override default persistence dependency
  *     ));
  *     component.setReferences(References.fromTuples(
  *         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
- *         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  // This dependency shall be set
+ *         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
+ *     // This dependency shall be set
  *     ));
  * 
  * @see [[IReferences]]

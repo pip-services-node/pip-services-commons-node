@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * ### Example ###
  *
- * let value1 = RandomFloat.nextFloat(5, 10);     // Possible result: 7.3
- * let value2 = RandomFloat.nextFloat(10);        // Possible result: 3.7
- * let value3 = RandomFloat.updateFloat(10, 3);   // Possible result: 9.2
+ *     let value1 = RandomFloat.nextFloat(5, 10);     // Possible result: 7.3
+ *     let value2 = RandomFloat.nextFloat(10);        // Possible result: 3.7
+ *     let value3 = RandomFloat.updateFloat(10, 3);   // Possible result: 9.2
  */
 var RandomFloat = /** @class */ (function () {
     function RandomFloat() {

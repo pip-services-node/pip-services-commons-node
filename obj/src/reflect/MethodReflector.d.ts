@@ -9,11 +9,11 @@
  *
  * ### Example ###
  *
- * let myObj = new MyObject();
+ *     let myObj = new MyObject();
  *
- * let methods = MethodReflector.getMethodNames();
- * MethodReflector.hasMethod(myObj, "myMethod");
- * MethodReflector.invokeMethod(myObj, "myMethod", 123);
+ *     let methods = MethodReflector.getMethodNames();
+ *     MethodReflector.hasMethod(myObj, "myMethod");
+ *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
  */
 export declare class MethodReflector {
     private static matchMethod;

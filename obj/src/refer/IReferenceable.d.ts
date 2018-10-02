@@ -12,16 +12,16 @@ import { IReferences } from './IReferences';
  *
  * ### Example ###
  *
- *  export class MyController implements IReferenceable {
- *     public _persistence: IMyPersistence;
- *     ...
- *     public setReferences(references: IReferences): void {
- *       this._persistence = references.getOneRequired<IMyPersistence>(
- *         new Descriptor("mygroup", "persistence", "*", "*", "1.0")
- *       );
+ *     export class MyController implements IReferenceable {
+ *         public _persistence: IMyPersistence;
+ *         ...
+ *         public setReferences(references: IReferences): void {
+ *             this._persistence = references.getOneRequired<IMyPersistence>(
+ *                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *             );
+ *         }
+ *         ...
  *     }
- *     ...
- *  }
  */
 export interface IReferenceable {
     /**

@@ -7,7 +7,7 @@ var ValidationResult_1 = require("../validate/ValidationResult");
 var ValidationResultType_1 = require("../validate/ValidationResultType");
 var IdGenerator_1 = require("../data/IdGenerator");
 /**
- * Contains a set of commands and events supported by a [[ICommandable commandable] object.
+ * Contains a set of commands and events supported by a [[ICommandable commandable]] object.
  * The CommandSet supports command interceptors to extend and the command call chain.
  *
  * CommandSets can be used as alternative commandable interface to a business object.
@@ -20,26 +20,26 @@ var IdGenerator_1 = require("../data/IdGenerator");
  *
  * ### Example ###
  *
- * export class MyDataCommandSet extends CommandSet {
- *    private _controller: IMyDataController;
+ *     export class MyDataCommandSet extends CommandSet {
+ *         private _controller: IMyDataController;
  *
- *    constructor(controller: IMyDataController) { // Any data controller interface
- *      super();
- *      this._controller = controller;
- *      this.addCommand(this.makeGetMyDataCommand());
- *    }
+ *         constructor(controller: IMyDataController) { // Any data controller interface
+ *             super();
+ *             this._controller = controller;
+ *             this.addCommand(this.makeGetMyDataCommand());
+ *         }
  *
- *    private makeGetMyDataCommand(): ICommand {
- *      return new Command(
- *        'get_mydata',
- *        null,
- *        (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
- *          let param = args.getAsString('param');
- *          this._controller.getMyData(correlationId, param, callback);
- *        }
- *      );
- *    }
- * }
+ *         private makeGetMyDataCommand(): ICommand {
+ *             return new Command(
+ *               'get_mydata',
+ *               null,
+ *               (correlationId: string, args: Parameters, callback: (err: any, result: any) => void) => {
+ *                   let param = args.getAsString('param');
+ *                   this._controller.getMyData(correlationId, param, callback);
+ *               }
+ *             );
+ *         }
+ *     }
  */
 var CommandSet = /** @class */ (function () {
     /**

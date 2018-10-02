@@ -8,12 +8,12 @@ import { AnyValueArray } from './AnyValueArray';
  *
  * ### Example ###
  *
- * let value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" });
+ *     let value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" });
  *
- * value1.getAsBoolean("key1");   // Result: true
- * value1.getAsInteger("key2");   // Result: 123
- * value1.getAsFloat("key2");     // Result: 123.456
- * value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
+ *     value1.getAsBoolean("key1");   // Result: true
+ *     value1.getAsInteger("key2");   // Result: 123
+ *     value1.getAsFloat("key2");     // Result: 123.456
+ *     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
  *
  * @see [[StringConverter]]
  * @see [[TypeConverter]]

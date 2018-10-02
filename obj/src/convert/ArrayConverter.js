@@ -8,9 +8,9 @@ var _ = require('lodash');
  *
  * ### Example ###
  *
- * let value1 = ArrayConverter.toArray([1, 2]); // Result: [1, 2]
- * let value2 = ArrayConverter.toArray(1);		// Result: [1]
- * let value2 = ArrayConverter.listToArray("1,2,3"); // Result: ["1", "2", "3"]
+ *     let value1 = ArrayConverter.toArray([1, 2]);		 // Result: [1, 2]
+ *     let value2 = ArrayConverter.toArray(1);			  // Result: [1]
+ *     let value2 = ArrayConverter.listToArray("1,2,3");	// Result: ["1", "2", "3"]
  */
 var ArrayConverter = /** @class */ (function () {
     function ArrayConverter() {

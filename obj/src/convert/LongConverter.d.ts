@@ -6,10 +6,10 @@
  *
  * ### Example ###
  *
- * let value1 = LongConverter.toNullableLong("ABC"); // Result: null
- * let value2 = LongConverter.toNullableLong("123.456"); // Result: 123
- * let value3 = LongConverter.toNullableLong(true); // Result: 1
- * let value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
+ *     let value1 = LongConverter.toNullableLong("ABC"); // Result: null
+ *     let value2 = LongConverter.toNullableLong("123.456"); // Result: 123
+ *     let value3 = LongConverter.toNullableLong(true); // Result: 1
+ *     let value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
  */
 export declare class LongConverter {
     /**
