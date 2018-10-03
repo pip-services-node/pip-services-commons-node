@@ -1,7 +1,7 @@
 /** @module data */
 
 /**
- * Interface for data objects that are able to create their full binary copy,.
+ * Interface for data objects that are able to create their full binary copy.
  * 
  * ### Example ###
  * 

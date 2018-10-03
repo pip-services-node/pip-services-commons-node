@@ -4,10 +4,10 @@
  * The parameters support two formats: dot format and nested format.
  *
  * The dot format is the standard way to define included fields and subfields using
- * dot object notation: "field1,field2.field21,field2.field22.field221"
+ * dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
  *
  * As alternative the nested format offers a more compact representation:
- * "field1,field2(field21,field22(field221))"
+ * <code>"field1,field2(field21,field22(field221))"</code>.
  *
  * ### Example ###
  *
